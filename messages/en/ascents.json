@@ -1,0 +1,102 @@
+{
+  "Ascents": {
+    "Header": {
+      "eyebrow": "02 / Personal logbook",
+      "title": "Ascent history",
+      "description": "A chronology of peaks, dates, and photos from your expedition logbook.",
+      "totalRecords": "Total records",
+      "ascentCount": "{count, plural, one {# ascent} other {# ascents}}",
+      "map": "Map",
+      "importGpx": "Import GPX"
+    },
+    "Filters": {
+      "searchLabel": "Search for a peak",
+      "searchPlaceholder": "Search for a peak",
+      "yearLabel": "Ascent year",
+      "allYears": "All years"
+    },
+    "Sorting": {
+      "label": "Sort",
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "highest": "Elevation: highest first",
+      "lowest": "Elevation: lowest first",
+      "alphabetical": "Alphabetical"
+    },
+    "List": {
+      "eyebrow": "Record registry",
+      "title": "Ascents",
+      "results": "Showing {shown} of {total}",
+      "noMatchesTitle": "No records found",
+      "noMatchesDescription": "Change the search or year to see other records.",
+      "emptyTitle": "No ascents yet",
+      "emptyDescription": "Open the map, select a peak, and mark your ascent.",
+      "openMap": "Open map",
+      "dateUnavailable": "Date not specified",
+      "recordNumber": "Record {number}",
+      "elevation": "Elevation",
+      "date": "Date",
+      "region": "Region",
+      "openMountain": "Open peak",
+      "mountainUnavailable": "Peak unavailable",
+      "openGpsTracks": "Go to GPS tracks"
+    },
+    "Photo": {
+      "invalidType": "Only JPG, PNG, and WebP files are allowed.",
+      "tooLarge": "The photo must not exceed 8 MB.",
+      "loginRequired": "Log in first.",
+      "updated": "Photo updated.",
+      "uploadFailed": "Unable to upload photo.",
+      "uploading": "Uploading…",
+      "changePhoto": "Change photo"
+    },
+    "Privacy": {
+      "loginRequired": "Log in first.",
+      "updateMissing": "Unable to update the photo settings.",
+      "publicSuccess": "The photo is visible on your public profile.",
+      "privateSuccess": "The photo is hidden from your public profile.",
+      "updateFailed": "Unable to change photo visibility.",
+      "public": "Photo public",
+      "private": "Photo private",
+      "photoRequired": "Upload your own photo first."
+    },
+    "Thumbnail": {
+      "customPhotoAlt": "Photo of the ascent of {mountainName}",
+      "mountainAlt": "Peak {mountainName}",
+      "myPhoto": "My photo"
+    },
+    "MapPage": {
+      "loading": "Loading ascent map…",
+      "loginTitle": "Log in to your account",
+      "login": "Log in",
+      "eyebrow": "02.1 / Logbook geography",
+      "title": "Ascent map",
+      "description": "A spatial overview of every peak saved in your logbook.",
+      "markedPeaks": "Marked peaks",
+      "peakCount": "{count, plural, one {# peak} other {# peaks}}",
+      "openJournal": "Open logbook",
+      "sectionLabel": "Map of climbed peaks"
+    },
+    "Map": {
+      "peakFallback": "Peak",
+      "meterUnit": "m",
+      "openMountain": "Open peak →",
+      "emptyTitle": "No climbed peaks yet",
+      "emptyDescription": "Your recorded ascents will appear on this map.",
+      "accessibleLabel": "Interactive map of climbed peaks"
+    },
+    "Status": {
+      "loading": "Loading ascents…",
+      "loginEyebrow": "Ascent logbook",
+      "loginTitle": "Log in to your account",
+      "loginDescription": "After logging in, your complete ascent list will appear here.",
+      "login": "Log in"
+    },
+    "Accessibility": {
+      "ascentList": "List of ascents"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

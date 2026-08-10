@@ -1,0 +1,35 @@
+{
+  "Metadata": {
+    "Site": {
+      "title": "Mountain Tracker",
+      "description": "Discover summits, explore mountain routes and record your ascents."
+    },
+    "Map": {
+      "title": "Interactive summit map | Mountain Tracker",
+      "description": "Discover mountains and routes on the interactive summit map and plan your next ascents.",
+      "pageHeading": "Interactive map of mountain summits"
+    },
+    "Mountain": {
+      "title": "{name} | Mountain Tracker",
+      "description": "Explore {name} at {height} m with routes, GPS information and ascent details.",
+      "fallbackTitle": "Mountain details | Mountain Tracker",
+      "fallbackDescription": "Explore summit information, routes and ascent details on Mountain Tracker."
+    },
+    "Ranking": {
+      "title": "Summit ranking | Mountain Tracker",
+      "description": "Explore the mountaineering community through summit rankings, ascent statistics and accumulated elevation."
+    },
+    "PublicProfile": {
+      "title": "Public mountaineering profile | Mountain Tracker",
+      "description": "A public ascent profile with climbed mountains, summit statistics and an ascent overview."
+    },
+    "NoIndex": {
+      "accountTitle": "Account | Mountain Tracker",
+      "accountDescription": "Personal Mountain Tracker account area.",
+      "authTitle": "Sign in | Mountain Tracker",
+      "authDescription": "Sign in and registration for Mountain Tracker.",
+      "diagnosticTitle": "Diagnostics | Mountain Tracker",
+      "diagnosticDescription": "Internal diagnostic view."
+    }
+  }
+}

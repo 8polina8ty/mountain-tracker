@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { createClient } from "@/Lib/supabase/client";
 
@@ -20,6 +21,7 @@ export default function DeleteGpsTrackButton({
   geoJsonFilePath,
   onDeleted,
 }: DeleteGpsTrackButtonProps) {
+  const t = useTranslations("Tracks.Delete");
   const [deleting, setDeleting] = useState(false);
   const [errorMessage, setErrorMessage] =
     useState("");
@@ -30,7 +32,7 @@ export default function DeleteGpsTrackButton({
     }
 
     const confirmed = window.confirm(
-      `Удалить GPS-трек «${activityTitle}»?\n\nФайлы и данные активности будут удалены без возможности восстановления.`,
+      t("confirmation", { activityTitle }),
     );
 
     if (!confirmed) {
@@ -56,7 +58,7 @@ export default function DeleteGpsTrackButton({
 
       if (!user) {
         throw new Error(
-          "Сначала войдите в аккаунт.",
+          t("loginRequired"),
         );
       }
 
@@ -101,7 +103,7 @@ export default function DeleteGpsTrackButton({
       setErrorMessage(
         error instanceof Error
           ? error.message
-          : "Не удалось удалить GPS-трек.",
+          : t("failed"),
       );
     } finally {
       if (!deletionSucceeded) {
@@ -124,8 +126,8 @@ export default function DeleteGpsTrackButton({
       >
         <Trash2 aria-hidden="true" className="h-4 w-4" />
         {deleting
-          ? "Удаляю…"
-          : "Удалить"}
+          ? t("deleting")
+          : t("delete")}
       </button>
 
       {errorMessage && (

@@ -7,6 +7,7 @@ import maplibregl, {
   type Marker,
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { useTranslations } from "next-intl";
 
 type ActivityTrackMapProps = {
   signedGeoJsonUrl: string;
@@ -25,6 +26,7 @@ export default function ActivityTrackMap({
   signedGeoJsonUrl,
   activityTitle,
 }: ActivityTrackMapProps) {
+  const t = useTranslations("Tracks.Map");
   const containerRef = useRef<HTMLDivElement | null>(
     null,
   );
@@ -266,7 +268,7 @@ export default function ActivityTrackMap({
         element: createMarkerElement(
           "S",
           "#16a34a",
-          `Старт маршрута: ${activityTitle}`,
+          t("startMarker", { activityTitle }),
         ),
         anchor: "center",
       })
@@ -275,7 +277,7 @@ export default function ActivityTrackMap({
           new maplibregl.Popup({
             offset: 25,
           }).setText(
-            `Старт: ${activityTitle}`,
+            t("startPopup", { activityTitle }),
           ),
         )
         .addTo(map);
@@ -285,7 +287,7 @@ export default function ActivityTrackMap({
           element: createMarkerElement(
             "F",
             "#dc2626",
-            `Финиш маршрута: ${activityTitle}`,
+            t("finishMarker", { activityTitle }),
           ),
           anchor: "center",
         })
@@ -294,7 +296,7 @@ export default function ActivityTrackMap({
             new maplibregl.Popup({
               offset: 25,
             }).setText(
-              `Финиш: ${activityTitle}`,
+              t("finishPopup", { activityTitle }),
             ),
           )
           .addTo(map);
@@ -331,7 +333,7 @@ export default function ActivityTrackMap({
 
         if (!response.ok) {
           throw new Error(
-            `Storage вернул ошибку ${response.status}.`,
+            t("storageError", { status: response.status }),
           );
         }
 
@@ -343,7 +345,7 @@ export default function ActivityTrackMap({
           !Array.isArray(geojson.features)
         ) {
           throw new Error(
-            "Файл имеет неправильный формат GeoJSON.",
+            t("invalidGeoJson"),
           );
         }
 
@@ -352,7 +354,7 @@ export default function ActivityTrackMap({
 
         if (coordinates.length < 2) {
           throw new Error(
-            "В треке недостаточно координат.",
+            t("insufficientCoordinates"),
           );
         }
 
@@ -388,7 +390,7 @@ export default function ActivityTrackMap({
         setErrorMessage(
           error instanceof Error
             ? error.message
-            : "Не удалось загрузить трек.",
+            : t("loadFailed"),
         );
 
         setLoading(false);
@@ -401,14 +403,14 @@ export default function ActivityTrackMap({
       cancelled = true;
       abortController.abort();
     };
-  }, [signedGeoJsonUrl, activityTitle]);
+  }, [signedGeoJsonUrl, activityTitle, t]);
 
   return (
     <div className="relative overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] shadow-[var(--shadow-card)]">
       <div
         ref={containerRef}
         role="region"
-        aria-label={`Интерактивная карта маршрута ${activityTitle}`}
+        aria-label={t("accessibleLabel", { activityTitle })}
         aria-busy={loading}
         className="h-[min(68dvh,720px)] min-h-[420px] w-full"
       />
@@ -416,7 +418,7 @@ export default function ActivityTrackMap({
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/90">
           <div className="border-l-2 border-[var(--color-track)] bg-[var(--color-surface-raised)] px-5 py-3 text-sm font-medium text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]" role="status">
-            Загружаю GPS-трек…
+            {t("loading")}
           </div>
         </div>
       )}
@@ -425,7 +427,7 @@ export default function ActivityTrackMap({
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/95 p-6">
           <div className="max-w-md border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-5" role="alert">
             <p className="font-bold text-[var(--color-danger)]">
-              Не удалось показать GPS-трек
+              {t("displayFailed")}
             </p>
 
             <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
@@ -440,11 +442,11 @@ export default function ActivityTrackMap({
           <strong className="text-[var(--color-success)]">
             S
           </strong>{" "}
-          — старт ·{" "}
+          — {t("startLegend")} ·{" "}
           <strong className="text-[var(--color-danger)]">
             F
           </strong>{" "}
-          — финиш · синяя линия — записанный трек
+          — {t("finishLegend")} · {t("routeLegend")}
         </div>
       )}
     </div>

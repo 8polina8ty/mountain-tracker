@@ -1,6 +1,6 @@
 import AchievementCard from "@/components/AchievementCard";
 import type { AchievementView } from "@/Lib/achievements";
-import { formatDate } from "@/Lib/utils";
+import { useTranslations } from "next-intl";
 
 type AchievementsSectionProps = {
   achievements: AchievementView[];
@@ -11,31 +11,28 @@ export default function AchievementsSection({
   achievements,
   unlockedAchievementsCount,
 }: AchievementsSectionProps) {
+  const t = useTranslations("Achievements.Section");
   return (
     <section className="border-b border-[var(--color-border-strong)] py-10 sm:py-12" aria-labelledby="achievements-title">
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
-            03 / Этапы пути
+            {t("eyebrow")}
           </p>
 
           <h2 id="achievements-title" className="mt-2 text-3xl font-bold text-[var(--color-text)]">
-            Экспедиционные рубежи
+            {t("title")}
           </h2>
         </div>
 
         <p className="[font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text-secondary)]">
-          {unlockedAchievementsCount} / {achievements.length}
+          {t("count", { unlocked: unlockedAchievementsCount, total: achievements.length })}
         </p>
       </div>
 
       <div className="grid gap-px border-y border-[var(--color-border)] bg-[var(--color-border-soft)] md:grid-cols-2">
         {achievements.map((achievement) => (
-          <AchievementCard
-            key={achievement.id}
-            achievement={achievement}
-            formatDate={formatDate}
-          />
+          <AchievementCard key={achievement.id} achievement={achievement} />
         ))}
       </div>
     </section>

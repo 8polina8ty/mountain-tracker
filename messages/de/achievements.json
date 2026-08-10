@@ -1,0 +1,20 @@
+{
+  "Achievements": {
+    "Section": { "eyebrow": "03 / Etappenziele", "title": "Expeditionsmeilensteine", "count": "{unlocked} / {total}" },
+    "Card": { "received": "Erhalten: {date}" },
+    "Status": { "unlocked": "Erreicht", "inProgress": "In Arbeit" },
+    "Notification": { "eyebrow": "Neuer Meilenstein" },
+    "Progress": { "count": "{progress} von {target}", "completed": "Erfüllt", "aboveClouds": "Gipfel ab 2.000 m erforderlich", "zugspitze": "Zugspitze noch nicht bestiegen", "height": "{progress} von {target} m" },
+    "Accessibility": { "closeNotification": "Benachrichtigung schließen", "progress": "Fortschritt für Erfolg: {title}" },
+    "Definitions": {
+      "firstAscent": { "title": "Erster Schritt", "description": "Besteige deinen ersten Gipfel.", "unlockedDescription": "Du hast deinen ersten Gipfel bestiegen." },
+      "fiveAscents": { "title": "Bergsteiger-Anfänger", "description": "Besteige 5 Gipfel.", "unlockedDescription": "Du hast 5 Gipfel bestiegen." },
+      "tenAscents": { "title": "Gipfelsammler", "description": "Besteige 10 Gipfel.", "unlockedDescription": "Du hast 10 Gipfel bestiegen." },
+      "twentyFiveAscents": { "title": "Erfahrener Bergsteiger", "description": "Besteige 25 Gipfel.", "unlockedDescription": "Du hast 25 Gipfel bestiegen." },
+      "fiftyAscents": { "title": "Meister der Höhe", "description": "Besteige 50 Gipfel.", "unlockedDescription": "Du hast 50 Gipfel bestiegen." },
+      "aboveClouds": { "title": "Über den Wolken", "description": "Besteige einen Gipfel mit mindestens 2.000 m Höhe.", "unlockedDescription": "Du hast einen Gipfel über 2.000 m bestiegen." },
+      "zugspitze": { "title": "Dach Deutschlands", "description": "Besteige die Zugspitze.", "unlockedDescription": "Du hast die Zugspitze bestiegen." },
+      "tenThousandHeight": { "title": "10.000 Höhenmeter", "description": "Sammle insgesamt 10.000 Höhenmeter.", "unlockedDescription": "Die Summe deiner Gipfelhöhen hat 10.000 m erreicht." }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { Camera } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { createClient } from "@/Lib/supabase/client";
 
@@ -26,6 +27,7 @@ export default function ChangeAscentPhotoButton({
   ascentId,
   onPhotoChanged,
 }: ChangeAscentPhotoButtonProps) {
+  const t = useTranslations("Ascents.Photo");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [uploading, setUploading] = useState(false);
@@ -50,14 +52,14 @@ export default function ChangeAscentPhotoButton({
 
     if (!ALLOWED_FILE_TYPES.includes(file.type)) {
       setMessage(
-        "Можно загружать только JPG, PNG или WebP.",
+        t("invalidType"),
       );
       return;
     }
 
     if (file.size > MAX_FILE_SIZE) {
       setMessage(
-        "Размер фотографии не должен превышать 8 МБ.",
+        t("tooLarge"),
       );
       return;
     }
@@ -78,7 +80,7 @@ export default function ChangeAscentPhotoButton({
       }
 
       if (!user) {
-        setMessage("Сначала войдите в аккаунт.");
+        setMessage(t("loginRequired"));
         return;
       }
 
@@ -125,7 +127,7 @@ export default function ChangeAscentPhotoButton({
       }
 
       onPhotoChanged(imageUrl);
-      setMessage("Фотография обновлена.");
+      setMessage(t("updated"));
     } catch (error) {
       console.error(
         "Ошибка загрузки фотографии восхождения:",
@@ -135,7 +137,7 @@ export default function ChangeAscentPhotoButton({
       setMessage(
         error instanceof Error
           ? error.message
-          : "Не удалось загрузить фотографию.",
+          : t("uploadFailed"),
       );
     } finally {
       setUploading(false);
@@ -159,7 +161,7 @@ export default function ChangeAscentPhotoButton({
         className="ui-pressable inline-flex min-h-11 w-full items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-text-secondary)] enabled:hover:border-[var(--color-forest)] enabled:hover:text-[var(--color-forest)] disabled:cursor-wait disabled:opacity-60"
       >
         <Camera aria-hidden="true" className="h-4 w-4" />
-        {uploading ? "Загружаю…" : "Сменить фото"}
+        {uploading ? t("uploading") : t("changePhoto")}
       </button>
 
       {message && (

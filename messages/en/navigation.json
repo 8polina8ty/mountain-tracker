@@ -1,0 +1,27 @@
+{
+  "Navigation": {
+    "map": "Map",
+    "ranking": "Ranking",
+    "myAscents": "My ascents",
+    "account": "Account",
+    "login": "Log in",
+    "signUp": "Sign up",
+    "logout": "Log out",
+    "navigationTitle": "Navigation",
+    "userFallback": "User"
+  },
+  "LocaleSwitcher": {
+    "language": "Language"
+  },
+  "Accessibility": {
+    "skipToContent": "Skip to main content",
+    "openMap": "Mountain Tracker, open map",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "openNavigation": "Open navigation",
+    "closeNavigation": "Close navigation",
+    "login": "Log in to account",
+    "logout": "Log out of account",
+    "accountFor": "Account: {username}"
+  }
+}

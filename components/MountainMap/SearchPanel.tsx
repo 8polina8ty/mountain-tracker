@@ -1,4 +1,5 @@
 import { Search, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type SearchPanelProps = {
   searchInput: string;
@@ -19,6 +20,8 @@ export default function SearchPanel({
   onSearch,
   onClearSearch,
 }: SearchPanelProps) {
+  const t = useTranslations("Map.Search");
+
   return (
     <section aria-labelledby="mountain-search-label">
       <form
@@ -32,7 +35,7 @@ export default function SearchPanel({
           htmlFor="mountain-search"
           className="mb-2 block text-xs font-semibold text-[var(--color-text-secondary)]"
         >
-          Поиск вершины
+          {t("label")}
         </label>
 
         <div className="flex overflow-hidden rounded-[var(--radius-control)] border border-[var(--color-border-strong)] bg-[var(--color-surface-raised)] transition-[border-color,box-shadow] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-within:border-[var(--color-focus)] focus-within:ring-2 focus-within:ring-[var(--color-focus-halo)]">
@@ -49,7 +52,7 @@ export default function SearchPanel({
               onChange={(event) => {
                 onSearchInputChange(event.target.value);
               }}
-              placeholder="Например, Zugspitze"
+              placeholder={t("placeholder")}
               className="h-11 w-full bg-transparent py-2 pl-9 pr-11 text-sm text-[var(--color-text)] outline-none placeholder:text-[var(--color-text-muted)]"
             />
 
@@ -58,7 +61,7 @@ export default function SearchPanel({
                 type="button"
                 onClick={onClearSearch}
                 className="ui-pressable absolute right-0 top-0 flex h-11 w-11 items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus-visible:outline-offset-[-2px]"
-                aria-label="Очистить поле поиска"
+                aria-label={t("clearInput")}
               >
                 <X aria-hidden="true" size={16} />
               </button>
@@ -69,7 +72,7 @@ export default function SearchPanel({
             type="submit"
             className="ui-pressable shrink-0 border-l border-[var(--color-forest-active)] bg-[var(--color-forest)] px-3 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)] focus-visible:outline-offset-[-2px]"
           >
-            Найти
+            {t("submit")}
           </button>
         </div>
       </form>
@@ -77,10 +80,10 @@ export default function SearchPanel({
       <div className="mt-4 flex items-end justify-between gap-3 border-y border-[var(--color-border-soft)] py-3">
         <div>
           <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-            Видимые вершины
+            {t("visiblePeaks")}
           </p>
           <p className="mt-0.5 [font-family:var(--font-technical)] text-2xl font-bold leading-none tabular-nums text-[var(--color-text)]">
-            {visiblePeakCount.toLocaleString("ru-RU")}
+            {t("peakCount", { count: visiblePeakCount })}
           </p>
         </div>
 
@@ -90,7 +93,7 @@ export default function SearchPanel({
             onClick={onClearSearch}
             className="ui-pressable text-xs font-semibold text-[var(--color-forest)] hover:text-[var(--color-forest-hover)] hover:underline"
           >
-            Снять поиск
+            {t("removeSearch")}
           </button>
         )}
       </div>

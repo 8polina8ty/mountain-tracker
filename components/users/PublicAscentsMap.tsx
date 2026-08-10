@@ -6,6 +6,9 @@ import maplibregl, {
   type Map,
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { useFormatter, useLocale, useTranslations } from "next-intl";
+
+import { getPathname } from "@/i18n/navigation";
 
 export type PublicAscentMapItem = {
   ascent_id: number;
@@ -29,6 +32,10 @@ const LAYER_ID = "public-user-ascents-points";
 export default function PublicAscentsMap({
   ascents,
 }: PublicAscentsMapProps) {
+  const locale = useLocale();
+  const t = useTranslations("PublicProfile.Map");
+  const tUnits = useTranslations("PublicProfile.Units");
+  const format = useFormatter();
   const containerRef =
     useRef<HTMLDivElement | null>(null);
 
@@ -107,7 +114,7 @@ export default function PublicAscentsMap({
       const mountainName =
         ascent.mountain_name_de ??
         ascent.mountain_name ??
-        "Без названия";
+        t("unnamedMountain");
 
       return {
         type: "Feature" as const,
@@ -157,7 +164,7 @@ export default function PublicAscentsMap({
       ).coordinates.slice() as [number, number];
 
       const name = String(
-        feature.properties?.name ?? "Вершина",
+        feature.properties?.name ?? t("mountainFallback"),
       );
 
       const height = Number(
@@ -186,27 +193,27 @@ export default function PublicAscentsMap({
         document.createElement("div");
 
       heightText.textContent =
-        `⛰ ${height.toLocaleString("ru-RU")} м`;
+        `⛰ ${format.number(height)} ${tUnits("meter")}`;
 
       const dateText =
         document.createElement("div");
 
       dateText.textContent = climbedAt
-        ? `📅 ${new Intl.DateTimeFormat(
-            "ru-RU",
-            {
-              day: "2-digit",
-              month: "long",
-              year: "numeric",
-            },
-          ).format(new Date(climbedAt))}`
-        : "📅 Дата не указана";
+        ? `📅 ${format.dateTime(new Date(climbedAt), {
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          })}`
+        : `📅 ${t("dateUnknown")}`;
 
       const link =
         document.createElement("a");
 
-      link.href = `/mountain/${mountainId}`;
-      link.textContent = "Открыть вершину →";
+      link.href = getPathname({
+        href: `/mountain/${mountainId}`,
+        locale,
+      });
+      link.textContent = t("openMountain");
       link.className =
         "font-semibold text-green-700";
 
@@ -350,7 +357,7 @@ export default function PublicAscentsMap({
     );
   }
 };
-  }, [ascents]);
+  }, [ascents, format, locale, t, tUnits]);
 
   if (ascents.length === 0) {
     return (
@@ -359,11 +366,11 @@ export default function PublicAscentsMap({
           <div className="text-5xl">🏔️</div>
 
           <h2 className="mt-4 text-2xl font-bold text-gray-900">
-            На карте пока нет вершин
+            {t("emptyTitle")}
           </h2>
 
           <p className="mt-2 text-gray-500">
-            Пользователь ещё не добавил восхождения.
+            {t("emptyDescription")}
           </p>
         </div>
       </div>
@@ -373,6 +380,7 @@ export default function PublicAscentsMap({
   return (
     <div
       ref={containerRef}
+      aria-label={t("label")}
       className="h-[480px] w-full overflow-hidden rounded-3xl border border-gray-200 shadow-sm"
     />
   );

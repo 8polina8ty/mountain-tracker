@@ -1,16 +1,26 @@
 "use client";
 
-import type { AchievementView } from "@/Lib/achievements";
+import { ACHIEVEMENT_MESSAGE_KEYS, type AchievementView } from "@/Lib/achievements";
+import { useFormatter, useTranslations } from "next-intl";
 
 type AchievementCardProps = {
   achievement: AchievementView;
-  formatDate: (date: string) => string;
 };
 
 export default function AchievementCard({
   achievement,
-  formatDate,
 }: AchievementCardProps) {
+  const t = useTranslations("Achievements");
+  const format = useFormatter();
+  const definitionKey = ACHIEVEMENT_MESSAGE_KEYS[achievement.id];
+  const title = t(`Definitions.${definitionKey}.title`);
+  const progressLabel = achievement.id === "above-clouds"
+    ? t(achievement.unlocked ? "Progress.completed" : "Progress.aboveClouds")
+    : achievement.id === "zugspitze"
+      ? t(achievement.unlocked ? "Progress.completed" : "Progress.zugspitze")
+      : achievement.id === "ten-thousand-height"
+        ? t("Progress.height", { progress: format.number(achievement.progress), target: format.number(achievement.target) })
+        : t("Progress.count", { progress: achievement.progress, target: achievement.target });
   const achievementProgress =
     achievement.target > 0
       ? Math.min(
@@ -47,21 +57,21 @@ export default function AchievementCard({
                 : "text-[var(--color-text-muted)]"
             }`}
           >
-            {achievement.unlocked ? "Пройдено" : "В процессе"}
+            {achievement.unlocked ? t("Status.unlocked") : t("Status.inProgress")}
           </span>
         </div>
 
         <h3 className="mt-4 text-xl font-bold text-[var(--color-text)]">
-          {achievement.title}
+          {title}
         </h3>
 
         <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
-          {achievement.description}
+          {t(`Definitions.${definitionKey}.description`)}
         </p>
 
         {achievement.unlockedAt && (
           <p className="mt-3 [font-family:var(--font-technical)] text-xs text-[var(--color-success)]">
-            Получено: {formatDate(achievement.unlockedAt)}
+            {t("Card.received", { date: format.dateTime(new Date(achievement.unlockedAt), { year: "numeric", month: "long", day: "numeric" }) })}
           </p>
         )}
       </div>
@@ -69,7 +79,7 @@ export default function AchievementCard({
       <div className="mt-5">
         <div className="flex items-center justify-between gap-3 text-xs font-semibold">
           <span className="text-[var(--color-text-muted)]">
-            {achievement.progressLabel}
+            {progressLabel}
           </span>
 
           <span
@@ -86,7 +96,7 @@ export default function AchievementCard({
         <div
           className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-muted)]"
           role="progressbar"
-          aria-label={`Прогресс достижения: ${achievement.title}`}
+          aria-label={t("Accessibility.progress", { title })}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(achievementProgress)}

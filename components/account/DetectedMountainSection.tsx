@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   type ReactNode,
@@ -11,6 +10,7 @@ import {
 } from "react";
 
 import { createClient } from "@/Lib/supabase/client";
+import { useFormatter, useTranslations } from "next-intl";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
 
@@ -35,19 +35,21 @@ type DetectedMountainSectionProps = {
 
 function getMountainName(
   mountain: MountainOption,
+  fallback: string,
 ): string {
   return (
     mountain.name_de ??
     mountain.name ??
-    `Вершина №${mountain.id}`
+    fallback
   );
 }
 
 function formatConfidence(
   confidence: number | null,
+  unavailable: string,
 ): string {
   if (confidence === null) {
-    return "Не рассчитана";
+    return unavailable;
   }
 
   return `${Math.round(confidence * 100)} %`;
@@ -62,6 +64,8 @@ export default function DetectedMountainSection({
   detectionStatus,
   gpsVerified,
 }: DetectedMountainSectionProps) {
+  const t = useTranslations("Tracks.Detection");
+  const format = useFormatter();
   const router = useRouter();
   const searchTriggerRef = useRef<HTMLButtonElement | null>(null);
 
@@ -164,7 +168,7 @@ export default function DetectedMountainSection({
           );
 
           setErrorMessage(
-            "Не удалось выполнить поиск вершины.",
+            t("searchFailed"),
           );
 
           setSearchResults([]);
@@ -185,7 +189,7 @@ export default function DetectedMountainSection({
       cancelled = true;
       window.clearTimeout(timeoutId);
     };
-  }, [searchInput, showMountainSearch]);
+  }, [searchInput, showMountainSearch, t]);
 
   async function saveMountain(
     mountain: MountainOption,
@@ -211,7 +215,7 @@ export default function DetectedMountainSection({
 
       if (!user) {
         throw new Error(
-          "Сначала войдите в аккаунт.",
+          t("loginRequired"),
         );
       }
 
@@ -342,7 +346,7 @@ if (existingAscent) {
       setErrorMessage(
         error instanceof Error
           ? error.message
-          : "Не удалось сохранить вершину.",
+          : t("saveFailed"),
       );
     } finally {
       setSaving(false);
@@ -379,7 +383,7 @@ if (existingAscent) {
 
       if (!user) {
         throw new Error(
-          "Сначала войдите в аккаунт.",
+          t("loginRequired"),
         );
       }
 
@@ -418,7 +422,7 @@ if (existingAscent) {
       setErrorMessage(
         error instanceof Error
           ? error.message
-          : "Не удалось отклонить результат.",
+          : t("rejectFailed"),
       );
     } finally {
       setSaving(false);
@@ -432,16 +436,15 @@ if (existingAscent) {
     return (
       <section className="mt-8 border-l-4 border-[var(--color-warning)] bg-[var(--color-warning-soft)] p-5 sm:p-6">
         <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-warning)]">
-          Определение вершины
+          {t("sectionLabel")}
         </p>
 
         <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
-          Вершина автоматически не найдена
+          {t("notDetectedTitle")}
         </h2>
 
         <p className="mt-2 text-[var(--color-text-secondary)]">
-          Выберите вершину вручную, если этот
-          GPS-трек относится к восхождению.
+          {t("notDetectedDescription")}
         </p>
 
         <button
@@ -452,7 +455,7 @@ if (existingAscent) {
           aria-controls="mountain-search-disclosure"
           className="ui-pressable mt-5 min-h-11 rounded-[var(--radius-control)] bg-[var(--color-warning)] px-5 py-2 font-semibold text-white hover:brightness-90"
         >
-          Выбрать вершину
+          {t("chooseMountain")}
         </button>
 
         <MountainSearchDisclosure open={showMountainSearch}>
@@ -483,11 +486,11 @@ if (existingAscent) {
     return (
       <section className="mt-8 border-l-4 border-[var(--color-granite)] bg-[var(--color-surface-muted)] p-5 sm:p-6">
         <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
-          Определение вершины
+          {t("sectionLabel")}
         </p>
 
         <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
-          Автоматический результат отклонён
+          {t("rejectedTitle")}
         </h2>
 
         <button
@@ -498,7 +501,7 @@ if (existingAscent) {
           aria-controls="mountain-search-disclosure"
           className="ui-pressable mt-5 min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-forest)] hover:border-[var(--color-forest)]"
         >
-          Выбрать вершину вручную
+          {t("chooseManually")}
         </button>
 
         <MountainSearchDisclosure open={showMountainSearch}>
@@ -527,7 +530,7 @@ if (existingAscent) {
   }
 
   const mountainName =
-    getMountainName(detectedMountain);
+    getMountainName(detectedMountain, t("mountainFallback", { id: detectedMountain.id }));
 
   const isConfirmed =
     detectionStatus === "confirmed" &&
@@ -553,8 +556,8 @@ if (existingAscent) {
             ].join(" ")}
           >
             {isConfirmed
-              ? "Подтверждено GPS"
-              : "Автоматически найдена вершина"}
+              ? t("gpsConfirmed")
+              : t("detectedTitle")}
           </p>
 
           <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
@@ -565,37 +568,28 @@ if (existingAscent) {
             {detectedMountain.height !==
               null && (
               <span>
-                Высота:{" "}
+                {t("elevation")}: {" "}
                 <strong>
-                  {Math.round(
-                    detectedMountain.height,
-                  ).toLocaleString(
-                    "ru-RU",
-                  )}{" "}
-                  м
+                  {format.number(Math.round(detectedMountain.height))} {t("meterUnit")}
                 </strong>
               </span>
             )}
 
             {detectionDistanceM !== null && (
               <span>
-                Расстояние до трека:{" "}
+                {t("distanceToTrack")}: {" "}
                 <strong>
-                  {Math.round(
-                    detectionDistanceM,
-                  ).toLocaleString(
-                    "ru-RU",
-                  )}{" "}
-                  м
+                  {format.number(Math.round(detectionDistanceM))} {t("meterUnit")}
                 </strong>
               </span>
             )}
 
             <span>
-              Уверенность:{" "}
+              {t("confidence")}: {" "}
               <strong>
                 {formatConfidence(
                   detectionConfidence,
+                  t("confidenceUnavailable"),
                 )}
               </strong>
             </span>
@@ -605,7 +599,7 @@ if (existingAscent) {
             href={`/mountain/${detectedMountain.id}`}
             className="ui-pressable mt-4 inline-flex min-h-11 items-center font-semibold text-[var(--color-forest)] hover:underline"
           >
-            Открыть страницу вершины →
+            {t("openMountain")}
           </Link>
         </div>
 
@@ -620,8 +614,8 @@ if (existingAscent) {
               className="ui-pressable min-h-11 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white enabled:hover:bg-[var(--color-forest-hover)] disabled:cursor-wait disabled:opacity-60"
             >
               {saving
-                ? "Сохраняю…"
-                : "Подтвердить вершину"}
+                ? t("saving")
+                : t("confirm")}
             </button>
           )}
 
@@ -634,7 +628,7 @@ if (existingAscent) {
             disabled={saving}
             className="ui-pressable min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-text-secondary)] enabled:hover:border-[var(--color-forest)] enabled:hover:text-[var(--color-forest)] disabled:opacity-60"
           >
-            Выбрать другую
+            {t("chooseAnother")}
           </button>
 
           {!isConfirmed && (
@@ -644,7 +638,7 @@ if (existingAscent) {
               disabled={saving}
               className="ui-destructive ui-pressable min-h-11 rounded-[var(--radius-control)] border border-transparent px-5 py-2 text-sm font-semibold text-[var(--color-danger)] disabled:opacity-60"
             >
-              Это не вершина
+              {t("reject")}
             </button>
           )}
         </div>
@@ -743,11 +737,13 @@ function MountainSearch({
   onSelect,
   onClose,
 }: MountainSearchProps) {
+  const t = useTranslations("Tracks.Detection");
+  const format = useFormatter();
   return (
     <div className="mt-6 border-t border-[var(--color-border)] bg-[var(--color-surface)] pt-5">
       <div className="flex items-center justify-between gap-4">
         <h3 className="font-bold text-[var(--color-text)]">
-          Выберите другую вершину
+          {t("chooseAnotherTitle")}
         </h3>
 
         <button
@@ -755,12 +751,12 @@ function MountainSearch({
           onClick={onClose}
           className="ui-pressable min-h-11 px-2 text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
         >
-          Закрыть
+          {t("close")}
         </button>
       </div>
 
       <label htmlFor="manual-mountain-search" className="sr-only">
-        Поиск вершины по названию
+        {t("searchLabel")}
       </label>
 
       <input
@@ -773,13 +769,13 @@ function MountainSearch({
             event.target.value,
           );
         }}
-        placeholder="Например, Zugspitze"
+        placeholder={t("searchPlaceholder")}
         className="ui-field mt-4 min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-2 text-[var(--color-text)] outline-none"
       />
 
       {searching && (
         <p className="mt-4 text-sm text-[var(--color-text-muted)]" role="status">
-          Ищу вершины…
+          {t("searching")}
         </p>
       )}
 
@@ -787,7 +783,7 @@ function MountainSearch({
         searchInput.trim().length >= 2 &&
         searchResults.length === 0 && (
           <p className="mt-4 text-sm text-[var(--color-text-muted)]" role="status">
-            Вершины не найдены.
+            {t("noResults")}
           </p>
         )}
 
@@ -805,19 +801,13 @@ function MountainSearch({
                 className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-3 text-left transition-colors hover:bg-[var(--color-success-soft)] disabled:opacity-60"
               >
                 <span className="min-w-0 truncate font-semibold text-[var(--color-text)]">
-                  {getMountainName(
-                    mountain,
-                  )}
+                  {getMountainName(mountain, t("mountainFallback", { id: mountain.id }))}
                 </span>
 
                 <span className="shrink-0 [font-family:var(--font-technical)] text-sm tabular-nums text-[var(--color-text-muted)]">
                   {mountain.height !== null
-                    ? `${Math.round(
-                        mountain.height,
-                      ).toLocaleString(
-                        "ru-RU",
-                      )} м`
-                    : "Высота не указана"}
+                    ? `${format.number(Math.round(mountain.height))} ${t("meterUnit")}`
+                    : t("elevationUnavailable")}
                 </span>
               </button>
             ),

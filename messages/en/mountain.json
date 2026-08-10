@@ -1,0 +1,126 @@
+{
+  "Mountain": {
+    "Hero": {
+      "backToMap": "Back to map",
+      "profile": "Mountain profile",
+      "elevationAboveSeaLevel": "Elevation above sea level",
+      "imageUnavailable": "No image is available for this peak yet",
+      "photoCredit": "Photo",
+      "authorAndLicense": "Author and license"
+    },
+    "Summary": {
+      "coordinates": "Coordinates",
+      "verifiedRoutes": "Verified routes",
+      "recordedAscents": "Recorded ascents",
+      "routeCount": "{count, plural, one {# route} other {# routes}}",
+      "ascentCount": "{count, plural, one {# ascent} other {# ascents}}"
+    },
+    "Passport": {
+      "sectionLabel": "01 / Overview",
+      "title": "Mountain profile",
+      "primaryName": "Primary name",
+      "alternateName": "Alternate name",
+      "elevation": "Elevation",
+      "location": "Location"
+    },
+    "Routes": {
+      "sectionLabel": "02 / Routes",
+      "title": "Ascent routes",
+      "introduction": "Verified ascent options. Before setting out, check the weather, route conditions, and current restrictions.",
+      "inProfile": "In this profile",
+      "routeCount": "{count, plural, one {# route} other {# routes}}",
+      "emptyTitle": "No routes added yet",
+      "emptyDescription": "No verified ascent description is available for this peak yet.",
+      "routeNumber": "Route {number}",
+      "routeTypes": {
+        "hiking": "Hiking route",
+        "mountaineering": "Mountaineering route",
+        "viaFerrata": "Via ferrata",
+        "climbing": "Climbing route",
+        "skiTouring": "Ski tour",
+        "mixed": "Mixed route",
+        "route": "Route"
+      },
+      "startPoint": "Starting point",
+      "verified": "Verified",
+      "duration": {
+        "hours": "{count} h",
+        "minutes": "{count} min"
+      },
+      "description": "Route description",
+      "bestSeason": "Best season",
+      "equipment": "Equipment",
+      "warning": "Important warning",
+      "downloadGpx": "Download GPX",
+      "sourceNamed": "Source: {sourceName}",
+      "source": "Route source",
+      "safetyTitle": "Safety information:",
+      "safetyDescription": "The route description is not a substitute for a current topographic map, an official weather forecast, checking trail conditions, or assessing your own experience and equipment."
+    },
+    "RouteMetrics": {
+      "distance": "Distance",
+      "elevationGain": "Elevation gain",
+      "duration": "Duration",
+      "difficulty": "Difficulty"
+    },
+    "Ascent": {
+      "sectionLabel": "03 / Logbook",
+      "recentAscents": "Recent ascents",
+      "empty": "No one has marked this peak as climbed yet.",
+      "you": "You",
+      "statusLabel": "Ascent status",
+      "yourRecord": "Your record",
+      "loginRequired": "Login required",
+      "summitReached": "Summit reached",
+      "notClimbed": "Not climbed yet",
+      "loginDescription": "Log in to see your personal status for this peak.",
+      "climbedDescription": "This ascent is recorded in your logbook.",
+      "notClimbedDescription": "This ascent has not been recorded in your logbook yet.",
+      "totalRecords": "Total records",
+      "ascentCount": "{count, plural, one {# ascent} other {# ascents}}",
+      "latest": "Latest ascent",
+      "noneYet": "None yet"
+    },
+    "Favorite": {
+      "add": "Add to favorites",
+      "remove": "Remove from favorites"
+    },
+    "Resources": {
+      "sectionLabel": "Reference data",
+      "title": "External resources",
+      "empty": "No external resources are available."
+    },
+    "Status": {
+      "unnamed": "Unnamed peak",
+      "noData": "No data",
+      "coordinatesUnavailable": "Coordinates unavailable",
+      "notSpecified": "Not specified",
+      "userFallback": "User"
+    },
+    "Map": {
+      "accessibleLabel": "Map of route “{routeName}”",
+      "loading": "Loading route…",
+      "displayFailed": "Unable to display route",
+      "startMarker": "Route start: {routeName}",
+      "finishMarker": "Route finish: {routeName}",
+      "startPopup": "Start: {routeName}",
+      "finishPopup": "Finish: {routeName}",
+      "startLegend": "start",
+      "finishLegend": "finish",
+      "requestFailed": "Unable to load route: {status}",
+      "invalidFeatureCollection": "The file is not a valid GeoJSON FeatureCollection.",
+      "routeCoordinatesMissing": "No valid route was found in the GeoJSON file.",
+      "loadFailed": "Unable to load route."
+    },
+    "Accessibility": {
+      "mountainImage": "Peak {mountainName}",
+      "statusAndResources": "Peak status and resources",
+      "addFavorite": "Add {mountainName} to favorites",
+      "removeFavorite": "Remove {mountainName} from favorites"
+    },
+    "Units": {
+      "meter": "m",
+      "kilometer": "km"
+    }
+  }
+}

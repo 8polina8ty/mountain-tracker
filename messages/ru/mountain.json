@@ -1,0 +1,126 @@
+{
+  "Mountain": {
+    "Hero": {
+      "backToMap": "Вернуться к карте",
+      "profile": "Горный профиль",
+      "elevationAboveSeaLevel": "Высота над уровнем моря",
+      "imageUnavailable": "Изображение вершины пока отсутствует",
+      "photoCredit": "Фото",
+      "authorAndLicense": "Автор и лицензия"
+    },
+    "Summary": {
+      "coordinates": "Координаты",
+      "verifiedRoutes": "Проверенные маршруты",
+      "recordedAscents": "Отмеченные восхождения",
+      "routeCount": "{count, plural, one {# маршрут} few {# маршрута} many {# маршрутов} other {# маршрута}}",
+      "ascentCount": "{count, plural, one {# восхождение} few {# восхождения} many {# восхождений} other {# восхождения}}"
+    },
+    "Passport": {
+      "sectionLabel": "01 / Обзор",
+      "title": "Паспорт вершины",
+      "primaryName": "Основное название",
+      "alternateName": "Альтернативное название",
+      "elevation": "Высота",
+      "location": "Геопозиция"
+    },
+    "Routes": {
+      "sectionLabel": "02 / Маршруты",
+      "title": "Линии восхождения",
+      "introduction": "Проверенные варианты подъёма. Перед выходом уточняйте погоду, состояние маршрута и актуальные ограничения.",
+      "inProfile": "В профиле",
+      "routeCount": "{count, plural, one {# маршрут} few {# маршрута} many {# маршрутов} other {# маршрута}}",
+      "emptyTitle": "Маршруты пока не добавлены",
+      "emptyDescription": "Для этой вершины ещё нет проверенного описания подъёма.",
+      "routeNumber": "Маршрут {number}",
+      "routeTypes": {
+        "hiking": "Пеший маршрут",
+        "mountaineering": "Альпинистский маршрут",
+        "viaFerrata": "Виа феррата",
+        "climbing": "Скалолазный маршрут",
+        "skiTouring": "Ски-тур",
+        "mixed": "Смешанный маршрут",
+        "route": "Маршрут"
+      },
+      "startPoint": "Старт",
+      "verified": "Проверено",
+      "duration": {
+        "hours": "{count} ч",
+        "minutes": "{count} мин"
+      },
+      "description": "Описание маршрута",
+      "bestSeason": "Лучший сезон",
+      "equipment": "Снаряжение",
+      "warning": "Важное предупреждение",
+      "downloadGpx": "Скачать GPX",
+      "sourceNamed": "Источник: {sourceName}",
+      "source": "Источник маршрута",
+      "safetyTitle": "Информация о безопасности:",
+      "safetyDescription": "Описание маршрута не заменяет актуальную топографическую карту, официальный прогноз погоды, проверку состояния тропы и личную оценку опыта и снаряжения."
+    },
+    "RouteMetrics": {
+      "distance": "Расстояние",
+      "elevationGain": "Набор высоты",
+      "duration": "Время",
+      "difficulty": "Сложность"
+    },
+    "Ascent": {
+      "sectionLabel": "03 / Журнал",
+      "recentAscents": "Последние восхождения",
+      "empty": "Эту вершину ещё никто не отметил.",
+      "you": "Это вы",
+      "statusLabel": "Статус восхождения",
+      "yourRecord": "Ваша отметка",
+      "loginRequired": "Требуется вход",
+      "summitReached": "Вершина покорена",
+      "notClimbed": "Ещё не покорена",
+      "loginDescription": "Войдите в аккаунт, чтобы видеть персональный статус вершины.",
+      "climbedDescription": "Восхождение учтено в вашем горном журнале.",
+      "notClimbedDescription": "Восхождение пока не отмечено в вашем горном журнале.",
+      "totalRecords": "Всего отметок",
+      "ascentCount": "{count, plural, one {# восхождение} few {# восхождения} many {# восхождений} other {# восхождения}}",
+      "latest": "Последнее",
+      "noneYet": "Пока нет"
+    },
+    "Favorite": {
+      "add": "Добавить в избранное",
+      "remove": "Удалить из избранного"
+    },
+    "Resources": {
+      "sectionLabel": "Справочные данные",
+      "title": "Внешние ресурсы",
+      "empty": "Внешние источники отсутствуют."
+    },
+    "Status": {
+      "unnamed": "Без названия",
+      "noData": "Нет данных",
+      "coordinatesUnavailable": "Координаты отсутствуют",
+      "notSpecified": "Не указано",
+      "userFallback": "Пользователь"
+    },
+    "Map": {
+      "accessibleLabel": "Карта маршрута «{routeName}»",
+      "loading": "Загружаю маршрут…",
+      "displayFailed": "Не удалось показать маршрут",
+      "startMarker": "Старт маршрута: {routeName}",
+      "finishMarker": "Финиш маршрута: {routeName}",
+      "startPopup": "Старт: {routeName}",
+      "finishPopup": "Финиш: {routeName}",
+      "startLegend": "старт",
+      "finishLegend": "финиш",
+      "requestFailed": "Не удалось загрузить маршрут: {status}",
+      "invalidFeatureCollection": "Файл не является корректным GeoJSON FeatureCollection.",
+      "routeCoordinatesMissing": "В GeoJSON не найден корректный маршрут.",
+      "loadFailed": "Не удалось загрузить маршрут."
+    },
+    "Accessibility": {
+      "mountainImage": "Вершина {mountainName}",
+      "statusAndResources": "Статус и ресурсы вершины",
+      "addFavorite": "Добавить вершину {mountainName} в избранное",
+      "removeFavorite": "Удалить вершину {mountainName} из избранного"
+    },
+    "Units": {
+      "meter": "м",
+      "kilometer": "км"
+    }
+  }
+}

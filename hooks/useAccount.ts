@@ -17,6 +17,7 @@ import {
 } from "@/Lib/achievementService";
 import { useAchievementNotification } from "@/components/achievements/AchievementNotificationProvider";
 import type React from "react";
+import { useTranslations } from "next-intl";
 
 export type Mountain = {
   id: number;
@@ -85,6 +86,7 @@ type UseAccountResult = {
 };
 
 export function useAccount(): UseAccountResult {
+  const t = useTranslations("Account.Status");
   const {
   showAchievementNotification,
 } = useAchievementNotification();
@@ -140,7 +142,7 @@ export function useAccount(): UseAccountResult {
 const username =
   user?.user_metadata?.username ||
   user?.email?.split("@")[0] ||
-  "Пользователь";
+  t("userFallback");
 
 const mountains = ascents
   .map((ascent) => ascent.mountains)
@@ -186,13 +188,13 @@ function getMountainName(
   mountain: Mountain | null,
 ): string {
   if (!mountain) {
-    return "Неизвестная вершина";
+    return t("unknownMountain");
   }
 
   return (
     mountain.name_de ??
     mountain.name ??
-    "Без названия"
+    t("unnamedMountain")
   );
 }
 
@@ -213,7 +215,7 @@ function getMountainName(
 
   if (!allowedTypes.includes(file.type)) {
     setAvatarMessage(
-      "Разрешены только JPG, PNG и WebP.",
+      t("avatarInvalidType"),
     );
     event.target.value = "";
     return;
@@ -221,7 +223,7 @@ function getMountainName(
 
   if (file.size > 2 * 1024 * 1024) {
     setAvatarMessage(
-      "Размер файла не должен превышать 2 МБ.",
+      t("avatarTooLarge"),
     );
     event.target.value = "";
     return;
@@ -271,14 +273,14 @@ function getMountainName(
     }
 
     setAvatarUrl(publicUrl);
-    setAvatarMessage("Аватар обновлён.");
+    setAvatarMessage(t("avatarUpdated"));
   } catch (error) {
     console.error("Ошибка загрузки аватара:", error);
 
     setAvatarMessage(
       error instanceof Error
         ? error.message
-        : "Не удалось загрузить аватар.",
+        : t("avatarUploadFailed"),
     );
   } finally {
     setAvatarUploading(false);
@@ -495,8 +497,6 @@ if (favoritesError) {
         if (achievementInfo) {
           showAchievementNotification({
   id: achievementInfo.id,
-  title: achievementInfo.title,
-  description: achievementInfo.unlockedDescription,
   icon: achievementInfo.icon,
 });
         }
@@ -514,7 +514,7 @@ if (favoritesError) {
   }
 
   void loadAccount();
-}, [showAchievementNotification]);
+}, [showAchievementNotification, t]);
 
   return {
   user,

@@ -1,0 +1,52 @@
+{
+  "PublicProfile": {
+    "Header": {
+      "backToRanking": "Back to ranking",
+      "eyebrow": "Public mountaineer profile",
+      "member": "Member of the Mountain Tracker community",
+      "avatarAlt": "Profile image of {username}"
+    },
+    "Statistics": {
+      "ascents": "Summits climbed",
+      "totalElevation": "Total elevation",
+      "highestSummit": "Highest summit",
+      "achievements": "Milestones",
+      "noData": "No data"
+    },
+    "Map": {
+      "eyebrow": "Geography",
+      "title": "Map of climbed summits",
+      "description": "All of this member's public ascents on the map.",
+      "label": "Map of public ascents",
+      "emptyTitle": "No summits on the map yet",
+      "emptyDescription": "This member has not added any public ascents yet.",
+      "unnamedMountain": "Unnamed summit",
+      "mountainFallback": "Summit",
+      "dateUnknown": "Date not specified",
+      "openMountain": "Open summit →"
+    },
+    "Ascents": {
+      "eyebrow": "Ascent journal",
+      "title": "Public ascents",
+      "totalLabel": "Total ascents",
+      "count": "{count, plural, one {# ascent} other {# ascents}}",
+      "emptyTitle": "No ascents yet",
+      "emptyDescription": "This member has not published any climbed summits yet.",
+      "unnamedMountain": "Unnamed summit",
+      "dateUnknown": "Date not specified",
+      "openMountain": "Open summit →"
+    },
+    "Status": {
+      "loading": "Loading profile…",
+      "loadFailed": "Could not load profile",
+      "missingUserId": "The user ID is missing.",
+      "notFoundTitle": "User not found",
+      "notFoundDescription": "The profile may have been deleted or the link is invalid.",
+      "openRanking": "Open ranking",
+      "unknownUser": "Participant"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

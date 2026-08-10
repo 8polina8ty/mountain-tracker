@@ -1,0 +1,61 @@
+{
+  "Ranking": {
+    "Header": {
+      "eyebrow": "Community / Gipfelregister",
+      "title": "Gipfelregister",
+      "subtitle": "Die Expeditionsübersicht der Community: Gipfel, gesammelte Höhenmeter und erreichte Meilensteine."
+    },
+    "CommunityStats": {
+      "heading": "Community-Übersicht",
+      "users": "Teilnehmer",
+      "ascents": "Bestiegene Gipfel",
+      "totalElevation": "Gesamthöhe",
+      "achievements": "Meilensteine"
+    },
+    "Search": {
+      "filtersLabel": "Filter des Gipfelregisters",
+      "label": "Teilnehmer suchen",
+      "placeholder": "Teilnehmer suchen",
+      "shown": "{shown} von {total} angezeigt"
+    },
+    "Sorting": {
+      "label": "Rangliste sortieren",
+      "ascents": "Nach Anzahl der Gipfel",
+      "totalHeight": "Nach Gesamthöhe",
+      "highestMountain": "Nach höchstem Gipfel",
+      "achievements": "Nach Meilensteinen"
+    },
+    "Table": {
+      "eyebrow": "Offizielles Register",
+      "title": "Teilnehmer",
+      "sortingHint": "Die Position entspricht der gewählten Sortierung.",
+      "position": "Position",
+      "participant": "Teilnehmer",
+      "ascents": "Gipfel",
+      "totalElevation": "Gesamthöhe",
+      "highestPoint": "Höchster Punkt",
+      "achievements": "Meilensteine",
+      "profile": "Profil",
+      "openProfile": "Profil öffnen",
+      "openUserProfile": "Profil von {username} öffnen",
+      "rowLabel": "Position {position}: {username}",
+      "topRank": "Spitzenrang",
+      "rank": "Rang",
+      "noData": "Keine Daten"
+    },
+    "Counts": {
+      "ascents": "{count, plural, one {# Gipfel} other {# Gipfel}}"
+    },
+    "Status": {
+      "loading": "Rangliste wird geladen…",
+      "unknownUser": "Teilnehmer",
+      "noResultsTitle": "Keine Teilnehmer gefunden",
+      "noResultsDescription": "Prüfe den Namen oder ändere deine Suchanfrage.",
+      "emptyTitle": "Das Register ist noch leer",
+      "emptyDescription": "Teilnehmereinträge erscheinen hier, sobald Daten vorhanden sind."
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

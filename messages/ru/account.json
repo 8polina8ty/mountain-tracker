@@ -1,0 +1,74 @@
+{
+  "Account": {
+    "Navigation": {
+      "overview": "Обзор",
+      "ascents": "Восхождения",
+      "gpsTracks": "GPS-треки",
+      "accessibleLabel": "Разделы аккаунта"
+    },
+    "Header": {
+      "eyebrow": "Личный журнал"
+    },
+    "Profile": {
+      "eyebrow": "Личная экспедиционная запись",
+      "avatarAlt": "Аватар пользователя {username}",
+      "changeAvatar": "Изменить аватар",
+      "uploading": "Загрузка…"
+    },
+    "Statistics": {
+      "sectionLabel": "01 / Сводка",
+      "title": "Экспедиционная статистика",
+      "subtitle": "Личный журнал вершин",
+      "ascents": "Восхождения",
+      "highestPoint": "Высшая точка",
+      "averageElevation": "Средняя высота",
+      "latestRecord": "Последняя запись",
+      "catalogProgress": "Общий прогресс каталога",
+      "catalogCount": "{ascents} / {total} вершин",
+      "noData": "Нет данных",
+      "meterUnit": "м"
+    },
+    "Logbook": {
+      "accessibleLabel": "Разделы экспедиционного журнала",
+      "ascentHistory": "История восхождений",
+      "ascentHistoryDetail": "Полный журнал и карта вершин",
+      "gpsTracks": "GPS-треки",
+      "gpsTracksDetail": "Записанные маршруты и показатели",
+      "importRoute": "Импорт маршрута",
+      "importRouteDetail": "Добавить новую GPX-запись"
+    },
+    "LatestAscents": {
+      "sectionLabel": "02 / Журнал",
+      "title": "Последние восхождения",
+      "viewAll": "Все записи",
+      "map": "Карта",
+      "empty": "Пока нет сохранённых восхождений.",
+      "meterUnit": "м"
+    },
+    "Favorites": {
+      "sectionLabel": "04 / Планирование",
+      "title": "Избранные вершины",
+      "subtitle": "Вершины, которые вы сохранили для будущих восхождений.",
+      "count": "{count, plural, one {# вершина} few {# вершины} many {# вершин} other {# вершины}}",
+      "emptyTitle": "Пока нет избранных вершин",
+      "emptyDescription": "Откройте карту, выберите вершину и добавьте её в избранное.",
+      "openMap": "Перейти к карте",
+      "saved": "В избранном",
+      "meterUnit": "м"
+    },
+    "Status": {
+      "loading": "Загружаю аккаунт…",
+      "loginTitle": "Войдите в аккаунт",
+      "loginDescription": "После входа здесь появятся ваша статистика и история восхождений.",
+      "login": "Войти",
+      "signUp": "Регистрация",
+      "userFallback": "Пользователь",
+      "unknownMountain": "Неизвестная вершина",
+      "unnamedMountain": "Без названия",
+      "avatarInvalidType": "Разрешены только JPG, PNG и WebP.",
+      "avatarTooLarge": "Размер файла не должен превышать 2 МБ.",
+      "avatarUpdated": "Аватар обновлён.",
+      "avatarUploadFailed": "Не удалось загрузить аватар."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Achievements": {
+    "Section": { "eyebrow": "03 / Этапы пути", "title": "Экспедиционные рубежи", "count": "{unlocked} / {total}" },
+    "Card": { "received": "Получено: {date}" },
+    "Status": { "unlocked": "Пройдено", "inProgress": "В процессе" },
+    "Notification": { "eyebrow": "Новый рубеж" },
+    "Progress": { "count": "{progress} из {target}", "completed": "Выполнено", "aboveClouds": "Нужна вершина от 2 000 м", "zugspitze": "Zugspitze ещё не покорена", "height": "{progress} из {target} м" },
+    "Accessibility": { "closeNotification": "Закрыть уведомление", "progress": "Прогресс достижения: {title}" },
+    "Definitions": {
+      "firstAscent": { "title": "Первый шаг", "description": "Покорите свою первую вершину.", "unlockedDescription": "Вы покорили свою первую вершину." },
+      "fiveAscents": { "title": "Начинающий альпинист", "description": "Покорите 5 вершин.", "unlockedDescription": "Вы покорили 5 вершин." },
+      "tenAscents": { "title": "Покоритель вершин", "description": "Покорите 10 вершин.", "unlockedDescription": "Вы покорили 10 вершин." },
+      "twentyFiveAscents": { "title": "Опытный альпинист", "description": "Покорите 25 вершин.", "unlockedDescription": "Вы покорили 25 вершин." },
+      "fiftyAscents": { "title": "Мастер высоты", "description": "Покорите 50 вершин.", "unlockedDescription": "Вы покорили 50 вершин." },
+      "aboveClouds": { "title": "Выше облаков", "description": "Покорите вершину высотой не менее 2 000 м.", "unlockedDescription": "Вы покорили вершину высотой от 2 000 м." },
+      "zugspitze": { "title": "Крыша Германии", "description": "Покорите Zugspitze.", "unlockedDescription": "Вы покорили Zugspitze." },
+      "tenThousandHeight": { "title": "10 000 метров", "description": "Наберите суммарно 10 000 метров высоты.", "unlockedDescription": "Сумма высот ваших вершин достигла 10 000 м." }
+    }
+  }
+}

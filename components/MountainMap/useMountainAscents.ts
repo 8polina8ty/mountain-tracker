@@ -6,11 +6,18 @@ import type { SelectedPeak } from "./types";
 type UseMountainAscentsParams = {
   supabase: SupabaseClient;
   selectedPeak: SelectedPeak | null;
+  messages: {
+    loginRequired: string;
+    ascentRemoved: string;
+    alreadyClimbed: string;
+    ascentAdded: string;
+  };
 };
 
 export function useMountainAscents({
   supabase,
   selectedPeak,
+  messages,
 }: UseMountainAscentsParams) {
   const [selectedPeakClimbed, setSelectedPeakClimbed] =
     useState(false);
@@ -119,9 +126,7 @@ async function loadClimbedMountains() {
         console.error(userError);
       }
 
-      setAscentMessage(
-        "Сначала войдите в аккаунт, чтобы отметить вершину.",
-      );
+      setAscentMessage(messages.loginRequired);
       setAscentLoading(false);
       return;
     }
@@ -148,7 +153,7 @@ setClimbedMountainIds((currentIds) => {
   return nextIds;
 });
 
-      setAscentMessage("Восхождение отменено.");
+      setAscentMessage(messages.ascentRemoved);
       hideMessageAfterDelay();
       setAscentLoading(false);
       return;
@@ -172,7 +177,7 @@ setClimbedMountainIds((currentIds) => {
     return nextIds;
   });
 
-        setAscentMessage("Эта вершина уже отмечена.");
+        setAscentMessage(messages.alreadyClimbed);
       } else {
         console.error(insertError);
         setAscentMessage(insertError.message);
@@ -190,9 +195,7 @@ setClimbedMountainIds((currentIds) => {
   return nextIds;
 });
 
-    setAscentMessage(
-      "Вершина добавлена в ваши восхождения.",
-    );
+    setAscentMessage(messages.ascentAdded);
 
     hideMessageAfterDelay();
     setAscentLoading(false);

@@ -61,6 +61,8 @@ type UseMountainMapParams = {
   checkSelectedPeakAscent: (
     mountainId: number,
   ) => Promise<void>;
+  unknownErrorMessage: string;
+  formatLoadingError: (message: string) => string;
 };
 
 function clampLatitude(
@@ -293,9 +295,22 @@ export function useMountainMap({
   loadClimbedMountains,
   checkSelectedPeakAscent,
   setMountainDataVersion,
+  unknownErrorMessage,
+  formatLoadingError,
 }: UseMountainMapParams) {
 const loadedBoundsRef =
   useRef< MountainLoadBounds| null>(null);
+const loadingErrorMessagesRef = useRef({
+  unknownErrorMessage,
+  formatLoadingError,
+});
+
+useEffect(() => {
+  loadingErrorMessagesRef.current = {
+    unknownErrorMessage,
+    formatLoadingError,
+  };
+}, [formatLoadingError, unknownErrorMessage]);
 
 const loadedMinHeightRef =
   useRef<number | null>(null);
@@ -515,14 +530,17 @@ setVisiblePeakCount(
           reloadVisibleMountains,
         );
       } catch (error) {
+        const loadingErrorMessages = loadingErrorMessagesRef.current;
         const message =
           error instanceof Error
             ? error.message
-            : "Неизвестная ошибка";
+            : loadingErrorMessages.unknownErrorMessage;
 
         console.error(error);
         if (!disposed) {
-          setLoadingMessage(`Ошибка: ${message}`);
+          setLoadingMessage(
+            loadingErrorMessages.formatLoadingError(message),
+          );
         }
       }
     };

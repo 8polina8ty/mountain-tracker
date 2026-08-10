@@ -1,6 +1,6 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, Map } from "lucide-react";
-import { formatDate } from "@/Lib/utils";
+import { useFormatter, useTranslations } from "next-intl";
 
 import type {
   Ascent,
@@ -19,34 +19,36 @@ export default function LatestAscentsSection({
   getMountainName,
 
 }: LatestAscentsSectionProps) {
+  const t = useTranslations("Account.LatestAscents");
+  const format = useFormatter();
   return (
     <section className="border-b border-[var(--color-border-strong)] py-10 sm:py-12" aria-labelledby="latest-ascents-title">
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
-            02 / Журнал
+            {t("sectionLabel")}
           </p>
 
           <h2 id="latest-ascents-title" className="mt-2 text-3xl font-bold text-[var(--color-text)]">
-            Последние восхождения
+            {t("title")}
           </h2>
         </div>
 
         <div className="flex flex-wrap gap-2">
           <Link href="/account/ascents" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)]">
-            Все записи
+            {t("viewAll")}
             <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Link>
           <Link href="/map" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--color-forest-hover)]">
             <Map aria-hidden="true" className="h-4 w-4" />
-            Карта
+            {t("map")}
           </Link>
         </div>
       </div>
 
       {ascents.length === 0 ? (
         <p className="border-y border-[var(--color-border)] py-8 text-[var(--color-text-muted)]">
-          Пока нет сохранённых восхождений.
+          {t("empty")}
         </p>
       ) : (
         <div className="divide-y divide-[var(--color-border-soft)] border-y border-[var(--color-border)]">
@@ -61,14 +63,14 @@ export default function LatestAscentsSection({
                 </h3>
 
                 <p className="mt-1 [font-family:var(--font-technical)] text-xs text-[var(--color-text-muted)]">
-                  {formatDate(
-                    ascent.climbed_at ??
-                      ascent.created_at,
+                  {format.dateTime(
+                    new Date(ascent.climbed_at ?? ascent.created_at),
+                    { year: "numeric", month: "long", day: "numeric" },
                   )}
                 </p>
               </div>
 
-              <p className="[font-family:var(--font-technical)] font-bold tabular-nums text-[var(--color-forest)]">{ascent.mountains?.height ?? 0} м</p>
+              <p className="[font-family:var(--font-technical)] font-bold tabular-nums text-[var(--color-forest)]">{format.number(ascent.mountains?.height ?? 0)} {t("meterUnit")}</p>
             </article>
           ))}
         </div>

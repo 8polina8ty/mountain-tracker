@@ -4,8 +4,10 @@ import { useEffect, useRef } from "react";
 import maplibregl, { type Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { Mountain } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 
 import type { Ascent } from "@/hooks/useAccount";
+import { getPathname } from "@/i18n/navigation";
 
 type ClimbedMountainsMapProps = {
   ascents: Ascent[];
@@ -18,10 +20,19 @@ export default function ClimbedMountainsMap({
   ascents,
   getMountainName,
 }: ClimbedMountainsMapProps) {
+  const locale = useLocale();
+  const t = useTranslations("Ascents.Map");
+  const localeRef = useRef(locale);
+  const translationsRef = useRef(t);
   const containerRef =
     useRef<HTMLDivElement | null>(null);
 
   const mapRef = useRef<Map | null>(null);
+
+  useEffect(() => {
+    localeRef.current = locale;
+    translationsRef.current = t;
+  }, [locale, t]);
 
   useEffect(() => {
   if (!containerRef.current || mapRef.current) {
@@ -177,7 +188,7 @@ const map: Map = currentMap;
           ).coordinates.slice() as [number, number];
 
           const name = String(
-            feature.properties?.name ?? "Вершина",
+            feature.properties?.name ?? translationsRef.current("peakFallback"),
           );
 
           const height = Number(
@@ -199,12 +210,15 @@ const map: Map = currentMap;
           const heightText =
             document.createElement("div");
 
-          heightText.textContent = `⛰ ${height} м`;
+          heightText.textContent = `⛰ ${height} ${translationsRef.current("meterUnit")}`;
 
           const link = document.createElement("a");
 
-          link.href = `/mountain/${mountainId}`;
-          link.textContent = "Открыть вершину →";
+          link.href = getPathname({
+            href: `/mountain/${mountainId}`,
+            locale: localeRef.current,
+          });
+          link.textContent = translationsRef.current("openMountain");
           link.className =
             "font-semibold text-green-700";
 
@@ -267,11 +281,11 @@ const map: Map = currentMap;
           <Mountain aria-hidden="true" className="mx-auto h-9 w-9 text-[var(--color-forest)]" />
 
           <h2 className="mt-4 text-2xl font-bold text-[var(--color-text)]">
-            Пока нет покорённых вершин
+            {t("emptyTitle")}
           </h2>
 
           <p className="mt-2 text-[var(--color-text-muted)]">
-            Отмеченные восхождения появятся на этой карте.
+            {t("emptyDescription")}
           </p>
         </div>
       </div>
@@ -282,7 +296,7 @@ const map: Map = currentMap;
     <div
       ref={containerRef}
       role="region"
-      aria-label="Интерактивная карта покорённых вершин"
+      aria-label={t("accessibleLabel")}
       className="h-[min(68dvh,720px)] min-h-[420px] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]"
     />
   );

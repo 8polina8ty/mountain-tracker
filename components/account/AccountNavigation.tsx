@@ -1,26 +1,26 @@
 "use client";
 
-import Link from "next/link";
 import { BookOpen, Mountain, Route } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 
 const accountSections = [
   {
     href: "/account",
-    label: "Обзор",
+    labelKey: "overview",
     icon: BookOpen,
     isActive: (pathname: string) => pathname === "/account",
   },
   {
     href: "/account/ascents",
-    label: "Восхождения",
+    labelKey: "ascents",
     icon: Mountain,
     isActive: (pathname: string) =>
       pathname.startsWith("/account/ascents"),
   },
   {
     href: "/account/tracks",
-    label: "GPS-треки",
+    labelKey: "gpsTracks",
     icon: Route,
     isActive: (pathname: string) =>
       pathname.startsWith("/account/tracks"),
@@ -28,11 +28,12 @@ const accountSections = [
 ];
 
 export default function AccountNavigation() {
+  const t = useTranslations("Account.Navigation");
   const pathname = usePathname();
 
   return (
     <nav
-      aria-label="Разделы аккаунта"
+      aria-label={t("accessibleLabel")}
       className="overflow-x-auto border-b border-[var(--color-border-strong)]"
     >
       <div className="flex min-w-max gap-1">
@@ -53,7 +54,7 @@ export default function AccountNavigation() {
               ].join(" ")}
             >
               <Icon aria-hidden="true" className="h-4 w-4" />
-              {section.label}
+              {t(section.labelKey)}
               {active && (
                 <span className="absolute inset-x-3 bottom-0 h-0.5 bg-[var(--color-forest)]" />
               )}

@@ -17,6 +17,13 @@ type UseMountainSearchParams = {
   onPeakSelect: (peak: SelectedPeak) => void;
   onCheckPeakAscent: (peakId: number) => void;
   onClearAscentMessage: () => void;
+  messages: {
+    mapLoading: string;
+    enterPeakName: string;
+    notFound: (minimumHeight: number) => string;
+    matchesFound: (count: number) => string;
+    peakFound: string;
+  };
 };
 
 export function useMountainSearch({
@@ -26,6 +33,7 @@ export function useMountainSearch({
   onPeakSelect,
   onCheckPeakAscent,
   onClearAscentMessage,
+  messages,
 }: UseMountainSearchParams) {
   const [searchInput, setSearchInput] = useState("");
   const [appliedSearch, setAppliedSearch] = useState("");
@@ -37,12 +45,12 @@ export function useMountainSearch({
     const originalGeoJson = originalGeoJsonRef.current;
 
     if (!map || !originalGeoJson) {
-      setSearchMessage("Карта ещё загружается.");
+      setSearchMessage(messages.mapLoading);
       return;
     }
 
     if (!normalizedSearch) {
-      setSearchMessage("Введите название вершины.");
+      setSearchMessage(messages.enterPeakName);
       return;
     }
 
@@ -85,9 +93,7 @@ export function useMountainSearch({
 
     if (!peak) {
       setAppliedSearch("");
-      setSearchMessage(
-        `Вершина не найдена среди гор от ${minimumHeight} м.`,
-      );
+      setSearchMessage(messages.notFound(minimumHeight));
       return;
     }
 
@@ -107,8 +113,8 @@ export function useMountainSearch({
 
     setSearchMessage(
       matchingPeaks.length > 1
-        ? `Найдено совпадений: ${matchingPeaks.length}. Показана наиболее подходящая вершина.`
-        : "Вершина найдена.",
+        ? messages.matchesFound(matchingPeaks.length)
+        : messages.peakFound,
     );
 
     map.flyTo({

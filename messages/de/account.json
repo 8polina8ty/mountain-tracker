@@ -1,0 +1,74 @@
+{
+  "Account": {
+    "Navigation": {
+      "overview": "Übersicht",
+      "ascents": "Besteigungen",
+      "gpsTracks": "GPS-Tracks",
+      "accessibleLabel": "Kontobereiche"
+    },
+    "Header": {
+      "eyebrow": "Persönliches Tourenbuch"
+    },
+    "Profile": {
+      "eyebrow": "Persönlicher Expeditionseintrag",
+      "avatarAlt": "Profilbild von {username}",
+      "changeAvatar": "Profilbild ändern",
+      "uploading": "Wird hochgeladen…"
+    },
+    "Statistics": {
+      "sectionLabel": "01 / Übersicht",
+      "title": "Expeditionsstatistik",
+      "subtitle": "Persönliches Gipfelbuch",
+      "ascents": "Besteigungen",
+      "highestPoint": "Höchster Punkt",
+      "averageElevation": "Durchschnittshöhe",
+      "latestRecord": "Letzter Eintrag",
+      "catalogProgress": "Gesamtfortschritt im Gipfelkatalog",
+      "catalogCount": "{ascents} / {total} Gipfel",
+      "noData": "Keine Daten",
+      "meterUnit": "m"
+    },
+    "Logbook": {
+      "accessibleLabel": "Bereiche des Expeditionstagebuchs",
+      "ascentHistory": "Besteigungsverlauf",
+      "ascentHistoryDetail": "Vollständiges Tourenbuch und Gipfelkarte",
+      "gpsTracks": "GPS-Tracks",
+      "gpsTracksDetail": "Aufgezeichnete Routen und Messwerte",
+      "importRoute": "Route importieren",
+      "importRouteDetail": "Neue GPX-Aufzeichnung hinzufügen"
+    },
+    "LatestAscents": {
+      "sectionLabel": "02 / Tourenbuch",
+      "title": "Letzte Besteigungen",
+      "viewAll": "Alle Einträge",
+      "map": "Karte",
+      "empty": "Noch keine Besteigungen gespeichert.",
+      "meterUnit": "m"
+    },
+    "Favorites": {
+      "sectionLabel": "04 / Planung",
+      "title": "Favorisierte Gipfel",
+      "subtitle": "Gipfel, die du für zukünftige Besteigungen gespeichert hast.",
+      "count": "{count, plural, one {# Gipfel} other {# Gipfel}}",
+      "emptyTitle": "Noch keine favorisierten Gipfel",
+      "emptyDescription": "Öffne die Karte, wähle einen Gipfel und füge ihn zu deinen Favoriten hinzu.",
+      "openMap": "Zur Karte",
+      "saved": "Als Favorit gespeichert",
+      "meterUnit": "m"
+    },
+    "Status": {
+      "loading": "Konto wird geladen…",
+      "loginTitle": "Beim Konto anmelden",
+      "loginDescription": "Nach der Anmeldung findest du hier deine Statistik und deinen Besteigungsverlauf.",
+      "login": "Anmelden",
+      "signUp": "Registrieren",
+      "userFallback": "Benutzer",
+      "unknownMountain": "Unbekannter Gipfel",
+      "unnamedMountain": "Unbenannter Gipfel",
+      "avatarInvalidType": "Nur JPG-, PNG- und WebP-Dateien sind erlaubt.",
+      "avatarTooLarge": "Die Datei darf höchstens 2 MB groß sein.",
+      "avatarUpdated": "Profilbild aktualisiert.",
+      "avatarUploadFailed": "Profilbild konnte nicht hochgeladen werden."
+    }
+  }
+}

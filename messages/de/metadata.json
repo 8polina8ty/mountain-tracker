@@ -1,0 +1,35 @@
+{
+  "Metadata": {
+    "Site": {
+      "title": "Mountain Tracker",
+      "description": "Entdecke Gipfel, erkunde Bergtouren und dokumentiere deine Besteigungen."
+    },
+    "Map": {
+      "title": "Interaktive Gipfelkarte | Mountain Tracker",
+      "description": "Entdecke Berge und Routen auf der interaktiven Gipfelkarte und plane deine nächsten Besteigungen.",
+      "pageHeading": "Interaktive Karte der Berggipfel"
+    },
+    "Mountain": {
+      "title": "{name} | Mountain Tracker",
+      "description": "Entdecke {name} auf {height} m Höhe mit Routen, GPS-Informationen und Besteigungsdaten.",
+      "fallbackTitle": "Bergdetails | Mountain Tracker",
+      "fallbackDescription": "Entdecke Gipfelinformationen, Routen und Besteigungsdaten bei Mountain Tracker."
+    },
+    "Ranking": {
+      "title": "Gipfelrangliste | Mountain Tracker",
+      "description": "Entdecke die Bergsteiger-Community mit Gipfelrangliste, Besteigungszahlen und gesammelten Höhenmetern."
+    },
+    "PublicProfile": {
+      "title": "Öffentliches Bergsteigerprofil | Mountain Tracker",
+      "description": "Öffentliches Besteigungsprofil mit bestiegenen Bergen, Gipfelstatistiken und Tourenübersicht."
+    },
+    "NoIndex": {
+      "accountTitle": "Konto | Mountain Tracker",
+      "accountDescription": "Persönlicher Mountain-Tracker-Kontobereich.",
+      "authTitle": "Anmeldung | Mountain Tracker",
+      "authDescription": "Anmeldung und Registrierung bei Mountain Tracker.",
+      "diagnosticTitle": "Diagnose | Mountain Tracker",
+      "diagnosticDescription": "Interne Diagnoseansicht."
+    }
+  }
+}

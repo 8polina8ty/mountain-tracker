@@ -1,0 +1,56 @@
+{
+  "Map": {
+    "Controls": {
+      "title": "Gipfelkarte",
+      "subtitle": "Suche und Höhenfilter für den Kartenausschnitt",
+      "accessibleLabel": "Kartenwerkzeuge"
+    },
+    "Search": {
+      "label": "Gipfel suchen",
+      "placeholder": "Zum Beispiel Zugspitze",
+      "clearInput": "Suchfeld leeren",
+      "submit": "Suchen",
+      "visiblePeaks": "Sichtbare Gipfel",
+      "peakCount": "{count, plural, one {# Gipfel} other {# Gipfel}}",
+      "removeSearch": "Suche aufheben",
+      "status": {
+        "mapLoading": "Die Karte wird noch geladen.",
+        "enterPeakName": "Gib einen Gipfelnamen ein.",
+        "notFound": "Ab {height} m wurde kein passender Gipfel gefunden.",
+        "matchesFound": "{count, plural, one {Ein Treffer gefunden. Der passendste Gipfel wird angezeigt.} other {# Treffer gefunden. Der passendste Gipfel wird angezeigt.}}",
+        "peakFound": "Gipfel gefunden."
+      }
+    },
+    "HeightFilter": {
+      "minimumAltitude": "Mindesthöhe",
+      "altitudeZones": "Höhenstufen",
+      "resetFilters": "Filter zurücksetzen",
+      "meterUnit": "m"
+    },
+    "PeakDetails": {
+      "unnamed": "Unbenannter Gipfel",
+      "selectedPeak": "Ausgewählter Gipfel",
+      "moreAboutPeak": "Mehr über den Gipfel",
+      "region": "Region",
+      "coordinates": "Koordinaten",
+      "elevation": "Höhe",
+      "notSpecified": "Nicht angegeben",
+      "meterUnit": "m",
+      "closePanel": "Gipfelkarte schließen",
+      "saving": "Wird gespeichert…",
+      "removeAscent": "Besteigung entfernen",
+      "markClimbed": "Gipfel bestiegen",
+      "status": {
+        "loginRequired": "Melde dich an, um den Gipfel als bestiegen zu markieren.",
+        "ascentRemoved": "Besteigung entfernt.",
+        "alreadyClimbed": "Dieser Gipfel ist bereits als bestiegen markiert.",
+        "ascentAdded": "Der Gipfel wurde zu deinen Besteigungen hinzugefügt."
+      }
+    },
+    "Status": {
+      "loadingPeaks": "Gipfel werden geladen…",
+      "unknownError": "Unbekannter Fehler",
+      "loadingError": "Fehler: {message}"
+    }
+  }
+}

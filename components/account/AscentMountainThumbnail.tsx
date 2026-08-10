@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Mountain } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import {
   getMountainImageFromWikidata,
@@ -20,6 +21,7 @@ export default function AscentMountainThumbnail({
   mountainName,
   customImageUrl,
 }: AscentMountainThumbnailProps) {
+  const t = useTranslations("Ascents.Thumbnail");
   const [image, setImage] =
     useState<WikimediaMountainImage | null>(null);
 
@@ -62,14 +64,14 @@ export default function AscentMountainThumbnail({
     <div className="relative h-32 w-full shrink-0 overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-surface-muted)] sm:h-28 sm:w-40">
       <Image
         src={customImageUrl}
-        alt={`Фотография восхождения на ${mountainName}`}
+        alt={t("customPhotoAlt", { mountainName })}
         fill
         sizes="(max-width: 640px) 100vw, 160px"
         className="object-cover"
       />
 
       <div className="absolute bottom-2 left-2 rounded-[var(--radius-sm)] bg-[var(--color-surface-inverse)] px-2 py-1 [font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.075em] text-[var(--color-text-inverse)]">
-        Моё фото
+        {t("myPhoto")}
       </div>
     </div>
   );
@@ -93,7 +95,7 @@ export default function AscentMountainThumbnail({
     <div className="relative h-32 w-full shrink-0 overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-surface-muted)] sm:h-28 sm:w-40">
       <Image
         src={image.url}
-        alt={`Вершина ${mountainName}`}
+        alt={t("mountainAlt", { mountainName })}
         fill
         sizes="(max-width: 640px) 100vw, 160px"
         className="object-cover"

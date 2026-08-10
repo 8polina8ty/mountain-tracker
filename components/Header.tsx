@@ -9,28 +9,29 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { createClient } from "@/Lib/supabase/client";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
 
 const navigationLinks = [
-  { href: "/map", label: "Карта", primary: true },
-  { href: "/ranking", label: "Рейтинг", primary: false },
+  { href: "/map", labelKey: "map", primary: true },
+  { href: "/ranking", labelKey: "ranking", primary: false },
   {
     href: "/account/ascents",
-    label: "Мои восхождения",
+    labelKey: "myAscents",
     primary: false,
   },
 ] as const;
 
 const guestNavigationLinks = [
   ...navigationLinks,
-  { href: "/account", label: "Аккаунт", primary: false },
+  { href: "/account", labelKey: "account", primary: false },
 ] as const;
 
 function isRouteActive(pathname: string, href: string) {
@@ -44,7 +45,10 @@ function isRouteActive(pathname: string, href: string) {
 }
 
 export default function Header() {
+  const t = useTranslations("Navigation");
+  const tAccessibility = useTranslations("Accessibility");
   const pathname = usePathname();
+  const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
   const menuDialogRef = useRef<HTMLDialogElement | null>(null);
 
@@ -118,7 +122,8 @@ export default function Header() {
       return;
     }
 
-    window.location.href = "/map";
+    router.replace("/map");
+    router.refresh();
   }
 
   function handleMenuExitComplete() {
@@ -142,7 +147,7 @@ export default function Header() {
   const username =
     user?.user_metadata?.username ||
     user?.email?.split("@")[0] ||
-    "Пользователь";
+    t("userFallback");
 
   const accountIsActive = isRouteActive(pathname, "/account");
   const visibleNavigationLinks = user
@@ -155,7 +160,7 @@ export default function Header() {
         <Link
           href="/map"
           className="ui-pressable flex h-11 min-w-0 shrink-0 items-center gap-2 px-1 text-[var(--color-text)] hover:text-[var(--color-forest)]"
-          aria-label="Mountain Tracker, открыть карту"
+          aria-label={tAccessibility("openMap")}
         >
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-[var(--color-forest)] shadow-[var(--shadow-control)]">
             <Mountain aria-hidden="true" size={21} strokeWidth={2} />
@@ -168,7 +173,7 @@ export default function Header() {
 
         <nav
           className="hidden h-full min-w-0 flex-1 items-stretch justify-center lg:flex"
-          aria-label="Основная навигация"
+          aria-label={tAccessibility("mainNavigation")}
         >
           {visibleNavigationLinks.map((link) => {
             const isActive = isRouteActive(pathname, link.href);
@@ -186,13 +191,14 @@ export default function Header() {
                       : "border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
                 }`}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             );
           })}
         </nav>
 
         <div className="hidden shrink-0 items-center gap-2 lg:flex">
+          <LocaleSwitcher />
           {loading ? (
             <div
               className="h-10 w-28 animate-pulse rounded-[var(--radius-control)] bg-[var(--color-surface-muted)]"
@@ -217,10 +223,10 @@ export default function Header() {
                 type="button"
                 onClick={handleLogout}
                 className="ui-pressable flex h-10 min-w-10 items-center justify-center gap-2 rounded-[var(--radius-control)] border border-transparent px-2.5 text-sm font-semibold text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
-                aria-label="Выйти из аккаунта"
+                aria-label={tAccessibility("logout")}
               >
                 <LogOut aria-hidden="true" size={18} />
-                <span className="hidden xl:inline">Выйти</span>
+                <span className="hidden xl:inline">{t("logout")}</span>
               </button>
             </>
           ) : (
@@ -229,14 +235,14 @@ export default function Header() {
                 href="/auth/login"
                 className="ui-pressable flex h-10 items-center px-3 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-forest)]"
               >
-                Войти
+                {t("login")}
               </Link>
 
               <Link
                 href="/auth/sign-up"
                 className="ui-pressable flex h-10 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
               >
-                Регистрация
+                {t("signUp")}
               </Link>
             </>
           )}
@@ -251,7 +257,7 @@ export default function Header() {
           ) : user ? (
             <Link
               href="/account"
-              aria-label={`Аккаунт: ${username}`}
+              aria-label={tAccessibility("accountFor", { username })}
               aria-current={accountIsActive ? "page" : undefined}
               className={`ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border ${
                 accountIsActive
@@ -264,7 +270,7 @@ export default function Header() {
           ) : (
             <Link
               href="/auth/login"
-              aria-label="Войти в аккаунт"
+              aria-label={tAccessibility("login")}
               className="ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-secondary)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface-muted)]"
             >
               <LogIn aria-hidden="true" size={20} />
@@ -275,7 +281,7 @@ export default function Header() {
             type="button"
             onClick={() => setMenuOpen(true)}
             className="ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface-muted)]"
-            aria-label="Открыть навигацию"
+            aria-label={tAccessibility("openNavigation")}
             aria-haspopup="dialog"
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
@@ -361,7 +367,7 @@ export default function Header() {
                     id="mobile-navigation-title"
                     className="[font-family:var(--font-display)] text-lg font-bold"
                   >
-                    Навигация
+                    {t("navigationTitle")}
                   </p>
                   <p className="text-xs text-[var(--color-text-muted)]">
                     Mountain Tracker
@@ -372,7 +378,7 @@ export default function Header() {
                   type="button"
                   onClick={() => setMenuOpen(false)}
                   className="ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
-                  aria-label="Закрыть навигацию"
+                  aria-label={tAccessibility("closeNavigation")}
                 >
                   <X aria-hidden="true" size={22} />
                 </button>
@@ -380,7 +386,7 @@ export default function Header() {
 
               <nav
                 className="flex-1 overflow-y-auto py-3"
-                aria-label="Мобильная навигация"
+                aria-label={tAccessibility("mobileNavigation")}
               >
                 {visibleNavigationLinks.map((link) => {
                   const isActive = isRouteActive(pathname, link.href);
@@ -399,13 +405,16 @@ export default function Header() {
                             : "border-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
                       }`}
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </Link>
                   );
                 })}
               </nav>
 
               <div className="shrink-0 border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
+                <div className="mb-3">
+                  <LocaleSwitcher />
+                </div>
                 {loading ? (
                   <div
                     className="h-11 w-full animate-pulse rounded-[var(--radius-control)] bg-[var(--color-surface-muted)]"
@@ -439,7 +448,7 @@ export default function Header() {
                       className="ui-pressable flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 text-sm font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
                     >
                       <LogOut aria-hidden="true" size={18} />
-                      Выйти
+                      {t("logout")}
                     </button>
                   </div>
                 ) : (
@@ -449,7 +458,7 @@ export default function Header() {
                       onClick={handleMenuNavigation}
                       className="ui-pressable flex min-h-11 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-surface-muted)]"
                     >
-                      Войти
+                      {t("login")}
                     </Link>
 
                     <Link
@@ -457,7 +466,7 @@ export default function Header() {
                       onClick={handleMenuNavigation}
                       className="ui-pressable flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-3 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
                     >
-                      Регистрация
+                      {t("signUp")}
                     </Link>
                   </div>
                 )}

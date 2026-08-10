@@ -1,0 +1,102 @@
+{
+  "Ascents": {
+    "Header": {
+      "eyebrow": "02 / Persönliches Tourenbuch",
+      "title": "Besteigungsverlauf",
+      "description": "Chronik deiner Gipfel, Daten und Fotos im Expeditionstagebuch.",
+      "totalRecords": "Einträge insgesamt",
+      "ascentCount": "{count, plural, one {# Besteigung} other {# Besteigungen}}",
+      "map": "Karte",
+      "importGpx": "GPX importieren"
+    },
+    "Filters": {
+      "searchLabel": "Gipfel suchen",
+      "searchPlaceholder": "Gipfel suchen",
+      "yearLabel": "Jahr der Besteigung",
+      "allYears": "Alle Jahre"
+    },
+    "Sorting": {
+      "label": "Sortierung",
+      "newest": "Neueste zuerst",
+      "oldest": "Älteste zuerst",
+      "highest": "Höhe: absteigend",
+      "lowest": "Höhe: aufsteigend",
+      "alphabetical": "Alphabetisch"
+    },
+    "List": {
+      "eyebrow": "Eintragsregister",
+      "title": "Besteigungen",
+      "results": "{shown} von {total} angezeigt",
+      "noMatchesTitle": "Keine Einträge gefunden",
+      "noMatchesDescription": "Ändere die Suche oder das Jahr, um andere Einträge anzuzeigen.",
+      "emptyTitle": "Noch keine Besteigungen",
+      "emptyDescription": "Öffne die Karte, wähle einen Gipfel und markiere deine Besteigung.",
+      "openMap": "Karte öffnen",
+      "dateUnavailable": "Kein Datum angegeben",
+      "recordNumber": "Eintrag {number}",
+      "elevation": "Höhe",
+      "date": "Datum",
+      "region": "Region",
+      "openMountain": "Gipfel öffnen",
+      "mountainUnavailable": "Gipfel nicht verfügbar",
+      "openGpsTracks": "Zu den GPS-Tracks"
+    },
+    "Photo": {
+      "invalidType": "Nur JPG-, PNG- und WebP-Dateien sind erlaubt.",
+      "tooLarge": "Das Foto darf höchstens 8 MB groß sein.",
+      "loginRequired": "Melde dich zuerst an.",
+      "updated": "Foto aktualisiert.",
+      "uploadFailed": "Foto konnte nicht hochgeladen werden.",
+      "uploading": "Wird hochgeladen…",
+      "changePhoto": "Foto ändern"
+    },
+    "Privacy": {
+      "loginRequired": "Melde dich zuerst an.",
+      "updateMissing": "Die Fotoeinstellungen konnten nicht aktualisiert werden.",
+      "publicSuccess": "Das Foto ist im öffentlichen Profil sichtbar.",
+      "privateSuccess": "Das Foto ist im öffentlichen Profil ausgeblendet.",
+      "updateFailed": "Die Sichtbarkeit des Fotos konnte nicht geändert werden.",
+      "public": "Foto öffentlich",
+      "private": "Foto privat",
+      "photoRequired": "Lade zuerst ein eigenes Foto hoch."
+    },
+    "Thumbnail": {
+      "customPhotoAlt": "Foto der Besteigung von {mountainName}",
+      "mountainAlt": "Gipfel {mountainName}",
+      "myPhoto": "Mein Foto"
+    },
+    "MapPage": {
+      "loading": "Besteigungskarte wird geladen…",
+      "loginTitle": "Beim Konto anmelden",
+      "login": "Anmelden",
+      "eyebrow": "02.1 / Geografie des Tourenbuchs",
+      "title": "Besteigungskarte",
+      "description": "Räumliche Übersicht aller Gipfel in deinem Tourenbuch.",
+      "markedPeaks": "Markierte Gipfel",
+      "peakCount": "{count, plural, one {# Gipfel} other {# Gipfel}}",
+      "openJournal": "Tourenbuch öffnen",
+      "sectionLabel": "Karte der bestiegenen Gipfel"
+    },
+    "Map": {
+      "peakFallback": "Gipfel",
+      "meterUnit": "m",
+      "openMountain": "Gipfel öffnen →",
+      "emptyTitle": "Noch keine bestiegenen Gipfel",
+      "emptyDescription": "Deine erfassten Besteigungen erscheinen auf dieser Karte.",
+      "accessibleLabel": "Interaktive Karte der bestiegenen Gipfel"
+    },
+    "Status": {
+      "loading": "Besteigungen werden geladen…",
+      "loginEyebrow": "Tourenbuch",
+      "loginTitle": "Beim Konto anmelden",
+      "loginDescription": "Nach der Anmeldung erscheint hier die vollständige Liste deiner Besteigungen.",
+      "login": "Anmelden"
+    },
+    "Accessibility": {
+      "ascentList": "Liste der Besteigungen"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

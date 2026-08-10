@@ -1,0 +1,56 @@
+{
+  "Map": {
+    "Controls": {
+      "title": "Карта вершин",
+      "subtitle": "Поиск и фильтр высоты для текущего обзора",
+      "accessibleLabel": "Инструменты карты"
+    },
+    "Search": {
+      "label": "Поиск вершины",
+      "placeholder": "Например, Zugspitze",
+      "clearInput": "Очистить поле поиска",
+      "submit": "Найти",
+      "visiblePeaks": "Видимые вершины",
+      "peakCount": "{count, plural, one {# вершина} few {# вершины} many {# вершин} other {# вершины}}",
+      "removeSearch": "Снять поиск",
+      "status": {
+        "mapLoading": "Карта ещё загружается.",
+        "enterPeakName": "Введите название вершины.",
+        "notFound": "Среди гор от {height} м подходящая вершина не найдена.",
+        "matchesFound": "{count, plural, one {Найдено одно совпадение. Показана наиболее подходящая вершина.} few {Найдено # совпадения. Показана наиболее подходящая вершина.} many {Найдено # совпадений. Показана наиболее подходящая вершина.} other {Найдено # совпадения. Показана наиболее подходящая вершина.}}",
+        "peakFound": "Вершина найдена."
+      }
+    },
+    "HeightFilter": {
+      "minimumAltitude": "Минимальная высота",
+      "altitudeZones": "Высотные зоны",
+      "resetFilters": "Сбросить фильтры",
+      "meterUnit": "м"
+    },
+    "PeakDetails": {
+      "unnamed": "Без названия",
+      "selectedPeak": "Выбранная вершина",
+      "moreAboutPeak": "Подробнее о вершине",
+      "region": "Регион",
+      "coordinates": "Координаты",
+      "elevation": "Высота",
+      "notSpecified": "Не указан",
+      "meterUnit": "м",
+      "closePanel": "Закрыть карточку вершины",
+      "saving": "Сохраняю…",
+      "removeAscent": "Удалить восхождение",
+      "markClimbed": "Взошёл на вершину",
+      "status": {
+        "loginRequired": "Войдите в аккаунт, чтобы отметить вершину.",
+        "ascentRemoved": "Восхождение удалено.",
+        "alreadyClimbed": "Эта вершина уже отмечена.",
+        "ascentAdded": "Вершина добавлена в ваши восхождения."
+      }
+    },
+    "Status": {
+      "loadingPeaks": "Загружаю вершины…",
+      "unknownError": "Неизвестная ошибка",
+      "loadingError": "Ошибка: {message}"
+    }
+  }
+}

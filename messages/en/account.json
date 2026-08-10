@@ -1,0 +1,74 @@
+{
+  "Account": {
+    "Navigation": {
+      "overview": "Overview",
+      "ascents": "Ascents",
+      "gpsTracks": "GPS tracks",
+      "accessibleLabel": "Account sections"
+    },
+    "Header": {
+      "eyebrow": "Personal logbook"
+    },
+    "Profile": {
+      "eyebrow": "Personal expedition record",
+      "avatarAlt": "Profile photo of {username}",
+      "changeAvatar": "Change profile photo",
+      "uploading": "Uploading…"
+    },
+    "Statistics": {
+      "sectionLabel": "01 / Summary",
+      "title": "Expedition statistics",
+      "subtitle": "Personal summit logbook",
+      "ascents": "Ascents",
+      "highestPoint": "Highest point",
+      "averageElevation": "Average elevation",
+      "latestRecord": "Latest record",
+      "catalogProgress": "Overall catalog progress",
+      "catalogCount": "{ascents} / {total} peaks",
+      "noData": "No data",
+      "meterUnit": "m"
+    },
+    "Logbook": {
+      "accessibleLabel": "Expedition logbook sections",
+      "ascentHistory": "Ascent history",
+      "ascentHistoryDetail": "Complete logbook and summit map",
+      "gpsTracks": "GPS tracks",
+      "gpsTracksDetail": "Recorded routes and metrics",
+      "importRoute": "Import route",
+      "importRouteDetail": "Add a new GPX recording"
+    },
+    "LatestAscents": {
+      "sectionLabel": "02 / Logbook",
+      "title": "Recent ascents",
+      "viewAll": "All records",
+      "map": "Map",
+      "empty": "No ascents saved yet.",
+      "meterUnit": "m"
+    },
+    "Favorites": {
+      "sectionLabel": "04 / Planning",
+      "title": "Favorite peaks",
+      "subtitle": "Peaks you have saved for future ascents.",
+      "count": "{count, plural, one {# peak} other {# peaks}}",
+      "emptyTitle": "No favorite peaks yet",
+      "emptyDescription": "Open the map, choose a peak, and add it to your favorites.",
+      "openMap": "Go to map",
+      "saved": "Saved as favorite",
+      "meterUnit": "m"
+    },
+    "Status": {
+      "loading": "Loading account…",
+      "loginTitle": "Log in to your account",
+      "loginDescription": "After logging in, your statistics and ascent history will appear here.",
+      "login": "Log in",
+      "signUp": "Sign up",
+      "userFallback": "User",
+      "unknownMountain": "Unknown peak",
+      "unnamedMountain": "Unnamed peak",
+      "avatarInvalidType": "Only JPG, PNG, and WebP files are allowed.",
+      "avatarTooLarge": "The file must not exceed 2 MB.",
+      "avatarUpdated": "Profile photo updated.",
+      "avatarUploadFailed": "Unable to upload profile photo."
+    }
+  }
+}

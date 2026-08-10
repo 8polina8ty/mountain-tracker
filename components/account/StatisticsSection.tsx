@@ -2,7 +2,7 @@ import type {
   Ascent,
   Mountain,
 } from "@/hooks/useAccount";
-import { formatDate } from "@/Lib/utils";
+import { useFormatter, useTranslations } from "next-intl";
 
 type StatisticsSectionProps = {
   ascentsCount: number;
@@ -26,41 +26,43 @@ export default function StatisticsSection({
   latestAscent,
   getMountainName,
 }: StatisticsSectionProps) {
+  const t = useTranslations("Account.Statistics");
+  const format = useFormatter();
   return (
     <section className="py-10 sm:py-12" aria-labelledby="account-statistics-title">
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
-            01 / Сводка
+            {t("sectionLabel")}
           </p>
           <h2 id="account-statistics-title" className="mt-2 text-3xl font-bold text-[var(--color-text)]">
-            Экспедиционная статистика
+            {t("title")}
           </h2>
         </div>
         <p className="hidden text-sm text-[var(--color-text-muted)] sm:block">
-          Личный журнал вершин
+          {t("subtitle")}
         </p>
       </div>
 
       <dl className="mt-6 grid grid-cols-2 border-y border-[var(--color-border-strong)] lg:grid-cols-4">
-        <Metric label="Восхождения" value={ascentsCount.toLocaleString("ru-RU")} />
+        <Metric label={t("ascents")} value={format.number(ascentsCount)} />
         <Metric
-          label="Высшая точка"
-          value={highestMountain ? `${highestMountain.height.toLocaleString("ru-RU")} м` : "—"}
-          detail={highestMountain ? getMountainName(highestMountain) : "Нет данных"}
+          label={t("highestPoint")}
+          value={highestMountain ? `${format.number(highestMountain.height)} ${t("meterUnit")}` : "—"}
+          detail={highestMountain ? getMountainName(highestMountain) : t("noData")}
         />
-        <Metric label="Средняя высота" value={averageHeight > 0 ? `${averageHeight.toLocaleString("ru-RU")} м` : "—"} />
+        <Metric label={t("averageElevation")} value={averageHeight > 0 ? `${format.number(averageHeight)} ${t("meterUnit")}` : "—"} />
         <Metric
-          label="Последняя запись"
+          label={t("latestRecord")}
           value={latestAscent ? getMountainName(latestAscent.mountains) : "—"}
-          detail={latestAscent ? formatDate(latestAscent.climbed_at ?? latestAscent.created_at) : "Нет данных"}
+          detail={latestAscent ? format.dateTime(new Date(latestAscent.climbed_at ?? latestAscent.created_at), { year: "numeric", month: "long", day: "numeric" }) : t("noData")}
         />
       </dl>
 
       <div className="grid gap-4 border-b border-[var(--color-border)] py-5 sm:grid-cols-[1fr_auto] sm:items-center">
         <div>
           <div className="flex items-center justify-between gap-4 text-sm">
-            <span className="font-semibold text-[var(--color-text-secondary)]">Общий прогресс каталога</span>
+            <span className="font-semibold text-[var(--color-text-secondary)]">{t("catalogProgress")}</span>
             <span className="[font-family:var(--font-technical)] font-bold tabular-nums text-[var(--color-forest)]">
               {progressPercent.toFixed(2)}%
             </span>
@@ -68,7 +70,7 @@ export default function StatisticsSection({
           <div
             className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-muted)]"
             role="progressbar"
-            aria-label="Общий прогресс каталога"
+            aria-label={t("catalogProgress")}
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Number(progressPercent.toFixed(2))}
@@ -77,7 +79,7 @@ export default function StatisticsSection({
           </div>
         </div>
         <p className="[font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)]">
-          {ascentsCount.toLocaleString("ru-RU")} / {totalMountains.toLocaleString("ru-RU")} вершин
+          {t("catalogCount", { ascents: ascentsCount, total: totalMountains })}
         </p>
       </div>
     </section>

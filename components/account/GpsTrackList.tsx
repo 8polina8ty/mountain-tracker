@@ -2,9 +2,9 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import DeleteGpsTrackButton from "@/components/account/DeleteGpsTrackButton";
 
@@ -31,6 +31,7 @@ type GpsTrackListProps = {
 };
 
 export default function GpsTrackList({ items }: GpsTrackListProps) {
+  const t = useTranslations("Tracks.List");
   const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
   const listRef = useRef<HTMLElement | null>(null);
@@ -50,7 +51,7 @@ export default function GpsTrackList({ items }: GpsTrackListProps) {
       visibleItems[deletedIndex + 1] ?? visibleItems[deletedIndex - 1];
 
     pendingFocusItemIdRef.current = focusItem?.id ?? null;
-    setAnnouncement(`GPS-трек «${activityTitle}» удалён.`);
+    setAnnouncement(t("deletedAnnouncement", { activityTitle }));
 
     setRemovedItemIds((currentIds) => {
       const nextIds = new Set(currentIds);
@@ -82,7 +83,7 @@ export default function GpsTrackList({ items }: GpsTrackListProps) {
       ref={listRef}
       tabIndex={-1}
       className="overflow-x-clip border-t border-[var(--color-border-strong)] outline-none"
-      aria-label="Список GPS-треков"
+      aria-label={t("accessibleLabel")}
     >
       <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
         {announcement}
@@ -144,11 +145,11 @@ export default function GpsTrackList({ items }: GpsTrackListProps) {
               </div>
 
               <dl className="grid grid-cols-2 border-y border-[var(--color-border-soft)] sm:grid-cols-4 sm:border-y-0">
-                <TrackValue label="Расстояние" value={item.distanceLabel} />
-                <TrackValue label="Время" value={item.durationLabel} />
-                <TrackValue label="Набор" value={item.elevationGainLabel} />
+                <TrackValue label={t("distance")} value={item.distanceLabel} />
+                <TrackValue label={t("duration")} value={item.durationLabel} />
+                <TrackValue label={t("elevationGain")} value={item.elevationGainLabel} />
                 <TrackValue
-                  label="Макс. высота"
+                  label={t("maximumElevation")}
                   value={item.maximumElevationLabel}
                 />
               </dl>
@@ -159,7 +160,7 @@ export default function GpsTrackList({ items }: GpsTrackListProps) {
                     href={`/account/tracks/${item.id}`}
                     className="ui-pressable group inline-flex min-h-11 items-center justify-between gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-track)] hover:text-[var(--color-track)]"
                   >
-                    Открыть маршрут
+                    {t("openRoute")}
                     <ArrowUpRight
                       aria-hidden="true"
                       className="h-4 w-4 transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -167,7 +168,7 @@ export default function GpsTrackList({ items }: GpsTrackListProps) {
                   </Link>
                 ) : (
                   <span className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] px-4 py-2 text-sm font-semibold text-[var(--color-text-disabled)]">
-                    Карта недоступна
+                    {t("mapUnavailable")}
                   </span>
                 )}
 

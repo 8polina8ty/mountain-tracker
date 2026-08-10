@@ -1,0 +1,52 @@
+{
+  "PublicProfile": {
+    "Header": {
+      "backToRanking": "Вернуться к рейтингу",
+      "eyebrow": "Публичный профиль альпиниста",
+      "member": "Участник сообщества Mountain Tracker",
+      "avatarAlt": "Аватар участника {username}"
+    },
+    "Statistics": {
+      "ascents": "Покорённые вершины",
+      "totalElevation": "Общая высота",
+      "highestSummit": "Высшая вершина",
+      "achievements": "Рубежи",
+      "noData": "Нет данных"
+    },
+    "Map": {
+      "eyebrow": "География",
+      "title": "Карта покорённых вершин",
+      "description": "Все публичные восхождения участника на карте.",
+      "label": "Карта публичных восхождений",
+      "emptyTitle": "На карте пока нет вершин",
+      "emptyDescription": "Участник ещё не добавил публичные восхождения.",
+      "unnamedMountain": "Без названия",
+      "mountainFallback": "Вершина",
+      "dateUnknown": "Дата не указана",
+      "openMountain": "Открыть вершину →"
+    },
+    "Ascents": {
+      "eyebrow": "Дневник восхождений",
+      "title": "Публичные восхождения",
+      "totalLabel": "Всего восхождений",
+      "count": "{count, plural, one {# восхождение} few {# восхождения} many {# восхождений} other {# восхождения}}",
+      "emptyTitle": "Пока нет восхождений",
+      "emptyDescription": "Участник ещё не опубликовал покорённые вершины.",
+      "unnamedMountain": "Без названия",
+      "dateUnknown": "Дата не указана",
+      "openMountain": "Открыть вершину →"
+    },
+    "Status": {
+      "loading": "Загружаю профиль…",
+      "loadFailed": "Не удалось загрузить профиль",
+      "missingUserId": "ID пользователя не найден.",
+      "notFoundTitle": "Пользователь не найден",
+      "notFoundDescription": "Возможно, профиль был удалён или ссылка неправильная.",
+      "openRanking": "Открыть рейтинг",
+      "unknownUser": "Участник"
+    },
+    "Units": {
+      "meter": "м"
+    }
+  }
+}

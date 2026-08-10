@@ -1,0 +1,61 @@
+{
+  "Ranking": {
+    "Header": {
+      "eyebrow": "Сообщество / Реестр восхождений",
+      "title": "Реестр восхождений",
+      "subtitle": "Сводная экспедиционная ведомость сообщества: вершины, набранная высота и достигнутые рубежи."
+    },
+    "CommunityStats": {
+      "heading": "Сводка сообщества",
+      "users": "Участники",
+      "ascents": "Покорённые вершины",
+      "totalElevation": "Общая высота",
+      "achievements": "Рубежи"
+    },
+    "Search": {
+      "filtersLabel": "Фильтры реестра",
+      "label": "Найти участника",
+      "placeholder": "Найти участника",
+      "shown": "Показано {shown} из {total}"
+    },
+    "Sorting": {
+      "label": "Сортировка рейтинга",
+      "ascents": "По количеству вершин",
+      "totalHeight": "По общей высоте",
+      "highestMountain": "По высшей вершине",
+      "achievements": "По рубежам"
+    },
+    "Table": {
+      "eyebrow": "Официальная ведомость",
+      "title": "Участники",
+      "sortingHint": "Позиция отражает выбранный способ сортировки.",
+      "position": "Позиция",
+      "participant": "Участник",
+      "ascents": "Вершины",
+      "totalElevation": "Общая высота",
+      "highestPoint": "Высшая точка",
+      "achievements": "Рубежи",
+      "profile": "Профиль",
+      "openProfile": "Открыть профиль",
+      "openUserProfile": "Открыть профиль участника {username}",
+      "rowLabel": "Позиция {position}: {username}",
+      "topRank": "Высший ранг",
+      "rank": "Ранг",
+      "noData": "Нет данных"
+    },
+    "Counts": {
+      "ascents": "{count, plural, one {# вершина} few {# вершины} many {# вершин} other {# вершины}}"
+    },
+    "Status": {
+      "loading": "Загружаю рейтинг…",
+      "unknownUser": "Участник",
+      "noResultsTitle": "Участники не найдены",
+      "noResultsDescription": "Проверьте имя или измените поисковый запрос.",
+      "emptyTitle": "Реестр пока пуст",
+      "emptyDescription": "Записи участников появятся здесь после загрузки данных."
+    },
+    "Units": {
+      "meter": "м"
+    }
+  }
+}

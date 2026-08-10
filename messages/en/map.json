@@ -1,0 +1,56 @@
+{
+  "Map": {
+    "Controls": {
+      "title": "Peak map",
+      "subtitle": "Search and elevation filters for the current view",
+      "accessibleLabel": "Map tools"
+    },
+    "Search": {
+      "label": "Search for a peak",
+      "placeholder": "For example, Zugspitze",
+      "clearInput": "Clear search field",
+      "submit": "Search",
+      "visiblePeaks": "Visible peaks",
+      "peakCount": "{count, plural, one {# peak} other {# peaks}}",
+      "removeSearch": "Clear search",
+      "status": {
+        "mapLoading": "The map is still loading.",
+        "enterPeakName": "Enter a peak name.",
+        "notFound": "No matching peak was found above {height} m.",
+        "matchesFound": "{count, plural, one {One match found. The closest match is shown.} other {# matches found. The closest match is shown.}}",
+        "peakFound": "Peak found."
+      }
+    },
+    "HeightFilter": {
+      "minimumAltitude": "Minimum elevation",
+      "altitudeZones": "Elevation zones",
+      "resetFilters": "Reset filters",
+      "meterUnit": "m"
+    },
+    "PeakDetails": {
+      "unnamed": "Unnamed peak",
+      "selectedPeak": "Selected peak",
+      "moreAboutPeak": "More about this peak",
+      "region": "Region",
+      "coordinates": "Coordinates",
+      "elevation": "Elevation",
+      "notSpecified": "Not specified",
+      "meterUnit": "m",
+      "closePanel": "Close peak details",
+      "saving": "Saving…",
+      "removeAscent": "Remove ascent",
+      "markClimbed": "I climbed this peak",
+      "status": {
+        "loginRequired": "Log in to mark this peak as climbed.",
+        "ascentRemoved": "Ascent removed.",
+        "alreadyClimbed": "This peak is already marked as climbed.",
+        "ascentAdded": "The peak was added to your ascents."
+      }
+    },
+    "Status": {
+      "loadingPeaks": "Loading peaks…",
+      "unknownError": "Unknown error",
+      "loadingError": "Error: {message}"
+    }
+  }
+}

@@ -7,6 +7,7 @@ import maplibregl, {
   type Marker,
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { useTranslations } from "next-intl";
 
 type MountainRouteMapProps = {
   geojsonUrl: string;
@@ -25,6 +26,7 @@ export default function MountainRouteMap({
   geojsonUrl,
   routeName,
 }: MountainRouteMapProps) {
+  const t = useTranslations("Mountain.Map");
   const containerRef = useRef<HTMLDivElement | null>(
     null,
   );
@@ -250,7 +252,7 @@ const map: Map = currentMap;
         element: createMarkerElement(
           "S",
           "bg-green-600",
-          `Старт маршрута: ${routeName}`,
+          t("startMarker", { routeName }),
         ),
         anchor: "center",
       })
@@ -258,7 +260,7 @@ const map: Map = currentMap;
         .setPopup(
           new maplibregl.Popup({
             offset: 24,
-          }).setText(`Старт: ${routeName}`),
+          }).setText(t("startPopup", { routeName })),
         )
         .addTo(map);
 
@@ -266,7 +268,7 @@ const map: Map = currentMap;
         element: createMarkerElement(
           "F",
           "bg-red-600",
-          `Финиш маршрута: ${routeName}`,
+          t("finishMarker", { routeName }),
         ),
         anchor: "center",
       })
@@ -274,7 +276,7 @@ const map: Map = currentMap;
         .setPopup(
           new maplibregl.Popup({
             offset: 24,
-          }).setText(`Финиш: ${routeName}`),
+          }).setText(t("finishPopup", { routeName })),
         )
         .addTo(map);
 
@@ -305,7 +307,7 @@ const map: Map = currentMap;
 
         if (!response.ok) {
           throw new Error(
-            `Не удалось загрузить маршрут: ${response.status}`,
+            t("requestFailed", { status: response.status }),
           );
         }
 
@@ -317,7 +319,7 @@ const map: Map = currentMap;
           !Array.isArray(geojson.features)
         ) {
           throw new Error(
-            "Файл не является корректным GeoJSON FeatureCollection.",
+            t("invalidFeatureCollection"),
           );
         }
 
@@ -326,7 +328,7 @@ const map: Map = currentMap;
 
         if (coordinates.length < 2) {
           throw new Error(
-            "В GeoJSON не найден корректный маршрут.",
+            t("routeCoordinatesMissing"),
           );
         }
 
@@ -359,7 +361,7 @@ const map: Map = currentMap;
         setErrorMessage(
           error instanceof Error
             ? error.message
-            : "Не удалось загрузить маршрут.",
+            : t("loadFailed"),
         );
 
         setLoading(false);
@@ -372,14 +374,14 @@ const map: Map = currentMap;
       effectCancelled = true;
       abortController.abort();
     };
-  }, [geojsonUrl, routeName]);
+  }, [geojsonUrl, routeName, t]);
 
   return (
     <div className="relative mt-8 overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-bg-terrain)] shadow-[var(--shadow-control)]">
       <div
         ref={containerRef}
         role="region"
-        aria-label={`Карта маршрута «${routeName}»`}
+        aria-label={t("accessibleLabel", { routeName })}
         aria-busy={loading}
         className="h-[clamp(360px,58vh,520px)] w-full"
       />
@@ -387,7 +389,7 @@ const map: Map = currentMap;
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/90 p-4">
           <div className="border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-5 py-3 text-sm font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]" role="status">
-            Загружаю маршрут…
+            {t("loading")}
           </div>
         </div>
       )}
@@ -396,7 +398,7 @@ const map: Map = currentMap;
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/95 p-6">
           <div className="max-w-md border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-5 text-center" role="alert">
             <p className="font-bold text-[var(--color-danger)]">
-              Не удалось показать маршрут
+              {t("displayFailed")}
             </p>
 
             <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
@@ -411,11 +413,11 @@ const map: Map = currentMap;
           <span className="font-bold text-[var(--color-route)]">
             S
           </span>{" "}
-          — старт ·{" "}
+          — {t("startLegend")} ·{" "}
           <span className="font-bold text-[var(--color-danger)]">
             F
           </span>{" "}
-          — финиш
+          — {t("finishLegend")}
         </div>
       )}
     </div>

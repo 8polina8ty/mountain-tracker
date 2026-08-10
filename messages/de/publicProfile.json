@@ -1,0 +1,52 @@
+{
+  "PublicProfile": {
+    "Header": {
+      "backToRanking": "Zurück zur Rangliste",
+      "eyebrow": "Öffentliches Bergsteigerprofil",
+      "member": "Mitglied der Mountain-Tracker-Community",
+      "avatarAlt": "Profilbild von {username}"
+    },
+    "Statistics": {
+      "ascents": "Bestiegene Gipfel",
+      "totalElevation": "Gesamthöhe",
+      "highestSummit": "Höchster Gipfel",
+      "achievements": "Meilensteine",
+      "noData": "Keine Daten"
+    },
+    "Map": {
+      "eyebrow": "Geografie",
+      "title": "Karte der bestiegenen Gipfel",
+      "description": "Alle öffentlichen Besteigungen dieses Mitglieds auf der Karte.",
+      "label": "Karte der öffentlichen Besteigungen",
+      "emptyTitle": "Noch keine Gipfel auf der Karte",
+      "emptyDescription": "Dieses Mitglied hat noch keine öffentlichen Besteigungen hinzugefügt.",
+      "unnamedMountain": "Unbenannter Gipfel",
+      "mountainFallback": "Gipfel",
+      "dateUnknown": "Datum nicht angegeben",
+      "openMountain": "Gipfel öffnen →"
+    },
+    "Ascents": {
+      "eyebrow": "Tourenbuch",
+      "title": "Öffentliche Besteigungen",
+      "totalLabel": "Besteigungen insgesamt",
+      "count": "{count, plural, one {# Besteigung} other {# Besteigungen}}",
+      "emptyTitle": "Noch keine Besteigungen",
+      "emptyDescription": "Dieses Mitglied hat noch keine bestiegenen Gipfel veröffentlicht.",
+      "unnamedMountain": "Unbenannter Gipfel",
+      "dateUnknown": "Datum nicht angegeben",
+      "openMountain": "Gipfel öffnen →"
+    },
+    "Status": {
+      "loading": "Profil wird geladen…",
+      "loadFailed": "Profil konnte nicht geladen werden",
+      "missingUserId": "Die Benutzer-ID fehlt.",
+      "notFoundTitle": "Benutzer nicht gefunden",
+      "notFoundDescription": "Das Profil wurde möglicherweise gelöscht oder der Link ist ungültig.",
+      "openRanking": "Rangliste öffnen",
+      "unknownUser": "Teilnehmer"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

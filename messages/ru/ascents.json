@@ -1,0 +1,102 @@
+{
+  "Ascents": {
+    "Header": {
+      "eyebrow": "02 / Личный журнал",
+      "title": "История восхождений",
+      "description": "Хронология отмеченных вершин, дат и фотографий из вашего экспедиционного журнала.",
+      "totalRecords": "Всего записей",
+      "ascentCount": "{count, plural, one {# восхождение} few {# восхождения} many {# восхождений} other {# восхождения}}",
+      "map": "Карта",
+      "importGpx": "Импорт GPX"
+    },
+    "Filters": {
+      "searchLabel": "Поиск вершины",
+      "searchPlaceholder": "Поиск вершины",
+      "yearLabel": "Год восхождения",
+      "allYears": "Все годы"
+    },
+    "Sorting": {
+      "label": "Сортировка",
+      "newest": "Сначала новые",
+      "oldest": "Сначала старые",
+      "highest": "Высота: по убыванию",
+      "lowest": "Высота: по возрастанию",
+      "alphabetical": "По алфавиту"
+    },
+    "List": {
+      "eyebrow": "Реестр записей",
+      "title": "Восхождения",
+      "results": "Показано {shown} из {total}",
+      "noMatchesTitle": "Записи не найдены",
+      "noMatchesDescription": "Измените поисковый запрос или год, чтобы увидеть другие записи.",
+      "emptyTitle": "Пока нет восхождений",
+      "emptyDescription": "Откройте карту, выберите вершину и отметьте своё восхождение.",
+      "openMap": "Открыть карту",
+      "dateUnavailable": "Дата не указана",
+      "recordNumber": "Запись {number}",
+      "elevation": "Высота",
+      "date": "Дата",
+      "region": "Регион",
+      "openMountain": "Открыть вершину",
+      "mountainUnavailable": "Вершина недоступна",
+      "openGpsTracks": "Перейти к GPS-трекам"
+    },
+    "Photo": {
+      "invalidType": "Можно загружать только JPG, PNG или WebP.",
+      "tooLarge": "Размер фотографии не должен превышать 8 МБ.",
+      "loginRequired": "Сначала войдите в аккаунт.",
+      "updated": "Фотография обновлена.",
+      "uploadFailed": "Не удалось загрузить фотографию.",
+      "uploading": "Загружаю…",
+      "changePhoto": "Сменить фото"
+    },
+    "Privacy": {
+      "loginRequired": "Сначала войдите в аккаунт.",
+      "updateMissing": "Не удалось обновить настройки фотографии.",
+      "publicSuccess": "Фото видно в публичном профиле.",
+      "privateSuccess": "Фото скрыто из публичного профиля.",
+      "updateFailed": "Не удалось изменить видимость фото.",
+      "public": "Фото публичное",
+      "private": "Фото приватное",
+      "photoRequired": "Сначала загрузите собственную фотографию."
+    },
+    "Thumbnail": {
+      "customPhotoAlt": "Фотография восхождения на {mountainName}",
+      "mountainAlt": "Вершина {mountainName}",
+      "myPhoto": "Моё фото"
+    },
+    "MapPage": {
+      "loading": "Загружаю карту восхождений…",
+      "loginTitle": "Войдите в аккаунт",
+      "login": "Войти",
+      "eyebrow": "02.1 / География журнала",
+      "title": "Карта восхождений",
+      "description": "Пространственный обзор всех вершин, сохранённых в вашем журнале.",
+      "markedPeaks": "Отмечено вершин",
+      "peakCount": "{count, plural, one {# вершина} few {# вершины} many {# вершин} other {# вершины}}",
+      "openJournal": "Открыть журнал",
+      "sectionLabel": "Карта покорённых вершин"
+    },
+    "Map": {
+      "peakFallback": "Вершина",
+      "meterUnit": "м",
+      "openMountain": "Открыть вершину →",
+      "emptyTitle": "Пока нет покорённых вершин",
+      "emptyDescription": "Отмеченные восхождения появятся на этой карте.",
+      "accessibleLabel": "Интерактивная карта покорённых вершин"
+    },
+    "Status": {
+      "loading": "Загружаю восхождения…",
+      "loginEyebrow": "Журнал восхождений",
+      "loginTitle": "Войдите в аккаунт",
+      "loginDescription": "После входа здесь появится полный список ваших восхождений.",
+      "login": "Войти"
+    },
+    "Accessibility": {
+      "ascentList": "Список восхождений"
+    },
+    "Units": {
+      "meter": "м"
+    }
+  }
+}

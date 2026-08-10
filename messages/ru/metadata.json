@@ -1,0 +1,35 @@
+{
+  "Metadata": {
+    "Site": {
+      "title": "Mountain Tracker",
+      "description": "Открывайте вершины, изучайте горные маршруты и сохраняйте свои восхождения."
+    },
+    "Map": {
+      "title": "Интерактивная карта вершин | Mountain Tracker",
+      "description": "Открывайте горы и маршруты на интерактивной карте и планируйте следующие восхождения.",
+      "pageHeading": "Интерактивная карта горных вершин"
+    },
+    "Mountain": {
+      "title": "{name} | Mountain Tracker",
+      "description": "Исследуйте {name} высотой {height} м: маршруты, GPS-информация и данные о восхождениях.",
+      "fallbackTitle": "Информация о горе | Mountain Tracker",
+      "fallbackDescription": "Изучайте информацию о вершинах, маршруты и данные о восхождениях в Mountain Tracker."
+    },
+    "Ranking": {
+      "title": "Рейтинг вершин | Mountain Tracker",
+      "description": "Знакомьтесь с сообществом альпинистов: рейтинг вершин, статистика восхождений и набранная высота."
+    },
+    "PublicProfile": {
+      "title": "Публичный профиль альпиниста | Mountain Tracker",
+      "description": "Публичный профиль восхождений с покорёнными горами, статистикой вершин и журналом маршрутов."
+    },
+    "NoIndex": {
+      "accountTitle": "Аккаунт | Mountain Tracker",
+      "accountDescription": "Личный раздел Mountain Tracker.",
+      "authTitle": "Вход | Mountain Tracker",
+      "authDescription": "Вход и регистрация в Mountain Tracker.",
+      "diagnosticTitle": "Диагностика | Mountain Tracker",
+      "diagnosticDescription": "Внутренняя диагностическая страница."
+    }
+  }
+}

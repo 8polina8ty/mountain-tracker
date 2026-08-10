@@ -1,0 +1,27 @@
+{
+  "Navigation": {
+    "map": "Карта",
+    "ranking": "Рейтинг",
+    "myAscents": "Мои восхождения",
+    "account": "Аккаунт",
+    "login": "Войти",
+    "signUp": "Регистрация",
+    "logout": "Выйти",
+    "navigationTitle": "Навигация",
+    "userFallback": "Пользователь"
+  },
+  "LocaleSwitcher": {
+    "language": "Язык"
+  },
+  "Accessibility": {
+    "skipToContent": "Перейти к основному содержимому",
+    "openMap": "Mountain Tracker, открыть карту",
+    "mainNavigation": "Основная навигация",
+    "mobileNavigation": "Мобильная навигация",
+    "openNavigation": "Открыть навигацию",
+    "closeNavigation": "Закрыть навигацию",
+    "login": "Войти в аккаунт",
+    "logout": "Выйти из аккаунта",
+    "accountFor": "Аккаунт: {username}"
+  }
+}

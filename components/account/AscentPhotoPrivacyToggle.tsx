@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { createClient } from "@/Lib/supabase/client";
 
@@ -18,6 +19,7 @@ export default function AscentPhotoPrivacyToggle({
   hasCustomPhoto,
   onPrivacyChanged,
 }: AscentPhotoPrivacyToggleProps) {
+  const t = useTranslations("Ascents.Privacy");
   const [isPublic, setIsPublic] = useState(
     initialIsPublic,
   );
@@ -48,7 +50,7 @@ export default function AscentPhotoPrivacyToggle({
       }
 
       if (!user) {
-        setMessage("Сначала войдите в аккаунт.");
+        setMessage(t("loginRequired"));
         return;
       }
 
@@ -68,7 +70,7 @@ export default function AscentPhotoPrivacyToggle({
 
       if (!data) {
         throw new Error(
-          "Не удалось обновить настройки фотографии.",
+          t("updateMissing"),
         );
       }
 
@@ -81,8 +83,8 @@ export default function AscentPhotoPrivacyToggle({
 
       setMessage(
         savedValue
-          ? "Фото видно в публичном профиле."
-          : "Фото скрыто из публичного профиля.",
+          ? t("publicSuccess")
+          : t("privateSuccess"),
       );
     } catch (error) {
       console.error(
@@ -93,7 +95,7 @@ export default function AscentPhotoPrivacyToggle({
       setMessage(
         error instanceof Error
           ? error.message
-          : "Не удалось изменить видимость фото.",
+          : t("updateFailed"),
       );
     } finally {
       setUpdating(false);
@@ -124,8 +126,8 @@ export default function AscentPhotoPrivacyToggle({
         <span className="flex items-center gap-2">
           {isPublic ? <Eye aria-hidden="true" className="h-4 w-4" /> : <EyeOff aria-hidden="true" className="h-4 w-4" />}
           {isPublic
-            ? "Фото публичное"
-            : "Фото приватное"}
+            ? t("public")
+            : t("private")}
         </span>
 
         <span
@@ -149,7 +151,7 @@ export default function AscentPhotoPrivacyToggle({
 
       {!hasCustomPhoto && (
         <p className="mt-2 max-w-52 text-xs text-[var(--color-text-muted)]">
-          Сначала загрузите собственную фотографию.
+          {t("photoRequired")}
         </p>
       )}
 

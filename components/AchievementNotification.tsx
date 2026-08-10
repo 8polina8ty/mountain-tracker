@@ -2,13 +2,13 @@
 
 import { X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
+import { ACHIEVEMENT_MESSAGE_KEYS, type AchievementId } from "@/Lib/achievements";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
 
 export type AchievementNotificationData = {
-  id: string;
-  title: string;
-  description: string;
+  id: AchievementId;
   icon: string;
 };
 
@@ -22,6 +22,7 @@ export default function AchievementNotification({
   onClose,
 }: AchievementNotificationProps) {
   const shouldReduceMotion = useReducedMotion();
+  const t = useTranslations("Achievements");
 
   return (
     <AnimatePresence initial={false} mode="wait">
@@ -57,7 +58,7 @@ export default function AchievementNotification({
               type="button"
               onClick={onClose}
               className="ui-pressable absolute right-2 top-2 flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
-              aria-label="Закрыть уведомление"
+              aria-label={t("Accessibility.closeNotification")}
             >
               <X aria-hidden="true" className="h-4 w-4" />
             </button>
@@ -69,15 +70,15 @@ export default function AchievementNotification({
 
               <div>
                 <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-warning)]">
-                  Новый рубеж
+                  {t("Notification.eyebrow")}
                 </p>
 
                 <h2 className="mt-1 text-xl font-bold text-[var(--color-text)]">
-                  {notification.title}
+                  {t(`Definitions.${ACHIEVEMENT_MESSAGE_KEYS[notification.id]}.title`)}
                 </h2>
 
                 <p className="mt-1 text-sm leading-5 text-[var(--color-text-muted)]">
-                  {notification.description}
+                  {t(`Definitions.${ACHIEVEMENT_MESSAGE_KEYS[notification.id]}.unlockedDescription`)}
                 </p>
               </div>
             </div>

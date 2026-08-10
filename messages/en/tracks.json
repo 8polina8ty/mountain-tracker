@@ -1,0 +1,32 @@
+{
+  "Tracks": {
+    "List": {
+      "eyebrow": "03 / Route archive", "title": "GPS tracks", "description": "Recorded routes from watches, phones, and outdoor apps in one technical archive.",
+      "total": "Total tracks", "count": "{count, plural, one {# GPS track} other {# GPS tracks}}", "import": "Import track",
+      "emptyTitle": "No GPS tracks yet", "emptyDescription": "Import a GPX file from Garmin, Suunto, Strava, Komoot, a watch, or a phone.", "importFirst": "Import first track",
+      "fallbackTitle": "GPS track #{id}", "deletedAnnouncement": "GPS track “{activityTitle}” was deleted.", "accessibleLabel": "List of GPS tracks",
+      "distance": "Distance", "duration": "Duration", "elevationGain": "Gain", "maximumElevation": "Max. elevation", "openRoute": "Open route", "mapUnavailable": "Map unavailable"
+    },
+    "Detail": { "eyebrow": "03.1 / Route record", "description": "Source: {source}. Technical data and geometry of the saved route.", "allTracks": "All tracks", "summaryEyebrow": "Technical summary", "metricsTitle": "Activity metrics", "startedAt": "Activity started", "finishedAt": "Activity finished", "geometryTitle": "Route geometry" },
+    "Metrics": { "distance": "Distance", "elevationGain": "Elevation gain", "duration": "Duration", "maximumElevation": "Maximum elevation" },
+    "Sources": { "phone": "Phone", "fileUpload": "File upload", "other": "Other device" },
+    "Duration": { "minutes": "{minutes} min", "hoursMinutes": "{hours} h {minutes} min" },
+    "Processing": {
+      "ready": "Ready", "processing": "Processing", "pending": "Pending", "failed": "Failed",
+      "pendingTitle": "Track is awaiting processing", "pendingDescription": "The file has been uploaded, but GeoJSON has not been created yet.", "processingTitle": "Track is processing", "processingDescription": "Calculating distance, elevation, and route.", "failedTitle": "Unable to process track", "failedFallback": "No error reason was provided.", "mapUnavailableTitle": "Map temporarily unavailable", "mapUnavailableDescription": "Unable to retrieve the private track file."
+    },
+    "Import": {
+      "eyebrow": "03.2 / Field data", "title": "Import GPS track", "description": "Add an ascent recording from a navigation device, watch, phone, or outdoor app.", "allTracks": "All tracks", "stepLabel": "Step 01 / Route file", "activityData": "Activity data", "sourceLabel": "Track source", "otherWatch": "Other watch", "phone": "Phone", "otherApplication": "Other application",
+      "dropTitle": "Drop a GPS file here", "supportedFormats": "GPX, FIT, TCX, and GeoJSON files up to 50 MB can be selected. Only GPX is currently processed automatically.", "chooseFile": "Choose file", "invalidFormat": "GPX, FIT, TCX, and GeoJSON files are allowed.", "fileTooLarge": "The file must not exceed 50 MB.", "fileReady": "File is ready to import.", "selectFileFirst": "Select a GPS track file first.", "loginRequired": "Log in first.", "gpxOnly": "Automatic processing currently supports GPX only. FIT, TCX, and GeoJSON will follow later.", "activityIdMissing": "Unable to obtain the GPS activity ID.",
+      "selectedFileMeta": "{size} MB · source: {source}", "removeFile": "Remove", "uploading": "Uploading…", "submit": "Upload GPS track", "protocolAccessibleLabel": "Import settings", "protocolLabel": "Import protocol", "protocolTitle": "What will happen", "protocolStorage": "The file will be saved in private storage.", "protocolMetrics": "The route and metrics will be calculated automatically.", "protocolDetection": "The system will check for the nearest peak.", "privacyNote": "Maximum file size: 50 MB. Access to the record remains private.",
+      "success": "GPS track processed successfully.", "points": "{count, plural, one {# point.} other {# points.}}", "distance": "Distance: {value} km.", "elevationGain": "Elevation gain: {value} m.", "mountainDetected": "Detected peak: {mountainName}, distance from track {distance} m.", "mountainNotDetected": "No suitable peak was found near the track.", "uploadFailed": "Unable to upload GPS track."
+    },
+    "Detection": {
+      "sectionLabel": "Peak detection", "notDetectedTitle": "No peak detected automatically", "notDetectedDescription": "Select a peak manually if this GPS track belongs to an ascent.", "chooseMountain": "Select peak", "rejectedTitle": "Automatic result rejected", "chooseManually": "Select peak manually", "gpsConfirmed": "GPS verified", "detectedTitle": "Peak detected automatically", "elevation": "Elevation", "distanceToTrack": "Distance to track", "confidence": "Confidence", "confidenceUnavailable": "Not calculated", "meterUnit": "m", "openMountain": "Open peak page →", "saving": "Saving…", "confirm": "Confirm peak", "chooseAnother": "Choose another", "reject": "This is not the peak", "chooseAnotherTitle": "Select another peak", "close": "Close", "searchLabel": "Search for a peak by name", "searchPlaceholder": "For example, Zugspitze", "searching": "Searching for peaks…", "noResults": "No peaks found.", "elevationUnavailable": "Elevation not specified", "mountainFallback": "Peak #{id}", "searchFailed": "Unable to search for a peak.", "loginRequired": "Log in first.", "saveFailed": "Unable to save peak.", "rejectFailed": "Unable to reject result."
+    },
+    "Delete": { "confirmation": "Delete GPS track “{activityTitle}”?\n\nFiles and activity data will be permanently deleted.", "loginRequired": "Log in first.", "failed": "Unable to delete GPS track.", "deleting": "Deleting…", "delete": "Delete" },
+    "Map": { "accessibleLabel": "Interactive map of route {activityTitle}", "loading": "Loading GPS track…", "displayFailed": "Unable to display GPS track", "startMarker": "Route start: {activityTitle}", "finishMarker": "Route finish: {activityTitle}", "startPopup": "Start: {activityTitle}", "finishPopup": "Finish: {activityTitle}", "startLegend": "start", "finishLegend": "finish", "routeLegend": "blue line — recorded track", "storageError": "Storage returned error {status}.", "invalidGeoJson": "The file has an invalid GeoJSON format.", "insufficientCoordinates": "The track does not contain enough coordinates.", "loadFailed": "Unable to load track." },
+    "Status": { "notSpecified": "Not specified" },
+    "Units": { "kilometer": "km", "meter": "m" }
+  }
+}

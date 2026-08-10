@@ -7,8 +7,10 @@ import {
   X,
 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
+import { Link } from "@/i18n/navigation";
 import type { SelectedPeak } from "./types";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
@@ -59,6 +61,7 @@ export default function PeakDetailsPanel({
   onClose,
   onAscent,
 }: PeakDetailsPanelProps) {
+  const t = useTranslations("Map.PeakDetails");
   const shouldReduceMotion = useReducedMotion();
   const isSidePanel = useSidePanel();
 
@@ -122,7 +125,7 @@ export default function PeakDetailsPanel({
           <div className="min-w-0">
             <div className="flex items-center gap-2 [font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
               <Mountain aria-hidden="true" size={15} />
-              <span>Выбранная вершина</span>
+              <span>{t("selectedPeak")}</span>
             </div>
 
             <h2
@@ -133,7 +136,7 @@ export default function PeakDetailsPanel({
             </h2>
 
             <p className="mt-2 [font-family:var(--font-technical)] text-xl font-bold tabular-nums text-[var(--color-forest)]">
-              {peak.height} м
+              {peak.height} {t("meterUnit")}
             </p>
           </div>
 
@@ -141,37 +144,37 @@ export default function PeakDetailsPanel({
             type="button"
             onClick={onClose}
             className="ui-pressable flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
-            aria-label="Закрыть карточку"
+            aria-label={t("closePanel")}
           >
             <X aria-hidden="true" size={19} />
           </button>
         </div>
 
-        <a
+        <Link
           href={`/mountain/${peak.id}`}
           className="ui-pressable group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-forest)] hover:text-[var(--color-forest-hover)] hover:underline"
         >
-          Подробнее о вершине
+          {t("moreAboutPeak")}
           <ExternalLink aria-hidden="true" className="transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={14} />
-        </a>
+        </Link>
       </div>
 
       <div className="divide-y divide-[var(--color-border-soft)] px-4 sm:px-5">
         <div className="flex items-center justify-between gap-4 py-3">
           <div className="flex items-center gap-2.5 text-sm text-[var(--color-text-muted)]">
             <MapPin aria-hidden="true" size={16} />
-            <span>Регион</span>
+            <span>{t("region")}</span>
           </div>
 
           <span className="text-right text-sm font-semibold text-[var(--color-text-secondary)]">
-            {peak.name_de ?? "Не указан"}
+            {peak.name_de ?? t("notSpecified")}
           </span>
         </div>
 
         <div className="flex items-center justify-between gap-4 py-3">
           <div className="flex items-center gap-2.5 text-sm text-[var(--color-text-muted)]">
             <Navigation aria-hidden="true" size={16} />
-            <span>Координаты</span>
+            <span>{t("coordinates")}</span>
           </div>
 
           <span className="text-right [font-family:var(--font-technical)] text-xs font-semibold tabular-nums text-[var(--color-text-secondary)]">
@@ -182,11 +185,11 @@ export default function PeakDetailsPanel({
         <div className="flex items-center justify-between gap-4 py-3">
           <div className="flex items-center gap-2.5 text-sm text-[var(--color-text-muted)]">
             <Mountain aria-hidden="true" size={16} />
-            <span>Высота</span>
+            <span>{t("elevation")}</span>
           </div>
 
           <span className="[font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text-secondary)]">
-            {peak.height} м
+            {peak.height} {t("meterUnit")}
           </span>
         </div>
       </div>
@@ -239,10 +242,10 @@ export default function PeakDetailsPanel({
             <Check aria-hidden="true" size={17} />
           )}
           {ascentLoading
-            ? "Сохраняю…"
+            ? t("saving")
             : selectedPeakClimbed
-              ? "Отменить восхождение"
-              : "Взошёл на вершину"}
+              ? t("removeAscent")
+              : t("markClimbed")}
         </button>
 
         {ascentMessage && (

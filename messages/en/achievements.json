@@ -1,0 +1,20 @@
+{
+  "Achievements": {
+    "Section": { "eyebrow": "03 / Milestones", "title": "Expedition milestones", "count": "{unlocked} / {total}" },
+    "Card": { "received": "Earned: {date}" },
+    "Status": { "unlocked": "Unlocked", "inProgress": "In progress" },
+    "Notification": { "eyebrow": "New milestone" },
+    "Progress": { "count": "{progress} of {target}", "completed": "Completed", "aboveClouds": "A peak of at least 2,000 m is required", "zugspitze": "Zugspitze has not been climbed yet", "height": "{progress} of {target} m" },
+    "Accessibility": { "closeNotification": "Close notification", "progress": "Achievement progress: {title}" },
+    "Definitions": {
+      "firstAscent": { "title": "First step", "description": "Climb your first peak.", "unlockedDescription": "You climbed your first peak." },
+      "fiveAscents": { "title": "Aspiring mountaineer", "description": "Climb 5 peaks.", "unlockedDescription": "You climbed 5 peaks." },
+      "tenAscents": { "title": "Peak collector", "description": "Climb 10 peaks.", "unlockedDescription": "You climbed 10 peaks." },
+      "twentyFiveAscents": { "title": "Experienced mountaineer", "description": "Climb 25 peaks.", "unlockedDescription": "You climbed 25 peaks." },
+      "fiftyAscents": { "title": "Master of elevation", "description": "Climb 50 peaks.", "unlockedDescription": "You climbed 50 peaks." },
+      "aboveClouds": { "title": "Above the clouds", "description": "Climb a peak at least 2,000 m high.", "unlockedDescription": "You climbed a peak at least 2,000 m high." },
+      "zugspitze": { "title": "Roof of Germany", "description": "Climb Zugspitze.", "unlockedDescription": "You climbed Zugspitze." },
+      "tenThousandHeight": { "title": "10,000 meters", "description": "Accumulate 10,000 meters of elevation.", "unlockedDescription": "The combined elevation of your peaks reached 10,000 m." }
+    }
+  }
+}

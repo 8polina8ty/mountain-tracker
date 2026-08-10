@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { AnimatePresence } from "motion/react";
+import { useTranslations } from "next-intl";
 import { createClient } from "@/Lib/supabase/client";
 import type {
   PeakFeatureCollection,
@@ -18,7 +19,6 @@ import SearchPanel from "./SearchPanel";
 import HeightFilter from "./HeightFilter";
 import PeakDetailsPanel from "./PeakDetailsPanel";
 import {
-  getPeakName,
   getWikipediaUrl,
 } from "./peakUtils";
 import { useMountainSearch } from "./useMountainSearch";
@@ -28,6 +28,7 @@ import { useMountainMap } from "./useMountainMap";
 
 
 export default function MountainMap() {
+  const t = useTranslations("Map");
   const [supabase] = useState(createClient);
 
   const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -51,6 +52,12 @@ export default function MountainMap() {
 } = useMountainAscents({
   supabase,
   selectedPeak,
+  messages: {
+    loginRequired: t("PeakDetails.status.loginRequired"),
+    ascentRemoved: t("PeakDetails.status.ascentRemoved"),
+    alreadyClimbed: t("PeakDetails.status.alreadyClimbed"),
+    ascentAdded: t("PeakDetails.status.ascentAdded"),
+  },
 });
 
 
@@ -62,7 +69,9 @@ export default function MountainMap() {
 
   const [visiblePeakCount, setVisiblePeakCount] = useState(0);
 
-  const [loadingMessage, setLoadingMessage] = useState("Загружаю вершины…");
+  const [loadingMessage, setLoadingMessage] = useState(
+    t("Status.loadingPeaks"),
+  );
   const [mountainDataVersion, setMountainDataVersion] = useState(0);
 
   const {
@@ -87,6 +96,13 @@ export default function MountainMap() {
   },
 
   onClearAscentMessage: clearAscentMessage,
+  messages: {
+    mapLoading: t("Search.status.mapLoading"),
+    enterPeakName: t("Search.status.enterPeakName"),
+    notFound: (height) => t("Search.status.notFound", { height }),
+    matchesFound: (count) => t("Search.status.matchesFound", { count }),
+    peakFound: t("Search.status.peakFound"),
+  },
 });
   const minHeightRef = useRef<number>(MIN_HEIGHT);
 
@@ -115,6 +131,8 @@ useMountainMap({
   setSelectedPeakClimbed,
   loadClimbedMountains,
   checkSelectedPeakAscent,
+  unknownErrorMessage: t("Status.unknownError"),
+  formatLoadingError: (message) => t("Status.loadingError", { message }),
 });
 
   
@@ -155,14 +173,14 @@ useMountainMap({
 
       <section
         className="absolute left-3 top-3 z-10 max-h-[calc(100%-24px)] w-[calc(100%-24px)] overflow-y-auto rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-map-control)] sm:w-[336px]"
-        aria-label="Инструменты карты"
+        aria-label={t("Controls.accessibleLabel")}
       >
         <div className="border-b border-[var(--color-border-soft)] px-4 py-3">
           <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
-            Карта вершин
+            {t("Controls.title")}
           </p>
           <p className="mt-0.5 text-xs text-[var(--color-text-secondary)]">
-            Поиск и высотные параметры обзора
+            {t("Controls.subtitle")}
           </p>
         </div>
 
@@ -196,7 +214,11 @@ useMountainMap({
           <PeakDetailsPanel
             key="peak-details-panel"
             peak={selectedPeak}
-            peakName={getPeakName(selectedPeak)}
+            peakName={
+              selectedPeak.name ||
+              selectedPeak.name_de ||
+              t("PeakDetails.unnamed")
+            }
             wikipediaUrl={wikipediaUrl}
             selectedPeakClimbed={selectedPeakClimbed}
             ascentLoading={ascentLoading}

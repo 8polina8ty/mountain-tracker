@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
 import { Camera, Compass } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type ProfileCardProps = {
   username: string;
@@ -20,6 +21,7 @@ export default function ProfileCard({
   avatarMessage,
   handleAvatarUpload,
 }: ProfileCardProps) {
+  const t = useTranslations("Account.Profile");
   return (
     <section className="border-b border-[var(--color-border-strong)] bg-[var(--color-surface-inverse)] px-5 py-7 text-[var(--color-text-inverse)] sm:px-8 sm:py-9">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
@@ -27,7 +29,7 @@ export default function ProfileCard({
           {avatarUrl ? (
             <img
               src={avatarUrl}
-              alt={`Аватар пользователя ${username}`}
+              alt={t("avatarAlt", { username })}
               className="h-full w-full object-cover"
             />
           ) : (
@@ -38,7 +40,7 @@ export default function ProfileCard({
         <div className="min-w-0 flex-1">
           <p className="flex items-center gap-2 [font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-white/65">
             <Compass aria-hidden="true" className="h-3.5 w-3.5" />
-            Личная экспедиционная запись
+            {t("eyebrow")}
           </p>
 
           <h1 className="mt-2 break-words text-4xl font-bold sm:text-5xl">
@@ -62,8 +64,8 @@ export default function ProfileCard({
             >
               <Camera aria-hidden="true" className="h-4 w-4" />
               {avatarUploading
-                ? "Загрузка..."
-                : "Изменить аватар"}
+                ? t("uploading")
+                : t("changeAvatar")}
 
               <input
                 type="file"

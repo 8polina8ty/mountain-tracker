@@ -1,0 +1,126 @@
+{
+  "Mountain": {
+    "Hero": {
+      "backToMap": "Zurück zur Karte",
+      "profile": "Gipfelprofil",
+      "elevationAboveSeaLevel": "Höhe über dem Meeresspiegel",
+      "imageUnavailable": "Für diesen Gipfel ist noch kein Bild verfügbar",
+      "photoCredit": "Foto",
+      "authorAndLicense": "Urheber und Lizenz"
+    },
+    "Summary": {
+      "coordinates": "Koordinaten",
+      "verifiedRoutes": "Geprüfte Routen",
+      "recordedAscents": "Erfasste Besteigungen",
+      "routeCount": "{count, plural, one {# Route} other {# Routen}}",
+      "ascentCount": "{count, plural, one {# Besteigung} other {# Besteigungen}}"
+    },
+    "Passport": {
+      "sectionLabel": "01 / Überblick",
+      "title": "Gipfelpass",
+      "primaryName": "Hauptname",
+      "alternateName": "Alternativer Name",
+      "elevation": "Höhe",
+      "location": "Geografische Lage"
+    },
+    "Routes": {
+      "sectionLabel": "02 / Routen",
+      "title": "Aufstiegsrouten",
+      "introduction": "Geprüfte Aufstiegsvarianten. Prüfe vor dem Start Wetter, Routenverhältnisse und aktuelle Einschränkungen.",
+      "inProfile": "Im Profil",
+      "routeCount": "{count, plural, one {# Route} other {# Routen}}",
+      "emptyTitle": "Noch keine Routen vorhanden",
+      "emptyDescription": "Für diesen Gipfel liegt noch keine geprüfte Aufstiegsbeschreibung vor.",
+      "routeNumber": "Route {number}",
+      "routeTypes": {
+        "hiking": "Wanderroute",
+        "mountaineering": "Hochtour",
+        "viaFerrata": "Klettersteig",
+        "climbing": "Kletterroute",
+        "skiTouring": "Skitour",
+        "mixed": "Kombinierte Route",
+        "route": "Route"
+      },
+      "startPoint": "Ausgangspunkt",
+      "verified": "Geprüft",
+      "duration": {
+        "hours": "{count} h",
+        "minutes": "{count} min"
+      },
+      "description": "Tourenverlauf",
+      "bestSeason": "Beste Jahreszeit",
+      "equipment": "Ausrüstung",
+      "warning": "Wichtiger Hinweis",
+      "downloadGpx": "GPX herunterladen",
+      "sourceNamed": "Quelle: {sourceName}",
+      "source": "Routenquelle",
+      "safetyTitle": "Sicherheitshinweis:",
+      "safetyDescription": "Die Routenbeschreibung ersetzt keine aktuelle topografische Karte, keinen offiziellen Wetterbericht, keine Prüfung der Wegverhältnisse und keine persönliche Einschätzung von Erfahrung und Ausrüstung."
+    },
+    "RouteMetrics": {
+      "distance": "Distanz",
+      "elevationGain": "Höhenmeter",
+      "duration": "Dauer",
+      "difficulty": "Schwierigkeit"
+    },
+    "Ascent": {
+      "sectionLabel": "03 / Tourenbuch",
+      "recentAscents": "Letzte Besteigungen",
+      "empty": "Diesen Gipfel hat noch niemand als bestiegen markiert.",
+      "you": "Du",
+      "statusLabel": "Besteigungsstatus",
+      "yourRecord": "Dein Eintrag",
+      "loginRequired": "Anmeldung erforderlich",
+      "summitReached": "Gipfel bestiegen",
+      "notClimbed": "Noch nicht bestiegen",
+      "loginDescription": "Melde dich an, um deinen persönlichen Gipfelstatus zu sehen.",
+      "climbedDescription": "Die Besteigung ist in deinem Tourenbuch erfasst.",
+      "notClimbedDescription": "Die Besteigung ist noch nicht in deinem Tourenbuch erfasst.",
+      "totalRecords": "Einträge insgesamt",
+      "ascentCount": "{count, plural, one {# Besteigung} other {# Besteigungen}}",
+      "latest": "Letzte Besteigung",
+      "noneYet": "Noch keine"
+    },
+    "Favorite": {
+      "add": "Zu Favoriten hinzufügen",
+      "remove": "Aus Favoriten entfernen"
+    },
+    "Resources": {
+      "sectionLabel": "Referenzdaten",
+      "title": "Externe Quellen",
+      "empty": "Keine externen Quellen verfügbar."
+    },
+    "Status": {
+      "unnamed": "Unbenannter Gipfel",
+      "noData": "Keine Daten",
+      "coordinatesUnavailable": "Keine Koordinaten verfügbar",
+      "notSpecified": "Nicht angegeben",
+      "userFallback": "Benutzer"
+    },
+    "Map": {
+      "accessibleLabel": "Karte der Route „{routeName}“",
+      "loading": "Route wird geladen…",
+      "displayFailed": "Route konnte nicht angezeigt werden",
+      "startMarker": "Routenstart: {routeName}",
+      "finishMarker": "Routenziel: {routeName}",
+      "startPopup": "Start: {routeName}",
+      "finishPopup": "Ziel: {routeName}",
+      "startLegend": "Start",
+      "finishLegend": "Ziel",
+      "requestFailed": "Route konnte nicht geladen werden: {status}",
+      "invalidFeatureCollection": "Die Datei ist keine gültige GeoJSON FeatureCollection.",
+      "routeCoordinatesMissing": "In der GeoJSON-Datei wurde keine gültige Route gefunden.",
+      "loadFailed": "Route konnte nicht geladen werden."
+    },
+    "Accessibility": {
+      "mountainImage": "Gipfel {mountainName}",
+      "statusAndResources": "Gipfelstatus und Quellen",
+      "addFavorite": "{mountainName} zu Favoriten hinzufügen",
+      "removeFavorite": "{mountainName} aus Favoriten entfernen"
+    },
+    "Units": {
+      "meter": "m",
+      "kilometer": "km"
+    }
+  }
+}

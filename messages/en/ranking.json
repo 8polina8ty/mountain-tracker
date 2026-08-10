@@ -1,0 +1,61 @@
+{
+  "Ranking": {
+    "Header": {
+      "eyebrow": "Community / Summit registry",
+      "title": "Summit registry",
+      "subtitle": "The community expedition record: summits, accumulated elevation and achieved milestones."
+    },
+    "CommunityStats": {
+      "heading": "Community summary",
+      "users": "Participants",
+      "ascents": "Summits climbed",
+      "totalElevation": "Total elevation",
+      "achievements": "Milestones"
+    },
+    "Search": {
+      "filtersLabel": "Summit registry filters",
+      "label": "Find a participant",
+      "placeholder": "Find a participant",
+      "shown": "Showing {shown} of {total}"
+    },
+    "Sorting": {
+      "label": "Sort ranking",
+      "ascents": "By number of summits",
+      "totalHeight": "By total elevation",
+      "highestMountain": "By highest summit",
+      "achievements": "By milestones"
+    },
+    "Table": {
+      "eyebrow": "Official registry",
+      "title": "Participants",
+      "sortingHint": "Position reflects the selected sorting method.",
+      "position": "Position",
+      "participant": "Participant",
+      "ascents": "Summits",
+      "totalElevation": "Total elevation",
+      "highestPoint": "Highest point",
+      "achievements": "Milestones",
+      "profile": "Profile",
+      "openProfile": "Open profile",
+      "openUserProfile": "Open {username}'s profile",
+      "rowLabel": "Position {position}: {username}",
+      "topRank": "Top rank",
+      "rank": "Rank",
+      "noData": "No data"
+    },
+    "Counts": {
+      "ascents": "{count, plural, one {# summit} other {# summits}}"
+    },
+    "Status": {
+      "loading": "Loading ranking…",
+      "unknownUser": "Participant",
+      "noResultsTitle": "No participants found",
+      "noResultsDescription": "Check the name or change your search query.",
+      "emptyTitle": "The registry is empty",
+      "emptyDescription": "Participant records will appear here when data becomes available."
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}
