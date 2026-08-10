@@ -46,6 +46,12 @@
     "Counts": {
       "ascents": "{count, plural, one {# вершина} few {# вершины} many {# вершин} other {# вершины}}"
     },
+    "Achievements": {
+      "label": "Рубежи",
+      "milestones": "{count} / {total}",
+      "points": "Экспедиционный рейтинг",
+      "accessibleSummary": "Достигнуто {count} из {total} рубежей"
+    },
     "Status": {
       "loading": "Загружаю рейтинг…",
       "unknownUser": "Участник",

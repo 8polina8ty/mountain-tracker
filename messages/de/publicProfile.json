@@ -13,6 +13,21 @@
       "achievements": "Meilensteine",
       "noData": "Keine Daten"
     },
+    "Achievements": {
+      "eyebrow": "Expeditionsmeilensteine",
+      "title": "Langzeitbilanz",
+      "subtitle": "Kompakte Übersicht dauerhaft erreichter Meilensteine. Die Bergdaten bleiben der wichtigste Expeditionsmaßstab.",
+      "unlocked": "Erreicht",
+      "completion": "Abgeschlossen",
+      "points": "Expeditionswert",
+      "featured": "Ausgewählte Meilensteine",
+      "noFeatured": "Noch keine öffentlichen Meilensteine verfügbar.",
+      "distinguished": "Herausragend",
+      "exceptional": "Außergewöhnlich",
+      "lifetime": "Lebenswerk",
+      "unlockedOn": "Erreicht am {date}",
+      "accessibleSummary": "{unlockedCount} von {totalDefinitions} Meilensteinen, {milestonePoints} Expeditionspunkte, {completionPercent} Prozent abgeschlossen"
+    },
     "Map": {
       "eyebrow": "Geografie",
       "title": "Karte der bestiegenen Gipfel",

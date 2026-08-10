@@ -46,6 +46,12 @@
     "Counts": {
       "ascents": "{count, plural, one {# summit} other {# summits}}"
     },
+    "Achievements": {
+      "label": "Milestones",
+      "milestones": "{count} / {total}",
+      "points": "Expedition score",
+      "accessibleSummary": "{count} of {total} milestones"
+    },
     "Status": {
       "loading": "Loading ranking…",
       "unknownUser": "Participant",

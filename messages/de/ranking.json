@@ -46,6 +46,12 @@
     "Counts": {
       "ascents": "{count, plural, one {# Gipfel} other {# Gipfel}}"
     },
+    "Achievements": {
+      "label": "Meilensteine",
+      "milestones": "{count} / {total}",
+      "points": "Expeditionswert",
+      "accessibleSummary": "{count} von {total} Meilensteinen"
+    },
     "Status": {
       "loading": "Rangliste wird geladen…",
       "unknownUser": "Teilnehmer",

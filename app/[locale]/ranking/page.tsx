@@ -395,7 +395,7 @@ function RankingRow({
 
           <dl className="mt-4 grid grid-cols-2 gap-px border-y border-[var(--color-border-soft)] bg-[var(--color-border-soft)]">
             <RankingValue label={t("Table.totalElevation")} value={`${format.number(user.total_height)} ${t("Units.meter")}`} />
-            <RankingValue label={t("Table.achievements")} value={format.number(user.achievements_count)} />
+            <RankingValue label={t("Achievements.label")} value={t("Achievements.milestones", { count: format.number(user.achievements_count), total: format.number(111) })} />
             <RankingValue
               label={t("Table.highestPoint")}
               value={user.highest_mountain_name ?? t("Table.noData")}
@@ -433,7 +433,7 @@ function RankingRow({
               </p>
             )}
           </div>
-          <DesktopMetric value={format.number(user.achievements_count)} />
+          <DesktopMetric value={t("Achievements.milestones", { count: format.number(user.achievements_count), total: format.number(111) })} />
           <Link
             href={`/users/${user.user_id}`}
             aria-label={t("Table.openUserProfile", {

@@ -8,6 +8,11 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/Lib/supabase/client";
 import PublicAscentsMap from "@/components/users/PublicAscentsMap";
 import { Link } from "@/i18n/navigation";
+import {
+  normalizePublicAchievementSummary,
+  type PublicAchievementSummary,
+  type PublicFeaturedAchievement,
+} from "@/Lib/publicAchievementSummary";
 
 type PublicUserProfile = {
   user_id: string;
@@ -45,7 +50,9 @@ export default function PublicUserProfilePage() {
 
   const [profile, setProfile] =
     useState<PublicUserProfile | null>(null);
-    const [ascents, setAscents] = useState<PublicAscent[]>([]);
+  const [ascents, setAscents] = useState<PublicAscent[]>([]);
+  const [achievementSummary, setAchievementSummary] =
+    useState<PublicAchievementSummary | null>(null);
 
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -135,15 +142,11 @@ export default function PublicUserProfilePage() {
         ),
       });
 
-const {
-  data: ascentsData,
-  error: ascentsError,
-} = await supabase.rpc(
-  "get_public_user_ascents",
-  {
-    target_user_id: userId,
-  },
-);
+const [ascentsResult, achievementResult] = await Promise.all([
+  supabase.rpc("get_public_user_ascents", { target_user_id: userId }),
+  supabase.rpc("get_public_user_achievement_summary", { requested_user_id: userId }),
+]);
+const { data: ascentsData, error: ascentsError } = ascentsResult;
 
 if (cancelled) {
   return;
@@ -154,6 +157,13 @@ if (ascentsError) {
   setErrorMessage(ascentsError.message);
   setLoading(false);
   return;
+}
+
+if (achievementResult.error) {
+  console.error("Public achievement summary is unavailable.", achievementResult.error);
+  setAchievementSummary(null);
+} else {
+  setAchievementSummary(normalizePublicAchievementSummary(achievementResult.data));
 }
 
 const loadedAscents: PublicAscent[] = (
@@ -350,6 +360,10 @@ setAscents(loadedAscents);
           </div>
         </section>
 
+        {achievementSummary && (
+          <PublicAchievementSummarySection summary={achievementSummary} />
+        )}
+
 <section className="mt-6">
   <div className="mb-4">
     <p className="text-sm font-bold uppercase tracking-wider text-green-700">
@@ -462,6 +476,79 @@ setAscents(loadedAscents);
 </section>
       </div>
     </main>
+  );
+}
+
+function PublicAchievementSummarySection({ summary }: { summary: PublicAchievementSummary }) {
+  const t = useTranslations("PublicProfile.Achievements");
+  const format = useFormatter();
+  return (
+    <section className="mt-6 border-y border-[var(--color-border-strong)] bg-[var(--color-surface)] px-5 py-6 sm:px-7" aria-labelledby="public-achievement-summary-title">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="max-w-2xl">
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.08em] text-[var(--color-forest)]">{t("eyebrow")}</p>
+          <h2 id="public-achievement-summary-title" className="mt-1 text-2xl font-bold text-[var(--color-text)]">{t("title")}</h2>
+          <p className="mt-2 text-sm text-[var(--color-text-muted)]">{t("subtitle")}</p>
+        </div>
+        <p className="[font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text)]" aria-label={t("accessibleSummary", {
+          unlockedCount: summary.unlockedCount,
+          totalDefinitions: summary.totalDefinitions,
+          milestonePoints: summary.milestonePoints,
+          completionPercent: summary.completionPercent,
+        })}>
+          {format.number(summary.unlockedCount)} / {format.number(summary.totalDefinitions)}
+        </p>
+      </div>
+
+      <dl className="mt-5 grid grid-cols-2 gap-px border-y border-[var(--color-border)] bg-[var(--color-border-soft)] sm:grid-cols-3 lg:grid-cols-6">
+        <PublicAchievementMetric label={t("unlocked")} value={`${format.number(summary.unlockedCount)} / ${format.number(summary.totalDefinitions)}`} />
+        <PublicAchievementMetric label={t("points")} value={format.number(summary.milestonePoints)} />
+        <PublicAchievementMetric label={t("completion")} value={`${format.number(summary.completionPercent)}%`} />
+        <PublicAchievementMetric label={t("distinguished")} value={format.number(summary.distinguishedCount)} />
+        <PublicAchievementMetric label={t("exceptional")} value={format.number(summary.exceptionalCount)} />
+        <PublicAchievementMetric label={t("lifetime")} value={format.number(summary.lifetimeCount)} />
+      </dl>
+
+      <div className="mt-6">
+        <h3 className="text-sm font-bold text-[var(--color-text)]">{t("featured")}</h3>
+        {summary.featured.length === 0 ? (
+          <p className="mt-2 text-sm text-[var(--color-text-muted)]">{t("noFeatured")}</p>
+        ) : (
+          <div className="mt-3 grid gap-px border-y border-[var(--color-border)] bg-[var(--color-border-soft)] md:grid-cols-3">
+            {summary.featured.map((achievement) => (
+              <PublicFeaturedAchievementRecord key={achievement.id} achievement={achievement} />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function PublicAchievementMetric({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="min-w-0 bg-[var(--color-surface)] p-3">
+      <dt className="text-xs text-[var(--color-text-muted)]">{label}</dt>
+      <dd className="mt-1 [font-family:var(--font-technical)] text-lg font-bold tabular-nums text-[var(--color-text)]">{value}</dd>
+    </div>
+  );
+}
+
+function PublicFeaturedAchievementRecord({ achievement }: { achievement: PublicFeaturedAchievement }) {
+  const t = useTranslations("Achievements");
+  const profileT = useTranslations("PublicProfile.Achievements");
+  const format = useFormatter();
+  return (
+    <article className="min-w-0 bg-[var(--color-surface)] p-4">
+      <div className="flex items-start gap-3">
+        <span aria-hidden="true" className="text-lg text-[var(--color-text-muted)]">{achievement.icon}</span>
+        <div className="min-w-0">
+          <h4 className="break-words font-bold text-[var(--color-text)]">{t(`Definitions.${achievement.translationKey}.title`, { target: achievement.target })}</h4>
+          <p className="mt-1 text-xs text-[var(--color-text-muted)]">{t(`Categories.${achievement.category}`)} · {t(`Rarity.${achievement.rarity}`)}</p>
+          <p className="mt-2 text-xs text-[var(--color-text-muted)]">{profileT("unlockedOn", { date: format.dateTime(new Date(achievement.unlockedAt), { year: "numeric", month: "short", day: "numeric" }) })}</p>
+        </div>
+      </div>
+    </article>
   );
 }
 

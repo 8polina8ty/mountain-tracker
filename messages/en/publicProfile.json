@@ -13,6 +13,21 @@
       "achievements": "Milestones",
       "noData": "No data"
     },
+    "Achievements": {
+      "eyebrow": "Expedition milestones",
+      "title": "Long-term record",
+      "subtitle": "A compact record of persisted milestones. Mountain statistics remain the primary expedition measure.",
+      "unlocked": "Unlocked",
+      "completion": "Complete",
+      "points": "Expedition score",
+      "featured": "Selected milestones",
+      "noFeatured": "No public milestones are available yet.",
+      "distinguished": "Distinguished",
+      "exceptional": "Exceptional",
+      "lifetime": "Lifetime",
+      "unlockedOn": "Unlocked {date}",
+      "accessibleSummary": "{unlockedCount} of {totalDefinitions} milestones, {milestonePoints} expedition points, {completionPercent} percent complete"
+    },
     "Map": {
       "eyebrow": "Geography",
       "title": "Map of climbed summits",

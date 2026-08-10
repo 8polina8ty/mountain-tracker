@@ -500,6 +500,17 @@ async function testAchievementNotifications() {
   console.log("Achievement notification queue and trigger planning: passed");
 }
 
+async function testPublicAchievementSummary() {
+  const sql = await readFile(
+    new URL("../database/get_public_user_achievement_summary.sql", import.meta.url),
+    "utf8",
+  );
+  assert.match(sql, /security definer/i);
+  assert.match(sql, /set search_path = ''/i);
+  assert.doesNotMatch(sql, /notified_at|grant_source|gps_activities/);
+  assert.match(sql, /grant execute on function public\.get_public_user_achievement_summary\(uuid\) to anon, authenticated/);
+}
+
 async function testAchievementBackfill() {
   const satisfied = ["first-ascent", "five-ascents", "countries-2"];
   const existing = ["first-ascent", "above-clouds"];
@@ -621,6 +632,7 @@ testEvaluator();
 testSnapshotNormalization();
 await testAchievementPersistence();
 await testAchievementNotifications();
+await testPublicAchievementSummary();
 await testAchievementBackfill();
 await testTranslationCoverage();
 

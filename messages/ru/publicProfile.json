@@ -13,6 +13,21 @@
       "achievements": "Рубежи",
       "noData": "Нет данных"
     },
+    "Achievements": {
+      "eyebrow": "Экспедиционные рубежи",
+      "title": "Долгосрочные результаты",
+      "subtitle": "Краткая сводка достигнутых рубежей. Основными показателями остаются реальные горные результаты.",
+      "unlocked": "Достигнуто",
+      "completion": "Выполнено",
+      "points": "Экспедиционный рейтинг",
+      "featured": "Избранные рубежи",
+      "noFeatured": "Публичных рубежей пока нет.",
+      "distinguished": "Выдающиеся",
+      "exceptional": "Исключительные",
+      "lifetime": "Дело жизни",
+      "unlockedOn": "Достигнуто {date}",
+      "accessibleSummary": "Достигнуто {unlockedCount} из {totalDefinitions} рубежей, {milestonePoints} экспедиционных очков, выполнено {completionPercent} процентов"
+    },
     "Map": {
       "eyebrow": "География",
       "title": "Карта покорённых вершин",
