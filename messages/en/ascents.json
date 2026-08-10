@@ -48,7 +48,11 @@
       "updated": "Photo updated.",
       "uploadFailed": "Unable to upload photo.",
       "uploading": "Uploading…",
-      "changePhoto": "Change photo"
+      "changePhoto": "Change photo",
+      "removePhoto": "Remove photo",
+      "removing": "Removing…",
+      "removed": "Photo removed.",
+      "removeFailed": "Unable to remove photo."
     },
     "Privacy": {
       "loginRequired": "Log in first.",

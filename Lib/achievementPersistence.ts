@@ -56,6 +56,13 @@ export function planAchievementReconciliation(
   return uniqueAchievementIds(unlockedIds).filter((id) => !existing.has(id));
 }
 
+export function planAchievementBackfill(
+  satisfiedIds: readonly AchievementId[],
+  existingIds: readonly AchievementId[],
+): AchievementId[] {
+  return planAchievementReconciliation(satisfiedIds, existingIds);
+}
+
 export function normalizeAchievementGrantRecords(
   value: unknown,
   isKnownId: AchievementIdGuard,

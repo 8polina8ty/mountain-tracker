@@ -5,14 +5,16 @@ import {
   useRef,
   useState,
 } from "react";
-import { Camera } from "lucide-react";
+import { Camera, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { createClient } from "@/Lib/supabase/client";
+import { useAchievementNotification } from "@/components/achievements/AchievementNotificationProvider";
 
 type ChangeAscentPhotoButtonProps = {
   ascentId: number;
-  onPhotoChanged: (imageUrl: string) => void;
+  hasPhoto: boolean;
+  onPhotoChanged: (imageUrl: string | null) => void;
 };
 
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
@@ -25,8 +27,10 @@ const ALLOWED_FILE_TYPES = [
 
 export default function ChangeAscentPhotoButton({
   ascentId,
+  hasPhoto,
   onPhotoChanged,
 }: ChangeAscentPhotoButtonProps) {
+  const { reconcileAfterUserAction } = useAchievementNotification();
   const t = useTranslations("Ascents.Photo");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -36,6 +40,35 @@ export default function ChangeAscentPhotoButton({
   function openFileDialog() {
     if (!uploading) {
       inputRef.current?.click();
+    }
+  }
+
+  async function removePhoto() {
+    if (uploading || !hasPhoto) return;
+    setUploading(true);
+    setMessage("");
+    const supabase = createClient();
+
+    try {
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      if (userError) throw userError;
+      if (!user) throw new Error(t("loginRequired"));
+
+      const { error } = await supabase
+        .from("ascents")
+        .update({ image_url: null })
+        .eq("id", ascentId)
+        .eq("user_id", user.id);
+      if (error) throw error;
+
+      onPhotoChanged(null);
+      setMessage(t("removed"));
+      await reconcileAfterUserAction(supabase);
+    } catch (error) {
+      console.error("Unable to remove ascent photo.", error);
+      setMessage(error instanceof Error ? error.message : t("removeFailed"));
+    } finally {
+      setUploading(false);
     }
   }
 
@@ -128,6 +161,7 @@ export default function ChangeAscentPhotoButton({
 
       onPhotoChanged(imageUrl);
       setMessage(t("updated"));
+      await reconcileAfterUserAction(supabase);
     } catch (error) {
       console.error(
         "Ошибка загрузки фотографии восхождения:",
@@ -163,6 +197,18 @@ export default function ChangeAscentPhotoButton({
         <Camera aria-hidden="true" className="h-4 w-4" />
         {uploading ? t("uploading") : t("changePhoto")}
       </button>
+
+      {hasPhoto && (
+        <button
+          type="button"
+          onClick={removePhoto}
+          disabled={uploading}
+          className="ui-destructive ui-pressable mt-2 inline-flex min-h-11 w-full items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-danger-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-danger)] disabled:opacity-60"
+        >
+          <Trash2 aria-hidden="true" className="h-4 w-4" />
+          {uploading ? t("removing") : t("removePhoto")}
+        </button>
+      )}
 
       {message && (
         <p className="mt-2 max-w-52 text-xs text-[var(--color-text-muted)]" role="status">

@@ -10,6 +10,7 @@ import {
 } from "react";
 
 import { createClient } from "@/Lib/supabase/client";
+import { useAchievementNotification } from "@/components/achievements/AchievementNotificationProvider";
 import { useFormatter, useTranslations } from "next-intl";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
@@ -64,6 +65,7 @@ export default function DetectedMountainSection({
   detectionStatus,
   gpsVerified,
 }: DetectedMountainSectionProps) {
+  const { reconcileAfterUserAction } = useAchievementNotification();
   const t = useTranslations("Tracks.Detection");
   const format = useFormatter();
   const router = useRouter();
@@ -335,7 +337,7 @@ if (existingAscent) {
   }
 }
       closeMountainSearch();
-
+      await reconcileAfterUserAction(supabase);
       router.refresh();
     } catch (error) {
       console.error(
@@ -412,6 +414,7 @@ if (existingAscent) {
         throw updateError;
       }
 
+      await reconcileAfterUserAction(supabase);
       router.refresh();
     } catch (error) {
       console.error(

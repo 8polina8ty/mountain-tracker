@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 import type { SelectedPeak } from "./types";
+import { useAchievementNotification } from "@/components/achievements/AchievementNotificationProvider";
 
 type UseMountainAscentsParams = {
   supabase: SupabaseClient;
@@ -19,6 +20,7 @@ export function useMountainAscents({
   selectedPeak,
   messages,
 }: UseMountainAscentsParams) {
+  const { reconcileAfterUserAction } = useAchievementNotification();
   const [selectedPeakClimbed, setSelectedPeakClimbed] =
     useState(false);
   const [ascentLoading, setAscentLoading] = useState(false);
@@ -155,6 +157,7 @@ setClimbedMountainIds((currentIds) => {
 
       setAscentMessage(messages.ascentRemoved);
       hideMessageAfterDelay();
+      await reconcileAfterUserAction(supabase);
       setAscentLoading(false);
       return;
     }
@@ -198,6 +201,7 @@ setClimbedMountainIds((currentIds) => {
     setAscentMessage(messages.ascentAdded);
 
     hideMessageAfterDelay();
+    await reconcileAfterUserAction(supabase);
     setAscentLoading(false);
   }
 

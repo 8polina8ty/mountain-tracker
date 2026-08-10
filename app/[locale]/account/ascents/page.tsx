@@ -31,7 +31,7 @@ export default function AscentsPage() {
   const { user, loading, errorMessage, ascents, getMountainName } =
     useAccount();
   const [customImageUrls, setCustomImageUrls] = useState<
-    Record<number, string>
+    Record<number, string | null>
   >({});
   const [photoPrivacy, setPhotoPrivacy] = useState<
     Record<number, boolean>
@@ -225,7 +225,9 @@ export default function AscentsPage() {
           <section className="border-t border-[var(--color-border-strong)]" aria-label={t("Accessibility.ascentList")}>
             {displayedAscents.map((ascent, index) => {
               const mountainName = getMountainName(ascent.mountains);
-              const customImageUrl = customImageUrls[ascent.id] ?? ascent.image_url ?? null;
+              const customImageUrl = Object.hasOwn(customImageUrls, ascent.id)
+                ? customImageUrls[ascent.id]
+                : ascent.image_url ?? null;
               const isPhotoPublic = photoPrivacy[ascent.id] ?? ascent.is_photo_public;
               const climbedDate = ascent.climbed_at
                 ? format.dateTime(new Date(ascent.climbed_at), {
@@ -271,6 +273,7 @@ export default function AscentsPage() {
                   <div className="flex min-w-0 flex-col gap-2 md:col-start-2 xl:col-start-auto xl:w-52">
                     <ChangeAscentPhotoButton
                       ascentId={ascent.id}
+                      hasPhoto={Boolean(customImageUrl)}
                       onPhotoChanged={(imageUrl) => {
                         setCustomImageUrls((currentUrls) => ({ ...currentUrls, [ascent.id]: imageUrl }));
                       }}

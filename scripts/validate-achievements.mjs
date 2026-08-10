@@ -21,6 +21,7 @@ import {
 import {
   getUnknownAchievementIds,
   normalizeAchievementGrantRecords,
+  planAchievementBackfill,
   planAchievementReconciliation,
 } from "../Lib/achievementPersistence.ts";
 import {
@@ -394,7 +395,7 @@ async function testAchievementPersistence() {
   console.log("Achievement persistence and reconciliation: passed");
 }
 
-function testAchievementNotifications() {
+async function testAchievementNotifications() {
   const candidate = (id, chainId, tier) => {
     const definition = ACHIEVEMENT_REGISTRY_BY_ID.get(id);
     assert.ok(definition);
@@ -449,15 +450,115 @@ function testAchievementNotifications() {
   assert.equal(shouldReconcileAchievementMutation({ event: "ascent-created", succeeded: false }), false);
   assert.equal(shouldReconcileAchievementMutation({ event: "photo-changed", succeeded: true }), true);
   assert.equal(shouldReconcileAchievementMutation({ event: "favorite-changed", succeeded: true }), true);
+  assert.equal(shouldReconcileAchievementMutation({ event: "ascent-removed", succeeded: true }), true);
+  assert.equal(shouldReconcileAchievementMutation({ event: "gps-mountain-changed", succeeded: true }), true);
+  assert.equal(shouldReconcileAchievementMutation({ event: "gps-track-deleted", succeeded: true }), true);
   assert.equal(shouldReconcileAchievementMutation({ event: "gps-ready", succeeded: true, gpsStatus: "pending" }), false);
+  assert.equal(shouldReconcileAchievementMutation({ event: "gps-ready", succeeded: false, gpsStatus: "ready" }), false);
   assert.equal(shouldReconcileAchievementMutation({ event: "gps-ready", succeeded: true, gpsStatus: "ready" }), true);
+
+  const representedIds = new Set([first, country, gps].map(({ id }) => id));
+  assert.equal(representedIds.size, 3);
+  assert.equal(incoming.filter(({ kind }) => kind === "achievement").length, 2);
+  assert.equal(incoming.filter(({ kind }) => kind === "summary").length, 1);
 
   const persisted = new Set(["first-ascent"]);
   const lowerProgressSnapshot = createSnapshot();
   assert.equal(evaluationFor("first-ascent", lowerProgressSnapshot).unlocked, false);
   assert.equal(persisted.has("first-ascent"), true);
 
+  const triggerSources = await Promise.all([
+    "../components/MountainMap/useMountainAscents.ts",
+    "../components/account/ChangeAscentPhotoButton.tsx",
+    "../components/account/DeleteGpsTrackButton.tsx",
+    "../components/account/DetectedMountainSection.tsx",
+    "../app/[locale]/account/tracks/import/page.tsx",
+    "../app/[locale]/mountain/[id]/actions.ts",
+  ].map((relativePath) => readFile(new URL(relativePath, import.meta.url), "utf8")));
+  const expectedTriggerCounts = [2, 2, 1, 2, 1, 1];
+  triggerSources.forEach((source, index) => {
+    assert.equal(
+      source.match(/(?:await|void)\s+(?:reconcileAfterUserAction|reconcileAchievementsAfterUserAction)/g)?.length ?? 0,
+      expectedTriggerCounts[index],
+    );
+  });
+
+  const providerSource = await readFile(
+    new URL("../components/achievements/AchievementNotificationProvider.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.match(providerSource, /pendingLoadStarted\.current/);
+  assert.doesNotMatch(providerSource, /setInterval/);
+  assert.match(providerSource, /candidates\.map\(\(candidate\)\s*=>\s*markAchievementNotificationDisplayed/);
+
+  const legacyServiceSource = await readFile(
+    new URL("../Lib/achievementService.ts", import.meta.url),
+    "utf8",
+  );
+  assert.match(legacyServiceSource, /if \(ACHIEVEMENT_V2_RUNTIME_ENABLED\)/);
+
   console.log("Achievement notification queue and trigger planning: passed");
+}
+
+async function testAchievementBackfill() {
+  const satisfied = ["first-ascent", "five-ascents", "countries-2"];
+  const existing = ["first-ascent", "above-clouds"];
+  const missing = planAchievementBackfill(satisfied, existing);
+  assert.deepEqual(missing, ["five-ascents", "countries-2"]);
+  assert.ok(!missing.includes("above-clouds"));
+  assert.ok(!missing.includes("summits-1000"));
+
+  const persisted = new Map([
+    ["first-ascent", { unlockedAt: "2025-01-01T00:00:00.000Z" }],
+    ["above-clouds", { unlockedAt: "2025-02-01T00:00:00.000Z" }],
+  ]);
+  const originalRows = structuredClone([...persisted.entries()]);
+  const timestamp = "2026-08-10T18:00:00.000Z";
+  const firstInserted = missing.filter((id) => {
+    if (persisted.has(id)) return false;
+    persisted.set(id, {
+      unlockedAt: timestamp,
+      grantSource: "backfill",
+      definitionVersion: 2,
+      notifiedAt: timestamp,
+    });
+    return true;
+  });
+  const secondInserted = planAchievementBackfill(satisfied, [...persisted.keys()]);
+  assert.deepEqual(firstInserted, ["five-ascents", "countries-2"]);
+  assert.deepEqual(secondInserted, []);
+  assert.deepEqual([...persisted.entries()].slice(0, 2), originalRows);
+
+  const normalized = normalizeAchievementGrantRecords(
+    firstInserted.map((achievementId) => ({
+      achievement_id: achievementId,
+      unlocked_at: timestamp,
+      grant_source: "backfill",
+      definition_version: 2,
+      notified_at: timestamp,
+    })),
+    isAchievementId,
+  );
+  assert.equal(normalized.length, 2);
+  assert.ok(normalized.every((record) => record.grantSource === "backfill"));
+  assert.ok(normalized.every((record) => record.definitionVersion === 2));
+  assert.ok(normalized.every((record) => record.notifiedAt !== null));
+
+  const pending = normalized.filter(
+    (record) => record.notifiedAt === null && record.grantSource !== "backfill",
+  );
+  assert.deepEqual(pending, []);
+
+  const runtimeSource = await readFile(
+    new URL("../Lib/achievementRuntime.ts", import.meta.url),
+    "utf8",
+  );
+  assert.match(
+    runtimeSource,
+    /ACHIEVEMENT_V2_RUNTIME_ENABLED\s*=\s*true/,
+  );
+
+  console.log("Achievement historical backfill planning: passed");
 }
 
 function getShape(value) {
@@ -519,7 +620,8 @@ testRegistryIntegrity();
 testEvaluator();
 testSnapshotNormalization();
 await testAchievementPersistence();
-testAchievementNotifications();
+await testAchievementNotifications();
+await testAchievementBackfill();
 await testTranslationCoverage();
 
 console.log("Achievement registry integrity: passed (111 definitions)");

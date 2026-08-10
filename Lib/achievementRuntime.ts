@@ -4,7 +4,7 @@ import { reconcileAchievementsForCurrentUser } from "./achievementReconciliation
 import type { AchievementGrantRecord } from "./achievementPersistence";
 
 /** Enable only after both Phase B/C SQL artifacts are deployed and verified. */
-export const ACHIEVEMENT_V2_RUNTIME_ENABLED = false;
+export const ACHIEVEMENT_V2_RUNTIME_ENABLED = true;
 
 let reconciliationFailureReported = false;
 

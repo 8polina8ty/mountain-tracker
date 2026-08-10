@@ -28,8 +28,12 @@ import {
   loadPendingAchievementNotificationIds,
   markAchievementNotificationDisplayed,
 } from "@/Lib/achievementNotificationService";
-import { ACHIEVEMENT_V2_RUNTIME_ENABLED } from "@/Lib/achievementRuntime";
+import {
+  ACHIEVEMENT_V2_RUNTIME_ENABLED,
+  reconcileAchievementsAfterUserAction,
+} from "@/Lib/achievementRuntime";
 import { createClient } from "@/Lib/supabase/client";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 type LegacyNotificationInput = {
   id: AchievementId;
@@ -39,6 +43,7 @@ type LegacyNotificationInput = {
 type AchievementNotificationContextValue = {
   showAchievementNotification: (notification: LegacyNotificationInput) => void;
   enqueueAchievementIds: (ids: readonly AchievementId[]) => void;
+  reconcileAfterUserAction: (supabase: SupabaseClient) => Promise<void>;
   closeAchievementNotification: () => void;
 };
 
@@ -69,6 +74,7 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
   const [queue, setQueue] = useState<AchievementNotificationQueueItem[]>([]);
   const timeoutRef = useRef<number | null>(null);
   const batchSequence = useRef(0);
+  const pendingLoadStarted = useRef(false);
   const current = queue[0] ?? null;
 
   const clearTimer = useCallback(() => {
@@ -98,14 +104,30 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
 
   const enqueueAchievementIds = useCallback(
     (ids: readonly AchievementId[]) => {
-      enqueueCandidates(
-        ids.flatMap((id) => {
+      const candidates = ids.flatMap((id) => {
           const candidate = candidateForId(id, true);
           return candidate ? [candidate] : [];
-        }),
+        });
+      enqueueCandidates(candidates);
+
+      const supabase = createClient();
+      void Promise.all(
+        candidates.map((candidate) =>
+          markAchievementNotificationDisplayed(supabase, candidate.id),
+        ),
+      ).catch((error) =>
+        console.error("Unable to acknowledge achievement notification batch.", error),
       );
     },
     [enqueueCandidates],
+  );
+
+  const reconcileAfterUserAction = useCallback(
+    async (supabase: SupabaseClient) => {
+      const grants = await reconcileAchievementsAfterUserAction(supabase);
+      enqueueAchievementIds(grants.map((grant) => grant.achievementId));
+    },
+    [enqueueAchievementIds],
   );
 
   const showAchievementNotification = useCallback(
@@ -131,19 +153,8 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
   }, [clearTimer, current]);
 
   useEffect(() => {
-    if (
-      !ACHIEVEMENT_V2_RUNTIME_ENABLED ||
-      current?.kind !== "achievement" ||
-      !current.durable
-    ) return;
-
-    void markAchievementNotificationDisplayed(createClient(), current.id).catch(
-      (error) => console.error("Unable to mark achievement notification.", error),
-    );
-  }, [current]);
-
-  useEffect(() => {
-    if (!ACHIEVEMENT_V2_RUNTIME_ENABLED) return;
+    if (!ACHIEVEMENT_V2_RUNTIME_ENABLED || pendingLoadStarted.current) return;
+    pendingLoadStarted.current = true;
     void loadPendingAchievementNotificationIds(createClient())
       .then((ids) => enqueueAchievementIds(ids.filter(isAchievementId)))
       .catch((error) => console.error("Unable to load pending achievement notifications.", error));
@@ -155,9 +166,10 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
     () => ({
       showAchievementNotification,
       enqueueAchievementIds,
+      reconcileAfterUserAction,
       closeAchievementNotification,
     }),
-    [closeAchievementNotification, enqueueAchievementIds, showAchievementNotification],
+    [closeAchievementNotification, enqueueAchievementIds, reconcileAfterUserAction, showAchievementNotification],
   );
 
   return (

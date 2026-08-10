@@ -14,7 +14,6 @@ import {
   Navigation,
   Ruler,
   ShieldAlert,
-  Star,
   Sun,
   Users,
 } from "lucide-react";
@@ -27,7 +26,7 @@ import { createClient } from "@/Lib/supabase/server";
 import { getMountainImageFromWikidata } from "@/Lib/wikimedia";
 import MountainRouteMap from "@/components/mountain/MountainRouteMap";
 
-import { toggleFavoriteMountain } from "./actions";
+import FavoriteMountainToggle from "@/components/mountain/FavoriteMountainToggle";
 import type { Locale } from "@/i18n/locales";
 import { Link } from "@/i18n/navigation";
 import {
@@ -916,36 +915,12 @@ export default async function MountainPage({ params }: MountainPageProps) {
               </dl>
 
               {user && (
-                <form
-                  action={async () => {
-                    "use server";
-                    await toggleFavoriteMountain(typedMountain.id, locale);
-                  }}
-                  className="mt-4"
-                >
-                  <button
-                    type="submit"
-                    aria-label={
-                      isFavorite
-                        ? t("Accessibility.removeFavorite", { mountainName })
-                        : t("Accessibility.addFavorite", { mountainName })
-                    }
-                    className={`ui-pressable flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border px-4 text-sm font-bold ${
-                      isFavorite
-                        ? "ui-destructive border-[var(--color-danger-border)] bg-[var(--color-danger-soft)] text-[var(--color-danger)]"
-                        : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
-                    }`}
-                  >
-                    <Star
-                      aria-hidden="true"
-                      size={17}
-                      fill={isFavorite ? "currentColor" : "none"}
-                    />
-                    {isFavorite
-                      ? t("Favorite.remove")
-                      : t("Favorite.add")}
-                  </button>
-                </form>
+                <FavoriteMountainToggle
+                  mountainId={typedMountain.id}
+                  mountainName={mountainName}
+                  locale={locale}
+                  isFavorite={isFavorite}
+                />
               )}
             </section>
 

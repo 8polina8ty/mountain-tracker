@@ -5,6 +5,7 @@ import { Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { createClient } from "@/Lib/supabase/client";
+import { useAchievementNotification } from "@/components/achievements/AchievementNotificationProvider";
 
 type DeleteGpsTrackButtonProps = {
   activityId: number;
@@ -21,6 +22,7 @@ export default function DeleteGpsTrackButton({
   geoJsonFilePath,
   onDeleted,
 }: DeleteGpsTrackButtonProps) {
+  const { reconcileAfterUserAction } = useAchievementNotification();
   const t = useTranslations("Tracks.Delete");
   const [deleting, setDeleting] = useState(false);
   const [errorMessage, setErrorMessage] =
@@ -113,6 +115,7 @@ export default function DeleteGpsTrackButton({
 
     if (deletionSucceeded) {
       onDeleted();
+      void reconcileAfterUserAction(createClient());
     }
   }
 

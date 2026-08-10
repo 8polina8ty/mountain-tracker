@@ -15,6 +15,7 @@ import AccountNavigation from "@/components/account/AccountNavigation";
 import AccountPageHeader from "@/components/account/AccountPageHeader";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useFormatter, useTranslations } from "next-intl";
+import { useAchievementNotification } from "@/components/achievements/AchievementNotificationProvider";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
 const standardEasing = [0.2, 0, 0, 1] as const;
@@ -38,6 +39,7 @@ type TrackSource =
   | "other";
 
 export default function ImportTrackPage() {
+  const { reconcileAfterUserAction } = useAchievementNotification();
   const t = useTranslations("Tracks.Import");
   const format = useFormatter();
   const router = useRouter();
@@ -409,6 +411,7 @@ if (readyUpdateError) {
   throw readyUpdateError;
 }
 
+await reconcileAfterUserAction(supabase);
 router.push(
   `/account/tracks/${activityId}`,
 );

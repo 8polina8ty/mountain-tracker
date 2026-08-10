@@ -48,7 +48,11 @@
       "updated": "Фотография обновлена.",
       "uploadFailed": "Не удалось загрузить фотографию.",
       "uploading": "Загружаю…",
-      "changePhoto": "Сменить фото"
+      "changePhoto": "Сменить фото",
+      "removePhoto": "Удалить фото",
+      "removing": "Удаление…",
+      "removed": "Фото удалено.",
+      "removeFailed": "Не удалось удалить фото."
     },
     "Privacy": {
       "loginRequired": "Сначала войдите в аккаунт.",

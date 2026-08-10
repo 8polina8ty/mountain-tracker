@@ -48,7 +48,11 @@
       "updated": "Foto aktualisiert.",
       "uploadFailed": "Foto konnte nicht hochgeladen werden.",
       "uploading": "Wird hochgeladen…",
-      "changePhoto": "Foto ändern"
+      "changePhoto": "Foto ändern",
+      "removePhoto": "Foto entfernen",
+      "removing": "Wird entfernt…",
+      "removed": "Foto entfernt.",
+      "removeFailed": "Foto konnte nicht entfernt werden."
     },
     "Privacy": {
       "loginRequired": "Melde dich zuerst an.",

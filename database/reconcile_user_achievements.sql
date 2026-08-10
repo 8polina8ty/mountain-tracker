@@ -115,6 +115,7 @@ volatile
 security invoker
 set search_path = ''
 as $function$
+#variable_conflict use_column
 declare
   current_user_id uuid := auth.uid();
   invalid_ids text[];

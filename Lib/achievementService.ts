@@ -1,6 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 import type { AchievementId } from "@/Lib/achievements";
+import { ACHIEVEMENT_V2_RUNTIME_ENABLED } from "@/Lib/achievementRuntime";
 
 export type UserAchievementRecord = {
   achievement_id: AchievementId;
@@ -41,6 +42,10 @@ export async function syncUserAchievements({
   earnedAchievementIds,
   savedAchievements,
 }: SyncAchievementsInput): Promise<SyncAchievementsResult> {
+  if (ACHIEVEMENT_V2_RUNTIME_ENABLED) {
+    return { achievements: savedAchievements, newAchievements: [] };
+  }
+
   const savedAchievementIds = new Set(
     savedAchievements.map(
       (achievement) => achievement.achievement_id,
