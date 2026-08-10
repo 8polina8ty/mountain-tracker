@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type RefObject } from "react";
 import type { Map } from "maplibre-gl";
 
 import type {
@@ -11,8 +11,8 @@ import {
 } from "./peakUtils";
 
 type UseMountainSearchParams = {
-  map: Map | null;
-  originalGeoJson: PeakFeatureCollection | null;
+  mapRef: RefObject<Map | null>;
+  originalGeoJsonRef: RefObject<PeakFeatureCollection | null>;
   minimumHeight: number;
   onPeakSelect: (peak: SelectedPeak) => void;
   onCheckPeakAscent: (peakId: number) => void;
@@ -20,8 +20,8 @@ type UseMountainSearchParams = {
 };
 
 export function useMountainSearch({
-  map,
-  originalGeoJson,
+  mapRef,
+  originalGeoJsonRef,
   minimumHeight,
   onPeakSelect,
   onCheckPeakAscent,
@@ -33,6 +33,8 @@ export function useMountainSearch({
 
   function flyToSearchedPeak() {
     const normalizedSearch = normalizeText(searchInput);
+    const map = mapRef.current;
+    const originalGeoJson = originalGeoJsonRef.current;
 
     if (!map || !originalGeoJson) {
       setSearchMessage("Карта ещё загружается.");
@@ -112,7 +114,6 @@ export function useMountainSearch({
     map.flyTo({
       center: [longitude, latitude],
       zoom: 13,
-      essential: true,
     });
   }
 

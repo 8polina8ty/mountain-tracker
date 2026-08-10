@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { AnimatePresence } from "motion/react";
 import { createClient } from "@/Lib/supabase/client";
 import type {
   PeakFeatureCollection,
@@ -27,8 +28,7 @@ import { useMountainMap } from "./useMountainMap";
 
 
 export default function MountainMap() {
-  const supabaseRef = useRef(createClient());
-  const supabase = supabaseRef.current;
+  const [supabase] = useState(createClient);
 
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
@@ -74,8 +74,8 @@ export default function MountainMap() {
   flyToSearchedPeak,
   clearSearch,
 } = useMountainSearch({
-  map: mapRef.current,
-  originalGeoJson: originalGeoJsonRef.current,
+  mapRef,
+  originalGeoJsonRef,
   minimumHeight,
 
   onPeakSelect: (peak) => {
@@ -125,11 +125,11 @@ useMountainMap({
   function resetMap() {
     clearSearch();
     setMinimumHeight(MIN_HEIGHT);
+    minHeightRef.current = MIN_HEIGHT;
 
     mapRef.current?.flyTo({
       center: DEFAULT_CENTER,
       zoom: DEFAULT_ZOOM,
-      essential: true,
     });
   }
 
@@ -191,19 +191,21 @@ useMountainMap({
         </div>
       </section>
 
-    
-    {selectedPeak && (
-  <PeakDetailsPanel
-    peak={selectedPeak}
-    peakName={getPeakName(selectedPeak)}
-    wikipediaUrl={wikipediaUrl}
-    selectedPeakClimbed={selectedPeakClimbed}
-    ascentLoading={ascentLoading}
-    ascentMessage={ascentMessage}
-    onClose={() => setSelectedPeak(null)}
-    onAscent={handleAscent}
-  />
-)}
+      <AnimatePresence initial={false}>
+        {selectedPeak && (
+          <PeakDetailsPanel
+            key="peak-details-panel"
+            peak={selectedPeak}
+            peakName={getPeakName(selectedPeak)}
+            wikipediaUrl={wikipediaUrl}
+            selectedPeakClimbed={selectedPeakClimbed}
+            ascentLoading={ascentLoading}
+            ascentMessage={ascentMessage}
+            onClose={() => setSelectedPeak(null)}
+            onAscent={handleAscent}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

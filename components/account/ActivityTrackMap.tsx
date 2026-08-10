@@ -174,6 +174,7 @@ export default function ActivityTrackMap({
     function createMarkerElement(
       text: string,
       backgroundColor: string,
+      accessibleLabel: string,
     ) {
       const element = document.createElement("div");
 
@@ -193,6 +194,7 @@ export default function ActivityTrackMap({
         "0 4px 12px rgba(0, 0, 0, 0.25)";
 
       element.textContent = text;
+      element.setAttribute("aria-label", accessibleLabel);
 
       return element;
     }
@@ -264,6 +266,7 @@ export default function ActivityTrackMap({
         element: createMarkerElement(
           "S",
           "#16a34a",
+          `Старт маршрута: ${activityTitle}`,
         ),
         anchor: "center",
       })
@@ -282,6 +285,7 @@ export default function ActivityTrackMap({
           element: createMarkerElement(
             "F",
             "#dc2626",
+            `Финиш маршрута: ${activityTitle}`,
           ),
           anchor: "center",
         })
@@ -405,6 +409,7 @@ export default function ActivityTrackMap({
         ref={containerRef}
         role="region"
         aria-label={`Интерактивная карта маршрута ${activityTitle}`}
+        aria-busy={loading}
         className="h-[min(68dvh,720px)] min-h-[420px] w-full"
       />
 

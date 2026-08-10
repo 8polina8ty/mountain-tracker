@@ -278,7 +278,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-5 sm:pb-20 sm:pt-7 lg:px-6 lg:pb-24">
         <Link
           href="/map"
-          className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-forest)]"
+          className="ui-pressable inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-forest)]"
         >
           <ArrowLeft aria-hidden="true" size={17} />
           Вернуться к карте
@@ -292,7 +292,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                 Горный профиль
               </div>
 
-              <h1 className="mt-6 max-w-3xl [font-family:var(--font-display)] text-[clamp(3rem,9vw,6.5rem)] font-bold leading-[0.88] tracking-[-0.035em]">
+              <h1 className="mt-6 max-w-3xl break-words [overflow-wrap:anywhere] [font-family:var(--font-display)] text-[clamp(3rem,9vw,6.5rem)] font-bold leading-[0.88] tracking-[-0.035em]">
                 {mountainName}
               </h1>
 
@@ -548,7 +548,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                               <span>{getRouteTypeLabel(route.route_type)}</span>
                             </div>
 
-                            <h3 className="mt-3 text-3xl font-bold leading-tight text-[var(--color-text)] sm:text-4xl">
+                            <h3 className="mt-3 break-words [overflow-wrap:anywhere] text-3xl font-bold leading-tight text-[var(--color-text)] sm:text-4xl">
                               {route.name}
                             </h3>
 
@@ -659,7 +659,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                                 href={route.gpx_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 text-sm font-bold text-[var(--color-text-inverse)] transition-colors duration-[var(--duration-fast)] hover:bg-[var(--color-forest-hover)]"
+                                className="ui-pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 text-sm font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
                               >
                                 <Download aria-hidden="true" size={17} />
                                 Скачать GPX
@@ -670,7 +670,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                                 href={route.source_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 text-sm font-bold text-[var(--color-text-secondary)] transition-colors duration-[var(--duration-fast)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                                className="ui-pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 text-sm font-bold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
                               >
                                 {route.source_name
                                   ? `Источник: ${route.source_name}`
@@ -848,9 +848,9 @@ export default async function MountainPage({ params }: MountainPageProps) {
                 >
                   <button
                     type="submit"
-                    className={`flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border px-4 text-sm font-bold transition-colors duration-[var(--duration-fast)] ${
+                    className={`ui-pressable flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border px-4 text-sm font-bold ${
                       isFavorite
-                        ? "border-[var(--color-warning-border)] bg-[var(--color-warning-soft)] text-[var(--color-warning)] hover:border-[var(--color-warning)]"
+                        ? "ui-destructive border-[var(--color-danger-border)] bg-[var(--color-danger-soft)] text-[var(--color-danger)]"
                         : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
                     }`}
                   >
@@ -884,7 +884,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                     href={`https://www.openstreetmap.org/?mlat=${typedMountain.latitude}&mlon=${typedMountain.longitude}#map=15/${typedMountain.latitude}/${typedMountain.longitude}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-forest)]"
+                    className="ui-pressable flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-forest)]"
                   >
                     <span className="flex items-center gap-2">
                       <MapPin aria-hidden="true" size={16} />
@@ -899,7 +899,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                     href={`https://de.wikipedia.org/wiki/${encodeURIComponent(typedMountain.wikipedia)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-forest)]"
+                    className="ui-pressable flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-forest)]"
                   >
                     <span>Wikipedia</span>
                     <ExternalLink aria-hidden="true" size={14} />
@@ -911,7 +911,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                     href={`https://www.wikidata.org/wiki/${typedMountain.wikidata}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-forest)]"
+                    className="ui-pressable flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-forest)]"
                   >
                     <span>Wikidata</span>
                     <ExternalLink aria-hidden="true" size={14} />
@@ -923,7 +923,7 @@ export default async function MountainPage({ params }: MountainPageProps) {
                     href={mountainImage.descriptionUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-forest)]"
+                    className="ui-pressable flex min-h-12 items-center justify-between gap-3 py-3 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-forest)]"
                   >
                     <span>Wikimedia Commons</span>
                     <ExternalLink aria-hidden="true" size={14} />

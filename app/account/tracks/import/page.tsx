@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowLeft, FileUp, Route, ShieldCheck, Trash2 } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   ChangeEvent,
   DragEvent,
@@ -16,6 +17,7 @@ import AccountNavigation from "@/components/account/AccountNavigation";
 import AccountPageHeader from "@/components/account/AccountPageHeader";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
+const standardEasing = [0.2, 0, 0, 1] as const;
 
 const ALLOWED_EXTENSIONS = [
   "gpx",
@@ -37,6 +39,7 @@ type TrackSource =
 
 export default function ImportTrackPage() {
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
   
   const inputRef = useRef<HTMLInputElement | null>(
     null,
@@ -474,7 +477,7 @@ if (filesToRemove.length > 0) {
           title="Импорт GPS-трека"
           description="Добавьте запись восхождения с навигатора, часов, телефона или туристического приложения."
           actions={
-            <Link href="/account/tracks" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+            <Link href="/account/tracks" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)]">
               <ArrowLeft aria-hidden="true" className="h-4 w-4" />
               Все треки
             </Link>
@@ -506,7 +509,7 @@ if (filesToRemove.length > 0) {
                   event.target.value as TrackSource,
                 );
               }}
-              className="mt-2 min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-2 text-[var(--color-text)] outline-none transition-colors focus:border-[var(--color-focus)]"
+              className="ui-field mt-2 min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-2 text-[var(--color-text)] outline-none"
             >
               <option value="garmin">Garmin</option>
               <option value="suunto">Suunto</option>
@@ -557,54 +560,105 @@ if (filesToRemove.length > 0) {
               onClick={() => {
                 inputRef.current?.click();
               }}
-              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]"
+              className="ui-pressable mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white hover:bg-[var(--color-forest-hover)]"
             >
               <Route aria-hidden="true" className="h-4 w-4" />
               Выбрать файл
             </button>
           </div>
 
-          {selectedFile && (
-            <div className="mt-6 flex flex-col gap-4 border-l-4 border-[var(--color-success)] bg-[var(--color-success-soft)] p-5 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex min-w-0 items-start gap-3">
-                <Route aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-success)]" />
-                <div className="min-w-0">
-                <p className="truncate font-bold text-[var(--color-text)]">
-                  {selectedFile.name}
-                </p>
-
-                <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-                  {(selectedFile.size / 1024 / 1024).toFixed(
-                    2,
-                  )}{" "}
-                  МБ · источник: {sourceType}
-                </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={clearFile}
-                className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-danger-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-danger)] transition-colors hover:bg-[var(--color-danger-soft)]"
+          <AnimatePresence initial={false}>
+            {selectedFile && (
+              <motion.div
+                key="selected-file"
+                initial={{
+                  opacity: shouldReduceMotion ? 1 : 0,
+                  y: shouldReduceMotion ? 0 : 10,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: shouldReduceMotion ? 0 : 0.19,
+                    ease: standardEasing,
+                  },
+                }}
+                exit={{
+                  opacity: shouldReduceMotion ? 1 : 0,
+                  y: shouldReduceMotion ? 0 : 6,
+                  transition: {
+                    duration: shouldReduceMotion ? 0 : 0.15,
+                    ease: standardEasing,
+                  },
+                }}
+                className="mt-6 flex flex-col gap-4 border-l-4 border-[var(--color-success)] bg-[var(--color-success-soft)] p-5 sm:flex-row sm:items-center sm:justify-between"
               >
-                <Trash2 aria-hidden="true" className="h-4 w-4" />
-                Удалить
-              </button>
-            </div>
-          )}
+                <div className="flex min-w-0 items-start gap-3">
+                  <Route aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-success)]" />
+                  <div className="min-w-0">
+                    <p className="truncate font-bold text-[var(--color-text)]">
+                      {selectedFile.name}
+                    </p>
 
-          {message && (
-            <p className="mt-5 border-l-4 border-[var(--color-info)] bg-[var(--color-info-soft)] px-4 py-3 text-sm text-[var(--color-text-secondary)]" role="status">
-              {message}
-            </p>
-          )}
+                    <p className="mt-1 text-sm text-[var(--color-text-muted)]">
+                      {(selectedFile.size / 1024 / 1024).toFixed(
+                        2,
+                      )}{" "}
+                      МБ · источник: {sourceType}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={clearFile}
+                  className="ui-destructive ui-pressable inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-danger-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-danger)]"
+                >
+                  <Trash2 aria-hidden="true" className="h-4 w-4" />
+                  Удалить
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence initial={false}>
+            {message && (
+              <motion.p
+                key="import-status"
+                initial={{
+                  opacity: shouldReduceMotion ? 1 : 0,
+                  y: shouldReduceMotion ? 0 : 8,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: shouldReduceMotion ? 0 : 0.18,
+                    ease: standardEasing,
+                  },
+                }}
+                exit={{
+                  opacity: shouldReduceMotion ? 1 : 0,
+                  y: shouldReduceMotion ? 0 : 4,
+                  transition: {
+                    duration: shouldReduceMotion ? 0 : 0.14,
+                    ease: standardEasing,
+                  },
+                }}
+                className="mt-5 border-l-4 border-[var(--color-info)] bg-[var(--color-info-soft)] px-4 py-3 text-sm text-[var(--color-text-secondary)]"
+                role="status"
+              >
+                {message}
+              </motion.p>
+            )}
+          </AnimatePresence>
 
           <div className="mt-8 flex justify-end border-t border-[var(--color-border)] pt-6">
             <button
   type="button"
   onClick={handleContinue}
   disabled={!selectedFile || uploading}
-  className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-6 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)] disabled:cursor-not-allowed disabled:opacity-50"
+  className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-6 py-2 font-semibold text-white enabled:hover:bg-[var(--color-forest-hover)] disabled:cursor-not-allowed disabled:opacity-50"
 >
   <FileUp aria-hidden="true" className="h-4 w-4" />
   {uploading

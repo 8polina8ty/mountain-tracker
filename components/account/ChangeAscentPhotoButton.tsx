@@ -156,7 +156,7 @@ export default function ChangeAscentPhotoButton({
         type="button"
         onClick={openFileDialog}
         disabled={uploading}
-        className="inline-flex min-h-11 w-full items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)] disabled:cursor-wait disabled:opacity-60"
+        className="ui-pressable inline-flex min-h-11 w-full items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-text-secondary)] enabled:hover:border-[var(--color-forest)] enabled:hover:text-[var(--color-forest)] disabled:cursor-wait disabled:opacity-60"
       >
         <Camera aria-hidden="true" className="h-4 w-4" />
         {uploading ? "Загружаю…" : "Сменить фото"}

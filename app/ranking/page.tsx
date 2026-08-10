@@ -234,7 +234,7 @@ export default function RankingPage() {
                 setSearchInput(event.target.value)
               }
               placeholder="Найти участника"
-              className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] py-2 pl-10 pr-3 text-[var(--color-text)] outline-none transition-colors placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-focus)]"
+              className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] py-2 pl-10 pr-3 text-[var(--color-text)] outline-none"
             />
           </label>
 
@@ -247,7 +247,7 @@ export default function RankingPage() {
                   event.target.value as SortMode,
                 )
               }
-              className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]"
+              className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]"
             >
               <option value="ascents">По количеству вершин</option>
               <option value="total-height">По суммарной высоте</option>
@@ -256,7 +256,7 @@ export default function RankingPage() {
             </select>
           </label>
 
-          <p className="[font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)] md:text-right">
+          <p className="[font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)] md:text-right" role="status">
             Показано {displayedRanking.length} / {ranking.length}
           </p>
         </section>
@@ -396,10 +396,10 @@ function RankingRow({
 
           <Link
             href={`/users/${user.user_id}`}
-            className="mt-3 inline-flex min-h-11 w-full items-center justify-between rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]"
+            className="ui-pressable group mt-3 inline-flex min-h-11 w-full items-center justify-between rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]"
           >
             Открыть профиль
-            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
 
@@ -427,9 +427,9 @@ function RankingRow({
           <Link
             href={`/users/${user.user_id}`}
             aria-label={`Открыть профиль пользователя ${user.username}`}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-forest)]"
+            className="ui-pressable group inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-forest)]"
           >
-            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </article>

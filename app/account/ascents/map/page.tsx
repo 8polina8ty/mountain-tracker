@@ -35,7 +35,7 @@ export default function ClimbedMountainsMapPage() {
           </h1>
 
           <Link
-            href="/login"
+            href="/auth/login"
             className="mt-5 inline-flex min-h-11 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white"
           >
             Войти
@@ -55,7 +55,7 @@ export default function ClimbedMountainsMapPage() {
           description="Пространственный обзор всех вершин, сохранённых в вашем журнале."
           metric={{ label: "Отмечено вершин", value: ascents.length }}
           actions={
-            <Link href="/account/ascents" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+            <Link href="/account/ascents" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)]">
               <List aria-hidden="true" className="h-4 w-4" />
               Открыть журнал
             </Link>

@@ -1,5 +1,3 @@
-import type { GeoJSONSource, Map } from "maplibre-gl";
-
 import type {
   MountainRow,
   PeakProperties,

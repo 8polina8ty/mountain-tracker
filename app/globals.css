@@ -216,6 +216,65 @@ pre {
   outline-offset: 3px;
 }
 
+.maplibregl-canvas:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -3px;
+}
+
+.ui-pressable {
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.ui-pressable:not(:disabled):not([aria-disabled="true"]):active {
+  transform: translateY(1px);
+}
+
+.ui-field {
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.ui-field::placeholder {
+  color: var(--color-text-muted);
+}
+
+.ui-field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--color-border-strong);
+}
+
+.ui-field:focus-visible {
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 3px var(--color-focus-halo);
+}
+
+.ui-field[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.ui-field:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-surface-muted);
+  color: var(--color-text-disabled);
+}
+
+.ui-destructive:not(:disabled):not([aria-disabled="true"]):hover {
+  border-color: var(--color-danger);
+  background-color: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.ui-progress-fill {
+  transition: width var(--duration-base) var(--ease-standard);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -229,6 +288,10 @@ pre {
     animation-iteration-count: 1 !important;
     transition-delay: 0ms !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .ui-pressable {
+    transform: none !important;
   }
 }
 
@@ -251,8 +314,17 @@ pre {
 }
 
 .mountain-map-shell .maplibregl-ctrl-group button {
-  height: 40px;
-  width: 40px;
+  height: 44px;
+  width: 44px;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.mountain-map-shell .maplibregl-ctrl-group button:hover {
+  background-color: var(--color-surface-muted);
+}
+
+.mountain-map-shell .maplibregl-ctrl-group button:focus-visible {
+  outline-offset: -3px;
 }
 
 .mountain-map-shell .maplibregl-ctrl-group button + button {

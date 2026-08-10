@@ -35,7 +35,7 @@ export default function SearchPanel({
           Поиск вершины
         </label>
 
-        <div className="flex overflow-hidden rounded-[var(--radius-control)] border border-[var(--color-border-strong)] bg-[var(--color-surface-raised)] focus-within:border-[var(--color-focus)] focus-within:ring-2 focus-within:ring-[var(--color-focus-halo)]">
+        <div className="flex overflow-hidden rounded-[var(--radius-control)] border border-[var(--color-border-strong)] bg-[var(--color-surface-raised)] transition-[border-color,box-shadow] duration-[var(--duration-fast)] ease-[var(--ease-standard)] focus-within:border-[var(--color-focus)] focus-within:ring-2 focus-within:ring-[var(--color-focus-halo)]">
           <div className="relative min-w-0 flex-1">
             <Search
               aria-hidden="true"
@@ -50,14 +50,14 @@ export default function SearchPanel({
                 onSearchInputChange(event.target.value);
               }}
               placeholder="Например, Zugspitze"
-              className="h-11 w-full bg-transparent py-2 pl-9 pr-9 text-sm text-[var(--color-text)] outline-none placeholder:text-[var(--color-text-subtle)]"
+              className="h-11 w-full bg-transparent py-2 pl-9 pr-11 text-sm text-[var(--color-text)] outline-none placeholder:text-[var(--color-text-muted)]"
             />
 
             {searchInput && (
               <button
                 type="button"
                 onClick={onClearSearch}
-                className="absolute right-0 top-0 flex h-11 w-9 items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+                className="ui-pressable absolute right-0 top-0 flex h-11 w-11 items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus-visible:outline-offset-[-2px]"
                 aria-label="Очистить поле поиска"
               >
                 <X aria-hidden="true" size={16} />
@@ -67,7 +67,7 @@ export default function SearchPanel({
 
           <button
             type="submit"
-            className="shrink-0 border-l border-[var(--color-forest-active)] bg-[var(--color-forest)] px-3 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
+            className="ui-pressable shrink-0 border-l border-[var(--color-forest-active)] bg-[var(--color-forest)] px-3 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)] focus-visible:outline-offset-[-2px]"
           >
             Найти
           </button>
@@ -88,7 +88,7 @@ export default function SearchPanel({
           <button
             type="button"
             onClick={onClearSearch}
-            className="text-xs font-semibold text-[var(--color-forest)] hover:text-[var(--color-forest-hover)] hover:underline"
+            className="ui-pressable text-xs font-semibold text-[var(--color-forest)] hover:text-[var(--color-forest-hover)] hover:underline"
           >
             Снять поиск
           </button>

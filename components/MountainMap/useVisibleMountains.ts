@@ -41,8 +41,6 @@ export function useVisibleMountains({
   mountainDataVersion,
 }: UseVisibleMountainsParams) {
   useEffect(() => {
-    console.log("useVisibleMountains");
-    console.log(originalGeoJsonRef.current);
     const map = mapRef.current;
     const originalGeoJson = originalGeoJsonRef.current;
 
@@ -120,11 +118,6 @@ if (!isInsideViewport) {
       type: "FeatureCollection",
       features: filteredFeatures,
     };
-
-console.log(
-  "setData features:",
-  filteredGeoJson.features.length,
-);
 
     source.setData(filteredGeoJson);
     setVisiblePeakCount(filteredFeatures.length);

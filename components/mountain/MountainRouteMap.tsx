@@ -162,6 +162,7 @@ const map: Map = currentMap;
     function createMarkerElement(
       label: string,
       backgroundClassName: string,
+      accessibleLabel: string,
     ) {
       const element = document.createElement("div");
 
@@ -182,6 +183,7 @@ const map: Map = currentMap;
       ].join(" ");
 
       element.textContent = label;
+      element.setAttribute("aria-label", accessibleLabel);
 
       return element;
     }
@@ -248,6 +250,7 @@ const map: Map = currentMap;
         element: createMarkerElement(
           "S",
           "bg-green-600",
+          `Старт маршрута: ${routeName}`,
         ),
         anchor: "center",
       })
@@ -263,6 +266,7 @@ const map: Map = currentMap;
         element: createMarkerElement(
           "F",
           "bg-red-600",
+          `Финиш маршрута: ${routeName}`,
         ),
         anchor: "center",
       })
@@ -376,12 +380,13 @@ const map: Map = currentMap;
         ref={containerRef}
         role="region"
         aria-label={`Карта маршрута «${routeName}»`}
+        aria-busy={loading}
         className="h-[clamp(360px,58vh,520px)] w-full"
       />
 
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/90 p-4">
-          <div className="border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-5 py-3 text-sm font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]">
+          <div className="border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-5 py-3 text-sm font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]" role="status">
             Загружаю маршрут…
           </div>
         </div>
@@ -389,7 +394,7 @@ const map: Map = currentMap;
 
       {errorMessage && (
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/95 p-6">
-          <div className="max-w-md border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-5 text-center">
+          <div className="max-w-md border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-5 text-center" role="alert">
             <p className="font-bold text-[var(--color-danger)]">
               Не удалось показать маршрут
             </p>

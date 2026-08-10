@@ -134,7 +134,7 @@ export default async function ActivityPage({
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login");
+    redirect("/auth/login");
   }
 
   const {
@@ -268,7 +268,7 @@ if (activity.detected_mountain_id !== null) {
           title={title}
           description={`Источник: ${getSourceLabel(activity.source_type)}. Технические данные и геометрия сохранённого маршрута.`}
           actions={
-            <Link href="/account/tracks" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+            <Link href="/account/tracks" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)]">
               <ArrowLeft aria-hidden="true" className="h-4 w-4" />
               Все треки
             </Link>

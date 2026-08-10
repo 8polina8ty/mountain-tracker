@@ -56,7 +56,7 @@ export default function HeightFilter({
           className="h-2 w-full cursor-pointer [accent-color:var(--color-forest)]"
         />
 
-        <span className="mt-1 flex justify-between [font-family:var(--font-technical)] text-[10px] text-[var(--color-text-subtle)]">
+        <span className="mt-1 flex justify-between [font-family:var(--font-technical)] text-[10px] text-[var(--color-text-muted)]">
           <span>{MIN_HEIGHT} м</span>
           <span>{MAX_HEIGHT} м</span>
         </span>
@@ -87,7 +87,7 @@ export default function HeightFilter({
       <button
         type="button"
         onClick={onReset}
-        className="mt-4 flex h-9 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-transparent px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+        className="ui-pressable mt-4 flex h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-transparent px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
       >
         <RotateCcw aria-hidden="true" size={14} />
         Сбросить фильтры

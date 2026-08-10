@@ -65,8 +65,15 @@ export default function StatisticsSection({
               {progressPercent.toFixed(2)}%
             </span>
           </div>
-          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-muted)]">
-            <div className="h-full rounded-full bg-[var(--color-forest)]" style={{ width: `${progressPercent}%` }} />
+          <div
+            className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-muted)]"
+            role="progressbar"
+            aria-label="Общий прогресс каталога"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Number(progressPercent.toFixed(2))}
+          >
+            <div className="ui-progress-fill h-full rounded-full bg-[var(--color-forest)]" style={{ width: `${progressPercent}%` }} />
           </div>
         </div>
         <p className="[font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)]">

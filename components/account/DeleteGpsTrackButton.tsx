@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
 
@@ -11,6 +10,7 @@ type DeleteGpsTrackButtonProps = {
   activityTitle: string;
   originalFilePath: string | null;
   geoJsonFilePath: string | null;
+  onDeleted: () => void;
 };
 
 export default function DeleteGpsTrackButton({
@@ -18,9 +18,8 @@ export default function DeleteGpsTrackButton({
   activityTitle,
   originalFilePath,
   geoJsonFilePath,
+  onDeleted,
 }: DeleteGpsTrackButtonProps) {
-  const router = useRouter();
-
   const [deleting, setDeleting] = useState(false);
   const [errorMessage, setErrorMessage] =
     useState("");
@@ -40,6 +39,8 @@ export default function DeleteGpsTrackButton({
 
     setDeleting(true);
     setErrorMessage("");
+
+    let deletionSucceeded = false;
 
     try {
       const supabase = createClient();
@@ -90,7 +91,7 @@ export default function DeleteGpsTrackButton({
         throw deleteError;
       }
 
-      router.refresh();
+      deletionSucceeded = true;
     } catch (error) {
       console.error(
         "Ошибка удаления GPS-трека:",
@@ -103,7 +104,13 @@ export default function DeleteGpsTrackButton({
           : "Не удалось удалить GPS-трек.",
       );
     } finally {
-      setDeleting(false);
+      if (!deletionSucceeded) {
+        setDeleting(false);
+      }
+    }
+
+    if (deletionSucceeded) {
+      onDeleted();
     }
   }
 
@@ -113,7 +120,7 @@ export default function DeleteGpsTrackButton({
         type="button"
         onClick={handleDelete}
         disabled={deleting}
-        className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-danger-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-danger)] transition-colors hover:bg-[var(--color-danger-soft)] disabled:cursor-wait disabled:opacity-60"
+        className="ui-destructive ui-pressable inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-danger-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-danger)] disabled:cursor-wait disabled:opacity-60"
       >
         <Trash2 aria-hidden="true" className="h-4 w-4" />
         {deleting

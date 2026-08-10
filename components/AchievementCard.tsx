@@ -83,9 +83,16 @@ export default function AchievementCard({
           </span>
         </div>
 
-        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-muted)]">
+        <div
+          className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-muted)]"
+          role="progressbar"
+          aria-label={`Прогресс достижения: ${achievement.title}`}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(achievementProgress)}
+        >
           <div
-            className={`h-full rounded-full ${
+            className={`ui-progress-fill h-full rounded-full ${
               achievement.unlocked
                 ? "bg-[var(--color-success)]"
                 : "bg-[var(--color-granite)]"

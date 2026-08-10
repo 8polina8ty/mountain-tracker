@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ArrowUpRight, Route, Upload } from "lucide-react";
+import { Route, Upload } from "lucide-react";
 
 import { createClient } from "@/Lib/supabase/server";
 import AccountNavigation from "@/components/account/AccountNavigation";
 import AccountPageHeader from "@/components/account/AccountPageHeader";
-import DeleteGpsTrackButton from "@/components/account/DeleteGpsTrackButton";
+import GpsTrackList, {
+  type GpsTrackListItem,
+} from "@/components/account/GpsTrackList";
 
 type GpsActivity = {
   id: number;
@@ -132,7 +134,7 @@ export default async function TracksPage() {
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login");
+    redirect("/auth/login");
   }
 
   const {
@@ -169,6 +171,33 @@ export default async function TracksPage() {
   const activities =
     (data ?? []) as GpsActivity[];
 
+  const trackItems: GpsTrackListItem[] = activities.map((activity) => ({
+    id: activity.id,
+    title: activity.title ?? `GPS-трек №${activity.id}`,
+    sourceLabel: getSourceLabel(activity.source_type),
+    dateLabel: formatDate(activity.started_at ?? activity.created_at),
+    statusLabel: getStatusLabel(activity.processing_status),
+    statusTone:
+      activity.processing_status === "ready"
+        ? "success"
+        : activity.processing_status === "failed"
+          ? "danger"
+          : "warning",
+    distanceLabel: formatDistance(activity.distance_m),
+    durationLabel: formatDuration(activity.duration_seconds),
+    elevationGainLabel:
+      activity.elevation_gain_m !== null
+        ? `+${Math.round(activity.elevation_gain_m).toLocaleString("ru-RU")} м`
+        : "—",
+    maximumElevationLabel:
+      activity.maximum_elevation_m !== null
+        ? `${Math.round(activity.maximum_elevation_m).toLocaleString("ru-RU")} м`
+        : "—",
+    canOpen: activity.processing_status === "ready",
+    originalFilePath: activity.original_file_url,
+    geoJsonFilePath: activity.geojson_url,
+  }));
+
   return (
     <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-8">
       <div className="mx-auto max-w-7xl">
@@ -179,7 +208,7 @@ export default async function TracksPage() {
           description="Записанные маршруты с часов, телефона и туристических приложений, собранные в едином техническом архиве."
           metric={{ label: "Всего маршрутов", value: activities.length }}
           actions={
-            <Link href="/account/tracks/import" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+            <Link data-track-import-action href="/account/tracks/import" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--color-forest-hover)]">
               <Upload aria-hidden="true" className="h-4 w-4" />
               Импортировать трек
             </Link>
@@ -200,166 +229,16 @@ export default async function TracksPage() {
 
             <Link
               href="/account/tracks/import"
-              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]"
+              className="ui-pressable mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white hover:bg-[var(--color-forest-hover)]"
             >
               <Upload aria-hidden="true" className="h-4 w-4" />
               Загрузить первый трек
             </Link>
           </section>
         ) : (
-          <section className="border-t border-[var(--color-border-strong)]" aria-label="Список GPS-треков">
-            {activities.map((activity) => {
-              const canOpen =
-                activity.processing_status ===
-                "ready";
-
-              return (
-                <article
-                  key={activity.id}
-                  className="border-b border-[var(--color-border)] py-6"
-                >
-                  <div className="grid gap-5 lg:grid-cols-[minmax(220px,1.1fr)_minmax(360px,1.5fr)_180px] lg:items-center">
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span
-                          className={[
-                            "[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em]",
-                            activity.processing_status ===
-                            "ready"
-                              ? "text-[var(--color-success)]"
-                              : activity.processing_status ===
-                                "failed"
-                              ? "text-[var(--color-danger)]"
-                              : "text-[var(--color-warning)]",
-                          ].join(" ")}
-                        >
-                          {getStatusLabel(
-                            activity.processing_status,
-                          )}
-                        </span>
-
-                        <span className="text-sm text-[var(--color-text-muted)]">
-                          {getSourceLabel(
-                            activity.source_type,
-                          )}
-                        </span>
-                      </div>
-
-                      <h2 className="mt-2 break-words text-2xl font-bold text-[var(--color-text)]">
-                        {activity.title ??
-                          `GPS-трек №${activity.id}`}
-                      </h2>
-
-                      <p className="mt-1 [font-family:var(--font-technical)] text-xs text-[var(--color-text-muted)]">
-                        {formatDate(
-                          activity.started_at ??
-                            activity.created_at,
-                        )}
-                      </p>
-                    </div>
-
-                    <dl className="grid grid-cols-2 border-y border-[var(--color-border-soft)] sm:grid-cols-4 sm:border-y-0">
-                      <TrackValue
-                        label="Расстояние"
-                        value={formatDistance(
-                          activity.distance_m,
-                        )}
-                      />
-
-                      <TrackValue
-                        label="Время"
-                        value={formatDuration(
-                          activity.duration_seconds,
-                        )}
-                      />
-
-                      <TrackValue
-                        label="Набор"
-                        value={
-                          activity.elevation_gain_m !==
-                          null
-                            ? `+${Math.round(
-                                activity.elevation_gain_m,
-                              ).toLocaleString(
-                                "ru-RU",
-                              )} м`
-                            : "—"
-                        }
-                      />
-
-                      <TrackValue
-                        label="Макс. высота"
-                        value={
-                          activity.maximum_elevation_m !==
-                          null
-                            ? `${Math.round(
-                                activity.maximum_elevation_m,
-                              ).toLocaleString(
-                                "ru-RU",
-                              )} м`
-                            : "—"
-                        }
-                      />
-                    </dl>
-
-                    <div className="flex shrink-0 flex-col gap-2">
-  {canOpen ? (
-    <Link
-      href={`/account/tracks/${activity.id}`}
-      className="inline-flex min-h-11 items-center justify-between gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-track)] hover:text-[var(--color-track)]"
-    >
-      Открыть маршрут
-      <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-    </Link>
-  ) : (
-    <span className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] px-4 py-2 text-sm font-semibold text-[var(--color-text-disabled)]">
-      Карта недоступна
-    </span>
-  )}
-
-  <DeleteGpsTrackButton
-    activityId={activity.id}
-    activityTitle={
-      activity.title ??
-      `GPS-трек №${activity.id}`
-    }
-    originalFilePath={
-      activity.original_file_url
-    }
-    geoJsonFilePath={
-      activity.geojson_url
-    }
-  />
-</div>
-                  </div>
-                </article>
-              );
-            })}
-          </section>
+          <GpsTrackList items={trackItems} />
         )}
       </div>
     </main>
-  );
-}
-
-type TrackValueProps = {
-  label: string;
-  value: string;
-};
-
-function TrackValue({
-  label,
-  value,
-}: TrackValueProps) {
-  return (
-    <div className="min-w-0 border-r border-[var(--color-border-soft)] px-3 py-3 first:pl-0 last:border-r-0 sm:py-1">
-      <dt className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
-        {label}
-      </dt>
-
-      <dd className="mt-1 break-words [font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text)]">
-        {value}
-      </dd>
-    </div>
   );
 }

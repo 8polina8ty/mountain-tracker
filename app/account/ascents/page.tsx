@@ -112,7 +112,7 @@ export default function AscentsPage() {
           <p className="mt-3 text-[var(--color-text-muted)]">
             После входа здесь появится полный список ваших восхождений.
           </p>
-          <Link href="/login" className="mt-6 inline-flex min-h-11 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+          <Link href="/auth/login" className="ui-pressable mt-6 inline-flex min-h-11 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white hover:bg-[var(--color-forest-hover)]">
             Войти
           </Link>
         </section>
@@ -133,11 +133,11 @@ export default function AscentsPage() {
           metric={{ label: "Всего записей", value: ascents.length }}
           actions={
             <>
-              <Link href="/account/ascents/map" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+              <Link href="/account/ascents/map" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)]">
                 <Map aria-hidden="true" className="h-4 w-4" />
                 Карта
               </Link>
-              <Link href="/account/tracks/import" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+              <Link href="/account/tracks/import" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--color-forest-hover)]">
                 <Upload aria-hidden="true" className="h-4 w-4" />
                 Импорт GPX
               </Link>
@@ -161,7 +161,7 @@ export default function AscentsPage() {
                 Восхождения
               </h2>
             </div>
-            <p className="[font-family:var(--font-technical)] text-sm tabular-nums text-[var(--color-text-muted)]">
+            <p className="[font-family:var(--font-technical)] text-sm tabular-nums text-[var(--color-text-muted)]" role="status">
               Показано {displayedAscents.length} из {ascents.length}
             </p>
           </div>
@@ -175,12 +175,12 @@ export default function AscentsPage() {
                 placeholder="Поиск вершины"
                 value={searchInput}
                 onChange={(event) => setSearchInput(event.target.value)}
-                className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] py-2 pl-10 pr-3 text-[var(--color-text)] outline-none transition-colors placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-focus)]"
+                className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] py-2 pl-10 pr-3 text-[var(--color-text)] outline-none"
               />
             </label>
             <label>
               <span className="sr-only">Сортировка</span>
-              <select value={sortMode} onChange={(event) => setSortMode(event.target.value as typeof sortMode)} className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]">
+              <select value={sortMode} onChange={(event) => setSortMode(event.target.value as typeof sortMode)} className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]">
                 <option value="date-desc">Сначала новые</option>
                 <option value="date-asc">Сначала старые</option>
                 <option value="height-desc">Высота: по убыванию</option>
@@ -190,7 +190,7 @@ export default function AscentsPage() {
             </label>
             <label>
               <span className="sr-only">Год восхождения</span>
-              <select value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)} className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]">
+              <select value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)} className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]">
                 <option value="all">Все годы</option>
                 {years.map((year) => (
                   <option key={year} value={year.toString()}>{year}</option>
@@ -212,7 +212,7 @@ export default function AscentsPage() {
                 : "Откройте карту, выберите вершину и отметьте своё восхождение."}
             </p>
             {!filtersActive && (
-              <Link href="/map" className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+              <Link href="/map" className="ui-pressable mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white hover:bg-[var(--color-forest-hover)]">
                 <Map aria-hidden="true" className="h-4 w-4" />
                 Открыть карту
               </Link>
@@ -281,9 +281,9 @@ export default function AscentsPage() {
                       }}
                     />
                     {ascent.mountains?.id ? (
-                      <Link href={`/mountain/${ascent.mountains.id}`} className="inline-flex min-h-11 items-center justify-between gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]">
+                      <Link href={`/mountain/${ascent.mountains.id}`} className="ui-pressable group inline-flex min-h-11 items-center justify-between gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]">
                         Открыть вершину
-                        <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+                        <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </Link>
                     ) : (
                       <span className="inline-flex min-h-11 items-center rounded-[var(--radius-control)] border border-[var(--color-border-soft)] px-3 py-2 text-sm text-[var(--color-text-disabled)]">

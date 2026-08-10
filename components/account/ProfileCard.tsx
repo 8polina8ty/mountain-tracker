@@ -52,7 +52,14 @@ export default function ProfileCard({
           )}
 
           <div className="mt-5 flex flex-col items-start gap-2">
-            <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-[var(--radius-control)] border border-white/30 px-4 py-2 text-sm font-semibold text-white transition-colors duration-[var(--duration-fast)] hover:bg-white/10">
+            <label
+              aria-disabled={avatarUploading}
+              className={`ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-white/30 px-4 py-2 text-sm font-semibold text-white focus-within:outline focus-within:outline-2 focus-within:outline-offset-3 focus-within:outline-white ${
+                avatarUploading
+                  ? "cursor-wait opacity-60"
+                  : "cursor-pointer hover:bg-white/10"
+              }`}
+            >
               <Camera aria-hidden="true" className="h-4 w-4" />
               {avatarUploading
                 ? "Загрузка..."
@@ -63,7 +70,7 @@ export default function ProfileCard({
                 accept="image/jpeg,image/png,image/webp"
                 disabled={avatarUploading}
                 onChange={handleAvatarUpload}
-                className="hidden"
+                className="sr-only"
               />
             </label>
 

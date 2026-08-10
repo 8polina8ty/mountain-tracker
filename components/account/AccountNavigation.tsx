@@ -46,7 +46,7 @@ export default function AccountNavigation() {
               href={section.href}
               aria-current={active ? "location" : undefined}
               className={[
-                "relative inline-flex min-h-11 items-center gap-2 px-4 py-3 text-sm font-semibold transition-colors duration-[var(--duration-fast)]",
+                "ui-pressable relative inline-flex min-h-11 items-center gap-2 px-4 py-3 text-sm font-semibold",
                 active
                   ? "text-[var(--color-forest)]"
                   : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]",

@@ -6,8 +6,37 @@ import {
   Navigation,
   X,
 } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
 
 import type { SelectedPeak } from "./types";
+
+const standardEasing = [0.2, 0, 0, 1] as const;
+const sidePanelQuery = "(min-width: 1024px)";
+
+function useSidePanel() {
+  const [isSidePanel, setIsSidePanel] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia(sidePanelQuery).matches,
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(sidePanelQuery);
+
+    function handleChange(event: MediaQueryListEvent) {
+      setIsSidePanel(event.matches);
+    }
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
+  return isSidePanel;
+}
 
 type PeakDetailsPanelProps = {
   peak: SelectedPeak;
@@ -30,9 +59,62 @@ export default function PeakDetailsPanel({
   onClose,
   onAscent,
 }: PeakDetailsPanelProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const isSidePanel = useSidePanel();
+
+  useEffect(() => {
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+      }
+    }
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [onClose]);
+
   return (
-    <aside
-      className="absolute bottom-3 left-3 right-3 z-30 max-h-[calc(100%-24px)] overflow-y-auto rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-panel)] sm:bottom-4 sm:left-auto sm:right-4 sm:w-[400px]"
+    <motion.aside
+      initial={{
+        opacity: shouldReduceMotion ? 1 : isSidePanel ? 0 : 0.92,
+        x: shouldReduceMotion || !isSidePanel ? 0 : 16,
+        y: shouldReduceMotion || isSidePanel ? 0 : 32,
+      }}
+      animate={{
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: shouldReduceMotion
+          ? { duration: 0 }
+          : isSidePanel
+            ? { duration: 0.2, ease: standardEasing }
+            : {
+                y: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 38,
+                  mass: 0.9,
+                },
+                opacity: {
+                  duration: 0.18,
+                  ease: standardEasing,
+                },
+              },
+      }}
+      exit={{
+        opacity: shouldReduceMotion ? 1 : 0,
+        x: shouldReduceMotion || !isSidePanel ? 0 : 12,
+        y: shouldReduceMotion || isSidePanel ? 0 : 24,
+        transition: {
+          duration: shouldReduceMotion ? 0 : isSidePanel ? 0.16 : 0.17,
+          ease: standardEasing,
+        },
+      }}
+      className="absolute bottom-3 left-3 right-3 z-30 max-h-[calc(100%-24px)] overflow-y-auto rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-panel)] lg:bottom-4 lg:left-auto lg:right-4 lg:w-[400px]"
       aria-labelledby="selected-peak-title"
     >
       <div className="border-b border-[var(--color-border-soft)] px-4 py-4 sm:px-5">
@@ -58,7 +140,7 @@ export default function PeakDetailsPanel({
           <button
             type="button"
             onClick={onClose}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+            className="ui-pressable flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
             aria-label="Закрыть карточку"
           >
             <X aria-hidden="true" size={19} />
@@ -67,10 +149,10 @@ export default function PeakDetailsPanel({
 
         <a
           href={`/mountain/${peak.id}`}
-          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-forest)] hover:text-[var(--color-forest-hover)] hover:underline"
+          className="ui-pressable group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-forest)] hover:text-[var(--color-forest-hover)] hover:underline"
         >
           Подробнее о вершине
-          <ExternalLink aria-hidden="true" size={14} />
+          <ExternalLink aria-hidden="true" className="transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={14} />
         </a>
       </div>
 
@@ -115,7 +197,7 @@ export default function PeakDetailsPanel({
             href={`https://www.openstreetmap.org/?mlat=${peak.latitude}&mlon=${peak.longitude}#map=15/${peak.latitude}/${peak.longitude}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-10 items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
+            className="ui-pressable flex min-h-11 items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
           >
             <MapPin aria-hidden="true" size={14} />
             <span>OpenStreetMap</span>
@@ -126,7 +208,7 @@ export default function PeakDetailsPanel({
               href={wikipediaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-10 items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
+              className="ui-pressable flex min-h-11 items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
             >
               <span className="font-serif text-base" aria-hidden="true">
                 W
@@ -147,10 +229,10 @@ export default function PeakDetailsPanel({
           type="button"
           onClick={onAscent}
           disabled={ascentLoading}
-          className={`mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] px-4 text-sm font-bold text-[var(--color-text-inverse)] shadow-[var(--shadow-control)] disabled:cursor-wait disabled:opacity-70 ${
+          className={`ui-pressable mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border px-4 text-sm font-bold shadow-[var(--shadow-control)] disabled:cursor-wait disabled:opacity-70 ${
             selectedPeakClimbed
-              ? "bg-[var(--color-forest-active)]"
-              : "bg-[var(--color-forest)] hover:bg-[var(--color-forest-hover)]"
+              ? "ui-destructive border-[var(--color-danger-border)] bg-[var(--color-danger-soft)] text-[var(--color-danger)]"
+              : "border-[var(--color-forest)] bg-[var(--color-forest)] text-[var(--color-text-inverse)] enabled:hover:bg-[var(--color-forest-hover)]"
           }`}
         >
           {selectedPeakClimbed && !ascentLoading && (
@@ -177,6 +259,6 @@ export default function PeakDetailsPanel({
           </p>
         )}
       </div>
-    </aside>
+    </motion.aside>
   );
 }

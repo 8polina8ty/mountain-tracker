@@ -6,7 +6,7 @@ import type {
   SetStateAction,
 } from "react";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Map, GeoJSONSource } from "maplibre-gl";
+import type { Map } from "maplibre-gl";
 
 import { createMountainMap } from "./createMountainMap";
 import { initializeMap } from "./initializeMap";
@@ -342,10 +342,14 @@ const mountainLoadVersionRef =
     let loadTimeout: ReturnType<
       typeof setTimeout
     > | null = null;
+    let disposed = false;
 
 
 
 const refreshVisibleMountains = async () => {
+  if (disposed) {
+    return;
+  }
   
 
   const loadVersion =
@@ -432,6 +436,8 @@ mountainAbortControllerRef.current =
     });
 
     if (
+  disposed ||
+  abortController.signal.aborted ||
   loadVersion !==
   mountainLoadVersionRef.current
 ) {
@@ -474,7 +480,7 @@ setVisiblePeakCount(
       }, 300);
     };
 
-    map.on("load", async () => {
+    const handleLoad = async () => {
       try {
         await initializeMap({
           map,
@@ -495,6 +501,10 @@ setVisiblePeakCount(
           },
         });
 
+        if (disposed) {
+          return;
+        }
+
         map.on(
           "moveend",
           reloadVisibleMountains,
@@ -511,13 +521,22 @@ setVisiblePeakCount(
             : "Неизвестная ошибка";
 
         console.error(error);
-        setLoadingMessage(`Ошибка: ${message}`);
+        if (!disposed) {
+          setLoadingMessage(`Ошибка: ${message}`);
+        }
       }
-    });
+    };
+
+    map.on("load", handleLoad);
 
     mapRef.current = map;
 
     return () => {
+      disposed = true;
+      mountainAbortControllerRef.current?.abort();
+      mountainAbortControllerRef.current = null;
+
+      map.off("load", handleLoad);
       map.off(
         "moveend",
         reloadVisibleMountains,

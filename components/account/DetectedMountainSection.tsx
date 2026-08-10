@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
+  type ReactNode,
   useEffect,
+  useRef,
   useState,
 } from "react";
 
 import { createClient } from "@/Lib/supabase/client";
+
+const standardEasing = [0.2, 0, 0, 1] as const;
 
 type MountainOption = {
   id: number;
@@ -58,6 +63,7 @@ export default function DetectedMountainSection({
   gpsVerified,
 }: DetectedMountainSectionProps) {
   const router = useRouter();
+  const searchTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   const [showMountainSearch, setShowMountainSearch] =
     useState(false);
@@ -77,17 +83,49 @@ export default function DetectedMountainSection({
   const [errorMessage, setErrorMessage] =
     useState("");
 
+  function openMountainSearch() {
+    setShowMountainSearch(true);
+  }
+
+  function closeMountainSearch() {
+    setShowMountainSearch(false);
+    setSearchInput("");
+    setSearchResults([]);
+    setSearching(false);
+
+    window.requestAnimationFrame(() => {
+      searchTriggerRef.current?.focus();
+    });
+  }
+
+  function toggleMountainSearch() {
+    if (showMountainSearch) {
+      closeMountainSearch();
+      return;
+    }
+
+    openMountainSearch();
+  }
+
+  function handleMountainSearchInputChange(value: string) {
+    setSearchInput(value);
+
+    if (value.trim().length < 2) {
+      setSearchResults([]);
+      setSearching(false);
+    }
+  }
+
   useEffect(() => {
     if (
       !showMountainSearch ||
       searchInput.trim().length < 2
     ) {
-      setSearchResults([]);
-      setSearching(false);
       return;
     }
 
     const supabase = createClient();
+    let cancelled = false;
     const timeoutId = window.setTimeout(
       async () => {
         setSearching(true);
@@ -115,6 +153,10 @@ export default function DetectedMountainSection({
           })
           .limit(15);
 
+        if (cancelled) {
+          return;
+        }
+
         if (error) {
           console.error(
             "Ошибка поиска вершины:",
@@ -140,6 +182,7 @@ export default function DetectedMountainSection({
     );
 
     return () => {
+      cancelled = true;
       window.clearTimeout(timeoutId);
     };
   }, [searchInput, showMountainSearch]);
@@ -287,9 +330,7 @@ if (existingAscent) {
     throw ascentInsertError;
   }
 }
-      setShowMountainSearch(false);
-      setSearchInput("");
-      setSearchResults([]);
+      closeMountainSearch();
 
       router.refresh();
     } catch (error) {
@@ -404,30 +445,27 @@ if (existingAscent) {
         </p>
 
         <button
+          ref={searchTriggerRef}
           type="button"
-          onClick={() => {
-            setShowMountainSearch(true);
-          }}
-          className="mt-5 min-h-11 rounded-[var(--radius-control)] bg-[var(--color-warning)] px-5 py-2 font-semibold text-white transition-colors hover:brightness-90"
+          onClick={openMountainSearch}
+          aria-expanded={showMountainSearch}
+          aria-controls="mountain-search-disclosure"
+          className="ui-pressable mt-5 min-h-11 rounded-[var(--radius-control)] bg-[var(--color-warning)] px-5 py-2 font-semibold text-white hover:brightness-90"
         >
           Выбрать вершину
         </button>
 
-        {showMountainSearch && (
+        <MountainSearchDisclosure open={showMountainSearch}>
           <MountainSearch
             searchInput={searchInput}
-            setSearchInput={setSearchInput}
+            setSearchInput={handleMountainSearchInputChange}
             searchResults={searchResults}
             searching={searching}
             saving={saving}
             onSelect={saveMountain}
-            onClose={() => {
-              setShowMountainSearch(false);
-              setSearchInput("");
-              setSearchResults([]);
-            }}
+            onClose={closeMountainSearch}
           />
-        )}
+        </MountainSearchDisclosure>
 
         {errorMessage && (
           <p className="mt-4 text-sm text-[var(--color-danger)]" role="alert">
@@ -453,30 +491,27 @@ if (existingAscent) {
         </h2>
 
         <button
+          ref={searchTriggerRef}
           type="button"
-          onClick={() => {
-            setShowMountainSearch(true);
-          }}
-          className="mt-5 min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-forest)] transition-colors hover:border-[var(--color-forest)]"
+          onClick={openMountainSearch}
+          aria-expanded={showMountainSearch}
+          aria-controls="mountain-search-disclosure"
+          className="ui-pressable mt-5 min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-forest)] hover:border-[var(--color-forest)]"
         >
           Выбрать вершину вручную
         </button>
 
-        {showMountainSearch && (
+        <MountainSearchDisclosure open={showMountainSearch}>
           <MountainSearch
             searchInput={searchInput}
-            setSearchInput={setSearchInput}
+            setSearchInput={handleMountainSearchInputChange}
             searchResults={searchResults}
             searching={searching}
             saving={saving}
             onSelect={saveMountain}
-            onClose={() => {
-              setShowMountainSearch(false);
-              setSearchInput("");
-              setSearchResults([]);
-            }}
+            onClose={closeMountainSearch}
           />
-        )}
+        </MountainSearchDisclosure>
 
         {errorMessage && (
           <p className="mt-4 text-sm text-[var(--color-danger)]" role="alert">
@@ -568,7 +603,7 @@ if (existingAscent) {
 
           <Link
             href={`/mountain/${detectedMountain.id}`}
-            className="mt-4 inline-flex min-h-11 items-center font-semibold text-[var(--color-forest)] hover:underline"
+            className="ui-pressable mt-4 inline-flex min-h-11 items-center font-semibold text-[var(--color-forest)] hover:underline"
           >
             Открыть страницу вершины →
           </Link>
@@ -582,7 +617,7 @@ if (existingAscent) {
                 confirmDetectedMountain
               }
               disabled={saving}
-              className="min-h-11 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)] disabled:cursor-wait disabled:opacity-60"
+              className="ui-pressable min-h-11 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white enabled:hover:bg-[var(--color-forest-hover)] disabled:cursor-wait disabled:opacity-60"
             >
               {saving
                 ? "Сохраняю…"
@@ -591,15 +626,13 @@ if (existingAscent) {
           )}
 
           <button
+            ref={searchTriggerRef}
             type="button"
-            onClick={() => {
-              setShowMountainSearch(
-                (currentValue) =>
-                  !currentValue,
-              );
-            }}
+            onClick={toggleMountainSearch}
+            aria-expanded={showMountainSearch}
+            aria-controls="mountain-search-disclosure"
             disabled={saving}
-            className="min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)] disabled:opacity-60"
+            className="ui-pressable min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-text-secondary)] enabled:hover:border-[var(--color-forest)] enabled:hover:text-[var(--color-forest)] disabled:opacity-60"
           >
             Выбрать другую
           </button>
@@ -609,7 +642,7 @@ if (existingAscent) {
               type="button"
               onClick={rejectDetection}
               disabled={saving}
-              className="min-h-11 rounded-[var(--radius-control)] px-5 py-2 text-sm font-semibold text-[var(--color-danger)] transition-colors hover:bg-[var(--color-danger-soft)] disabled:opacity-60"
+              className="ui-destructive ui-pressable min-h-11 rounded-[var(--radius-control)] border border-transparent px-5 py-2 text-sm font-semibold text-[var(--color-danger)] disabled:opacity-60"
             >
               Это не вершина
             </button>
@@ -617,21 +650,17 @@ if (existingAscent) {
         </div>
       </div>
 
-      {showMountainSearch && (
+      <MountainSearchDisclosure open={showMountainSearch}>
         <MountainSearch
           searchInput={searchInput}
-          setSearchInput={setSearchInput}
+          setSearchInput={handleMountainSearchInputChange}
           searchResults={searchResults}
           searching={searching}
           saving={saving}
           onSelect={saveMountain}
-          onClose={() => {
-            setShowMountainSearch(false);
-            setSearchInput("");
-            setSearchResults([]);
-          }}
+          onClose={closeMountainSearch}
         />
-      )}
+      </MountainSearchDisclosure>
 
       {errorMessage && (
         <p className="mt-4 border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] px-4 py-3 text-sm text-[var(--color-danger)]" role="alert">
@@ -660,6 +689,51 @@ type MountainSearchProps = {
   onClose: () => void;
 };
 
+type MountainSearchDisclosureProps = {
+  open: boolean;
+  children: ReactNode;
+};
+
+function MountainSearchDisclosure({
+  open,
+  children,
+}: MountainSearchDisclosureProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <AnimatePresence initial={false}>
+      {open && (
+        <motion.div
+          key="mountain-search-disclosure"
+          id="mountain-search-disclosure"
+          initial={{
+            opacity: shouldReduceMotion ? 1 : 0,
+            y: shouldReduceMotion ? 0 : 10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: shouldReduceMotion ? 0 : 0.19,
+              ease: standardEasing,
+            },
+          }}
+          exit={{
+            opacity: shouldReduceMotion ? 1 : 0,
+            y: shouldReduceMotion ? 0 : 6,
+            transition: {
+              duration: shouldReduceMotion ? 0 : 0.15,
+              ease: standardEasing,
+            },
+          }}
+        >
+          {children}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function MountainSearch({
   searchInput,
   setSearchInput,
@@ -679,14 +753,20 @@ function MountainSearch({
         <button
           type="button"
           onClick={onClose}
-          className="min-h-11 px-2 text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+          className="ui-pressable min-h-11 px-2 text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
         >
           Закрыть
         </button>
       </div>
 
+      <label htmlFor="manual-mountain-search" className="sr-only">
+        Поиск вершины по названию
+      </label>
+
       <input
+        id="manual-mountain-search"
         type="search"
+        autoFocus
         value={searchInput}
         onChange={(event) => {
           setSearchInput(
@@ -694,7 +774,7 @@ function MountainSearch({
           );
         }}
         placeholder="Например, Zugspitze"
-        className="mt-4 min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-2 text-[var(--color-text)] outline-none transition-colors focus:border-[var(--color-focus)]"
+        className="ui-field mt-4 min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-2 text-[var(--color-text)] outline-none"
       />
 
       {searching && (
@@ -706,7 +786,7 @@ function MountainSearch({
       {!searching &&
         searchInput.trim().length >= 2 &&
         searchResults.length === 0 && (
-          <p className="mt-4 text-sm text-[var(--color-text-muted)]">
+          <p className="mt-4 text-sm text-[var(--color-text-muted)]" role="status">
             Вершины не найдены.
           </p>
         )}

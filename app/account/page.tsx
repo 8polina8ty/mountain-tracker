@@ -67,15 +67,15 @@ const {
 
           <div className="mt-6 grid grid-cols-2 gap-3">
             <Link
-              href="/login"
-              className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface-muted)]"
+              href="/auth/login"
+              className="ui-pressable inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 font-semibold text-[var(--color-text)] hover:bg-[var(--color-surface-muted)]"
             >
               Войти
             </Link>
 
             <Link
-              href="/register"
-              className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]"
+              href="/auth/sign-up"
+              className="ui-pressable inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 font-semibold text-white hover:bg-[var(--color-forest-hover)]"
             >
               Регистрация
             </Link>
@@ -156,7 +156,7 @@ function LogbookLink({ href, icon, label, detail }: LogbookLinkProps) {
         <span className="block font-semibold text-[var(--color-text)]">{label}</span>
         <span className="mt-1 block text-sm text-[var(--color-text-muted)]">{detail}</span>
       </span>
-      <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 text-[var(--color-text-subtle)] transition-transform group-hover:translate-x-1" />
+      <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 text-[var(--color-text-subtle)] transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5" />
     </Link>
   );
 }

@@ -109,12 +109,12 @@ export default function AscentPhotoPrivacyToggle({
         onClick={handleToggle}
         disabled={!hasCustomPhoto || updating}
         className={[
-          "flex min-h-11 w-full items-center justify-between gap-3 rounded-[var(--radius-control)] border px-3 py-2 text-sm font-semibold transition-colors",
+          "ui-pressable flex min-h-11 w-full items-center justify-between gap-3 rounded-[var(--radius-control)] border px-3 py-2 text-sm font-semibold enabled:hover:border-[var(--color-forest)]",
           isPublic
             ? "border-[var(--color-success-border)] bg-[var(--color-success-soft)] text-[var(--color-success)]"
             : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)]",
           hasCustomPhoto
-            ? "hover:border-[var(--color-forest)]"
+            ? ""
             : "cursor-not-allowed opacity-50",
           updating
             ? "cursor-wait opacity-60"
@@ -130,7 +130,7 @@ export default function AscentPhotoPrivacyToggle({
 
         <span
           className={[
-            "relative h-6 w-11 shrink-0 rounded-full transition-colors",
+            "relative h-6 w-11 shrink-0 rounded-full transition-colors duration-[var(--duration-fast)] ease-[var(--ease-standard)]",
             isPublic
               ? "bg-[var(--color-success)]"
               : "bg-[var(--color-border-strong)]",
@@ -138,7 +138,7 @@ export default function AscentPhotoPrivacyToggle({
         >
           <span
             className={[
-              "absolute top-1 h-4 w-4 rounded-full bg-white shadow-[var(--shadow-control)] transition-transform",
+              "absolute top-1 h-4 w-4 rounded-full bg-white shadow-[var(--shadow-control)] transition-transform duration-[var(--duration-base)] ease-[var(--ease-standard)]",
               isPublic
                 ? "left-6"
                 : "left-1",

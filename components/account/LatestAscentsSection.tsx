@@ -33,11 +33,11 @@ export default function LatestAscentsSection({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <Link href="/account/ascents" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+          <Link href="/account/ascents" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)]">
             Все записи
             <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Link>
-          <Link href="/map" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+          <Link href="/map" className="ui-pressable inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--color-forest-hover)]">
             <Map aria-hidden="true" className="h-4 w-4" />
             Карта
           </Link>
