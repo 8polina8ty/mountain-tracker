@@ -11,10 +11,10 @@ import type {
 import {
   DEFAULT_CENTER,
   DEFAULT_ZOOM,
-  MAX_HEIGHT,
   MIN_HEIGHT,
 } from "./constants";
 import SearchPanel from "./SearchPanel";
+import HeightFilter from "./HeightFilter";
 import PeakDetailsPanel from "./PeakDetailsPanel";
 import {
   getPeakName,
@@ -136,115 +136,59 @@ useMountainMap({
  const wikipediaUrl = getWikipediaUrl(selectedPeak?.wikipedia);
 
   return (
-    <div className="relative h-[calc(100vh-80px)] w-full overflow-hidden">
+    <div className="mountain-map-shell relative w-full overflow-hidden">
       <div ref={mapContainer} className="h-full w-full" />
 
       {loadingMessage && (
-        <div className="absolute left-1/2 top-4 z-20 -translate-x-1/2 rounded-xl bg-white px-4 py-2 text-sm font-medium shadow-lg">
+        <div
+          className="absolute left-1/2 top-3 z-20 flex -translate-x-1/2 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-xs font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-map-control)]"
+          role="status"
+          aria-live="polite"
+        >
+          <span
+            className="h-2 w-2 rounded-full bg-[var(--color-glacier)]"
+            aria-hidden="true"
+          />
           {loadingMessage}
         </div>
       )}
 
-      <section className="absolute left-3 top-3 z-10 w-[min(320px,calc(100%-24px))] rounded-2xl border border-gray-200 bg-white p-4 shadow-xl">
-        <div className="mb-5">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-            🏔 Mountain Tracker
-          </h1>
-
-          <p className="mt-1 text-sm text-gray-500">
-            Исследуйте вершины Германии и отмечайте покорённые.
+      <section
+        className="absolute left-3 top-3 z-10 max-h-[calc(100%-24px)] w-[calc(100%-24px)] overflow-y-auto rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-map-control)] sm:w-[336px]"
+        aria-label="Инструменты карты"
+      >
+        <div className="border-b border-[var(--color-border-soft)] px-4 py-3">
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+            Карта вершин
+          </p>
+          <p className="mt-0.5 text-xs text-[var(--color-text-secondary)]">
+            Поиск и высотные параметры обзора
           </p>
         </div>
 
-        <SearchPanel
-  searchInput={searchInput}
-  searchMessage={searchMessage}
-  appliedSearch={appliedSearch}
-  visiblePeakCount={visiblePeakCount}
-  onSearchInputChange={(value) => {
-    setSearchInput(value);
-    setSearchMessage("");
-  }}
-  onSearch={flyToSearchedPeak}
-  onClearSearch={clearSearch}
-/>
+        <div className="px-4 py-4">
+          <SearchPanel
+            searchInput={searchInput}
+            searchMessage={searchMessage}
+            appliedSearch={appliedSearch}
+            visiblePeakCount={visiblePeakCount}
+            onSearchInputChange={(value) => {
+              setSearchInput(value);
+              setSearchMessage("");
+            }}
+            onSearch={flyToSearchedPeak}
+            onClearSearch={clearSearch}
+          />
 
-        <label className="mt-4 block">
-          <span className="mb-2 block text-sm font-medium text-gray-700">
-            <div className="flex items-center justify-between">
-              <span>Минимальная высота</span>
-
-              <span className="rounded-lg bg-green-100 px-2 py-1 font-bold text-green-700">
-                {minimumHeight} м
-              </span>
-            </div>
-          </span>
-
-          <input
-            type="range"
-            min={MIN_HEIGHT}
-            max={MAX_HEIGHT}
-            step="50"
-            value={minimumHeight}
-            onChange={(event) => {
-              const newHeight = Number(event.target.value);
-
+          <HeightFilter
+            minimumHeight={minimumHeight}
+            onHeightChange={(newHeight) => {
               setMinimumHeight(newHeight);
               minHeightRef.current = newHeight;
             }}
-            className="w-full"
+            onReset={resetMap}
           />
-        </label>
-
-        <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-          <div className="flex items-center gap-2">
-            700–999 м
-            <span className="h-3 w-3 rounded-full bg-green-500" />
-
-          </div>
-
-          <div className="flex items-center gap-2">
-            1000–1299 м
-            <span className="h-3 w-3 rounded-full bg-lime-500" />
-
-          </div>
-
-          <div className="flex items-center gap-2">
-            1300–1599 м
-            <span className="h-3 w-3 rounded-full bg-yellow-400" />
-
-          </div>
-
-          <div className="flex items-center gap-2">
-            1600–1999 м
-            <span className="h-3 w-3 rounded-full bg-orange-500" />
-
-          </div>
-
-          <div className="flex items-center gap-2">
-            2000–3999 м
-            <span className="h-3 w-3 rounded-full bg-red-500" />
-
-          </div>
-
-          <div className="flex items-center gap-2">
-            4000–5999 м
-            <span className="h-3 w-3 rounded-full bg-purple-600" />
-          </div>
-
-          <div className="flex items-center gap-2">
-            6000–8000 м
-            <span className="h-3 w-3 rounded-full bg-blue-600" />
-          </div>
         </div>
-
-        <button
-          type="button"
-          onClick={resetMap}
-          className="mt-4 w-full rounded-xl border border-gray-300 px-4 py-2 font-medium hover:bg-gray-50"
-        >
-          Сбросить фильтры
-        </button>
       </section>
 
     

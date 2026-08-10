@@ -1,26 +1,287 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --color-bg: #f2f3ee;
+  --color-bg-secondary: #e8ebe5;
+  --color-bg-terrain: #dde2da;
+
+  --color-surface: #fafbf7;
+  --color-surface-raised: #ffffff;
+  --color-surface-muted: #ecefea;
+  --color-surface-inverse: #17211c;
+
+  --color-text: #17211c;
+  --color-text-secondary: #3e4a43;
+  --color-text-muted: #667169;
+  --color-text-subtle: #879089;
+  --color-text-disabled: #a3aaa5;
+  --color-text-inverse: #f7f9f5;
+
+  --color-border-soft: #e1e4de;
+  --color-border: #cdd3cc;
+  --color-border-strong: #a9b3ab;
+  --color-focus: #4e8b6d;
+  --color-focus-halo: #b8d7c5;
+
+  --color-forest: #1f5a3d;
+  --color-forest-hover: #194b34;
+  --color-forest-active: #123b29;
+  --color-spruce: #317555;
+  --color-glacier: #3f7f8d;
+  --color-alpine-sky: #6d99aa;
+  --color-ochre: #b8782f;
+  --color-lichen: #76884a;
+  --color-granite: #69716b;
+  --color-snow: #f7f8f4;
+
+  --color-success: #2f7d50;
+  --color-success-soft: #e6f2e9;
+  --color-success-border: #a8ceb5;
+  --color-warning: #a6651f;
+  --color-warning-soft: #faf0de;
+  --color-warning-border: #e5c38c;
+  --color-danger: #b23b35;
+  --color-danger-soft: #f9e9e7;
+  --color-danger-border: #e4a8a3;
+  --color-info: #2e6f82;
+  --color-info-soft: #e6f1f4;
+  --color-info-border: #a8ccd4;
+
+  --color-route: #0f7655;
+  --color-track: #1565c0;
+
+  --altitude-low: #22c55e;
+  --altitude-medium-low: #84cc16;
+  --altitude-medium: #facc15;
+  --altitude-medium-high: #f97316;
+  --altitude-high: #ef4444;
+  --altitude-very-high: #9333ea;
+  --altitude-extreme: #2563eb;
+
+  --font-ui: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Arial Narrow", "Aptos Narrow", "Segoe UI", Arial,
+    sans-serif;
+  --font-technical: "Cascadia Mono", "SFMono-Regular", Consolas,
+    "Liberation Mono", monospace;
+
+  --font-size-label: 0.6875rem;
+  --font-size-caption: 0.75rem;
+  --font-size-small: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-body-emphasis: 1.125rem;
+  --font-size-card-title: 1.25rem;
+  --font-size-section-title: 1.75rem;
+  --font-size-page-title: 2.5rem;
+  --font-size-hero: 3.5rem;
+  --font-size-metric: 2.5rem;
+
+  --line-height-label: 1rem;
+  --line-height-caption: 1.125rem;
+  --line-height-small: 1.25rem;
+  --line-height-body: 1.5rem;
+  --line-height-body-emphasis: 1.625rem;
+  --line-height-card-title: 1.75rem;
+  --line-height-section-title: 2.25rem;
+  --line-height-page-title: 2.875rem;
+  --line-height-hero: 3.75rem;
+  --line-height-metric: 2.75rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  --radius-sm: 4px;
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-panel: 16px;
+  --radius-sheet: 24px;
+  --radius-pill: 999px;
+
+  --shadow-control: 0 1px 2px #0e151114, 0 2px 6px #0e15110a;
+  --shadow-card: 0 6px 18px #0e15110f, 0 2px 6px #0e15110a;
+  --shadow-panel: 0 18px 48px #0e151124, 0 6px 16px #0e151114;
+  --shadow-map-control: 0 6px 20px #0e151124;
+
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-panel: 260ms;
+  --duration-sheet: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Preserve the original names while components migrate to semantic tokens. */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-technical);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #0e1511;
+  --color-bg-secondary: #121b16;
+  --color-bg-terrain: #101813;
+
+  --color-surface: #17221c;
+  --color-surface-raised: #1e2b24;
+  --color-surface-muted: #26352c;
+  --color-surface-inverse: #f0f3ee;
+
+  --color-text: #f0f3ee;
+  --color-text-secondary: #c4cbc5;
+  --color-text-muted: #929d95;
+  --color-text-subtle: #6f7b73;
+  --color-text-disabled: #59655d;
+  --color-text-inverse: #0e1511;
+
+  --color-border-soft: #2a392f;
+  --color-border: #3a4c40;
+  --color-border-strong: #596b60;
+  --color-focus: #69b98c;
+  --color-focus-halo: #315c45;
+
+  --color-forest: #57a77a;
+  --color-forest-hover: #69b98c;
+  --color-forest-active: #438d65;
+}
+
+html {
+  min-height: 100%;
+  background: var(--color-bg);
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-technical);
+}
+
+::selection {
+  background: var(--color-focus-halo);
+  color: var(--color-text);
+}
+
+:where(
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Map route viewport and controls; scoped to avoid affecting embedded maps. */
+.mountain-map-shell {
+  height: calc(100vh - 58px);
+}
+
+.mountain-map-shell .maplibregl-ctrl-top-right {
+  right: 2px;
+  top: 2px;
+}
+
+.mountain-map-shell .maplibregl-ctrl-group {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-map-control);
+}
+
+.mountain-map-shell .maplibregl-ctrl-group button {
+  height: 40px;
+  width: 40px;
+}
+
+.mountain-map-shell .maplibregl-ctrl-group button + button {
+  border-top-color: var(--color-border-soft);
+}
+
+.mountain-map-shell .maplibregl-ctrl-attrib {
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+}
+
+@supports (height: 100dvh) {
+  .mountain-map-shell {
+    height: calc(100dvh - 58px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mountain-map-shell {
+    height: calc(100vh - 66px);
+  }
+}
+
+@supports (height: 100dvh) {
+  @media (min-width: 1024px) {
+    .mountain-map-shell {
+      height: calc(100dvh - 66px);
+    }
+  }
 }

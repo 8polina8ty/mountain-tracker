@@ -1,3 +1,12 @@
+import {
+  Check,
+  ExternalLink,
+  MapPin,
+  Mountain,
+  Navigation,
+  X,
+} from "lucide-react";
+
 import type { SelectedPeak } from "./types";
 
 type PeakDetailsPanelProps = {
@@ -22,131 +31,152 @@ export default function PeakDetailsPanel({
   onAscent,
 }: PeakDetailsPanelProps) {
   return (
-    <aside className="fixed bottom-4 right-4 z-50 max-h-[calc(100vh-32px)] w-[420px] max-w-[calc(100vw-32px)] overflow-y-auto rounded-3xl border border-gray-200 bg-white p-6 shadow-2xl">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-500">
-            <span>🏔</span>
-            <span>Вершина</span>
+    <aside
+      className="absolute bottom-3 left-3 right-3 z-30 max-h-[calc(100%-24px)] overflow-y-auto rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-panel)] sm:bottom-4 sm:left-auto sm:right-4 sm:w-[400px]"
+      aria-labelledby="selected-peak-title"
+    >
+      <div className="border-b border-[var(--color-border-soft)] px-4 py-4 sm:px-5">
+        <div className="flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 [font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+              <Mountain aria-hidden="true" size={15} />
+              <span>Выбранная вершина</span>
+            </div>
+
+            <h2
+              id="selected-peak-title"
+              className="mt-2 text-2xl font-bold leading-tight text-[var(--color-text)]"
+            >
+              {peakName}
+            </h2>
+
+            <p className="mt-2 [font-family:var(--font-technical)] text-xl font-bold tabular-nums text-[var(--color-forest)]">
+              {peak.height} м
+            </p>
           </div>
 
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-gray-900">
-            {peakName}
-          </h2>
-
-          <div className="mt-4 inline-flex items-center gap-2 rounded-xl bg-green-600 px-4 py-2 text-lg font-bold text-white shadow-sm">
-            <span>⛰</span>
-            <span>{peak.height} м</span>
-          </div>
-
-          <a
-            href={`/mountain/${peak.id}`}
-            className="mt-4 inline-flex items-center rounded-xl border border-green-600 px-4 py-2 font-semibold text-green-700 transition hover:bg-green-50"
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+            aria-label="Закрыть карточку"
           >
-            Подробнее о вершине →
-          </a>
+            <X aria-hidden="true" size={19} />
+          </button>
         </div>
 
-        <button
-          type="button"
-          onClick={onClose}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-2xl text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
-          aria-label="Закрыть карточку"
+        <a
+          href={`/mountain/${peak.id}`}
+          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-forest)] hover:text-[var(--color-forest-hover)] hover:underline"
         >
-          ×
-        </button>
+          Подробнее о вершине
+          <ExternalLink aria-hidden="true" size={14} />
+        </a>
       </div>
 
-      <div className="mt-6 divide-y divide-gray-200 border-y border-gray-200">
-        <div className="flex items-center justify-between gap-4 py-4">
-          <div className="flex items-center gap-3 text-gray-500">
-            <span className="text-xl">📍</span>
+      <div className="divide-y divide-[var(--color-border-soft)] px-4 sm:px-5">
+        <div className="flex items-center justify-between gap-4 py-3">
+          <div className="flex items-center gap-2.5 text-sm text-[var(--color-text-muted)]">
+            <MapPin aria-hidden="true" size={16} />
             <span>Регион</span>
           </div>
 
-          <span className="text-right font-medium text-gray-800">
+          <span className="text-right text-sm font-semibold text-[var(--color-text-secondary)]">
             {peak.name_de ?? "Не указан"}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4 py-4">
-          <div className="flex items-center gap-3 text-gray-500">
-            <span className="text-xl">◎</span>
+        <div className="flex items-center justify-between gap-4 py-3">
+          <div className="flex items-center gap-2.5 text-sm text-[var(--color-text-muted)]">
+            <Navigation aria-hidden="true" size={16} />
             <span>Координаты</span>
           </div>
 
-          <span className="text-right font-medium text-gray-800">
+          <span className="text-right [font-family:var(--font-technical)] text-xs font-semibold tabular-nums text-[var(--color-text-secondary)]">
             {peak.latitude.toFixed(5)}, {peak.longitude.toFixed(5)}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4 py-4">
-          <div className="flex items-center gap-3 text-gray-500">
-            <span className="text-xl">⛰</span>
+        <div className="flex items-center justify-between gap-4 py-3">
+          <div className="flex items-center gap-2.5 text-sm text-[var(--color-text-muted)]">
+            <Mountain aria-hidden="true" size={16} />
             <span>Высота</span>
           </div>
 
-          <span className="font-medium text-gray-800">
+          <span className="[font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text-secondary)]">
             {peak.height} м
           </span>
         </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <a
-          href={`https://www.openstreetmap.org/?mlat=${peak.latitude}&mlon=${peak.longitude}#map=15/${peak.latitude}/${peak.longitude}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-xl border border-gray-300 px-4 py-3 font-medium text-gray-800 transition hover:border-green-500 hover:bg-green-50"
-        >
-          <span>🌍</span>
-          <span>OpenStreetMap</span>
-        </a>
-
-        {wikipediaUrl ? (
+      <div className="border-t border-[var(--color-border-soft)] px-4 py-4 sm:px-5">
+        <div className="grid grid-cols-2 gap-2">
           <a
-            href={wikipediaUrl}
+            href={`https://www.openstreetmap.org/?mlat=${peak.latitude}&mlon=${peak.longitude}#map=15/${peak.latitude}/${peak.longitude}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl border border-gray-300 px-4 py-3 font-medium text-gray-800 transition hover:border-green-500 hover:bg-green-50"
+            className="flex min-h-10 items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
           >
-            <span className="font-serif text-xl">W</span>
-            <span>Wikipedia</span>
+            <MapPin aria-hidden="true" size={14} />
+            <span>OpenStreetMap</span>
           </a>
-        ) : (
-          <div className="flex cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-400">
-            <span className="font-serif text-xl">W</span>
-            <span>Wikipedia</span>
-          </div>
-        )}
-      </div>
 
-      <button
-        type="button"
-        onClick={onAscent}
-        disabled={ascentLoading}
-        className={`mt-5 w-full rounded-xl px-5 py-4 text-lg font-bold text-white shadow-sm transition ${
-          selectedPeakClimbed
-            ? "cursor-default bg-green-800"
-            : "bg-green-600 hover:bg-green-700 active:scale-[0.99]"
-        }`}
-      >
-        {ascentLoading
-          ? "Сохраняю…"
-          : selectedPeakClimbed
-            ? "Отменить восхождение"
-            : "Взошёл на вершину"}
-      </button>
+          {wikipediaUrl ? (
+            <a
+              href={wikipediaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-10 items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
+            >
+              <span className="font-serif text-base" aria-hidden="true">
+                W
+              </span>
+              <span>Wikipedia</span>
+            </a>
+          ) : (
+            <div className="flex min-h-10 cursor-not-allowed items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-[var(--color-border-soft)] bg-[var(--color-surface-muted)] px-3 text-xs font-semibold text-[var(--color-text-disabled)]">
+              <span className="font-serif text-base" aria-hidden="true">
+                W
+              </span>
+              <span>Wikipedia</span>
+            </div>
+          )}
+        </div>
 
-      {ascentMessage && (
-        <p
-          className={`mt-3 text-center text-sm font-medium ${
-            selectedPeakClimbed ? "text-green-700" : "text-red-600"
+        <button
+          type="button"
+          onClick={onAscent}
+          disabled={ascentLoading}
+          className={`mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] px-4 text-sm font-bold text-[var(--color-text-inverse)] shadow-[var(--shadow-control)] disabled:cursor-wait disabled:opacity-70 ${
+            selectedPeakClimbed
+              ? "bg-[var(--color-forest-active)]"
+              : "bg-[var(--color-forest)] hover:bg-[var(--color-forest-hover)]"
           }`}
         >
-          {ascentMessage}
-        </p>
-      )}
+          {selectedPeakClimbed && !ascentLoading && (
+            <Check aria-hidden="true" size={17} />
+          )}
+          {ascentLoading
+            ? "Сохраняю…"
+            : selectedPeakClimbed
+              ? "Отменить восхождение"
+              : "Взошёл на вершину"}
+        </button>
+
+        {ascentMessage && (
+          <p
+            className={`mt-2 text-center text-xs font-semibold ${
+              selectedPeakClimbed
+                ? "text-[var(--color-success)]"
+                : "text-[var(--color-danger)]"
+            }`}
+            role="status"
+            aria-live="polite"
+          >
+            {ascentMessage}
+          </p>
+        )}
+      </div>
     </aside>
   );
 }

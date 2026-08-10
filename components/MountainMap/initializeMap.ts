@@ -35,6 +35,26 @@ type InitializeMapParams = {
   onPeakAscentCheck: (peakId: number) => void;
 };
 
+function getLodResultLimit(mapZoom: number): number {
+  if (mapZoom < 5) {
+    return 1500;
+  }
+
+  if (mapZoom < 7) {
+    return 3000;
+  }
+
+  if (mapZoom < 9) {
+    return 7000;
+  }
+
+  if (mapZoom < 11) {
+    return 15000;
+  }
+
+  return 30000;
+}
+
 export async function initializeMap({
   map,
   minHeight,
@@ -57,18 +77,31 @@ export async function initializeMap({
   });
 
   const mapBounds = map.getBounds();
+  const mapZoom = map.getZoom();
+  const abortController = new AbortController();
+  const abortInitialLoad = () => abortController.abort();
 
-const visibleMountainsGeoJson =
-  await loadVisibleMountains({
-    bounds: {
-      west: mapBounds.getWest(),
-      south: mapBounds.getSouth(),
-      east: mapBounds.getEast(),
-      north: mapBounds.getNorth(),
-    },
-    minHeight,
-    supabaseClient,
-  });
+  map.once("remove", abortInitialLoad);
+
+  const visibleMountainsGeoJson = await (async () => {
+    try {
+      return await loadVisibleMountains({
+        bounds: {
+          west: mapBounds.getWest(),
+          south: mapBounds.getSouth(),
+          east: mapBounds.getEast(),
+          north: mapBounds.getNorth(),
+        },
+        minHeight,
+        mapZoom,
+        resultLimit: getLodResultLimit(mapZoom),
+        supabaseClient,
+        signal: abortController.signal,
+      });
+    } finally {
+      map.off("remove", abortInitialLoad);
+    }
+  })();
 
   if (visibleMountainsGeoJson) {
     originalGeoJsonRef.current =
