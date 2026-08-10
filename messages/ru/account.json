@@ -3,6 +3,7 @@
     "Navigation": {
       "overview": "Обзор",
       "ascents": "Восхождения",
+      "achievements": "Достижения",
       "gpsTracks": "GPS-треки",
       "accessibleLabel": "Разделы аккаунта"
     },

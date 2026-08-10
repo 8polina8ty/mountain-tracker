@@ -36,7 +36,6 @@ const {
   averageHeight,
   latestAscent,
 
-  unlockedAchievementsCount,
   totalMountains,
   progressPercent,
 
@@ -130,7 +129,6 @@ const {
 
 <AchievementsSection
   achievements={achievements}
-  unlockedAchievementsCount={unlockedAchievementsCount}
 />
 
 <FavoriteMountainsSection

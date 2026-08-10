@@ -1,20 +1,652 @@
 {
   "Achievements": {
-    "Section": { "eyebrow": "03 / Этапы пути", "title": "Экспедиционные рубежи", "count": "{unlocked} / {total}" },
-    "Card": { "received": "Получено: {date}" },
-    "Status": { "unlocked": "Пройдено", "inProgress": "В процессе" },
-    "Notification": { "eyebrow": "Новый рубеж" },
-    "Progress": { "count": "{progress} из {target}", "completed": "Выполнено", "aboveClouds": "Нужна вершина от 2 000 м", "zugspitze": "Zugspitze ещё не покорена", "height": "{progress} из {target} м" },
-    "Accessibility": { "closeNotification": "Закрыть уведомление", "progress": "Прогресс достижения: {title}" },
+    "Archive": {
+      "eyebrow": "Экспедиционные рубежи",
+      "title": "Архив достижений",
+      "subtitle": "Долгосрочная летопись вершин, исследований, записанных маршрутов и времени, проведённого в горах.",
+      "recordsTitle": "Записи о рубежах",
+      "snapshotUnavailable": "Подробный прогресс временно недоступен. Сохранённые достижения остаются видимыми; отсутствующие показатели не оцениваются приблизительно.",
+      "persistedUnavailable": "Не удалось загрузить сохранённые достижения. Итоги и даты открытия недоступны.",
+      "progressUnavailable": "Данные о прогрессе недоступны",
+      "reachedPending": "Рубеж достигнут — ожидается синхронизация",
+      "notUnlocked": "Пока не открыто",
+      "unlockedOn": "Открыто {date}",
+      "points": "{points} очк.",
+      "tier": "Ступень {current} / {total}",
+      "chainAccessible": "Позиция в серии: {current} из {total}",
+      "visibleCount": "{count, plural, one {# запись} few {# записи} many {# записей} other {# записи}}",
+      "empty": "Нет достижений, соответствующих этим фильтрам.",
+      "summary": { "unlocked": "Открыто", "points": "Очки достижений", "completion": "Выполнено" },
+      "filters": { "category": "Категория", "status": "Статус", "all": "Все", "unlocked": "Открытые", "inProgress": "В процессе" },
+      "sorting": { "label": "Сортировка", "recommended": "Порядок архива", "closest": "Ближе всего к завершению", "rarity": "Классификация", "unlockedDate": "Дата открытия" }
+    },
+    "Section": {
+      "eyebrow": "03 / Этапы пути",
+      "title": "Экспедиционные рубежи",
+      "count": "{unlocked} / {total}",
+      "viewAll": "Все достижения",
+      "unlockedLabel": "Открыто",
+      "pointsLabel": "Очки достижений",
+      "completionLabel": "Выполнено",
+      "points": "{points} очк."
+    },
+    "Card": {
+      "received": "Получено: {date}"
+    },
+    "Status": {
+      "unlocked": "Пройдено",
+      "inProgress": "В процессе"
+    },
+    "Notification": {
+      "eyebrow": "Новый рубеж",
+      "summaryTitle": "Зафиксирован новый прогресс",
+      "additionalMilestones": "{count, plural, one {Достигнут ещё # рубеж} few {Достигнуто ещё # рубежа} many {Достигнуто ещё # рубежей} other {Достигнуто ещё # рубежа}}"
+    },
+    "Progress": {
+      "count": "{progress} из {target}",
+      "completed": "Выполнено",
+      "aboveClouds": "Нужна вершина от 2 000 м",
+      "zugspitze": "Zugspitze ещё не покорена",
+      "height": "{progress} из {target} м",
+      "kilometers": "{progress} из {target} км",
+      "countries": "{progress} из {target} стран",
+      "months": "{progress} из {target} месяцев",
+      "years": "{progress} из {target} лет"
+    },
+    "Accessibility": {
+      "closeNotification": "Закрыть уведомление",
+      "progress": "Прогресс достижения: {title}"
+    },
+    "Categories": {
+      "summits": "Вершины",
+      "altitude": "Высота",
+      "geography": "География",
+      "gps": "GPS",
+      "participation": "Участие",
+      "photography": "Фотографии восхождений",
+      "planning": "Планирование"
+    },
+    "Rarity": {
+      "common": "Основа",
+      "uncommon": "Устойчивый опыт",
+      "rare": "Выдающийся рубеж",
+      "epic": "Исключительный рубеж",
+      "legendary": "Достижение всей жизни"
+    },
+    "Chains": {
+      "summits": "Исследователь вершин",
+      "summitElevation": "Суммарная высота вершин",
+      "height": "Высотный уровень",
+      "zone": "Высотная зона",
+      "zoneDiversity": "Разнообразие высот",
+      "countries": "Исследователь стран",
+      "gpsTracks": "GPS-архив",
+      "gpsDistance": "Записанное расстояние",
+      "gpsGain": "Записанный набор высоты",
+      "gpsLinked": "Вершины с GPS-привязкой",
+      "activeMonths": "Многолетнее участие",
+      "activeYears": "Годы в горах",
+      "yearSummits": "Год вершин",
+      "calendarDiversity": "Календарное разнообразие",
+      "photos": "Фотографии восхождений",
+      "favorites": "Планирование маршрутов"
+    },
     "Definitions": {
-      "firstAscent": { "title": "Первый шаг", "description": "Покорите свою первую вершину.", "unlockedDescription": "Вы покорили свою первую вершину." },
-      "fiveAscents": { "title": "Начинающий альпинист", "description": "Покорите 5 вершин.", "unlockedDescription": "Вы покорили 5 вершин." },
-      "tenAscents": { "title": "Покоритель вершин", "description": "Покорите 10 вершин.", "unlockedDescription": "Вы покорили 10 вершин." },
-      "twentyFiveAscents": { "title": "Опытный альпинист", "description": "Покорите 25 вершин.", "unlockedDescription": "Вы покорили 25 вершин." },
-      "fiftyAscents": { "title": "Мастер высоты", "description": "Покорите 50 вершин.", "unlockedDescription": "Вы покорили 50 вершин." },
-      "aboveClouds": { "title": "Выше облаков", "description": "Покорите вершину высотой не менее 2 000 м.", "unlockedDescription": "Вы покорили вершину высотой от 2 000 м." },
-      "zugspitze": { "title": "Крыша Германии", "description": "Покорите Zugspitze.", "unlockedDescription": "Вы покорили Zugspitze." },
-      "tenThousandHeight": { "title": "10 000 метров", "description": "Наберите суммарно 10 000 метров высоты.", "unlockedDescription": "Сумма высот ваших вершин достигла 10 000 м." }
+      "firstAscent": {
+        "title": "Первый шаг",
+        "description": "Покорите свою первую вершину.",
+        "unlockedDescription": "Вы покорили свою первую вершину."
+      },
+      "fiveAscents": {
+        "title": "Начинающий альпинист",
+        "description": "Покорите 5 вершин.",
+        "unlockedDescription": "Вы покорили 5 вершин."
+      },
+      "tenAscents": {
+        "title": "Покоритель вершин",
+        "description": "Покорите 10 вершин.",
+        "unlockedDescription": "Вы покорили 10 вершин."
+      },
+      "twentyFiveAscents": {
+        "title": "Опытный альпинист",
+        "description": "Покорите 25 вершин.",
+        "unlockedDescription": "Вы покорили 25 вершин."
+      },
+      "fiftyAscents": {
+        "title": "Мастер высоты",
+        "description": "Покорите 50 вершин.",
+        "unlockedDescription": "Вы покорили 50 вершин."
+      },
+      "summits100": {
+        "title": "Исследователь вершин VI",
+        "description": "Поднимитесь на {target} разных вершин.",
+        "unlockedDescription": "Вы поднялись на {target} разных вершин."
+      },
+      "summits250": {
+        "title": "Исследователь вершин VII",
+        "description": "Поднимитесь на {target} разных вершин.",
+        "unlockedDescription": "Вы поднялись на {target} разных вершин."
+      },
+      "summits500": {
+        "title": "Исследователь вершин VIII",
+        "description": "Поднимитесь на {target} разных вершин.",
+        "unlockedDescription": "Вы поднялись на {target} разных вершин."
+      },
+      "summits750": {
+        "title": "Исследователь вершин IX",
+        "description": "Поднимитесь на {target} разных вершин.",
+        "unlockedDescription": "Вы поднялись на {target} разных вершин."
+      },
+      "summits1000": {
+        "title": "Исследователь вершин X",
+        "description": "Поднимитесь на {target} разных вершин.",
+        "unlockedDescription": "Вы поднялись на {target} разных вершин."
+      },
+      "summitElevationTotal1000": {
+        "title": "Суммарная высота вершин I",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitElevationTotal5000": {
+        "title": "Суммарная высота вершин II",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "tenThousandHeight": {
+        "title": "10 000 метров",
+        "description": "Наберите суммарно 10 000 метров высоты.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла 10 000 м."
+      },
+      "summitElevationTotal25000": {
+        "title": "Суммарная высота вершин IV",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitElevationTotal50000": {
+        "title": "Суммарная высота вершин V",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitElevationTotal100000": {
+        "title": "Суммарная высота вершин VI",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitElevationTotal250000": {
+        "title": "Суммарная высота вершин VII",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitElevationTotal500000": {
+        "title": "Суммарная высота вершин VIII",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitElevationTotal750000": {
+        "title": "Суммарная высота вершин IX",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitElevationTotal1000000": {
+        "title": "Суммарная высота вершин X",
+        "description": "Достигните {target} м по сумме высот разных покорённых вершин.",
+        "unlockedDescription": "Сумма высот ваших вершин достигла {target} м."
+      },
+      "summitHeight500": {
+        "title": "Высотный уровень I",
+        "description": "Отметьте вершину высотой не менее {target} м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее {target} м."
+      },
+      "summitHeight1000": {
+        "title": "Высотный уровень II",
+        "description": "Отметьте вершину высотой не менее {target} м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее {target} м."
+      },
+      "summitHeight1500": {
+        "title": "Высотный уровень III",
+        "description": "Отметьте вершину высотой не менее {target} м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее {target} м."
+      },
+      "aboveClouds": {
+        "title": "Выше облаков",
+        "description": "Покорите вершину высотой не менее 2 000 м.",
+        "unlockedDescription": "Вы покорили вершину высотой от 2 000 м."
+      },
+      "summitHeight2500": {
+        "title": "Высотный уровень V",
+        "description": "Отметьте вершину высотой не менее {target} м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее {target} м."
+      },
+      "summitHeight3000": {
+        "title": "Высотный уровень VI",
+        "description": "Отметьте вершину высотой не менее {target} м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее {target} м."
+      },
+      "summitHeight3500": {
+        "title": "Высотный уровень VII",
+        "description": "Отметьте вершину высотой не менее {target} м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее {target} м."
+      },
+      "summitHeight4000": {
+        "title": "Высотный уровень VIII",
+        "description": "Отметьте вершину высотой не менее {target} м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее {target} м."
+      },
+      "altitudeZoneBelow1000": {
+        "title": "Ниже 1 000 м",
+        "description": "Отметьте вершину ниже 1 000 м.",
+        "unlockedDescription": "Вы отметили вершину ниже 1 000 м."
+      },
+      "altitudeZone1000To1499": {
+        "title": "1 000–1 499 м",
+        "description": "Отметьте вершину высотой от 1 000 до 1 499 м.",
+        "unlockedDescription": "Вы отметили вершину высотой от 1 000 до 1 499 м."
+      },
+      "altitudeZone1500To1999": {
+        "title": "1 500–1 999 м",
+        "description": "Отметьте вершину высотой от 1 500 до 1 999 м.",
+        "unlockedDescription": "Вы отметили вершину высотой от 1 500 до 1 999 м."
+      },
+      "altitudeZone2000To2499": {
+        "title": "2 000–2 499 м",
+        "description": "Отметьте вершину высотой от 2 000 до 2 499 м.",
+        "unlockedDescription": "Вы отметили вершину высотой от 2 000 до 2 499 м."
+      },
+      "altitudeZone2500To2999": {
+        "title": "2 500–2 999 м",
+        "description": "Отметьте вершину высотой от 2 500 до 2 999 м.",
+        "unlockedDescription": "Вы отметили вершину высотой от 2 500 до 2 999 м."
+      },
+      "altitudeZone3000To3499": {
+        "title": "3 000–3 499 м",
+        "description": "Отметьте вершину высотой от 3 000 до 3 499 м.",
+        "unlockedDescription": "Вы отметили вершину высотой от 3 000 до 3 499 м."
+      },
+      "altitudeZone3500Plus": {
+        "title": "От 3 500 м",
+        "description": "Отметьте вершину высотой не менее 3 500 м.",
+        "unlockedDescription": "Вы отметили вершину высотой не менее 3 500 м."
+      },
+      "altitudeZones3": {
+        "title": "Разнообразие высот I",
+        "description": "Отметьте вершины в {target} разных высотных зонах.",
+        "unlockedDescription": "Вы отметили вершины в {target} разных высотных зонах."
+      },
+      "altitudeZones5": {
+        "title": "Разнообразие высот II",
+        "description": "Отметьте вершины в {target} разных высотных зонах.",
+        "unlockedDescription": "Вы отметили вершины в {target} разных высотных зонах."
+      },
+      "altitudeZones7": {
+        "title": "Разнообразие высот III",
+        "description": "Отметьте вершины в {target} разных высотных зонах.",
+        "unlockedDescription": "Вы отметили вершины в {target} разных высотных зонах."
+      },
+      "countries2": {
+        "title": "Исследователь стран I",
+        "description": "Отметьте восхождения в {target} разных странах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных странах."
+      },
+      "countries3": {
+        "title": "Исследователь стран II",
+        "description": "Отметьте восхождения в {target} разных странах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных странах."
+      },
+      "countries5": {
+        "title": "Исследователь стран III",
+        "description": "Отметьте восхождения в {target} разных странах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных странах."
+      },
+      "countries10": {
+        "title": "Исследователь стран IV",
+        "description": "Отметьте восхождения в {target} разных странах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных странах."
+      },
+      "countries15": {
+        "title": "Исследователь стран V",
+        "description": "Отметьте восхождения в {target} разных странах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных странах."
+      },
+      "countries20": {
+        "title": "Исследователь стран VI",
+        "description": "Отметьте восхождения в {target} разных странах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных странах."
+      },
+      "countries30": {
+        "title": "Исследователь стран VII",
+        "description": "Отметьте восхождения в {target} разных странах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных странах."
+      },
+      "gpsTracks1": {
+        "title": "GPS-архив I",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsTracks5": {
+        "title": "GPS-архив II",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsTracks10": {
+        "title": "GPS-архив III",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsTracks25": {
+        "title": "GPS-архив IV",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsTracks50": {
+        "title": "GPS-архив V",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsTracks100": {
+        "title": "GPS-архив VI",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsTracks250": {
+        "title": "GPS-архив VII",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsTracks500": {
+        "title": "GPS-архив VIII",
+        "description": "Сохраните {target} успешно обработанных GPS-треков.",
+        "unlockedDescription": "Вы сохранили {target} успешно обработанных GPS-треков."
+      },
+      "gpsDistanceKm10": {
+        "title": "Записанное расстояние I",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm50": {
+        "title": "Записанное расстояние II",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm100": {
+        "title": "Записанное расстояние III",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm250": {
+        "title": "Записанное расстояние IV",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm500": {
+        "title": "Записанное расстояние V",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm1000": {
+        "title": "Записанное расстояние VI",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm2500": {
+        "title": "Записанное расстояние VII",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm5000": {
+        "title": "Записанное расстояние VIII",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsDistanceKm10000": {
+        "title": "Записанное расстояние IX",
+        "description": "Запишите суммарно {target} км с помощью GPS-треков.",
+        "unlockedDescription": "Ваши GPS-треки охватывают суммарно {target} км."
+      },
+      "gpsElevationGain1000": {
+        "title": "Записанный набор высоты I",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain5000": {
+        "title": "Записанный набор высоты II",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain10000": {
+        "title": "Записанный набор высоты III",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain25000": {
+        "title": "Записанный набор высоты IV",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain50000": {
+        "title": "Записанный набор высоты V",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain100000": {
+        "title": "Записанный набор высоты VI",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain250000": {
+        "title": "Записанный набор высоты VII",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain500000": {
+        "title": "Записанный набор высоты VIII",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsElevationGain1000000": {
+        "title": "Записанный набор высоты IX",
+        "description": "Запишите суммарный набор высоты {target} м по GPS-трекам.",
+        "unlockedDescription": "Ваши GPS-треки содержат суммарный набор высоты {target} м."
+      },
+      "gpsLinkedSummits1": {
+        "title": "Вершины с GPS-привязкой I",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "gpsLinkedSummits5": {
+        "title": "Вершины с GPS-привязкой II",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "gpsLinkedSummits10": {
+        "title": "Вершины с GPS-привязкой III",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "gpsLinkedSummits25": {
+        "title": "Вершины с GPS-привязкой IV",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "gpsLinkedSummits50": {
+        "title": "Вершины с GPS-привязкой V",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "gpsLinkedSummits100": {
+        "title": "Вершины с GPS-привязкой VI",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "gpsLinkedSummits250": {
+        "title": "Вершины с GPS-привязкой VII",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "gpsLinkedSummits500": {
+        "title": "Вершины с GPS-привязкой VIII",
+        "description": "Свяжите {target} вершин с подтверждёнными вами GPS-данными.",
+        "unlockedDescription": "Вы связали {target} вершин с подтверждёнными вами GPS-данными."
+      },
+      "activeMonths1": {
+        "title": "Многолетнее участие I",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeMonths3": {
+        "title": "Многолетнее участие II",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeMonths6": {
+        "title": "Многолетнее участие III",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeMonths12": {
+        "title": "Многолетнее участие IV",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeMonths24": {
+        "title": "Многолетнее участие V",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeMonths36": {
+        "title": "Многолетнее участие VI",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeMonths60": {
+        "title": "Многолетнее участие VII",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeMonths120": {
+        "title": "Многолетнее участие VIII",
+        "description": "Отметьте восхождения в {target} разных периодах «год-месяц».",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных периодах «год-месяц»."
+      },
+      "activeYears2": {
+        "title": "Годы в горах I",
+        "description": "Отметьте восхождения в {target} разных календарных годах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных календарных годах."
+      },
+      "activeYears3": {
+        "title": "Годы в горах II",
+        "description": "Отметьте восхождения в {target} разных календарных годах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных календарных годах."
+      },
+      "activeYears5": {
+        "title": "Годы в горах III",
+        "description": "Отметьте восхождения в {target} разных календарных годах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных календарных годах."
+      },
+      "activeYears10": {
+        "title": "Годы в горах IV",
+        "description": "Отметьте восхождения в {target} разных календарных годах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных календарных годах."
+      },
+      "activeYears15": {
+        "title": "Годы в горах V",
+        "description": "Отметьте восхождения в {target} разных календарных годах.",
+        "unlockedDescription": "Вы отметили восхождения в {target} разных календарных годах."
+      },
+      "summitsInYear5": {
+        "title": "Год вершин I",
+        "description": "Отметьте {target} разных вершин в течение одного календарного года.",
+        "unlockedDescription": "Вы отметили {target} разных вершин в течение одного календарного года."
+      },
+      "summitsInYear10": {
+        "title": "Год вершин II",
+        "description": "Отметьте {target} разных вершин в течение одного календарного года.",
+        "unlockedDescription": "Вы отметили {target} разных вершин в течение одного календарного года."
+      },
+      "summitsInYear25": {
+        "title": "Год вершин III",
+        "description": "Отметьте {target} разных вершин в течение одного календарного года.",
+        "unlockedDescription": "Вы отметили {target} разных вершин в течение одного календарного года."
+      },
+      "summitsInYear50": {
+        "title": "Год вершин IV",
+        "description": "Отметьте {target} разных вершин в течение одного календарного года.",
+        "unlockedDescription": "Вы отметили {target} разных вершин в течение одного календарного года."
+      },
+      "calendarMonthsRepresented3": {
+        "title": "Календарное разнообразие I",
+        "description": "За всю историю отметьте восхождения в {target} разных календарных месяцах.",
+        "unlockedDescription": "Ваша история восхождений охватывает {target} разных календарных месяцев."
+      },
+      "calendarMonthsRepresented6": {
+        "title": "Календарное разнообразие II",
+        "description": "За всю историю отметьте восхождения в {target} разных календарных месяцах.",
+        "unlockedDescription": "Ваша история восхождений охватывает {target} разных календарных месяцев."
+      },
+      "calendarMonthsRepresented9": {
+        "title": "Календарное разнообразие III",
+        "description": "За всю историю отметьте восхождения в {target} разных календарных месяцах.",
+        "unlockedDescription": "Ваша история восхождений охватывает {target} разных календарных месяцев."
+      },
+      "calendarMonthsRepresented12": {
+        "title": "Календарное разнообразие IV",
+        "description": "За всю историю отметьте восхождения в {target} разных календарных месяцах.",
+        "unlockedDescription": "Ваша история восхождений охватывает {target} разных календарных месяцев."
+      },
+      "ascentPhotos1": {
+        "title": "Фотографии восхождений I",
+        "description": "Добавьте фотографии к {target} восхождениям; видимость каждой фотографии выбираете вы.",
+        "unlockedDescription": "Вы дополнили фотографиями {target} восхождений."
+      },
+      "ascentPhotos5": {
+        "title": "Фотографии восхождений II",
+        "description": "Добавьте фотографии к {target} восхождениям; видимость каждой фотографии выбираете вы.",
+        "unlockedDescription": "Вы дополнили фотографиями {target} восхождений."
+      },
+      "ascentPhotos10": {
+        "title": "Фотографии восхождений III",
+        "description": "Добавьте фотографии к {target} восхождениям; видимость каждой фотографии выбираете вы.",
+        "unlockedDescription": "Вы дополнили фотографиями {target} восхождений."
+      },
+      "ascentPhotos25": {
+        "title": "Фотографии восхождений IV",
+        "description": "Добавьте фотографии к {target} восхождениям; видимость каждой фотографии выбираете вы.",
+        "unlockedDescription": "Вы дополнили фотографиями {target} восхождений."
+      },
+      "ascentPhotos50": {
+        "title": "Фотографии восхождений V",
+        "description": "Добавьте фотографии к {target} восхождениям; видимость каждой фотографии выбираете вы.",
+        "unlockedDescription": "Вы дополнили фотографиями {target} восхождений."
+      },
+      "ascentPhotos100": {
+        "title": "Фотографии восхождений VI",
+        "description": "Добавьте фотографии к {target} восхождениям; видимость каждой фотографии выбираете вы.",
+        "unlockedDescription": "Вы дополнили фотографиями {target} восхождений."
+      },
+      "favorites1": {
+        "title": "Планирование маршрутов I",
+        "description": "Сохраните {target} вершин для планирования маршрутов.",
+        "unlockedDescription": "Вы сохранили {target} вершин для планирования маршрутов."
+      },
+      "favorites5": {
+        "title": "Планирование маршрутов II",
+        "description": "Сохраните {target} вершин для планирования маршрутов.",
+        "unlockedDescription": "Вы сохранили {target} вершин для планирования маршрутов."
+      },
+      "favorites10": {
+        "title": "Планирование маршрутов III",
+        "description": "Сохраните {target} вершин для планирования маршрутов.",
+        "unlockedDescription": "Вы сохранили {target} вершин для планирования маршрутов."
+      },
+      "favorites25": {
+        "title": "Планирование маршрутов IV",
+        "description": "Сохраните {target} вершин для планирования маршрутов.",
+        "unlockedDescription": "Вы сохранили {target} вершин для планирования маршрутов."
+      },
+      "zugspitze": {
+        "title": "Крыша Германии",
+        "description": "Покорите Zugspitze.",
+        "unlockedDescription": "Вы покорили Zugspitze."
+      }
     }
   }
 }

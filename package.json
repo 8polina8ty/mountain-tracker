@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:achievements": "node --experimental-strip-types scripts/validate-achievements.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",

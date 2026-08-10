@@ -3,17 +3,12 @@
 import { X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ACHIEVEMENT_MESSAGE_KEYS, type AchievementId } from "@/Lib/achievements";
+import type { AchievementNotificationQueueItem } from "@/Lib/achievementNotificationQueue";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
 
-export type AchievementNotificationData = {
-  id: AchievementId;
-  icon: string;
-};
-
 type AchievementNotificationProps = {
-  notification: AchievementNotificationData | null;
+  notification: AchievementNotificationQueueItem | null;
   onClose: () => void;
 };
 
@@ -28,7 +23,7 @@ export default function AchievementNotification({
     <AnimatePresence initial={false} mode="wait">
       {notification && (
         <motion.aside
-          key={notification.id}
+          key={notification.key}
           initial={{
             opacity: 0,
             y: shouldReduceMotion ? 0 : 10,
@@ -65,7 +60,7 @@ export default function AchievementNotification({
 
             <div className="flex items-start gap-4 pr-7">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-warning-border)] bg-[var(--color-warning-soft)] text-lg" aria-hidden="true">
-                {notification.icon}
+                {notification.kind === "achievement" ? notification.icon : "＋"}
               </div>
 
               <div>
@@ -74,11 +69,15 @@ export default function AchievementNotification({
                 </p>
 
                 <h2 className="mt-1 text-xl font-bold text-[var(--color-text)]">
-                  {t(`Definitions.${ACHIEVEMENT_MESSAGE_KEYS[notification.id]}.title`)}
+                  {notification.kind === "achievement"
+                    ? t(`Definitions.${notification.translationKey}.title`, { target: notification.target })
+                    : t("Notification.summaryTitle")}
                 </h2>
 
                 <p className="mt-1 text-sm leading-5 text-[var(--color-text-muted)]">
-                  {t(`Definitions.${ACHIEVEMENT_MESSAGE_KEYS[notification.id]}.unlockedDescription`)}
+                  {notification.kind === "achievement"
+                    ? t(`Definitions.${notification.translationKey}.unlockedDescription`, { target: notification.target })
+                    : t("Notification.additionalMilestones", { count: notification.count })}
                 </p>
               </div>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Mountain, Route } from "lucide-react";
+import { Award, BookOpen, Mountain, Route } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 
@@ -17,6 +17,13 @@ const accountSections = [
     icon: Mountain,
     isActive: (pathname: string) =>
       pathname.startsWith("/account/ascents"),
+  },
+  {
+    href: "/account/achievements",
+    labelKey: "achievements",
+    icon: Award,
+    isActive: (pathname: string) =>
+      pathname.startsWith("/account/achievements"),
   },
   {
     href: "/account/tracks",

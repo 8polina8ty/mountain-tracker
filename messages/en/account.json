@@ -3,6 +3,7 @@
     "Navigation": {
       "overview": "Overview",
       "ascents": "Ascents",
+      "achievements": "Achievements",
       "gpsTracks": "GPS tracks",
       "accessibleLabel": "Account sections"
     },
