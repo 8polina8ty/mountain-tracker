@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ArrowUpRight, Route, Upload } from "lucide-react";
 
 import { createClient } from "@/Lib/supabase/server";
+import AccountNavigation from "@/components/account/AccountNavigation";
+import AccountPageHeader from "@/components/account/AccountPageHeader";
 import DeleteGpsTrackButton from "@/components/account/DeleteGpsTrackButton";
 
 type GpsActivity = {
@@ -167,64 +170,44 @@ export default async function TracksPage() {
     (data ?? []) as GpsActivity[];
 
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-gray-50 px-4 py-8">
-      <div className="mx-auto max-w-6xl">
-        <Link
-          href="/account/ascents"
-          className="font-semibold text-green-700 transition hover:text-green-800"
-        >
-          ← Вернуться к моим восхождениям
-        </Link>
-
-        <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wider text-green-700">
-              GPS-активности
-            </p>
-
-            <h1 className="mt-2 text-3xl font-bold text-gray-900">
-              Мои GPS-треки
-            </h1>
-
-            <p className="mt-2 text-gray-500">
-              Загруженные и записанные маршруты
-              с часов, телефона и туристических
-              приложений.
-            </p>
-          </div>
-
-          <Link
-            href="/account/tracks/import"
-            className="inline-flex shrink-0 items-center justify-center rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
-          >
-            Импортировать трек
-          </Link>
-        </div>
+    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-8">
+      <div className="mx-auto max-w-7xl">
+        <AccountNavigation />
+        <AccountPageHeader
+          eyebrow="03 / Маршрутный архив"
+          title="GPS-треки"
+          description="Записанные маршруты с часов, телефона и туристических приложений, собранные в едином техническом архиве."
+          metric={{ label: "Всего маршрутов", value: activities.length }}
+          actions={
+            <Link href="/account/tracks/import" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+              <Upload aria-hidden="true" className="h-4 w-4" />
+              Импортировать трек
+            </Link>
+          }
+        />
 
         {activities.length === 0 ? (
-          <section className="mt-8 rounded-3xl border border-gray-200 bg-white p-10 text-center shadow-sm">
-            <div className="text-6xl">
-              🗺️
-            </div>
-
-            <h2 className="mt-5 text-2xl font-bold text-gray-900">
+          <section className="border-b border-[var(--color-border-strong)] py-14 text-center">
+            <Route aria-hidden="true" className="mx-auto h-9 w-9 text-[var(--color-track)]" />
+            <h2 className="mt-5 text-2xl font-bold text-[var(--color-text)]">
               GPS-треков пока нет
             </h2>
 
-            <p className="mx-auto mt-2 max-w-lg text-gray-500">
+            <p className="mx-auto mt-2 max-w-lg text-[var(--color-text-muted)]">
               Загрузите GPX с Garmin, Suunto,
               Strava, Komoot, часов или телефона.
             </p>
 
             <Link
               href="/account/tracks/import"
-              className="mt-6 inline-flex rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]"
             >
+              <Upload aria-hidden="true" className="h-4 w-4" />
               Загрузить первый трек
             </Link>
           </section>
         ) : (
-          <section className="mt-8 space-y-4">
+          <section className="border-t border-[var(--color-border-strong)]" aria-label="Список GPS-треков">
             {activities.map((activity) => {
               const canOpen =
                 activity.processing_status ===
@@ -233,21 +216,21 @@ export default async function TracksPage() {
               return (
                 <article
                   key={activity.id}
-                  className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6"
+                  className="border-b border-[var(--color-border)] py-6"
                 >
-                  <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="grid gap-5 lg:grid-cols-[minmax(220px,1.1fr)_minmax(360px,1.5fr)_180px] lg:items-center">
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
                         <span
                           className={[
-                            "rounded-full px-3 py-1 text-xs font-bold",
+                            "[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em]",
                             activity.processing_status ===
                             "ready"
-                              ? "bg-green-100 text-green-700"
+                              ? "text-[var(--color-success)]"
                               : activity.processing_status ===
                                 "failed"
-                              ? "bg-red-100 text-red-700"
-                              : "bg-amber-100 text-amber-700",
+                              ? "text-[var(--color-danger)]"
+                              : "text-[var(--color-warning)]",
                           ].join(" ")}
                         >
                           {getStatusLabel(
@@ -255,19 +238,19 @@ export default async function TracksPage() {
                           )}
                         </span>
 
-                        <span className="text-sm text-gray-500">
+                        <span className="text-sm text-[var(--color-text-muted)]">
                           {getSourceLabel(
                             activity.source_type,
                           )}
                         </span>
                       </div>
 
-                      <h2 className="mt-3 break-words text-xl font-bold text-gray-900">
+                      <h2 className="mt-2 break-words text-2xl font-bold text-[var(--color-text)]">
                         {activity.title ??
                           `GPS-трек №${activity.id}`}
                       </h2>
 
-                      <p className="mt-1 text-sm text-gray-500">
+                      <p className="mt-1 [font-family:var(--font-technical)] text-xs text-[var(--color-text-muted)]">
                         {formatDate(
                           activity.started_at ??
                             activity.created_at,
@@ -275,7 +258,7 @@ export default async function TracksPage() {
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    <dl className="grid grid-cols-2 border-y border-[var(--color-border-soft)] sm:grid-cols-4 sm:border-y-0">
                       <TrackValue
                         label="Расстояние"
                         value={formatDistance(
@@ -317,18 +300,19 @@ export default async function TracksPage() {
                             : "—"
                         }
                       />
-                    </div>
+                    </dl>
 
                     <div className="flex shrink-0 flex-col gap-2">
   {canOpen ? (
     <Link
       href={`/account/tracks/${activity.id}`}
-      className="inline-flex items-center justify-center rounded-xl border border-green-600 px-5 py-3 font-semibold text-green-700 transition hover:bg-green-50"
+      className="inline-flex min-h-11 items-center justify-between gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-track)] hover:text-[var(--color-track)]"
     >
-      Открыть карту →
+      Открыть маршрут
+      <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
     </Link>
   ) : (
-    <span className="inline-flex items-center justify-center rounded-xl bg-gray-100 px-5 py-3 font-semibold text-gray-400">
+    <span className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] px-4 py-2 text-sm font-semibold text-[var(--color-text-disabled)]">
       Карта недоступна
     </span>
   )}
@@ -368,14 +352,14 @@ function TrackValue({
   value,
 }: TrackValueProps) {
   return (
-    <div className="min-w-[110px] rounded-2xl bg-gray-50 p-3">
-      <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+    <div className="min-w-0 border-r border-[var(--color-border-soft)] px-3 py-3 first:pl-0 last:border-r-0 sm:py-1">
+      <dt className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
         {label}
-      </p>
+      </dt>
 
-      <p className="mt-1 break-words font-bold text-gray-900">
+      <dd className="mt-1 break-words [font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text)]">
         {value}
-      </p>
+      </dd>
     </div>
   );
 }

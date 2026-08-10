@@ -27,98 +27,72 @@ export default function StatisticsSection({
   getMountainName,
 }: StatisticsSectionProps) {
   return (
-    <section className="mt-6 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <article className="flex min-h-[230px] flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+    <section className="py-10 sm:py-12" aria-labelledby="account-statistics-title">
+      <div className="flex items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Общий прогресс
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
+            01 / Сводка
           </p>
-
-          <h2 className="mt-4 text-4xl font-bold text-gray-900">
-            {ascentsCount}
+          <h2 id="account-statistics-title" className="mt-2 text-3xl font-bold text-[var(--color-text)]">
+            Экспедиционная статистика
           </h2>
-
-          <p className="mt-1 text-sm text-gray-500">
-            из {totalMountains} вершин
-          </p>
         </div>
+        <p className="hidden text-sm text-[var(--color-text-muted)] sm:block">
+          Личный журнал вершин
+        </p>
+      </div>
 
+      <dl className="mt-6 grid grid-cols-2 border-y border-[var(--color-border-strong)] lg:grid-cols-4">
+        <Metric label="Восхождения" value={ascentsCount.toLocaleString("ru-RU")} />
+        <Metric
+          label="Высшая точка"
+          value={highestMountain ? `${highestMountain.height.toLocaleString("ru-RU")} м` : "—"}
+          detail={highestMountain ? getMountainName(highestMountain) : "Нет данных"}
+        />
+        <Metric label="Средняя высота" value={averageHeight > 0 ? `${averageHeight.toLocaleString("ru-RU")} м` : "—"} />
+        <Metric
+          label="Последняя запись"
+          value={latestAscent ? getMountainName(latestAscent.mountains) : "—"}
+          detail={latestAscent ? formatDate(latestAscent.climbed_at ?? latestAscent.created_at) : "Нет данных"}
+        />
+      </dl>
+
+      <div className="grid gap-4 border-b border-[var(--color-border)] py-5 sm:grid-cols-[1fr_auto] sm:items-center">
         <div>
-          <div className="h-3 overflow-hidden rounded-full bg-gray-100">
-            <div
-              className="h-full rounded-full bg-green-600"
-              style={{
-                width: `${progressPercent}%`,
-              }}
-            />
+          <div className="flex items-center justify-between gap-4 text-sm">
+            <span className="font-semibold text-[var(--color-text-secondary)]">Общий прогресс каталога</span>
+            <span className="[font-family:var(--font-technical)] font-bold tabular-nums text-[var(--color-forest)]">
+              {progressPercent.toFixed(2)}%
+            </span>
           </div>
-
-          <p className="mt-2 text-sm font-semibold text-green-700">
-            {progressPercent.toFixed(2)}%
-          </p>
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-muted)]">
+            <div className="h-full rounded-full bg-[var(--color-forest)]" style={{ width: `${progressPercent}%` }} />
+          </div>
         </div>
-      </article>
-
-      <article className="flex min-h-[230px] flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Самая высокая
-          </p>
-
-          <h3 className="mt-5 text-2xl font-bold text-gray-900">
-            {highestMountain
-              ? getMountainName(highestMountain)
-              : "Пока нет"}
-          </h3>
-        </div>
-
-        <p className="text-3xl font-bold text-green-600">
-          {highestMountain
-            ? `${highestMountain.height} м`
-            : "—"}
+        <p className="[font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)]">
+          {ascentsCount.toLocaleString("ru-RU")} / {totalMountains.toLocaleString("ru-RU")} вершин
         </p>
-      </article>
-
-      <article className="flex min-h-[230px] flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Средняя высота
-          </p>
-
-          <h3 className="mt-5 text-4xl font-bold text-gray-900">
-            {averageHeight > 0
-              ? `${averageHeight} м`
-              : "—"}
-          </h3>
-        </div>
-
-        <p className="text-sm text-gray-500">
-          Среднее значение покорённых вершин
-        </p>
-      </article>
-
-      <article className="flex min-h-[230px] flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Последнее восхождение
-          </p>
-
-          <h3 className="mt-5 text-2xl font-bold text-gray-900">
-            {latestAscent
-              ? getMountainName(latestAscent.mountains)
-              : "Пока нет"}
-          </h3>
-        </div>
-
-        <p className="text-sm text-gray-500">
-          {latestAscent
-            ? formatDate(
-                latestAscent.climbed_at ??
-                  latestAscent.created_at,
-              )
-            : "Нет данных"}
-        </p>
-      </article>
+      </div>
     </section>
+  );
+}
+
+type MetricProps = {
+  label: string;
+  value: string;
+  detail?: string;
+};
+
+function Metric({ label, value, detail }: MetricProps) {
+  return (
+    <div className="min-w-0 border-b border-[var(--color-border-soft)] px-4 py-5 odd:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+      <dt className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
+        {label}
+      </dt>
+      <dd className="mt-2 break-words [font-family:var(--font-technical)] text-xl font-bold tabular-nums text-[var(--color-text)] sm:text-2xl">
+        <span className="block">{value}</span>
+        {detail && <span className="mt-1 block truncate [font-family:var(--font-ui)] text-xs font-normal text-[var(--color-text-muted)]">{detail}</span>}
+      </dd>
+    </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowUpRight, Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { createClient } from "@/Lib/supabase/client";
@@ -56,7 +57,7 @@ export default function RankingPage() {
       }
 
       const loadedRanking: RankingUser[] = (
-  (data ?? []) as any[]
+  (data ?? []) as Record<string, unknown>[]
 ).map((row) => ({
         user_id: String(row.user_id),
         username: String(
@@ -161,8 +162,11 @@ export default function RankingPage() {
 
   if (loading) {
     return (
-      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-gray-50">
-        <div className="rounded-2xl border border-gray-200 bg-white px-6 py-4 font-medium text-gray-600 shadow-sm">
+      <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 lg:min-h-[calc(100dvh-66px)]">
+        <div
+          className="border-l-2 border-[var(--color-forest)] bg-[var(--color-surface)] px-5 py-4 text-sm font-medium text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]"
+          role="status"
+        >
           Загружаю рейтинг…
         </div>
       </main>
@@ -170,139 +174,175 @@ export default function RankingPage() {
   }
 
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-gray-50 px-4 py-8">
+    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-8 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-10">
       <div className="mx-auto max-w-7xl">
-        <div>
-          <p className="text-sm font-bold uppercase tracking-wider text-green-700">
-            Сообщество
+        <header className="border-b border-[var(--color-border-strong)] pb-8">
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
+            Community / Summit Registry
           </p>
 
-          <h1 className="mt-2 text-4xl font-bold text-gray-900">
-            Рейтинг пользователей
+          <h1 className="mt-3 text-4xl font-bold leading-tight text-[var(--color-text)] sm:text-5xl">
+            Реестр восхождений
           </h1>
 
-          <p className="mt-2 text-gray-500">
-            Сравните количество восхождений, высоту и достижения участников.
+          <p className="mt-3 max-w-2xl text-[var(--color-text-secondary)]">
+            Сводная экспедиционная ведомость участников: вершины, набранная
+            высота и зафиксированные рубежи.
           </p>
-        </div>
+        </header>
 
-        <section className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <StatisticCard
+        <section className="py-6" aria-labelledby="community-summary-title">
+          <h2 id="community-summary-title" className="sr-only">
+            Сводка сообщества
+          </h2>
+          <dl className="grid grid-cols-2 border-y border-[var(--color-border)] lg:grid-cols-4">
+          <CommunityMetric
             label="Пользователей"
-            value={communityStats.totalUsers}
-            icon="👥"
+            value={communityStats.totalUsers.toLocaleString("ru-RU")}
           />
 
-          <StatisticCard
+          <CommunityMetric
             label="Покорённых вершин"
-            value={communityStats.totalAscents}
-            icon="🏔️"
+            value={communityStats.totalAscents.toLocaleString("ru-RU")}
           />
 
-          <StatisticCard
+          <CommunityMetric
             label="Суммарная высота"
             value={`${communityStats.totalHeight.toLocaleString(
               "ru-RU",
             )} м`}
-            icon="📈"
           />
 
-          <StatisticCard
+          <CommunityMetric
             label="Достижений"
-            value={communityStats.totalAchievements}
-            icon="🏆"
+            value={communityStats.totalAchievements.toLocaleString("ru-RU")}
           />
+          </dl>
         </section>
 
-        <section className="mt-6 grid gap-4 rounded-3xl border border-gray-200 bg-white p-5 shadow-sm md:grid-cols-2">
-          <input
-            type="search"
-            value={searchInput}
-            onChange={(event) =>
-              setSearchInput(event.target.value)
-            }
-            placeholder="🔍 Найти пользователя..."
-            className="rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500"
-          />
+        <section className="grid gap-3 border-b border-[var(--color-border-strong)] pb-6 md:grid-cols-[minmax(240px,1fr)_260px_auto] md:items-center" aria-label="Фильтры реестра">
+          <label className="relative">
+            <span className="sr-only">Найти пользователя</span>
+            <Search
+              aria-hidden="true"
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-muted)]"
+            />
+            <input
+              type="search"
+              value={searchInput}
+              onChange={(event) =>
+                setSearchInput(event.target.value)
+              }
+              placeholder="Найти участника"
+              className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] py-2 pl-10 pr-3 text-[var(--color-text)] outline-none transition-colors placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-focus)]"
+            />
+          </label>
 
-          <select
-            value={sortMode}
-            onChange={(event) =>
-              setSortMode(
-                event.target.value as SortMode,
-              )
-            }
-            className="rounded-xl border border-gray-300 px-4 py-3"
-          >
-            <option value="ascents">
-              По количеству вершин
-            </option>
+          <label>
+            <span className="sr-only">Сортировка рейтинга</span>
+            <select
+              value={sortMode}
+              onChange={(event) =>
+                setSortMode(
+                  event.target.value as SortMode,
+                )
+              }
+              className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]"
+            >
+              <option value="ascents">По количеству вершин</option>
+              <option value="total-height">По суммарной высоте</option>
+              <option value="highest-mountain">По самой высокой вершине</option>
+              <option value="achievements">По достижениям</option>
+            </select>
+          </label>
 
-            <option value="total-height">
-              По суммарной высоте
-            </option>
-
-            <option value="highest-mountain">
-              По самой высокой вершине
-            </option>
-
-            <option value="achievements">
-              По достижениям
-            </option>
-          </select>
+          <p className="[font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)] md:text-right">
+            Показано {displayedRanking.length} / {ranking.length}
+          </p>
         </section>
 
         {errorMessage && (
-          <div className="mt-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-700">
+          <div
+            className="mt-6 border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-4 text-[var(--color-danger)]"
+            role="alert"
+          >
             {errorMessage}
           </div>
         )}
 
-        <section className="mt-6">
-  {displayedRanking.length === 0 ? (
-    <div className="rounded-3xl border border-gray-200 bg-white p-10 text-center text-gray-500 shadow-sm">
-      Пользователи не найдены.
-    </div>
-  ) : (
-    <div className="grid gap-5 lg:grid-cols-2">
-      {displayedRanking.map((user, index) => (
-        <RankingRow
-          key={user.user_id}
-          user={user}
-          position={index + 1}
-        />
-      ))}
-    </div>
-  )}
-</section>
+        <section className="pt-8" aria-labelledby="ranking-registry-title">
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
+                Официальная ведомость
+              </p>
+              <h2 id="ranking-registry-title" className="mt-1 text-3xl font-bold text-[var(--color-text)]">
+                Участники
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-[var(--color-text-muted)]">
+              Позиция отражает выбранный способ сортировки.
+            </p>
+          </div>
+
+          {displayedRanking.length === 0 ? (
+            <div className="border-y border-[var(--color-border-strong)] py-12 text-center">
+              <h3 className="text-xl font-bold text-[var(--color-text)]">
+                {searchInput.trim() ? "Участники не найдены" : "Реестр пока пуст"}
+              </h3>
+              <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-muted)]">
+                {searchInput.trim()
+                  ? "Проверьте написание имени или измените поисковый запрос."
+                  : "Записи участников появятся здесь после загрузки данных."}
+              </p>
+            </div>
+          ) : (
+            <div className="border-t border-[var(--color-border-strong)]">
+              <div className="hidden grid-cols-[72px_minmax(190px,1.2fr)_110px_150px_minmax(180px,1fr)_110px_52px] items-center border-b border-[var(--color-border)] px-3 py-3 lg:grid">
+                <RegistryLabel>Позиция</RegistryLabel>
+                <RegistryLabel>Участник</RegistryLabel>
+                <RegistryLabel>Вершины</RegistryLabel>
+                <RegistryLabel>Общая высота</RegistryLabel>
+                <RegistryLabel>Высшая точка</RegistryLabel>
+                <RegistryLabel>Рубежи</RegistryLabel>
+                <span className="sr-only">Профиль</span>
+              </div>
+              <ol>
+                {displayedRanking.map((user, index) => (
+                  <RankingRow
+                    key={user.user_id}
+                    user={user}
+                    position={index + 1}
+                  />
+                ))}
+              </ol>
+            </div>
+          )}
+        </section>
       </div>
     </main>
   );
 }
 
-type StatisticCardProps = {
+type CommunityMetricProps = {
   label: string;
-  value: string | number;
-  icon: string;
+  value: string;
 };
 
-function StatisticCard({
+function CommunityMetric({
   label,
   value,
-  icon,
-}: StatisticCardProps) {
+}: CommunityMetricProps) {
   return (
-    <article className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm">
-      <div className="text-3xl">{icon}</div>
-
-      <p className="mt-4 text-sm font-medium text-gray-500">
+    <div className="min-w-0 border-b border-[var(--color-border-soft)] px-4 py-4 odd:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+      <dt className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
         {label}
-      </p>
+      </dt>
 
-      <p className="mt-1 text-3xl font-bold text-gray-900">
+      <dd className="mt-2 break-words [font-family:var(--font-technical)] text-xl font-bold tabular-nums text-[var(--color-text)] sm:text-2xl">
         {value}
-      </p>
-    </article>
+      </dd>
+    </div>
   );
 }
 
@@ -315,109 +355,182 @@ function RankingRow({
   user,
   position,
 }: RankingRowProps) {
-  const medal =
-    position === 1
-      ? "🥇"
-      : position === 2
-        ? "🥈"
-        : position === 3
-          ? "🥉"
-          : `№${position}`;
+  const topRank = position <= 3;
+  const formattedPosition = String(position).padStart(2, "0");
 
   return (
-    <article className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-green-100 text-2xl font-bold text-green-700">
-            {user.avatar_url ? (
-              <Image
-                src={user.avatar_url}
-                alt={`Аватар ${user.username}`}
-                fill
-                sizes="64px"
-                className="object-cover"
-              />
-            ) : (
-              user.username.charAt(0).toUpperCase()
+    <li>
+      <article
+        aria-label={`Позиция ${position}: ${user.username}`}
+        className={[
+          "border-b border-[var(--color-border)] transition-colors duration-[var(--duration-fast)] hover:bg-[var(--color-surface-raised)]",
+          topRank
+            ? "border-l-2 border-l-[var(--color-border-strong)] bg-[var(--color-surface)]"
+            : "bg-transparent",
+        ].join(" ")}
+      >
+        <div className="p-4 lg:hidden">
+          <div className="flex items-start gap-3">
+            <RankMarker position={formattedPosition} topRank={topRank} />
+            <Avatar user={user} size="mobile" />
+            <div className="min-w-0 flex-1">
+              <h3 className="truncate text-lg font-bold text-[var(--color-text)]">
+                {user.username}
+              </h3>
+              <p className="mt-1 [font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-forest)]">
+                {user.ascents_count.toLocaleString("ru-RU")} вершин
+              </p>
+            </div>
+          </div>
+
+          <dl className="mt-4 grid grid-cols-2 gap-px border-y border-[var(--color-border-soft)] bg-[var(--color-border-soft)]">
+            <RankingValue label="Общая высота" value={`${user.total_height.toLocaleString("ru-RU")} м`} />
+            <RankingValue label="Рубежи" value={user.achievements_count.toLocaleString("ru-RU")} />
+            <RankingValue
+              label="Высшая точка"
+              value={user.highest_mountain_name ?? "Нет данных"}
+              detail={user.highest_mountain_name ? `${user.highest_mountain_height.toLocaleString("ru-RU")} м` : undefined}
+              wide
+            />
+          </dl>
+
+          <Link
+            href={`/users/${user.user_id}`}
+            className="mt-3 inline-flex min-h-11 w-full items-center justify-between rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]"
+          >
+            Открыть профиль
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="hidden grid-cols-[72px_minmax(190px,1.2fr)_110px_150px_minmax(180px,1fr)_110px_52px] items-center px-3 py-4 lg:grid">
+          <RankMarker position={formattedPosition} topRank={topRank} />
+          <div className="flex min-w-0 items-center gap-3 pr-4">
+            <Avatar user={user} size="desktop" />
+            <h3 className="truncate font-bold text-[var(--color-text)]">
+              {user.username}
+            </h3>
+          </div>
+          <DesktopMetric value={user.ascents_count.toLocaleString("ru-RU")} emphasize />
+          <DesktopMetric value={`${user.total_height.toLocaleString("ru-RU")} м`} />
+          <div className="min-w-0 pr-4">
+            <p className="truncate text-sm font-semibold text-[var(--color-text)]">
+              {user.highest_mountain_name ?? "Нет данных"}
+            </p>
+            {user.highest_mountain_name && (
+              <p className="mt-0.5 [font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)]">
+                {user.highest_mountain_height.toLocaleString("ru-RU")} м
+              </p>
             )}
           </div>
-
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
-              Пользователь
-            </p>
-
-            <h2 className="mt-1 text-xl font-bold text-gray-900">
-              {user.username}
-            </h2>
-          </div>
+          <DesktopMetric value={user.achievements_count.toLocaleString("ru-RU")} />
+          <Link
+            href={`/users/${user.user_id}`}
+            aria-label={`Открыть профиль пользователя ${user.username}`}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-forest)]"
+          >
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
         </div>
-
-        <div className="rounded-2xl bg-gray-100 px-3 py-2 text-lg font-bold text-gray-800">
-          {medal}
-        </div>
-      </div>
-
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <RankingValue
-          label="Вершины"
-          value={user.ascents_count}
-        />
-
-        <RankingValue
-          label="Суммарная высота"
-          value={`${user.total_height.toLocaleString(
-            "ru-RU",
-          )} м`}
-        />
-
-        <RankingValue
-          label="Самая высокая"
-          value={
-            user.highest_mountain_name
-              ? `${user.highest_mountain_name} · ${user.highest_mountain_height.toLocaleString(
-                  "ru-RU",
-                )} м`
-              : "Нет данных"
-          }
-        />
-
-        <RankingValue
-          label="Достижения"
-          value={user.achievements_count}
-        />
-      </div>
-
-      <div className="mt-6">
-        <Link
-  href={`/users/${user.user_id}`}
-  className="inline-flex w-full items-center justify-center rounded-xl bg-green-600 px-4 py-3 font-semibold text-white transition hover:bg-green-700"
->
-  Открыть профиль
-</Link>
-      </div>
-    </article>
+      </article>
+    </li>
   );
 }
 
 type RankingValueProps = {
   label: string;
-  value: string | number;
+  value: string;
+  detail?: string;
+  wide?: boolean;
 };
 
 function RankingValue({
   label,
   value,
+  detail,
+  wide = false,
 }: RankingValueProps) {
   return (
-    <div className="rounded-2xl bg-gray-50 p-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+    <div className={`min-w-0 bg-[var(--color-surface)] p-3 ${wide ? "col-span-2" : ""}`}>
+      <dt className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
         {label}
-      </p>
+      </dt>
 
-      <p className="mt-2 text-lg font-bold text-gray-900">
+      <dd className="mt-1 truncate font-semibold text-[var(--color-text)]">
         {value}
+        {detail && (
+          <span className="ml-2 [font-family:var(--font-technical)] text-xs font-normal tabular-nums text-[var(--color-text-muted)]">
+            {detail}
+          </span>
+        )}
+      </dd>
+    </div>
+  );
+}
+
+function RegistryLabel({ children }: { children: string }) {
+  return (
+    <span className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
+      {children}
+    </span>
+  );
+}
+
+function RankMarker({
+  position,
+  topRank,
+}: {
+  position: string;
+  topRank: boolean;
+}) {
+  return (
+    <div className="w-12 shrink-0 lg:w-auto">
+      <p className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
+        {topRank ? "Top rank" : "Rank"}
+      </p>
+      <p className="mt-0.5 [font-family:var(--font-technical)] text-2xl font-bold tabular-nums text-[var(--color-text)]">
+        {position}
       </p>
     </div>
+  );
+}
+
+function Avatar({
+  user,
+  size,
+}: {
+  user: RankingUser;
+  size: "mobile" | "desktop";
+}) {
+  const sizeClass = size === "mobile" ? "h-12 w-12" : "h-11 w-11";
+
+  return (
+    <div className={`relative flex ${sizeClass} shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] font-bold text-[var(--color-forest)]`}>
+      {user.avatar_url ? (
+        <Image
+          src={user.avatar_url}
+          alt=""
+          fill
+          sizes={size === "mobile" ? "48px" : "44px"}
+          className="object-cover"
+        />
+      ) : (
+        <span aria-hidden="true">{user.username.charAt(0).toUpperCase()}</span>
+      )}
+    </div>
+  );
+}
+
+function DesktopMetric({
+  value,
+  emphasize = false,
+}: {
+  value: string;
+  emphasize?: boolean;
+}) {
+  return (
+    <p className={`pr-3 [font-family:var(--font-technical)] text-sm font-bold tabular-nums ${emphasize ? "text-[var(--color-forest)]" : "text-[var(--color-text)]"}`}>
+      {value}
+    </p>
   );
 }

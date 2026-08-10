@@ -389,16 +389,16 @@ if (existingAscent) {
     detectionStatus !== "rejected"
   ) {
     return (
-      <section className="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-6">
-        <p className="text-sm font-bold uppercase tracking-wide text-amber-700">
+      <section className="mt-8 border-l-4 border-[var(--color-warning)] bg-[var(--color-warning-soft)] p-5 sm:p-6">
+        <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-warning)]">
           Определение вершины
         </p>
 
-        <h2 className="mt-2 text-xl font-bold text-gray-900">
+        <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
           Вершина автоматически не найдена
         </h2>
 
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-[var(--color-text-secondary)]">
           Выберите вершину вручную, если этот
           GPS-трек относится к восхождению.
         </p>
@@ -408,7 +408,7 @@ if (existingAscent) {
           onClick={() => {
             setShowMountainSearch(true);
           }}
-          className="mt-5 rounded-xl bg-amber-600 px-5 py-3 font-semibold text-white transition hover:bg-amber-700"
+          className="mt-5 min-h-11 rounded-[var(--radius-control)] bg-[var(--color-warning)] px-5 py-2 font-semibold text-white transition-colors hover:brightness-90"
         >
           Выбрать вершину
         </button>
@@ -430,7 +430,7 @@ if (existingAscent) {
         )}
 
         {errorMessage && (
-          <p className="mt-4 text-sm text-red-700">
+          <p className="mt-4 text-sm text-[var(--color-danger)]" role="alert">
             {errorMessage}
           </p>
         )}
@@ -443,12 +443,12 @@ if (existingAscent) {
     detectionStatus === "rejected"
   ) {
     return (
-      <section className="mt-8 rounded-3xl border border-gray-200 bg-gray-50 p-6">
-        <p className="text-sm font-bold uppercase tracking-wide text-gray-500">
+      <section className="mt-8 border-l-4 border-[var(--color-granite)] bg-[var(--color-surface-muted)] p-5 sm:p-6">
+        <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
           Определение вершины
         </p>
 
-        <h2 className="mt-2 text-xl font-bold text-gray-900">
+        <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
           Автоматический результат отклонён
         </h2>
 
@@ -457,7 +457,7 @@ if (existingAscent) {
           onClick={() => {
             setShowMountainSearch(true);
           }}
-          className="mt-5 rounded-xl border border-green-600 bg-white px-5 py-3 font-semibold text-green-700 transition hover:bg-green-50"
+          className="mt-5 min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-forest)] transition-colors hover:border-[var(--color-forest)]"
         >
           Выбрать вершину вручную
         </button>
@@ -479,7 +479,7 @@ if (existingAscent) {
         )}
 
         {errorMessage && (
-          <p className="mt-4 text-sm text-red-700">
+          <p className="mt-4 text-sm text-[var(--color-danger)]" role="alert">
             {errorMessage}
           </p>
         )}
@@ -501,20 +501,20 @@ if (existingAscent) {
   return (
     <section
       className={[
-        "mt-8 rounded-3xl border p-6",
+        "mt-8 border-l-4 p-5 sm:p-6",
         isConfirmed
-          ? "border-green-200 bg-green-50"
-          : "border-blue-200 bg-blue-50",
+          ? "border-[var(--color-success)] bg-[var(--color-success-soft)]"
+          : "border-[var(--color-info)] bg-[var(--color-info-soft)]",
       ].join(" ")}
     >
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p
             className={[
-              "text-sm font-bold uppercase tracking-wide",
+              "[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em]",
               isConfirmed
-                ? "text-green-700"
-                : "text-blue-700",
+                ? "text-[var(--color-success)]"
+                : "text-[var(--color-info)]",
             ].join(" ")}
           >
             {isConfirmed
@@ -522,11 +522,11 @@ if (existingAscent) {
               : "Автоматически найдена вершина"}
           </p>
 
-          <h2 className="mt-2 text-2xl font-bold text-gray-900">
+          <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
             {mountainName}
           </h2>
 
-          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
+          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--color-text-secondary)]">
             {detectedMountain.height !==
               null && (
               <span>
@@ -568,7 +568,7 @@ if (existingAscent) {
 
           <Link
             href={`/mountain/${detectedMountain.id}`}
-            className="mt-4 inline-flex font-semibold text-green-700 transition hover:text-green-800"
+            className="mt-4 inline-flex min-h-11 items-center font-semibold text-[var(--color-forest)] hover:underline"
           >
             Открыть страницу вершины →
           </Link>
@@ -582,7 +582,7 @@ if (existingAscent) {
                 confirmDetectedMountain
               }
               disabled={saving}
-              className="rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700 disabled:cursor-wait disabled:opacity-60"
+              className="min-h-11 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)] disabled:cursor-wait disabled:opacity-60"
             >
               {saving
                 ? "Сохраняю…"
@@ -599,7 +599,7 @@ if (existingAscent) {
               );
             }}
             disabled={saving}
-            className="rounded-xl border border-gray-300 bg-white px-5 py-3 font-semibold text-gray-700 transition hover:border-green-400 hover:bg-green-50 hover:text-green-700 disabled:opacity-60"
+            className="min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-2 font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)] disabled:opacity-60"
           >
             Выбрать другую
           </button>
@@ -609,7 +609,7 @@ if (existingAscent) {
               type="button"
               onClick={rejectDetection}
               disabled={saving}
-              className="rounded-xl px-5 py-2 text-sm font-semibold text-red-700 transition hover:bg-red-50 disabled:opacity-60"
+              className="min-h-11 rounded-[var(--radius-control)] px-5 py-2 text-sm font-semibold text-[var(--color-danger)] transition-colors hover:bg-[var(--color-danger-soft)] disabled:opacity-60"
             >
               Это не вершина
             </button>
@@ -634,7 +634,7 @@ if (existingAscent) {
       )}
 
       {errorMessage && (
-        <p className="mt-4 rounded-xl bg-red-100 px-4 py-3 text-sm text-red-700">
+        <p className="mt-4 border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] px-4 py-3 text-sm text-[var(--color-danger)]" role="alert">
           {errorMessage}
         </p>
       )}
@@ -670,16 +670,16 @@ function MountainSearch({
   onClose,
 }: MountainSearchProps) {
   return (
-    <div className="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
+    <div className="mt-6 border-t border-[var(--color-border)] bg-[var(--color-surface)] pt-5">
       <div className="flex items-center justify-between gap-4">
-        <h3 className="font-bold text-gray-900">
+        <h3 className="font-bold text-[var(--color-text)]">
           Выберите другую вершину
         </h3>
 
         <button
           type="button"
           onClick={onClose}
-          className="text-sm font-semibold text-gray-500 hover:text-gray-900"
+          className="min-h-11 px-2 text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
         >
           Закрыть
         </button>
@@ -694,11 +694,11 @@ function MountainSearch({
           );
         }}
         placeholder="Например, Zugspitze"
-        className="mt-4 w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
+        className="mt-4 min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-2 text-[var(--color-text)] outline-none transition-colors focus:border-[var(--color-focus)]"
       />
 
       {searching && (
-        <p className="mt-4 text-sm text-gray-500">
+        <p className="mt-4 text-sm text-[var(--color-text-muted)]" role="status">
           Ищу вершины…
         </p>
       )}
@@ -706,13 +706,13 @@ function MountainSearch({
       {!searching &&
         searchInput.trim().length >= 2 &&
         searchResults.length === 0 && (
-          <p className="mt-4 text-sm text-gray-500">
+          <p className="mt-4 text-sm text-[var(--color-text-muted)]">
             Вершины не найдены.
           </p>
         )}
 
       {searchResults.length > 0 && (
-        <div className="mt-4 max-h-80 space-y-2 overflow-y-auto">
+        <div className="mt-4 max-h-80 divide-y divide-[var(--color-border-soft)] overflow-y-auto border-y border-[var(--color-border)]">
           {searchResults.map(
             (mountain) => (
               <button
@@ -722,15 +722,15 @@ function MountainSearch({
                 onClick={() => {
                   void onSelect(mountain);
                 }}
-                className="flex w-full items-center justify-between gap-4 rounded-xl border border-gray-200 px-4 py-3 text-left transition hover:border-green-400 hover:bg-green-50 disabled:opacity-60"
+                className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-3 text-left transition-colors hover:bg-[var(--color-success-soft)] disabled:opacity-60"
               >
-                <span className="font-semibold text-gray-900">
+                <span className="min-w-0 truncate font-semibold text-[var(--color-text)]">
                   {getMountainName(
                     mountain,
                   )}
                 </span>
 
-                <span className="shrink-0 text-sm text-gray-500">
+                <span className="shrink-0 [font-family:var(--font-technical)] text-sm tabular-nums text-[var(--color-text-muted)]">
                   {mountain.height !== null
                     ? `${Math.round(
                         mountain.height,

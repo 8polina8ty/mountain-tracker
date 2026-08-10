@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { ArrowLeft, Map } from "lucide-react";
 
 import ActivityTrackMap from "@/components/account/ActivityTrackMap";
+import AccountNavigation from "@/components/account/AccountNavigation";
+import AccountPageHeader from "@/components/account/AccountPageHeader";
 import { createClient } from "@/Lib/supabase/server";
 import DetectedMountainSection from "@/components/account/DetectedMountainSection";
 
@@ -257,32 +260,30 @@ if (activity.detected_mountain_id !== null) {
     activity.title ?? `GPS-трек №${activity.id}`;
 
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-gray-50 px-4 py-8">
-      <div className="mx-auto max-w-6xl">
-        <Link
-          href="/account/ascents"
-          className="font-semibold text-green-700 transition hover:text-green-800"
-        >
-          ← Вернуться к моим восхождениям
-        </Link>
+    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-8">
+      <div className="mx-auto max-w-7xl">
+        <AccountNavigation />
+        <AccountPageHeader
+          eyebrow="03.1 / Запись маршрута"
+          title={title}
+          description={`Источник: ${getSourceLabel(activity.source_type)}. Технические данные и геометрия сохранённого маршрута.`}
+          actions={
+            <Link href="/account/tracks" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+              <ArrowLeft aria-hidden="true" className="h-4 w-4" />
+              Все треки
+            </Link>
+          }
+        />
 
-        <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-wider text-green-700">
-            GPS-активность
+        <section className="py-8" aria-labelledby="track-metrics-title">
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
+            Техническая сводка
           </p>
+          <h2 id="track-metrics-title" className="mt-1 text-2xl font-bold text-[var(--color-text)]">
+            Параметры активности
+          </h2>
 
-          <h1 className="mt-2 break-words text-3xl font-bold text-gray-900">
-            {title}
-          </h1>
-
-          <p className="mt-2 text-gray-500">
-            Источник:{" "}
-            {getSourceLabel(
-              activity.source_type,
-            )}
-          </p>
-
-          <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-4">
+          <dl className="mt-5 grid grid-cols-2 border-y border-[var(--color-border-strong)] lg:grid-cols-4">
             <ActivityValue
               label="Расстояние"
               value={formatDistance(
@@ -324,33 +325,33 @@ if (activity.detected_mountain_id !== null) {
                   : "Не указано"
               }
             />
-          </div>
+          </dl>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl bg-gray-50 p-5">
-              <p className="text-sm font-semibold text-gray-500">
+          <dl className="grid border-b border-[var(--color-border)] sm:grid-cols-2">
+            <div className="py-5 sm:border-r sm:border-[var(--color-border-soft)] sm:pr-6">
+              <dt className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
                 Начало активности
-              </p>
+              </dt>
 
-              <p className="mt-2 font-bold text-gray-900">
+              <dd className="mt-2 font-semibold text-[var(--color-text)]">
                 {formatDate(
                   activity.started_at,
                 )}
-              </p>
+              </dd>
             </div>
 
-            <div className="rounded-2xl bg-gray-50 p-5">
-              <p className="text-sm font-semibold text-gray-500">
+            <div className="border-t border-[var(--color-border-soft)] py-5 sm:border-t-0 sm:pl-6">
+              <dt className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
                 Окончание активности
-              </p>
+              </dt>
 
-              <p className="mt-2 font-bold text-gray-900">
+              <dd className="mt-2 font-semibold text-[var(--color-text)]">
                 {formatDate(
                   activity.finished_at,
                 )}
-              </p>
+              </dd>
             </div>
-          </div>
+          </dl>
 
           <DetectedMountainSection
   activityId={activity.id}
@@ -372,7 +373,11 @@ if (activity.detected_mountain_id !== null) {
   }
 />
 
-          <div className="mt-8">
+          <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
+            <div className="mb-5 flex items-center gap-3">
+              <Map aria-hidden="true" className="h-5 w-5 text-[var(--color-track)]" />
+              <h2 className="text-2xl font-bold text-[var(--color-text)]">Геометрия маршрута</h2>
+            </div>
             {activity.processing_status ===
               "ready" &&
               signedGeoJsonUrl && (
@@ -441,14 +446,14 @@ function ActivityValue({
   value,
 }: ActivityValueProps) {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-5">
-      <p className="text-xs font-bold uppercase tracking-wide text-gray-500">
+    <div className="min-w-0 border-b border-[var(--color-border-soft)] px-4 py-5 odd:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+      <dt className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
         {label}
-      </p>
+      </dt>
 
-      <p className="mt-3 break-words text-xl font-bold text-gray-900">
+      <dd className="mt-2 break-words [font-family:var(--font-technical)] text-xl font-bold tabular-nums text-[var(--color-text)] sm:text-2xl">
         {value}
-      </p>
+      </dd>
     </div>
   );
 }
@@ -467,17 +472,17 @@ function ActivityStatus({
   return (
     <div
       className={[
-        "rounded-2xl border p-6 text-center",
+        "border-l-4 p-6",
         isError
-          ? "border-red-200 bg-red-50"
-          : "border-gray-200 bg-gray-50",
+          ? "border-[var(--color-danger)] bg-[var(--color-danger-soft)]"
+          : "border-[var(--color-info)] bg-[var(--color-info-soft)]",
       ].join(" ")}
     >
       <p
         className={
           isError
-            ? "font-bold text-red-800"
-            : "font-bold text-gray-900"
+            ? "font-bold text-[var(--color-danger)]"
+            : "font-bold text-[var(--color-text)]"
         }
       >
         {title}
@@ -487,8 +492,8 @@ function ActivityStatus({
         className={[
           "mt-2 text-sm",
           isError
-            ? "text-red-700"
-            : "text-gray-500",
+            ? "text-[var(--color-danger)]"
+            : "text-[var(--color-text-secondary)]",
         ].join(" ")}
       >
         {text}

@@ -12,24 +12,24 @@ export default function AchievementsSection({
   unlockedAchievementsCount,
 }: AchievementsSectionProps) {
   return (
-    <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+    <section className="border-b border-[var(--color-border-strong)] py-10 sm:py-12" aria-labelledby="achievements-title">
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
-            Достижения
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
+            03 / Этапы пути
           </p>
 
-          <h2 className="mt-1 text-2xl font-bold text-gray-900">
-            Награды альпиниста
+          <h2 id="achievements-title" className="mt-2 text-3xl font-bold text-[var(--color-text)]">
+            Экспедиционные рубежи
           </h2>
         </div>
 
-        <p className="rounded-full bg-green-50 px-4 py-2 text-sm font-semibold text-green-700">
+        <p className="[font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text-secondary)]">
           {unlockedAchievementsCount} / {achievements.length}
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-px border-y border-[var(--color-border)] bg-[var(--color-border-soft)] md:grid-cols-2">
         {achievements.map((achievement) => (
           <AchievementCard
             key={achievement.id}

@@ -1,383 +1,308 @@
 "use client";
 
 import Link from "next/link";
+import {
+  ArrowUpRight,
+  CalendarDays,
+  Map,
+  Mountain,
+  Route,
+  Search,
+  Upload,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { useAccount } from "../../../hooks/useAccount";
+import AccountNavigation from "@/components/account/AccountNavigation";
+import AccountPageHeader from "@/components/account/AccountPageHeader";
 import AscentMountainThumbnail from "@/components/account/AscentMountainThumbnail";
-import ChangeAscentPhotoButton from "@/components/account/ChangeAscentPhotoButton";
 import AscentPhotoPrivacyToggle from "@/components/account/AscentPhotoPrivacyToggle";
+import ChangeAscentPhotoButton from "@/components/account/ChangeAscentPhotoButton";
+import { useAccount } from "../../../hooks/useAccount";
 
-    export default function AscentsPage() {
-        const [searchInput, setSearchInput] = useState("");
-    const [selectedYear, setSelectedYear] = useState("all");
-
-    const [sortMode, setSortMode] = useState<
+export default function AscentsPage() {
+  const [searchInput, setSearchInput] = useState("");
+  const [selectedYear, setSelectedYear] = useState("all");
+  const [sortMode, setSortMode] = useState<
     "date-desc" | "date-asc" | "height-desc" | "height-asc" | "name"
-    >("date-desc");
-    const {
-        user,
-        loading,
-        errorMessage,
-        ascents,
-        getMountainName,
-    } = useAccount();
+  >("date-desc");
+  const { user, loading, errorMessage, ascents, getMountainName } =
+    useAccount();
+  const [customImageUrls, setCustomImageUrls] = useState<
+    Record<number, string>
+  >({});
+  const [photoPrivacy, setPhotoPrivacy] = useState<
+    Record<number, boolean>
+  >({});
 
-    const [customImageUrls, setCustomImageUrls] = useState<
-  Record<number, string>
->({});
+  const displayedAscents = useMemo(() => {
+    let result = [...ascents];
 
-const [photoPrivacy, setPhotoPrivacy] = useState<
-  Record<number, boolean>
->({});
+    if (searchInput.trim() !== "") {
+      const search = searchInput.toLowerCase();
+      result = result.filter((ascent) =>
+        getMountainName(ascent.mountains).toLowerCase().includes(search),
+      );
+    }
 
-    const displayedAscents = useMemo(() => {
-  let result = [...ascents];
+    if (selectedYear !== "all") {
+      result = result.filter((ascent) => {
+        const date = new Date(ascent.climbed_at ?? ascent.created_at ?? "");
+        return (
+          !Number.isNaN(date.getTime()) &&
+          date.getFullYear().toString() === selectedYear
+        );
+      });
+    }
 
+    result.sort((a, b) => {
+      switch (sortMode) {
+        case "date-asc":
+          return (
+            new Date(a.climbed_at ?? a.created_at ?? "").getTime() -
+            new Date(b.climbed_at ?? b.created_at ?? "").getTime()
+          );
+        case "height-desc":
+          return (b.mountains?.height ?? 0) - (a.mountains?.height ?? 0);
+        case "height-asc":
+          return (a.mountains?.height ?? 0) - (b.mountains?.height ?? 0);
+        case "name":
+          return getMountainName(a.mountains).localeCompare(
+            getMountainName(b.mountains),
+          );
+        default:
+          return (
+            new Date(b.climbed_at ?? b.created_at ?? "").getTime() -
+            new Date(a.climbed_at ?? a.created_at ?? "").getTime()
+          );
+      }
+    });
 
-  // Поиск
-  if (searchInput.trim() !== "") {
-    const search = searchInput.toLowerCase();
+    return result;
+  }, [ascents, searchInput, selectedYear, sortMode, getMountainName]);
 
-    result = result.filter((ascent) =>
-      getMountainName(ascent.mountains)
-        .toLowerCase()
-        .includes(search),
+  const years = [
+    ...new Set(
+      ascents
+        .map((ascent) => ascent.climbed_at ?? ascent.created_at)
+        .filter(Boolean)
+        .map((date) => new Date(date!).getFullYear()),
+    ),
+  ].sort((a, b) => b - a);
+
+  if (loading) {
+    return (
+      <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 lg:min-h-[calc(100dvh-66px)]">
+        <div className="border-l-2 border-[var(--color-forest)] bg-[var(--color-surface)] px-5 py-4 text-sm font-medium text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]" role="status">
+          Загружаю восхождения…
+        </div>
+      </main>
     );
   }
 
-
-  // Фильтр по году
-  if (selectedYear !== "all") {
-    result = result.filter((ascent) => {
-      const date = new Date(
-        ascent.climbed_at ?? ascent.created_at ?? "",
-      );
-
-      return (
-        !isNaN(date.getTime()) &&
-        date.getFullYear().toString() === selectedYear
-      );
-    });
+  if (!user) {
+    return (
+      <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 lg:min-h-[calc(100dvh-66px)]">
+        <section className="w-full max-w-lg border-y border-[var(--color-border-strong)] py-10 text-center">
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
+            Журнал восхождений
+          </p>
+          <h1 className="mt-3 text-3xl font-bold text-[var(--color-text)]">
+            Войдите в аккаунт
+          </h1>
+          <p className="mt-3 text-[var(--color-text-muted)]">
+            После входа здесь появится полный список ваших восхождений.
+          </p>
+          <Link href="/login" className="mt-6 inline-flex min-h-11 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+            Войти
+          </Link>
+        </section>
+      </main>
+    );
   }
 
-  // Сортировка
-  result.sort((a, b) => {
-    switch (sortMode) {
-      case "date-asc":
-        return (
-          new Date(a.climbed_at ?? a.created_at ?? "").getTime() -
-          new Date(b.climbed_at ?? b.created_at ?? "").getTime()
-        );
-
-      case "height-desc":
-        return (
-          (b.mountains?.height ?? 0) -
-          (a.mountains?.height ?? 0)
-        );
-
-      case "height-asc":
-        return (
-          (a.mountains?.height ?? 0) -
-          (b.mountains?.height ?? 0)
-        );
-
-      case "name":
-        return getMountainName(a.mountains).localeCompare(
-          getMountainName(b.mountains),
-        );
-
-      default:
-        return (
-          new Date(b.climbed_at ?? b.created_at ?? "").getTime() -
-          new Date(a.climbed_at ?? a.created_at ?? "").getTime()
-        );
-    }
-  });
-
-  return result;
-}, [
-  ascents,
-  searchInput,
-  selectedYear,
-  sortMode,
-  getMountainName,
-]);
-
-if (loading) {
-  return (
-    <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-gray-50">
-      <div className="rounded-2xl border border-gray-200 bg-white px-6 py-4 font-medium text-gray-600 shadow-sm">
-        Загружаю восхождения…
-      </div>
-    </main>
-  );
-}
-
-if (!user) {
-  return (
-    <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-gray-50 px-4">
-      <section className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-        <div className="text-5xl">🔐</div>
-
-        <h1 className="mt-4 text-2xl font-bold text-gray-900">
-          Войдите в аккаунт
-        </h1>
-
-        <p className="mt-2 text-gray-500">
-          После входа здесь появится полный список ваших восхождений.
-        </p>
-
-        <Link
-          href="/login"
-          className="mt-6 inline-flex rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
-        >
-          Войти
-        </Link>
-      </section>
-    </main>
-  );
-}
+  const filtersActive = searchInput.trim() !== "" || selectedYear !== "all";
 
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-gray-50 px-4 py-8">
-      <div className="mx-auto max-w-6xl">
-        <Link
-          href="/account"
-          className="font-semibold text-green-700 transition hover:text-green-800 hover:underline"
-        >
-          ← Вернуться в аккаунт
-        </Link>
-
-        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wider text-green-700">
-              История
-            </p>
-
-            <h1 className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">
-              Мои восхождения
-            </h1>
-
-            <p className="mt-2 text-gray-500">
-              Все вершины, которые вы отметили как покорённые.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-stretch gap-3">
-
-  <Link
-    href="/account/ascents/map"
-    className="inline-flex items-center justify-center rounded-2xl bg-green-600 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-green-700"
-  >
-    🗺️ Карта восхождений
-  </Link>
-
-  <Link
-  href="/account/tracks"
-  className="inline-flex items-center justify-center rounded-xl border border-green-600 bg-white px-4 py-2 font-semibold text-green-700 transition hover:bg-green-50"
->
-  Мои GPS-треки
-</Link>
-
-  <Link
-  href="/account/tracks/import"
-  className="inline-flex items-center justify-center rounded-xl bg-green-600 px-4 py-2 font-semibold text-white transition hover:bg-green-700"
->
-  Импортировать GPS-трек
-</Link>
-
-  <div className="rounded-2xl border border-gray-200 bg-white px-5 py-3 shadow-sm">
-    <span className="text-sm text-gray-500">
-      Всего восхождений
-    </span>
-
-    <div className="mt-1 text-3xl font-bold text-green-600">
-      {displayedAscents.length}
-    </div>
-  </div>
-</div>
-        </div>
+    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-8">
+      <div className="mx-auto max-w-7xl">
+        <AccountNavigation />
+        <AccountPageHeader
+          eyebrow="02 / Личный журнал"
+          title="История восхождений"
+          description="Хронология отмеченных вершин, дат и фотографий из вашего экспедиционного журнала."
+          metric={{ label: "Всего записей", value: ascents.length }}
+          actions={
+            <>
+              <Link href="/account/ascents/map" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+                <Map aria-hidden="true" className="h-4 w-4" />
+                Карта
+              </Link>
+              <Link href="/account/tracks/import" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+                <Upload aria-hidden="true" className="h-4 w-4" />
+                Импорт GPX
+              </Link>
+            </>
+          }
+        />
 
         {errorMessage && (
-          <div className="mt-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-700">
+          <div className="mt-6 border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-4 text-[var(--color-danger)]" role="alert">
             {errorMessage}
           </div>
         )}
 
-<div className="mb-6 grid gap-4 rounded-3xl border border-gray-200 bg-white p-5 shadow-sm md:grid-cols-3">
+        <section className="py-8" aria-labelledby="ascent-filter-title">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
+                Реестр записей
+              </p>
+              <h2 id="ascent-filter-title" className="mt-1 text-2xl font-bold text-[var(--color-text)]">
+                Восхождения
+              </h2>
+            </div>
+            <p className="[font-family:var(--font-technical)] text-sm tabular-nums text-[var(--color-text-muted)]">
+              Показано {displayedAscents.length} из {ascents.length}
+            </p>
+          </div>
 
-  <input
-    type="text"
-    placeholder="🔍 Поиск вершины..."
-    value={searchInput}
-    onChange={(event) =>
-      setSearchInput(event.target.value)
-    }
-    className="rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500"
-  />
-
-  <select
-    value={sortMode}
-    onChange={(event) =>
-      setSortMode(event.target.value as typeof sortMode)
-    }
-    className="rounded-xl border border-gray-300 px-4 py-3"
-  >
-    <option value="date-desc">📅 Сначала новые</option>
-    <option value="date-asc">📅 Сначала старые</option>
-    <option value="height-desc">🏔 Высота ↓</option>
-    <option value="height-asc">🏔 Высота ↑</option>
-    <option value="name">🔤 По алфавиту</option>
-  </select>
-
-  <select
-    value={selectedYear}
-    onChange={(event) =>
-      setSelectedYear(event.target.value)
-    }
-    className="rounded-xl border border-gray-300 px-4 py-3"
-  >
-    <option value="all">Все годы</option>
-
-    {[
-      ...new Set(
-        ascents
-          .map((a) =>
-            a.climbed_at ?? a.created_at,
-          )
-          .filter(Boolean)
-          .map((date) =>
-            new Date(date!).getFullYear(),
-          ),
-      ),
-    ]
-      .sort((a, b) => b - a)
-      .map((year) => (
-        <option key={year} value={year.toString()}>
-          {year}
-        </option>
-      ))}
-  </select>
-
-</div>
+          <div className="mt-5 grid gap-3 border-y border-[var(--color-border)] bg-[var(--color-surface)] p-4 md:grid-cols-[minmax(220px,1fr)_220px_180px]">
+            <label className="relative">
+              <span className="sr-only">Поиск вершины</span>
+              <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-subtle)]" />
+              <input
+                type="search"
+                placeholder="Поиск вершины"
+                value={searchInput}
+                onChange={(event) => setSearchInput(event.target.value)}
+                className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] py-2 pl-10 pr-3 text-[var(--color-text)] outline-none transition-colors placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-focus)]"
+              />
+            </label>
+            <label>
+              <span className="sr-only">Сортировка</span>
+              <select value={sortMode} onChange={(event) => setSortMode(event.target.value as typeof sortMode)} className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]">
+                <option value="date-desc">Сначала новые</option>
+                <option value="date-asc">Сначала старые</option>
+                <option value="height-desc">Высота: по убыванию</option>
+                <option value="height-asc">Высота: по возрастанию</option>
+                <option value="name">По алфавиту</option>
+              </select>
+            </label>
+            <label>
+              <span className="sr-only">Год восхождения</span>
+              <select value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)} className="min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]">
+                <option value="all">Все годы</option>
+                {years.map((year) => (
+                  <option key={year} value={year.toString()}>{year}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+        </section>
 
         {displayedAscents.length === 0 ? (
-          <section className="mt-8 rounded-3xl border border-gray-200 bg-white p-10 text-center shadow-sm">
-            <div className="text-5xl">🏔️</div>
-
-            <h2 className="mt-4 text-2xl font-bold text-gray-900">
-              Пока нет восхождений
+          <section className="border-y border-[var(--color-border-strong)] py-14 text-center">
+            <Mountain aria-hidden="true" className="mx-auto h-9 w-9 text-[var(--color-forest)]" />
+            <h2 className="mt-4 text-2xl font-bold text-[var(--color-text)]">
+              {filtersActive ? "Записи не найдены" : "Пока нет восхождений"}
             </h2>
-
-            <p className="mx-auto mt-2 max-w-lg text-gray-500">
-              Откройте карту, выберите вершину и нажмите кнопку
-              «Взошёл на вершину».
+            <p className="mx-auto mt-2 max-w-lg text-[var(--color-text-muted)]">
+              {filtersActive
+                ? "Измените поисковый запрос или год, чтобы увидеть другие записи."
+                : "Откройте карту, выберите вершину и отметьте своё восхождение."}
             </p>
-
-            <Link
-              href="/map"
-              className="mt-6 inline-flex rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
-            >
-              Открыть карту
-            </Link>
+            {!filtersActive && (
+              <Link href="/map" className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+                <Map aria-hidden="true" className="h-4 w-4" />
+                Открыть карту
+              </Link>
+            )}
           </section>
         ) : (
-          <section className="mt-8 grid gap-4">
+          <section className="border-t border-[var(--color-border-strong)]" aria-label="Список восхождений">
             {displayedAscents.map((ascent, index) => {
               const mountainName = getMountainName(ascent.mountains);
-
-              const customImageUrl =
-  customImageUrls[ascent.id] ??
-  ascent.image_url ??
-  null;
-
-  const isPhotoPublic =
-  photoPrivacy[ascent.id] ??
-  ascent.is_photo_public;
-
+              const customImageUrl = customImageUrls[ascent.id] ?? ascent.image_url ?? null;
+              const isPhotoPublic = photoPrivacy[ascent.id] ?? ascent.is_photo_public;
               const climbedDate = ascent.climbed_at
-  ? new Intl.DateTimeFormat("ru-RU", {
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
-    }).format(new Date(ascent.climbed_at))
-  : "Дата не указана";
+                ? new Intl.DateTimeFormat("ru-RU", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  }).format(new Date(ascent.climbed_at))
+                : "Дата не указана";
 
               return (
-                <article
-                  key={ascent.id}
-                  className="flex flex-col gap-5 rounded-3xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:flex-row sm:items-center sm:justify-between"
-                >
-                  <div className="flex flex-1 flex-col gap-4 sm:flex-row sm:items-center">
-  <AscentMountainThumbnail
-  wikidataId={ascent.mountains?.wikidata ?? null}
-  mountainName={mountainName}
-  customImageUrl={customImageUrl}
-/>
+                <article key={ascent.id} className="grid gap-5 border-b border-[var(--color-border)] py-5 md:grid-cols-[160px_minmax(0,1fr)] xl:grid-cols-[160px_minmax(0,1fr)_auto] xl:items-center">
+                  <AscentMountainThumbnail wikidataId={ascent.mountains?.wikidata ?? null} mountainName={mountainName} customImageUrl={customImageUrl} />
 
-  <div className="flex items-start gap-4">
-
-  </div>
-
-                    <div>
-                      <h2 className="text-xl font-bold text-gray-900">
-                        {mountainName}
-                      </h2>
-
-                      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-500">
-                        <span>
-                          ⛰ {ascent.mountains?.height ?? "—"} м
-                        </span>
-
-                        <span>
-                          📅 {climbedDate}
-                        </span>
+                  <div className="min-w-0">
+                    <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
+                      Запись {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h2 className="mt-1 truncate text-2xl font-bold text-[var(--color-text)]">{mountainName}</h2>
+                    <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--color-text-muted)]">
+                      <div>
+                        <dt className="sr-only">Высота</dt>
+                        <dd className="flex items-center gap-2 [font-family:var(--font-technical)] font-bold tabular-nums">
+                          <Mountain aria-hidden="true" className="h-4 w-4 text-[var(--color-forest)]" />
+                          {ascent.mountains?.height ?? "—"} м
+                        </dd>
                       </div>
-                    </div>
+                      <div>
+                        <dt className="sr-only">Дата</dt>
+                        <dd className="flex items-center gap-2">
+                          <CalendarDays aria-hidden="true" className="h-4 w-4" />
+                          {climbedDate}
+                        </dd>
+                      </div>
+                      {ascent.mountains?.country_code && (
+                        <div>
+                          <dt className="sr-only">Регион</dt>
+                          <dd className="[font-family:var(--font-technical)] uppercase">{ascent.mountains.country_code}</dd>
+                        </div>
+                      )}
+                    </dl>
                   </div>
-                
-<div className="flex shrink-0 flex-col gap-2 sm:flex-row lg:flex-col">
-  <ChangeAscentPhotoButton
-    ascentId={ascent.id}
-    onPhotoChanged={(imageUrl) => {
-      setCustomImageUrls((currentUrls) => ({
-        ...currentUrls,
-        [ascent.id]: imageUrl,
-      }));
-    }}
-  />
 
-  <AscentPhotoPrivacyToggle
-  ascentId={ascent.id}
-  initialIsPublic={isPhotoPublic}
-  hasCustomPhoto={Boolean(customImageUrl)}
-  onPrivacyChanged={(nextIsPublic) => {
-    setPhotoPrivacy((currentPrivacy) => ({
-      ...currentPrivacy,
-      [ascent.id]: nextIsPublic,
-    }));
-  }}
-/>
-
-                 {ascent.mountains?.id ? (
-  <Link
-    href={`/mountain/${ascent.mountains.id}`}
-    className="inline-flex shrink-0 items-center justify-center rounded-xl border border-green-600 px-4 py-2 font-semibold text-green-700 transition hover:bg-green-50"
-  >
-    Открыть вершину →
-  </Link>
-) : (
-  <span className="inline-flex shrink-0 cursor-not-allowed items-center justify-center rounded-xl border border-gray-200 bg-gray-50 px-4 py-2 font-semibold text-gray-400">
-    Вершина недоступна
-  </span>
-)}
-</div>
+                  <div className="flex min-w-0 flex-col gap-2 md:col-start-2 xl:col-start-auto xl:w-52">
+                    <ChangeAscentPhotoButton
+                      ascentId={ascent.id}
+                      onPhotoChanged={(imageUrl) => {
+                        setCustomImageUrls((currentUrls) => ({ ...currentUrls, [ascent.id]: imageUrl }));
+                      }}
+                    />
+                    <AscentPhotoPrivacyToggle
+                      ascentId={ascent.id}
+                      initialIsPublic={isPhotoPublic}
+                      hasCustomPhoto={Boolean(customImageUrl)}
+                      onPrivacyChanged={(nextIsPublic) => {
+                        setPhotoPrivacy((currentPrivacy) => ({ ...currentPrivacy, [ascent.id]: nextIsPublic }));
+                      }}
+                    />
+                    {ascent.mountains?.id ? (
+                      <Link href={`/mountain/${ascent.mountains.id}`} className="inline-flex min-h-11 items-center justify-between gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]">
+                        Открыть вершину
+                        <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+                      </Link>
+                    ) : (
+                      <span className="inline-flex min-h-11 items-center rounded-[var(--radius-control)] border border-[var(--color-border-soft)] px-3 py-2 text-sm text-[var(--color-text-disabled)]">
+                        Вершина недоступна
+                      </span>
+                    )}
+                  </div>
                 </article>
               );
             })}
           </section>
         )}
+
+        <div className="mt-8 flex justify-end">
+          <Link href="/account/tracks" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--color-forest)] hover:underline">
+            <Route aria-hidden="true" className="h-4 w-4" />
+            Перейти к GPS-трекам
+          </Link>
+        </div>
       </div>
     </main>
   );

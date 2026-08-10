@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Trash2 } from "lucide-react";
 
 import { createClient } from "@/Lib/supabase/client";
 
@@ -112,15 +113,16 @@ export default function DeleteGpsTrackButton({
         type="button"
         onClick={handleDelete}
         disabled={deleting}
-        className="inline-flex w-full items-center justify-center rounded-xl border border-red-300 bg-white px-5 py-3 font-semibold text-red-700 transition hover:border-red-500 hover:bg-red-50 disabled:cursor-wait disabled:opacity-60"
+        className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-danger-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-danger)] transition-colors hover:bg-[var(--color-danger-soft)] disabled:cursor-wait disabled:opacity-60"
       >
+        <Trash2 aria-hidden="true" className="h-4 w-4" />
         {deleting
           ? "Удаляю…"
           : "Удалить"}
       </button>
 
       {errorMessage && (
-        <p className="mt-2 max-w-52 text-xs text-red-600">
+        <p className="mt-2 max-w-52 text-xs text-[var(--color-danger)]" role="alert">
           {errorMessage}
         </p>
       )}

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl, { type Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { Mountain } from "lucide-react";
 
 import type { Ascent } from "@/hooks/useAccount";
 
@@ -261,15 +262,15 @@ const map: Map = currentMap;
 
   if (ascents.length === 0) {
     return (
-      <div className="flex h-[520px] items-center justify-center rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm">
+      <div className="flex min-h-[420px] h-[min(68dvh,720px)] items-center justify-center rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-center">
         <div>
-          <div className="text-5xl">🏔️</div>
+          <Mountain aria-hidden="true" className="mx-auto h-9 w-9 text-[var(--color-forest)]" />
 
-          <h2 className="mt-4 text-2xl font-bold text-gray-900">
+          <h2 className="mt-4 text-2xl font-bold text-[var(--color-text)]">
             Пока нет покорённых вершин
           </h2>
 
-          <p className="mt-2 text-gray-500">
+          <p className="mt-2 text-[var(--color-text-muted)]">
             Отмеченные восхождения появятся на этой карте.
           </p>
         </div>
@@ -280,7 +281,9 @@ const map: Map = currentMap;
   return (
     <div
       ref={containerRef}
-      className="h-[520px] w-full overflow-hidden rounded-3xl border border-gray-200 shadow-sm"
+      role="region"
+      aria-label="Интерактивная карта покорённых вершин"
+      className="h-[min(68dvh,720px)] min-h-[420px] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]"
     />
   );
 }

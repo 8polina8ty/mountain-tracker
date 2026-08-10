@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowLeft, FileUp, Route, ShieldCheck, Trash2 } from "lucide-react";
 import {
   ChangeEvent,
   DragEvent,
@@ -11,6 +12,8 @@ import { createClient } from "@/Lib/supabase/client";
 import { parseGpxFile } from "@/Lib/tracks/parseGpxFile";
 import { useRouter } from "next/navigation";
 import { detectMountainFromTrack } from "@/Lib/tracks/detectMountainFromTrack";
+import AccountNavigation from "@/components/account/AccountNavigation";
+import AccountPageHeader from "@/components/account/AccountPageHeader";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
 
@@ -463,34 +466,34 @@ if (filesToRemove.length > 0) {
 }
 
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-gray-50 px-4 py-8">
-      <div className="mx-auto max-w-4xl">
-        <Link
-          href="/account/ascents"
-          className="font-semibold text-green-700 transition hover:text-green-800"
-        >
-          ← Вернуться к восхождениям
-        </Link>
+    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-8">
+      <div className="mx-auto max-w-7xl">
+        <AccountNavigation />
+        <AccountPageHeader
+          eyebrow="03.2 / Полевые данные"
+          title="Импорт GPS-трека"
+          description="Добавьте запись восхождения с навигатора, часов, телефона или туристического приложения."
+          actions={
+            <Link href="/account/tracks" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+              <ArrowLeft aria-hidden="true" className="h-4 w-4" />
+              Все треки
+            </Link>
+          }
+        />
 
-        <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-wider text-green-700">
-            GPS-треки
-          </p>
+        <section className="grid gap-8 py-8 lg:grid-cols-[minmax(0,2fr)_minmax(260px,1fr)] lg:gap-12" aria-labelledby="track-import-form-title">
+          <div>
+            <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
+              Шаг 01 / Файл маршрута
+            </p>
+            <h2 id="track-import-form-title" className="mt-1 text-2xl font-bold text-[var(--color-text)]">
+              Данные активности
+            </h2>
 
-          <h1 className="mt-2 text-3xl font-bold text-gray-900">
-            Импорт GPS-трека
-          </h1>
-
-          <p className="mt-3 max-w-2xl text-gray-500">
-            Загрузите запись восхождения с Garmin,
-            Suunto, Strava, Komoot, часов, телефона или
-            другого туристического приложения.
-          </p>
-
-          <div className="mt-8">
+            <div className="mt-6">
             <label
               htmlFor="track-source"
-              className="text-sm font-semibold text-gray-700"
+              className="text-sm font-semibold text-[var(--color-text-secondary)]"
             >
               Источник трека
             </label>
@@ -503,7 +506,7 @@ if (filesToRemove.length > 0) {
                   event.target.value as TrackSource,
                 );
               }}
-              className="mt-2 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
+              className="mt-2 min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-4 py-2 text-[var(--color-text)] outline-none transition-colors focus:border-[var(--color-focus)]"
             >
               <option value="garmin">Garmin</option>
               <option value="suunto">Suunto</option>
@@ -524,10 +527,10 @@ if (filesToRemove.length > 0) {
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
             className={[
-              "mt-6 flex min-h-72 flex-col items-center justify-center rounded-3xl border-2 border-dashed p-8 text-center transition",
+              "mt-6 flex min-h-72 flex-col items-center justify-center rounded-[var(--radius-card)] border-2 border-dashed p-6 text-center transition-colors sm:p-8",
               dragActive
-                ? "border-green-500 bg-green-50"
-                : "border-gray-300 bg-gray-50",
+                ? "border-[var(--color-forest)] bg-[var(--color-success-soft)]"
+                : "border-[var(--color-border-strong)] bg-[var(--color-surface)]",
             ].join(" ")}
           >
             <input
@@ -538,13 +541,13 @@ if (filesToRemove.length > 0) {
               className="hidden"
             />
 
-            <div className="text-6xl">🗺️</div>
+            <FileUp aria-hidden="true" className="h-10 w-10 text-[var(--color-track)]" />
 
-            <h2 className="mt-5 text-xl font-bold text-gray-900">
+            <h3 className="mt-5 text-xl font-bold text-[var(--color-text)]">
               Перетащите GPS-файл сюда
-            </h2>
+            </h3>
 
-            <p className="mt-2 text-gray-500">
+            <p className="mt-2 text-[var(--color-text-muted)]">
               Поддерживаются GPX, FIT, TCX и GeoJSON
               размером до 50 МБ.
             </p>
@@ -554,55 +557,78 @@ if (filesToRemove.length > 0) {
               onClick={() => {
                 inputRef.current?.click();
               }}
-              className="mt-6 rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]"
             >
+              <Route aria-hidden="true" className="h-4 w-4" />
               Выбрать файл
             </button>
           </div>
 
           {selectedFile && (
-            <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-green-200 bg-green-50 p-5 sm:flex-row sm:items-center sm:justify-between">
-              <div className="min-w-0">
-                <p className="font-bold text-gray-900">
+            <div className="mt-6 flex flex-col gap-4 border-l-4 border-[var(--color-success)] bg-[var(--color-success-soft)] p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex min-w-0 items-start gap-3">
+                <Route aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-success)]" />
+                <div className="min-w-0">
+                <p className="truncate font-bold text-[var(--color-text)]">
                   {selectedFile.name}
                 </p>
 
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                   {(selectedFile.size / 1024 / 1024).toFixed(
                     2,
                   )}{" "}
                   МБ · источник: {sourceType}
                 </p>
+                </div>
               </div>
 
               <button
                 type="button"
                 onClick={clearFile}
-                className="shrink-0 rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition hover:border-red-300 hover:bg-red-50 hover:text-red-700"
+                className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-danger-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-danger)] transition-colors hover:bg-[var(--color-danger-soft)]"
               >
+                <Trash2 aria-hidden="true" className="h-4 w-4" />
                 Удалить
               </button>
             </div>
           )}
 
           {message && (
-            <p className="mt-5 rounded-xl bg-gray-100 px-4 py-3 text-sm text-gray-600">
+            <p className="mt-5 border-l-4 border-[var(--color-info)] bg-[var(--color-info-soft)] px-4 py-3 text-sm text-[var(--color-text-secondary)]" role="status">
               {message}
             </p>
           )}
 
-          <div className="mt-8 flex justify-end">
+          <div className="mt-8 flex justify-end border-t border-[var(--color-border)] pt-6">
             <button
   type="button"
   onClick={handleContinue}
   disabled={!selectedFile || uploading}
-  className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50"
+  className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-6 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)] disabled:cursor-not-allowed disabled:opacity-50"
 >
+  <FileUp aria-hidden="true" className="h-4 w-4" />
   {uploading
     ? "Загружаю…"
     : "Загрузить GPS-трек"}
 </button>
           </div>
+          </div>
+
+          <aside className="border-t border-[var(--color-border-strong)] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0" aria-label="Параметры импорта">
+            <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
+              Протокол импорта
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">Что произойдёт</h2>
+            <ol className="mt-5 divide-y divide-[var(--color-border-soft)] border-y border-[var(--color-border)] text-sm text-[var(--color-text-secondary)]">
+              <li className="py-4">Файл будет сохранён в приватном хранилище.</li>
+              <li className="py-4">Маршрут и показатели будут рассчитаны автоматически.</li>
+              <li className="py-4">Система проверит ближайшую к треку вершину.</li>
+            </ol>
+            <div className="mt-6 flex gap-3 border-l-2 border-[var(--color-forest)] pl-4">
+              <ShieldCheck aria-hidden="true" className="h-5 w-5 shrink-0 text-[var(--color-forest)]" />
+              <p className="text-sm text-[var(--color-text-muted)]">Максимальный размер файла: 50 МБ. Доступ к записи остаётся приватным.</p>
+            </div>
+          </aside>
         </section>
       </div>
     </main>

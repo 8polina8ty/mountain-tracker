@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { Camera } from "lucide-react";
 
 import { createClient } from "@/Lib/supabase/client";
 
@@ -155,13 +156,14 @@ export default function ChangeAscentPhotoButton({
         type="button"
         onClick={openFileDialog}
         disabled={uploading}
-        className="rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:border-green-500 hover:bg-green-50 hover:text-green-700 disabled:cursor-wait disabled:opacity-60"
+        className="inline-flex min-h-11 w-full items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-forest)] hover:text-[var(--color-forest)] disabled:cursor-wait disabled:opacity-60"
       >
-        {uploading ? "Загружаю…" : "📷 Сменить фото"}
+        <Camera aria-hidden="true" className="h-4 w-4" />
+        {uploading ? "Загружаю…" : "Сменить фото"}
       </button>
 
       {message && (
-        <p className="mt-2 max-w-48 text-xs text-gray-500">
+        <p className="mt-2 max-w-52 text-xs text-[var(--color-text-muted)]" role="status">
           {message}
         </p>
       )}

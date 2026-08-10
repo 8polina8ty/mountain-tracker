@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Mountain } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import {
@@ -58,16 +59,16 @@ export default function AscentMountainThumbnail({
 
   if (customImageUrl) {
   return (
-    <div className="relative h-24 w-full shrink-0 overflow-hidden rounded-2xl bg-gray-100 sm:h-28 sm:w-40">
+    <div className="relative h-32 w-full shrink-0 overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-surface-muted)] sm:h-28 sm:w-40">
       <Image
         src={customImageUrl}
         alt={`Фотография восхождения на ${mountainName}`}
         fill
         sizes="(max-width: 640px) 100vw, 160px"
-        className="object-cover transition duration-300 hover:scale-105"
+        className="object-cover"
       />
 
-      <div className="absolute bottom-2 left-2 rounded-lg bg-black/60 px-2 py-1 text-xs font-semibold text-white">
+      <div className="absolute bottom-2 left-2 rounded-[var(--radius-sm)] bg-[var(--color-surface-inverse)] px-2 py-1 [font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.075em] text-[var(--color-text-inverse)]">
         Моё фото
       </div>
     </div>
@@ -76,26 +77,26 @@ export default function AscentMountainThumbnail({
 
   if (loading) {
     return (
-      <div className="h-24 w-full animate-pulse rounded-2xl bg-gray-200 sm:h-28 sm:w-40" />
+      <div className="h-32 w-full animate-pulse rounded-[var(--radius-card)] bg-[var(--color-surface-muted)] sm:h-28 sm:w-40" />
     );
   }
 
   if (!image) {
     return (
-      <div className="flex h-24 w-full shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-green-100 to-gray-100 text-3xl sm:h-28 sm:w-40">
-        🏔️
+      <div className="flex h-32 w-full shrink-0 items-center justify-center rounded-[var(--radius-card)] border border-[var(--color-border-soft)] bg-[var(--color-surface-muted)] sm:h-28 sm:w-40">
+        <Mountain aria-hidden="true" className="h-7 w-7 text-[var(--color-granite)]" />
       </div>
     );
   }
 
   return (
-    <div className="relative h-24 w-full shrink-0 overflow-hidden rounded-2xl bg-gray-100 sm:h-28 sm:w-40">
+    <div className="relative h-32 w-full shrink-0 overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-surface-muted)] sm:h-28 sm:w-40">
       <Image
         src={image.url}
         alt={`Вершина ${mountainName}`}
         fill
         sizes="(max-width: 640px) 100vw, 160px"
-        className="object-cover transition duration-300 hover:scale-105"
+        className="object-cover"
       />
     </div>
   );

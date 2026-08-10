@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowUpRight, Star } from "lucide-react";
 
 import type {
   FavoriteMountain,
@@ -22,50 +23,50 @@ export default function FavoriteMountainsSection({
   getMountainName,
 }: FavoriteMountainsSectionProps) {
   return (
-    <section className="mt-8 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+    <section className="border-b border-[var(--color-border-strong)] py-10 sm:py-12" aria-labelledby="favorite-mountains-title">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-yellow-600">
-            Избранное
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-warning)]">
+            04 / Планирование
           </p>
 
-          <h2 className="mt-1 text-2xl font-bold text-gray-900">
+          <h2 id="favorite-mountains-title" className="mt-2 text-3xl font-bold text-[var(--color-text)]">
             Избранные вершины
           </h2>
 
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-[var(--color-text-muted)]">
             Вершины, которые вы сохранили для будущих
             восхождений.
           </p>
         </div>
 
-        <div className="rounded-full bg-yellow-50 px-4 py-2 text-sm font-bold text-yellow-700">
+        <div className="[font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-warning)]">
           {favoriteMountains.length}
         </div>
       </div>
 
       {favoriteMountains.length === 0 ? (
-        <div className="mt-6 rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-6 py-10 text-center">
-          <div className="text-5xl">☆</div>
+        <div className="mt-6 border-y border-dashed border-[var(--color-border)] px-6 py-10 text-center">
+          <Star aria-hidden="true" className="mx-auto h-8 w-8 text-[var(--color-ochre)]" />
 
-          <h3 className="mt-4 text-lg font-bold text-gray-900">
+          <h3 className="mt-4 text-xl font-bold text-[var(--color-text)]">
             Пока нет избранных вершин
           </h3>
 
-          <p className="mx-auto mt-2 max-w-md text-sm text-gray-500">
+          <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-muted)]">
             Откройте карту, выберите вершину и нажмите
             «Добавить в избранное».
           </p>
 
           <Link
             href="/map"
-            className="mt-5 inline-flex rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
+            className="mt-5 inline-flex min-h-11 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-2 font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]"
           >
             Перейти к карте
           </Link>
         </div>
       ) : (
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-px border-y border-[var(--color-border)] bg-[var(--color-border-soft)] sm:grid-cols-2">
           {favoriteMountains.map((favorite) => {
             const mountainName = getMountainName(
               favorite.mountain,
@@ -75,38 +76,16 @@ export default function FavoriteMountainsSection({
               <Link
                 key={favorite.id}
                 href={`/mountain/${favorite.mountain.id}`}
-                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 transition hover:-translate-y-1 hover:border-yellow-300 hover:shadow-lg"
+                className="group flex min-w-0 items-center gap-4 bg-[var(--color-surface)] p-5 transition-colors hover:bg-[var(--color-surface-raised)]"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-100 text-2xl">
-                    🏔️
-                  </div>
-
-                  <span
-                    className="text-2xl text-yellow-500"
-                    aria-label="В избранном"
-                  >
-                    ★
-                  </span>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-warning-soft)] text-[var(--color-ochre)]">
+                  <Star aria-label="В избранном" className="h-4 w-4 fill-current" />
                 </div>
-
-                <h3 className="mt-5 truncate text-lg font-bold text-gray-900 transition group-hover:text-green-700">
-                  {mountainName}
-                </h3>
-
-                <p className="mt-1 text-2xl font-bold text-green-600">
-                  {favorite.mountain.height} м
-                </p>
-
-                <div className="mt-5 flex items-center justify-between border-t border-gray-100 pt-4">
-                  <span className="text-sm font-semibold text-gray-500">
-                    Открыть вершину
-                  </span>
-
-                  <span className="text-lg font-bold text-green-600 transition group-hover:translate-x-1">
-                    →
-                  </span>
+                <div className="min-w-0 flex-1">
+                  <h3 className="truncate text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-forest)]">{mountainName}</h3>
+                  <p className="mt-1 [font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-text-muted)]">{favorite.mountain.height} м</p>
                 </div>
+                <ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0 text-[var(--color-text-subtle)]" />
               </Link>
             );
           })}

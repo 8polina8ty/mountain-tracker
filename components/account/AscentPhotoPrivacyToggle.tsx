@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 import { createClient } from "@/Lib/supabase/client";
 
@@ -108,35 +109,36 @@ export default function AscentPhotoPrivacyToggle({
         onClick={handleToggle}
         disabled={!hasCustomPhoto || updating}
         className={[
-          "flex w-full items-center justify-between gap-3 rounded-xl border px-3 py-2 text-sm font-semibold transition",
+          "flex min-h-11 w-full items-center justify-between gap-3 rounded-[var(--radius-control)] border px-3 py-2 text-sm font-semibold transition-colors",
           isPublic
-            ? "border-green-300 bg-green-50 text-green-700"
-            : "border-gray-300 bg-white text-gray-700",
+            ? "border-[var(--color-success-border)] bg-[var(--color-success-soft)] text-[var(--color-success)]"
+            : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)]",
           hasCustomPhoto
-            ? "hover:border-green-500"
+            ? "hover:border-[var(--color-forest)]"
             : "cursor-not-allowed opacity-50",
           updating
             ? "cursor-wait opacity-60"
             : "",
         ].join(" ")}
       >
-        <span>
+        <span className="flex items-center gap-2">
+          {isPublic ? <Eye aria-hidden="true" className="h-4 w-4" /> : <EyeOff aria-hidden="true" className="h-4 w-4" />}
           {isPublic
-            ? "🌍 Фото публичное"
-            : "🔒 Фото приватное"}
+            ? "Фото публичное"
+            : "Фото приватное"}
         </span>
 
         <span
           className={[
-            "relative h-6 w-11 shrink-0 rounded-full transition",
+            "relative h-6 w-11 shrink-0 rounded-full transition-colors",
             isPublic
-              ? "bg-green-600"
-              : "bg-gray-300",
+              ? "bg-[var(--color-success)]"
+              : "bg-[var(--color-border-strong)]",
           ].join(" ")}
         >
           <span
             className={[
-              "absolute top-1 h-4 w-4 rounded-full bg-white shadow transition",
+              "absolute top-1 h-4 w-4 rounded-full bg-white shadow-[var(--shadow-control)] transition-transform",
               isPublic
                 ? "left-6"
                 : "left-1",
@@ -146,13 +148,13 @@ export default function AscentPhotoPrivacyToggle({
       </button>
 
       {!hasCustomPhoto && (
-        <p className="mt-2 max-w-52 text-xs text-gray-400">
+        <p className="mt-2 max-w-52 text-xs text-[var(--color-text-muted)]">
           Сначала загрузите собственную фотографию.
         </p>
       )}
 
       {message && (
-        <p className="mt-2 max-w-52 text-xs text-gray-500">
+        <p className="mt-2 max-w-52 text-xs text-[var(--color-text-muted)]" role="status">
           {message}
         </p>
       )}

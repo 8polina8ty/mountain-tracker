@@ -1,4 +1,5 @@
 import type { ChangeEvent } from "react";
+import { Camera, Compass } from "lucide-react";
 
 type ProfileCardProps = {
   username: string;
@@ -20,9 +21,9 @@ export default function ProfileCard({
   handleAvatarUpload,
 }: ProfileCardProps) {
   return (
-    <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+    <section className="border-b border-[var(--color-border-strong)] bg-[var(--color-surface-inverse)] px-5 py-7 text-[var(--color-text-inverse)] sm:px-8 sm:py-9">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-        <div className="flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-full bg-green-100 text-4xl font-bold text-green-700">
+        <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/30 bg-white/10 text-4xl font-bold sm:h-28 sm:w-28">
           {avatarUrl ? (
             <img
               src={avatarUrl}
@@ -34,23 +35,25 @@ export default function ProfileCard({
           )}
         </div>
 
-        <div className="flex-1">
-          <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
-            Профиль
+        <div className="min-w-0 flex-1">
+          <p className="flex items-center gap-2 [font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-white/65">
+            <Compass aria-hidden="true" className="h-3.5 w-3.5" />
+            Личная экспедиционная запись
           </p>
 
-          <h1 className="mt-1 text-3xl font-bold text-gray-900">
+          <h1 className="mt-2 break-words text-4xl font-bold sm:text-5xl">
             {username}
           </h1>
 
           {email && (
-            <p className="mt-2 text-gray-500">
+            <p className="mt-2 break-all text-sm text-white/65">
               {email}
             </p>
           )}
 
-          <div className="mt-5">
-            <label className="inline-flex cursor-pointer items-center rounded-xl bg-green-600 px-4 py-2 font-semibold text-white transition hover:bg-green-700">
+          <div className="mt-5 flex flex-col items-start gap-2">
+            <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-[var(--radius-control)] border border-white/30 px-4 py-2 text-sm font-semibold text-white transition-colors duration-[var(--duration-fast)] hover:bg-white/10">
+              <Camera aria-hidden="true" className="h-4 w-4" />
               {avatarUploading
                 ? "Загрузка..."
                 : "Изменить аватар"}
@@ -65,7 +68,7 @@ export default function ProfileCard({
             </label>
 
             {avatarMessage && (
-              <p className="mt-2 text-sm text-gray-600">
+              <p className="text-sm text-white/70" role="status">
                 {avatarMessage}
               </p>
             )}

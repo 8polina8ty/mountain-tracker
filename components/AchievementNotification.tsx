@@ -1,5 +1,7 @@
 "use client";
 
+import { X } from "lucide-react";
+
 export type AchievementNotificationData = {
   id: string;
   title: string;
@@ -21,43 +23,41 @@ export default function AchievementNotification({
   }
 
   return (
-    <div className="fixed right-4 top-24 z-[100] w-[calc(100%-2rem)] max-w-sm animate-[achievement-in_0.35s_ease-out]">
-      <div className="relative overflow-hidden rounded-2xl border border-yellow-200 bg-white p-5 shadow-2xl">
-        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400" />
-
+    <aside className="fixed right-4 top-[74px] z-[100] w-[calc(100%-2rem)] max-w-sm animate-[achievement-in_0.35s_ease-out] lg:top-[82px]" role="status" aria-live="polite">
+      <div className="relative overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] border-l-4 border-l-[var(--color-ochre)] bg-[var(--color-surface-raised)] p-5 shadow-[var(--shadow-panel)]">
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-lg text-gray-400 transition hover:bg-gray-100 hover:text-gray-700"
+          className="absolute right-2 top-2 flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
           aria-label="Закрыть уведомление"
         >
-          ×
+          <X aria-hidden="true" className="h-4 w-4" />
         </button>
 
         <div className="flex items-start gap-4 pr-7">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-yellow-100 text-3xl">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-warning-border)] bg-[var(--color-warning-soft)] text-lg" aria-hidden="true">
             {notification.icon}
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-yellow-700">
-              Новое достижение
+            <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-warning)]">
+              Новый рубеж
             </p>
 
-            <h2 className="mt-1 text-lg font-bold text-gray-900">
+            <h2 className="mt-1 text-xl font-bold text-[var(--color-text)]">
               {notification.title}
             </h2>
 
-            <p className="mt-1 text-sm leading-5 text-gray-500">
+            <p className="mt-1 text-sm leading-5 text-[var(--color-text-muted)]">
               {notification.description}
             </p>
           </div>
         </div>
 
-        <div className="mt-4 h-1 overflow-hidden rounded-full bg-yellow-100">
-          <div className="h-full w-full origin-left animate-[achievement-timer_5s_linear_forwards] bg-yellow-500" />
+        <div className="mt-4 h-1 overflow-hidden rounded-full bg-[var(--color-warning-soft)]">
+          <div className="h-full w-full origin-left animate-[achievement-timer_5s_linear_forwards] bg-[var(--color-ochre)]" />
         </div>
       </div>
-    </div>
+    </aside>
   );
 }

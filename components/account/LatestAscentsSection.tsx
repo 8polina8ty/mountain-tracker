@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight, Map } from "lucide-react";
 import { formatDate } from "@/Lib/utils";
 
 import type {
@@ -19,52 +20,47 @@ export default function LatestAscentsSection({
 
 }: LatestAscentsSectionProps) {
   return (
-    <section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+    <section className="border-b border-[var(--color-border-strong)] py-10 sm:py-12" aria-labelledby="latest-ascents-title">
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
-            История
+          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
+            02 / Журнал
           </p>
 
-          <h2 className="mt-1 text-2xl font-bold text-gray-900">
+          <h2 id="latest-ascents-title" className="mt-2 text-3xl font-bold text-[var(--color-text)]">
             Последние восхождения
           </h2>
         </div>
 
         <div className="flex flex-wrap gap-2">
-  <Link
-    href="/account/ascents"
-    className="rounded-xl border border-green-600 px-4 py-2 text-sm font-semibold text-green-700 transition hover:bg-green-50"
-  >
-    Все восхождения
-  </Link>
-
-  <Link
-    href="/map"
-    className="rounded-xl bg-green-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-700"
-  >
-    Открыть карту
-  </Link>
-</div>
+          <Link href="/account/ascents" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-forest)]">
+            Все записи
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
+          <Link href="/map" className="inline-flex min-h-11 items-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-forest-hover)]">
+            <Map aria-hidden="true" className="h-4 w-4" />
+            Карта
+          </Link>
+        </div>
       </div>
 
       {ascents.length === 0 ? (
-        <p className="rounded-2xl bg-gray-50 p-5 text-gray-600">
+        <p className="border-y border-[var(--color-border)] py-8 text-[var(--color-text-muted)]">
           Пока нет сохранённых восхождений.
         </p>
       ) : (
-        <div className="space-y-3">
+        <div className="divide-y divide-[var(--color-border-soft)] border-y border-[var(--color-border)]">
           {ascents.slice(0, 5).map((ascent) => (
             <article
               key={ascent.id}
-              className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-gray-200 p-4"
+              className="grid gap-3 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
             >
               <div>
-                <h3 className="font-bold text-gray-900">
+                <h3 className="truncate font-bold text-[var(--color-text)]">
                   {getMountainName(ascent.mountains)}
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 [font-family:var(--font-technical)] text-xs text-[var(--color-text-muted)]">
                   {formatDate(
                     ascent.climbed_at ??
                       ascent.created_at,
@@ -72,9 +68,7 @@ export default function LatestAscentsSection({
                 </p>
               </div>
 
-              <p className="font-bold text-green-600">
-                {ascent.mountains?.height ?? 0} м
-              </p>
+              <p className="[font-family:var(--font-technical)] font-bold tabular-nums text-[var(--color-forest)]">{ascent.mountains?.height ?? 0} м</p>
             </article>
           ))}
         </div>
