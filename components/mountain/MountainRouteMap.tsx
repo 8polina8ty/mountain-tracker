@@ -371,28 +371,30 @@ const map: Map = currentMap;
   }, [geojsonUrl, routeName]);
 
   return (
-    <div className="relative mt-6 overflow-hidden rounded-3xl border border-gray-200 bg-gray-100">
+    <div className="relative mt-8 overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-bg-terrain)] shadow-[var(--shadow-control)]">
       <div
         ref={containerRef}
-        className="h-[520px] w-full"
+        role="region"
+        aria-label={`Карта маршрута «${routeName}»`}
+        className="h-[clamp(360px,58vh,520px)] w-full"
       />
 
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm">
-          <div className="rounded-2xl border border-gray-200 bg-white px-5 py-3 font-medium text-gray-600 shadow-sm">
+        <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/90 p-4">
+          <div className="border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-5 py-3 text-sm font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]">
             Загружаю маршрут…
           </div>
         </div>
       )}
 
       {errorMessage && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/90 p-6">
-          <div className="max-w-md rounded-2xl border border-red-200 bg-red-50 p-5 text-center">
-            <p className="font-bold text-red-800">
+        <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-surface)]/95 p-6">
+          <div className="max-w-md border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-5 text-center">
+            <p className="font-bold text-[var(--color-danger)]">
               Не удалось показать маршрут
             </p>
 
-            <p className="mt-2 text-sm text-red-700">
+            <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
               {errorMessage}
             </p>
           </div>
@@ -400,12 +402,12 @@ const map: Map = currentMap;
       )}
 
       {!loading && !errorMessage && (
-        <div className="pointer-events-none absolute bottom-4 left-4 rounded-xl bg-white/90 px-3 py-2 text-xs font-medium text-gray-700 shadow-sm backdrop-blur">
-          <span className="font-bold text-green-700">
+        <div className="pointer-events-none absolute bottom-3 left-3 border border-[var(--color-border)] bg-[var(--color-surface)]/95 px-3 py-2 [font-family:var(--font-technical)] text-[var(--font-size-caption)] font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-control)] sm:bottom-4 sm:left-4">
+          <span className="font-bold text-[var(--color-route)]">
             S
           </span>{" "}
           — старт ·{" "}
-          <span className="font-bold text-red-700">
+          <span className="font-bold text-[var(--color-danger)]">
             F
           </span>{" "}
           — финиш
