@@ -15,7 +15,9 @@ import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { useSocialInbox } from "@/components/messages/SocialInboxProvider";
 import { createClient } from "@/Lib/supabase/client";
+import { formatUnreadBadge } from "@/Lib/socialMessaging";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
 
@@ -28,6 +30,17 @@ const navigationLinks = [
     primary: false,
   },
 ] as const;
+
+const socialNavigationLink = {
+  href: "/friends",
+  labelKey: "friends",
+  primary: false,
+} as const;
+const messagesNavigationLink = {
+  href: "/messages",
+  labelKey: "messages",
+  primary: false,
+} as const;
 
 const guestNavigationLinks = [
   ...navigationLinks,
@@ -47,6 +60,8 @@ function isRouteActive(pathname: string, href: string) {
 export default function Header() {
   const t = useTranslations("Navigation");
   const tAccessibility = useTranslations("Accessibility");
+  const tSocialAccessibility = useTranslations("Social.Accessibility");
+  const { totalUnreadMessages } = useSocialInbox();
   const pathname = usePathname();
   const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
@@ -56,31 +71,47 @@ export default function Header() {
   const [loading, setLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const supabase = createClient();
+useEffect(() => {
+  const supabase = createClient();
+  let active = true;
+  let authGeneration = 0;
 
-    async function loadUser() {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      setUser(user);
-      setLoading(false);
-    }
-
-    void loadUser();
+  async function loadUser() {
+    const generation = authGeneration;
 
     const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+      data: { user },
+    } = await supabase.auth.getUser();
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
+    if (!active || generation !== authGeneration) {
+      return;
+    }
+
+    setUser(user);
+    setLoading(false);
+  }
+
+  void loadUser();
+
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((_event, session) => {
+    authGeneration += 1;
+
+    if (!active) {
+      return;
+    }
+
+    setUser(session?.user ?? null);
+    setLoading(false);
+  });
+
+  return () => {
+    active = false;
+    authGeneration += 1;
+    subscription.unsubscribe();
+  };
+}, []);
 
   useEffect(() => {
     const dialog = menuDialogRef.current;
@@ -151,7 +182,7 @@ export default function Header() {
 
   const accountIsActive = isRouteActive(pathname, "/account");
   const visibleNavigationLinks = user
-    ? navigationLinks
+    ? [...navigationLinks, socialNavigationLink, messagesNavigationLink]
     : guestNavigationLinks;
 
   return (
@@ -183,6 +214,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
+                aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : undefined}
                 className={`ui-pressable relative flex h-full items-center border-b-2 px-4 text-sm font-semibold ${
                   isActive
                     ? "border-[var(--color-forest)] text-[var(--color-text)]"
@@ -192,6 +224,7 @@ export default function Header() {
                 }`}
               >
                 {t(link.labelKey)}
+                {link.href === "/messages" && totalUnreadMessages > 0 && <UnreadBadge count={totalUnreadMessages} />}
               </Link>
             );
           })}
@@ -397,6 +430,7 @@ export default function Header() {
                       href={link.href}
                       onClick={handleMenuNavigation}
                       aria-current={isActive ? "page" : undefined}
+                      aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : undefined}
                       className={`ui-pressable mx-3 flex min-h-13 items-center border-l-2 px-4 text-base font-semibold ${
                         isActive
                           ? "border-[var(--color-forest)] bg-[var(--color-surface-muted)] text-[var(--color-text)]"
@@ -405,7 +439,7 @@ export default function Header() {
                             : "border-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
                       }`}
                     >
-                      {t(link.labelKey)}
+                      <span className="flex min-w-0 flex-1 items-center justify-between gap-3"><span>{t(link.labelKey)}</span>{link.href === "/messages" && totalUnreadMessages > 0 && <UnreadBadge count={totalUnreadMessages} />}</span>
                     </Link>
                   );
                 })}
@@ -477,4 +511,8 @@ export default function Header() {
       </dialog>
     </header>
   );
+}
+
+function UnreadBadge({ count }: { count: number }) {
+  return <span aria-hidden="true" className="ml-2 inline-flex min-w-5 items-center justify-center rounded-full bg-[var(--color-forest)] px-1.5 py-0.5 text-[0.6875rem] font-bold leading-none text-white">{formatUnreadBadge(count)}</span>;
 }

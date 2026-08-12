@@ -24,7 +24,7 @@
       "location": "Geografische Lage"
     },
     "Routes": {
-      "sectionLabel": "02 / Routen",
+      "sectionLabel": "03 / Routen",
       "title": "Aufstiegsrouten",
       "introduction": "Geprüfte Aufstiegsvarianten. Prüfe vor dem Start Wetter, Routenverhältnisse und aktuelle Einschränkungen.",
       "inProfile": "Im Profil",
@@ -52,10 +52,54 @@
       "equipment": "Ausrüstung",
       "warning": "Wichtiger Hinweis",
       "downloadGpx": "GPX herunterladen",
+      "downloadGpxFor": "GPX für {routeName} herunterladen",
+      "gpxUnavailable": "Die GPX-Datei ist derzeit nicht verfügbar.",
       "sourceNamed": "Quelle: {sourceName}",
       "source": "Routenquelle",
       "safetyTitle": "Sicherheitshinweis:",
       "safetyDescription": "Die Routenbeschreibung ersetzt keine aktuelle topografische Karte, keinen offiziellen Wetterbericht, keine Prüfung der Wegverhältnisse und keine persönliche Einschätzung von Erfahrung und Ausrüstung."
+    },
+    "Weather": {
+      "sectionLabel": "02 / Gipfelwetter",
+      "title": "Gipfelwetter",
+      "subtitle": "Vorhersage für den Gipfel in {elevation} m über dem Meeresspiegel",
+      "currentConditions": "Aktuelle Bedingungen",
+      "feelsLike": "Gefühlt",
+      "temperature": "Temperatur",
+      "wind": "Wind",
+      "windDirection": "Richtung",
+      "gusts": "Böen",
+      "precipitation": "Niederschlag",
+      "precipitationSum": "Niederschlagssumme",
+      "snowfall": "Schneefall",
+      "cloudCover": "Bewölkung",
+      "visibility": "Sichtweite",
+      "freezingLevel": "Nullgradgrenze",
+      "hourlyForecast": "Stündliche Vorhersage",
+      "hourlyRange": "Nächste {count, plural, one {Stunde} other {# Stunden}}",
+      "dailyForecast": "Tagesprognose",
+      "sunrise": "Sonnenaufgang",
+      "sunset": "Sonnenuntergang",
+      "updated": "Aktualisiert",
+      "temperatureMin": "Min",
+      "temperatureMax": "Max",
+      "unavailableTitle": "Wetter derzeit nicht verfügbar",
+      "unavailableDescription": "Die Wetterdaten für diesen Gipfel konnten nicht geladen werden. Prüfe vor dem Aufbruch den offiziellen Bergwetterbericht und lokale Warnungen.",
+      "safetyNoticeTitle": "Sicherheitshinweis:",
+      "safetyNotice": "Das Wetter am Berg kann sich schnell ändern. Prognosen sind Schätzungen und ersetzen keine lokalen Warnungen, offiziellen Wettervorhersagen, Lawineninformationen oder das eigene Urteilsvermögen.",
+      "conditions": {
+        "clear": "Klar",
+        "mostlyClear": "Überwiegend klar",
+        "partlyCloudy": "Teilweise bewölkt",
+        "overcast": "Bedeckt",
+        "fog": "Nebel",
+        "drizzle": "Nieselregen",
+        "rain": "Regen",
+        "snow": "Schnee",
+        "showers": "Schauer",
+        "thunderstorm": "Gewitter",
+        "unknown": "Unbekannt"
+      }
     },
     "RouteMetrics": {
       "distance": "Distanz",
@@ -64,7 +108,7 @@
       "difficulty": "Schwierigkeit"
     },
     "Ascent": {
-      "sectionLabel": "03 / Tourenbuch",
+      "sectionLabel": "04 / Tourenbuch",
       "recentAscents": "Letzte Besteigungen",
       "empty": "Diesen Gipfel hat noch niemand als bestiegen markiert.",
       "you": "Du",
@@ -120,7 +164,12 @@
     },
     "Units": {
       "meter": "m",
-      "kilometer": "km"
+      "kilometer": "km",
+      "centimeter": "cm",
+      "degree": "°C",
+      "speed": "km/h",
+      "precipitation": "mm",
+      "percent": " %"
     }
   }
 }

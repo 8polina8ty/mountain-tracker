@@ -1,10 +1,22 @@
 "use client";
 
-import { Award, BookOpen, Mountain, Route } from "lucide-react";
+import { Award, BookOpen, MessageCircle, Mountain, Route, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 
 const accountSections = [
+  {
+    href: "/friends",
+    labelKey: "friends",
+    icon: Users,
+    isActive: (pathname: string) => pathname.startsWith("/friends"),
+  },
+  {
+    href: "/messages",
+    labelKey: "messages",
+    icon: MessageCircle,
+    isActive: (pathname: string) => pathname.startsWith("/messages"),
+  },
   {
     href: "/account",
     labelKey: "overview",

@@ -45,7 +45,8 @@ export default function LoginPage() {
       return;
     }
 
-    router.push("/map");
+    const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+    router.push(returnTo?.startsWith("/") && !returnTo.startsWith("//") ? returnTo : "/map");
     router.refresh();
   }
 

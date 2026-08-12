@@ -16,6 +16,7 @@ const messageFiles = [
   "publicProfile",
   "metadata",
   "errors",
+  "social",
 ] as const;
 
 async function loadMessages(locale: string) {

@@ -5,6 +5,8 @@
       "ascents": "Восхождения",
       "achievements": "Достижения",
       "gpsTracks": "GPS-треки",
+      "friends": "Друзья",
+      "messages": "Сообщения",
       "accessibleLabel": "Разделы аккаунта"
     },
     "Header": {

@@ -24,7 +24,9 @@ import { getFormatter, getTranslations } from "next-intl/server";
 
 import { createClient } from "@/Lib/supabase/server";
 import { getMountainImageFromWikidata } from "@/Lib/wikimedia";
+import { getSummitWeather } from "@/Lib/weather/summitWeather";
 import MountainRouteMap from "@/components/mountain/MountainRouteMap";
+import SummitWeatherSection from "@/components/mountain/SummitWeatherSection";
 
 import FavoriteMountainToggle from "@/components/mountain/FavoriteMountainToggle";
 import type { Locale } from "@/i18n/locales";
@@ -338,6 +340,14 @@ export default async function MountainPage({ params }: MountainPageProps) {
     ? `${typedMountain.latitude!.toFixed(5)}, ${typedMountain.longitude!.toFixed(5)}`
     : null;
 
+  const summitWeather = hasCoordinates
+    ? await getSummitWeather({
+        latitude: typedMountain.latitude!,
+        longitude: typedMountain.longitude!,
+        elevationM: Number(typedMountain.height),
+      })
+    : null;
+
   return (
     <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] text-[var(--color-text)] lg:min-h-[calc(100dvh-66px)]">
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-5 sm:pb-20 sm:pt-7 lg:px-6 lg:pb-24">
@@ -529,6 +539,8 @@ export default async function MountainPage({ params }: MountainPageProps) {
                 </div>
               </dl>
             </section>
+
+            <SummitWeatherSection locale={locale} weather={summitWeather} />
 
             <section aria-labelledby="routes-title">
               <div className="flex flex-wrap items-end justify-between gap-5 border-b border-[var(--color-border-strong)] pb-5">
@@ -725,9 +737,8 @@ export default async function MountainPage({ params }: MountainPageProps) {
                           <div className="mt-8 flex flex-wrap gap-3">
                             {route.gpx_url && (
                               <a
-                                href={route.gpx_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href={`/${locale}/mountain/${mountainId}/route/${route.id}/gpx`}
+                                aria-label={t("Routes.downloadGpxFor", { routeName: route.name })}
                                 className="ui-pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 text-sm font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
                               >
                                 <Download aria-hidden="true" size={17} />

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { createClient } from "@/Lib/supabase/client";
 import PublicAscentsMap from "@/components/users/PublicAscentsMap";
+import PublicProfileRelationship from "@/components/social/PublicProfileRelationship";
 import { Link } from "@/i18n/navigation";
 import {
   normalizePublicAchievementSummary,
@@ -325,6 +326,7 @@ setAscents(loadedAscents);
                 <p className="mt-2 text-white/80">
                   {t("Header.member")}
                 </p>
+                <PublicProfileRelationship profileUserId={profile.user_id} />
               </div>
             </div>
           </div>

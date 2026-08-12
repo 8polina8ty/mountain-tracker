@@ -24,7 +24,7 @@
       "location": "Геопозиция"
     },
     "Routes": {
-      "sectionLabel": "02 / Маршруты",
+      "sectionLabel": "03 / Маршруты",
       "title": "Линии восхождения",
       "introduction": "Проверенные варианты подъёма. Перед выходом уточняйте погоду, состояние маршрута и актуальные ограничения.",
       "inProfile": "В профиле",
@@ -52,10 +52,54 @@
       "equipment": "Снаряжение",
       "warning": "Важное предупреждение",
       "downloadGpx": "Скачать GPX",
+      "downloadGpxFor": "Скачать GPX для {routeName}",
+      "gpxUnavailable": "Файл GPX сейчас недоступен.",
       "sourceNamed": "Источник: {sourceName}",
       "source": "Источник маршрута",
       "safetyTitle": "Информация о безопасности:",
       "safetyDescription": "Описание маршрута не заменяет актуальную топографическую карту, официальный прогноз погоды, проверку состояния тропы и личную оценку опыта и снаряжения."
+    },
+    "Weather": {
+      "sectionLabel": "02 / Погода на вершине",
+      "title": "Погода на вершине",
+      "subtitle": "Прогноз для вершины на высоте {elevation} м над уровнем моря",
+      "currentConditions": "Текущие условия",
+      "feelsLike": "Ощущается",
+      "temperature": "Температура",
+      "wind": "Ветер",
+      "windDirection": "Направление",
+      "gusts": "Порывы",
+      "precipitation": "Осадки",
+      "precipitationSum": "Сумма осадков",
+      "snowfall": "Снегопад",
+      "cloudCover": "Облачность",
+      "visibility": "Видимость",
+      "freezingLevel": "Высота нулевой изотермы",
+      "hourlyForecast": "Прогноз по часам",
+      "hourlyRange": "Ближайший(е) {count, plural, one {# час} few {# часа} many {# часов} other {# часа}}",
+      "dailyForecast": "Прогноз по дням",
+      "sunrise": "Восход",
+      "sunset": "Закат",
+      "updated": "Обновлено",
+      "temperatureMin": "Мин",
+      "temperatureMax": "Макс",
+      "unavailableTitle": "Прогноз погоды временно недоступен",
+      "unavailableDescription": "Не удалось загрузить данные о погоде на вершине. Перед выходом проверьте официальный горный прогноз и местные предупреждения.",
+      "safetyNoticeTitle": "Предупреждение о безопасности:",
+      "safetyNotice": "Погода в горах может быстро измениться. Прогнозы — лишь оценка, они не заменяют местные предупреждения, официальные прогнозы, лавинные сводки и личную оценку ситуации.",
+      "conditions": {
+        "clear": "Ясно",
+        "mostlyClear": "Преимущественно ясно",
+        "partlyCloudy": "Переменная облачность",
+        "overcast": "Пасмурно",
+        "fog": "Туман",
+        "drizzle": "Морось",
+        "rain": "Дождь",
+        "snow": "Снег",
+        "showers": "Ливни",
+        "thunderstorm": "Гроза",
+        "unknown": "Неизвестно"
+      }
     },
     "RouteMetrics": {
       "distance": "Расстояние",
@@ -64,7 +108,7 @@
       "difficulty": "Сложность"
     },
     "Ascent": {
-      "sectionLabel": "03 / Журнал",
+      "sectionLabel": "04 / Журнал",
       "recentAscents": "Последние восхождения",
       "empty": "Эту вершину ещё никто не отметил.",
       "you": "Это вы",
@@ -120,7 +164,12 @@
     },
     "Units": {
       "meter": "м",
-      "kilometer": "км"
+      "kilometer": "км",
+      "centimeter": "см",
+      "degree": "°C",
+      "speed": "км/ч",
+      "precipitation": "мм",
+      "percent": " %"
     }
   }
 }

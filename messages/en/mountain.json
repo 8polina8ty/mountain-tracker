@@ -24,7 +24,7 @@
       "location": "Location"
     },
     "Routes": {
-      "sectionLabel": "02 / Routes",
+      "sectionLabel": "03 / Routes",
       "title": "Ascent routes",
       "introduction": "Verified ascent options. Before setting out, check the weather, route conditions, and current restrictions.",
       "inProfile": "In this profile",
@@ -52,10 +52,54 @@
       "equipment": "Equipment",
       "warning": "Important warning",
       "downloadGpx": "Download GPX",
+      "downloadGpxFor": "Download GPX for {routeName}",
+      "gpxUnavailable": "The GPX file is currently unavailable.",
       "sourceNamed": "Source: {sourceName}",
       "source": "Route source",
       "safetyTitle": "Safety information:",
       "safetyDescription": "The route description is not a substitute for a current topographic map, an official weather forecast, checking trail conditions, or assessing your own experience and equipment."
+    },
+    "Weather": {
+      "sectionLabel": "02 / Summit weather",
+      "title": "Summit weather",
+      "subtitle": "Forecast for the summit at {elevation} m above sea level",
+      "currentConditions": "Current conditions",
+      "feelsLike": "Feels like",
+      "temperature": "Temperature",
+      "wind": "Wind",
+      "windDirection": "Direction",
+      "gusts": "Gusts",
+      "precipitation": "Precipitation",
+      "precipitationSum": "Precipitation total",
+      "snowfall": "Snowfall",
+      "cloudCover": "Cloud cover",
+      "visibility": "Visibility",
+      "freezingLevel": "Freezing level",
+      "hourlyForecast": "Hourly forecast",
+      "hourlyRange": "Next {count, plural, one {# hour} other {# hours}}",
+      "dailyForecast": "Daily forecast",
+      "sunrise": "Sunrise",
+      "sunset": "Sunset",
+      "updated": "Updated",
+      "temperatureMin": "Min",
+      "temperatureMax": "Max",
+      "unavailableTitle": "Weather currently unavailable",
+      "unavailableDescription": "Summit weather could not be loaded. Before heading out, check the official mountain weather report and local warnings.",
+      "safetyNoticeTitle": "Safety notice:",
+      "safetyNotice": "Mountain weather can change rapidly. Forecasts are estimates and do not replace local warnings, official forecasts, avalanche information, or personal judgement.",
+      "conditions": {
+        "clear": "Clear",
+        "mostlyClear": "Mostly clear",
+        "partlyCloudy": "Partly cloudy",
+        "overcast": "Overcast",
+        "fog": "Fog",
+        "drizzle": "Drizzle",
+        "rain": "Rain",
+        "snow": "Snow",
+        "showers": "Showers",
+        "thunderstorm": "Thunderstorm",
+        "unknown": "Unknown"
+      }
     },
     "RouteMetrics": {
       "distance": "Distance",
@@ -64,7 +108,7 @@
       "difficulty": "Difficulty"
     },
     "Ascent": {
-      "sectionLabel": "03 / Logbook",
+      "sectionLabel": "04 / Logbook",
       "recentAscents": "Recent ascents",
       "empty": "No one has marked this peak as climbed yet.",
       "you": "You",
@@ -120,7 +164,12 @@
     },
     "Units": {
       "meter": "m",
-      "kilometer": "km"
+      "kilometer": "km",
+      "centimeter": "cm",
+      "degree": "°C",
+      "speed": "km/h",
+      "precipitation": "mm",
+      "percent": "%"
     }
   }
 }

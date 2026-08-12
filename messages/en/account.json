@@ -5,6 +5,8 @@
       "ascents": "Ascents",
       "achievements": "Achievements",
       "gpsTracks": "GPS tracks",
+      "friends": "Friends",
+      "messages": "Messages",
       "accessibleLabel": "Account sections"
     },
     "Header": {

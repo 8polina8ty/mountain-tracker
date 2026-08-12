@@ -7,6 +7,7 @@ import "../globals.css";
 import Header from "@/components/Header";
 import MotionProvider from "@/components/MotionProvider";
 import { AchievementNotificationProvider } from "@/components/achievements/AchievementNotificationProvider";
+import { SocialInboxProvider } from "@/components/messages/SocialInboxProvider";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { getOpenGraphLocale, getSiteOrigin } from "@/i18n/seo";
 
@@ -83,11 +84,13 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <MotionProvider>
             <AchievementNotificationProvider>
-              <Header />
+              <SocialInboxProvider>
+                <Header />
 
-              <div id="main-content" tabIndex={-1} className="outline-none">
-                {children}
-              </div>
+                <div id="main-content" tabIndex={-1} className="outline-none">
+                  {children}
+                </div>
+              </SocialInboxProvider>
             </AchievementNotificationProvider>
           </MotionProvider>
         </NextIntlClientProvider>
