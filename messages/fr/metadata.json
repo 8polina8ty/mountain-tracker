@@ -1,0 +1,35 @@
+{
+  "Metadata": {
+    "Site": {
+      "title": "Mountain Tracker",
+      "description": "Découvrez des sommets, explorez des itinéraires de montagne et enregistrez vos ascensions."
+    },
+    "Map": {
+      "title": "Carte interactive des sommets | Mountain Tracker",
+      "description": "Découvrez des montagnes et des itinéraires sur la carte interactive des sommets et planifiez vos prochaines ascensions.",
+      "pageHeading": "Carte interactive des sommets de montagne"
+    },
+    "Mountain": {
+      "title": "{name} | Mountain Tracker",
+      "description": "Explorez {name} à {height} m d'altitude avec ses itinéraires, ses données GPS et ses informations d'ascension.",
+      "fallbackTitle": "Détails du sommet | Mountain Tracker",
+      "fallbackDescription": "Explorez les informations sur les sommets, les itinéraires et les ascensions sur Mountain Tracker."
+    },
+    "Ranking": {
+      "title": "Classement des sommets | Mountain Tracker",
+      "description": "Explorez la communauté d'alpinisme grâce au classement des sommets, aux statistiques d'ascension et au dénivelé cumulé."
+    },
+    "PublicProfile": {
+      "title": "Profil public d'alpiniste | Mountain Tracker",
+      "description": "Un profil d'ascension public avec les montagnes gravis, les statistiques de sommets et un aperçu des ascensions."
+    },
+    "NoIndex": {
+      "accountTitle": "Compte | Mountain Tracker",
+      "accountDescription": "Espace personnel du compte Mountain Tracker.",
+      "authTitle": "Connexion | Mountain Tracker",
+      "authDescription": "Connexion et inscription à Mountain Tracker.",
+      "diagnosticTitle": "Diagnostics | Mountain Tracker",
+      "diagnosticDescription": "Vue de diagnostic interne."
+    }
+  }
+}

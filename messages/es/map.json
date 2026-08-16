@@ -1,0 +1,56 @@
+{
+  "Map": {
+    "Controls": {
+      "title": "Mapa de cumbres",
+      "subtitle": "Búsqueda y filtros de altitud para la vista actual",
+      "accessibleLabel": "Herramientas del mapa"
+    },
+    "Search": {
+      "label": "Buscar una cumbre",
+      "placeholder": "Por ejemplo, Zugspitze",
+      "clearInput": "Borrar el campo de búsqueda",
+      "submit": "Buscar",
+      "visiblePeaks": "Cumbres visibles",
+      "peakCount": "{count, plural, one {# cumbre} other {# cumbres}}",
+      "removeSearch": "Borrar la búsqueda",
+      "status": {
+        "mapLoading": "El mapa todavía se está cargando.",
+        "enterPeakName": "Introduce un nombre de cumbre.",
+        "notFound": "No hay ninguna cumbre que coincida por encima de {height} m.",
+        "matchesFound": "{count, plural, one {Se ha encontrado una coincidencia. Se muestra la cumbre más cercana.} other {Se han encontrado # coincidencias. Se muestra la cumbre más cercana.}}",
+        "peakFound": "Cumbre encontrada."
+      }
+    },
+    "HeightFilter": {
+      "minimumAltitude": "Altitud mínima",
+      "altitudeZones": "Tramos de altitud",
+      "resetFilters": "Restablecer los filtros",
+      "meterUnit": "m"
+    },
+    "PeakDetails": {
+      "unnamed": "Cumbre sin nombre",
+      "selectedPeak": "Cumbre seleccionada",
+      "moreAboutPeak": "Más información sobre esta cumbre",
+      "region": "Región",
+      "coordinates": "Coordenadas",
+      "elevation": "Altitud",
+      "notSpecified": "Sin especificar",
+      "meterUnit": "m",
+      "closePanel": "Cerrar los detalles de la cumbre",
+      "saving": "Guardando…",
+      "removeAscent": "Eliminar el ascenso",
+      "markClimbed": "He coronado esta cumbre",
+      "status": {
+        "loginRequired": "Inicia sesión para marcar esta cumbre como coronada.",
+        "ascentRemoved": "Ascenso eliminado.",
+        "alreadyClimbed": "Esta cumbre ya está marcada como coronada.",
+        "ascentAdded": "La cumbre se ha añadido a tus ascensos."
+      }
+    },
+    "Status": {
+      "loadingPeaks": "Cargando las cumbres…",
+      "unknownError": "Error desconocido",
+      "loadingError": "Error: {message}"
+    }
+  }
+}

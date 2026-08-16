@@ -1,0 +1,77 @@
+{
+  "Account": {
+    "Navigation": {
+      "overview": "Panoramica",
+      "ascents": "Salite",
+      "achievements": "Traguardi",
+      "gpsTracks": "Tracce GPS",
+      "friends": "Amici",
+      "messages": "Messaggi",
+      "accessibleLabel": "Sezioni dell'account"
+    },
+    "Header": {
+      "eyebrow": "Diario di vetta personale"
+    },
+    "Profile": {
+      "eyebrow": "Scheda di spedizione personale",
+      "avatarAlt": "Foto del profilo di {username}",
+      "changeAvatar": "Cambia foto del profilo",
+      "uploading": "Caricamento…"
+    },
+    "Statistics": {
+      "sectionLabel": "01 / Panoramica",
+      "title": "Statistiche di spedizione",
+      "subtitle": "Diario di vetta personale",
+      "ascents": "Salite",
+      "highestPoint": "Vetta più alta",
+      "averageElevation": "Quota media",
+      "latestRecord": "Ultima scheda",
+      "catalogProgress": "Avanzamento complessivo del catalogo",
+      "catalogCount": "{ascents} / {total} vette",
+      "noData": "Nessun dato",
+      "meterUnit": "m"
+    },
+    "Logbook": {
+      "accessibleLabel": "Sezioni del diario di spedizione",
+      "ascentHistory": "Cronologia delle salite",
+      "ascentHistoryDetail": "Diario completo e mappa delle vette",
+      "gpsTracks": "Tracce GPS",
+      "gpsTracksDetail": "Itinerari registrati e dati",
+      "importRoute": "Importa itinerario",
+      "importRouteDetail": "Aggiungi una nuova registrazione GPX"
+    },
+    "LatestAscents": {
+      "sectionLabel": "02 / Diario",
+      "title": "Salite recenti",
+      "viewAll": "Tutte le schede",
+      "map": "Mappa",
+      "empty": "Nessuna salita registrata per ora.",
+      "meterUnit": "m"
+    },
+    "Favorites": {
+      "sectionLabel": "04 / Pianificazione",
+      "title": "Vette preferite",
+      "subtitle": "Le vette che hai salvato per le prossime escursioni.",
+      "count": "{count, plural, one {# vetta} other {# vette}}",
+      "emptyTitle": "Nessuna vetta preferita per ora",
+      "emptyDescription": "Apri la mappa, scegli una vetta e aggiungila ai preferiti.",
+      "openMap": "Vai alla mappa",
+      "saved": "Salvata come preferita",
+      "meterUnit": "m"
+    },
+    "Status": {
+      "loading": "Caricamento dell'account…",
+      "loginTitle": "Accedi al tuo account",
+      "loginDescription": "Dopo l'accesso, qui appariranno le tue statistiche e la cronologia delle salite.",
+      "login": "Accedi",
+      "signUp": "Registrati",
+      "userFallback": "Utente",
+      "unknownMountain": "Vetta sconosciuta",
+      "unnamedMountain": "Vetta senza nome",
+      "avatarInvalidType": "Sono consentiti solo file JPG, PNG e WebP.",
+      "avatarTooLarge": "Il file non deve superare i 2 MB.",
+      "avatarUpdated": "Foto del profilo aggiornata.",
+      "avatarUploadFailed": "Impossibile caricare la foto del profilo."
+    }
+  }
+}

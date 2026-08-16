@@ -1,0 +1,67 @@
+{
+  "Ranking": {
+    "Header": {
+      "eyebrow": "Communauté / Registre des sommets",
+      "title": "Registre des sommets",
+      "subtitle": "Le registre d'expédition de la communauté : sommets, dénivelé cumulé et succès atteints."
+    },
+    "CommunityStats": {
+      "heading": "Aperçu de la communauté",
+      "users": "Participants",
+      "ascents": "Sommets gravis",
+      "totalElevation": "Dénivelé total",
+      "achievements": "Succès"
+    },
+    "Search": {
+      "filtersLabel": "Filtres du registre des sommets",
+      "label": "Trouver un participant",
+      "placeholder": "Trouver un participant",
+      "shown": "Affichage de {shown} sur {total}"
+    },
+    "Sorting": {
+      "label": "Trier le classement",
+      "ascents": "Par nombre de sommets",
+      "totalHeight": "Par dénivelé total",
+      "highestMountain": "Par plus haut sommet",
+      "achievements": "Par succès"
+    },
+    "Table": {
+      "eyebrow": "Registre officiel",
+      "title": "Participants",
+      "sortingHint": "La position reflète le tri sélectionné.",
+      "position": "Position",
+      "participant": "Participant",
+      "ascents": "Sommets",
+      "totalElevation": "Dénivelé total",
+      "highestPoint": "Point culminant",
+      "achievements": "Succès",
+      "profile": "Profil",
+      "openProfile": "Ouvrir le profil",
+      "openUserProfile": "Ouvrir le profil de {username}",
+      "rowLabel": "Position {position} : {username}",
+      "topRank": "Meilleur rang",
+      "rank": "Rang",
+      "noData": "Aucune donnée"
+    },
+    "Counts": {
+      "ascents": "{count, plural, one {# sommet} other {# sommets}}"
+    },
+    "Achievements": {
+      "label": "Succès",
+      "milestones": "{count} / {total}",
+      "points": "Score d'expédition",
+      "accessibleSummary": "{count} succès sur {total}"
+    },
+    "Status": {
+      "loading": "Chargement du classement…",
+      "unknownUser": "Participant",
+      "noResultsTitle": "Aucun participant trouvé",
+      "noResultsDescription": "Vérifiez le nom ou modifiez votre recherche.",
+      "emptyTitle": "Le registre est vide",
+      "emptyDescription": "Les fiches des participants apparaîtront ici dès que des données seront disponibles."
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

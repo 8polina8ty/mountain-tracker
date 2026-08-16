@@ -6,6 +6,9 @@ const ogLocales: Record<Locale, string> = {
   de: "de_DE",
   en: "en_US",
   ru: "ru_RU",
+  fr: "fr_FR",
+  it: "it_IT",
+  es: "es_ES",
 };
 
 export function getSiteOrigin(): string | null {

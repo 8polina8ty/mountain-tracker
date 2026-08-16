@@ -1,0 +1,29 @@
+{
+  "Navigation": {
+    "map": "Carte",
+    "ranking": "Classement",
+    "myAscents": "Mes ascensions",
+    "account": "Compte",
+    "friends": "Amis",
+    "messages": "Messages",
+    "login": "Se connecter",
+    "signUp": "S'inscrire",
+    "logout": "Se déconnecter",
+    "navigationTitle": "Navigation",
+    "userFallback": "Utilisateur"
+  },
+  "LocaleSwitcher": {
+    "language": "Langue"
+  },
+  "Accessibility": {
+    "skipToContent": "Aller au contenu principal",
+    "openMap": "Mountain Tracker, ouvrir la carte",
+    "mainNavigation": "Navigation principale",
+    "mobileNavigation": "Navigation mobile",
+    "openNavigation": "Ouvrir la navigation",
+    "closeNavigation": "Fermer la navigation",
+    "login": "Se connecter au compte",
+    "logout": "Se déconnecter du compte",
+    "accountFor": "Compte : {username}"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "Account": {
+    "Navigation": {
+      "overview": "Aperçu",
+      "ascents": "Ascensions",
+      "achievements": "Succès",
+      "gpsTracks": "Tracks GPS",
+      "friends": "Amis",
+      "messages": "Messages",
+      "accessibleLabel": "Rubriques du compte"
+    },
+    "Header": {
+      "eyebrow": "Carnet de bord personnel"
+    },
+    "Profile": {
+      "eyebrow": "Fiche d'expédition personnelle",
+      "avatarAlt": "Photo de profil de {username}",
+      "changeAvatar": "Changer la photo de profil",
+      "uploading": "Téléversement…"
+    },
+    "Statistics": {
+      "sectionLabel": "01 / Aperçu",
+      "title": "Statistiques d'expédition",
+      "subtitle": "Carnet de sommets personnel",
+      "ascents": "Ascensions",
+      "highestPoint": "Point culminant",
+      "averageElevation": "Altitude moyenne",
+      "latestRecord": "Dernière fiche",
+      "catalogProgress": "Progression globale du catalogue",
+      "catalogCount": "{ascents} / {total} sommets",
+      "noData": "Aucune donnée",
+      "meterUnit": "m"
+    },
+    "Logbook": {
+      "accessibleLabel": "Rubriques du carnet d'expédition",
+      "ascentHistory": "Historique des ascensions",
+      "ascentHistoryDetail": "Carnet de bord complet et carte des sommets",
+      "gpsTracks": "Tracks GPS",
+      "gpsTracksDetail": "Itinéraires enregistrés et données",
+      "importRoute": "Importer un itinéraire",
+      "importRouteDetail": "Ajouter un nouvel enregistrement GPX"
+    },
+    "LatestAscents": {
+      "sectionLabel": "02 / Carnet de bord",
+      "title": "Ascensions récentes",
+      "viewAll": "Toutes les fiches",
+      "map": "Carte",
+      "empty": "Aucune ascension enregistrée pour l'instant.",
+      "meterUnit": "m"
+    },
+    "Favorites": {
+      "sectionLabel": "04 / Planification",
+      "title": "Sommets favoris",
+      "subtitle": "Les sommets que vous avez enregistrés pour de futures ascensions.",
+      "count": "{count, plural, one {# sommet} other {# sommets}}",
+      "emptyTitle": "Aucun sommet favori pour l'instant",
+      "emptyDescription": "Ouvrez la carte, choisissez un sommet et ajoutez-le à vos favoris.",
+      "openMap": "Aller à la carte",
+      "saved": "Enregistré comme favori",
+      "meterUnit": "m"
+    },
+    "Status": {
+      "loading": "Chargement du compte…",
+      "loginTitle": "Connectez-vous à votre compte",
+      "loginDescription": "Après connexion, vos statistiques et votre historique d'ascensions apparaîtront ici.",
+      "login": "Se connecter",
+      "signUp": "S'inscrire",
+      "userFallback": "Utilisateur",
+      "unknownMountain": "Sommet inconnu",
+      "unnamedMountain": "Sommet sans nom",
+      "avatarInvalidType": "Seuls les fichiers JPG, PNG et WebP sont autorisés.",
+      "avatarTooLarge": "Le fichier ne doit pas dépasser 2 Mo.",
+      "avatarUpdated": "Photo de profil mise à jour.",
+      "avatarUploadFailed": "Impossible de téléverser la photo de profil."
+    }
+  }
+}

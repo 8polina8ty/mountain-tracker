@@ -1,0 +1,111 @@
+{
+  "Social": {
+    "Common": {
+      "loading": "Caricamento…",
+      "load": "Carica",
+      "refresh": "Aggiorna",
+      "updated": "Relazione aggiornata.",
+      "addFriend": "Aggiungi amico",
+      "requestSent": "Richiesta inviata",
+      "accept": "Accetta",
+      "reject": "Rifiuta",
+      "cancel": "Annulla",
+      "friends": "Amici",
+      "removeFriend": "Rimuovi amico",
+      "unavailable": "Non disponibile",
+      "unblock": "Sblocca",
+      "block": "Blocca"
+    },
+    "Search": {
+      "title": "Trova persone",
+      "label": "Cerca utenti pubblici",
+      "placeholder": "Nome utente o nome visualizzato",
+      "submit": "Cerca",
+      "minimum": "Inserisci almeno {count} caratteri."
+    },
+    "Friends": {
+      "eyebrow": "Compagni di percorso",
+      "title": "Amici",
+      "description": "Trova persone e gestisci i tuoi compagni di montagna accettati.",
+      "accepted": "Amici accettati",
+      "empty": "Nessun amico accettato per ora."
+    },
+    "Requests": {
+      "title": "Richieste",
+      "incoming": "Richieste ricevute",
+      "outgoing": "Richieste inviate",
+      "emptyIncoming": "Nessuna richiesta ricevuta.",
+      "emptyOutgoing": "Nessuna richiesta inviata."
+    },
+    "Blocking": {
+      "title": "Bloccati",
+      "description": "Qui compaiono solo le persone che hai bloccato.",
+      "confirm": "Bloccare questo utente? Amicizie e richieste in sospeso verranno eliminate.",
+      "empty": "Non hai bloccato nessuno."
+    },
+    "Messages": {
+      "eyebrow": "Comunicazioni di spedizione",
+      "title": "Messaggi",
+      "description": "Conversazioni dirette con i tuoi compagni di montagna accettati.",
+      "conversation": "Conversazione",
+      "conversationList": "Registro delle conversazioni",
+      "message": "Messaggio",
+      "opening": "Apertura…",
+      "openError": "Impossibile aprire la conversazione.",
+      "composer": "Scrivi un messaggio…",
+      "send": "Invia",
+      "sending": "Invio…",
+      "loadOlder": "Carica messaggi precedenti",
+      "loadingOlder": "Caricamento…",
+      "emptyInboxTitle": "Nessuna conversazione per ora",
+      "emptyInbox": "La messaggistica si attiva quando tu e un altro utente siete amici accettati.",
+      "openFriends": "Apri gli amici",
+      "emptyThread": "Nessun messaggio per ora. Inizia tu la conversazione.",
+      "emptyPreview": "Nessun messaggio per ora",
+      "deleted": "Messaggio eliminato",
+      "friendship_required": "Amicizia richiesta",
+      "friendshipRequired": "Per continuare questa conversazione, aggiungi di nuovo questo utente come amico.",
+      "unavailable": "La messaggistica è attualmente non disponibile.",
+      "sendError": "Impossibile inviare il messaggio. La tua bozza è stata conservata.",
+      "loadError": "I messaggi sono attualmente non disponibili.",
+      "delete": "Elimina",
+      "deleteConfirm": "Eliminare questo messaggio?",
+      "deleteError": "Impossibile eliminare il messaggio.",
+      "characterCount": "{count} / {maximum}",
+      "backToMessages": "Torna ai messaggi",
+      "openProfile": "Apri il profilo",
+      "unread": "Conversazione non letta",
+      "selectConversation": "Seleziona una conversazione",
+      "selectConversationDescription": "Scegli un contatto di spedizione dal registro.",
+      "notFoundTitle": "Conversazione non disponibile",
+      "notFound": "Impossibile aprire questa conversazione.",
+      "newMessage": "Nuovo messaggio",
+      "newMessages": "{count, plural, one {# nuovo messaggio} other {# nuovi messaggi}}",
+      "unreadMessages": "{count, plural, one {# messaggio non letto} other {# messaggi non letti}}",
+      "jumpToLatest": "Vai all'ultimo messaggio",
+      "reconnecting": "Riconnessione…",
+      "realtimeUnavailable": "Gli aggiornamenti in tempo reale sono temporaneamente non disponibili."
+    },
+    "Accessibility": {
+      "sections": "Sezioni social",
+      "avatar": "Foto del profilo di {username}",
+      "relationshipControls": "Controlli della relazione",
+      "messagesNavigation": "Navigazione dei messaggi",
+      "conversationList": "Elenco delle conversazioni",
+      "messageThread": "Conversazione",
+      "composerLabel": "Testo del messaggio",
+      "sendMessage": "Invia il messaggio",
+      "deleteMessage": "Elimina il messaggio",
+      "loadOlderMessages": "Carica messaggi precedenti",
+      "incomingMessage": "Messaggio ricevuto",
+      "outgoingMessage": "Il tuo messaggio",
+      "unreadMessages": "{count, plural, one {# messaggio non letto} other {# messaggi non letti}}",
+      "newMessageFrom": "Nuovo messaggio da {username}",
+      "jumpToLatestMessages": "Vai ai messaggi più recenti"
+    },
+    "Errors": {
+      "unavailable": "Le funzioni social non sono ancora disponibili. Il deploy del database potrebbe essere ancora in corso.",
+      "actionFailed": "Impossibile completare l'operazione."
+    }
+  }
+}

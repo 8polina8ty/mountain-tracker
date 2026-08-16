@@ -1,0 +1,35 @@
+{
+  "Metadata": {
+    "Site": {
+      "title": "Mountain Tracker",
+      "description": "Scopri le vette, esplora gli itinerari di montagna e registra le tue salite."
+    },
+    "Map": {
+      "title": "Mappa interattiva delle vette | Mountain Tracker",
+      "description": "Scopri montagne e itinerari sulla mappa interattiva delle vette e pianifica le tue prossime salite.",
+      "pageHeading": "Mappa interattiva delle vette di montagna"
+    },
+    "Mountain": {
+      "title": "{name} | Mountain Tracker",
+      "description": "Esplora {name} a {height} m di quota con i suoi itinerari, i dati GPS e le informazioni sulla salita.",
+      "fallbackTitle": "Dettagli della vetta | Mountain Tracker",
+      "fallbackDescription": "Esplora informazioni su vette, itinerari e salite su Mountain Tracker."
+    },
+    "Ranking": {
+      "title": "Classifica delle vette | Mountain Tracker",
+      "description": "Esplora la community alpinistica con la classifica delle vette, le statistiche di salita e il dislivello complessivo."
+    },
+    "PublicProfile": {
+      "title": "Profilo alpinistico pubblico | Mountain Tracker",
+      "description": "Un profilo di salita pubblico con le montagne conquistate, le statistiche sulle vette e una panoramica delle ascensioni."
+    },
+    "NoIndex": {
+      "accountTitle": "Account | Mountain Tracker",
+      "accountDescription": "Area personale dell'account Mountain Tracker.",
+      "authTitle": "Accesso | Mountain Tracker",
+      "authDescription": "Accesso e registrazione su Mountain Tracker.",
+      "diagnosticTitle": "Diagnostica | Mountain Tracker",
+      "diagnosticDescription": "Vista diagnostica interna."
+    }
+  }
+}

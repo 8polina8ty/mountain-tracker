@@ -1,0 +1,111 @@
+{
+  "Social": {
+    "Common": {
+      "loading": "Chargement…",
+      "load": "Charger",
+      "refresh": "Actualiser",
+      "updated": "Relation mise à jour.",
+      "addFriend": "Ajouter un ami",
+      "requestSent": "Demande envoyée",
+      "accept": "Accepter",
+      "reject": "Refuser",
+      "cancel": "Annuler",
+      "friends": "Amis",
+      "removeFriend": "Retirer l'ami",
+      "unavailable": "Indisponible",
+      "unblock": "Débloquer",
+      "block": "Bloquer"
+    },
+    "Search": {
+      "title": "Trouver des personnes",
+      "label": "Rechercher des utilisateurs publics",
+      "placeholder": "Nom d'utilisateur ou nom d'affichage",
+      "submit": "Rechercher",
+      "minimum": "Saisissez au moins {count} caractères."
+    },
+    "Friends": {
+      "eyebrow": "Compagnons de route",
+      "title": "Amis",
+      "description": "Trouvez des personnes et gérez vos compagnons de montagne acceptés.",
+      "accepted": "Amis acceptés",
+      "empty": "Aucun ami accepté pour l'instant."
+    },
+    "Requests": {
+      "title": "Demandes",
+      "incoming": "Demandes reçues",
+      "outgoing": "Demandes envoyées",
+      "emptyIncoming": "Aucune demande reçue.",
+      "emptyOutgoing": "Aucune demande envoyée."
+    },
+    "Blocking": {
+      "title": "Bloqués",
+      "description": "Seules les personnes que vous avez bloquées apparaissent ici.",
+      "confirm": "Bloquer cet utilisateur ? L'amitié et les demandes en attente seront supprimées.",
+      "empty": "Vous n'avez bloqué personne."
+    },
+    "Messages": {
+      "eyebrow": "Communications d'expédition",
+      "title": "Messages",
+      "description": "Conversations directes avec vos compagnons de montagne acceptés.",
+      "conversation": "Conversation",
+      "conversationList": "Registre des conversations",
+      "message": "Message",
+      "opening": "Ouverture…",
+      "openError": "Impossible d'ouvrir la conversation.",
+      "composer": "Écrire un message…",
+      "send": "Envoyer",
+      "sending": "Envoi…",
+      "loadOlder": "Charger les messages plus anciens",
+      "loadingOlder": "Chargement…",
+      "emptyInboxTitle": "Aucune conversation pour l'instant",
+      "emptyInbox": "La messagerie devient disponible lorsque vous et un autre utilisateur êtes amis acceptés.",
+      "openFriends": "Ouvrir les amis",
+      "emptyThread": "Aucun message pour l'instant. Commencez la conversation.",
+      "emptyPreview": "Aucun message pour l'instant",
+      "deleted": "Message supprimé",
+      "friendship_required": "Amitié requise",
+      "friendshipRequired": "Pour continuer cette conversation, ajoutez à nouveau cet utilisateur comme ami.",
+      "unavailable": "La messagerie est actuellement indisponible.",
+      "sendError": "Le message n'a pas pu être envoyé. Votre brouillon a été conservé.",
+      "loadError": "Les messages sont actuellement indisponibles.",
+      "delete": "Supprimer",
+      "deleteConfirm": "Supprimer ce message ?",
+      "deleteError": "Le message n'a pas pu être supprimé.",
+      "characterCount": "{count} / {maximum}",
+      "backToMessages": "Retour aux messages",
+      "openProfile": "Ouvrir le profil",
+      "unread": "Conversation non lue",
+      "selectConversation": "Sélectionner une conversation",
+      "selectConversationDescription": "Choisissez un contact d'expédition dans le registre.",
+      "notFoundTitle": "Conversation indisponible",
+      "notFound": "Cette conversation n'a pas pu être ouverte.",
+      "newMessage": "Nouveau message",
+      "newMessages": "{count, plural, one {# nouveau message} other {# nouveaux messages}}",
+      "unreadMessages": "{count, plural, one {# message non lu} other {# messages non lus}}",
+      "jumpToLatest": "Aller au plus récent",
+      "reconnecting": "Reconnexion…",
+      "realtimeUnavailable": "Les mises à jour en direct sont temporairement indisponibles."
+    },
+    "Accessibility": {
+      "sections": "Rubriques sociales",
+      "avatar": "Photo de profil de {username}",
+      "relationshipControls": "Commandes de relation",
+      "messagesNavigation": "Navigation des messages",
+      "conversationList": "Liste des conversations",
+      "messageThread": "Fil de discussion",
+      "composerLabel": "Texte du message",
+      "sendMessage": "Envoyer le message",
+      "deleteMessage": "Supprimer le message",
+      "loadOlderMessages": "Charger les messages plus anciens",
+      "incomingMessage": "Message reçu",
+      "outgoingMessage": "Votre message",
+      "unreadMessages": "{count, plural, one {# message non lu} other {# messages non lus}}",
+      "newMessageFrom": "Nouveau message de {username}",
+      "jumpToLatestMessages": "Aller aux messages les plus récents"
+    },
+    "Errors": {
+      "unavailable": "Les fonctions sociales ne sont pas encore disponibles. Le déploiement de la base de données est peut-être encore en attente.",
+      "actionFailed": "L'action n'a pas pu être effectuée."
+    }
+  }
+}

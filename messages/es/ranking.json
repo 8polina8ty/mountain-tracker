@@ -1,0 +1,67 @@
+{
+  "Ranking": {
+    "Header": {
+      "eyebrow": "Comunidad / Registro de cumbres",
+      "title": "Registro de cumbres",
+      "subtitle": "El registro de expedición de la comunidad: cumbres, desnivel acumulado y logros alcanzados."
+    },
+    "CommunityStats": {
+      "heading": "Resumen de la comunidad",
+      "users": "Participantes",
+      "ascents": "Cumbres coronadas",
+      "totalElevation": "Desnivel total",
+      "achievements": "Logros"
+    },
+    "Search": {
+      "filtersLabel": "Filtros del registro de cumbres",
+      "label": "Encontrar a un participante",
+      "placeholder": "Encontrar a un participante",
+      "shown": "Mostrando {shown} de {total}"
+    },
+    "Sorting": {
+      "label": "Ordenar la clasificación",
+      "ascents": "Por número de cumbres",
+      "totalHeight": "Por desnivel total",
+      "highestMountain": "Por cumbre más alta",
+      "achievements": "Por logros"
+    },
+    "Table": {
+      "eyebrow": "Registro oficial",
+      "title": "Participantes",
+      "sortingHint": "La posición refleja la ordenación seleccionada.",
+      "position": "Posición",
+      "participant": "Participante",
+      "ascents": "Cumbres",
+      "totalElevation": "Desnivel total",
+      "highestPoint": "Punto culminante",
+      "achievements": "Logros",
+      "profile": "Perfil",
+      "openProfile": "Abrir el perfil",
+      "openUserProfile": "Abrir el perfil de {username}",
+      "rowLabel": "Posición {position}: {username}",
+      "topRank": "Mejor puesto",
+      "rank": "Puesto",
+      "noData": "Sin datos"
+    },
+    "Counts": {
+      "ascents": "{count, plural, one {# cumbre} other {# cumbres}}"
+    },
+    "Achievements": {
+      "label": "Logros",
+      "milestones": "{count} / {total}",
+      "points": "Puntuación de expedición",
+      "accessibleSummary": "{count} logros de {total}"
+    },
+    "Status": {
+      "loading": "Cargando la clasificación…",
+      "unknownUser": "Participante",
+      "noResultsTitle": "No se ha encontrado ningún participante",
+      "noResultsDescription": "Comprueba el nombre o cambia tu búsqueda.",
+      "emptyTitle": "El registro está vacío",
+      "emptyDescription": "Los registros de los participantes aparecerán aquí cuando haya datos disponibles."
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

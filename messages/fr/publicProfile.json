@@ -1,0 +1,67 @@
+{
+  "PublicProfile": {
+    "Header": {
+      "backToRanking": "Retour au classement",
+      "eyebrow": "Profil public d'alpiniste",
+      "member": "Membre de la communauté Mountain Tracker",
+      "avatarAlt": "Image de profil de {username}"
+    },
+    "Statistics": {
+      "ascents": "Sommets gravis",
+      "totalElevation": "Dénivelé total",
+      "highestSummit": "Plus haut sommet",
+      "achievements": "Succès",
+      "noData": "Aucune donnée"
+    },
+    "Achievements": {
+      "eyebrow": "Succès d'expédition",
+      "title": "Bilan à long terme",
+      "subtitle": "Un bilan compact des succès durables. Les statistiques de montagne restent la principale mesure d'expédition.",
+      "unlocked": "Débloqué",
+      "completion": "Complété",
+      "points": "Score d'expédition",
+      "featured": "Succès sélectionnés",
+      "noFeatured": "Aucun succès public n'est encore disponible.",
+      "distinguished": "Distingué",
+      "exceptional": "Exceptionnel",
+      "lifetime": "Travail d'une vie",
+      "unlockedOn": "Débloqué le {date}",
+      "accessibleSummary": "{unlockedCount} succès sur {totalDefinitions}, {milestonePoints} points d'expédition, {completionPercent} pour cent complétés"
+    },
+    "Map": {
+      "eyebrow": "Géographie",
+      "title": "Carte des sommets gravis",
+      "description": "Toutes les ascensions publiques de ce membre sur la carte.",
+      "label": "Carte des ascensions publiques",
+      "emptyTitle": "Aucun sommet sur la carte pour l'instant",
+      "emptyDescription": "Ce membre n'a pas encore ajouté d'ascension publique.",
+      "unnamedMountain": "Sommet sans nom",
+      "mountainFallback": "Sommet",
+      "dateUnknown": "Date non précisée",
+      "openMountain": "Ouvrir le sommet →"
+    },
+    "Ascents": {
+      "eyebrow": "Carnet d'ascensions",
+      "title": "Ascensions publiques",
+      "totalLabel": "Ascensions au total",
+      "count": "{count, plural, one {# ascension} other {# ascensions}}",
+      "emptyTitle": "Aucune ascension pour l'instant",
+      "emptyDescription": "Ce membre n'a pas encore publié de sommets gravis.",
+      "unnamedMountain": "Sommet sans nom",
+      "dateUnknown": "Date non précisée",
+      "openMountain": "Ouvrir le sommet →"
+    },
+    "Status": {
+      "loading": "Chargement du profil…",
+      "loadFailed": "Impossible de charger le profil",
+      "missingUserId": "L'identifiant utilisateur est manquant.",
+      "notFoundTitle": "Utilisateur introuvable",
+      "notFoundDescription": "Le profil a peut-être été supprimé ou le lien est invalide.",
+      "openRanking": "Ouvrir le classement",
+      "unknownUser": "Participant"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

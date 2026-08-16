@@ -1,0 +1,67 @@
+{
+  "Ranking": {
+    "Header": {
+      "eyebrow": "Community / Registro delle vette",
+      "title": "Registro delle vette",
+      "subtitle": "Il diario di spedizione della community: vette, dislivello complessivo e traguardi raggiunti."
+    },
+    "CommunityStats": {
+      "heading": "Panoramica della community",
+      "users": "Partecipanti",
+      "ascents": "Vette conquistate",
+      "totalElevation": "Dislivello totale",
+      "achievements": "Traguardi"
+    },
+    "Search": {
+      "filtersLabel": "Filtri del registro delle vette",
+      "label": "Trova un partecipante",
+      "placeholder": "Trova un partecipante",
+      "shown": "Mostrati {shown} di {total}"
+    },
+    "Sorting": {
+      "label": "Ordina la classifica",
+      "ascents": "Per numero di vette",
+      "totalHeight": "Per dislivello totale",
+      "highestMountain": "Per vetta più alta",
+      "achievements": "Per traguardi"
+    },
+    "Table": {
+      "eyebrow": "Registro ufficiale",
+      "title": "Partecipanti",
+      "sortingHint": "La posizione riflette l'ordinamento selezionato.",
+      "position": "Posizione",
+      "participant": "Partecipante",
+      "ascents": "Vette",
+      "totalElevation": "Dislivello totale",
+      "highestPoint": "Vetta più alta",
+      "achievements": "Traguardi",
+      "profile": "Profilo",
+      "openProfile": "Apri il profilo",
+      "openUserProfile": "Apri il profilo di {username}",
+      "rowLabel": "Posizione {position}: {username}",
+      "topRank": "Miglior piazzamento",
+      "rank": "Piazzamento",
+      "noData": "Nessun dato"
+    },
+    "Counts": {
+      "ascents": "{count, plural, one {# vetta} other {# vette}}"
+    },
+    "Achievements": {
+      "label": "Traguardi",
+      "milestones": "{count} / {total}",
+      "points": "Punteggio di spedizione",
+      "accessibleSummary": "{count} traguardi su {total}"
+    },
+    "Status": {
+      "loading": "Caricamento della classifica…",
+      "unknownUser": "Partecipante",
+      "noResultsTitle": "Nessun partecipante trovato",
+      "noResultsDescription": "Controlla il nome o modifica la ricerca.",
+      "emptyTitle": "Il registro è vuoto",
+      "emptyDescription": "Le schede dei partecipanti appariranno qui non appena saranno disponibili i dati."
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "Map": {
+    "Controls": {
+      "title": "Carte des sommets",
+      "subtitle": "Recherche et filtres d'altitude pour la vue actuelle",
+      "accessibleLabel": "Outils de la carte"
+    },
+    "Search": {
+      "label": "Rechercher un sommet",
+      "placeholder": "Par exemple, Zugspitze",
+      "clearInput": "Effacer le champ de recherche",
+      "submit": "Rechercher",
+      "visiblePeaks": "Sommets visibles",
+      "peakCount": "{count, plural, one {# sommet} other {# sommets}}",
+      "removeSearch": "Effacer la recherche",
+      "status": {
+        "mapLoading": "La carte est encore en cours de chargement.",
+        "enterPeakName": "Saisissez un nom de sommet.",
+        "notFound": "Aucun sommet correspondant au-dessus de {height} m.",
+        "matchesFound": "{count, plural, one {Une correspondance trouvée. Le sommet le plus proche est affiché.} other {# correspondances trouvées. Le sommet le plus proche est affiché.}}",
+        "peakFound": "Sommet trouvé."
+      }
+    },
+    "HeightFilter": {
+      "minimumAltitude": "Altitude minimale",
+      "altitudeZones": "Tranches d'altitude",
+      "resetFilters": "Réinitialiser les filtres",
+      "meterUnit": "m"
+    },
+    "PeakDetails": {
+      "unnamed": "Sommet sans nom",
+      "selectedPeak": "Sommet sélectionné",
+      "moreAboutPeak": "En savoir plus sur ce sommet",
+      "region": "Région",
+      "coordinates": "Coordonnées",
+      "elevation": "Altitude",
+      "notSpecified": "Non précisé",
+      "meterUnit": "m",
+      "closePanel": "Fermer les détails du sommet",
+      "saving": "Enregistrement…",
+      "removeAscent": "Supprimer l'ascension",
+      "markClimbed": "J'ai gravi ce sommet",
+      "status": {
+        "loginRequired": "Connectez-vous pour marquer ce sommet comme gravi.",
+        "ascentRemoved": "Ascension supprimée.",
+        "alreadyClimbed": "Ce sommet est déjà marqué comme gravi.",
+        "ascentAdded": "Le sommet a été ajouté à vos ascensions."
+      }
+    },
+    "Status": {
+      "loadingPeaks": "Chargement des sommets…",
+      "unknownError": "Erreur inconnue",
+      "loadingError": "Erreur : {message}"
+    }
+  }
+}

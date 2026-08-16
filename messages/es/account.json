@@ -1,0 +1,77 @@
+{
+  "Account": {
+    "Navigation": {
+      "overview": "Resumen",
+      "ascents": "Ascensos",
+      "achievements": "Logros",
+      "gpsTracks": "Tracks GPS",
+      "friends": "Amigos",
+      "messages": "Mensajes",
+      "accessibleLabel": "Secciones de la cuenta"
+    },
+    "Header": {
+      "eyebrow": "Cuaderno de bitácora personal"
+    },
+    "Profile": {
+      "eyebrow": "Ficha de expedición personal",
+      "avatarAlt": "Foto de perfil de {username}",
+      "changeAvatar": "Cambiar la foto de perfil",
+      "uploading": "Subiendo…"
+    },
+    "Statistics": {
+      "sectionLabel": "01 / Resumen",
+      "title": "Estadísticas de expedición",
+      "subtitle": "Cuaderno personal de cumbres",
+      "ascents": "Ascensos",
+      "highestPoint": "Punto más alto",
+      "averageElevation": "Altitud media",
+      "latestRecord": "Último registro",
+      "catalogProgress": "Progreso general del catálogo",
+      "catalogCount": "{ascents} / {total} cumbres",
+      "noData": "Sin datos",
+      "meterUnit": "m"
+    },
+    "Logbook": {
+      "accessibleLabel": "Secciones del cuaderno de expedición",
+      "ascentHistory": "Historial de ascensos",
+      "ascentHistoryDetail": "Cuaderno de bitácora completo y mapa de cumbres",
+      "gpsTracks": "Tracks GPS",
+      "gpsTracksDetail": "Rutas registradas y datos",
+      "importRoute": "Importar una ruta",
+      "importRouteDetail": "Añadir un nuevo registro GPX"
+    },
+    "LatestAscents": {
+      "sectionLabel": "02 / Cuaderno de bitácora",
+      "title": "Ascensos recientes",
+      "viewAll": "Todos los registros",
+      "map": "Mapa",
+      "empty": "Aún no hay ningún ascenso registrado.",
+      "meterUnit": "m"
+    },
+    "Favorites": {
+      "sectionLabel": "04 / Planificación",
+      "title": "Cumbres favoritas",
+      "subtitle": "Las cumbres que has guardado para futuros ascensos.",
+      "count": "{count, plural, one {# cumbre} other {# cumbres}}",
+      "emptyTitle": "Aún no hay cumbres favoritas",
+      "emptyDescription": "Abre el mapa, elige una cumbre y añádela a tus favoritos.",
+      "openMap": "Ir al mapa",
+      "saved": "Guardada como favorita",
+      "meterUnit": "m"
+    },
+    "Status": {
+      "loading": "Cargando la cuenta…",
+      "loginTitle": "Inicia sesión en tu cuenta",
+      "loginDescription": "Después de iniciar sesión, aquí aparecerán tus estadísticas y tu historial de ascensos.",
+      "login": "Iniciar sesión",
+      "signUp": "Registrarse",
+      "userFallback": "Usuario",
+      "unknownMountain": "Cumbre desconocida",
+      "unnamedMountain": "Cumbre sin nombre",
+      "avatarInvalidType": "Solo se permiten archivos JPG, PNG y WebP.",
+      "avatarTooLarge": "El archivo no debe superar los 2 MB.",
+      "avatarUpdated": "Foto de perfil actualizada.",
+      "avatarUploadFailed": "No se ha podido subir la foto de perfil."
+    }
+  }
+}

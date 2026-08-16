@@ -1,0 +1,67 @@
+{
+  "PublicProfile": {
+    "Header": {
+      "backToRanking": "Volver a la clasificación",
+      "eyebrow": "Perfil público de alpinista",
+      "member": "Miembro de la comunidad Mountain Tracker",
+      "avatarAlt": "Imagen de perfil de {username}"
+    },
+    "Statistics": {
+      "ascents": "Cumbres coronadas",
+      "totalElevation": "Desnivel total",
+      "highestSummit": "Cumbre más alta",
+      "achievements": "Logros",
+      "noData": "Sin datos"
+    },
+    "Achievements": {
+      "eyebrow": "Logros de expedición",
+      "title": "Balance a largo plazo",
+      "subtitle": "Un balance compacto de los logros duraderos. Las estadísticas de montaña siguen siendo la principal medida de expedición.",
+      "unlocked": "Desbloqueado",
+      "completion": "Completado",
+      "points": "Puntuación de expedición",
+      "featured": "Logros destacados",
+      "noFeatured": "Aún no hay ningún logro público disponible.",
+      "distinguished": "Distinguido",
+      "exceptional": "Excepcional",
+      "lifetime": "Trabajo de una vida",
+      "unlockedOn": "Desbloqueado el {date}",
+      "accessibleSummary": "{unlockedCount} logros de {totalDefinitions}, {milestonePoints} puntos de expedición, {completionPercent} por ciento completados"
+    },
+    "Map": {
+      "eyebrow": "Geografía",
+      "title": "Mapa de cumbres coronadas",
+      "description": "Todos los ascensos públicos de este miembro en el mapa.",
+      "label": "Mapa de ascensos públicos",
+      "emptyTitle": "Aún no hay ninguna cumbre en el mapa",
+      "emptyDescription": "Este miembro todavía no ha añadido ningún ascenso público.",
+      "unnamedMountain": "Cumbre sin nombre",
+      "mountainFallback": "Cumbre",
+      "dateUnknown": "Fecha sin especificar",
+      "openMountain": "Abrir la cumbre →"
+    },
+    "Ascents": {
+      "eyebrow": "Cuaderno de ascensos",
+      "title": "Ascensos públicos",
+      "totalLabel": "Ascensos en total",
+      "count": "{count, plural, one {# ascenso} other {# ascensos}}",
+      "emptyTitle": "Aún no hay ascensos",
+      "emptyDescription": "Este miembro todavía no ha publicado cumbres coronadas.",
+      "unnamedMountain": "Cumbre sin nombre",
+      "dateUnknown": "Fecha sin especificar",
+      "openMountain": "Abrir la cumbre →"
+    },
+    "Status": {
+      "loading": "Cargando el perfil…",
+      "loadFailed": "No se ha podido cargar el perfil",
+      "missingUserId": "Falta el identificador de usuario.",
+      "notFoundTitle": "Usuario no encontrado",
+      "notFoundDescription": "Puede que el perfil se haya eliminado o que el enlace no sea válido.",
+      "openRanking": "Abrir la clasificación",
+      "unknownUser": "Participante"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

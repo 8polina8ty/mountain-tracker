@@ -1,0 +1,29 @@
+{
+  "Navigation": {
+    "map": "Mappa",
+    "ranking": "Classifica",
+    "myAscents": "Le mie salite",
+    "account": "Account",
+    "friends": "Amici",
+    "messages": "Messaggi",
+    "login": "Accedi",
+    "signUp": "Registrati",
+    "logout": "Esci",
+    "navigationTitle": "Navigazione",
+    "userFallback": "Utente"
+  },
+  "LocaleSwitcher": {
+    "language": "Lingua"
+  },
+  "Accessibility": {
+    "skipToContent": "Vai al contenuto principale",
+    "openMap": "Mountain Tracker, apri la mappa",
+    "mainNavigation": "Navigazione principale",
+    "mobileNavigation": "Navigazione mobile",
+    "openNavigation": "Apri la navigazione",
+    "closeNavigation": "Chiudi la navigazione",
+    "login": "Accedi al tuo account",
+    "logout": "Esci dal tuo account",
+    "accountFor": "Account: {username}"
+  }
+}

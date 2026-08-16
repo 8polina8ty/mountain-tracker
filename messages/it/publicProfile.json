@@ -1,0 +1,67 @@
+{
+  "PublicProfile": {
+    "Header": {
+      "backToRanking": "Torna alla classifica",
+      "eyebrow": "Profilo alpinistico pubblico",
+      "member": "Membro della community Mountain Tracker",
+      "avatarAlt": "Immagine del profilo di {username}"
+    },
+    "Statistics": {
+      "ascents": "Vette conquistate",
+      "totalElevation": "Dislivello totale",
+      "highestSummit": "Vetta più alta",
+      "achievements": "Traguardi",
+      "noData": "Nessun dato"
+    },
+    "Achievements": {
+      "eyebrow": "Traguardi di spedizione",
+      "title": "Bilancio a lungo termine",
+      "subtitle": "Un bilancio compatto dei traguardi duraturi. Le statistiche di montagna restano la misura principale della tua attività.",
+      "unlocked": "Sbloccati",
+      "completion": "Completati",
+      "points": "Punteggio di spedizione",
+      "featured": "Traguardi in evidenza",
+      "noFeatured": "Nessun traguardo pubblico ancora disponibile.",
+      "distinguished": "Distinto",
+      "exceptional": "Eccezionale",
+      "lifetime": "Opera di una vita",
+      "unlockedOn": "Sbloccato il {date}",
+      "accessibleSummary": "{unlockedCount} traguardi su {totalDefinitions}, {milestonePoints} punti di spedizione, {completionPercent} percento completati"
+    },
+    "Map": {
+      "eyebrow": "Geografia",
+      "title": "Mappa delle vette conquistate",
+      "description": "Tutte le salite pubbliche di questo membro sulla mappa.",
+      "label": "Mappa delle salite pubbliche",
+      "emptyTitle": "Nessuna vetta sulla mappa per ora",
+      "emptyDescription": "Questo membro non ha ancora aggiunto salite pubbliche.",
+      "unnamedMountain": "Vetta senza nome",
+      "mountainFallback": "Vetta",
+      "dateUnknown": "Data non specificata",
+      "openMountain": "Apri la vetta →"
+    },
+    "Ascents": {
+      "eyebrow": "Diario delle salite",
+      "title": "Salite pubbliche",
+      "totalLabel": "Salite totali",
+      "count": "{count, plural, one {# salita} other {# salite}}",
+      "emptyTitle": "Nessuna salita per ora",
+      "emptyDescription": "Questo membro non ha ancora pubblicato vette conquistate.",
+      "unnamedMountain": "Vetta senza nome",
+      "dateUnknown": "Data non specificata",
+      "openMountain": "Apri la vetta →"
+    },
+    "Status": {
+      "loading": "Caricamento del profilo…",
+      "loadFailed": "Impossibile caricare il profilo",
+      "missingUserId": "ID utente mancante.",
+      "notFoundTitle": "Utente non trovato",
+      "notFoundDescription": "Il profilo potrebbe essere stato eliminato o il link non è valido.",
+      "openRanking": "Apri la classifica",
+      "unknownUser": "Partecipante"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

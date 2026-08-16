@@ -1,0 +1,56 @@
+{
+  "Map": {
+    "Controls": {
+      "title": "Mappa delle vette",
+      "subtitle": "Ricerca e filtri di quota per la vista corrente",
+      "accessibleLabel": "Strumenti della mappa"
+    },
+    "Search": {
+      "label": "Cerca una vetta",
+      "placeholder": "Ad esempio, Zugspitze",
+      "clearInput": "Cancella il campo di ricerca",
+      "submit": "Cerca",
+      "visiblePeaks": "Vette visibili",
+      "peakCount": "{count, plural, one {# vetta} other {# vette}}",
+      "removeSearch": "Cancella la ricerca",
+      "status": {
+        "mapLoading": "La mappa sta ancora caricando.",
+        "enterPeakName": "Inserisci il nome di una vetta.",
+        "notFound": "Nessuna vetta corrispondente sopra i {height} m.",
+        "matchesFound": "{count, plural, one {Trovata una corrispondenza. Viene mostrata la vetta più vicina.} other {Trovate # corrispondenze. Viene mostrata la vetta più vicina.}}",
+        "peakFound": "Vetta trovata."
+      }
+    },
+    "HeightFilter": {
+      "minimumAltitude": "Quota minima",
+      "altitudeZones": "Fasce di quota",
+      "resetFilters": "Azzera filtri",
+      "meterUnit": "m"
+    },
+    "PeakDetails": {
+      "unnamed": "Vetta senza nome",
+      "selectedPeak": "Vetta selezionata",
+      "moreAboutPeak": "Scopri di più su questa vetta",
+      "region": "Regione",
+      "coordinates": "Coordinate",
+      "elevation": "Quota",
+      "notSpecified": "Non specificato",
+      "meterUnit": "m",
+      "closePanel": "Chiudi i dettagli della vetta",
+      "saving": "Salvataggio…",
+      "removeAscent": "Rimuovi salita",
+      "markClimbed": "Ho conquistato questa vetta",
+      "status": {
+        "loginRequired": "Accedi per segnare questa vetta come conquistata.",
+        "ascentRemoved": "Salita rimossa.",
+        "alreadyClimbed": "Questa vetta è già segnata come conquistata.",
+        "ascentAdded": "La vetta è stata aggiunta alle tue salite."
+      }
+    },
+    "Status": {
+      "loadingPeaks": "Caricamento vette…",
+      "unknownError": "Errore sconosciuto",
+      "loadingError": "Errore: {message}"
+    }
+  }
+}

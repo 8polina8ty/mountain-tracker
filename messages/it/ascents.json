@@ -1,0 +1,106 @@
+{
+  "Ascents": {
+    "Header": {
+      "eyebrow": "02 / Diario personale",
+      "title": "Cronologia delle salite",
+      "description": "Una cronologia di vette, date e foto nel diario di spedizione.",
+      "totalRecords": "Schede totali",
+      "ascentCount": "{count, plural, one {# salita} other {# salite}}",
+      "map": "Mappa",
+      "importGpx": "Importa GPX"
+    },
+    "Filters": {
+      "searchLabel": "Cerca una vetta",
+      "searchPlaceholder": "Cerca una vetta",
+      "yearLabel": "Anno della salita",
+      "allYears": "Tutti gli anni"
+    },
+    "Sorting": {
+      "label": "Ordina",
+      "newest": "Più recenti per prime",
+      "oldest": "Più vecchie per prime",
+      "highest": "Quota: più alta per prima",
+      "lowest": "Quota: più bassa per prima",
+      "alphabetical": "Alfabetico"
+    },
+    "List": {
+      "eyebrow": "Registro delle schede",
+      "title": "Salite",
+      "results": "Mostrate {shown} di {total}",
+      "noMatchesTitle": "Nessuna scheda trovata",
+      "noMatchesDescription": "Modifica la ricerca o l'anno per vedere altre schede.",
+      "emptyTitle": "Nessuna salita per ora",
+      "emptyDescription": "Apri la mappa, seleziona una vetta e registra la tua salita.",
+      "openMap": "Apri la mappa",
+      "dateUnavailable": "Data non specificata",
+      "recordNumber": "Scheda {number}",
+      "elevation": "Quota",
+      "date": "Data",
+      "region": "Regione",
+      "openMountain": "Apri la vetta",
+      "mountainUnavailable": "Vetta non disponibile",
+      "openGpsTracks": "Vai alle tracce GPS"
+    },
+    "Photo": {
+      "invalidType": "Sono consentiti solo file JPG, PNG e WebP.",
+      "tooLarge": "La foto non deve superare gli 8 MB.",
+      "loginRequired": "Accedi prima.",
+      "updated": "Foto aggiornata.",
+      "uploadFailed": "Impossibile caricare la foto.",
+      "uploading": "Caricamento…",
+      "changePhoto": "Cambia foto",
+      "removePhoto": "Rimuovi foto",
+      "removing": "Rimozione…",
+      "removed": "Foto rimossa.",
+      "removeFailed": "Impossibile rimuovere la foto."
+    },
+    "Privacy": {
+      "loginRequired": "Accedi prima.",
+      "updateMissing": "Impossibile aggiornare le impostazioni della foto.",
+      "publicSuccess": "La foto è visibile sul tuo profilo pubblico.",
+      "privateSuccess": "La foto è nascosta dal tuo profilo pubblico.",
+      "updateFailed": "Impossibile modificare la visibilità della foto.",
+      "public": "Foto pubblica",
+      "private": "Foto privata",
+      "photoRequired": "Carica prima la tua foto."
+    },
+    "Thumbnail": {
+      "customPhotoAlt": "Foto della salita di {mountainName}",
+      "mountainAlt": "Vetta {mountainName}",
+      "myPhoto": "La mia foto"
+    },
+    "MapPage": {
+      "loading": "Caricamento della mappa delle salite…",
+      "loginTitle": "Accedi al tuo account",
+      "login": "Accedi",
+      "eyebrow": "02.1 / Geografia del diario",
+      "title": "Mappa delle salite",
+      "description": "Una vista spaziale di tutte le vette registrate nel tuo diario.",
+      "markedPeaks": "Vette segnate",
+      "peakCount": "{count, plural, one {# vetta} other {# vette}}",
+      "openJournal": "Apri il diario",
+      "sectionLabel": "Mappa delle vette conquistate"
+    },
+    "Map": {
+      "peakFallback": "Vetta",
+      "meterUnit": "m",
+      "openMountain": "Apri la vetta →",
+      "emptyTitle": "Nessuna vetta conquistata per ora",
+      "emptyDescription": "Le tue salite registrate appariranno su questa mappa.",
+      "accessibleLabel": "Mappa interattiva delle vette conquistate"
+    },
+    "Status": {
+      "loading": "Caricamento delle salite…",
+      "loginEyebrow": "Diario delle salite",
+      "loginTitle": "Accedi al tuo account",
+      "loginDescription": "Dopo l'accesso, qui apparirà l'elenco completo delle tue salite.",
+      "login": "Accedi"
+    },
+    "Accessibility": {
+      "ascentList": "Elenco delle salite"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

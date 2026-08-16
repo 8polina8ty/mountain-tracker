@@ -1,0 +1,106 @@
+{
+  "Ascents": {
+    "Header": {
+      "eyebrow": "02 / Carnet de bord personnel",
+      "title": "Historique des ascensions",
+      "description": "Une chronologie de vos sommets, dates et photos dans le carnet d'expédition.",
+      "totalRecords": "Fiches au total",
+      "ascentCount": "{count, plural, one {# ascension} other {# ascensions}}",
+      "map": "Carte",
+      "importGpx": "Importer un GPX"
+    },
+    "Filters": {
+      "searchLabel": "Rechercher un sommet",
+      "searchPlaceholder": "Rechercher un sommet",
+      "yearLabel": "Année de l'ascension",
+      "allYears": "Toutes les années"
+    },
+    "Sorting": {
+      "label": "Trier",
+      "newest": "Plus récentes d'abord",
+      "oldest": "Plus anciennes d'abord",
+      "highest": "Altitude : plus élevée d'abord",
+      "lowest": "Altitude : moins élevée d'abord",
+      "alphabetical": "Alphabétique"
+    },
+    "List": {
+      "eyebrow": "Registre des fiches",
+      "title": "Ascensions",
+      "results": "Affichage de {shown} sur {total}",
+      "noMatchesTitle": "Aucune fiche trouvée",
+      "noMatchesDescription": "Modifiez la recherche ou l'année pour voir d'autres fiches.",
+      "emptyTitle": "Aucune ascension pour l'instant",
+      "emptyDescription": "Ouvrez la carte, sélectionnez un sommet et marquez votre ascension.",
+      "openMap": "Ouvrir la carte",
+      "dateUnavailable": "Date non précisée",
+      "recordNumber": "Fiche {number}",
+      "elevation": "Altitude",
+      "date": "Date",
+      "region": "Région",
+      "openMountain": "Ouvrir le sommet",
+      "mountainUnavailable": "Sommet indisponible",
+      "openGpsTracks": "Aller aux tracks GPS"
+    },
+    "Photo": {
+      "invalidType": "Seuls les fichiers JPG, PNG et WebP sont autorisés.",
+      "tooLarge": "La photo ne doit pas dépasser 8 Mo.",
+      "loginRequired": "Connectez-vous d'abord.",
+      "updated": "Photo mise à jour.",
+      "uploadFailed": "Impossible de téléverser la photo.",
+      "uploading": "Téléversement…",
+      "changePhoto": "Changer la photo",
+      "removePhoto": "Supprimer la photo",
+      "removing": "Suppression…",
+      "removed": "Photo supprimée.",
+      "removeFailed": "Impossible de supprimer la photo."
+    },
+    "Privacy": {
+      "loginRequired": "Connectez-vous d'abord.",
+      "updateMissing": "Impossible de mettre à jour les paramètres de la photo.",
+      "publicSuccess": "La photo est visible sur votre profil public.",
+      "privateSuccess": "La photo est masquée de votre profil public.",
+      "updateFailed": "Impossible de modifier la visibilité de la photo.",
+      "public": "Photo publique",
+      "private": "Photo privée",
+      "photoRequired": "Téléversez d'abord votre propre photo."
+    },
+    "Thumbnail": {
+      "customPhotoAlt": "Photo de l'ascension de {mountainName}",
+      "mountainAlt": "Sommet {mountainName}",
+      "myPhoto": "Ma photo"
+    },
+    "MapPage": {
+      "loading": "Chargement de la carte des ascensions…",
+      "loginTitle": "Connectez-vous à votre compte",
+      "login": "Se connecter",
+      "eyebrow": "02.1 / Géographie du carnet de bord",
+      "title": "Carte des ascensions",
+      "description": "Une vue spatiale de tous les sommets enregistrés dans votre carnet de bord.",
+      "markedPeaks": "Sommets marqués",
+      "peakCount": "{count, plural, one {# sommet} other {# sommets}}",
+      "openJournal": "Ouvrir le carnet de bord",
+      "sectionLabel": "Carte des sommets gravis"
+    },
+    "Map": {
+      "peakFallback": "Sommet",
+      "meterUnit": "m",
+      "openMountain": "Ouvrir le sommet →",
+      "emptyTitle": "Aucun sommet gravi pour l'instant",
+      "emptyDescription": "Vos ascensions enregistrées apparaîtront sur cette carte.",
+      "accessibleLabel": "Carte interactive des sommets gravis"
+    },
+    "Status": {
+      "loading": "Chargement des ascensions…",
+      "loginEyebrow": "Carnet d'ascensions",
+      "loginTitle": "Connectez-vous à votre compte",
+      "loginDescription": "Après connexion, votre liste complète d'ascensions apparaîtra ici.",
+      "login": "Se connecter"
+    },
+    "Accessibility": {
+      "ascentList": "Liste des ascensions"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

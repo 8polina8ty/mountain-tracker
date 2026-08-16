@@ -17,6 +17,9 @@ const localeNames: Record<Locale, string> = {
   de: "Deutsch",
   en: "English",
   ru: "Русский",
+  fr: "Français",
+  it: "Italiano",
+  es: "Español",
 };
 
 function getSafeSearch(): string {

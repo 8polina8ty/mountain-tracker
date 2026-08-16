@@ -1,0 +1,106 @@
+{
+  "Ascents": {
+    "Header": {
+      "eyebrow": "02 / Cuaderno de bitácora personal",
+      "title": "Historial de ascensos",
+      "description": "Una cronología de tus cumbres, fechas y fotos en el cuaderno de expedición.",
+      "totalRecords": "Registros en total",
+      "ascentCount": "{count, plural, one {# ascenso} other {# ascensos}}",
+      "map": "Mapa",
+      "importGpx": "Importar un GPX"
+    },
+    "Filters": {
+      "searchLabel": "Buscar una cumbre",
+      "searchPlaceholder": "Buscar una cumbre",
+      "yearLabel": "Año del ascenso",
+      "allYears": "Todos los años"
+    },
+    "Sorting": {
+      "label": "Ordenar",
+      "newest": "Más recientes primero",
+      "oldest": "Más antiguas primero",
+      "highest": "Altitud: más altas primero",
+      "lowest": "Altitud: más bajas primero",
+      "alphabetical": "Alfabético"
+    },
+    "List": {
+      "eyebrow": "Registro de ascensos",
+      "title": "Ascensos",
+      "results": "Mostrando {shown} de {total}",
+      "noMatchesTitle": "No se ha encontrado ningún registro",
+      "noMatchesDescription": "Cambia la búsqueda o el año para ver otros registros.",
+      "emptyTitle": "Aún no hay ascensos",
+      "emptyDescription": "Abre el mapa, selecciona una cumbre y marca tu ascenso.",
+      "openMap": "Abrir el mapa",
+      "dateUnavailable": "Fecha sin especificar",
+      "recordNumber": "Registro {number}",
+      "elevation": "Altitud",
+      "date": "Fecha",
+      "region": "Región",
+      "openMountain": "Abrir la cumbre",
+      "mountainUnavailable": "Cumbre no disponible",
+      "openGpsTracks": "Ir a los tracks GPS"
+    },
+    "Photo": {
+      "invalidType": "Solo se permiten archivos JPG, PNG y WebP.",
+      "tooLarge": "La foto no debe superar los 8 MB.",
+      "loginRequired": "Inicia sesión primero.",
+      "updated": "Foto actualizada.",
+      "uploadFailed": "No se ha podido subir la foto.",
+      "uploading": "Subiendo…",
+      "changePhoto": "Cambiar la foto",
+      "removePhoto": "Eliminar la foto",
+      "removing": "Eliminando…",
+      "removed": "Foto eliminada.",
+      "removeFailed": "No se ha podido eliminar la foto."
+    },
+    "Privacy": {
+      "loginRequired": "Inicia sesión primero.",
+      "updateMissing": "No se ha podido actualizar la configuración de la foto.",
+      "publicSuccess": "La foto es visible en tu perfil público.",
+      "privateSuccess": "La foto está oculta de tu perfil público.",
+      "updateFailed": "No se ha podido cambiar la visibilidad de la foto.",
+      "public": "Foto pública",
+      "private": "Foto privada",
+      "photoRequired": "Sube primero tu propia foto."
+    },
+    "Thumbnail": {
+      "customPhotoAlt": "Foto del ascenso de {mountainName}",
+      "mountainAlt": "Cumbre {mountainName}",
+      "myPhoto": "Mi foto"
+    },
+    "MapPage": {
+      "loading": "Cargando el mapa de ascensos…",
+      "loginTitle": "Inicia sesión en tu cuenta",
+      "login": "Iniciar sesión",
+      "eyebrow": "02.1 / Geografía del cuaderno de bitácora",
+      "title": "Mapa de ascensos",
+      "description": "Una vista espacial de todas las cumbres registradas en tu cuaderno de bitácora.",
+      "markedPeaks": "Cumbres marcadas",
+      "peakCount": "{count, plural, one {# cumbre} other {# cumbres}}",
+      "openJournal": "Abrir el cuaderno de bitácora",
+      "sectionLabel": "Mapa de cumbres coronadas"
+    },
+    "Map": {
+      "peakFallback": "Cumbre",
+      "meterUnit": "m",
+      "openMountain": "Abrir la cumbre →",
+      "emptyTitle": "Aún no hay cumbres coronadas",
+      "emptyDescription": "Tus ascensos registrados aparecerán en este mapa.",
+      "accessibleLabel": "Mapa interactivo de cumbres coronadas"
+    },
+    "Status": {
+      "loading": "Cargando los ascensos…",
+      "loginEyebrow": "Cuaderno de ascensos",
+      "loginTitle": "Inicia sesión en tu cuenta",
+      "loginDescription": "Después de iniciar sesión, aquí aparecerá tu lista completa de ascensos.",
+      "login": "Iniciar sesión"
+    },
+    "Accessibility": {
+      "ascentList": "Lista de ascensos"
+    },
+    "Units": {
+      "meter": "m"
+    }
+  }
+}

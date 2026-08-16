@@ -1,0 +1,652 @@
+{
+  "Achievements": {
+    "Archive": {
+      "eyebrow": "Logros de expedición",
+      "title": "Archivo de logros",
+      "subtitle": "Un balance a largo plazo de cumbres, exploración, rutas documentadas y tu presencia en montaña.",
+      "recordsTitle": "Registros de logros",
+      "snapshotUnavailable": "El detalle del progreso no está disponible temporalmente. Los logros persistidos siguen siendo visibles; los valores que faltan no se estiman.",
+      "persistedUnavailable": "No se han podido cargar los registros de logros guardados. Los totales desbloqueados y las fechas no están disponibles.",
+      "progressUnavailable": "Datos de progreso no disponibles",
+      "reachedPending": "Logro alcanzado: sincronización pendiente",
+      "notUnlocked": "Aún no desbloqueado",
+      "unlockedOn": "Desbloqueado el {date}",
+      "points": "{points} pts",
+      "tier": "Escalón {current} / {total}",
+      "chainAccessible": "Posición en la cadena {current} de {total}",
+      "visibleCount": "{count, plural, one {# registro} other {# registros}}",
+      "empty": "Ningún logro coincide con estos filtros.",
+      "summary": { "unlocked": "Desbloqueados", "points": "Puntos de logro", "completion": "Completados" },
+      "filters": { "category": "Categoría", "status": "Estado", "all": "Todos", "unlocked": "Desbloqueados", "inProgress": "En curso" },
+      "sorting": { "label": "Ordenar por", "recommended": "Orden del archivo", "closest": "Más cercano al objetivo", "rarity": "Clasificación", "unlockedDate": "Fecha de desbloqueo" }
+    },
+    "Section": {
+      "eyebrow": "03 / Logros",
+      "title": "Logros de expedición",
+      "count": "{unlocked} / {total}",
+      "viewAll": "Ver todos los logros",
+      "unlockedLabel": "Desbloqueados",
+      "pointsLabel": "Puntos de logro",
+      "completionLabel": "Completados",
+      "points": "{points} pts"
+    },
+    "Card": {
+      "received": "Obtenido: {date}"
+    },
+    "Status": {
+      "unlocked": "Desbloqueado",
+      "inProgress": "En curso"
+    },
+    "Notification": {
+      "eyebrow": "Nuevo logro",
+      "summaryTitle": "Progreso adicional registrado",
+      "additionalMilestones": "{count, plural, one {# logro adicional alcanzado} other {# logros adicionales alcanzados}}"
+    },
+    "Progress": {
+      "count": "{progress} de {target}",
+      "completed": "Completado",
+      "aboveClouds": "Se requiere una cumbre de al menos 2 000 m",
+      "zugspitze": "La Zugspitze aún no se ha coronado",
+      "height": "{progress} de {target} m",
+      "kilometers": "{progress} de {target} km",
+      "countries": "{progress} de {target} países",
+      "months": "{progress} de {target} meses",
+      "years": "{progress} de {target} años"
+    },
+    "Accessibility": {
+      "closeNotification": "Cerrar la notificación",
+      "progress": "Progreso del logro: {title}"
+    },
+    "Categories": {
+      "summits": "Cumbres",
+      "altitude": "Altitud",
+      "geography": "Geografía",
+      "gps": "GPS",
+      "participation": "Participación",
+      "photography": "Fotos de ascenso",
+      "planning": "Planificación"
+    },
+    "Rarity": {
+      "common": "Fundación",
+      "uncommon": "Consolidado",
+      "rare": "Distinguido",
+      "epic": "Excepcional",
+      "legendary": "Trabajo de una vida"
+    },
+    "Chains": {
+      "summits": "Explorador de cumbres",
+      "summitElevation": "Altitud acumulada de cumbres",
+      "height": "Escalón de altitud",
+      "zone": "Tramo de altitud",
+      "zoneDiversity": "Diversidad de altitudes",
+      "countries": "Explorador de países",
+      "gpsTracks": "Archivo GPS",
+      "gpsDistance": "Distancia registrada",
+      "gpsGain": "Desnivel registrado",
+      "gpsLinked": "Cumbres vinculadas al GPS",
+      "activeMonths": "Participación a largo plazo",
+      "activeYears": "Años en montaña",
+      "yearSummits": "Año de cumbres",
+      "calendarDiversity": "A través del calendario",
+      "photos": "Fotos de ascenso",
+      "favorites": "Planificación de salidas"
+    },
+    "Definitions": {
+      "firstAscent": {
+        "title": "Primer paso",
+        "description": "Corona tu primera cumbre.",
+        "unlockedDescription": "Has coronado tu primera cumbre."
+      },
+      "fiveAscents": {
+        "title": "Alpinista principiante",
+        "description": "Corona 5 cumbres.",
+        "unlockedDescription": "Has coronado 5 cumbres."
+      },
+      "tenAscents": {
+        "title": "Coleccionista de cumbres",
+        "description": "Corona 10 cumbres.",
+        "unlockedDescription": "Has coronado 10 cumbres."
+      },
+      "twentyFiveAscents": {
+        "title": "Alpinista experimentado",
+        "description": "Corona 25 cumbres.",
+        "unlockedDescription": "Has coronado 25 cumbres."
+      },
+      "fiftyAscents": {
+        "title": "Maestro de la altitud",
+        "description": "Corona 50 cumbres.",
+        "unlockedDescription": "Has coronado 50 cumbres."
+      },
+      "summits100": {
+        "title": "Explorador de cumbres VI",
+        "description": "Corona {target} cumbres diferentes.",
+        "unlockedDescription": "Has coronado {target} cumbres diferentes."
+      },
+      "summits250": {
+        "title": "Explorador de cumbres VII",
+        "description": "Corona {target} cumbres diferentes.",
+        "unlockedDescription": "Has coronado {target} cumbres diferentes."
+      },
+      "summits500": {
+        "title": "Explorador de cumbres VIII",
+        "description": "Corona {target} cumbres diferentes.",
+        "unlockedDescription": "Has coronado {target} cumbres diferentes."
+      },
+      "summits750": {
+        "title": "Explorador de cumbres IX",
+        "description": "Corona {target} cumbres diferentes.",
+        "unlockedDescription": "Has coronado {target} cumbres diferentes."
+      },
+      "summits1000": {
+        "title": "Explorador de cumbres X",
+        "description": "Corona {target} cumbres diferentes.",
+        "unlockedDescription": "Has coronado {target} cumbres diferentes."
+      },
+      "summitElevationTotal1000": {
+        "title": "Altitud acumulada de cumbres I",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitElevationTotal5000": {
+        "title": "Altitud acumulada de cumbres II",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "tenThousandHeight": {
+        "title": "10 000 metros",
+        "description": "Acumula 10 000 metros de desnivel.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado 10 000 m."
+      },
+      "summitElevationTotal25000": {
+        "title": "Altitud acumulada de cumbres IV",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitElevationTotal50000": {
+        "title": "Altitud acumulada de cumbres V",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitElevationTotal100000": {
+        "title": "Altitud acumulada de cumbres VI",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitElevationTotal250000": {
+        "title": "Altitud acumulada de cumbres VII",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitElevationTotal500000": {
+        "title": "Altitud acumulada de cumbres VIII",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitElevationTotal750000": {
+        "title": "Altitud acumulada de cumbres IX",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitElevationTotal1000000": {
+        "title": "Altitud acumulada de cumbres X",
+        "description": "Alcanza {target} m de altitud acumulada de tus cumbres diferentes.",
+        "unlockedDescription": "La altitud acumulada de tus cumbres ha alcanzado {target} m."
+      },
+      "summitHeight500": {
+        "title": "Escalón de altitud I",
+        "description": "Documenta una cumbre de al menos {target} m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos {target} m."
+      },
+      "summitHeight1000": {
+        "title": "Escalón de altitud II",
+        "description": "Documenta una cumbre de al menos {target} m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos {target} m."
+      },
+      "summitHeight1500": {
+        "title": "Escalón de altitud III",
+        "description": "Documenta una cumbre de al menos {target} m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos {target} m."
+      },
+      "aboveClouds": {
+        "title": "Por encima de las nubes",
+        "description": "Corona una cumbre de al menos 2 000 m.",
+        "unlockedDescription": "Has coronado una cumbre de al menos 2 000 m."
+      },
+      "summitHeight2500": {
+        "title": "Escalón de altitud V",
+        "description": "Documenta una cumbre de al menos {target} m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos {target} m."
+      },
+      "summitHeight3000": {
+        "title": "Escalón de altitud VI",
+        "description": "Documenta una cumbre de al menos {target} m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos {target} m."
+      },
+      "summitHeight3500": {
+        "title": "Escalón de altitud VII",
+        "description": "Documenta una cumbre de al menos {target} m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos {target} m."
+      },
+      "summitHeight4000": {
+        "title": "Escalón de altitud VIII",
+        "description": "Documenta una cumbre de al menos {target} m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos {target} m."
+      },
+      "altitudeZoneBelow1000": {
+        "title": "Menos de 1 000 m",
+        "description": "Documenta una cumbre de menos de 1 000 m.",
+        "unlockedDescription": "Has documentado una cumbre de menos de 1 000 m."
+      },
+      "altitudeZone1000To1499": {
+        "title": "1 000–1 499 m",
+        "description": "Documenta una cumbre entre 1 000 y 1 499 m.",
+        "unlockedDescription": "Has documentado una cumbre entre 1 000 y 1 499 m."
+      },
+      "altitudeZone1500To1999": {
+        "title": "1 500–1 999 m",
+        "description": "Documenta una cumbre entre 1 500 y 1 999 m.",
+        "unlockedDescription": "Has documentado una cumbre entre 1 500 y 1 999 m."
+      },
+      "altitudeZone2000To2499": {
+        "title": "2 000–2 499 m",
+        "description": "Documenta una cumbre entre 2 000 y 2 499 m.",
+        "unlockedDescription": "Has documentado una cumbre entre 2 000 y 2 499 m."
+      },
+      "altitudeZone2500To2999": {
+        "title": "2 500–2 999 m",
+        "description": "Documenta una cumbre entre 2 500 y 2 999 m.",
+        "unlockedDescription": "Has documentado una cumbre entre 2 500 y 2 999 m."
+      },
+      "altitudeZone3000To3499": {
+        "title": "3 000–3 499 m",
+        "description": "Documenta una cumbre entre 3 000 y 3 499 m.",
+        "unlockedDescription": "Has documentado una cumbre entre 3 000 y 3 499 m."
+      },
+      "altitudeZone3500Plus": {
+        "title": "3 500 m o más",
+        "description": "Documenta una cumbre de al menos 3 500 m.",
+        "unlockedDescription": "Has documentado una cumbre de al menos 3 500 m."
+      },
+      "altitudeZones3": {
+        "title": "Diversidad de altitudes I",
+        "description": "Documenta cumbres en {target} tramos de altitud diferentes.",
+        "unlockedDescription": "Has documentado cumbres en {target} tramos de altitud diferentes."
+      },
+      "altitudeZones5": {
+        "title": "Diversidad de altitudes II",
+        "description": "Documenta cumbres en {target} tramos de altitud diferentes.",
+        "unlockedDescription": "Has documentado cumbres en {target} tramos de altitud diferentes."
+      },
+      "altitudeZones7": {
+        "title": "Diversidad de altitudes III",
+        "description": "Documenta cumbres en {target} tramos de altitud diferentes.",
+        "unlockedDescription": "Has documentado cumbres en {target} tramos de altitud diferentes."
+      },
+      "countries2": {
+        "title": "Explorador de países I",
+        "description": "Documenta ascensos en {target} países diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} países diferentes."
+      },
+      "countries3": {
+        "title": "Explorador de países II",
+        "description": "Documenta ascensos en {target} países diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} países diferentes."
+      },
+      "countries5": {
+        "title": "Explorador de países III",
+        "description": "Documenta ascensos en {target} países diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} países diferentes."
+      },
+      "countries10": {
+        "title": "Explorador de países IV",
+        "description": "Documenta ascensos en {target} países diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} países diferentes."
+      },
+      "countries15": {
+        "title": "Explorador de países V",
+        "description": "Documenta ascensos en {target} países diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} países diferentes."
+      },
+      "countries20": {
+        "title": "Explorador de países VI",
+        "description": "Documenta ascensos en {target} países diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} países diferentes."
+      },
+      "countries30": {
+        "title": "Explorador de países VII",
+        "description": "Documenta ascensos en {target} países diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} países diferentes."
+      },
+      "gpsTracks1": {
+        "title": "Archivo GPS I",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsTracks5": {
+        "title": "Archivo GPS II",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsTracks10": {
+        "title": "Archivo GPS III",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsTracks25": {
+        "title": "Archivo GPS IV",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsTracks50": {
+        "title": "Archivo GPS V",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsTracks100": {
+        "title": "Archivo GPS VI",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsTracks250": {
+        "title": "Archivo GPS VII",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsTracks500": {
+        "title": "Archivo GPS VIII",
+        "description": "Archiva {target} tracks GPS procesados correctamente.",
+        "unlockedDescription": "Has archivado {target} tracks GPS procesados correctamente."
+      },
+      "gpsDistanceKm10": {
+        "title": "Distancia registrada I",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm50": {
+        "title": "Distancia registrada II",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm100": {
+        "title": "Distancia registrada III",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm250": {
+        "title": "Distancia registrada IV",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm500": {
+        "title": "Distancia registrada V",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm1000": {
+        "title": "Distancia registrada VI",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm2500": {
+        "title": "Distancia registrada VII",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm5000": {
+        "title": "Distancia registrada VIII",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsDistanceKm10000": {
+        "title": "Distancia registrada IX",
+        "description": "Registra {target} km acumulados con tracks GPS.",
+        "unlockedDescription": "Tus tracks GPS cubren {target} km acumulados."
+      },
+      "gpsElevationGain1000": {
+        "title": "Desnivel registrado I",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain5000": {
+        "title": "Desnivel registrado II",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain10000": {
+        "title": "Desnivel registrado III",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain25000": {
+        "title": "Desnivel registrado IV",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain50000": {
+        "title": "Desnivel registrado V",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain100000": {
+        "title": "Desnivel registrado VI",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain250000": {
+        "title": "Desnivel registrado VII",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain500000": {
+        "title": "Desnivel registrado VIII",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsElevationGain1000000": {
+        "title": "Desnivel registrado IX",
+        "description": "Registra {target} m de desnivel positivo acumulado en GPS.",
+        "unlockedDescription": "Tus tracks GPS contienen {target} m de desnivel positivo acumulado."
+      },
+      "gpsLinkedSummits1": {
+        "title": "Cumbres vinculadas al GPS I",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "gpsLinkedSummits5": {
+        "title": "Cumbres vinculadas al GPS II",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "gpsLinkedSummits10": {
+        "title": "Cumbres vinculadas al GPS III",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "gpsLinkedSummits25": {
+        "title": "Cumbres vinculadas al GPS IV",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "gpsLinkedSummits50": {
+        "title": "Cumbres vinculadas al GPS V",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "gpsLinkedSummits100": {
+        "title": "Cumbres vinculadas al GPS VI",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "gpsLinkedSummits250": {
+        "title": "Cumbres vinculadas al GPS VII",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "gpsLinkedSummits500": {
+        "title": "Cumbres vinculadas al GPS VIII",
+        "description": "Vincula {target} cumbres mediante asociaciones GPS que hayas confirmado.",
+        "unlockedDescription": "Has vinculado {target} cumbres mediante asociaciones GPS confirmadas."
+      },
+      "activeMonths1": {
+        "title": "Participación a largo plazo I",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeMonths3": {
+        "title": "Participación a largo plazo II",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeMonths6": {
+        "title": "Participación a largo plazo III",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeMonths12": {
+        "title": "Participación a largo plazo IV",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeMonths24": {
+        "title": "Participación a largo plazo V",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeMonths36": {
+        "title": "Participación a largo plazo VI",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeMonths60": {
+        "title": "Participación a largo plazo VII",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeMonths120": {
+        "title": "Participación a largo plazo VIII",
+        "description": "Documenta ascensos en {target} periodos de año y mes distintos.",
+        "unlockedDescription": "Has documentado ascensos en {target} periodos de año y mes distintos."
+      },
+      "activeYears2": {
+        "title": "Años en montaña I",
+        "description": "Documenta ascensos en {target} años naturales diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} años naturales diferentes."
+      },
+      "activeYears3": {
+        "title": "Años en montaña II",
+        "description": "Documenta ascensos en {target} años naturales diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} años naturales diferentes."
+      },
+      "activeYears5": {
+        "title": "Años en montaña III",
+        "description": "Documenta ascensos en {target} años naturales diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} años naturales diferentes."
+      },
+      "activeYears10": {
+        "title": "Años en montaña IV",
+        "description": "Documenta ascensos en {target} años naturales diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} años naturales diferentes."
+      },
+      "activeYears15": {
+        "title": "Años en montaña V",
+        "description": "Documenta ascensos en {target} años naturales diferentes.",
+        "unlockedDescription": "Has documentado ascensos en {target} años naturales diferentes."
+      },
+      "summitsInYear5": {
+        "title": "Año de cumbres I",
+        "description": "Documenta {target} cumbres diferentes en un mismo año natural.",
+        "unlockedDescription": "Has documentado {target} cumbres diferentes en un mismo año natural."
+      },
+      "summitsInYear10": {
+        "title": "Año de cumbres II",
+        "description": "Documenta {target} cumbres diferentes en un mismo año natural.",
+        "unlockedDescription": "Has documentado {target} cumbres diferentes en un mismo año natural."
+      },
+      "summitsInYear25": {
+        "title": "Año de cumbres III",
+        "description": "Documenta {target} cumbres diferentes en un mismo año natural.",
+        "unlockedDescription": "Has documentado {target} cumbres diferentes en un mismo año natural."
+      },
+      "summitsInYear50": {
+        "title": "Año de cumbres IV",
+        "description": "Documenta {target} cumbres diferentes en un mismo año natural.",
+        "unlockedDescription": "Has documentado {target} cumbres diferentes en un mismo año natural."
+      },
+      "calendarMonthsRepresented3": {
+        "title": "A través del calendario I",
+        "description": "Documenta ascensos en {target} meses del calendario diferentes a lo largo de todo tu historial.",
+        "unlockedDescription": "Tu historial de ascensos abarca {target} meses del calendario diferentes."
+      },
+      "calendarMonthsRepresented6": {
+        "title": "A través del calendario II",
+        "description": "Documenta ascensos en {target} meses del calendario diferentes a lo largo de todo tu historial.",
+        "unlockedDescription": "Tu historial de ascensos abarca {target} meses del calendario diferentes."
+      },
+      "calendarMonthsRepresented9": {
+        "title": "A través del calendario III",
+        "description": "Documenta ascensos en {target} meses del calendario diferentes a lo largo de todo tu historial.",
+        "unlockedDescription": "Tu historial de ascensos abarca {target} meses del calendario diferentes."
+      },
+      "calendarMonthsRepresented12": {
+        "title": "A través del calendario IV",
+        "description": "Documenta ascensos en {target} meses del calendario diferentes a lo largo de todo tu historial.",
+        "unlockedDescription": "Tu historial de ascensos abarca {target} meses del calendario diferentes."
+      },
+      "ascentPhotos1": {
+        "title": "Fotos de ascenso I",
+        "description": "Añade una foto de ascenso a {target} ascensos; su visibilidad es decisión tuya.",
+        "unlockedDescription": "Has documentado {target} ascensos con fotos."
+      },
+      "ascentPhotos5": {
+        "title": "Fotos de ascenso II",
+        "description": "Añade una foto de ascenso a {target} ascensos; su visibilidad es decisión tuya.",
+        "unlockedDescription": "Has documentado {target} ascensos con fotos."
+      },
+      "ascentPhotos10": {
+        "title": "Fotos de ascenso III",
+        "description": "Añade una foto de ascenso a {target} ascensos; su visibilidad es decisión tuya.",
+        "unlockedDescription": "Has documentado {target} ascensos con fotos."
+      },
+      "ascentPhotos25": {
+        "title": "Fotos de ascenso IV",
+        "description": "Añade una foto de ascenso a {target} ascensos; su visibilidad es decisión tuya.",
+        "unlockedDescription": "Has documentado {target} ascensos con fotos."
+      },
+      "ascentPhotos50": {
+        "title": "Fotos de ascenso V",
+        "description": "Añade una foto de ascenso a {target} ascensos; su visibilidad es decisión tuya.",
+        "unlockedDescription": "Has documentado {target} ascensos con fotos."
+      },
+      "ascentPhotos100": {
+        "title": "Fotos de ascenso VI",
+        "description": "Añade una foto de ascenso a {target} ascensos; su visibilidad es decisión tuya.",
+        "unlockedDescription": "Has documentado {target} ascensos con fotos."
+      },
+      "favorites1": {
+        "title": "Planificación de salidas I",
+        "description": "Guarda {target} cumbres para planificar tus salidas.",
+        "unlockedDescription": "Has guardado {target} cumbres para planificar tus salidas."
+      },
+      "favorites5": {
+        "title": "Planificación de salidas II",
+        "description": "Guarda {target} cumbres para planificar tus salidas.",
+        "unlockedDescription": "Has guardado {target} cumbres para planificar tus salidas."
+      },
+      "favorites10": {
+        "title": "Planificación de salidas III",
+        "description": "Guarda {target} cumbres para planificar tus salidas.",
+        "unlockedDescription": "Has guardado {target} cumbres para planificar tus salidas."
+      },
+      "favorites25": {
+        "title": "Planificación de salidas IV",
+        "description": "Guarda {target} cumbres para planificar tus salidas.",
+        "unlockedDescription": "Has guardado {target} cumbres para planificar tus salidas."
+      },
+      "zugspitze": {
+        "title": "Tejado de Alemania",
+        "description": "Corona la Zugspitze.",
+        "unlockedDescription": "Has coronado la Zugspitze."
+      }
+    }
+  }
+}

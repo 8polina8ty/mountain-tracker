@@ -1,0 +1,35 @@
+{
+  "Metadata": {
+    "Site": {
+      "title": "Mountain Tracker",
+      "description": "Descubre cumbres, explora rutas de montaña y registra tus ascensos."
+    },
+    "Map": {
+      "title": "Mapa interactivo de cumbres | Mountain Tracker",
+      "description": "Descubre montañas y rutas en el mapa interactivo de cumbres y planifica tus próximos ascensos.",
+      "pageHeading": "Mapa interactivo de cumbres de montaña"
+    },
+    "Mountain": {
+      "title": "{name} | Mountain Tracker",
+      "description": "Explora {name} a {height} m de altitud con sus rutas, datos GPS e información de ascenso.",
+      "fallbackTitle": "Detalles de la cumbre | Mountain Tracker",
+      "fallbackDescription": "Explora información sobre cumbres, rutas y ascensos en Mountain Tracker."
+    },
+    "Ranking": {
+      "title": "Clasificación de cumbres | Mountain Tracker",
+      "description": "Descubre la comunidad de montaña con la clasificación de cumbres, las estadísticas de ascenso y el desnivel acumulado."
+    },
+    "PublicProfile": {
+      "title": "Perfil público de alpinista | Mountain Tracker",
+      "description": "Un perfil de ascenso público con montañas coronadas, estadísticas de cumbres y una vista de los ascensos."
+    },
+    "NoIndex": {
+      "accountTitle": "Cuenta | Mountain Tracker",
+      "accountDescription": "Espacio personal de la cuenta de Mountain Tracker.",
+      "authTitle": "Iniciar sesión | Mountain Tracker",
+      "authDescription": "Inicio de sesión y registro en Mountain Tracker.",
+      "diagnosticTitle": "Diagnóstico | Mountain Tracker",
+      "diagnosticDescription": "Vista de diagnóstico interno."
+    }
+  }
+}

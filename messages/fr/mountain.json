@@ -1,0 +1,175 @@
+{
+  "Mountain": {
+    "Hero": {
+      "backToMap": "Retour à la carte",
+      "profile": "Profil du sommet",
+      "elevationAboveSeaLevel": "Altitude au-dessus du niveau de la mer",
+      "imageUnavailable": "Aucune image n'est encore disponible pour ce sommet",
+      "photoCredit": "Photo",
+      "authorAndLicense": "Auteur et licence"
+    },
+    "Summary": {
+      "coordinates": "Coordonnées",
+      "verifiedRoutes": "Itinéraires vérifiés",
+      "recordedAscents": "Ascensions enregistrées",
+      "routeCount": "{count, plural, one {# itinéraire} other {# itinéraires}}",
+      "ascentCount": "{count, plural, one {# ascension} other {# ascensions}}"
+    },
+    "Passport": {
+      "sectionLabel": "01 / Aperçu",
+      "title": "Profil du sommet",
+      "primaryName": "Nom principal",
+      "alternateName": "Nom secondaire",
+      "elevation": "Altitude",
+      "location": "Localisation"
+    },
+    "Routes": {
+      "sectionLabel": "03 / Itinéraires",
+      "title": "Itinéraires d'ascension",
+      "introduction": "Options d'ascension vérifiées. Avant de partir, vérifiez la météo, les conditions de l'itinéraire et les restrictions en vigueur.",
+      "inProfile": "Dans ce profil",
+      "routeCount": "{count, plural, one {# itinéraire} other {# itinéraires}}",
+      "emptyTitle": "Aucun itinéraire pour l'instant",
+      "emptyDescription": "Aucune description d'ascension vérifiée n'est encore disponible pour ce sommet.",
+      "routeNumber": "Itinéraire {number}",
+      "routeTypes": {
+        "hiking": "Randonnée",
+        "mountaineering": "Course d'altitude",
+        "viaFerrata": "Via ferrata",
+        "climbing": "Escalade",
+        "skiTouring": "Ski de randonnée",
+        "mixed": "Itinéraire combiné",
+        "route": "Itinéraire"
+      },
+      "startPoint": "Point de départ",
+      "verified": "Vérifié",
+      "duration": {
+        "hours": "{count} h",
+        "minutes": "{count} min"
+      },
+      "description": "Description de l'itinéraire",
+      "bestSeason": "Meilleure saison",
+      "equipment": "Équipement",
+      "warning": "Avertissement important",
+      "downloadGpx": "Télécharger le GPX",
+      "downloadGpxFor": "Télécharger le GPX de {routeName}",
+      "gpxUnavailable": "Le fichier GPX n'est actuellement pas disponible.",
+      "sourceNamed": "Source : {sourceName}",
+      "source": "Source de l'itinéraire",
+      "safetyTitle": "Consignes de sécurité :",
+      "safetyDescription": "La description de l'itinéraire ne remplace ni une carte topographique à jour, ni un bulletin météo officiel, ni la vérification des conditions du sentier, ni l'appréciation de votre propre expérience et de votre équipement."
+    },
+    "Weather": {
+      "sectionLabel": "02 / Météo au sommet",
+      "title": "Météo au sommet",
+      "subtitle": "Prévisions pour le sommet à {elevation} m au-dessus du niveau de la mer",
+      "currentConditions": "Conditions actuelles",
+      "feelsLike": "Ressenti",
+      "temperature": "Température",
+      "wind": "Vent",
+      "windDirection": "Direction",
+      "gusts": "Rafales",
+      "precipitation": "Précipitations",
+      "precipitationSum": "Cumul des précipitations",
+      "snowfall": "Chutes de neige",
+      "cloudCover": "Couverture nuageuse",
+      "visibility": "Visibilité",
+      "freezingLevel": "Isotherme zéro degré",
+      "hourlyForecast": "Prévisions horaires",
+      "hourlyRange": "Prochaine {count, plural, one {heure} other {# heures}}",
+      "dailyForecast": "Prévisions quotidiennes",
+      "sunrise": "Lever du soleil",
+      "sunset": "Coucher du soleil",
+      "updated": "Mis à jour",
+      "temperatureMin": "Min",
+      "temperatureMax": "Max",
+      "unavailableTitle": "Météo actuellement indisponible",
+      "unavailableDescription": "La météo au sommet n'a pas pu être chargée. Avant de partir, consultez le bulletin météo officiel de montagne et les alertes locales.",
+      "safetyNoticeTitle": "Message de sécurité :",
+      "safetyNotice": "La météo en montagne peut changer rapidement. Les prévisions sont des estimations et ne remplacent ni les alertes locales, ni les bulletins officiels, ni les informations sur le risque d'avalanche, ni votre jugement personnel.",
+      "conditions": {
+        "clear": "Dégagé",
+        "mostlyClear": "Plutôt dégagé",
+        "partlyCloudy": "Partiellement nuageux",
+        "overcast": "Couvert",
+        "fog": "Brouillard",
+        "drizzle": "Bruine",
+        "rain": "Pluie",
+        "snow": "Neige",
+        "showers": "Averses",
+        "thunderstorm": "Orage",
+        "unknown": "Inconnu"
+      }
+    },
+    "RouteMetrics": {
+      "distance": "Distance",
+      "elevationGain": "Dénivelé positif",
+      "duration": "Durée",
+      "difficulty": "Difficulté"
+    },
+    "Ascent": {
+      "sectionLabel": "04 / Carnet de bord",
+      "recentAscents": "Ascensions récentes",
+      "empty": "Personne n'a encore marqué ce sommet comme gravi.",
+      "you": "Vous",
+      "statusLabel": "Statut de l'ascension",
+      "yourRecord": "Votre fiche",
+      "loginRequired": "Connexion requise",
+      "summitReached": "Sommet atteint",
+      "notClimbed": "Pas encore gravi",
+      "loginDescription": "Connectez-vous pour voir votre statut personnel pour ce sommet.",
+      "climbedDescription": "Cette ascension est enregistrée dans votre carnet de bord.",
+      "notClimbedDescription": "Cette ascension n'est pas encore enregistrée dans votre carnet de bord.",
+      "totalRecords": "Fiches au total",
+      "ascentCount": "{count, plural, one {# ascension} other {# ascensions}}",
+      "latest": "Dernière ascension",
+      "noneYet": "Aucune pour l'instant"
+    },
+    "Favorite": {
+      "add": "Ajouter aux favoris",
+      "remove": "Retirer des favoris"
+    },
+    "Resources": {
+      "sectionLabel": "Données de référence",
+      "title": "Ressources externes",
+      "empty": "Aucune ressource externe disponible."
+    },
+    "Status": {
+      "unnamed": "Sommet sans nom",
+      "noData": "Aucune donnée",
+      "coordinatesUnavailable": "Coordonnées indisponibles",
+      "notSpecified": "Non précisé",
+      "userFallback": "Utilisateur"
+    },
+    "Map": {
+      "accessibleLabel": "Carte de l'itinéraire « {routeName} »",
+      "loading": "Chargement de l'itinéraire…",
+      "displayFailed": "Impossible d'afficher l'itinéraire",
+      "startMarker": "Départ de l'itinéraire : {routeName}",
+      "finishMarker": "Arrivée de l'itinéraire : {routeName}",
+      "startPopup": "Départ : {routeName}",
+      "finishPopup": "Arrivée : {routeName}",
+      "startLegend": "départ",
+      "finishLegend": "arrivée",
+      "requestFailed": "Impossible de charger l'itinéraire : {status}",
+      "invalidFeatureCollection": "Le fichier n'est pas une FeatureCollection GeoJSON valide.",
+      "routeCoordinatesMissing": "Aucun itinéraire valide n'a été trouvé dans le fichier GeoJSON.",
+      "loadFailed": "Impossible de charger l'itinéraire."
+    },
+    "Accessibility": {
+      "mountainImage": "Sommet {mountainName}",
+      "statusAndResources": "Statut et ressources du sommet",
+      "addFavorite": "Ajouter {mountainName} aux favoris",
+      "removeFavorite": "Retirer {mountainName} des favoris"
+    },
+    "Units": {
+      "meter": "m",
+      "kilometer": "km",
+      "centimeter": "cm",
+      "degree": "°C",
+      "speed": "km/h",
+      "precipitation": "mm",
+      "percent": "%"
+    }
+  }
+}
