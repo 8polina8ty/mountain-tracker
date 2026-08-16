@@ -44,5 +44,19 @@ export function createMountainMap(
     "top-right",
   );
 
+  map.addControl(
+    new maplibregl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
+      },
+      trackUserLocation: true,
+      showAccuracyCircle: true,
+      showUserLocation: true,
+    }),
+    "top-right",
+  );
+
   return map;
 }
