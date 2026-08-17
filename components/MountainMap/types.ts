@@ -7,6 +7,17 @@ import type {
 export type PeakFeatureCollection =
   FeatureCollection<Point, PeakProperties>;
 
+export type UserGpsPosition = {
+  latitude: number;
+  longitude: number;
+  altitudeM: number | null;
+  accuracyM: number;
+  altitudeAccuracyM: number | null;
+  speedMps: number | null;
+  headingDeg: number | null;
+  timestamp: number;
+};
+
 
 export type PeakProperties = {
   id: number;

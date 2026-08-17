@@ -1,4 +1,7 @@
-import maplibregl, { type Map } from "maplibre-gl";
+import maplibregl, {
+  type GeolocateControl,
+  type Map,
+} from "maplibre-gl";
 
 import {
   DEFAULT_CENTER,
@@ -7,7 +10,8 @@ import {
 
 export function createMountainMap(
   container: HTMLDivElement,
-): Map {
+  options: { showUserLocation?: boolean } = {},
+): { map: Map; geolocateControl: GeolocateControl } {
   const map = new maplibregl.Map({
     container,
     style: {
@@ -44,7 +48,7 @@ export function createMountainMap(
     "top-right",
   );
 
-  map.addControl(
+  const geolocateControl =
     new maplibregl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true,
@@ -52,11 +56,14 @@ export function createMountainMap(
         maximumAge: 0,
       },
       trackUserLocation: true,
-      showAccuracyCircle: true,
-      showUserLocation: true,
-    }),
+      showAccuracyCircle: false,
+      showUserLocation: options.showUserLocation ?? true,
+    });
+
+  map.addControl(
+    geolocateControl,
     "top-right",
   );
 
-  return map;
+  return { map, geolocateControl };
 }

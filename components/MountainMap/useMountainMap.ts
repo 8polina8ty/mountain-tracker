@@ -15,6 +15,7 @@ import { loadVisibleMountains } from "./mountainData";
 import type {
   PeakFeatureCollection,
   SelectedPeak,
+  UserGpsPosition,
 } from "./types";
 
 
@@ -63,7 +64,55 @@ type UseMountainMapParams = {
   ) => Promise<void>;
   unknownErrorMessage: string;
   formatLoadingError: (message: string) => string;
+
+  onGpsPosition: (position: UserGpsPosition) => void;
+  onGpsError: (error: {
+    code: number;
+    message: string;
+  }) => void;
 };
+
+export function normalizeGpsPosition(
+  position: GeolocationPosition,
+): UserGpsPosition {
+  const coords = position.coords;
+
+  const altitudeM =
+    coords.altitude !== undefined && coords.altitude !== null
+      ? coords.altitude
+      : null;
+
+  const altitudeAccuracyM =
+    coords.altitudeAccuracy !== undefined &&
+    coords.altitudeAccuracy !== null
+      ? coords.altitudeAccuracy
+      : null;
+
+  const speedMps =
+    coords.speed !== undefined && coords.speed !== null && !isNaN(coords.speed)
+      ? coords.speed
+      : null;
+
+  let headingDeg = coords.heading;
+
+  if (typeof headingDeg === "number") {
+    headingDeg = headingDeg % 360;
+    if (headingDeg < 0) {
+      headingDeg += 360;
+    }
+  }
+
+  return {
+    latitude: coords.latitude,
+    longitude: coords.longitude,
+    altitudeM,
+    accuracyM: coords.accuracy,
+    altitudeAccuracyM,
+    speedMps,
+    headingDeg,
+    timestamp: position.timestamp,
+  };
+}
 
 function clampLatitude(
   latitude: number,
@@ -297,6 +346,8 @@ export function useMountainMap({
   setMountainDataVersion,
   unknownErrorMessage,
   formatLoadingError,
+  onGpsPosition,
+  onGpsError,
 }: UseMountainMapParams) {
 const loadedBoundsRef =
   useRef< MountainLoadBounds| null>(null);
@@ -311,6 +362,18 @@ useEffect(() => {
     formatLoadingError,
   };
 }, [formatLoadingError, unknownErrorMessage]);
+
+const gpsCallbacksRef = useRef({
+  onGpsPosition,
+  onGpsError,
+});
+
+useEffect(() => {
+  gpsCallbacksRef.current = {
+    onGpsPosition,
+    onGpsError,
+  };
+}, [onGpsPosition, onGpsError]);
 
 const loadedMinHeightRef =
   useRef<number | null>(null);
@@ -350,8 +413,39 @@ const mountainLoadVersionRef =
       return;
     }
 
-    const map = createMountainMap(
-      mapContainerRef.current,
+    const { map, geolocateControl } =
+      createMountainMap(
+        mapContainerRef.current,
+      );
+
+    const handleGeolocate = (
+      event: unknown,
+    ) => {
+      const position =
+        event as unknown as GeolocationPosition;
+      gpsCallbacksRef.current.onGpsPosition(
+        normalizeGpsPosition(position),
+      );
+    };
+
+    const handleGeolocateError = (
+      event: unknown,
+    ) => {
+      const error =
+        event as unknown as GeolocationPositionError;
+      gpsCallbacksRef.current.onGpsError({
+        code: error.code,
+        message: error.message,
+      });
+    };
+
+    geolocateControl.on(
+      "geolocate",
+      handleGeolocate,
+    );
+    geolocateControl.on(
+      "error",
+      handleGeolocateError,
     );
 
     let loadTimeout: ReturnType<
@@ -553,6 +647,15 @@ setVisiblePeakCount(
       disposed = true;
       mountainAbortControllerRef.current?.abort();
       mountainAbortControllerRef.current = null;
+
+      geolocateControl.off(
+        "geolocate",
+        handleGeolocate,
+      );
+      geolocateControl.off(
+        "error",
+        handleGeolocateError,
+      );
 
       map.off("load", handleLoad);
       map.off(

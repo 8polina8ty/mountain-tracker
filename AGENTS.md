@@ -78,3 +78,112 @@ This version has breaking changes — APIs, conventions, and file structure may 
 16. Prefer fixing the root cause of an issue rather than adding temporary workarounds.
 17. Do not modify unrelated code just to make formatting or style consistent.
 18. When unsure about an architectural decision, ask before making a large or destructive change.
+
+## Long-Running Process Policy
+
+1. Agents MUST NOT start or keep alive any long-running or persistent process.
+
+2. This prohibition includes:
+   - npm run dev
+   - next dev
+   - npm run start
+   - next start
+   - cloudflared tunnel
+   - development servers
+   - production servers
+   - WebSocket servers
+   - file watchers
+   - tail -f
+   - interactive REPLs
+   - persistent background jobs
+   - detached processes
+   - commands waiting indefinitely for network connections or events
+
+3. Agents MUST NOT bypass this rule by using:
+   - Start-Process
+   - PowerShell background jobs
+   - cmd /c start
+   - hidden windows
+   - detached processes
+   - nohup
+   - &
+   - custom scripts that spawn persistent child processes
+
+4. Do NOT start a server temporarily for a smoke test.
+
+5. Do NOT poll a server, port, process, log, HMR connection, WebSocket, tunnel, or external endpoint indefinitely.
+
+6. Commands executed by an agent must have a clear bounded termination condition.
+
+7. Finite validation commands ARE allowed, including:
+   - npm run lint
+   - npx tsc --noEmit --incremental false
+   - npm run build
+   - finite npm test commands
+   - project validation scripts
+   - git status
+   - git diff
+   - git diff --check
+   - git log
+   - git grep / rg
+   - other inspection commands that terminate normally
+
+8. npm run build is allowed.
+   npm run dev and npm run start are not.
+
+9. cloudflared must NEVER be started by an agent.
+
+10. If runtime verification requires a persistent process, the agent must STOP that part of verification and report:
+
+    "Manual runtime verification required."
+
+    Then provide:
+    - exact command for the user
+    - which terminal it should run in
+    - expected result
+    - what output/log the user should return if further diagnosis is needed
+
+11. Example:
+
+    Manual runtime verification required.
+
+    Terminal 1:
+    npm run dev
+
+    Terminal 2:
+    cloudflared tunnel --url http://localhost:3000
+
+    The agent must NOT execute either command.
+
+12. If a command may potentially hang and bounded execution cannot be guaranteed, do not execute it.
+
+13. Never wait indefinitely for:
+    - "Ready"
+    - HTTP responses
+    - HMR
+    - WebSocket events
+    - GPS events
+    - browser interaction
+    - Cloudflare connections
+    - Supabase Realtime events
+
+14. Runtime/browser/mobile/GPS verification that requires the application to remain running is the user's responsibility unless a finite automated test already exists.
+
+15. Agents may inspect existing runtime logs supplied by the user without starting the corresponding service.
+
+16. Before modifying the repository, inspect:
+    - git status
+    - relevant existing files
+    - current diff when uncommitted work exists
+
+    Preserve existing uncommitted work and do not overwrite work from previous agents.
+
+17. Do not create commits automatically unless explicitly requested by the user.
+
+18. At the end of tasks, distinguish clearly between:
+    - validations actually executed
+    - validations requiring manual runtime verification
+
+19. NEVER claim that runtime behavior was verified if the required persistent process was not actually tested by the user.
+
+20. This policy overrides task prompts that casually instruct the agent to start a dev server for testing, unless the user explicitly overrides this policy in the current conversation.
