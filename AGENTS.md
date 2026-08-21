@@ -9,6 +9,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Sources Of Truth
 
 - This is one npm package (`package-lock.json`), not a workspace. Use npm; `@/*` resolves from the repository root.
+- The runtime baseline is Node 24; `.nvmrc` is the repository selector and `npm run test:runtime` verifies the runtime/dependency contract.
 - `README.md` is still the create-next-app template and is stale: there is no `app/page.tsx`. Trust scripts and source over it.
 - Framework versions are Next.js 16.2 and React 19; do not rely on older Next.js conventions.
 - Shared application code is in capitalized `Lib/`; preserve that casing for Linux deployments.
@@ -20,9 +21,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Development: `npm run dev`
 - Lint all or one path: `npm run lint`; `npx eslint <path>`
 - Typecheck: `npx tsc --noEmit --incremental false` (there is no `typecheck` script).
-- Domain checks: `npm run test:achievements`; `npm run test:social`; `npm run test:weather`; `npm run test:trackRecording`; `npm run test:projects`. They require a Node version supporting `--experimental-strip-types`.
+- Runtime/dependency contract: `npm run test:runtime`.
+- Domain checks: `npm run test:achievements`; `npm run test:social`; `npm run test:weather`; `npm run test:trackRecording`; `npm run test:projects`. They require Node 24 and use `--experimental-strip-types` where needed.
 - Production verification: `npm run build`
-- There is no Jest/Vitest/Playwright suite and no checked-in CI workflow. Run lint, typecheck, the relevant domain validator(s), then build for broad verification.
+- There is no Jest/Vitest/Playwright suite and no checked-in CI workflow. Run `npm run test:runtime`, lint, typecheck, the relevant domain validator(s), then build for broad verification.
 
 ## Runtime Shape
 
@@ -56,7 +58,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Map And Tracks
 
-- MapLibre is the active map engine; do not replace it. `mapbox-gl` is installed but has no application imports.
+- MapLibre is the active map engine; do not replace it. The unused `mapbox-gl` dependency was removed and must not be reintroduced without an explicit migration decision.
 - Main map wiring is `MountainMap` -> `useMountainMap`/`initializeMap` -> `get_mountains_in_bounds` -> GeoJSON source `peaks` -> layers `clusters`, `cluster-count`, and `individual-peaks`. Search, filtering, clustering, visible count, selection, and climbed state share these IDs and `originalGeoJsonRef`.
 - Search only covers the buffered viewport data already loaded, not the global mountain database. Filtering replaces source data so MapLibre recalculates clusters.
 - LOD result thresholds are duplicated in `initializeMap.ts` and `useMountainMap.ts`; keep initial and subsequent loads aligned. `loadAllMountains.ts` is currently unused.
