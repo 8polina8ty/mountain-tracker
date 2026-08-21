@@ -13,6 +13,21 @@ const devAllowedOrigins =
           : []),
       ];
 
+const supabaseImageHostname = (() => {
+  const configuredUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+
+  if (!configuredUrl) {
+    return null;
+  }
+
+  try {
+    const url = new URL(configuredUrl);
+    return url.protocol === "https:" ? url.hostname : null;
+  } catch {
+    return null;
+  }
+})();
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -36,10 +51,14 @@ const nextConfig: NextConfig = {
         hostname: "upload.wikimedia.org",
         pathname: "/wikipedia/commons/thumb/**",
       },
-      {
-        protocol: "https",
-        hostname: "weplpaigyyqzdkolypmw.supabase.co",
-      },
+      ...(supabaseImageHostname
+        ? [
+            {
+              protocol: "https" as const,
+              hostname: supabaseImageHostname,
+            },
+          ]
+        : []),
     ],
   },
   async headers() {
