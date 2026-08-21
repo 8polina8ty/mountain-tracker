@@ -59,13 +59,18 @@ export default function ProjectJournal({
   const [cursor, setCursor] = useState<ProjectJournalCursor | null>(initialCursor);
   const [loadingMore, setLoadingMore] = useState(false);
   const [loadMoreFailed, setLoadMoreFailed] = useState(false);
+  const [serverPage, setServerPage] = useState({ entries, deliveries, initialCursor });
 
-  useEffect(() => {
+  // A server refresh produces new page props. Reset the locally appended pages
+  // during render so React can immediately restart from the new canonical page
+  // without a second effect-driven render.
+  if (serverPage.entries !== entries || serverPage.deliveries !== deliveries || serverPage.initialCursor !== initialCursor) {
+    setServerPage({ entries, deliveries, initialCursor });
     setLoadedEntries(entries);
     setLoadedDeliveries(deliveries);
     setCursor(initialCursor);
     setLoadMoreFailed(false);
-  }, [deliveries, entries, initialCursor]);
+  }
 
   useEffect(() => {
     const entryIds = new Set(loadedEntries.map((entry) => entry.id));
