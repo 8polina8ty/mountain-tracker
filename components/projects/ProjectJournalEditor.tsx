@@ -49,7 +49,7 @@ export default function ProjectJournalEditor({
   const t = useTranslations("Projects.Mutations");
   const mediaT = useTranslations("Projects.Media");
   const format = useFormatter();
-  const router=useRouter();
+  const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const previewUrlsRef = useRef(new Set<string>());
   const uploadControllersRef = useRef(new Map<string, ProjectMediaUploadController>());
@@ -60,7 +60,7 @@ export default function ProjectJournalEditor({
   const [error, setError] = useState("");
   const [announcement, setAnnouncement] = useState("");
   const [createdEntryId, setCreatedEntryId] = useState<string | null>(null);
-  const [conflict,setConflict]=useState<"journal"|"permission"|"archived"|null>(null);
+  const [conflict, setConflict] = useState<"journal" | "permission" | "archived" | null>(null);
 
   useEffect(() => () => {
     for (const url of previewUrlsRef.current) URL.revokeObjectURL(url);
@@ -210,7 +210,7 @@ export default function ProjectJournalEditor({
       setCreatedEntryId(result.data);
     } else if (entry) {
       const result = await updateJournalEntry(createClient(), projectId, entry.id, { title: title || null, body, entryDate: entry.entryDate, projectDayId: projectDayId === undefined ? entry.projectDayId : projectDayId, expectedUpdatedAt: entry.updatedAt });
-      if (!result.ok) { setBusy(false); if(["conflict","permission","archived"].includes(result.reason)){setConflict(result.reason==="conflict"?"journal":result.reason as "permission"|"archived");return;} setError(t("journalUpdateError")); return; }
+      if (!result.ok) { setBusy(false); if (["conflict", "permission", "archived"].includes(result.reason)) { setConflict(result.reason === "conflict" ? "journal" : result.reason as "permission" | "archived"); return; } setError(t("journalUpdateError")); return; }
     }
     if (candidates.length === 0) {
       setBusy(false);
@@ -230,7 +230,7 @@ export default function ProjectJournalEditor({
 
   return (
     <form onSubmit={save} className="mb-4 space-y-4 border border-[var(--color-border)] bg-[var(--color-surface)] p-4" noValidate>
-      {conflict&&<ProjectConflictNotice kind={conflict} onReload={()=>{setConflict(null);router.refresh();}}/>}
+      {conflict && <ProjectConflictNotice kind={conflict} onReload={() => { setConflict(null); router.refresh(); }} />}
       {entry && showExistingPhotos && <ProjectPhotoGallery projectId={projectId} entryTitle={entry.title} photos={existingPhotos} managing />}
       <label className="block"><span className="mb-1 block text-sm font-bold">{t("journalTitleLabel")}</span><input disabled={lockedAfterCreate} value={title} onChange={(event) => setTitle(event.target.value)} maxLength={PROJECT_JOURNAL_TITLE_MAX_LENGTH} className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 disabled:opacity-60" /></label>
       <label className="block"><span className="mb-1 block text-sm font-bold">{t("journalBodyLabel")}</span><textarea disabled={lockedAfterCreate} value={body} onChange={(event) => setBody(event.target.value)} maxLength={PROJECT_JOURNAL_BODY_MAX_LENGTH} aria-invalid={Boolean(error)} aria-describedby={error ? "journal-form-error" : undefined} className="ui-field min-h-40 w-full resize-y rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 disabled:opacity-60" /><span className="mt-1 block text-xs text-[var(--color-text-muted)]">{mediaT("mediaOnlyEntry")}</span></label>
@@ -255,7 +255,7 @@ export default function ProjectJournalEditor({
       </div>}
       {error && <p id="journal-form-error" role="alert" className="text-sm text-[var(--color-danger)]">{error}</p>}
       <p className="sr-only" aria-live="polite" aria-atomic="true">{announcement}</p>
-      <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end"><button type="button" disabled={busy} onClick={onCancel} className="ui-pressable min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] px-4 font-semibold">{t("cancel")}</button><button type="submit" disabled={busy} className="ui-pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 font-bold text-[var(--color-text-inverse)] disabled:opacity-60">{busy && <LoaderCircle aria-hidden="true" className="animate-spin" size={16} />}{busy ? mediaT("uploading") : t("save")}</button></div>
+      <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">{!createdEntryId && <button type="button" disabled={busy} onClick={onCancel} className="ui-pressable min-h-11 rounded-[var(--radius-control)] border border-[var(--color-border)] px-4 font-semibold">{t("cancel")}</button>}<button type="submit" disabled={busy} className="ui-pressable inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 font-bold text-[var(--color-text-inverse)] disabled:opacity-60">{busy && <LoaderCircle aria-hidden="true" className="animate-spin" size={16} />}{busy ? mediaT("uploading") : t("save")}</button></div>
     </form>
   );
 }
