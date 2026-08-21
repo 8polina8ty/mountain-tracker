@@ -7,6 +7,12 @@ import { listProjectJournalPage } from "@/Lib/projects/queries";
 import type { ProjectJournalCursor } from "@/Lib/projects/types";
 import { createClient } from "@/Lib/supabase/server";
 
+const ISO_TIMESTAMP_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
+
+function isSafeCursorTimestamp(value: string): boolean {
+  return ISO_TIMESTAMP_PATTERN.test(value) && !Number.isNaN(Date.parse(value));
+}
+
 export async function GET(request: Request, { params }: { params: Promise<{ projectId: string }> }) {
   const { projectId } = await params;
   if (!isUuid(projectId)) return NextResponse.json({ error: "invalid-project" }, { status: 400 });
@@ -32,7 +38,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ proj
   }
   let cursor: ProjectJournalCursor | null = null;
   if (cursorDate !== null && cursorId !== null) {
-    if (!isUuid(cursorId) || Number.isNaN(Date.parse(cursorDate))) {
+    if (!isUuid(cursorId) || !isSafeCursorTimestamp(cursorDate)) {
       return NextResponse.json({ error: "invalid-cursor" }, { status: 400 });
     }
     cursor = { entryDate: cursorDate, id: cursorId };
