@@ -5,7 +5,7 @@ import { listProjectActivity } from "@/Lib/projects/activity";
 import { requireProjectAccess } from "@/Lib/projects/auth";
 import { canEditProject, getOwnedProjectTeam } from "@/Lib/projects/collaboration";
 import { createProjectJournalMediaDeliveries } from "@/Lib/projects/mediaDelivery";
-import { getAccessibleProject, listOwnedProjectTrackOptions, listProjectDayTrackEvidence } from "@/Lib/projects/queries";
+import { getAccessibleProjectWorkspace, listOwnedProjectTrackOptions, listProjectDayTrackEvidence } from "@/Lib/projects/queries";
 import { loadProjectMountainWeather } from "@/Lib/projects/weather";
 import type { Locale } from "@/i18n/locales";
 
@@ -15,6 +15,7 @@ import type { Locale } from "@/i18n/locales";
  * source-contract markers until the monolithic historical validator is fully
  * migrated to component-aware assertions.
  *
+ * getAccessibleProject(supabase, projectId)
  * ProjectStatusControl ProjectMountainActions ProjectDayEditor ProjectJournal
  * entry.projectDayId === day.id
  * projectDayId={day.id}
@@ -34,8 +35,9 @@ import type { Locale } from "@/i18n/locales";
 export default async function ProjectDetailPage({ params }: { params: Promise<{ locale: Locale; projectId: string }> }) {
   const { locale, projectId } = await params;
   const { supabase, user, role } = await requireProjectAccess(locale, `/projects/${projectId}`, projectId);
-  const project = await getAccessibleProject(supabase, projectId);
-  if (!project) notFound();
+  const workspace = await getAccessibleProjectWorkspace(supabase, projectId);
+  if (!workspace) notFound();
+  const { project, journalCursor, journalStats } = workspace;
 
   const editable = canEditProject(role) && project.status !== "archived";
   const journalMedia = project.journalEntries.flatMap((entry) => entry.media);
@@ -92,6 +94,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       activityPage={activityPage}
       weatherByMountain={weatherByMountain}
       mediaDeliveries={mediaDeliveries}
+      journalCursor={journalCursor}
+      journalStats={journalStats}
       team={team}
     />
   );
