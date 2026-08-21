@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
 import { Camera, Compass } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 type ProfileCardProps = {
@@ -27,9 +28,12 @@ export default function ProfileCard({
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
         <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/30 bg-white/10 text-4xl font-bold sm:h-28 sm:w-28">
           {avatarUrl ? (
-            <img
+            <Image
               src={avatarUrl}
               alt={t("avatarAlt", { username })}
+              width={112}
+              height={112}
+              sizes="(min-width: 640px) 112px, 96px"
               className="h-full w-full object-cover"
             />
           ) : (
