@@ -81,6 +81,22 @@ async function nextAvailableSortOrder(
   return { value: current + 1, error: null };
 }
 
+async function failureOrRecoverMissingStorageMediaDelete(
+  supabase: SupabaseClient,
+  projectId: string,
+  mediaId: string,
+  storageError: unknown,
+): Promise<ProjectJournalMediaMutationResult> {
+  if (!isStorageMissingError(storageError)) {
+    return failure("storage", "media-storage-delete-failed", true, "media-delete-storage", storageError);
+  }
+  const { error: metadataError } = await supabase.from("expedition_project_journal_media").delete()
+    .eq("id", mediaId).eq("project_id", projectId);
+  return metadataError
+    ? failure("cleanup-required", "media-object-removed-metadata-delete-failed", true, "media-delete-metadata", metadataError, true)
+    : { ok: true, data: undefined };
+}
+
 export async function uploadProjectJournalMedia(
   supabase: SupabaseClient,
   input: ProjectJournalMediaUploadInput,
@@ -203,9 +219,7 @@ export async function deleteProjectJournalMedia(
   if (!media || typeof media.storage_path !== "string") return failure("not-found", "media-not-found", false, "ownership-query");
 
   const { error: storageError } = await supabase.storage.from(EXPEDITION_MEDIA_BUCKET).remove([media.storage_path]);
-  if (storageError && !isStorageMissingError(storageError)) {
-    return failure("storage", "media-storage-delete-failed", true, "media-delete-storage", storageError);
-  }
+  if (storageError) return failureOrRecoverMissingStorageMediaDelete(supabase, projectId, mediaId, storageError);
   const { error: metadataError } = await supabase.from("expedition_project_journal_media").delete()
     .eq("id", mediaId).eq("project_id", projectId);
   return metadataError
