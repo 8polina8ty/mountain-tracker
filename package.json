@@ -11,7 +11,7 @@
     "test:social": "node --experimental-strip-types scripts/validate-social.mjs",
     "test:weather": "node --experimental-strip-types scripts/validate-weather.mjs",
     "test:trackRecording": "node --experimental-strip-types scripts/validate-track-recording.mjs",
-    "test:projects": "node --experimental-strip-types scripts/validate-projects.mjs"
+    "test:projects": "node --experimental-strip-types scripts/validate-projects.mjs && node --experimental-strip-types scripts/validate-journal-hardening.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
