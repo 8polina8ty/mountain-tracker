@@ -5,7 +5,15 @@ import { getSiteOrigin } from "@/i18n/seo";
 
 export default function robots(): MetadataRoute.Robots {
   const origin = getSiteOrigin();
-  const privateSegments = ["account", "auth", "database-test"];
+  const privateSegments = [
+    "account",
+    "auth",
+    "database-test",
+    "friends",
+    "messages",
+    "notifications",
+    "projects",
+  ];
   const disallow = [
     ...privateSegments.flatMap((segment) => [`/${segment}`, `/${segment}/`]),
     ...locales.flatMap((locale) =>
