@@ -21,23 +21,25 @@ assert.ok(queriesSource.includes('? query.is("project_day_id", null)') && querie
   "JOURNAL PAGE D: project notes and day journals must paginate in separate scopes.");
 
 const statsSelect = queriesSource.match(/\.select\("project_day_id, expedition_project_journal_media \(media_type\)"\)/)?.[0] ?? "";
-assert.ok(statsSelect, "JOURNAL PAGE E: lightweight exact journal/media stats query missing.");
+assert.ok(statsSelect, "JOURNAL PAGE E: lightweight journal/media stats query missing.");
 for (const heavyField of ["body", "title", "storage_path", "original_filename", "width", "height", "duration_seconds"]) {
   assert.equal(statsSelect.includes(heavyField), false, `JOURNAL PAGE E: stats query leaked heavy field ${heavyField}.`);
 }
 assert.ok(projectView.includes("journalEntryCount: journalStats.total.entryCount")
   && projectView.includes("photoCount: journalStats.total.photoCount")
   && projectView.includes("videoCount: journalStats.total.videoCount"),
-  "JOURNAL PAGE F: exact completion totals must not depend on the bounded initial page.");
+  "JOURNAL PAGE F: completion totals must not depend on the bounded initial page.");
 assert.ok(projectView.includes("value={journalStats.total.entryCount}")
   && projectView.includes("totalCount={dayJournalStats.entryCount}")
   && projectView.includes("totalCount={journalStats.project.entryCount}"),
-  "JOURNAL PAGE F: exact header and scope counts are not wired.");
+  "JOURNAL PAGE F: header and scope counts are not wired.");
 
 assert.ok(apiSource.includes("supabase.auth.getUser()") && apiSource.includes("getProjectAccessRole(supabase, projectId)"),
   "JOURNAL PAGE G: pagination endpoint must authenticate and resolve project access.");
 assert.ok(apiSource.includes('role === "none"') && apiSource.includes("status: 404"),
   "JOURNAL PAGE G: outsider pagination must retain non-disclosing not-found behavior.");
+assert.ok(apiSource.includes("ISO_TIMESTAMP_PATTERN") && apiSource.includes("isSafeCursorTimestamp(cursorDate)"),
+  "JOURNAL PAGE G: cursor timestamp syntax must be constrained before entering the PostgREST filter string.");
 assert.ok(apiSource.includes("listProjectJournalPage(supabase, projectId, projectDayId, cursor)"),
   "JOURNAL PAGE H: endpoint must use the canonical scoped keyset query.");
 assert.ok(apiSource.includes("createProjectJournalMediaDeliveries") && apiSource.includes('"Cache-Control": "private, no-store"'),
@@ -54,7 +56,7 @@ assert.ok(journalSource.includes("new Set(current.map((entry) => entry.id))") &&
 assert.ok(journalSource.includes("new Set(current.map((media) => media.id))") && journalSource.includes("!ids.has(media.id)"),
   "JOURNAL PAGE J: appended signed media deliveries must deduplicate.");
 assert.ok(journalSource.includes("const hasMore = cursor !== null && loadedEntries.length < totalCount"),
-  "JOURNAL PAGE K: load-more visibility must be bounded by the exact scope count.");
+  "JOURNAL PAGE K: load-more visibility must be bounded by the scope count.");
 assert.equal(journalSource.includes("getPublicUrl"), false, "JOURNAL PAGE L: pagination must not introduce public media URLs.");
 assert.ok(normalizationSource.includes("export function normalizeJournalEntry"),
   "JOURNAL PAGE M: paged rows must reuse the canonical journal entry normalizer.");
