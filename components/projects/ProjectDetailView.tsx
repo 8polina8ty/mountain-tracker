@@ -18,8 +18,9 @@ import type {
   MountainId,
   ProjectActivityPage,
   ProjectDayTrackEvidence,
-  ProjectJournalEntry,
+  ProjectJournalCursor,
   ProjectJournalMediaDelivery,
+  ProjectJournalWorkspaceStats,
   ProjectTrackPickerOption,
 } from "@/Lib/projects/types";
 import { summarizeProjectWeather } from "@/Lib/projects/weather";
@@ -40,6 +41,8 @@ type Props = {
   activityPage: ProjectActivityPage;
   weatherByMountain: ReadonlyMap<MountainId, SummitWeather | null>;
   mediaDeliveries: ProjectJournalMediaDelivery[];
+  journalCursor: ProjectJournalCursor | null;
+  journalStats: ProjectJournalWorkspaceStats;
   team: ProjectTeam | null;
 };
 
@@ -56,6 +59,8 @@ export default async function ProjectDetailView({
   activityPage,
   weatherByMountain,
   mediaDeliveries,
+  journalCursor,
+  journalStats,
   team,
 }: Props) {
   const [t, format] = await Promise.all([
@@ -72,7 +77,13 @@ export default async function ProjectDetailView({
     day.id,
     projectWithEvidence.journalEntries.filter((entry) => entry.projectDayId === day.id),
   ] as const));
-  const completionSummary = buildProjectCompletionSummary(projectWithEvidence);
+  const derivedCompletionSummary = buildProjectCompletionSummary(projectWithEvidence);
+  const completionSummary = {
+    ...derivedCompletionSummary,
+    journalEntryCount: journalStats.total.entryCount,
+    photoCount: journalStats.total.photoCount,
+    videoCount: journalStats.total.videoCount,
+  };
   const weatherSummary = summarizeProjectWeather(projectWithEvidence.days, weatherByMountain);
   const projectJournalEntries = projectWithEvidence.journalEntries.filter((entry) => entry.projectDayId === null);
   const dateRange = projectWithEvidence.startDate && projectWithEvidence.endDate
@@ -121,7 +132,7 @@ export default async function ProjectDetailView({
           <dl className="grid grid-cols-3 border-t border-white/15 bg-white/[0.04]">
             <HeaderMetric label={t("Common.mountains")} value={projectWithEvidence.mountains.length} />
             <HeaderMetric label={t("Common.days")} value={projectWithEvidence.days.length} />
-            <HeaderMetric label={t("Common.journal")} value={projectWithEvidence.journalEntries.length} />
+            <HeaderMetric label={t("Common.journal")} value={journalStats.total.entryCount} />
           </dl>
         </header>
 
@@ -156,6 +167,7 @@ export default async function ProjectDetailView({
                 <ol className="space-y-6">
                   {projectWithEvidence.days.map((day) => {
                     const dayJournalEntries = dayJournalEntriesById.get(day.id) ?? [];
+                    const dayJournalStats = journalStats.days[day.id] ?? { entryCount: 0, mediaCount: 0, photoCount: 0, videoCount: 0 };
                     const daySignedTrackUrls = Object.fromEntries(
                       day.trackEvidence.flatMap((track) => signedTrackUrls[String(track.activityId)]
                         ? [[String(track.activityId), signedTrackUrls[String(track.activityId)]]]
@@ -174,7 +186,7 @@ export default async function ProjectDetailView({
                           weatherContent={<ProjectDayWeather key={`day-weather-${day.id}`} locale={locale} day={day} weatherByMountain={weatherByMountain} />}
                           evidenceContent={(
                             <>
-                              <DayProgress evidenceCount={day.trackEvidence.length} journalEntries={dayJournalEntries} t={t}/>
+                              <DayProgress evidenceCount={day.trackEvidence.length} journalCount={dayJournalStats.entryCount} mediaCount={dayJournalStats.mediaCount} t={t}/>
                               <ProjectDayTrackEvidenceSection
                                 projectId={projectWithEvidence.id}
                                 projectDayId={day.id}
@@ -196,6 +208,8 @@ export default async function ProjectDetailView({
                                   projectDayId={day.id}
                                   entries={dayJournalEntries}
                                   deliveries={mediaDeliveries}
+                                  initialCursor={journalCursor}
+                                  totalCount={dayJournalStats.entryCount}
                                   emptyText={t("Detail.noDayJournalEntries")}
                                   compact
                                   editable={editable}
@@ -256,6 +270,8 @@ export default async function ProjectDetailView({
               projectId={projectWithEvidence.id}
               entries={projectJournalEntries}
               deliveries={mediaDeliveries}
+              initialCursor={journalCursor}
+              totalCount={journalStats.project.entryCount}
               emptyText={t("Detail.noProjectJournalEntries")}
               editable={editable}
               currentUserId={userId}
@@ -303,17 +319,17 @@ function CompletionReport({ summary, t, format }: {
   );
 }
 
-function DayProgress({ evidenceCount, journalEntries, t }: {
+function DayProgress({ evidenceCount, journalCount, mediaCount, t }: {
   evidenceCount: number;
-  journalEntries: ProjectJournalEntry[];
+  journalCount: number;
+  mediaCount: number;
   t: Awaited<ReturnType<typeof getTranslations>>;
 }) {
-  const media = journalEntries.flatMap((entry) => entry.media);
   return (
     <p className="mt-5 flex flex-wrap gap-x-4 gap-y-1 border-t border-[var(--color-border-soft)] pt-4 text-xs font-semibold text-[var(--color-text-muted)]">
       <span>{evidenceCount > 0 ? t("Lifecycle.evidenceAdded") : t("Lifecycle.planned")}</span>
-      <span>{t("Lifecycle.journalCount", { count: journalEntries.length })}</span>
-      <span>{t("Lifecycle.mediaCount", { count: media.length })}</span>
+      <span>{t("Lifecycle.journalCount", { count: journalCount })}</span>
+      <span>{t("Lifecycle.mediaCount", { count: mediaCount })}</span>
     </p>
   );
 }
