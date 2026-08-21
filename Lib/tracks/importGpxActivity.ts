@@ -4,6 +4,7 @@ import { detectMountainFromTrack, type DetectedMountain } from "./detectMountain
 import { parseGpxFile, type ParsedGpxTrack } from "./parseGpxFile.ts";
 
 export const GPX_ACTIVITY_BUCKET = "activity-tracks";
+export const GPX_IMPORT_MAX_FILE_BYTES = 25 * 1024 * 1024;
 
 export type GpxImportSource = "garmin" | "suunto" | "strava" | "komoot" | "watch" | "phone" | "other";
 export type GpxImportFailureReason = "auth" | "validation" | "activity-create" | "original-upload" | "parse" | "detection" | "metadata-update" | "geojson-upload" | "cleanup-required" | "unknown";
@@ -22,10 +23,27 @@ type GpxImportDependencies = {
   detect: typeof detectMountainFromTrack;
 };
 
+type StorageErrorLike = { statusCode?: unknown; status?: unknown; code?: unknown; message?: unknown };
+
 function databaseSourceType(source: GpxImportSource): string {
   if (source === "phone") return "phone_recording";
   if (source === "watch" || source === "other") return "other";
   return source;
+}
+
+export function validateGpxImportFile(file: Pick<File, "name" | "size">): boolean {
+  const name = file.name.trim();
+  if (!name || name.length > 255) return false;
+  if (file.size <= 0 || file.size > GPX_IMPORT_MAX_FILE_BYTES) return false;
+  return name.split(".").pop()?.toLowerCase() === "gpx";
+}
+
+function isStorageMissingError(error: unknown): boolean {
+  const value = error as StorageErrorLike | null;
+  const status = value?.statusCode ?? value?.status;
+  const code = typeof value?.code === "string" ? value.code.toLowerCase() : "";
+  const message = typeof value?.message === "string" ? value.message.toLowerCase() : "";
+  return status === 404 || status === "404" || code === "404" || code === "not_found" || /not[ -]?found|does not exist|no such object/.test(message);
 }
 
 export function buildGpxActivityPaths(userId: string, activityId: number) {
@@ -38,16 +56,15 @@ async function compensateFailedImport(
   activityId: number | null,
   paths: string[],
 ): Promise<boolean> {
-  let cleaned = true;
   if (paths.length > 0) {
     const { error } = await supabase.storage.from(GPX_ACTIVITY_BUCKET).remove(paths);
-    if (error) cleaned = false;
+    if (error && !isStorageMissingError(error)) return false;
   }
   if (activityId !== null) {
     const { error } = await supabase.from("gps_activities").delete().eq("id", activityId);
-    if (error) cleaned = false;
+    if (error) return false;
   }
-  return cleaned;
+  return true;
 }
 
 export async function importGpxActivity(
@@ -64,7 +81,7 @@ export async function importGpxActivity(
   try {
     const { data: authData, error: authError } = await supabase.auth.getUser();
     if (authError || !authData.user) return { ok: false, reason: "auth", retryable: false };
-    if (file.name.split(".").pop()?.toLowerCase() !== "gpx") return { ok: false, reason: "validation", retryable: false };
+    if (!validateGpxImportFile(file)) return { ok: false, reason: "validation", retryable: false };
 
     failureReason = "activity-create";
     const { data: activity, error: activityError } = await supabase.from("gps_activities").insert({
