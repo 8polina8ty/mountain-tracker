@@ -90,10 +90,10 @@ async function failureOrRecoverMissingStorageMediaDelete(
   if (!isStorageMissingError(storageError)) {
     return failure("storage", "media-storage-delete-failed", true, "media-delete-storage", storageError);
   }
-  const { error: metadataError } = await supabase.from("expedition_project_journal_media").delete()
+  const { error: staleMetadataDeleteError } = await supabase.from("expedition_project_journal_media").delete()
     .eq("id", mediaId).eq("project_id", projectId);
-  return metadataError
-    ? failure("cleanup-required", "media-object-removed-metadata-delete-failed", true, "media-delete-metadata", metadataError, true)
+  return staleMetadataDeleteError
+    ? failure("cleanup-required", "media-object-removed-metadata-delete-failed", true, "media-delete-metadata", staleMetadataDeleteError, true)
     : { ok: true, data: undefined };
 }
 
