@@ -12,6 +12,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - `README.md` is still the create-next-app template and is stale: there is no `app/page.tsx`. Trust scripts and source over it.
 - Framework versions are Next.js 16.2 and React 19; do not rely on older Next.js conventions.
 - Shared application code is in capitalized `Lib/`; preserve that casing for Linux deployments.
+- GitHub `main` is the current repository source of truth unless the user explicitly specifies another branch. Do not switch branches, merge, push, or create commits unless explicitly requested.
 
 ## Commands
 
@@ -19,15 +20,15 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Development: `npm run dev`
 - Lint all or one path: `npm run lint`; `npx eslint <path>`
 - Typecheck: `npx tsc --noEmit --incremental false` (there is no `typecheck` script).
-- Domain checks: `npm run test:achievements`; `npm run test:social`. They require a Node version supporting `--experimental-strip-types`.
+- Domain checks: `npm run test:achievements`; `npm run test:social`; `npm run test:weather`; `npm run test:trackRecording`; `npm run test:projects`. They require a Node version supporting `--experimental-strip-types`.
 - Production verification: `npm run build`
 - There is no Jest/Vitest/Playwright suite and no checked-in CI workflow. Run lint, typecheck, the relevant domain validator(s), then build for broad verification.
 
 ## Runtime Shape
 
 - The App Router starts at `app/[locale]/layout.tsx`; `app/[locale]/page.tsx` redirects to the main map. Route params such as `params` are async in this Next.js version.
-- `proxy.ts` owns next-intl routing. All normal routes are locale-prefixed; supported locales are `de`, `en`, and `ru`, with `de` as default. Unprefixed `/map`, `/mountain`, `/ranking`, and `/users` paths (including descendants) intentionally redirect to `/ru/...`.
-- Locale messages are domain JSON files under `messages/<locale>/`. Adding a domain requires the same file/key shape in all three locales and an entry in `i18n/request.ts`'s `messageFiles`.
+- `proxy.ts` owns next-intl routing. All normal routes are locale-prefixed; supported locales are `de`, `en`, `ru`, `fr`, `it`, and `es`, with `de` as default. Unprefixed `/map`, `/mountain`, `/ranking`, and `/users` paths (including descendants) intentionally redirect to `/ru/...`.
+- Locale messages are domain JSON files under `messages/<locale>/`. Adding a domain requires the same file/key shape in all six locales and an entry in `i18n/request.ts`'s `messageFiles`.
 - Use locale-aware navigation exports from `i18n/navigation.ts` when applicable.
 - Browser and server Supabase factories are separate: `Lib/supabase/client.ts` and `Lib/supabase/server.ts`. The server cookie adapter cannot write cookies, and `proxy.ts` does not refresh auth sessions.
 - App runtime requires `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. SEO origin optionally comes from `SITE_URL`, `NEXT_PUBLIC_SITE_URL`, or Vercel URL variables. Never print or commit `.env*` values.
@@ -38,8 +39,20 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - `database/*.sql` contains manually applied, reviewed artifacts, not migrations or proof of deployed state. Never apply them unless explicitly requested.
 - Achievement SQL order is snapshot -> reconciliation -> notifications -> backfill (`get_achievement_snapshot.sql`, `reconcile_user_achievements.sql`, `achievement_notifications.sql`, `backfill_user_achievements.sql`); the public summary is a separate manual Phase H artifact.
 - Social SQL order is profile contract -> friend requests -> friendships -> blocks -> verify Phase B -> conversations -> messages -> unread/Realtime.
-- The contract validators intentionally inspect SQL literals, translation shapes, source patterns, and even achievement trigger call counts. After touching achievements or social/messaging, run the matching validator; do not dismiss failures as brittle tests.
+- Expedition/Project SQL spans base project schema, media, day tracks, collaboration, activity, notifications, sharing, discovery, plus targeted repair scripts. Treat these files as reviewed contracts only and reconcile them against the deployed Supabase state before assuming parity.
+- The contract validators intentionally inspect SQL literals, translation shapes, source patterns, and domain invariants. After touching achievements, social/messaging, weather, track-recording contracts, or expedition/projects, run the matching validator; do not dismiss failures as brittle tests.
 - Python peak importers are operational ETL, not setup scripts. They load `.env.local`, use `SUPABASE_SERVICE_ROLE_KEY`, and directly upsert production-shaped mountain data; do not run them without an explicit import task.
+
+## Expedition / Journal
+
+- Expedition Projects are a first-class domain boundary under `Lib/projects/`, not a UI-only feature.
+- Private workspace routes live under `app/[locale]/projects/`; public published expedition surfaces live under `app/[locale]/expeditions/[slug]/`.
+- The domain includes project lifecycle, mountains, itinerary days, day/project journal entries, photo/video media, GPS evidence, weather, completion/reporting, collaboration, activity, notifications, sharing, and public reports.
+- Collaboration roles include `owner`, `editor`, and `viewer`; public sharing is a separate exposure path. Changes in these areas require authorization/RLS review, not only UI checks.
+- Public report code crosses a service-role boundary. Preserve slug/status checks, opaque media handling, HMAC verification, and least-data exposure; never bypass RLS casually.
+- Journal/media/GPS changes should be validated end to end conceptually: create/update/delete, storage lifecycle, authorization, reload/delivery, report/completion projection, and negative cases.
+- After expedition/project changes, run `npm run test:projects`; also run other domain validators when shared systems are touched.
+- Current Phase 11 is in integration/hardening: prefer security/RLS reconciliation, end-to-end completion, performance, and release-gate work before adding another large Expedition feature unless the user explicitly prioritizes one.
 
 ## Map And Tracks
 
@@ -56,7 +69,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Reuse the Tailwind v4 semantic tokens and UI primitives in `app/globals.css` before adding page-specific values or dependencies.
 - Motion uses `motion/react`; the root `MotionProvider` already sets `reducedMotion="user"`. Prefer short opacity/transform transitions and keep map interaction and mobile usability primary.
 - For large redesign requests, first analyze without editing, report architecture/risks/design direction/phases, and wait for approval. Then proceed one phase at a time: tokens -> shell/navigation -> map UI -> mountain surfaces -> search/filter -> motion -> mobile -> accessibility/performance -> final checks.
-- Work remains on the dedicated `redesign` branch. Do not switch branches, merge, push, or create commits unless explicitly requested.
 
 ## Project Working Rules
 
@@ -74,7 +86,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 12. After code changes, run the relevant TypeScript/lint/build checks when appropriate.
 13. If a requested change affects several systems, explain the intended changes before implementation.
 14. Maintain the existing Next.js App Router, TypeScript, Supabase, next-intl, MapLibre, Tailwind and Motion architecture.
-15. Preserve localization support for de, en and ru.
+15. Preserve localization support for `de`, `en`, `ru`, `fr`, `it`, and `es`.
 16. Prefer fixing the root cause of an issue rather than adding temporary workarounds.
 17. Do not modify unrelated code just to make formatting or style consistent.
 18. When unsure about an architectural decision, ask before making a large or destructive change.
