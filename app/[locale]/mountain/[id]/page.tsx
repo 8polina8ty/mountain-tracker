@@ -815,9 +815,12 @@ export default async function MountainPage({ params }: MountainPageProps) {
                         <div className="flex min-w-0 items-center gap-3">
                           <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] font-bold text-[var(--color-forest)]">
                             {ascent.avatar_url ? (
-                              <img
+                              <Image
                                 src={ascent.avatar_url}
                                 alt={username}
+                                width={44}
+                                height={44}
+                                sizes="44px"
                                 className="h-full w-full object-cover"
                               />
                             ) : (
