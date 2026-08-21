@@ -31,5 +31,9 @@ export async function generateMetadata({
 export default function DatabaseTestLayout({
   children,
 }: DatabaseTestLayoutProps) {
+  if (process.env.NODE_ENV === "production") {
+    notFound();
+  }
+
   return children;
 }
