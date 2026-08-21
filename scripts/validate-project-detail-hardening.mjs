@@ -1,0 +1,41 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+
+const projectPage = await readFile(new URL("../app/[locale]/projects/[projectId]/page.tsx", import.meta.url), "utf8");
+const activitySource = await readFile(new URL("../Lib/projects/activity.ts", import.meta.url), "utf8");
+const queriesSource = await readFile(new URL("../Lib/projects/queries.ts", import.meta.url), "utf8");
+
+assert.equal(projectPage.includes('"use client"'), false, "DETAIL A: project detail must remain a Server Component.");
+assert.ok(projectPage.includes('const sharePromise = role === "owner"'), "DETAIL B: owner-only share loading must remain conditional.");
+assert.ok(projectPage.includes("const trackPickerPromise = editable"), "DETAIL C: read-only viewers must not load private track picker options.");
+assert.ok(projectPage.includes("? listOwnedProjectTrackOptions(supabase, user.id)"), "DETAIL C: editable users must retain the owned-track picker.");
+assert.ok(projectPage.includes('const teamPromise = role === "owner"'), "DETAIL D: team management data must remain owner-only.");
+assert.ok(projectPage.includes("const [shareResult, trackEvidence, trackPickerOptions, activityPage, weatherByMountain, mediaDeliveries, team] = await Promise.all(["), "DETAIL E: independent project-detail reads must stay in one parallel loading group.");
+for (const dependency of [
+  "listProjectDayTrackEvidence(supabase, user.id, project.id)",
+  "listProjectActivity(supabase, project.id)",
+  "loadProjectMountainWeather(project.days)",
+  "createProjectJournalMediaDeliveries(supabase, journalMedia)",
+]) {
+  assert.ok(projectPage.includes(dependency), `DETAIL E: missing parallel dependency ${dependency}`);
+}
+
+assert.ok(projectPage.includes("const dayJournalEntriesById = new Map"), "DETAIL F: day journal entries must be prepared once before rendering.");
+assert.equal((projectPage.match(/project\.journalEntries\.filter\(\(entry\) => entry\.projectDayId === day\.id\)/g) ?? []).length, 1,
+  "DETAIL F: day journal filtering must not be repeated inside multiple render branches.");
+assert.ok(projectPage.includes("entries={dayJournalEntries}"), "DETAIL G: day journal rendering must reuse the prepared entries.");
+assert.ok(projectPage.includes("journalEntries={dayJournalEntries}"), "DETAIL G: day progress must reuse the prepared entries.");
+
+assert.equal((projectPage.match(/\.from\("activity-tracks"\)\.createSignedUrls/g) ?? []).length, 1,
+  "DETAIL H: linked GPS evidence must retain one batched signed-URL operation.");
+assert.ok(projectPage.includes("60 * 60"), "DETAIL H: signed track URLs must retain the one-hour lifetime.");
+
+assert.ok(activitySource.includes("PROJECT_ACTIVITY_PAGE_SIZE = 12"), "DETAIL I: activity initial page must remain bounded.");
+assert.ok(activitySource.includes("boundedLimit + 1"), "DETAIL I: activity pagination must use bounded look-ahead.");
+assert.ok(activitySource.includes('.order("created_at", { ascending: false })') && activitySource.includes('.order("id", { ascending: false })'),
+  "DETAIL J: activity pagination order must remain deterministic.");
+assert.ok(activitySource.includes("created_at.lt.${cursor.createdAt}") && activitySource.includes("id.lt.${cursor.id}"),
+  "DETAIL J: activity cursor must remain keyset-based.");
+assert.ok(queriesSource.includes('.limit(200)'), "DETAIL K: owned-track picker must remain bounded.");
+
+console.log("Project detail performance and pagination contracts passed.");
