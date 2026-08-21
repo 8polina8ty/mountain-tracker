@@ -46,9 +46,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   ).values()];
   const signedTrackUrls: Record<string, string> = {};
   if (signableTracks.length > 0) {
-    const { data: signedTracks, error: signingError } = await supabase.storage
-      .from("activity-tracks")
-      .createSignedUrls(signableTracks.map((track) => track.geoJsonPath as string), 60 * 60);
+    const { data: signedTracks, error: signingError } = await supabase.storage.from("activity-tracks").createSignedUrls(
+      signableTracks.map((track) => track.geoJsonPath as string),
+      60 * 60,
+    );
     if (signingError) console.error("Project track GeoJSON signing failed.", signingError);
     for (const [index, delivery] of (signedTracks ?? []).entries()) {
       if (delivery.signedUrl) signedTrackUrls[String(signableTracks[index].activityId)] = delivery.signedUrl;
