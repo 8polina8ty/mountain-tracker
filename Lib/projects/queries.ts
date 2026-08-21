@@ -1,11 +1,26 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
-import { normalizeProjectDetail, normalizeProjectSummary } from "./normalization.ts";
+import { normalizeJournalEntry, normalizeProjectDetail, normalizeProjectSummary } from "./normalization.ts";
 import { logProjectMediaDisplayDiagnostic } from "./mediaDiagnostics.ts";
 import { normalizeProjectPickerOption } from "./picker.ts";
-import type { ExpeditionProject, ExpeditionProjectSummary, MountainId, ProjectDayTrackEvidence, ProjectPickerOption, ProjectTrackPickerOption } from "./types.ts";
+import type {
+  ExpeditionProject,
+  ExpeditionProjectSummary,
+  MountainId,
+  ProjectDayTrackEvidence,
+  ProjectJournalCursor,
+  ProjectJournalPage,
+  ProjectJournalScopeStats,
+  ProjectJournalWorkspaceStats,
+  ProjectPickerOption,
+  ProjectTrackPickerOption,
+  ProjectWorkspaceLoad,
+} from "./types.ts";
 
 const TRACK_FIELDS = `id, title, source_type, started_at, distance_m, duration_seconds, elevation_gain_m, processing_status, detected_mountain_id, detection_confidence, detection_status, gps_verified, geojson_url`;
+
+export const PROJECT_JOURNAL_INITIAL_PAGE_SIZE = 40;
+export const PROJECT_JOURNAL_PAGE_SIZE = 20;
 
 function normalizeTrack(value: unknown): ProjectTrackPickerOption | null {
   if (!value || typeof value !== "object") return null;
@@ -73,6 +88,89 @@ const PROJECT_JOURNAL_ENTRY_SELECT = `
   )
 `;
 
+const emptyScopeStats = (): ProjectJournalScopeStats => ({ entryCount: 0, mediaCount: 0, photoCount: 0, videoCount: 0 });
+
+function incrementScopeStats(stats: ProjectJournalScopeStats, mediaTypes: unknown[]) {
+  stats.entryCount += 1;
+  for (const media of mediaTypes) {
+    if (!media || typeof media !== "object") continue;
+    const mediaType = (media as Record<string, unknown>).media_type;
+    if (mediaType !== "photo" && mediaType !== "video") continue;
+    stats.mediaCount += 1;
+    if (mediaType === "photo") stats.photoCount += 1;
+    else stats.videoCount += 1;
+  }
+}
+
+function journalCursorFromRow(value: unknown): ProjectJournalCursor | null {
+  if (!value || typeof value !== "object") return null;
+  const row = value as Record<string, unknown>;
+  return typeof row.entry_date === "string" && typeof row.id === "string"
+    ? { entryDate: row.entry_date, id: row.id }
+    : null;
+}
+
+export async function listProjectJournalStats(
+  supabase: SupabaseClient,
+  projectId: string,
+): Promise<ProjectJournalWorkspaceStats> {
+  const { data, error } = await supabase
+    .from("expedition_project_journal_entries")
+    .select("project_day_id, expedition_project_journal_media (media_type)")
+    .eq("project_id", projectId);
+  if (error) throw error;
+
+  const total = emptyScopeStats();
+  const project = emptyScopeStats();
+  const days: Record<string, ProjectJournalScopeStats> = {};
+  for (const value of data ?? []) {
+    const row = value as unknown as Record<string, unknown>;
+    const media = Array.isArray(row.expedition_project_journal_media) ? row.expedition_project_journal_media : [];
+    incrementScopeStats(total, media);
+    if (typeof row.project_day_id === "string") {
+      const stats = days[row.project_day_id] ?? emptyScopeStats();
+      incrementScopeStats(stats, media);
+      days[row.project_day_id] = stats;
+    } else if (row.project_day_id === null) {
+      incrementScopeStats(project, media);
+    }
+  }
+  return { total, project, days };
+}
+
+export async function listProjectJournalPage(
+  supabase: SupabaseClient,
+  projectId: string,
+  projectDayId: string | null,
+  cursor: ProjectJournalCursor | null,
+  limit = PROJECT_JOURNAL_PAGE_SIZE,
+): Promise<ProjectJournalPage> {
+  const boundedLimit = Math.min(Math.max(Math.trunc(limit), 1), 50);
+  let query = supabase
+    .from("expedition_project_journal_entries")
+    .select(PROJECT_JOURNAL_ENTRY_SELECT)
+    .eq("project_id", projectId)
+    .order("entry_date", { ascending: false })
+    .order("id", { ascending: false })
+    .limit(boundedLimit + 1);
+  query = projectDayId === null
+    ? query.is("project_day_id", null)
+    : query.eq("project_day_id", projectDayId);
+  if (cursor) {
+    query = query.or(`entry_date.lt.${cursor.entryDate},and(entry_date.eq.${cursor.entryDate},id.lt.${cursor.id})`);
+  }
+
+  const { data, error } = await query;
+  if (error) throw error;
+  const pageRows = (data ?? []).slice(0, boundedLimit);
+  const entries = pageRows.map(normalizeJournalEntry).filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+  const lastRow = pageRows.at(-1);
+  return {
+    entries,
+    nextCursor: (data?.length ?? 0) > boundedLimit && lastRow ? journalCursorFromRow(lastRow) : null,
+  };
+}
+
 export async function listProjectPickerOptions(
   supabase: SupabaseClient,
   userId: string,
@@ -137,17 +235,20 @@ function logProjectJournalGraph(rawProject: Record<string, unknown>, project: Ex
   logProjectMediaDisplayDiagnostic("normalized", { normalizedMediaCount, journalEntriesWithMediaCount });
 }
 
+function baseProjectQuery(supabase: SupabaseClient, projectId: string, ownerId: string | null) {
+  let query = supabase
+    .from("expedition_projects")
+    .select(PROJECT_DETAIL_BASE_SELECT)
+    .eq("id", projectId);
+  if (ownerId) query = query.eq("user_id", ownerId);
+  return query;
+}
+
 async function loadProjectDetailGraph(
   supabase: SupabaseClient,
   projectId: string,
   ownerId: string | null,
 ): Promise<ExpeditionProject | null> {
-  let projectQuery = supabase
-    .from("expedition_projects")
-    .select(PROJECT_DETAIL_BASE_SELECT)
-    .eq("id", projectId);
-  if (ownerId) projectQuery = projectQuery.eq("user_id", ownerId);
-
   const journalQuery = supabase
     .from("expedition_project_journal_entries")
     .select(PROJECT_JOURNAL_ENTRY_SELECT)
@@ -156,7 +257,7 @@ async function loadProjectDetailGraph(
     .order("id", { ascending: false });
 
   const [projectResult, journalResult] = await Promise.all([
-    projectQuery.maybeSingle(),
+    baseProjectQuery(supabase, projectId, ownerId).maybeSingle(),
     journalQuery,
   ]);
   if (projectResult.error || journalResult.error) throw projectResult.error ?? journalResult.error;
@@ -169,6 +270,44 @@ async function loadProjectDetailGraph(
   const project = normalizeProjectDetail(rawProject);
   logProjectJournalGraph(rawProject, project);
   return project;
+}
+
+export async function getAccessibleProjectWorkspace(
+  supabase: SupabaseClient,
+  projectId: string,
+): Promise<ProjectWorkspaceLoad | null> {
+  const journalQuery = supabase
+    .from("expedition_project_journal_entries")
+    .select(PROJECT_JOURNAL_ENTRY_SELECT)
+    .eq("project_id", projectId)
+    .order("entry_date", { ascending: false })
+    .order("id", { ascending: false })
+    .limit(PROJECT_JOURNAL_INITIAL_PAGE_SIZE + 1);
+
+  const [projectResult, journalResult, journalStats] = await Promise.all([
+    baseProjectQuery(supabase, projectId, null).maybeSingle(),
+    journalQuery,
+    listProjectJournalStats(supabase, projectId),
+  ]);
+  if (projectResult.error || journalResult.error) throw projectResult.error ?? journalResult.error;
+  if (!projectResult.data) return null;
+
+  const pageRows = (journalResult.data ?? []).slice(0, PROJECT_JOURNAL_INITIAL_PAGE_SIZE);
+  const rawProject = {
+    ...(projectResult.data as Record<string, unknown>),
+    expedition_project_journal_entries: pageRows,
+  };
+  const project = normalizeProjectDetail(rawProject);
+  if (!project) return null;
+  logProjectJournalGraph(rawProject, project);
+  const lastRow = pageRows.at(-1);
+  return {
+    project,
+    journalCursor: (journalResult.data?.length ?? 0) > PROJECT_JOURNAL_INITIAL_PAGE_SIZE && lastRow
+      ? journalCursorFromRow(lastRow)
+      : null,
+    journalStats,
+  };
 }
 
 export async function getUserProject(
