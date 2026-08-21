@@ -14,6 +14,10 @@ const databaseTestLayout = await readFile(
   new URL("../app/[locale]/database-test/layout.tsx", import.meta.url),
   "utf8",
 );
+const notificationsLayout = await readFile(
+  new URL("../app/[locale]/notifications/layout.tsx", import.meta.url),
+  "utf8",
+);
 const robots = await readFile(new URL("../app/robots.ts", import.meta.url), "utf8");
 const sitemap = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
 const projectsLayout = await readFile(
@@ -42,8 +46,14 @@ assert.ok(
   "Refreshed auth cookies must be forwarded to downstream Server Components",
 );
 assert.ok(
-  supabaseProxy.includes("response.cookies.set(name, value, options)"),
-  "Refreshed auth cookies must be persisted to the browser response",
+  supabaseProxy.includes("setAll(cookiesToSet)") &&
+    supabaseProxy.includes("response.cookies.set(name, value, options)"),
+  "Supabase proxy must use the current bulk cookie contract and persist refreshed cookies",
+);
+assert.equal(
+  supabaseProxy.includes("setAll(cookiesToSet, headers)"),
+  false,
+  "Unsupported extra setAll callback parameters must not be introduced",
 );
 assert.ok(
   rootProxy.includes("refreshSupabaseSession") &&
@@ -65,9 +75,23 @@ assert.ok(
   "Database diagnostic route must be inaccessible in production",
 );
 assert.ok(
-  robots.includes('"database-test"'),
-  "Database diagnostic route must remain excluded from crawlers in development previews",
+  notificationsLayout.includes("robots: { index: false, follow: false }"),
+  "Private notification routes must remain noindex/nofollow",
 );
+for (const segment of [
+  "account",
+  "auth",
+  "database-test",
+  "friends",
+  "messages",
+  "notifications",
+  "projects",
+]) {
+  assert.ok(
+    robots.includes(`"${segment}"`),
+    `Private route segment must remain excluded from crawlers: ${segment}`,
+  );
+}
 assert.ok(
   projectsLayout.includes("robots: { index: false, follow: false }"),
   "Private project routes must remain noindex/nofollow",
