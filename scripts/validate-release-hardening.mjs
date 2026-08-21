@@ -111,6 +111,16 @@ for (const header of [
   assert.ok(nextConfig.includes(header), `Missing baseline security header: ${header}`);
 }
 assert.ok(
+  nextConfig.includes("process.env.NEXT_PUBLIC_SUPABASE_URL") &&
+    nextConfig.includes("supabaseImageHostname"),
+  "Supabase image host must be derived from the deployment environment",
+);
+assert.equal(
+  nextConfig.includes("weplpaigyyqzdkolypmw.supabase.co"),
+  false,
+  "A development Supabase hostname must not be hard-coded into production image config",
+);
+assert.ok(
   gitignore.includes("!.env.example"),
   "The safe environment template must remain trackable",
 );
