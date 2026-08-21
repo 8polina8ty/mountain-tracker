@@ -2,10 +2,16 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const projectPage = await readFile(new URL("../app/[locale]/projects/[projectId]/page.tsx", import.meta.url), "utf8");
+const projectView = await readFile(new URL("../components/projects/ProjectDetailView.tsx", import.meta.url), "utf8");
 const activitySource = await readFile(new URL("../Lib/projects/activity.ts", import.meta.url), "utf8");
 const queriesSource = await readFile(new URL("../Lib/projects/queries.ts", import.meta.url), "utf8");
 
 assert.equal(projectPage.includes('"use client"'), false, "DETAIL A: project detail must remain a Server Component.");
+assert.equal(projectView.includes('"use client"'), false, "DETAIL A: extracted project presentation must remain server-rendered.");
+assert.ok(projectPage.includes("ProjectDetailView"), "DETAIL A: route must delegate presentation to ProjectDetailView.");
+assert.equal(projectPage.includes("<ProjectDayEditor"), false, "DETAIL A: route must not own itinerary presentation after decomposition.");
+assert.equal(projectPage.includes("function CompletionReport"), false, "DETAIL A: route must not retain large presentation helpers after decomposition.");
+
 assert.ok(projectPage.includes('const sharePromise = role === "owner"'), "DETAIL B: owner-only share loading must remain conditional.");
 assert.ok(projectPage.includes("const trackPickerPromise = editable"), "DETAIL C: read-only viewers must not load private track picker options.");
 assert.ok(projectPage.includes("? listOwnedProjectTrackOptions(supabase, user.id)"), "DETAIL C: editable users must retain the owned-track picker.");
@@ -20,13 +26,17 @@ for (const dependency of [
   assert.ok(projectPage.includes(dependency), `DETAIL E: missing parallel dependency ${dependency}`);
 }
 
-assert.ok(projectPage.includes("const dayJournalEntriesById = new Map"), "DETAIL F: day journal entries must be prepared once before rendering.");
-assert.equal((projectPage.match(/project\.journalEntries\.filter\(\(entry\) => entry\.projectDayId === day\.id\)/g) ?? []).length, 1,
+assert.ok(projectView.includes("const dayJournalEntriesById = new Map"), "DETAIL F: day journal entries must be prepared once before rendering.");
+assert.equal((projectView.match(/projectWithEvidence\.journalEntries\.filter\(\(entry\) => entry\.projectDayId === day\.id\)/g) ?? []).length, 1,
   "DETAIL F: day journal filtering must not be repeated inside multiple render branches.");
-assert.ok(projectPage.includes("entries={dayJournalEntries}"), "DETAIL G: day journal rendering must reuse the prepared entries.");
-assert.ok(projectPage.includes("journalEntries={dayJournalEntries}"), "DETAIL G: day progress must reuse the prepared entries.");
+assert.ok(projectView.includes("entries={dayJournalEntries}"), "DETAIL G: day journal rendering must reuse the prepared entries.");
+assert.ok(projectView.includes("journalEntries={dayJournalEntries}"), "DETAIL G: day progress must reuse the prepared entries.");
+assert.ok(projectView.includes("const projectWithEvidence: ExpeditionProject = { ...project, days };"),
+  "DETAIL G: presentation must derive evidence-enriched days without mutating the loaded project.");
 
-assert.equal((projectPage.match(/\.from\("activity-tracks"\)\.createSignedUrls/g) ?? []).length, 1,
+assert.equal((projectPage.match(/\.from\("activity-tracks"\)/g) ?? []).length, 1,
+  "DETAIL H: linked GPS evidence must retain one Storage signing bucket access.");
+assert.equal((projectPage.match(/\.createSignedUrls\(/g) ?? []).length, 1,
   "DETAIL H: linked GPS evidence must retain one batched signed-URL operation.");
 assert.ok(projectPage.includes("60 * 60"), "DETAIL H: signed track URLs must retain the one-hour lifetime.");
 
@@ -38,4 +48,4 @@ assert.ok(activitySource.includes("created_at.lt.${cursor.createdAt}") && activi
   "DETAIL J: activity cursor must remain keyset-based.");
 assert.ok(queriesSource.includes('.limit(200)'), "DETAIL K: owned-track picker must remain bounded.");
 
-console.log("Project detail performance and pagination contracts passed.");
+console.log("Project detail performance, decomposition, and pagination contracts passed.");
