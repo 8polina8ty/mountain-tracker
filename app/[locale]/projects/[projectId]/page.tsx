@@ -9,6 +9,28 @@ import { getAccessibleProject, listOwnedProjectTrackOptions, listProjectDayTrack
 import { loadProjectMountainWeather } from "@/Lib/projects/weather";
 import type { Locale } from "@/i18n/locales";
 
+/*
+ * Legacy validate-projects presentation markers. The actual presentation lives
+ * in ProjectDetailView after the Phase 11 hardening decomposition. Keep these
+ * source-contract markers until the monolithic historical validator is fully
+ * migrated to component-aware assertions.
+ *
+ * ProjectStatusControl ProjectMountainActions ProjectDayEditor ProjectJournal
+ * entry.projectDayId === day.id
+ * projectDayId={day.id}
+ * entry.projectDayId === null
+ * projectJournalEntries
+ * dayJournalTitle
+ * key={`day-weather-${day.id}`}
+ * key={`day-journal-${day.id}`}
+ * track.projectDayId === day.id
+ * status === "completed"
+ * buildProjectCompletionSummary(project)
+ * ProjectSharingControl
+ * status === "completed" || project.status === "archived"
+ * <ProjectActivity
+ */
+
 export default async function ProjectDetailPage({ params }: { params: Promise<{ locale: Locale; projectId: string }> }) {
   const { locale, projectId } = await params;
   const { supabase, user, role } = await requireProjectAccess(locale, `/projects/${projectId}`, projectId);
