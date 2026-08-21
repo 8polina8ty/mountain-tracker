@@ -8,7 +8,30 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const media = await resolvePublicPhoto(slug, handle, requestedVariant as PublicPhotoVariant);
   if (!media) return new Response(null, { status: 404 });
   const responseStarted = performance.now();
-  const response = new Response(media.blob.stream(), { headers: { "Content-Type": media.mimeType, "Content-Length": String(media.blob.size), "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "Content-Disposition": "inline" } });
-  if (process.env.NODE_ENV === "development") console.info("[PublicMedia DEV]", { totalMs: Math.round(performance.now() - started), shareResolveMs: Math.round(media.timing.shareResolveMs), handleValidationMs: Math.round(media.timing.handleValidationMs), mediaLookupMs: Math.round(media.timing.mediaLookupMs), storageDownloadMs: Math.round(media.timing.storageDownloadMs), responsePreparationMs: Math.round(performance.now() - responseStarted), responseBytes: media.blob.size, mimeCategory: "photo", cacheDecision: "private-no-store", requestOutcome: "success" });
+  const response = new Response(media.blob.stream(), {
+    headers: {
+      "Content-Type": media.mimeType,
+      "Content-Length": String(media.blob.size),
+      "Cache-Control": "private, no-store",
+      "X-Content-Type-Options": "nosniff",
+      "Cross-Origin-Resource-Policy": "same-origin",
+      "Referrer-Policy": "no-referrer",
+      "Content-Disposition": "inline",
+    },
+  });
+  if (process.env.NODE_ENV === "development") {
+    console.info("[PublicMedia DEV]", {
+      totalMs: Math.round(performance.now() - started),
+      shareResolveMs: Math.round(media.timing.shareResolveMs),
+      handleValidationMs: Math.round(media.timing.handleValidationMs),
+      mediaLookupMs: Math.round(media.timing.mediaLookupMs),
+      storageDownloadMs: Math.round(media.timing.storageDownloadMs),
+      responsePreparationMs: Math.round(performance.now() - responseStarted),
+      responseBytes: media.blob.size,
+      mimeCategory: "photo",
+      cacheDecision: "private-no-store",
+      requestOutcome: "success",
+    });
+  }
   return response;
 }
