@@ -20,6 +20,12 @@ const projectsLayout = await readFile(
   new URL("../app/[locale]/projects/layout.tsx", import.meta.url),
   "utf8",
 );
+const nextConfig = await readFile(new URL("../next.config.ts", import.meta.url), "utf8");
+const gitignore = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
+const envExample = await readFile(new URL("../.env.example", import.meta.url), "utf8");
+const packageJson = JSON.parse(
+  await readFile(new URL("../package.json", import.meta.url), "utf8"),
+);
 
 assert.ok(
   supabaseProxy.includes("supabase.auth.getClaims()"),
@@ -71,6 +77,39 @@ assert.ok(
     sitemap.includes('pathname: "/ranking"') &&
     sitemap.includes('pathname: "/explore"'),
   "Public sitemap baseline changed unexpectedly",
+);
+for (const header of [
+  "X-Content-Type-Options",
+  "Referrer-Policy",
+  "X-Frame-Options",
+  "Permissions-Policy",
+]) {
+  assert.ok(nextConfig.includes(header), `Missing baseline security header: ${header}`);
+}
+assert.ok(
+  gitignore.includes("!.env.example"),
+  "The safe environment template must remain trackable",
+);
+for (const variableName of [
+  "NEXT_PUBLIC_SUPABASE_URL",
+  "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+  "SUPABASE_SECRET_KEY",
+  "PUBLIC_EXPEDITION_MEDIA_SECRET",
+  "SITE_URL",
+]) {
+  assert.ok(
+    envExample.includes(`${variableName}=`),
+    `Environment template is missing ${variableName}`,
+  );
+}
+assert.ok(
+  packageJson.scripts?.["test:release"]?.includes("npm run build"),
+  "Final release gate must include a production build",
+);
+assert.equal(
+  packageJson.scripts?.typecheck,
+  "tsc --noEmit --incremental false",
+  "Release typecheck command changed unexpectedly",
 );
 
 console.log("Release hardening contracts passed.");
