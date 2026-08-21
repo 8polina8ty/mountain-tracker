@@ -28,7 +28,7 @@ export async function refreshSupabaseSession(
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet, headers) {
+        setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value),
           );
@@ -37,9 +37,6 @@ export async function refreshSupabaseSession(
 
           cookiesToSet.forEach(({ name, value, options }) =>
             response.cookies.set(name, value, options),
-          );
-          Object.entries(headers).forEach(([key, value]) =>
-            response.headers.set(key, value),
           );
         },
       },
