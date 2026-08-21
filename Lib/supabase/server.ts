@@ -25,11 +25,19 @@ export async function createClient() {
     supabasePublishableKey,
     {
       cookies: {
-        get(name) {
-          return cookieStore.get(name)?.value;
+        getAll() {
+          return cookieStore.getAll();
         },
-        set() {},
-        remove() {},
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options),
+            );
+          } catch {
+            // Server Components cannot write cookies. The root proxy refreshes
+            // sessions and persists refreshed auth cookies for the next request.
+          }
+        },
       },
     },
   );
