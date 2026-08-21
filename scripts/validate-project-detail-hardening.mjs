@@ -26,13 +26,20 @@ for (const dependency of [
   assert.ok(projectPage.includes(dependency), `DETAIL E: missing parallel dependency ${dependency}`);
 }
 
-assert.ok(projectView.includes("const dayJournalEntriesById = new Map"), "DETAIL F: day journal entries must be prepared once before rendering.");
+assert.ok(projectView.includes("const dayJournalEntriesById = new Map"), "DETAIL F: initially loaded day journal entries must be prepared once before rendering.");
 assert.equal((projectView.match(/projectWithEvidence\.journalEntries\.filter\(\(entry\) => entry\.projectDayId === day\.id\)/g) ?? []).length, 1,
   "DETAIL F: day journal filtering must not be repeated inside multiple render branches.");
 assert.ok(projectView.includes("entries={dayJournalEntries}"), "DETAIL G: day journal rendering must reuse the prepared entries.");
-assert.ok(projectView.includes("journalEntries={dayJournalEntries}"), "DETAIL G: day progress must reuse the prepared entries.");
+assert.ok(projectView.includes("journalCount={dayJournalStats.entryCount}") && projectView.includes("mediaCount={dayJournalStats.mediaCount}"),
+  "DETAIL G: day progress must use exact lightweight journal stats rather than the bounded initial page.");
+assert.ok(projectView.includes("totalCount={dayJournalStats.entryCount}") && projectView.includes("initialCursor={journalCursor}"),
+  "DETAIL G: each day journal must receive exact scope counts and the shared initial pagination boundary.");
 assert.ok(projectView.includes("const projectWithEvidence: ExpeditionProject = { ...project, days };"),
   "DETAIL G: presentation must derive evidence-enriched days without mutating the loaded project.");
+assert.ok(projectView.includes("journalEntryCount: journalStats.total.entryCount")
+  && projectView.includes("photoCount: journalStats.total.photoCount")
+  && projectView.includes("videoCount: journalStats.total.videoCount"),
+  "DETAIL G: completion summary must retain exact journal/media totals while detail rows are paginated.");
 
 assert.equal((projectPage.match(/\.from\("activity-tracks"\)/g) ?? []).length, 1,
   "DETAIL H: linked GPS evidence must retain one Storage signing bucket access.");
@@ -48,4 +55,4 @@ assert.ok(activitySource.includes("created_at.lt.${cursor.createdAt}") && activi
   "DETAIL J: activity cursor must remain keyset-based.");
 assert.ok(queriesSource.includes('.limit(200)'), "DETAIL K: owned-track picker must remain bounded.");
 
-console.log("Project detail performance, decomposition, and pagination contracts passed.");
+console.log("Project detail performance, decomposition, pagination, and exact journal-count contracts passed.");
