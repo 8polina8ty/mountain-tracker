@@ -61,7 +61,19 @@ export default function ProjectPhotoGallery({
     const result = await deleteProjectJournalMedia(createClient(), projectId, photo.id);
     setDeletingId(null);
     if (!result.ok) {
-      setDeleteError(result.reason === "cleanup-required" ? t("cleanupRequired") : t(photo.mediaType === "video" ? "videoUploadFailed" : "deletePhotoFailed"));
+      if (result.reason === "not-found") {
+        router.refresh();
+        return;
+      }
+      if (result.reason === "cleanup-required") {
+        setDeleteError(t("cleanupRequired"));
+        return;
+      }
+      if (result.reason === "auth" || result.reason === "ownership") {
+        setDeleteError(t("authFailure"));
+        return;
+      }
+      setDeleteError(t(photo.mediaType === "video" ? "videoUploadFailed" : "deletePhotoFailed"));
       return;
     }
     router.refresh();
