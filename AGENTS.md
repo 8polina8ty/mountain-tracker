@@ -10,6 +10,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 - This is one npm package (`package-lock.json`), not a workspace. Use npm; `@/*` resolves from the repository root.
 - The runtime baseline is Node 24; `.nvmrc` is the repository selector and `npm run test:runtime` verifies the runtime/dependency contract.
+- `.env.example` documents required deployment variable names only. Never place real secrets in tracked files.
 - `README.md` is still the create-next-app template and is stale: there is no `app/page.tsx`. Trust scripts and source over it.
 - Framework versions are Next.js 16.2 and React 19; do not rely on older Next.js conventions.
 - Shared application code is in capitalized `Lib/`; preserve that casing for Linux deployments.
@@ -20,20 +21,25 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Install reproducibly: `npm ci`
 - Development: `npm run dev`
 - Lint all or one path: `npm run lint`; `npx eslint <path>`
-- Typecheck: `npx tsc --noEmit --incremental false` (there is no `typecheck` script).
+- Typecheck: `npm run typecheck`
 - Runtime/dependency contract: `npm run test:runtime`.
+- Release hardening contract: `npm run test:release-hardening`.
 - Domain checks: `npm run test:achievements`; `npm run test:social`; `npm run test:weather`; `npm run test:trackRecording`; `npm run test:projects`. They require Node 24 and use `--experimental-strip-types` where needed.
+- Full finite release gate: `npm run test:release` (runtime + release hardening + lint + typecheck + all domain validators + production build).
 - Production verification: `npm run build`
-- There is no Jest/Vitest/Playwright suite and no checked-in CI workflow. Run `npm run test:runtime`, lint, typecheck, the relevant domain validator(s), then build for broad verification.
+- There is no Jest/Vitest/Playwright suite and no checked-in CI workflow. `npm run test:release` is the canonical bounded local release gate.
 
 ## Runtime Shape
 
 - The App Router starts at `app/[locale]/layout.tsx`; `app/[locale]/page.tsx` redirects to the main map. Route params such as `params` are async in this Next.js version.
-- `proxy.ts` owns next-intl routing. All normal routes are locale-prefixed; supported locales are `de`, `en`, `ru`, `fr`, `it`, and `es`, with `de` as default. Unprefixed `/map`, `/mountain`, `/ranking`, and `/users` paths (including descendants) intentionally redirect to `/ru/...`.
+- `proxy.ts` owns next-intl routing and Supabase SSR session refresh. `Lib/supabase/proxy.ts` calls `auth.getClaims()`, forwards refreshed cookies to Server Components and the browser, and also covers private `/api/projects/*` routes.
+- All normal routes are locale-prefixed; supported locales are `de`, `en`, `ru`, `fr`, `it`, and `es`, with `de` as default. Unprefixed `/map`, `/mountain`, `/ranking`, and `/users` paths (including descendants) intentionally redirect to `/ru/...`.
 - Locale messages are domain JSON files under `messages/<locale>/`. Adding a domain requires the same file/key shape in all six locales and an entry in `i18n/request.ts`'s `messageFiles`.
 - Use locale-aware navigation exports from `i18n/navigation.ts` when applicable.
-- Browser and server Supabase factories are separate: `Lib/supabase/client.ts` and `Lib/supabase/server.ts`. The server cookie adapter cannot write cookies, and `proxy.ts` does not refresh auth sessions.
-- App runtime requires `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. SEO origin optionally comes from `SITE_URL`, `NEXT_PUBLIC_SITE_URL`, or Vercel URL variables. Never print or commit `.env*` values.
+- Browser and server Supabase factories are separate: `Lib/supabase/client.ts` and `Lib/supabase/server.ts`. The server client uses the bulk `getAll`/`setAll` cookie contract; Server Component cookie writes can be ignored only because the root proxy performs session refresh.
+- App runtime requires `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. Public expedition resolution additionally requires `SUPABASE_SECRET_KEY` (or legacy `SUPABASE_SERVICE_ROLE_KEY`) plus `PUBLIC_EXPEDITION_MEDIA_SECRET`. SEO origin should be configured with `SITE_URL` in production; `NEXT_PUBLIC_SITE_URL` and Vercel URL variables remain fallbacks. Never print or commit real `.env*` values.
+- Global baseline headers include `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, and a geolocation-aware `Permissions-Policy`. Do not add a CSP casually; MapLibre tiles, Supabase, Wikimedia images, and app media need an explicit reviewed policy.
+- `app/[locale]/database-test` is a development diagnostic and must remain inaccessible when `NODE_ENV === "production"`.
 
 ## Sensitive Coupling
 
@@ -51,10 +57,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Private workspace routes live under `app/[locale]/projects/`; public published expedition surfaces live under `app/[locale]/expeditions/[slug]/`.
 - The domain includes project lifecycle, mountains, itinerary days, day/project journal entries, photo/video media, GPS evidence, weather, completion/reporting, collaboration, activity, notifications, sharing, and public reports.
 - Collaboration roles include `owner`, `editor`, and `viewer`; public sharing is a separate exposure path. Changes in these areas require authorization/RLS review, not only UI checks.
-- Public report code crosses a service-role boundary. Preserve slug/status checks, opaque media handling, HMAC verification, and least-data exposure; never bypass RLS casually.
+- Public report code crosses a service-role boundary. Preserve slug/status checks, opaque AES-256-GCM media handles bound to the share slug, exact media lookup, private Storage delivery, and least-data exposure; never bypass RLS casually.
 - Journal/media/GPS changes should be validated end to end conceptually: create/update/delete, storage lifecycle, authorization, reload/delivery, report/completion projection, and negative cases.
 - After expedition/project changes, run `npm run test:projects`; also run other domain validators when shared systems are touched.
-- Current Phase 11 is in integration/hardening: prefer security/RLS reconciliation, end-to-end completion, performance, and release-gate work before adding another large Expedition feature unless the user explicitly prioritizes one.
+- Current Phase 11 is in its final release-gate/pre-production hardening stage. Prefer closure, validation, production configuration, observability, and launch readiness over adding another large Expedition feature unless the user explicitly prioritizes one.
 
 ## Map And Tracks
 
@@ -131,8 +137,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 7. Finite validation commands ARE allowed, including:
    - npm run lint
-   - npx tsc --noEmit --incremental false
+   - npm run typecheck
    - npm run build
+   - npm run test:release
    - finite npm test commands
    - project validation scripts
    - git status
