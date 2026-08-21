@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import { Link } from "@/i18n/navigation";
+import ProjectPicker from "@/components/projects/ProjectPicker";
 import type { SelectedPeak } from "./types";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
@@ -227,6 +228,8 @@ export default function PeakDetailsPanel({
             </div>
           )}
         </div>
+
+        <ProjectPicker mountainId={peak.id} mountainName={peakName} context="map" />
 
         <button
           type="button"

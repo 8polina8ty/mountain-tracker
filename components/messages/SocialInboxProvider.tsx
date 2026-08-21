@@ -11,7 +11,7 @@ type SocialInboxContextValue = SocialInboxSummary & {
   refresh: () => Promise<void>;
 };
 
-const emptySummary: SocialInboxSummary = { totalUnreadMessages: 0, unreadConversations: {} };
+const emptySummary: SocialInboxSummary = { totalUnreadMessages: 0, totalUnreadProjectNotifications: 0, unreadConversations: {} };
 const SocialInboxContext = createContext<SocialInboxContextValue>({ ...emptySummary, realtimeState: "connecting", revision: 0, refresh: async () => undefined });
 
 

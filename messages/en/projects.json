@@ -1,0 +1,130 @@
+{
+  "Projects": {
+    "Metadata": {
+      "title": "Expedition projects | Mountain Tracker",
+      "description": "Private expedition planning workspace in Mountain Tracker."
+    },
+    "Status": {
+      "planning": "Planning",
+      "ready": "Ready",
+      "active": "Active",
+      "completed": "Completed",
+      "archived": "Archived"
+    },
+    "Common": {
+      "mountains": "Mountains",
+      "days": "Days",
+      "journal": "Journal",
+      "dateRange": "{start} – {end}",
+      "datesOpen": "Dates not set",
+      "unnamedMountain": "Unnamed mountain"
+    },
+    "List": {
+      "eyebrow": "Expedition planner",
+      "title": "Projects",
+      "description": "Build multi-day mountain expeditions, keep the itinerary together and return to your field notes in one place.",
+      "create": "Create project",
+      "createFirst": "Plan first expedition",
+      "emptyTitle": "Your next expedition starts here",
+      "emptyDescription": "Projects bring several mountains, daily stages and trip notes together in a single expedition dossier.",
+      "projectLabel": "Expedition project",
+      "noMountains": "No mountains added yet",
+      "updated": "Updated {date}",
+      "open": "Open"
+    },
+    "Create": {
+      "back": "Back to projects",
+      "eyebrow": "New expedition project",
+      "title": "Plan an expedition",
+      "description": "Create the field dossier now. Add dates to generate one itinerary day per calendar day, or leave them open for later.",
+      "nameLabel": "Project name",
+      "nameHelp": "Use a clear expedition name, up to 120 characters.",
+      "descriptionLabel": "Description (optional)",
+      "datesLegend": "Expedition dates (optional)",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "datesHelp": "Both dates are required together. A dated project can contain up to 60 days.",
+      "cancel": "Cancel",
+      "submit": "Create project",
+      "submitting": "Creating…"
+    },
+    "Errors": {
+      "nameRequired": "Enter a project name.",
+      "nameTooLong": "The project name must not exceed 120 characters.",
+      "descriptionTooLong": "The description must not exceed 4,000 characters.",
+      "datePairRequired": "Choose both a start date and an end date, or leave both empty.",
+      "invalidDate": "Enter valid project dates.",
+      "endBeforeStart": "The end date cannot be before the start date.",
+      "tooManyDays": "A project can contain no more than 60 days.",
+      "createFailed": "The project could not be created. Your entries are preserved; please try again."
+    },
+    "Mutations": {
+      "newDayJournal": "Add journal entry",
+      "statusLabel": "Project status", "saving": "Saving…", "statusSaved": "Status saved.", "statusError": "The status could not be saved. Try again.",
+      "removeMountainConfirm": "Remove {name} from this project and all its day assignments?", "removeMountainAria": "Remove {name} from project", "removeMountainError": "The mountain could not be removed. Try again.",
+      "addDay": "Add day", "addingDay": "Adding…", "dayLimit": "The 60-day limit has been reached.", "fixedDateRange": "Days are fixed by this project's date range.", "addDayError": "The day could not be added. Check the project date range and try again.",
+      "deleteDayConfirm": "Delete day {number} and its mountain assignments?", "deleteDayAria": "Delete day {number}", "deleteDayError": "The day could not be deleted. Try again.", "dayDeleted": "Day deleted.",
+      "moveDayUpAria": "Move day {number} up", "moveDayDownAria": "Move day {number} down", "reorderError": "The days could not be reordered. Try again.", "daysReordered": "Day order saved.",
+      "editDayAria": "Edit day {number}", "defaultDayTitle": "Day {number}", "dayTitleLabel": "Day title (optional)", "dayNotesLabel": "Day notes (optional)", "notesLabel": "Notes", "dayTitleTooLong": "The day title must not exceed 160 characters.", "dayNotesTooLong": "Day notes must not exceed 8,000 characters.", "daySaveError": "The day could not be saved. Your entries are preserved; try again.", "daySaved": "Day saved.",
+      "assignmentsLabel": "Project mountains", "assignedToDay": "Assigned to this day", "noMountainsAssignedToDay": "No mountains assigned to this day yet.", "addFromProject": "Add from project", "addMountainToDay": "Add", "removeMountainFromDay": "Unassign", "allProjectMountainsAssigned": "All project mountains are assigned to this day.", "assigned": "Assigned", "notAssigned": "Not assigned", "noProjectMountains": "Add mountains to the project before assigning them to a day.", "unnamedMountain": "Unnamed mountain", "assignError": "The mountain could not be assigned. Try again.", "unassignError": "The assignment could not be removed. Try again.", "mountainAssigned": "Mountain assigned.", "mountainUnassigned": "Mountain unassigned.",
+      "newJournal": "New journal entry", "journalTitleLabel": "Title (optional)", "journalBodyLabel": "Entry", "journalTitleTooLong": "The journal title must not exceed 160 characters.", "journalBodyRequired": "Enter journal text.", "journalBodyTooLong": "The journal entry must not exceed 12,000 characters.", "journalCreateError": "The entry could not be created. Your text is preserved; try again.", "journalUpdateError": "The entry could not be saved. Your text is preserved; try again.", "journalDeleteConfirm": "Delete this journal entry?", "journalDeleteError": "The journal entry could not be deleted. Try again.", "editJournalAria": "Edit journal entry", "deleteJournalAria": "Delete journal entry", "save": "Save", "cancel": "Cancel"
+    },
+    "Media": {
+      "authFailure": "Your session could not authorize this upload. Sign in again and retry.", "metadataFailure": "The photo uploaded, but its journal record could not be saved.",
+      "addPhotos": "Add photos", "selectedPhotos": "{count, plural, one {# selected photo} other {# selected photos}}", "removePhoto": "Remove {name}", "uploadPhotos": "Upload photos", "uploading": "Uploading…", "uploadFailed": "Upload failed", "retryUpload": "Retry upload", "readyToUpload": "Ready to upload", "photoUploadSucceeded": "Photo uploaded", "photoUnavailable": "This private photo is currently unavailable.",
+      "openPhoto": "Open photo {number} of {count}", "closePhoto": "Close photo", "nextPhoto": "Next photo", "previousPhoto": "Previous photo", "photoPosition": "{number} of {count}", "deletePhoto": "Delete photo", "deletePhotoConfirm": "Delete this photo permanently?", "deletePhotoFailed": "The photo could not be deleted. It remains visible; try again.",
+      "invalidPhotoType": "Choose a valid JPEG, PNG, or WebP photo.", "photoTooLarge": "The photo must not exceed 10 MiB.", "photoDimensionsTooLarge": "The photo dimensions are too large.", "photoDecodeFailed": "This photo could not be read by the browser.", "mediaLimitReached": "A journal entry can contain no more than 12 media items.", "mediaOnlyEntry": "Text is optional when at least one valid photo is selected.", "uploadPartialFailure": "Some photos were uploaded. Failed photos remain here for retry.", "cleanupRequired": "A partial storage operation needs repair. Retry before assuming the photo was removed.",
+      "gallery": "Journal media gallery", "photosFromThisDay": "Photos from this day", "mediaFromThisDay": "Media from this day", "photoCount": "{count, plural, one {# photo} other {# photos}}", "mediaCount": "{count, plural, one {# item} other {# items}}", "photoAlt": "Journal photo {number} of {count}", "photoAltWithTitle": "{title}: photo {number} of {count}",
+      "addMedia": "Add photos and videos", "selectedMedia": "{count, plural, one {# selected item} other {# selected items}}", "unsupportedVideoType": "Choose a valid MP4 or WebM video.", "videoTooLarge": "The video must not exceed 100 MiB.", "videoTooLong": "The video must not exceed 5 minutes.", "videoDimensionsTooLarge": "The video dimensions must not exceed 3840×2160.", "videoDecodeFailed": "This video could not be read by the browser.", "videoUploadFailed": "The video could not be uploaded or deleted. Try again.", "videoUploadSucceeded": "Video uploaded", "uploadPaused": "Upload paused", "uploadResuming": "Resuming upload", "retryVideoUpload": "Retry video upload", "videoUnavailable": "This private video is currently unavailable.", "openVideo": "Open video {number} of {count}", "closeVideo": "Close video", "deleteVideo": "Delete video", "deleteVideoConfirm": "Delete this video permanently?", "uploadProgress": "Uploading {progress}%", "cancelVideoUpload": "Cancel video upload"
+    },
+    "Picker": {
+      "addToProject": "Add to project", "selectProject": "Select project", "projectPickerTitle": "Add to project", "projectPickerDescription": "Choose a project for {name}.", "alreadyInProject": "Already in project", "addedToProject": "Added to project", "add": "Add", "adding": "Adding…", "addFailed": "The mountain could not be added. Try again.", "loadFailed": "Your projects could not be loaded.", "loginToAdd": "Log in to add this mountain to a project.", "login": "Log in", "createNewProject": "Create new project", "openProject": "Open project", "noProjects": "You do not have any projects yet.", "loadingProjects": "Loading projects…", "retry": "Retry", "close": "Close project picker", "dateRange": "{start} – {end}"
+    },
+    "Weather": {
+      "weather": "Weather", "weatherForecast": "Weather forecast", "forecastAvailable": "Forecast available", "forecastUnavailable": "Weather data is currently unavailable.", "forecastUnavailableYet": "Forecast not available yet. Check again closer to the trip.", "forecastDaysAvailable": "Forecast days available", "mountainsWithForecast": "Mountains with forecast", "condition": "Condition", "temperature": "Temperature", "temperatureMin": "Minimum", "temperatureMax": "Maximum", "precipitation": "Precipitation", "wind": "Wind", "gusts": "Gusts", "snowfall": "Snowfall", "weatherDisclaimer": "Forecasts can change and mountain conditions may differ locally. Consult official forecasts and current local mountain information before setting out.", "noMountainAssigned": "Assign a mountain to an itinerary day to see its forecast.", "updatedForecast": "Forecast updated {date}", "itinerary": "Itinerary", "expeditionSummary": "Expedition summary", "unnamedMountain": "Unnamed mountain"
+    },
+    "Detail": {
+      "dayJournalTitle": "Day journal", "noDayJournalEntries": "No journal entries for this day yet.", "projectJournalTitle": "Project notes", "projectJournalDescription": "General preparation notes that are not tied to a specific expedition day.", "noProjectJournalEntries": "Add a general note only when it does not belong to a specific day.",
+      "back": "Back to projects",
+      "eyebrow": "Expedition project",
+      "mountainsTitle": "Mountains",
+      "mountainsDescription": "Summits included in this expedition.",
+      "noMountains": "Add mountains from the map or a mountain page.",
+      "itineraryTitle": "Itinerary",
+      "itineraryDescription": "The expedition timeline in day order.",
+      "noDays": "Add a day to start building your itinerary.",
+      "dateOpen": "Date not set",
+      "dayTitle": "Day {number}",
+      "noAssignedMountains": "No mountains assigned to this day",
+      "journalTitle": "Journal",
+      "journalDescription": "Preparation and expedition notes in reverse chronological order.",
+      "noJournalEntries": "Use the journal for preparation notes and trip observations.",
+      "assignedDays": "Assigned days: {days}"
+    },
+    "Tracks": {
+      "selectedGpx": "Selected GPX: {name}",
+      "uploadGpx": "Upload GPX", "uploadGpxDescription": "Import a GPX as a saved account track and link it to this day.", "chooseGpxFile": "Choose GPX file", "removeFile": "Remove file", "importTrack": "Import track", "importingTrack": "Importing track…", "linkingImportedTrack": "Linking imported track…", "trackImported": "Track imported.", "trackImportedAndLinked": "Track imported and linked.", "trackImportedLinkFailed": "Track imported successfully, but could not be linked to this day.", "retryLink": "Link imported track", "gpxImportFailed": "The GPX could not be imported. Try again.", "gpxCleanupRequired": "Import cleanup could not be completed. Check your account tracks before retrying.", "invalidGpx": "Choose a valid GPX file.", "stayOnProject": "Stay on project", "trackAvailableInAccount": "The imported track remains available in your account.", "closeUpload": "Close GPX upload",
+      "actualAscent": "Actual ascent / GPS evidence", "gpsEvidence": "Saved tracks linked to this expedition day.", "linkExistingTrack": "Link existing track", "chooseTrack": "Choose a saved track", "closePicker": "Close track picker", "noTrackLinked": "No GPS track linked to this day yet.", "alreadyLinked": "Linked", "trackLinkFailed": "The track could not be linked or unlinked. Try again.", "unlinkTrack": "Unlink from day", "unlinkTrackConfirm": "Unlink {title} from this day? The saved track will not be deleted.", "openFullTrack": "Open full track", "showMap": "Show map", "hideMap": "Hide map", "mapFallback": "Private route map for this linked track.", "distance": "Distance", "duration": "Duration", "elevationGain": "Elevation gain", "detectedMountain": "Detected mountain", "matchesPlannedMountain": "Matches planned mountain", "differentMountainDetected": "Different mountain detected", "verified": "Verified", "likely": "Likely", "not-detected": "Not detected", "notDetected": "Not detected", "unavailable": "Unavailable", "fallbackTitle": "Track {id}"
+    },
+    "Lifecycle": { "currentExpedition": "Current expedition", "completeProject": "Complete project", "completeProjectConfirm": "Mark this expedition completed? It remains editable and can be reopened.", "archiveProject": "Archive project", "archiveProjectConfirm": "Archive this project? Nothing will be deleted and it can be restored.", "readyToComplete": "Ready to complete", "completionEvidenceMissing": "Some expedition evidence is still missing. You may complete the project anyway.", "summaryDays": "Days", "summaryMountains": "Mountains", "daysWithEvidence": "Days with evidence", "verifiedMountains": "Verified mountains", "likelyMountains": "Likely mountains", "totalDistance": "Total distance", "totalElevationGain": "Elevation gain", "totalDuration": "Duration", "photos": "Photos", "videos": "Videos", "journalEntries": "Journal entries", "expeditionReport": "Expedition report", "projectCompleted": "Completed", "planned": "Planned", "evidenceAdded": "GPS evidence added", "journalCount": "{count} journal entries", "mediaCount": "{count} media items", "noEvidence": "No evidence" },
+    "Report": { "viewReport": "View expedition report", "backToProject": "Back to project", "printReport": "Print / Save as PDF", "privateReport": "Private report", "expeditionReport": "Expedition Report", "expeditionReportPreview": "Expedition Report Preview", "reportSummary": "Report summary", "daysWithEvidence": "Days with evidence", "uniqueTracks": "Unique tracks", "totalDistance": "Total distance", "totalElevationGain": "Elevation gain", "totalDuration": "Duration", "verifiedMountains": "Verified mountains", "photos": "Photos", "videos": "Videos", "mountainOutcomes": "Mountain outcomes", "dayTimeline": "Day-by-day timeline", "day": "Day {number}", "planned": "Planned", "actual": "Actual", "noEvidence": "No evidence", "journal": "Journal", "video": "Video", "mediaUnavailable": "Media unavailable", "statisticsUnavailable": "Statistics unavailable", "generatedFromProject": "Generated from the private Mountain Tracker project.", "verified": "Verified", "likely": "Likely", "not-detected": "Not detected", "unavailable": "Unavailable", "no-evidence": "No evidence" },
+    "Sharing": { "publicSharing": "Public sharing", "shareWarning": "Public sharing publishes the expedition report including journal text and selected expedition media. Anyone with the link can view it. Continue?", "disableSharingConfirm": "Disable this public link?", "sharingFailed": "Sharing could not be updated. Try again.", "sharingEnabled": "Public sharing enabled.", "sharingDisabled": "Public sharing disabled.", "linkCopied": "Public link copied.", "copyLink": "Copy link", "openPublicPage": "Open public page", "disableSharing": "Disable sharing", "enableSharing": "Enable sharing", "publicExpedition": "Public expedition", "summary": "Expedition summary", "completed": "Completed", "archived": "Archived", "days": "Days", "daysWithEvidence": "Days with GPS evidence", "tracks": "Tracks", "track": "Track", "distance": "Distance", "elevation": "Elevation gain", "duration": "Duration", "photos": "Photos", "videos": "Videos", "mountains": "Mountain outcomes", "timeline": "Day-by-day timeline", "day": "Day {number}", "planned": "Planned", "none": "No public evidence", "verified": "Verified", "likely": "Likely", "not-detected": "Not detected", "no-evidence": "No evidence", "unavailable": "Unavailable", "journalPhoto": "Expedition journal photo", "videoUnavailable": "Video is unavailable on the public report", "publicNotice": "Shared from a completed Mountain Tracker expedition." },
+    "Team": { "expeditionTeam": "Expedition team", "description": "Manage project participants and their roles.", "owner": "Owner", "editor": "Editor", "viewer": "Viewer", "inviteParticipant": "Invite participant", "inviteParticipantDescription": "Search for an existing Mountain Tracker user and choose their role.", "selectParticipant": "Select participant", "searchPlaceholder": "Search by name or username", "selectRole": "Select role", "sendInvitation": "Send invitation", "invitationSent": "Invitation sent.", "invitationFailed": "The invitation or membership update failed. Try again.", "pendingInvitations": "Pending invitations", "invitedAs": "Invited as {role}", "invitedByAs": "Invited by {name} as {role}", "cancelInvitation": "Cancel invitation", "invitationCancelled": "Invitation cancelled.", "removeMember": "Remove", "removeMemberConfirm": "Remove {name} from this expedition?", "memberRemoved": "Member removed.", "changeRole": "Change role for {name}", "roleChanged": "Role changed.", "alreadyInvited": "Already added or invited", "noMembers": "No participants yet.", "noPendingInvitations": "No pending invitations.", "expeditionInvitations": "Expedition invitations", "acceptInvitation": "Accept", "declineInvitation": "Decline", "invitationAccepted": "Invitation accepted.", "invitationDeclined": "Invitation declined.", "myExpeditions": "My expeditions", "sharedWithMe": "Shared with me", "closeDialog": "Close invitation dialog" },
+    "TeamShared": { "description": "Open the private workspace or manage your membership.", "ownedBy": "Owned by {name}", "openProject": "Open project", "leaveProject": "Leave project", "leaveProjectConfirm": "Leave {name}?", "projectLeft": "You left the project." },
+    "Activity": {
+      "title": "Expedition activity", "description": "Recent private changes to this expedition.", "empty": "No activity has been recorded yet.", "showMore": "Show more", "loading": "Loading…", "loadFailed": "More activity could not be loaded.", "formerParticipant": "Former participant",
+      "projectStatusChanged": "changed the project status from {from} to {to}.", "projectArchived": "archived the expedition.", "projectRestored": "restored the expedition.",
+      "mountainAdded": "added a mountain to the expedition.", "mountainRemoved": "removed a mountain from the expedition.", "mountainAssigned": "assigned a mountain to a day.", "mountainUnassigned": "unassigned a mountain from a day.",
+      "dayCreated": "created an expedition day.", "dayUpdated": "updated an expedition day.", "dayDeleted": "deleted an expedition day.", "dayReordered": "reordered {count, plural, one {# expedition day} other {# expedition days}}.",
+      "journalCreated": "created a journal entry.", "journalUpdated": "updated a journal entry.", "journalDeleted": "deleted a journal entry.",
+      "photoUploaded": "uploaded {count, plural, one {# photo} other {# photos}}.", "videoUploaded": "uploaded {count, plural, one {# video} other {# videos}}.", "mediaDeleted": "deleted expedition media.",
+      "trackLinked": "linked a GPS track.", "trackImported": "imported and linked a GPS track.", "trackUnlinked": "unlinked a GPS track.",
+      "memberJoined": "joined the expedition.", "memberRoleChanged": "changed a participant role from {from} to {to}.", "memberRemoved": "removed a participant.", "memberLeft": "left the expedition.",
+      "sharingEnabled": "enabled public sharing.", "sharingDisabled": "disabled public sharing."
+    },
+    "Conflict": { "conflictDetected": "Your changes were not saved", "day": "This day changed since you opened it.", "journal": "This journal entry changed since you opened it.", "order": "The day order changed since you opened it.", "permission": "Your project access or role changed. Refresh to continue safely.", "archived": "This expedition was archived and is now read-only.", "draftKept": "Your local draft is still here.", "reloadLatest": "Reload latest" },
+    "Accessibility": {
+      "projectList": "Your expedition projects"
+    }
+  }
+}

@@ -17,6 +17,9 @@ const messageFiles = [
   "metadata",
   "errors",
   "social",
+  "projects",
+  "notifications",
+  "explore",
 ] as const;
 
 async function loadMessages(locale: string) {

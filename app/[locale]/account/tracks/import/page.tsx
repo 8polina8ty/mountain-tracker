@@ -9,8 +9,7 @@ import {
   useState,
 } from "react";
 import { createClient } from "@/Lib/supabase/client";
-import { parseGpxFile } from "@/Lib/tracks/parseGpxFile";
-import { detectMountainFromTrack } from "@/Lib/tracks/detectMountainFromTrack";
+import { importGpxActivity, type GpxImportSource } from "@/Lib/tracks/importGpxActivity";
 import AccountNavigation from "@/components/account/AccountNavigation";
 import AccountPageHeader from "@/components/account/AccountPageHeader";
 import { Link, useRouter } from "@/i18n/navigation";
@@ -29,14 +28,7 @@ const ALLOWED_EXTENSIONS = [
 ];
 
 
-type TrackSource =
-  | "garmin"
-  | "suunto"
-  | "strava"
-  | "komoot"
-  | "watch"
-  | "phone"
-  | "other";
+type TrackSource = GpxImportSource;
 
 export default function ImportTrackPage() {
   const { reconcileAfterUserAction } = useAchievementNotification();
@@ -150,37 +142,9 @@ function handleFileChange(
     setMessage("");
   }
 
-function getDatabaseSourceType(
-  source: TrackSource,
-) {
-  switch (source) {
-    case "garmin":
-      return "garmin";
-
-    case "suunto":
-      return "suunto";
-
-    case "strava":
-      return "strava";
-
-    case "komoot":
-      return "komoot";
-
-    case "phone":
-      return "phone_recording";
-
-    case "watch":
-    case "other":
-    default:
-      return "other";
-  }
-}
-
 async function handleContinue() {
   if (!selectedFile || uploading) {
-    setMessage(
-      t("selectFileFirst"),
-    );
+    setMessage(t("selectFileFirst"));
     return;
   }
 
@@ -188,289 +152,37 @@ async function handleContinue() {
   setMessage("");
 
   const supabase = createClient();
-
-  let activityId: number | null = null;
-  let uploadedFilePath: string | null = null;
-  let uploadedGeoJsonPath: string | null = null;
-
-  try {
-    const {
-      data: { user },
-      error: userError,
-    } = await supabase.auth.getUser();
-
-    if (userError) {
-      throw userError;
-    }
-
-    if (!user) {
-      throw new Error(
-        t("loginRequired"),
-      );
-    }
-
-    const extension =
-      getFileExtension(selectedFile.name);
-      if (extension !== "gpx") {
-  throw new Error(
-    t("gpxOnly"),
-  );
-}
-
-    const databaseSourceType =
-      getDatabaseSourceType(sourceType);
-
-    /*
-     * Сначала создаём запись, чтобы получить activityId.
-     */
-    const {
-      data: activity,
-      error: activityError,
-    } = await supabase
-      .from("gps_activities")
-      .insert({
-        user_id: user.id,
-        source_type: databaseSourceType,
-        title: selectedFile.name.replace(
-          /\.[^.]+$/,
-          "",
-        ),
-        activity_type: "hiking",
-        processing_status: "pending",
-        is_public: false,
-      })
-      .select("id")
-      .single();
-
-    if (activityError) {
-      throw activityError;
-    }
-
-    activityId = Number(activity.id);
-
-    if (!Number.isInteger(activityId)) {
-      throw new Error(
-        t("activityIdMissing"),
-      );
-    }
-
-    uploadedFilePath = [
-      user.id,
-      String(activityId),
-      `original.${extension}`,
-    ].join("/");
-
-    /*
-     * Затем загружаем оригинальный файл
-     * в приватный Storage bucket.
-     */
-    const { error: uploadError } =
-      await supabase.storage
-        .from("activity-tracks")
-        .upload(
-          uploadedFilePath,
-          selectedFile,
-          {
-            cacheControl: "3600",
-            contentType:
-              selectedFile.type ||
-              "application/octet-stream",
-            upsert: false,
-          },
-        );
-
-    if (uploadError) {
-      throw uploadError;
-    }
-
-    /*
-     * В приватном bucket сохраняем путь,
-     * а не публичный URL.
-     */
-    /*
- * Отмечаем, что началась обработка файла.
- */
-const { error: processingUpdateError } =
-  await supabase
-    .from("gps_activities")
-    .update({
-      original_file_url: uploadedFilePath,
-      processing_status: "processing",
-      processing_error: null,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("id", activityId)
-    .eq("user_id", user.id);
-
-if (processingUpdateError) {
-  throw processingUpdateError;
-}
-
-/*
- * Преобразуем GPX в GeoJSON и рассчитываем статистику.
- */
-const parsedTrack =
-  await parseGpxFile(selectedFile);
-
-  const detectedMountain =
-  await detectMountainFromTrack({
+  const result = await importGpxActivity({
     supabase,
-    geojson: parsedTrack.geojson,
+    file: selectedFile,
+    source: sourceType,
   });
 
-const geoJsonFileName = "track.geojson";
-
-uploadedGeoJsonPath = [
-  user.id,
-  String(activityId),
-  geoJsonFileName,
-].join("/");
-
-const geoJsonBlob = new Blob(
-  [
-    JSON.stringify(
-      parsedTrack.geojson,
-      null,
-      2,
-    ),
-  ],
-  {
-    type: "application/geo+json",
-  },
-);
-
-/*
- * Загружаем созданный GeoJSON в тот же приватный bucket.
- */
-const { error: geoJsonUploadError } =
-  await supabase.storage
-    .from("activity-tracks")
-    .upload(
-      uploadedGeoJsonPath,
-      geoJsonBlob,
-      {
-        cacheControl: "3600",
-        contentType: "application/geo+json",
-        upsert: false,
-      },
-    );
-
-if (geoJsonUploadError) {
-  throw geoJsonUploadError;
-}
-
-/*
- * Обработка завершена — сохраняем статистику и статус ready.
- */
-const { error: readyUpdateError } =
-  await supabase
-    .from("gps_activities")
-    .update({
-      original_file_url: uploadedFilePath,
-      geojson_url: uploadedGeoJsonPath,
-
-      started_at: parsedTrack.startedAt,
-      finished_at: parsedTrack.finishedAt,
-      duration_seconds:
-        parsedTrack.durationSeconds,
-
-      distance_m: parsedTrack.distanceM,
-      elevation_gain_m:
-        parsedTrack.elevationGainM,
-
-      minimum_elevation_m:
-        parsedTrack.minimumElevationM,
-
-      maximum_elevation_m:
-        parsedTrack.maximumElevationM,
-
-        detected_mountain_id:
-  detectedMountain?.mountainId ?? null,
-
-detection_distance_m:
-  detectedMountain?.distanceM ?? null,
-
-detection_confidence:
-  detectedMountain?.confidence ?? null,
-
-detection_status:
-  detectedMountain
-    ? "detected"
-    : "not_found",
-
-gps_verified: false,
-
-      processing_status: "ready",
-      processing_error: null,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("id", activityId)
-    .eq("user_id", user.id);
-
-if (readyUpdateError) {
-  throw readyUpdateError;
-}
-
-await reconcileAfterUserAction(supabase);
-router.push(
-  `/account/tracks/${activityId}`,
-);
-
+  if (!result.ok) {
     setMessage(
-  [
-    t("success"),
-    t("points", { count: parsedTrack.pointCount }),
-    t("distance", { value: format.number(parsedTrack.distanceM / 1000, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }),
-    t("elevationGain", { value: format.number(parsedTrack.elevationGainM) }),
-
-    detectedMountain
-      ? t("mountainDetected", { mountainName: detectedMountain.mountainName, distance: format.number(detectedMountain.distanceM) })
-      : t("mountainNotDetected"),
-  ].join(" "),
-);
-
-    setSelectedFile(null);
-  } catch (error) {
-    console.error(
-      "Ошибка импорта GPS-трека:",
-      error,
+      result.reason === "auth"
+        ? t("loginRequired")
+        : result.reason === "validation"
+          ? t("gpxOnly")
+          : t("uploadFailed"),
     );
-
-    /*
-     * Удаляем загруженный файл,
-     * если последующий шаг завершился ошибкой.
-     */
-    const filesToRemove = [
-  uploadedFilePath,
-  uploadedGeoJsonPath,
-].filter(
-  (filePath): filePath is string =>
-    filePath !== null,
-);
-
-if (filesToRemove.length > 0) {
-  await supabase.storage
-    .from("activity-tracks")
-    .remove(filesToRemove);
-}
-    /*
-     * Удаляем незавершённую запись активности.
-     */
-    if (activityId !== null) {
-      await supabase
-        .from("gps_activities")
-        .delete()
-        .eq("id", activityId);
-    }
-
-    setMessage(
-      error instanceof Error
-        ? error.message
-        : t("uploadFailed"),
-    );
-  } finally {
     setUploading(false);
+    return;
   }
+
+  await reconcileAfterUserAction(supabase);
+  router.push(`/account/tracks/${result.gpsActivityId}`);
+  setMessage([
+    t("success"),
+    t("points", { count: result.track.pointCount }),
+    t("distance", { value: format.number(result.track.distanceM / 1000, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }),
+    t("elevationGain", { value: format.number(result.track.elevationGainM) }),
+    result.detectedMountain
+      ? t("mountainDetected", { mountainName: result.detectedMountain.mountainName, distance: format.number(result.detectedMountain.distanceM) })
+      : t("mountainNotDetected"),
+  ].join(" "));
+  setSelectedFile(null);
+  setUploading(false);
 }
 
   return (

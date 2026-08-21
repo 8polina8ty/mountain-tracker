@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local editor settings
+.vscode/
+
+# local SQLTools / database session files
+*.session.sql
+
+# local python environment
+.venv/
+venv/
+
+# large local geodata
+date/*.osm.pbf
+date/boundaries/*.geojson

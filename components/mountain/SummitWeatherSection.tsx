@@ -2,21 +2,12 @@ import type { LucideIcon } from "lucide-react";
 import {
   Clock3,
   Cloud,
-  CloudDrizzle,
-  CloudFog,
-  CloudLightning,
   CloudOff,
-  CloudRain,
-  CloudRainWind,
-  CloudSnow,
-  CloudSun,
-  Cloudy,
   Droplets,
   Eye,
   MountainSnow,
   ShieldAlert,
   Snowflake,
-  Sun,
   Sunrise,
   Sunset,
   Wind,
@@ -26,20 +17,7 @@ import { getFormatter, getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/locales";
 import { zonedTimeToUtc } from "@/Lib/weather/summitWeather";
 import type { SummitWeather, WeatherCondition } from "@/Lib/weather/types";
-
-const WEATHER_CONDITION_ICONS: Record<WeatherCondition, LucideIcon> = {
-  clear: Sun,
-  mostlyClear: CloudSun,
-  partlyCloudy: Cloudy,
-  overcast: Cloud,
-  fog: CloudFog,
-  drizzle: CloudDrizzle,
-  rain: CloudRain,
-  snow: CloudSnow,
-  showers: CloudRainWind,
-  thunderstorm: CloudLightning,
-  unknown: Cloud,
-};
+import { WEATHER_CONDITION_ICONS } from "@/components/weather/WeatherConditionIcon";
 
 const HOURLY_WINDOW_HOURS = 24;
 

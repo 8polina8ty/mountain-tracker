@@ -1,0 +1,130 @@
+{
+  "Projects": {
+    "Metadata": {
+      "title": "Экспедиционные проекты | Mountain Tracker",
+      "description": "Личное пространство планирования экспедиций в Mountain Tracker."
+    },
+    "Status": {
+      "planning": "Планирование",
+      "ready": "Готов",
+      "active": "Активный",
+      "completed": "Завершён",
+      "archived": "В архиве"
+    },
+    "Common": {
+      "mountains": "Горы",
+      "days": "Дни",
+      "journal": "Дневник",
+      "dateRange": "{start} – {end}",
+      "datesOpen": "Даты не заданы",
+      "unnamedMountain": "Гора без названия"
+    },
+    "List": {
+      "eyebrow": "Планировщик экспедиций",
+      "title": "Проекты",
+      "description": "Планируйте многодневные горные экспедиции, храните маршрут и полевые заметки в одном месте.",
+      "create": "Создать проект",
+      "createFirst": "Спланировать первую экспедицию",
+      "emptyTitle": "Ваша следующая экспедиция начинается здесь",
+      "emptyDescription": "Проект объединяет несколько гор, дневные этапы и путевые заметки в единое досье экспедиции.",
+      "projectLabel": "Экспедиционный проект",
+      "noMountains": "Горы пока не добавлены",
+      "updated": "Обновлено: {date}",
+      "open": "Открыть"
+    },
+    "Create": {
+      "back": "Назад к проектам",
+      "eyebrow": "Новый экспедиционный проект",
+      "title": "Спланировать экспедицию",
+      "description": "Создайте досье экспедиции. Если указать даты, для каждого календарного дня автоматически появится этап; даты можно оставить открытыми.",
+      "nameLabel": "Название проекта",
+      "nameHelp": "Введите понятное название экспедиции длиной не более 120 символов.",
+      "descriptionLabel": "Описание (необязательно)",
+      "datesLegend": "Даты экспедиции (необязательно)",
+      "startDate": "Дата начала",
+      "endDate": "Дата окончания",
+      "datesHelp": "Начальную и конечную даты нужно указывать вместе. Проект может охватывать не более 60 дней.",
+      "cancel": "Отмена",
+      "submit": "Создать проект",
+      "submitting": "Создание…"
+    },
+    "Errors": {
+      "nameRequired": "Введите название проекта.",
+      "nameTooLong": "Название проекта не должно превышать 120 символов.",
+      "descriptionTooLong": "Описание не должно превышать 4 000 символов.",
+      "datePairRequired": "Укажите обе даты либо оставьте оба поля пустыми.",
+      "invalidDate": "Укажите действительные даты проекта.",
+      "endBeforeStart": "Дата окончания не может быть раньше даты начала.",
+      "tooManyDays": "Проект не может длиться более 60 дней.",
+      "createFailed": "Не удалось создать проект. Введённые данные сохранены; попробуйте ещё раз."
+    },
+    "Mutations": {
+      "newDayJournal": "Добавить запись",
+      "statusLabel": "Статус проекта", "saving": "Сохранение…", "statusSaved": "Статус сохранён.", "statusError": "Не удалось сохранить статус. Попробуйте ещё раз.",
+      "removeMountainConfirm": "Удалить {name} из проекта и из всех назначений по дням?", "removeMountainAria": "Удалить {name} из проекта", "removeMountainError": "Не удалось удалить гору. Попробуйте ещё раз.",
+      "addDay": "Добавить день", "addingDay": "Добавление…", "dayLimit": "Достигнут лимит в 60 дней.", "fixedDateRange": "Дни определены фиксированным периодом проекта.", "addDayError": "Не удалось добавить день. Проверьте даты проекта и попробуйте ещё раз.",
+      "deleteDayConfirm": "Удалить день {number} и назначения гор?", "deleteDayAria": "Удалить день {number}", "deleteDayError": "Не удалось удалить день. Попробуйте ещё раз.", "dayDeleted": "День удалён.",
+      "moveDayUpAria": "Переместить день {number} вверх", "moveDayDownAria": "Переместить день {number} вниз", "reorderError": "Не удалось изменить порядок дней. Попробуйте ещё раз.", "daysReordered": "Порядок дней сохранён.",
+      "editDayAria": "Редактировать день {number}", "defaultDayTitle": "День {number}", "dayTitleLabel": "Название дня (необязательно)", "dayNotesLabel": "Заметки дня (необязательно)", "notesLabel": "Заметки", "dayTitleTooLong": "Название дня не должно превышать 160 символов.", "dayNotesTooLong": "Заметки дня не должны превышать 8 000 символов.", "daySaveError": "Не удалось сохранить день. Введённые данные сохранены; попробуйте ещё раз.", "daySaved": "День сохранён.",
+      "assignmentsLabel": "Горы проекта", "assignedToDay": "Назначено на этот день", "noMountainsAssignedToDay": "На этот день пока не назначено ни одной горы.", "addFromProject": "Добавить из проекта", "addMountainToDay": "Добавить", "removeMountainFromDay": "Убрать назначение", "allProjectMountainsAssigned": "Все горы проекта назначены на этот день.", "assigned": "Назначена", "notAssigned": "Не назначена", "noProjectMountains": "Добавьте горы в проект, прежде чем назначать их на день.", "unnamedMountain": "Безымянная гора", "assignError": "Не удалось назначить гору. Попробуйте ещё раз.", "unassignError": "Не удалось удалить назначение. Попробуйте ещё раз.", "mountainAssigned": "Гора назначена.", "mountainUnassigned": "Назначение горы удалено.",
+      "newJournal": "Новая запись в журнале", "journalTitleLabel": "Заголовок (необязательно)", "journalBodyLabel": "Запись", "journalTitleTooLong": "Заголовок не должен превышать 160 символов.", "journalBodyRequired": "Введите текст записи.", "journalBodyTooLong": "Запись не должна превышать 12 000 символов.", "journalCreateError": "Не удалось создать запись. Текст сохранён; попробуйте ещё раз.", "journalUpdateError": "Не удалось сохранить запись. Текст сохранён; попробуйте ещё раз.", "journalDeleteConfirm": "Удалить эту запись журнала?", "journalDeleteError": "Не удалось удалить запись. Попробуйте ещё раз.", "editJournalAria": "Редактировать запись журнала", "deleteJournalAria": "Удалить запись журнала", "save": "Сохранить", "cancel": "Отмена"
+    },
+    "Media": {
+      "authFailure": "Сессия не позволила выполнить загрузку. Войдите снова и повторите попытку.", "metadataFailure": "Фото загружено, но его запись в дневнике не сохранилась.",
+      "addPhotos": "Добавить фото", "selectedPhotos": "{count, plural, one {Выбрана # фотография} few {Выбрано # фотографии} many {Выбрано # фотографий} other {Выбрано # фото}}", "removePhoto": "Убрать {name}", "uploadPhotos": "Загрузить фото", "uploading": "Загрузка…", "uploadFailed": "Ошибка загрузки", "retryUpload": "Повторить загрузку", "readyToUpload": "Готово к загрузке", "photoUploadSucceeded": "Фото загружено", "photoUnavailable": "Это личное фото сейчас недоступно.",
+      "openPhoto": "Открыть фото {number} из {count}", "closePhoto": "Закрыть фото", "nextPhoto": "Следующее фото", "previousPhoto": "Предыдущее фото", "photoPosition": "{number} из {count}", "deletePhoto": "Удалить фото", "deletePhotoConfirm": "Удалить это фото навсегда?", "deletePhotoFailed": "Не удалось удалить фото. Оно остается видимым; повторите попытку.",
+      "invalidPhotoType": "Выберите фото JPEG, PNG или WebP.", "photoTooLarge": "Размер фото не должен превышать 10 МиБ.", "photoDimensionsTooLarge": "Размеры фото слишком велики.", "photoDecodeFailed": "Браузер не смог прочитать это фото.", "mediaLimitReached": "В записи дневника может быть не более 12 медиафайлов.", "mediaOnlyEntry": "Текст необязателен, если выбрано хотя бы одно допустимое фото.", "uploadPartialFailure": "Часть фото загружена. Ошибочные фото остались для повтора.", "cleanupRequired": "Частичную операцию хранилища нужно исправить. Повторите действие.",
+      "gallery": "Медиагалерея дневника", "photosFromThisDay": "Фотографии этого дня", "mediaFromThisDay": "Медиа этого дня", "photoCount": "{count, plural, one {# фото} few {# фото} many {# фото} other {# фото}}", "mediaCount": "{count, plural, one {# элемент} few {# элемента} many {# элементов} other {# элемента}}", "photoAlt": "Фото дневника {number} из {count}", "photoAltWithTitle": "{title}: фото {number} из {count}",
+      "addMedia": "Добавить фото и видео", "selectedMedia": "{count, plural, one {Выбран # элемент} few {Выбрано # элемента} many {Выбрано # элементов} other {Выбрано # элемента}}", "unsupportedVideoType": "Выберите корректное видео MP4 или WebM.", "videoTooLarge": "Размер видео не должен превышать 100 МиБ.", "videoTooLong": "Видео не должно быть длиннее 5 минут.", "videoDimensionsTooLarge": "Разрешение видео не должно превышать 3840×2160.", "videoDecodeFailed": "Браузер не смог прочитать это видео.", "videoUploadFailed": "Не удалось загрузить или удалить видео. Повторите попытку.", "videoUploadSucceeded": "Видео загружено", "uploadPaused": "Загрузка приостановлена", "uploadResuming": "Загрузка продолжается", "retryVideoUpload": "Повторить загрузку", "videoUnavailable": "Это приватное видео сейчас недоступно.", "openVideo": "Открыть видео {number} из {count}", "closeVideo": "Закрыть видео", "deleteVideo": "Удалить видео", "deleteVideoConfirm": "Удалить это видео навсегда?", "uploadProgress": "Загрузка {progress}%", "cancelVideoUpload": "Отменить загрузку видео"
+    },
+    "Picker": {
+      "addToProject": "Добавить в проект", "selectProject": "Выбрать проект", "projectPickerTitle": "Добавить в проект", "projectPickerDescription": "Выберите проект для горы {name}.", "alreadyInProject": "Уже в проекте", "addedToProject": "Добавлено в проект", "add": "Добавить", "adding": "Добавление…", "addFailed": "Не удалось добавить гору. Попробуйте ещё раз.", "loadFailed": "Не удалось загрузить ваши проекты.", "loginToAdd": "Войдите, чтобы добавить эту гору в проект.", "login": "Войти", "createNewProject": "Создать новый проект", "openProject": "Открыть проект", "noProjects": "У вас пока нет проектов.", "loadingProjects": "Загрузка проектов…", "retry": "Повторить", "close": "Закрыть выбор проекта", "dateRange": "{start} – {end}"
+    },
+    "Weather": {
+      "weather": "Погода", "weatherForecast": "Прогноз погоды", "forecastAvailable": "Прогноз доступен", "forecastUnavailable": "Данные о погоде сейчас недоступны.", "forecastUnavailableYet": "Прогноз пока недоступен. Проверьте снова ближе к поездке.", "forecastDaysAvailable": "Дни с прогнозом", "mountainsWithForecast": "Горы с прогнозом", "condition": "Условия", "temperature": "Температура", "temperatureMin": "Минимум", "temperatureMax": "Максимум", "precipitation": "Осадки", "wind": "Ветер", "gusts": "Порывы", "snowfall": "Снегопад", "weatherDisclaimer": "Прогнозы могут меняться, а условия в горах — различаться локально. Перед выходом сверяйтесь с официальными прогнозами и актуальной местной информацией.", "noMountainAssigned": "Назначьте гору на день маршрута, чтобы увидеть прогноз.", "updatedForecast": "Прогноз обновлён: {date}", "itinerary": "Маршрут", "expeditionSummary": "Сводка экспедиции", "unnamedMountain": "Безымянная гора"
+    },
+    "Detail": {
+      "dayJournalTitle": "Дневник дня", "noDayJournalEntries": "Для этого дня пока нет записей.", "projectJournalTitle": "Заметки проекта", "projectJournalDescription": "Общие заметки о подготовке, не связанные с конкретным днём экспедиции.", "noProjectJournalEntries": "Добавляйте общую заметку, только если она не относится к определённому дню.",
+      "back": "Назад к проектам",
+      "eyebrow": "Экспедиционный проект",
+      "mountainsTitle": "Горы",
+      "mountainsDescription": "Вершины, включённые в эту экспедицию.",
+      "noMountains": "Добавьте горы с карты или со страницы горы.",
+      "itineraryTitle": "Маршрут",
+      "itineraryDescription": "Хронология экспедиции по дням.",
+      "noDays": "Добавьте день, чтобы начать составлять маршрут.",
+      "dateOpen": "Дата не задана",
+      "dayTitle": "День {number}",
+      "noAssignedMountains": "На этот день горы не назначены",
+      "journalTitle": "Дневник",
+      "journalDescription": "Заметки о подготовке и экспедиции от новых к старым.",
+      "noJournalEntries": "Используйте дневник для заметок о подготовке и наблюдений в поездке.",
+      "assignedDays": "Назначенные дни: {days}"
+    },
+    "Tracks": {
+      "selectedGpx": "Выбранный GPX: {name}",
+      "uploadGpx": "Загрузить GPX", "uploadGpxDescription": "Импортировать GPX как трек аккаунта и привязать к этому дню.", "chooseGpxFile": "Выбрать файл GPX", "removeFile": "Удалить файл", "importTrack": "Импортировать трек", "importingTrack": "Импорт трека…", "linkingImportedTrack": "Привязка импортированного трека…", "trackImported": "Трек импортирован.", "trackImportedAndLinked": "Трек импортирован и привязан.", "trackImportedLinkFailed": "Трек импортирован, но не привязан к этому дню.", "retryLink": "Привязать импортированный трек", "gpxImportFailed": "Не удалось импортировать GPX.", "gpxCleanupRequired": "Не удалось завершить очистку. Проверьте треки аккаунта.", "invalidGpx": "Выберите корректный файл GPX.", "stayOnProject": "Остаться в проекте", "trackAvailableInAccount": "Импортированный трек остаётся доступен в аккаунте.", "closeUpload": "Закрыть загрузку GPX",
+      "actualAscent": "Фактическое восхождение / GPS", "gpsEvidence": "Сохранённые треки этого дня экспедиции.", "linkExistingTrack": "Привязать сохранённый трек", "chooseTrack": "Выберите сохранённый трек", "closePicker": "Закрыть выбор трека", "noTrackLinked": "К этому дню пока не привязан GPS-трек.", "alreadyLinked": "Привязан", "trackLinkFailed": "Не удалось привязать или отвязать трек.", "unlinkTrack": "Отвязать от дня", "unlinkTrackConfirm": "Отвязать {title} от этого дня? Сохранённый трек не будет удалён.", "openFullTrack": "Открыть полный трек", "showMap": "Показать карту", "hideMap": "Скрыть карту", "mapFallback": "Приватная карта маршрута этого трека.", "distance": "Расстояние", "duration": "Длительность", "elevationGain": "Набор высоты", "detectedMountain": "Обнаруженная вершина", "matchesPlannedMountain": "Совпадает с запланированной вершиной", "differentMountainDetected": "Обнаружена другая вершина", "verified": "Подтверждено", "likely": "Вероятно", "not-detected": "Не обнаружено", "notDetected": "Не обнаружено", "unavailable": "Недоступно", "fallbackTitle": "Трек {id}"
+    },
+    "Lifecycle": { "currentExpedition": "Текущая экспедиция", "completeProject": "Завершить проект", "completeProjectConfirm": "Отметить экспедицию завершённой? Её можно будет редактировать и открыть снова.", "archiveProject": "Архивировать проект", "archiveProjectConfirm": "Архивировать проект? Данные не удалятся, проект можно восстановить.", "readyToComplete": "Готово к завершению", "completionEvidenceMissing": "Некоторых доказательств ещё нет. Проект всё равно можно завершить.", "summaryDays": "Дни", "summaryMountains": "Вершины", "daysWithEvidence": "Дни с доказательствами", "verifiedMountains": "Подтверждённые вершины", "likelyMountains": "Вероятные вершины", "totalDistance": "Общая дистанция", "totalElevationGain": "Набор высоты", "totalDuration": "Длительность", "photos": "Фото", "videos": "Видео", "journalEntries": "Записи журнала", "expeditionReport": "Отчёт об экспедиции", "projectCompleted": "Завершено", "planned": "Запланировано", "evidenceAdded": "Добавлен GPS-трек", "journalCount": "{count} записей", "mediaCount": "{count} медиа", "noEvidence": "Нет доказательств" },
+    "Report": { "viewReport": "View expedition report", "backToProject": "Back to project", "printReport": "Print / Save as PDF", "privateReport": "Private report", "expeditionReport": "Expedition Report", "expeditionReportPreview": "Expedition Report Preview", "reportSummary": "Report summary", "daysWithEvidence": "Days with evidence", "uniqueTracks": "Unique tracks", "totalDistance": "Total distance", "totalElevationGain": "Elevation gain", "totalDuration": "Duration", "verifiedMountains": "Verified mountains", "photos": "Photos", "videos": "Videos", "mountainOutcomes": "Mountain outcomes", "dayTimeline": "Day-by-day timeline", "day": "Day {number}", "planned": "Planned", "actual": "Actual", "noEvidence": "No evidence", "journal": "Journal", "video": "Video", "mediaUnavailable": "Media unavailable", "statisticsUnavailable": "Statistics unavailable", "generatedFromProject": "Generated from the private Mountain Tracker project.", "verified": "Verified", "likely": "Likely", "not-detected": "Not detected", "unavailable": "Unavailable", "no-evidence": "No evidence" },
+    "Sharing": { "publicSharing": "Public sharing", "shareWarning": "Public sharing publishes the expedition report including journal text and selected expedition media. Anyone with the link can view it. Continue?", "disableSharingConfirm": "Disable this public link?", "sharingFailed": "Sharing could not be updated. Try again.", "sharingEnabled": "Public sharing enabled.", "sharingDisabled": "Public sharing disabled.", "linkCopied": "Public link copied.", "copyLink": "Copy link", "openPublicPage": "Open public page", "disableSharing": "Disable sharing", "enableSharing": "Enable sharing", "publicExpedition": "Public expedition", "summary": "Expedition summary", "completed": "Completed", "archived": "Archived", "days": "Days", "daysWithEvidence": "Days with GPS evidence", "tracks": "Tracks", "track": "Track", "distance": "Distance", "elevation": "Elevation gain", "duration": "Duration", "photos": "Photos", "videos": "Videos", "mountains": "Mountain outcomes", "timeline": "Day-by-day timeline", "day": "Day {number}", "planned": "Planned", "none": "No public evidence", "verified": "Verified", "likely": "Likely", "not-detected": "Not detected", "no-evidence": "No evidence", "unavailable": "Unavailable", "journalPhoto": "Expedition journal photo", "videoUnavailable": "Video is unavailable on the public report", "publicNotice": "Shared from a completed Mountain Tracker expedition." },
+    "Team": { "expeditionTeam": "Команда экспедиции", "description": "Управляйте участниками и их ролями.", "owner": "Владелец", "editor": "Редактор", "viewer": "Наблюдатель", "inviteParticipant": "Пригласить участника", "inviteParticipantDescription": "Найдите пользователя Mountain Tracker и выберите его роль.", "selectParticipant": "Выбрать участника", "searchPlaceholder": "Поиск по имени или логину", "selectRole": "Выбрать роль", "sendInvitation": "Отправить приглашение", "invitationSent": "Приглашение отправлено.", "invitationFailed": "Не удалось выполнить изменение. Повторите попытку.", "pendingInvitations": "Ожидающие приглашения", "invitedAs": "Приглашён как {role}", "invitedByAs": "{name} приглашает вас как {role}", "cancelInvitation": "Отменить приглашение", "invitationCancelled": "Приглашение отменено.", "removeMember": "Удалить", "removeMemberConfirm": "Удалить {name} из этой экспедиции?", "memberRemoved": "Участник удалён.", "changeRole": "Изменить роль для {name}", "roleChanged": "Роль изменена.", "alreadyInvited": "Уже участник или приглашён", "noMembers": "Участников пока нет.", "noPendingInvitations": "Нет ожидающих приглашений.", "expeditionInvitations": "Приглашения в экспедиции", "acceptInvitation": "Принять", "declineInvitation": "Отклонить", "invitationAccepted": "Приглашение принято.", "invitationDeclined": "Приглашение отклонено.", "myExpeditions": "Мои экспедиции", "sharedWithMe": "Доступные мне", "closeDialog": "Закрыть окно приглашения" },
+    "TeamShared": { "description": "Откройте закрытый проект или управляйте участием.", "ownedBy": "Владелец: {name}", "openProject": "Открыть проект", "leaveProject": "Покинуть проект", "leaveProjectConfirm": "Покинуть {name}?", "projectLeft": "Вы покинули проект." },
+    "Activity": {
+      "title": "Активность экспедиции", "description": "Последние приватные изменения этой экспедиции.", "empty": "Действия пока не записаны.", "showMore": "Показать ещё", "loading": "Загрузка…", "loadFailed": "Не удалось загрузить другие действия.", "formerParticipant": "Бывший участник",
+      "projectStatusChanged": "изменил(а) статус проекта с {from} на {to}.", "projectArchived": "архивировал(а) экспедицию.", "projectRestored": "восстановил(а) экспедицию.",
+      "mountainAdded": "добавил(а) гору в экспедицию.", "mountainRemoved": "удалил(а) гору из экспедиции.", "mountainAssigned": "назначил(а) гору на день.", "mountainUnassigned": "снял(а) назначение горы с дня.",
+      "dayCreated": "создал(а) день экспедиции.", "dayUpdated": "изменил(а) день экспедиции.", "dayDeleted": "удалил(а) день экспедиции.", "dayReordered": "изменил(а) порядок дней: {count}.",
+      "journalCreated": "создал(а) запись в журнале.", "journalUpdated": "изменил(а) запись в журнале.", "journalDeleted": "удалил(а) запись из журнала.",
+      "photoUploaded": "загрузил(а) фото: {count}.", "videoUploaded": "загрузил(а) видео: {count}.", "mediaDeleted": "удалил(а) медиафайл экспедиции.",
+      "trackLinked": "привязал(а) GPS-трек.", "trackImported": "импортировал(а) и привязал(а) GPS-трек.", "trackUnlinked": "отвязал(а) GPS-трек.",
+      "memberJoined": "присоединился(-ась) к экспедиции.", "memberRoleChanged": "изменил(а) роль участника с {from} на {to}.", "memberRemoved": "удалил(а) участника.", "memberLeft": "покинул(а) экспедицию.",
+      "sharingEnabled": "включил(а) публичный доступ.", "sharingDisabled": "отключил(а) публичный доступ."
+    },
+    "Conflict": { "conflictDetected": "Изменения не сохранены", "day": "Этот день изменился после того, как вы его открыли.", "journal": "Эта запись журнала изменилась после открытия.", "order": "Порядок дней изменился после открытия.", "permission": "Ваш доступ или роль изменились. Обновите страницу.", "archived": "Экспедиция архивирована и доступна только для чтения.", "draftKept": "Ваш локальный черновик сохранён.", "reloadLatest": "Загрузить последнюю версию" },
+    "Accessibility": {
+      "projectList": "Ваши экспедиционные проекты"
+    }
+  }
+}

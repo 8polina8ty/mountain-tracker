@@ -1,11 +1,15 @@
 {
   "Navigation": {
     "map": "Carte",
+    "explore": "Explorer",
     "ranking": "Classement",
     "myAscents": "Mes ascensions",
+    "projects": "Projets",
     "account": "Compte",
     "friends": "Amis",
     "messages": "Messages",
+    "notifications": "Notifications",
+    "unreadNotifications": "{count, plural, one {# notification non lue} other {# notifications non lues}}",
     "login": "Se connecter",
     "signUp": "S'inscrire",
     "logout": "Se déconnecter",

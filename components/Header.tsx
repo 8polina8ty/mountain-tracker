@@ -23,6 +23,7 @@ const standardEasing = [0.2, 0, 0, 1] as const;
 
 const navigationLinks = [
   { href: "/map", labelKey: "map", primary: true },
+  { href: "/explore", labelKey: "explore", primary: false },
   { href: "/ranking", labelKey: "ranking", primary: false },
   {
     href: "/account/ascents",
@@ -36,11 +37,17 @@ const socialNavigationLink = {
   labelKey: "friends",
   primary: false,
 } as const;
+const projectsNavigationLink = {
+  href: "/projects",
+  labelKey: "projects",
+  primary: false,
+} as const;
 const messagesNavigationLink = {
   href: "/messages",
   labelKey: "messages",
   primary: false,
 } as const;
+const notificationsNavigationLink = { href: "/notifications", labelKey: "notifications", primary: false } as const;
 
 const guestNavigationLinks = [
   ...navigationLinks,
@@ -61,7 +68,7 @@ export default function Header() {
   const t = useTranslations("Navigation");
   const tAccessibility = useTranslations("Accessibility");
   const tSocialAccessibility = useTranslations("Social.Accessibility");
-  const { totalUnreadMessages } = useSocialInbox();
+  const { totalUnreadMessages, totalUnreadProjectNotifications } = useSocialInbox();
   const pathname = usePathname();
   const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
@@ -182,7 +189,7 @@ useEffect(() => {
 
   const accountIsActive = isRouteActive(pathname, "/account");
   const visibleNavigationLinks = user
-    ? [...navigationLinks, socialNavigationLink, messagesNavigationLink]
+    ? [...navigationLinks, projectsNavigationLink, socialNavigationLink, messagesNavigationLink, notificationsNavigationLink]
     : guestNavigationLinks;
 
   return (
@@ -214,7 +221,7 @@ useEffect(() => {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
-                aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : undefined}
+                aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : link.href === "/notifications" && totalUnreadProjectNotifications > 0 ? t("unreadNotifications", { count: totalUnreadProjectNotifications }) : undefined}
                 className={`ui-pressable relative flex h-full items-center border-b-2 px-4 text-sm font-semibold ${
                   isActive
                     ? "border-[var(--color-forest)] text-[var(--color-text)]"
@@ -225,6 +232,7 @@ useEffect(() => {
               >
                 {t(link.labelKey)}
                 {link.href === "/messages" && totalUnreadMessages > 0 && <UnreadBadge count={totalUnreadMessages} />}
+                {link.href === "/notifications" && totalUnreadProjectNotifications > 0 && <UnreadBadge count={totalUnreadProjectNotifications} />}
               </Link>
             );
           })}
@@ -430,7 +438,7 @@ useEffect(() => {
                       href={link.href}
                       onClick={handleMenuNavigation}
                       aria-current={isActive ? "page" : undefined}
-                      aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : undefined}
+                      aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : link.href === "/notifications" && totalUnreadProjectNotifications > 0 ? t("unreadNotifications", { count: totalUnreadProjectNotifications }) : undefined}
                       className={`ui-pressable mx-3 flex min-h-13 items-center border-l-2 px-4 text-base font-semibold ${
                         isActive
                           ? "border-[var(--color-forest)] bg-[var(--color-surface-muted)] text-[var(--color-text)]"
@@ -439,7 +447,7 @@ useEffect(() => {
                             : "border-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
                       }`}
                     >
-                      <span className="flex min-w-0 flex-1 items-center justify-between gap-3"><span>{t(link.labelKey)}</span>{link.href === "/messages" && totalUnreadMessages > 0 && <UnreadBadge count={totalUnreadMessages} />}</span>
+                      <span className="flex min-w-0 flex-1 items-center justify-between gap-3"><span>{t(link.labelKey)}</span>{link.href === "/messages" && totalUnreadMessages > 0 && <UnreadBadge count={totalUnreadMessages} />}{link.href === "/notifications" && totalUnreadProjectNotifications > 0 && <UnreadBadge count={totalUnreadProjectNotifications} />}</span>
                     </Link>
                   );
                 })}

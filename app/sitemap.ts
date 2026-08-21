@@ -6,6 +6,7 @@ import { getLocalizedPath, getSiteOrigin } from "@/i18n/seo";
 const publicStaticPaths = [
   { pathname: "/map", changeFrequency: "weekly", priority: 1 },
   { pathname: "/ranking", changeFrequency: "daily", priority: 0.7 },
+  { pathname: "/explore", changeFrequency: "daily", priority: 0.8 },
 ] as const;
 
 function getAlternates(origin: string, pathname: string) {

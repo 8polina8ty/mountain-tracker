@@ -33,6 +33,7 @@ export type MessageRecord = {
 
 export type SocialInboxSummary = {
   totalUnreadMessages: number;
+  totalUnreadProjectNotifications: number;
   unreadConversations: Record<string, number>;
 };
 
@@ -102,14 +103,15 @@ export function normalizeSocialInboxSummary(value: unknown): SocialInboxSummary 
   if (!value || typeof value !== "object") return null;
   const row = value as Record<string, unknown>;
   const total = Number(row.totalUnreadMessages);
-  if (!Number.isSafeInteger(total) || total < 0 || !row.unreadConversations || typeof row.unreadConversations !== "object" || Array.isArray(row.unreadConversations)) return null;
+  const projectTotal = Number(row.totalUnreadProjectNotifications ?? 0);
+  if (!Number.isSafeInteger(total) || total < 0 || !Number.isSafeInteger(projectTotal) || projectTotal < 0 || !row.unreadConversations || typeof row.unreadConversations !== "object" || Array.isArray(row.unreadConversations)) return null;
   const unreadConversations: Record<string, number> = {};
   for (const [conversationId, countValue] of Object.entries(row.unreadConversations as Record<string, unknown>)) {
     const count = Number(countValue);
     if (!Number.isSafeInteger(count) || count < 1) return null;
     unreadConversations[conversationId] = count;
   }
-  return { totalUnreadMessages: total, unreadConversations };
+  return { totalUnreadMessages: total, totalUnreadProjectNotifications: projectTotal, unreadConversations };
 }
 
 export function applyRealtimeMessage(current: MessageRecord[], message: MessageRecord) {

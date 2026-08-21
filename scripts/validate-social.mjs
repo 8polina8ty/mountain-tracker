@@ -43,7 +43,8 @@ assert.equal(isUnreadMessage({ ...confirmed, senderId: "other" }, "u", 7), false
 assert.equal(formatUnreadBadge(0), null);
 assert.equal(formatUnreadBadge(3), "3");
 assert.equal(formatUnreadBadge(100), "99+");
-assert.deepEqual(normalizeSocialInboxSummary({ totalUnreadMessages: 2, unreadConversations: { c: 2 } }), { totalUnreadMessages: 2, unreadConversations: { c: 2 } });
+assert.deepEqual(normalizeSocialInboxSummary({ totalUnreadMessages: 2, totalUnreadProjectNotifications: 3, unreadConversations: { c: 2 } }), { totalUnreadMessages: 2, totalUnreadProjectNotifications: 3, unreadConversations: { c: 2 } });
+assert.equal(normalizeSocialInboxSummary({ totalUnreadMessages: 2, totalUnreadProjectNotifications: -1, unreadConversations: {} }), null);
 const messageUi = await readFile(new URL("../components/messages/MessageThread.tsx", import.meta.url), "utf8");
 assert.ok(messageUi.includes("message.deletedAt"));
 assert.ok(messageUi.includes("canDeleteMessage(message,currentUserId)"));

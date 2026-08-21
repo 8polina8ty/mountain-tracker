@@ -1,11 +1,15 @@
 {
   "Navigation": {
     "map": "Карта",
+    "explore": "Обзор",
     "ranking": "Рейтинг",
     "myAscents": "Мои восхождения",
+    "projects": "Проекты",
     "account": "Аккаунт",
     "friends": "Друзья",
     "messages": "Сообщения",
+    "notifications": "Уведомления",
+    "unreadNotifications": "{count, plural, one {# непрочитанное уведомление} few {# непрочитанных уведомления} many {# непрочитанных уведомлений} other {# непрочитанного уведомления}}",
     "login": "Войти",
     "signUp": "Регистрация",
     "logout": "Выйти",

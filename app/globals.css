@@ -129,6 +129,16 @@
   --foreground: var(--color-text);
 }
 
+@media print {
+  body > header, body > nav, .project-report-control { display: none !important; }
+  .project-report, .project-report article { background: white !important; color: black !important; }
+  .project-report .report-card, .project-report .report-media { break-inside: avoid; box-shadow: none !important; }
+  .project-report .report-day { break-inside: auto; }
+  .project-report .report-media-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+  .project-report video, .project-report button, .project-report [role="dialog"] { display: none !important; }
+  @page { margin: 14mm; }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

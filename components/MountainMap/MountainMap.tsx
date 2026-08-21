@@ -9,7 +9,6 @@ import { createClient } from "@/Lib/supabase/client";
 import type {
   PeakFeatureCollection,
   SelectedPeak,
-  UserGpsPosition,
 } from "./types";
 import {
   DEFAULT_CENTER,
@@ -26,7 +25,6 @@ import { useMountainSearch } from "./useMountainSearch";
 import { useMountainAscents } from "./useMountainAscents";
 import { useVisibleMountains } from "./useVisibleMountains";
 import { useMountainMap } from "./useMountainMap";
-import GpsStatusPanel from "./GpsStatusPanel";
 
 
 export default function MountainMap() {
@@ -120,8 +118,6 @@ export default function MountainMap() {
   setSelectedPeak,
 });
 
-const [gpsPosition, setGpsPosition] = useState<UserGpsPosition | null>(null);
-
 useMountainMap({
   mapContainerRef: mapContainer,
   mapRef,
@@ -137,9 +133,7 @@ useMountainMap({
   checkSelectedPeakAscent,
   unknownErrorMessage: t("Status.unknownError"),
   formatLoadingError: (message) => t("Status.loadingError", { message }),
-  onGpsPosition: (position) => {
-    setGpsPosition(position);
-  },
+  onGpsPosition: () => {},
   onGpsError: () => {},
 });
 
@@ -234,10 +228,6 @@ useMountainMap({
           />
         )}
       </AnimatePresence>
-      {gpsPosition && (
-        <GpsStatusPanel position={gpsPosition} />
-      )}
-
     </div>
   );
 }

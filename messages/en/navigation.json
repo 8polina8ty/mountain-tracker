@@ -1,11 +1,15 @@
 {
   "Navigation": {
     "map": "Map",
+    "explore": "Explore",
     "ranking": "Ranking",
     "myAscents": "My ascents",
+    "projects": "Projects",
     "account": "Account",
     "friends": "Friends",
     "messages": "Messages",
+    "notifications": "Notifications",
+    "unreadNotifications": "{count, plural, one {# unread notification} other {# unread notifications}}",
     "login": "Log in",
     "signUp": "Sign up",
     "logout": "Log out",

@@ -1,11 +1,15 @@
 {
   "Navigation": {
     "map": "Mapa",
+    "explore": "Explorar",
     "ranking": "Clasificación",
     "myAscents": "Mis ascensos",
+    "projects": "Proyectos",
     "account": "Cuenta",
     "friends": "Amigos",
     "messages": "Mensajes",
+    "notifications": "Notificaciones",
+    "unreadNotifications": "{count, plural, one {# notificación sin leer} other {# notificaciones sin leer}}",
     "login": "Iniciar sesión",
     "signUp": "Registrarse",
     "logout": "Cerrar sesión",

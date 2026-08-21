@@ -1,0 +1,130 @@
+{
+  "Projects": {
+    "Metadata": {
+      "title": "Progetti di spedizione | Mountain Tracker",
+      "description": "Area privata per pianificare spedizioni in Mountain Tracker."
+    },
+    "Status": {
+      "planning": "In pianificazione",
+      "ready": "Pronto",
+      "active": "Attivo",
+      "completed": "Completato",
+      "archived": "Archiviato"
+    },
+    "Common": {
+      "mountains": "Montagne",
+      "days": "Giorni",
+      "journal": "Diario",
+      "dateRange": "{start} – {end}",
+      "datesOpen": "Date non definite",
+      "unnamedMountain": "Montagna senza nome"
+    },
+    "List": {
+      "eyebrow": "Pianificatore di spedizioni",
+      "title": "Progetti",
+      "description": "Organizza spedizioni in montagna di più giorni e conserva itinerario e appunti sul campo in un unico posto.",
+      "create": "Crea progetto",
+      "createFirst": "Pianifica la prima spedizione",
+      "emptyTitle": "La tua prossima spedizione inizia qui",
+      "emptyDescription": "I progetti riuniscono più montagne, le tappe giornaliere e gli appunti di viaggio in un unico dossier di spedizione.",
+      "projectLabel": "Progetto di spedizione",
+      "noMountains": "Nessuna montagna aggiunta",
+      "updated": "Aggiornato il {date}",
+      "open": "Apri"
+    },
+    "Create": {
+      "back": "Torna ai progetti",
+      "eyebrow": "Nuovo progetto di spedizione",
+      "title": "Pianifica una spedizione",
+      "description": "Crea il dossier della spedizione. Se indichi le date verrà generato un giorno d’itinerario per ogni giorno di calendario; puoi anche lasciarle aperte.",
+      "nameLabel": "Nome del progetto",
+      "nameHelp": "Usa un nome chiaro per la spedizione, fino a 120 caratteri.",
+      "descriptionLabel": "Descrizione (facoltativa)",
+      "datesLegend": "Date della spedizione (facoltative)",
+      "startDate": "Data di inizio",
+      "endDate": "Data di fine",
+      "datesHelp": "Le due date devono essere indicate insieme. Un progetto con date può durare al massimo 60 giorni.",
+      "cancel": "Annulla",
+      "submit": "Crea progetto",
+      "submitting": "Creazione…"
+    },
+    "Errors": {
+      "nameRequired": "Inserisci il nome del progetto.",
+      "nameTooLong": "Il nome del progetto non può superare 120 caratteri.",
+      "descriptionTooLong": "La descrizione non può superare 4.000 caratteri.",
+      "datePairRequired": "Scegli sia la data di inizio sia quella di fine, oppure lascia vuoti entrambi i campi.",
+      "invalidDate": "Inserisci date valide per il progetto.",
+      "endBeforeStart": "La data di fine non può precedere quella di inizio.",
+      "tooManyDays": "Un progetto non può superare 60 giorni.",
+      "createFailed": "Impossibile creare il progetto. I dati inseriti sono stati conservati; riprova."
+    },
+    "Mutations": {
+      "newDayJournal": "Aggiungi voce",
+      "statusLabel": "Stato del progetto", "saving": "Salvataggio…", "statusSaved": "Stato salvato.", "statusError": "Non è stato possibile salvare lo stato. Riprova.",
+      "removeMountainConfirm": "Rimuovere {name} dal progetto e da tutte le assegnazioni giornaliere?", "removeMountainAria": "Rimuovi {name} dal progetto", "removeMountainError": "Non è stato possibile rimuovere la montagna. Riprova.",
+      "addDay": "Aggiungi giorno", "addingDay": "Aggiunta…", "dayLimit": "È stato raggiunto il limite di 60 giorni.", "fixedDateRange": "I giorni sono stabiliti dall'intervallo di date del progetto.", "addDayError": "Non è stato possibile aggiungere il giorno. Controlla le date del progetto e riprova.",
+      "deleteDayConfirm": "Eliminare il giorno {number} e le assegnazioni delle montagne?", "deleteDayAria": "Elimina il giorno {number}", "deleteDayError": "Non è stato possibile eliminare il giorno. Riprova.", "dayDeleted": "Giorno eliminato.",
+      "moveDayUpAria": "Sposta il giorno {number} in alto", "moveDayDownAria": "Sposta il giorno {number} in basso", "reorderError": "Non è stato possibile riordinare i giorni. Riprova.", "daysReordered": "Ordine dei giorni salvato.",
+      "editDayAria": "Modifica il giorno {number}", "defaultDayTitle": "Giorno {number}", "dayTitleLabel": "Titolo del giorno (facoltativo)", "dayNotesLabel": "Note del giorno (facoltative)", "notesLabel": "Note", "dayTitleTooLong": "Il titolo del giorno non può superare 160 caratteri.", "dayNotesTooLong": "Le note del giorno non possono superare 8.000 caratteri.", "daySaveError": "Non è stato possibile salvare il giorno. I dati inseriti sono conservati; riprova.", "daySaved": "Giorno salvato.",
+      "assignmentsLabel": "Montagne del progetto", "assignedToDay": "Assegnate a questo giorno", "noMountainsAssignedToDay": "Nessuna montagna è ancora assegnata a questo giorno.", "addFromProject": "Aggiungi dal progetto", "addMountainToDay": "Aggiungi", "removeMountainFromDay": "Rimuovi assegnazione", "allProjectMountainsAssigned": "Tutte le montagne del progetto sono assegnate a questo giorno.", "assigned": "Assegnata", "notAssigned": "Non assegnata", "noProjectMountains": "Aggiungi montagne al progetto prima di assegnarle a un giorno.", "unnamedMountain": "Montagna senza nome", "assignError": "Non è stato possibile assegnare la montagna. Riprova.", "unassignError": "Non è stato possibile rimuovere l’assegnazione. Riprova.", "mountainAssigned": "Montagna assegnata.", "mountainUnassigned": "Assegnazione rimossa.",
+      "newJournal": "Nuova voce del diario", "journalTitleLabel": "Titolo (facoltativo)", "journalBodyLabel": "Voce", "journalTitleTooLong": "Il titolo del diario non può superare 160 caratteri.", "journalBodyRequired": "Inserisci il testo del diario.", "journalBodyTooLong": "La voce non può superare 12.000 caratteri.", "journalCreateError": "Non è stato possibile creare la voce. Il testo è conservato; riprova.", "journalUpdateError": "Non è stato possibile salvare la voce. Il testo è conservato; riprova.", "journalDeleteConfirm": "Eliminare questa voce del diario?", "journalDeleteError": "Non è stato possibile eliminare la voce. Riprova.", "editJournalAria": "Modifica la voce del diario", "deleteJournalAria": "Elimina la voce del diario", "save": "Salva", "cancel": "Annulla"
+    },
+    "Media": {
+      "authFailure": "La sessione non ha autorizzato il caricamento. Accedi di nuovo e riprova.", "metadataFailure": "La foto è stata caricata, ma il relativo record nel diario non è stato salvato.",
+      "addPhotos": "Aggiungi foto", "selectedPhotos": "{count, plural, one {# foto selezionata} other {# foto selezionate}}", "removePhoto": "Rimuovi {name}", "uploadPhotos": "Carica foto", "uploading": "Caricamento…", "uploadFailed": "Caricamento non riuscito", "retryUpload": "Riprova il caricamento", "readyToUpload": "Pronta per il caricamento", "photoUploadSucceeded": "Foto caricata", "photoUnavailable": "Questa foto privata non è al momento disponibile.",
+      "openPhoto": "Apri foto {number} di {count}", "closePhoto": "Chiudi foto", "nextPhoto": "Foto successiva", "previousPhoto": "Foto precedente", "photoPosition": "{number} di {count}", "deletePhoto": "Elimina foto", "deletePhotoConfirm": "Eliminare definitivamente questa foto?", "deletePhotoFailed": "Non è stato possibile eliminare la foto. Rimane visibile; riprova.",
+      "invalidPhotoType": "Scegli una foto JPEG, PNG o WebP valida.", "photoTooLarge": "La foto non può superare 10 MiB.", "photoDimensionsTooLarge": "Le dimensioni della foto sono troppo grandi.", "photoDecodeFailed": "Il browser non ha potuto leggere questa foto.", "mediaLimitReached": "Una voce del diario può contenere al massimo 12 elementi multimediali.", "mediaOnlyEntry": "Il testo è facoltativo se è selezionata almeno una foto valida.", "uploadPartialFailure": "Alcune foto sono state caricate. Quelle non riuscite restano disponibili per riprovare.", "cleanupRequired": "Un’operazione di archiviazione parziale richiede una correzione. Riprova prima di considerare rimossa la foto.",
+      "gallery": "Galleria multimediale del diario", "photosFromThisDay": "Foto di questo giorno", "mediaFromThisDay": "Media di questo giorno", "photoCount": "{count, plural, one {# foto} other {# foto}}", "mediaCount": "{count, plural, one {# elemento} other {# elementi}}", "photoAlt": "Foto del diario {number} di {count}", "photoAltWithTitle": "{title}: foto {number} di {count}",
+      "addMedia": "Aggiungi foto e video", "selectedMedia": "{count, plural, one {# elemento selezionato} other {# elementi selezionati}}", "unsupportedVideoType": "Scegli un video MP4 o WebM valido.", "videoTooLarge": "Il video non deve superare 100 MiB.", "videoTooLong": "Il video non deve superare 5 minuti.", "videoDimensionsTooLarge": "La risoluzione video non deve superare 3840×2160.", "videoDecodeFailed": "Il browser non ha potuto leggere questo video.", "videoUploadFailed": "Impossibile caricare o eliminare il video. Riprova.", "videoUploadSucceeded": "Video caricato", "uploadPaused": "Caricamento in pausa", "uploadResuming": "Ripresa del caricamento", "retryVideoUpload": "Riprova il caricamento", "videoUnavailable": "Questo video privato non è disponibile.", "openVideo": "Apri video {number} di {count}", "closeVideo": "Chiudi video", "deleteVideo": "Elimina video", "deleteVideoConfirm": "Eliminare definitivamente questo video?", "uploadProgress": "Caricamento {progress}%", "cancelVideoUpload": "Annulla caricamento video"
+    },
+    "Picker": {
+      "addToProject": "Aggiungi al progetto", "selectProject": "Seleziona progetto", "projectPickerTitle": "Aggiungi al progetto", "projectPickerDescription": "Scegli un progetto per {name}.", "alreadyInProject": "Già nel progetto", "addedToProject": "Aggiunta al progetto", "add": "Aggiungi", "adding": "Aggiunta…", "addFailed": "Non è stato possibile aggiungere la montagna. Riprova.", "loadFailed": "Non è stato possibile caricare i tuoi progetti.", "loginToAdd": "Accedi per aggiungere questa montagna a un progetto.", "login": "Accedi", "createNewProject": "Crea nuovo progetto", "openProject": "Apri progetto", "noProjects": "Non hai ancora progetti.", "loadingProjects": "Caricamento progetti…", "retry": "Riprova", "close": "Chiudi selezione progetto", "dateRange": "{start} – {end}"
+    },
+    "Weather": {
+      "weather": "Meteo", "weatherForecast": "Previsioni meteo", "forecastAvailable": "Previsioni disponibili", "forecastUnavailable": "I dati meteo non sono attualmente disponibili.", "forecastUnavailableYet": "Le previsioni non sono ancora disponibili. Controlla di nuovo più vicino al viaggio.", "forecastDaysAvailable": "Giorni con previsioni", "mountainsWithForecast": "Montagne con previsioni", "condition": "Condizioni", "temperature": "Temperatura", "temperatureMin": "Minima", "temperatureMax": "Massima", "precipitation": "Precipitazioni", "wind": "Vento", "gusts": "Raffiche", "snowfall": "Nevicate", "weatherDisclaimer": "Le previsioni possono cambiare e le condizioni in montagna variare localmente. Consulta le previsioni ufficiali e le informazioni locali aggiornate prima di partire.", "noMountainAssigned": "Assegna una montagna a un giorno dell’itinerario per vedere le previsioni.", "updatedForecast": "Previsioni aggiornate: {date}", "itinerary": "Itinerario", "expeditionSummary": "Riepilogo della spedizione", "unnamedMountain": "Montagna senza nome"
+    },
+    "Detail": {
+      "dayJournalTitle": "Diario del giorno", "noDayJournalEntries": "Nessuna voce per questo giorno.", "projectJournalTitle": "Note del progetto", "projectJournalDescription": "Note generali di preparazione non legate a un giorno specifico della spedizione.", "noProjectJournalEntries": "Aggiungi una nota generale solo se non appartiene a un giorno specifico.",
+      "back": "Torna ai progetti",
+      "eyebrow": "Progetto di spedizione",
+      "mountainsTitle": "Montagne",
+      "mountainsDescription": "Vette incluse in questa spedizione.",
+      "noMountains": "Aggiungi montagne dalla mappa o dalla pagina di una montagna.",
+      "itineraryTitle": "Itinerario",
+      "itineraryDescription": "La sequenza della spedizione ordinata per giorno.",
+      "noDays": "Aggiungi un giorno per iniziare a costruire l’itinerario.",
+      "dateOpen": "Data non definita",
+      "dayTitle": "Giorno {number}",
+      "noAssignedMountains": "Nessuna montagna assegnata a questo giorno",
+      "journalTitle": "Diario",
+      "journalDescription": "Appunti di preparazione e spedizione dal più recente al meno recente.",
+      "noJournalEntries": "Usa il diario per note di preparazione e osservazioni del viaggio.",
+      "assignedDays": "Giorni assegnati: {days}"
+    },
+    "Tracks": {
+      "selectedGpx": "GPX selezionato: {name}",
+      "uploadGpx": "Carica GPX", "uploadGpxDescription": "Importa un GPX come traccia dell’account e collegalo a questa giornata.", "chooseGpxFile": "Scegli file GPX", "removeFile": "Rimuovi file", "importTrack": "Importa traccia", "importingTrack": "Importazione traccia…", "linkingImportedTrack": "Collegamento traccia importata…", "trackImported": "Traccia importata.", "trackImportedAndLinked": "Traccia importata e collegata.", "trackImportedLinkFailed": "La traccia è stata importata, ma non collegata a questa giornata.", "retryLink": "Collega traccia importata", "gpxImportFailed": "Impossibile importare il GPX.", "gpxCleanupRequired": "Pulizia incompleta. Controlla le tracce dell’account.", "invalidGpx": "Scegli un file GPX valido.", "stayOnProject": "Resta nel progetto", "trackAvailableInAccount": "La traccia importata resta disponibile nel tuo account.", "closeUpload": "Chiudi caricamento GPX",
+      "actualAscent": "Salita effettiva / prova GPS", "gpsEvidence": "Tracce salvate collegate a questa giornata.", "linkExistingTrack": "Collega traccia esistente", "chooseTrack": "Scegli una traccia salvata", "closePicker": "Chiudi selezione traccia", "noTrackLinked": "Nessuna traccia GPS collegata a questa giornata.", "alreadyLinked": "Collegata", "trackLinkFailed": "Impossibile collegare o scollegare la traccia.", "unlinkTrack": "Scollega dalla giornata", "unlinkTrackConfirm": "Scollegare {title} da questa giornata? La traccia non verrà eliminata.", "openFullTrack": "Apri traccia completa", "showMap": "Mostra mappa", "hideMap": "Nascondi mappa", "mapFallback": "Mappa privata di questa traccia.", "distance": "Distanza", "duration": "Durata", "elevationGain": "Dislivello positivo", "detectedMountain": "Montagna rilevata", "matchesPlannedMountain": "Corrisponde alla montagna pianificata", "differentMountainDetected": "Rilevata montagna diversa", "verified": "Verificata", "likely": "Probabile", "not-detected": "Non rilevata", "notDetected": "Non rilevata", "unavailable": "Non disponibile", "fallbackTitle": "Traccia {id}"
+    },
+    "Lifecycle": { "currentExpedition": "Spedizione in corso", "completeProject": "Completa progetto", "completeProjectConfirm": "Segnare la spedizione come completata? Resterà modificabile e potrà essere riaperta.", "archiveProject": "Archivia progetto", "archiveProjectConfirm": "Archiviare il progetto? Nulla verrà eliminato e potrà essere ripristinato.", "readyToComplete": "Pronto per il completamento", "completionEvidenceMissing": "Mancano alcune prove. Puoi comunque completare il progetto.", "summaryDays": "Giorni", "summaryMountains": "Montagne", "daysWithEvidence": "Giorni con prove", "verifiedMountains": "Montagne verificate", "likelyMountains": "Montagne probabili", "totalDistance": "Distanza totale", "totalElevationGain": "Dislivello positivo", "totalDuration": "Durata", "photos": "Foto", "videos": "Video", "journalEntries": "Voci del diario", "expeditionReport": "Rapporto spedizione", "projectCompleted": "Completata", "planned": "Pianificata", "evidenceAdded": "Prova GPS aggiunta", "journalCount": "{count} voci", "mediaCount": "{count} media", "noEvidence": "Nessuna prova" },
+    "Report": { "viewReport": "View expedition report", "backToProject": "Back to project", "printReport": "Print / Save as PDF", "privateReport": "Private report", "expeditionReport": "Expedition Report", "expeditionReportPreview": "Expedition Report Preview", "reportSummary": "Report summary", "daysWithEvidence": "Days with evidence", "uniqueTracks": "Unique tracks", "totalDistance": "Total distance", "totalElevationGain": "Elevation gain", "totalDuration": "Duration", "verifiedMountains": "Verified mountains", "photos": "Photos", "videos": "Videos", "mountainOutcomes": "Mountain outcomes", "dayTimeline": "Day-by-day timeline", "day": "Day {number}", "planned": "Planned", "actual": "Actual", "noEvidence": "No evidence", "journal": "Journal", "video": "Video", "mediaUnavailable": "Media unavailable", "statisticsUnavailable": "Statistics unavailable", "generatedFromProject": "Generated from the private Mountain Tracker project.", "verified": "Verified", "likely": "Likely", "not-detected": "Not detected", "unavailable": "Unavailable", "no-evidence": "No evidence" },
+    "Sharing": { "publicSharing": "Public sharing", "shareWarning": "Public sharing publishes the expedition report including journal text and selected expedition media. Anyone with the link can view it. Continue?", "disableSharingConfirm": "Disable this public link?", "sharingFailed": "Sharing could not be updated. Try again.", "sharingEnabled": "Public sharing enabled.", "sharingDisabled": "Public sharing disabled.", "linkCopied": "Public link copied.", "copyLink": "Copy link", "openPublicPage": "Open public page", "disableSharing": "Disable sharing", "enableSharing": "Enable sharing", "publicExpedition": "Public expedition", "summary": "Expedition summary", "completed": "Completed", "archived": "Archived", "days": "Days", "daysWithEvidence": "Days with GPS evidence", "tracks": "Tracks", "track": "Track", "distance": "Distance", "elevation": "Elevation gain", "duration": "Duration", "photos": "Photos", "videos": "Videos", "mountains": "Mountain outcomes", "timeline": "Day-by-day timeline", "day": "Day {number}", "planned": "Planned", "none": "No public evidence", "verified": "Verified", "likely": "Likely", "not-detected": "Not detected", "no-evidence": "No evidence", "unavailable": "Unavailable", "journalPhoto": "Expedition journal photo", "videoUnavailable": "Video is unavailable on the public report", "publicNotice": "Shared from a completed Mountain Tracker expedition." },
+    "Team": { "expeditionTeam": "Squadra della spedizione", "description": "Gestisci partecipanti e ruoli.", "owner": "Proprietario", "editor": "Editor", "viewer": "Visualizzatore", "inviteParticipant": "Invita partecipante", "inviteParticipantDescription": "Cerca un utente Mountain Tracker esistente e scegli il ruolo.", "selectParticipant": "Seleziona partecipante", "searchPlaceholder": "Cerca per nome o username", "selectRole": "Seleziona ruolo", "sendInvitation": "Invia invito", "invitationSent": "Invito inviato.", "invitationFailed": "Aggiornamento non riuscito. Riprova.", "pendingInvitations": "Inviti in sospeso", "invitedAs": "Invitato come {role}", "invitedByAs": "Invitato da {name} come {role}", "cancelInvitation": "Annulla invito", "invitationCancelled": "Invito annullato.", "removeMember": "Rimuovi", "removeMemberConfirm": "Rimuovere {name} da questa spedizione?", "memberRemoved": "Membro rimosso.", "changeRole": "Cambia ruolo di {name}", "roleChanged": "Ruolo modificato.", "alreadyInvited": "Già membro o invitato", "noMembers": "Nessun partecipante.", "noPendingInvitations": "Nessun invito in sospeso.", "expeditionInvitations": "Inviti alle spedizioni", "acceptInvitation": "Accetta", "declineInvitation": "Rifiuta", "invitationAccepted": "Invito accettato.", "invitationDeclined": "Invito rifiutato.", "myExpeditions": "Le mie spedizioni", "sharedWithMe": "Condivise con me", "closeDialog": "Chiudi finestra di invito" },
+    "TeamShared": { "description": "Apri l’area privata o gestisci la tua adesione.", "ownedBy": "Proprietario: {name}", "openProject": "Apri progetto", "leaveProject": "Lascia progetto", "leaveProjectConfirm": "Lasciare {name}?", "projectLeft": "Hai lasciato il progetto." },
+    "Activity": {
+      "title": "Attività della spedizione", "description": "Modifiche private recenti a questa spedizione.", "empty": "Non è stata ancora registrata alcuna attività.", "showMore": "Mostra altro", "loading": "Caricamento…", "loadFailed": "Impossibile caricare altre attività.", "formerParticipant": "Ex partecipante",
+      "projectStatusChanged": "ha cambiato lo stato del progetto da {from} a {to}.", "projectArchived": "ha archiviato la spedizione.", "projectRestored": "ha ripristinato la spedizione.",
+      "mountainAdded": "ha aggiunto una montagna alla spedizione.", "mountainRemoved": "ha rimosso una montagna dalla spedizione.", "mountainAssigned": "ha assegnato una montagna a un giorno.", "mountainUnassigned": "ha rimosso una montagna da un giorno.",
+      "dayCreated": "ha creato un giorno della spedizione.", "dayUpdated": "ha aggiornato un giorno della spedizione.", "dayDeleted": "ha eliminato un giorno della spedizione.", "dayReordered": "ha riordinato {count, plural, one {# giorno} other {# giorni}}.",
+      "journalCreated": "ha creato una voce del diario.", "journalUpdated": "ha aggiornato una voce del diario.", "journalDeleted": "ha eliminato una voce del diario.",
+      "photoUploaded": "ha caricato {count, plural, one {# foto} other {# foto}}.", "videoUploaded": "ha caricato {count, plural, one {# video} other {# video}}.", "mediaDeleted": "ha eliminato un contenuto multimediale.",
+      "trackLinked": "ha collegato una traccia GPS.", "trackImported": "ha importato e collegato una traccia GPS.", "trackUnlinked": "ha scollegato una traccia GPS.",
+      "memberJoined": "si è unito/a alla spedizione.", "memberRoleChanged": "ha cambiato un ruolo da {from} a {to}.", "memberRemoved": "ha rimosso un partecipante.", "memberLeft": "ha lasciato la spedizione.",
+      "sharingEnabled": "ha attivato la condivisione pubblica.", "sharingDisabled": "ha disattivato la condivisione pubblica."
+    },
+    "Conflict": { "conflictDetected": "Le modifiche non sono state salvate", "day": "Questo giorno è cambiato da quando lo hai aperto.", "journal": "Questa voce del diario è cambiata da quando l’hai aperta.", "order": "L’ordine dei giorni è cambiato da quando lo hai aperto.", "permission": "Il tuo accesso o ruolo è cambiato. Aggiorna per continuare.", "archived": "Questa spedizione è stata archiviata ed è ora di sola lettura.", "draftKept": "La bozza locale è ancora disponibile.", "reloadLatest": "Carica la versione più recente" },
+    "Accessibility": {
+      "projectList": "I tuoi progetti di spedizione"
+    }
+  }
+}

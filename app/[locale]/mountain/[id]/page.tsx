@@ -27,6 +27,7 @@ import { getMountainImageFromWikidata } from "@/Lib/wikimedia";
 import { getSummitWeather } from "@/Lib/weather/summitWeather";
 import MountainRouteMap from "@/components/mountain/MountainRouteMap";
 import SummitWeatherSection from "@/components/mountain/SummitWeatherSection";
+import ProjectPicker from "@/components/projects/ProjectPicker";
 
 import FavoriteMountainToggle from "@/components/mountain/FavoriteMountainToggle";
 import type { Locale } from "@/i18n/locales";
@@ -933,6 +934,11 @@ export default async function MountainPage({ params }: MountainPageProps) {
                   isFavorite={isFavorite}
                 />
               )}
+              <ProjectPicker
+                mountainId={typedMountain.id}
+                mountainName={mountainName}
+                context="detail"
+              />
             </section>
 
             <section aria-labelledby="external-resources-title">
