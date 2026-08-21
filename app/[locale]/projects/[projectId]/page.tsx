@@ -31,15 +31,36 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     getAccessibleProject(supabase, projectId),
   ]);
   if (!project) notFound();
+
   const editable = canEditProject(role) && project.status !== "archived";
-  const { data: shareRow } = role === "owner" ? await supabase.from("expedition_project_shares").select("public_slug,is_enabled").eq("project_id", project.id).eq("user_id", user.id).maybeSingle() : { data: null };
-  const initialShare = shareRow ? { slug: String(shareRow.public_slug), enabled: shareRow.is_enabled === true } : null;
-  const [trackEvidence, trackPickerOptions, activityPage] = await Promise.all([
+  const journalMedia = project.journalEntries.flatMap((entry) => entry.media);
+  const sharePromise = role === "owner"
+    ? supabase.from("expedition_project_shares").select("public_slug,is_enabled").eq("project_id", project.id).eq("user_id", user.id).maybeSingle()
+    : Promise.resolve({ data: null, error: null });
+  const trackPickerPromise = editable
+    ? listOwnedProjectTrackOptions(supabase, user.id)
+    : Promise.resolve([]);
+  const teamPromise = role === "owner"
+    ? getOwnedProjectTeam(supabase, user.id, project.id)
+    : Promise.resolve(null);
+
+  const [shareResult, trackEvidence, trackPickerOptions, activityPage, weatherByMountain, mediaDeliveries, team] = await Promise.all([
+    sharePromise,
     listProjectDayTrackEvidence(supabase, user.id, project.id),
-    listOwnedProjectTrackOptions(supabase, user.id),
+    trackPickerPromise,
     listProjectActivity(supabase, project.id),
+    loadProjectMountainWeather(project.days),
+    createProjectJournalMediaDeliveries(supabase, journalMedia),
+    teamPromise,
   ]);
+  const shareRow = shareResult.data;
+  const initialShare = shareRow ? { slug: String(shareRow.public_slug), enabled: shareRow.is_enabled === true } : null;
+
   for (const day of project.days) day.trackEvidence = trackEvidence.filter((track) => track.projectDayId === day.id);
+  const dayJournalEntriesById = new Map(project.days.map((day) => [
+    day.id,
+    project.journalEntries.filter((entry) => entry.projectDayId === day.id),
+  ] as const));
   const completionSummary = buildProjectCompletionSummary(project);
   const signableTracks = [...new Map(trackEvidence.filter((track) => track.processingStatus === "ready" && track.geoJsonPath).map((track) => [track.activityId, track])).values()];
   const signedTrackUrls: Record<string, string> = {};
@@ -50,14 +71,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       if (delivery.signedUrl) signedTrackUrls[String(signableTracks[index].activityId)] = delivery.signedUrl;
     }
   }
-  const journalMedia = project.journalEntries.flatMap((entry) => entry.media);
-  const [weatherByMountain, mediaDeliveries] = await Promise.all([
-    loadProjectMountainWeather(project.days),
-    createProjectJournalMediaDeliveries(supabase, journalMedia),
-  ]);
   const weatherSummary = summarizeProjectWeather(project.days, weatherByMountain);
   const projectJournalEntries = project.journalEntries.filter((entry) => entry.projectDayId === null);
-  const team = role === "owner" ? await getOwnedProjectTeam(supabase, user.id, project.id) : null;
 
   const dateRange = project.startDate && project.endDate
     ? t("Common.dateRange", {
@@ -105,7 +120,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 <EmptyState icon={CalendarDays} text={t("Detail.noDays")} />
               ) : (
                 <ol className="space-y-6">
-                  {project.days.map((day) => (
+                  {project.days.map((day) => {
+                    const dayJournalEntries = dayJournalEntriesById.get(day.id) ?? [];
+                    const daySignedTrackUrls = Object.fromEntries(day.trackEvidence.flatMap((track) => signedTrackUrls[String(track.activityId)] ? [[String(track.activityId), signedTrackUrls[String(track.activityId)]]] : []));
+                    return (
                     <li key={day.id} className="relative grid grid-cols-[2.75rem_minmax(0,1fr)] gap-3 before:absolute before:bottom-[-1.5rem] before:left-[1.34rem] before:top-11 before:w-px before:bg-[var(--color-border)] last:before:hidden sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5 sm:before:left-[1.72rem]">
                       <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-surface-inverse)] [font-family:var(--font-technical)] text-sm font-bold text-[var(--color-text-inverse)] sm:h-14 sm:w-14">{String(day.dayNumber).padStart(2, "0")}</div>
                       <ProjectDayEditor
@@ -116,18 +134,19 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                         editable={editable}
                         dateLabel={day.date ? format.dateTime(new Date(`${day.date}T00:00:00Z`), { dateStyle: "full", timeZone: "UTC" }) : t("Detail.dateOpen")}
                         weatherContent={<ProjectDayWeather key={`day-weather-${day.id}`} locale={locale} day={day} weatherByMountain={weatherByMountain} />}
-                        evidenceContent={<><DayProgress evidenceCount={day.trackEvidence.length} journalEntries={project.journalEntries.filter((entry) => entry.projectDayId === day.id)} t={t}/><ProjectDayTrackEvidenceSection projectId={project.id} projectDayId={day.id} assignedMountains={day.mountains} evidence={day.trackEvidence} pickerOptions={trackPickerOptions} signedGeoJsonUrls={Object.fromEntries(day.trackEvidence.flatMap((track) => signedTrackUrls[String(track.activityId)] ? [[String(track.activityId), signedTrackUrls[String(track.activityId)]]] : []))} editable={editable} currentUserId={user.id} /></>}
+                        evidenceContent={<><DayProgress evidenceCount={day.trackEvidence.length} journalEntries={dayJournalEntries} t={t}/><ProjectDayTrackEvidenceSection projectId={project.id} projectDayId={day.id} assignedMountains={day.mountains} evidence={day.trackEvidence} pickerOptions={trackPickerOptions} signedGeoJsonUrls={daySignedTrackUrls} editable={editable} currentUserId={user.id} /></>}
                         journalContent={(
                           <section key={`day-journal-${day.id}`} className="mt-6 border-t border-[var(--color-border-soft)] pt-5" aria-labelledby={`day-journal-${day.id}`}>
                             <h4 id={`day-journal-${day.id}`} className="[font-family:var(--font-technical)] text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">{t("Detail.dayJournalTitle")}</h4>
                             <div className="mt-3">
-                              <ProjectJournal projectId={project.id} projectDayId={day.id} entries={project.journalEntries.filter((entry) => entry.projectDayId === day.id)} deliveries={mediaDeliveries} emptyText={t("Detail.noDayJournalEntries")} compact editable={editable} currentUserId={user.id} owner={role === "owner"} />
+                              <ProjectJournal projectId={project.id} projectDayId={day.id} entries={dayJournalEntries} deliveries={mediaDeliveries} emptyText={t("Detail.noDayJournalEntries")} compact editable={editable} currentUserId={user.id} owner={role === "owner"} />
                             </div>
                           </section>
                         )}
                       />
                     </li>
-                  ))}
+                    );
+                  })}
                 </ol>
               )}
             </ProjectSection>
