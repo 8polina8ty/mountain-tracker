@@ -55,6 +55,24 @@ const PROJECT_MOUNTAIN_SELECT = `
   mountains (id, name, name_de, height, latitude, longitude)
 `;
 
+const PROJECT_DETAIL_BASE_SELECT = `
+  id, user_id, name, description, status, start_date, end_date, created_at, updated_at,
+  expedition_project_mountains (${PROJECT_MOUNTAIN_SELECT}),
+  expedition_project_days (
+    id, project_id, day_number, date, title, notes, created_at, updated_at,
+    expedition_project_day_mountains (mountain_id, sort_order)
+  )
+`;
+
+const PROJECT_JOURNAL_ENTRY_SELECT = `
+  id, project_id, user_id, project_day_id, entry_date, title, body, created_at, updated_at,
+  expedition_project_journal_media (
+    id, journal_entry_id, project_id, user_id, media_type, storage_path,
+    original_filename, mime_type, size_bytes, width, height,
+    duration_seconds, sort_order, created_at
+  )
+`;
+
 export async function listProjectPickerOptions(
   supabase: SupabaseClient,
   userId: string,
@@ -103,35 +121,7 @@ export async function listUserProjects(
   return (data ?? []).map(normalizeProjectSummary).filter((project): project is ExpeditionProjectSummary => project !== null);
 }
 
-export async function getUserProject(
-  supabase: SupabaseClient,
-  userId: string,
-  projectId: string,
-): Promise<ExpeditionProject | null> {
-  const { data, error } = await supabase
-    .from("expedition_projects")
-    .select(`
-      id, user_id, name, description, status, start_date, end_date, created_at, updated_at,
-      expedition_project_mountains (${PROJECT_MOUNTAIN_SELECT}),
-      expedition_project_days (
-        id, project_id, day_number, date, title, notes, created_at, updated_at,
-        expedition_project_day_mountains (mountain_id, sort_order)
-      ),
-      expedition_project_journal_entries (
-        id, project_id, user_id, project_day_id, entry_date, title, body, created_at, updated_at,
-        expedition_project_journal_media (
-          id, journal_entry_id, project_id, user_id, media_type, storage_path,
-          original_filename, mime_type, size_bytes, width, height,
-          duration_seconds, sort_order, created_at
-        )
-      )
-    `)
-    .eq("id", projectId)
-    .eq("user_id", userId)
-    .maybeSingle();
-  if (error) throw error;
-  if (!data) return null;
-  const rawProject = data as unknown as Record<string, unknown>;
+function logProjectJournalGraph(rawProject: Record<string, unknown>, project: ExpeditionProject | null) {
   const rawEntries = Array.isArray(rawProject.expedition_project_journal_entries)
     ? rawProject.expedition_project_journal_entries
     : [];
@@ -142,34 +132,53 @@ export async function getUserProject(
   }, 0);
   logProjectMediaDisplayDiagnostic("query", { rawNestedMediaCount });
 
-  const project = normalizeProjectDetail(data);
   const normalizedMediaCount = project?.journalEntries.reduce((count, entry) => count + entry.media.length, 0) ?? 0;
   const journalEntriesWithMediaCount = project?.journalEntries.filter((entry) => entry.media.length > 0).length ?? 0;
   logProjectMediaDisplayDiagnostic("normalized", { normalizedMediaCount, journalEntriesWithMediaCount });
+}
+
+async function loadProjectDetailGraph(
+  supabase: SupabaseClient,
+  projectId: string,
+  ownerId: string | null,
+): Promise<ExpeditionProject | null> {
+  let projectQuery = supabase
+    .from("expedition_projects")
+    .select(PROJECT_DETAIL_BASE_SELECT)
+    .eq("id", projectId);
+  if (ownerId) projectQuery = projectQuery.eq("user_id", ownerId);
+
+  const journalQuery = supabase
+    .from("expedition_project_journal_entries")
+    .select(PROJECT_JOURNAL_ENTRY_SELECT)
+    .eq("project_id", projectId)
+    .order("entry_date", { ascending: false })
+    .order("id", { ascending: false });
+
+  const [projectResult, journalResult] = await Promise.all([
+    projectQuery.maybeSingle(),
+    journalQuery,
+  ]);
+  if (projectResult.error || journalResult.error) throw projectResult.error ?? journalResult.error;
+  if (!projectResult.data) return null;
+
+  const rawProject = {
+    ...(projectResult.data as Record<string, unknown>),
+    expedition_project_journal_entries: journalResult.data ?? [],
+  };
+  const project = normalizeProjectDetail(rawProject);
+  logProjectJournalGraph(rawProject, project);
   return project;
 }
 
+export async function getUserProject(
+  supabase: SupabaseClient,
+  userId: string,
+  projectId: string,
+): Promise<ExpeditionProject | null> {
+  return loadProjectDetailGraph(supabase, projectId, userId);
+}
+
 export async function getAccessibleProject(supabase: SupabaseClient, projectId: string): Promise<ExpeditionProject | null> {
-  const { data, error } = await supabase
-    .from("expedition_projects")
-    .select(`
-      id, user_id, name, description, status, start_date, end_date, created_at, updated_at,
-      expedition_project_mountains (${PROJECT_MOUNTAIN_SELECT}),
-      expedition_project_days (
-        id, project_id, day_number, date, title, notes, created_at, updated_at,
-        expedition_project_day_mountains (mountain_id, sort_order)
-      ),
-      expedition_project_journal_entries (
-        id, project_id, user_id, project_day_id, entry_date, title, body, created_at, updated_at,
-        expedition_project_journal_media (
-          id, journal_entry_id, project_id, user_id, media_type, storage_path,
-          original_filename, mime_type, size_bytes, width, height,
-          duration_seconds, sort_order, created_at
-        )
-      )
-    `)
-    .eq("id", projectId)
-    .maybeSingle();
-  if (error) throw error;
-  return data ? normalizeProjectDetail(data) : null;
+  return loadProjectDetailGraph(supabase, projectId, null);
 }
