@@ -152,6 +152,15 @@ export type ProjectJournalEntry = {
   updatedAt: string;
 };
 
+export type ProjectJournalCursor = { entryDate: string; id: string };
+export type ProjectJournalPage = { entries: ProjectJournalEntry[]; nextCursor: ProjectJournalCursor | null };
+export type ProjectJournalScopeStats = { entryCount: number; mediaCount: number; photoCount: number; videoCount: number };
+export type ProjectJournalWorkspaceStats = {
+  total: ProjectJournalScopeStats;
+  project: ProjectJournalScopeStats;
+  days: Record<string, ProjectJournalScopeStats>;
+};
+
 export type ExpeditionProject = {
   id: string;
   userId: string;
@@ -165,6 +174,12 @@ export type ExpeditionProject = {
   journalEntries: ProjectJournalEntry[];
   createdAt: string;
   updatedAt: string;
+};
+
+export type ProjectWorkspaceLoad = {
+  project: ExpeditionProject;
+  journalCursor: ProjectJournalCursor | null;
+  journalStats: ProjectJournalWorkspaceStats;
 };
 
 export type ExpeditionProjectSummary = Omit<
