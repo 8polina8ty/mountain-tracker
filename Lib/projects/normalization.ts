@@ -101,7 +101,7 @@ function normalizeDay(value: unknown, mountainsById: ReadonlyMap<number, Project
   };
 }
 
-function normalizeJournalEntry(value: unknown): ProjectJournalEntry | null {
+export function normalizeJournalEntry(value: unknown): ProjectJournalEntry | null {
   const entry = record(value);
   const id = stringValue(entry?.id);
   const projectId = stringValue(entry?.project_id);
