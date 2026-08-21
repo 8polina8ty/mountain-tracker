@@ -14,7 +14,7 @@ import type {
   ProjectJournalMediaUploadInput,
 } from "./types.ts";
 
-type ErrorLike = { code?: unknown; message?: unknown };
+type ErrorLike = { code?: unknown; message?: unknown; details?: unknown };
 
 function failure(
   reason: ProjectJournalMediaFailureReason,
@@ -38,14 +38,47 @@ function errorMessage(error: unknown): string {
   return typeof message === "string" ? message : "";
 }
 
+function errorDetails(error: unknown): string {
+  const details = (error as ErrorLike | null)?.details;
+  return typeof details === "string" ? details : "";
+}
+
 function isMediaLimitError(error: unknown): boolean {
   return errorCode(error) === "23514" && /at most 12 media objects/i.test(errorMessage(error));
+}
+
+function isMediaOrderConflict(error: unknown): boolean {
+  if (errorCode(error) !== "23505") return false;
+  return /expedition_project_journal_media_order_unique|journal_entry_id.*sort_order|sort_order/i.test(`${errorMessage(error)} ${errorDetails(error)}`);
+}
+
+function isStorageMissingError(error: unknown): boolean {
+  const code = errorCode(error);
+  const text = `${errorMessage(error)} ${errorDetails(error)}`;
+  return code === "404" || code === "not_found" || /not[ -]?found|does not exist|no such object/i.test(text);
 }
 
 function relationCount(value: unknown): number {
   if (!Array.isArray(value) || typeof value[0] !== "object" || value[0] === null) return 0;
   const count = (value[0] as { count?: unknown }).count;
   return typeof count === "number" && Number.isFinite(count) ? count : 0;
+}
+
+async function nextAvailableSortOrder(
+  supabase: SupabaseClient,
+  journalEntryId: string,
+): Promise<{ value: number | null; error: unknown }> {
+  const { data, error } = await supabase
+    .from("expedition_project_journal_media")
+    .select("sort_order")
+    .eq("journal_entry_id", journalEntryId)
+    .order("sort_order", { ascending: false })
+    .limit(1);
+  if (error) return { value: null, error };
+  const current = Array.isArray(data) && data.length > 0 && typeof data[0]?.sort_order === "number"
+    ? data[0].sort_order
+    : -1;
+  return { value: current + 1, error: null };
 }
 
 export async function uploadProjectJournalMedia(
@@ -99,7 +132,7 @@ export async function uploadProjectJournalMedia(
     return failure(errorCode(uploadError) === "409" ? "conflict" : "upload", "media-upload-failed", true, "storage-upload", uploadError);
   }
 
-  const media: ProjectJournalMedia = {
+  let media: ProjectJournalMedia = {
     id: mediaId,
     journalEntryId: input.journalEntryId,
     projectId: input.projectId,
@@ -115,25 +148,35 @@ export async function uploadProjectJournalMedia(
     sortOrder: validated.data.sortOrder,
     createdAt: new Date().toISOString(),
   };
-  const { error: metadataError } = await supabase.from("expedition_project_journal_media").insert({
-    id: media.id,
-    journal_entry_id: media.journalEntryId,
-    project_id: media.projectId,
-    user_id: media.userId,
-    media_type: media.mediaType,
-    storage_path: media.storagePath,
-    original_filename: media.originalFilename,
-    mime_type: media.mimeType,
-    size_bytes: media.sizeBytes,
-    width: media.width,
-    height: media.height,
-    duration_seconds: media.durationSeconds,
-    sort_order: media.sortOrder,
+
+  const insertMetadata = (value: ProjectJournalMedia) => supabase.from("expedition_project_journal_media").insert({
+    id: value.id,
+    journal_entry_id: value.journalEntryId,
+    project_id: value.projectId,
+    user_id: value.userId,
+    media_type: value.mediaType,
+    storage_path: value.storagePath,
+    original_filename: value.originalFilename,
+    mime_type: value.mimeType,
+    size_bytes: value.sizeBytes,
+    width: value.width,
+    height: value.height,
+    duration_seconds: value.durationSeconds,
+    sort_order: value.sortOrder,
   });
+
+  let { error: metadataError } = await insertMetadata(media);
+  if (metadataError && isMediaOrderConflict(metadataError)) {
+    const nextOrder = await nextAvailableSortOrder(supabase, input.journalEntryId);
+    if (!nextOrder.error && nextOrder.value !== null && nextOrder.value < PROJECT_JOURNAL_MEDIA_MAX_ITEMS) {
+      media = { ...media, sortOrder: nextOrder.value };
+      ({ error: metadataError } = await insertMetadata(media));
+    }
+  }
   if (!metadataError) return { ok: true, data: media };
 
   const { error: cleanupError } = await supabase.storage.from(EXPEDITION_MEDIA_BUCKET).remove([storagePath]);
-  if (cleanupError) {
+  if (cleanupError && !isStorageMissingError(cleanupError)) {
     createProjectMediaDiagnostic("metadata-insert", metadataError, true, false);
     return failure("cleanup-required", "media-metadata-and-cleanup-failed", true, "compensation-delete", cleanupError, false);
   }
@@ -160,7 +203,9 @@ export async function deleteProjectJournalMedia(
   if (!media || typeof media.storage_path !== "string") return failure("not-found", "media-not-found", false, "ownership-query");
 
   const { error: storageError } = await supabase.storage.from(EXPEDITION_MEDIA_BUCKET).remove([media.storage_path]);
-  if (storageError) return failure("storage", "media-storage-delete-failed", true, "media-delete-storage", storageError);
+  if (storageError && !isStorageMissingError(storageError)) {
+    return failure("storage", "media-storage-delete-failed", true, "media-delete-storage", storageError);
+  }
   const { error: metadataError } = await supabase.from("expedition_project_journal_media").delete()
     .eq("id", mediaId).eq("project_id", projectId);
   return metadataError
@@ -191,7 +236,9 @@ export async function deleteProjectJournalEntryWithMedia(
     : [];
   if (paths.length > 0) {
     const { error: storageError } = await supabase.storage.from(EXPEDITION_MEDIA_BUCKET).remove(paths);
-    if (storageError) return failure("storage", "journal-media-storage-delete-failed", true, "journal-media-cleanup", storageError, false);
+    if (storageError && !isStorageMissingError(storageError)) {
+      return failure("storage", "journal-media-storage-delete-failed", true, "journal-media-cleanup", storageError, false);
+    }
   }
 
   const { error: deleteError } = await supabase.from("expedition_project_journal_entries").delete()
