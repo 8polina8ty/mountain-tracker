@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
-const queriesSource = await readFile(new URL("../Lib/projects/queries.ts", import.meta.url), "utf8");
-const detailPage = await readFile(new URL("../app/[locale]/projects/[projectId]/page.tsx", import.meta.url), "utf8");
+const queriesSource = (await readFile(new URL("../Lib/projects/queries.ts", import.meta.url), "utf8")).replace(/\r\n?/g, "\n");
+const detailPage = (await readFile(new URL("../app/[locale]/projects/[projectId]/page.tsx", import.meta.url), "utf8")).replace(/\r\n?/g, "\n");
 
 const baseSelect = queriesSource.match(/const PROJECT_DETAIL_BASE_SELECT = `([\s\S]*?)`;/)?.[1] ?? "";
 const journalSelect = queriesSource.match(/const PROJECT_JOURNAL_ENTRY_SELECT = `([\s\S]*?)`;/)?.[1] ?? "";

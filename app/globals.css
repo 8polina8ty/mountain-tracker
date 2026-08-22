@@ -106,16 +106,16 @@
   --space-20: 80px;
   --space-24: 96px;
 
-  --radius-sm: 4px;
-  --radius-control: 8px;
-  --radius-card: 12px;
-  --radius-panel: 16px;
-  --radius-sheet: 24px;
+  --radius-sm: 3px;
+  --radius-control: 6px;
+  --radius-card: 8px;
+  --radius-panel: 12px;
+  --radius-sheet: 20px;
   --radius-pill: 999px;
 
   --shadow-control: 0 1px 2px #0e151114, 0 2px 6px #0e15110a;
-  --shadow-card: 0 6px 18px #0e15110f, 0 2px 6px #0e15110a;
-  --shadow-panel: 0 18px 48px #0e151124, 0 6px 16px #0e151114;
+  --shadow-card: 0 4px 12px #0e15110c, 0 1px 3px #0e151108;
+  --shadow-panel: 0 12px 36px #0e151118, 0 4px 12px #0e15110c;
   --shadow-map-control: 0 6px 20px #0e151124;
 
   --duration-fast: 120ms;
@@ -174,6 +174,19 @@
   --color-forest: #57a77a;
   --color-forest-hover: #69b98c;
   --color-forest-active: #438d65;
+  --color-success: #6fbf94;
+  --color-success-soft: #16241c;
+  --color-success-border: #2f5e44;
+  --color-warning: #d49a4e;
+  --color-warning-soft: #241d12;
+  --color-warning-border: #5e4a2a;
+  --color-danger: #e07a74;
+  --color-danger-soft: #241715;
+  --color-danger-border: #5e3833;
+  --color-info: #6cb5c8;
+  --color-info-soft: #122026;
+  --color-info-border: #2c4e5a;
+  --color-ochre: #d49a4e;
 }
 
 html {
@@ -195,16 +208,20 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--font-display);
   text-wrap: balance;
+  letter-spacing: -0.01em;
 }
 
 code,
 kbd,
 samp,
-pre {
+pre,
+.technical {
   font-family: var(--font-technical);
+  font-feature-settings: "tnum" 1;
 }
 
 ::selection {

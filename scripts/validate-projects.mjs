@@ -67,6 +67,10 @@ replaceExact(
   'assert.ok(dayEditor.includes("journalContent") && detailPage.includes("dayJournalTitle"), "DM: journal timeline must be composed inside the day card");',
   'assert.ok(dayEditor.includes("journalContent") && detailView.includes("dayJournalTitle"), "DM: journal timeline must be composed inside the day card");',
 );
+replaceExact(
+  'journal.includes("buildDayJournalPresentation(entries, deliveries)")',
+  'journal.includes("buildDayJournalPresentation(loadedEntries, loadedDeliveries)")',
+);
 replaceExact("detailPage.includes('key={`", "detailView.includes('key={`", 2);
 replaceExact(
   'assert.ok(projectDetailPage.includes("track.projectDayId === day.id"), "GG: day isolation missing");',

@@ -51,32 +51,32 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-[calc(100vh-65px)] items-center justify-center bg-gray-50 px-4 py-10">
-      <section className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8">
+    <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 py-10 sm:px-8 lg:min-h-[calc(100dvh-66px)]">
+      <section className="w-full max-w-md border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] sm:p-8">
         <div className="flex flex-col items-center text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-green-700">
+          <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-[var(--color-forest)] shadow-[var(--shadow-control)]">
             <Mountain size={30} />
           </div>
 
-          <h1 className="mt-4 text-3xl font-bold text-gray-900">
+          <h1 className="mt-4 text-3xl font-bold text-[var(--color-text)]">
             {t("title")}
           </h1>
 
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
             {t("subtitle")}
           </p>
         </div>
 
         <div className="mt-8 space-y-5">
           <label className="block">
-            <span className="mb-2 block text-sm font-medium text-gray-700">
+            <span className="mb-2 block text-sm font-bold text-[var(--color-text-secondary)]">
               {t("emailLabel")}
             </span>
 
             <div className="relative">
               <Mail
                 size={20}
-                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
               />
 
               <input
@@ -93,20 +93,20 @@ export default function LoginPage() {
                 }}
                 autoComplete="email"
                 placeholder={t("emailPlaceholder")}
-                className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-4 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-4"
               />
             </div>
           </label>
 
           <label className="block">
-            <span className="mb-2 block text-sm font-medium text-gray-700">
+            <span className="mb-2 block text-sm font-bold text-[var(--color-text-secondary)]">
               {t("passwordLabel")}
             </span>
 
             <div className="relative">
               <LockKeyhole
                 size={20}
-                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
               />
 
               <input
@@ -123,7 +123,7 @@ export default function LoginPage() {
                 }}
                 autoComplete="current-password"
                 placeholder={t("passwordPlaceholder")}
-                className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-12 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-12"
               />
 
               <button
@@ -132,7 +132,7 @@ export default function LoginPage() {
                 aria-label={
                   showPassword ? t("hidePassword") : t("showPassword")
                 }
-                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-700"
+                className="ui-pressable absolute right-1 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
               >
                 {showPassword ? (
                   <EyeOff size={20} />
@@ -146,7 +146,7 @@ export default function LoginPage() {
           {message && (
             <div
               role="alert"
-              className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+              className="border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] px-4 py-3 text-sm text-[var(--color-danger)]"
             >
               {message}
             </div>
@@ -156,7 +156,7 @@ export default function LoginPage() {
             type="button"
             onClick={handleLogin}
             disabled={loading}
-            className="flex w-full items-center justify-center rounded-xl bg-green-600 px-4 py-3 font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="ui-pressable flex min-h-11 w-full items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-3 font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               <>
@@ -169,11 +169,11 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 border-t border-[var(--color-border)] pt-5 text-center text-sm text-[var(--color-text-muted)]">
           {t("noAccount")} {" "}
           <Link
             href="/auth/sign-up"
-            className="font-semibold text-green-700 hover:underline"
+            className="font-bold text-[var(--color-forest)] hover:underline"
           >
             {t("signUpLink")}
           </Link>

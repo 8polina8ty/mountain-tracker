@@ -74,7 +74,7 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
   const [queue, setQueue] = useState<AchievementNotificationQueueItem[]>([]);
   const timeoutRef = useRef<number | null>(null);
   const batchSequence = useRef(0);
-  const pendingLoadStarted = useRef(false);
+  const pendingLoadUserId = useRef<string | null>(null);
   const current = queue[0] ?? null;
 
   const clearTimer = useCallback(() => {
@@ -153,12 +153,66 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
   }, [clearTimer, current]);
 
   useEffect(() => {
-    if (!ACHIEVEMENT_V2_RUNTIME_ENABLED || pendingLoadStarted.current) return;
-    pendingLoadStarted.current = true;
-    void loadPendingAchievementNotificationIds(createClient())
-      .then((ids) => enqueueAchievementIds(ids.filter(isAchievementId)))
-      .catch((error) => console.error("Unable to load pending achievement notifications.", error));
-  }, [enqueueAchievementIds]);
+    if (!ACHIEVEMENT_V2_RUNTIME_ENABLED) return;
+
+    const supabase = createClient();
+    let active = true;
+    let authEventObserved = false;
+    let sessionGeneration = 0;
+    let scheduledLoad: number | null = null;
+
+    const handleSession = (userId: string | null) => {
+      if (!userId) {
+        sessionGeneration += 1;
+        pendingLoadUserId.current = null;
+        if (scheduledLoad !== null) window.clearTimeout(scheduledLoad);
+        scheduledLoad = null;
+        clearTimer();
+        setQueue([]);
+        return;
+      }
+      if (pendingLoadUserId.current === userId) return;
+
+      sessionGeneration += 1;
+      const loadGeneration = sessionGeneration;
+      pendingLoadUserId.current = userId;
+      if (scheduledLoad !== null) window.clearTimeout(scheduledLoad);
+      scheduledLoad = window.setTimeout(() => {
+        scheduledLoad = null;
+        if (!active || sessionGeneration !== loadGeneration || pendingLoadUserId.current !== userId) return;
+        void loadPendingAchievementNotificationIds(supabase)
+          .then((ids) => {
+            if (active && sessionGeneration === loadGeneration && pendingLoadUserId.current === userId) {
+              enqueueAchievementIds(ids.filter(isAchievementId));
+            }
+          })
+          .catch((error) => {
+            if (active && sessionGeneration === loadGeneration && pendingLoadUserId.current === userId) {
+              pendingLoadUserId.current = null;
+            }
+            console.error("Unable to load pending achievement notifications.", error);
+          });
+      }, 0);
+    };
+
+    void supabase.auth.getSession()
+      .then(({ data }) => {
+        if (active && !authEventObserved) handleSession(data.session?.user?.id ?? null);
+      })
+      .catch((error) => console.error("Unable to restore achievement notification session.", error));
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      authEventObserved = true;
+      handleSession(session?.user?.id ?? null);
+    });
+
+    return () => {
+      active = false;
+      sessionGeneration += 1;
+      if (scheduledLoad !== null) window.clearTimeout(scheduledLoad);
+      subscription.unsubscribe();
+    };
+  }, [clearTimer, enqueueAchievementIds]);
 
   useEffect(() => clearTimer, [clearTimer]);
 

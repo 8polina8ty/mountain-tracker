@@ -226,8 +226,8 @@ setAscents(loadedAscents);
 
   if (loading) {
     return (
-      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-gray-50">
-        <div className="rounded-2xl border border-gray-200 bg-white px-6 py-4 font-medium text-gray-600 shadow-sm">
+      <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)]">
+        <div className="border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-4 font-medium text-[var(--color-text-muted)] shadow-[var(--shadow-control)]">
           {t("Status.loading")}
         </div>
       </main>
@@ -236,21 +236,21 @@ setAscents(loadedAscents);
 
   if (errorMessage) {
     return (
-      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-gray-50 px-4">
-        <section className="w-full max-w-lg rounded-3xl border border-red-200 bg-white p-8 text-center shadow-sm">
+      <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4">
+        <section className="w-full max-w-lg border border-[var(--color-danger-border)] bg-[var(--color-surface)] p-8 text-center shadow-[var(--shadow-card)]">
           <div className="text-5xl">⚠️</div>
 
-          <h1 className="mt-4 text-2xl font-bold text-gray-900">
+          <h1 className="mt-4 text-2xl font-bold text-[var(--color-text)]">
             {t("Status.loadFailed")}
           </h1>
 
-          <p className="mt-2 text-red-600">
+          <p className="mt-2 text-[var(--color-danger)]">
             {errorMessage}
           </p>
 
           <Link
             href="/ranking"
-            className="mt-6 inline-flex rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
+            className="ui-pressable mt-6 inline-flex min-h-11 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-3 font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
           >
             {t("Header.backToRanking")}
           </Link>
@@ -261,21 +261,21 @@ setAscents(loadedAscents);
 
   if (!profile) {
     return (
-      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-gray-50 px-4">
-        <section className="w-full max-w-lg rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm">
+      <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4">
+        <section className="w-full max-w-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-center shadow-[var(--shadow-card)]">
           <div className="text-5xl">👤</div>
 
-          <h1 className="mt-4 text-2xl font-bold text-gray-900">
+          <h1 className="mt-4 text-2xl font-bold text-[var(--color-text)]">
             {t("Status.notFoundTitle")}
           </h1>
 
-          <p className="mt-2 text-gray-500">
+          <p className="mt-2 text-[var(--color-text-muted)]">
             {t("Status.notFoundDescription")}
           </p>
 
           <Link
             href="/ranking"
-            className="mt-6 inline-flex rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
+            className="ui-pressable mt-6 inline-flex min-h-11 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 py-3 font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
           >
             {t("Status.openRanking")}
           </Link>
@@ -285,19 +285,19 @@ setAscents(loadedAscents);
   }
 
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-gray-50 px-4 py-8">
+    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-8 lg:min-h-[calc(100dvh-66px)]">
       <div className="mx-auto max-w-6xl">
         <Link
           href="/ranking"
-          className="font-semibold text-green-700 transition hover:text-green-800 hover:underline"
+          className="font-bold text-[var(--color-forest)] hover:underline"
         >
           ← {t("Header.backToRanking")}
         </Link>
 
-        <section className="mt-6 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
-          <div className="bg-gradient-to-r from-green-700 to-green-500 px-6 py-10 sm:px-10">
+        <section className="mt-6 overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
+          <div className="bg-[var(--color-surface-inverse)] px-6 py-10 sm:px-10">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-              <div className="relative flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-3xl border-4 border-white/70 bg-white text-4xl font-bold text-green-700 shadow-lg">
+              <div className="relative flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-full border-4 border-white/70 bg-[var(--color-surface-raised)] text-4xl font-bold text-[var(--color-forest)] shadow-[var(--shadow-card)]">
                 {profile.avatar_url ? (
                   <Image
                     src={profile.avatar_url}
@@ -314,8 +314,8 @@ setAscents(loadedAscents);
                 )}
               </div>
 
-              <div className="text-white">
-                <p className="text-sm font-bold uppercase tracking-wider text-white/75">
+              <div className="text-[var(--color-text-inverse)]">
+                <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.12em] opacity-75">
                   {t("Header.eyebrow")}
                 </p>
 
@@ -323,7 +323,7 @@ setAscents(loadedAscents);
                   {profile.username}
                 </h1>
 
-                <p className="mt-2 text-white/80">
+                <p className="mt-2 opacity-80">
                   {t("Header.member")}
                 </p>
                 <PublicProfileRelationship profileUserId={profile.user_id} />
@@ -368,15 +368,15 @@ setAscents(loadedAscents);
 
 <section className="mt-6">
   <div className="mb-4">
-    <p className="text-sm font-bold uppercase tracking-wider text-green-700">
+    <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.12em] text-[var(--color-forest)]">
       {t("Map.eyebrow")}
     </p>
 
-    <h2 className="mt-2 text-2xl font-bold text-gray-900">
+    <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
       {t("Map.title")}
     </h2>
 
-    <p className="mt-2 text-gray-500">
+    <p className="mt-2 text-[var(--color-text-muted)]">
       {t("Map.description")}
     </p>
   </div>
@@ -384,38 +384,38 @@ setAscents(loadedAscents);
   <PublicAscentsMap ascents={ascents} />
 </section>
 
-        <section className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+        <section className="mt-6 border-y border-[var(--color-border-strong)] bg-[var(--color-surface)] p-6 sm:p-8">
   <div className="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <p className="text-sm font-bold uppercase tracking-wider text-green-700">
+      <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.12em] text-[var(--color-forest)]">
         {t("Ascents.eyebrow")}
       </p>
 
-      <h2 className="mt-2 text-2xl font-bold text-gray-900">
+      <h2 className="mt-2 text-2xl font-bold text-[var(--color-text)]">
         {t("Ascents.title")}
       </h2>
     </div>
 
-    <div className="rounded-2xl bg-green-50 px-4 py-3">
-      <p className="text-sm text-gray-500">
+    <div className="border-l border-[var(--color-border)] px-4 py-3">
+      <p className="text-sm text-[var(--color-text-muted)]">
         {t("Ascents.totalLabel")}
       </p>
 
-      <p className="mt-1 text-2xl font-bold text-green-700">
+      <p className="mt-1 [font-family:var(--font-technical)] text-2xl font-bold tabular-nums text-[var(--color-forest)]">
         {t("Ascents.count", { count: ascents.length })}
       </p>
     </div>
   </div>
 
   {ascents.length === 0 ? (
-    <div className="mt-6 rounded-2xl bg-gray-50 p-8 text-center">
+    <div className="mt-6 border border-dashed border-[var(--color-border-strong)] bg-[var(--color-bg)] p-8 text-center">
       <div className="text-5xl">🏔️</div>
 
-      <h3 className="mt-4 text-xl font-bold text-gray-900">
+      <h3 className="mt-4 text-xl font-bold text-[var(--color-text)]">
         {t("Ascents.emptyTitle")}
       </h3>
 
-      <p className="mt-2 text-gray-500">
+      <p className="mt-2 text-[var(--color-text-muted)]">
         {t("Ascents.emptyDescription")}
       </p>
     </div>
@@ -433,14 +433,14 @@ setAscents(loadedAscents);
         return (
           <article
             key={ascent.ascent_id}
-            className="flex flex-col gap-4 rounded-2xl border border-gray-200 p-4 transition hover:bg-gray-50 sm:flex-row sm:items-center sm:justify-between"
+            className="flex flex-col gap-4 border-t border-[var(--color-border)] p-4 first:border-t-0 hover:bg-[var(--color-surface-muted)] sm:flex-row sm:items-center sm:justify-between"
           >
             <div>
-              <h3 className="text-lg font-bold text-gray-900">
+              <h3 className="text-lg font-bold text-[var(--color-text)]">
                 {mountainName}
               </h3>
 
-              <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-500">
+              <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 [font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)]">
                 <span>
                   ⛰ {format.number(ascent.mountain_height)} {t("Units.meter")}
                 </span>
@@ -466,7 +466,7 @@ setAscents(loadedAscents);
 
             <Link
               href={`/mountain/${ascent.mountain_id}`}
-              className="inline-flex shrink-0 items-center justify-center rounded-xl border border-green-600 px-4 py-2 font-semibold text-green-700 transition hover:bg-green-50"
+              className="ui-pressable inline-flex min-h-11 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border-strong)] px-4 py-2 font-bold text-[var(--color-forest)] hover:bg-[var(--color-surface-muted)]"
             >
               {t("Ascents.openMountain")}
             </Link>
@@ -566,14 +566,14 @@ function ProfileStatistic({
   value,
 }: ProfileStatisticProps) {
   return (
-    <article className="rounded-2xl bg-gray-50 p-5">
+    <article className="border-t border-[var(--color-border-soft)] p-5 first:border-t-0 sm:border-l sm:border-t-0 sm:first:border-l-0">
       <div className="text-3xl">{icon}</div>
 
-      <p className="mt-4 text-sm font-medium text-gray-500">
+      <p className="mt-4 [font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
         {label}
       </p>
 
-      <p className="mt-2 text-xl font-bold text-gray-900">
+      <p className="mt-2 [font-family:var(--font-technical)] text-xl font-bold tabular-nums text-[var(--color-text)]">
         {value}
       </p>
     </article>

@@ -47,32 +47,32 @@ export default function SignUpPage() {
     {
       text: t("strength.empty"),
       width: "0%",
-      color: "bg-gray-300",
-      textColor: "text-gray-500",
+      color: "bg-[var(--color-border-strong)]",
+      textColor: "text-[var(--color-text-muted)]",
     },
     {
       text: t("strength.weak"),
       width: "25%",
-      color: "bg-red-500",
-      textColor: "text-red-600",
+      color: "bg-[var(--color-danger)]",
+      textColor: "text-[var(--color-danger)]",
     },
     {
       text: t("strength.medium"),
       width: "50%",
-      color: "bg-orange-500",
-      textColor: "text-orange-600",
+      color: "bg-[var(--color-warning)]",
+      textColor: "text-[var(--color-warning)]",
     },
     {
       text: t("strength.good"),
       width: "75%",
-      color: "bg-yellow-500",
-      textColor: "text-yellow-700",
+      color: "bg-[var(--color-ochre)]",
+      textColor: "text-[var(--color-ochre)]",
     },
     {
       text: t("strength.strong"),
       width: "100%",
-      color: "bg-green-600",
-      textColor: "text-green-700",
+      color: "bg-[var(--color-success)]",
+      textColor: "text-[var(--color-success)]",
     },
   ];
 
@@ -126,10 +126,10 @@ export default function SignUpPage() {
   }
 
   return (
-    <main className="flex min-h-[calc(100vh-65px)] items-center justify-center bg-gray-50 px-4 py-10">
-      <section className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-8 shadow-xl">
+    <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 py-10 sm:px-8 lg:min-h-[calc(100dvh-66px)]">
+      <section className="w-full max-w-md border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] sm:p-8">
         <div className="flex flex-col items-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-green-700">
+          <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-[var(--color-forest)] shadow-[var(--shadow-control)]">
             <Mountain size={32} />
           </div>
 
@@ -137,7 +137,7 @@ export default function SignUpPage() {
             {t("title")}
           </h1>
 
-          <p className="mt-2 text-center text-sm text-gray-500">
+          <p className="mt-2 text-center text-sm leading-6 text-[var(--color-text-muted)]">
             {t("subtitle")}
           </p>
         </div>
@@ -146,7 +146,7 @@ export default function SignUpPage() {
           <div className="relative">
             <User
               size={20}
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
             />
 
             <input
@@ -159,14 +159,14 @@ export default function SignUpPage() {
                 setMessage("");
               }}
               autoComplete="username"
-              className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-4 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
+              className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-4"
             />
           </div>
 
           <div className="relative">
             <Mail
               size={20}
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
             />
 
             <input
@@ -179,14 +179,14 @@ export default function SignUpPage() {
                 setMessage("");
               }}
               autoComplete="email"
-              className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-4 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
+              className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-4"
             />
           </div>
 
           <div className="relative">
             <LockKeyhole
               size={20}
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
             />
 
             <input
@@ -199,7 +199,7 @@ export default function SignUpPage() {
                 setMessage("");
               }}
               autoComplete="new-password"
-              className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-12 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
+              className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-12"
             />
 
             <button
@@ -210,7 +210,7 @@ export default function SignUpPage() {
               aria-label={
                 showPassword ? t("hidePassword") : t("showPassword")
               }
-              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700"
+              className="ui-pressable absolute right-1 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
             >
               {showPassword ? (
                 <EyeOff size={20} />
@@ -221,7 +221,7 @@ export default function SignUpPage() {
           </div>
 
           <div>
-            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
+            <div className="h-2 w-full overflow-hidden rounded-[var(--radius-pill)] bg-[var(--color-surface-muted)]">
               <div
                 className={`h-full rounded-full transition-all duration-300 ${currentStrength.color}`}
                 style={{
@@ -231,7 +231,7 @@ export default function SignUpPage() {
             </div>
 
             <div className="mt-2 flex items-center justify-between text-sm">
-              <span className="text-gray-500">
+              <span className="text-[var(--color-text-muted)]">
                 {t("strengthLabel")}
               </span>
 
@@ -246,7 +246,7 @@ export default function SignUpPage() {
           <div className="relative">
             <LockKeyhole
               size={20}
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
             />
 
             <input
@@ -259,7 +259,7 @@ export default function SignUpPage() {
                 setMessage("");
               }}
               autoComplete="new-password"
-              className="w-full rounded-xl border border-gray-300 py-3 pl-11 pr-4 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
+              className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-4"
             />
           </div>
 
@@ -267,8 +267,8 @@ export default function SignUpPage() {
             <p
               className={`text-sm font-medium ${
                 password === confirmPassword
-                  ? "text-green-700"
-                  : "text-red-600"
+                  ? "text-[var(--color-success)]"
+                  : "text-[var(--color-danger)]"
               }`}
             >
               {password === confirmPassword
@@ -280,7 +280,7 @@ export default function SignUpPage() {
           {message && (
             <div
               role="alert"
-              className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700"
+              className="border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-3 text-sm text-[var(--color-danger)]"
             >
               {message}
             </div>
@@ -290,7 +290,7 @@ export default function SignUpPage() {
             type="button"
             onClick={handleSignUp}
             disabled={loading}
-            className="w-full rounded-xl bg-green-600 py-3 font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="ui-pressable min-h-11 w-full rounded-[var(--radius-control)] bg-[var(--color-forest)] py-3 font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading
               ? t("submitting")
@@ -298,11 +298,11 @@ export default function SignUpPage() {
           </button>
         </div>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 border-t border-[var(--color-border)] pt-5 text-center text-sm text-[var(--color-text-muted)]">
           {t("hasAccount")} {" "}
           <Link
             href="/auth/login"
-            className="font-semibold text-green-700 hover:underline"
+            className="font-bold text-[var(--color-forest)] hover:underline"
           >
             {t("loginLink")}
           </Link>

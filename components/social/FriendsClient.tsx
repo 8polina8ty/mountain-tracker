@@ -72,7 +72,7 @@ export default function FriendsClient() {
   return (
     <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:px-6 lg:py-8">
       <div className="mx-auto max-w-5xl">
-        <p className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
+        <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.12em] text-[var(--color-forest)]">
           {t("Friends.eyebrow")}
         </p>
 
@@ -108,7 +108,7 @@ export default function FriendsClient() {
         </div>
 
         <section
-          className="mt-8 border-y border-[var(--color-border-strong)] bg-[var(--color-surface)] p-5"
+          className="mt-8 border-y border-[var(--color-border-strong)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-control)]"
           aria-labelledby="social-search-title"
         >
           <h2

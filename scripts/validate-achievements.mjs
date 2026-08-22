@@ -487,7 +487,12 @@ async function testAchievementNotifications() {
     new URL("../components/achievements/AchievementNotificationProvider.tsx", import.meta.url),
     "utf8",
   );
-  assert.match(providerSource, /pendingLoadStarted\.current/);
+  assert.match(providerSource, /auth\.getSession\(\)/);
+  assert.match(providerSource, /auth\.onAuthStateChange\(/);
+  assert.match(providerSource, /session\?\.user\?\.id\s*\?\?\s*null/);
+  assert.match(providerSource, /if \(!userId\)/);
+  assert.match(providerSource, /pendingLoadUserId\.current\s*===\s*userId/);
+  assert.match(providerSource, /subscription\.unsubscribe\(\)/);
   assert.doesNotMatch(providerSource, /setInterval/);
   assert.match(providerSource, /candidates\.map\(\(candidate\)\s*=>\s*markAchievementNotificationDisplayed/);
 

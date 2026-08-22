@@ -118,7 +118,7 @@ export default function PeakDetailsPanel({
           ease: standardEasing,
         },
       }}
-      className="absolute bottom-3 left-3 right-3 z-30 max-h-[calc(100%-24px)] overflow-y-auto rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-panel)] lg:bottom-4 lg:left-auto lg:right-4 lg:w-[400px]"
+      className="absolute bottom-0 left-0 right-0 z-30 max-h-[min(78dvh,calc(100%-12px))] overflow-y-auto rounded-t-[var(--radius-sheet)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-panel)] sm:bottom-3 sm:left-3 sm:right-3 sm:rounded-[var(--radius-panel)] lg:bottom-4 lg:left-auto lg:right-4 lg:w-[400px]"
       aria-labelledby="selected-peak-title"
     >
       <div className="border-b border-[var(--color-border-soft)] px-4 py-4 sm:px-5">

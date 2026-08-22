@@ -172,7 +172,7 @@ useMountainMap({
       )}
 
       <section
-        className="absolute left-3 top-3 z-10 max-h-[calc(100%-24px)] w-[calc(100%-24px)] overflow-y-auto rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-map-control)] sm:w-[336px]"
+        className="absolute inset-x-0 bottom-0 z-10 max-h-[min(72dvh,calc(100%-12px))] overflow-y-auto rounded-t-[var(--radius-sheet)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-map-control)] sm:inset-x-auto sm:bottom-auto sm:left-3 sm:top-3 sm:max-h-[calc(100%-24px)] sm:w-[336px] sm:rounded-[var(--radius-panel)]"
         aria-label={t("Controls.accessibleLabel")}
       >
         <div className="border-b border-[var(--color-border-soft)] px-4 py-3">
