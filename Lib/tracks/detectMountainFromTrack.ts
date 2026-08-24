@@ -1,5 +1,11 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
+import {
+  buildRouteSegmentSpatialIndex,
+  getRouteSegmentCandidateIndexes,
+  type RouteSegmentSpatialIndex,
+} from "./routeSegmentSpatialIndex.ts";
+
 type TrackGeoJson = GeoJSON.FeatureCollection<
   GeoJSON.LineString | GeoJSON.MultiLineString
 >;
@@ -13,13 +19,17 @@ type MountainCandidateRow = {
   longitude: number | null;
 };
 
-export type DetectedMountain = {
+export type MountainDetectionCandidate = {
   mountainId: number;
   mountainName: string;
   mountainHeight: number | null;
-
   distanceM: number;
   confidence: number;
+};
+
+export type DetectedMountain = MountainDetectionCandidate & {
+  runnerUp: MountainDetectionCandidate | null;
+  candidates: MountainDetectionCandidate[];
 };
 
 type DetectMountainOptions = {
@@ -33,6 +43,16 @@ type DetectMountainOptions = {
 type TrackPoint = {
   longitude: number;
   latitude: number;
+  elevation: number | null;
+};
+
+type TrackSegment = {
+  start: TrackPoint;
+  end: TrackPoint;
+};
+
+type ClosestTrackPosition = {
+  distanceM: number;
   elevation: number | null;
 };
 
@@ -76,6 +96,60 @@ function calculateDistanceMeters(
     );
 
   return EARTH_RADIUS_M * centralAngle;
+}
+
+function calculateProjectionOnSegment(
+  point: TrackPoint,
+  segmentStart: TrackPoint,
+  segmentEnd: TrackPoint,
+): { distanceM: number; fraction: number } {
+  const averageLatitude = degreesToRadians(
+    (point.latitude + segmentStart.latitude + segmentEnd.latitude) / 3,
+  );
+  const longitudeScale = Math.max(0.1, Math.cos(averageLatitude));
+  const segmentX =
+    degreesToRadians(segmentEnd.longitude - segmentStart.longitude) * longitudeScale;
+  const segmentY = degreesToRadians(segmentEnd.latitude - segmentStart.latitude);
+  const pointX =
+    degreesToRadians(point.longitude - segmentStart.longitude) * longitudeScale;
+  const pointY = degreesToRadians(point.latitude - segmentStart.latitude);
+  const segmentLengthSquared = segmentX ** 2 + segmentY ** 2;
+  const fraction = segmentLengthSquared === 0
+    ? 0
+    : Math.max(
+        0,
+        Math.min(1, (pointX * segmentX + pointY * segmentY) / segmentLengthSquared),
+      );
+  const projectedLongitude =
+    segmentStart.longitude +
+    (segmentEnd.longitude - segmentStart.longitude) * fraction;
+  const projectedLatitude =
+    segmentStart.latitude +
+    (segmentEnd.latitude - segmentStart.latitude) * fraction;
+
+  return {
+    fraction,
+    distanceM: calculateDistanceMeters(
+      point.longitude,
+      point.latitude,
+      projectedLongitude,
+      projectedLatitude,
+    ),
+  };
+}
+
+function getElevationAtProjection(
+  segment: TrackSegment,
+  fraction: number,
+): number | null {
+  const startElevation = segment.start.elevation;
+  const endElevation = segment.end.elevation;
+
+  if (startElevation !== null && endElevation !== null) {
+    return startElevation + (endElevation - startElevation) * fraction;
+  }
+
+  return startElevation ?? endElevation;
 }
 
 function getTrackPoints(
@@ -131,6 +205,75 @@ function getTrackPoints(
   return points;
 }
 
+function getTrackSegments(
+  geojson: TrackGeoJson,
+): TrackSegment[] {
+  const segments: TrackSegment[] = [];
+
+  geojson.features.forEach((feature) => {
+    if (feature.geometry.type === "LineString") {
+      const coords = feature.geometry.coordinates;
+      for (let i = 1; i < coords.length; i++) {
+        const startCoord = coords[i - 1];
+        const endCoord = coords[i];
+        const startLon = Number(startCoord[0]);
+        const startLat = Number(startCoord[1]);
+        const endLon = Number(endCoord[0]);
+        const endLat = Number(endCoord[1]);
+        const startElevation =
+          startCoord.length >= 3 && Number.isFinite(Number(startCoord[2]))
+            ? Number(startCoord[2])
+            : null;
+        const endElevation =
+          endCoord.length >= 3 && Number.isFinite(Number(endCoord[2]))
+            ? Number(endCoord[2])
+            : null;
+        if (
+          Number.isFinite(startLon) && Number.isFinite(startLat) &&
+          Number.isFinite(endLon) && Number.isFinite(endLat)
+        ) {
+          segments.push({
+            start: { longitude: startLon, latitude: startLat, elevation: startElevation },
+            end: { longitude: endLon, latitude: endLat, elevation: endElevation },
+          });
+        }
+      }
+    }
+
+    if (feature.geometry.type === "MultiLineString") {
+      feature.geometry.coordinates.forEach((line) => {
+        for (let i = 1; i < line.length; i++) {
+          const startCoord = line[i - 1];
+          const endCoord = line[i];
+          const startLon = Number(startCoord[0]);
+          const startLat = Number(startCoord[1]);
+          const endLon = Number(endCoord[0]);
+          const endLat = Number(endCoord[1]);
+          const startElevation =
+            startCoord.length >= 3 && Number.isFinite(Number(startCoord[2]))
+              ? Number(startCoord[2])
+              : null;
+          const endElevation =
+            endCoord.length >= 3 && Number.isFinite(Number(endCoord[2]))
+              ? Number(endCoord[2])
+              : null;
+          if (
+            Number.isFinite(startLon) && Number.isFinite(startLat) &&
+            Number.isFinite(endLon) && Number.isFinite(endLat)
+          ) {
+            segments.push({
+              start: { longitude: startLon, latitude: startLat, elevation: startElevation },
+              end: { longitude: endLon, latitude: endLat, elevation: endElevation },
+            });
+          }
+        }
+      });
+    }
+  });
+
+  return segments;
+}
+
 function getRelevantTrackPoints(
   points: TrackPoint[],
 ): TrackPoint[] {
@@ -140,10 +283,6 @@ function getRelevantTrackPoints(
 
   const result: TrackPoint[] = [];
 
-  /*
-   * Берём каждую N-ю точку, чтобы не выполнять
-   * тысячи одинаковых сравнений.
-   */
   const samplingStep = Math.max(
     1,
     Math.floor(points.length / 250),
@@ -157,9 +296,6 @@ function getRelevantTrackPoints(
     result.push(points[index]);
   }
 
-  /*
-   * Обязательно добавляем начало и конец трека.
-   */
   const firstPoint = points[0];
   const lastPoint = points[points.length - 1];
 
@@ -173,9 +309,6 @@ function getRelevantTrackPoints(
     result.push(lastPoint);
   }
 
-  /*
-   * Если есть высоты — добавляем самые высокие точки.
-   */
   const highestPoints = [...points]
     .filter(
       (
@@ -267,7 +400,7 @@ function calculateConfidence(
   distanceM: number,
   confirmationRadiusM: number,
   mountainHeight: number | null,
-  highestTrackElevation: number | null,
+  localRouteElevation: number | null,
 ): number {
   const distanceScore = Math.max(
     0,
@@ -280,11 +413,11 @@ function calculateConfidence(
 
   if (
     mountainHeight !== null &&
-    highestTrackElevation !== null
+    localRouteElevation !== null
   ) {
     const elevationDifference = Math.abs(
       mountainHeight -
-        highestTrackElevation,
+        localRouteElevation,
     );
 
     elevationScore = Math.max(
@@ -293,10 +426,6 @@ function calculateConfidence(
     );
   }
 
-  /*
-   * Расстояние важнее высоты, потому что
-   * GPS-высота часто неточная.
-   */
   const confidence =
     distanceScore * 0.8 +
     elevationScore * 0.2;
@@ -309,16 +438,78 @@ function calculateConfidence(
   );
 }
 
-export async function detectMountainFromTrack({
+function calculateClosestTrackPosition(
+  mountainLon: number,
+  mountainLat: number,
+  allTrackPoints: TrackPoint[],
+  trackSegments: TrackSegment[],
+  trackSegmentIndex: RouteSegmentSpatialIndex,
+): ClosestTrackPosition {
+  let closestPosition: ClosestTrackPosition = {
+    distanceM: Number.POSITIVE_INFINITY,
+    elevation: null,
+  };
+
+  const mountainPoint: TrackPoint = { longitude: mountainLon, latitude: mountainLat, elevation: null };
+
+  const candidateSegmentIndexes = getRouteSegmentCandidateIndexes(
+    trackSegmentIndex,
+    mountainLon,
+    mountainLat,
+  );
+
+  for (const segmentIndex of candidateSegmentIndexes) {
+    const segment = trackSegments[segmentIndex];
+    const projection = calculateProjectionOnSegment(
+      mountainPoint,
+      segment.start,
+      segment.end,
+    );
+    if (projection.distanceM < closestPosition.distanceM) {
+      closestPosition = {
+        distanceM: projection.distanceM,
+        elevation: getElevationAtProjection(segment, projection.fraction),
+      };
+    }
+  }
+
+  if (closestPosition.distanceM === Number.POSITIVE_INFINITY && allTrackPoints.length > 0) {
+    for (const trackPoint of allTrackPoints) {
+      const distanceM = calculateDistanceMeters(
+        trackPoint.longitude,
+        trackPoint.latitude,
+        mountainLon,
+        mountainLat,
+      );
+      if (distanceM < closestPosition.distanceM) {
+        closestPosition = {
+          distanceM,
+          elevation: trackPoint.elevation,
+        };
+      }
+    }
+  }
+
+  return closestPosition;
+}
+
+export async function evaluateMountainCandidatesForTrack({
   supabase,
   geojson,
   searchRadiusM = 2_500,
   confirmationRadiusM = 300,
-}: DetectMountainOptions): Promise<
-  DetectedMountain | null
-> {
-  const allTrackPoints =
-    getTrackPoints(geojson);
+}: DetectMountainOptions): Promise<MountainDetectionCandidate[]> {
+  const allTrackPoints = getTrackPoints(geojson);
+  const trackSegments = getTrackSegments(geojson);
+  const trackSegmentIndex = buildRouteSegmentSpatialIndex(
+    trackSegments.map((segment) => ({
+      startLongitude: segment.start.longitude,
+      startLatitude: segment.start.latitude,
+      endLongitude: segment.end.longitude,
+      endLatitude: segment.end.latitude,
+    })),
+    searchRadiusM,
+  );
 
   if (allTrackPoints.length < 2) {
     throw new Error(
@@ -326,8 +517,7 @@ export async function detectMountainFromTrack({
     );
   }
 
-  const relevantTrackPoints =
-    getRelevantTrackPoints(allTrackPoints);
+  const relevantTrackPoints = getRelevantTrackPoints(allTrackPoints);
 
   const boundingBox = getTrackBoundingBox(
     relevantTrackPoints,
@@ -376,74 +566,40 @@ export async function detectMountainFromTrack({
       []) as MountainCandidateRow[];
 
   if (mountains.length === 0) {
-    return null;
+    return [];
   }
 
-  const highestTrackElevation =
-    allTrackPoints.reduce<number | null>(
-      (highestElevation, point) => {
-        if (point.elevation === null) {
-          return highestElevation;
-        }
-
-        if (
-          highestElevation === null ||
-          point.elevation > highestElevation
-        ) {
-          return point.elevation;
-        }
-
-        return highestElevation;
-      },
-      null,
-    );
-
-  let bestMountain:
-    | DetectedMountain
-    | null = null;
+  const candidates: MountainDetectionCandidate[] = [];
 
   for (const mountain of mountains) {
-   if (
-  mountain.latitude === null ||
-  mountain.longitude === null
-) {
-  continue;
-}
+    if (
+      mountain.latitude === null ||
+      mountain.longitude === null
+    ) {
+      continue;
+    }
 
-    let minimumDistanceM =
-      Number.POSITIVE_INFINITY;
-
-    relevantTrackPoints.forEach(
-      (trackPoint) => {
-        const distanceM =
-          calculateDistanceMeters(
-            trackPoint.longitude,
-            trackPoint.latitude,
-            mountain.longitude as number,
-            mountain.latitude as number,
-          );
-
-        if (
-          distanceM < minimumDistanceM
-        ) {
-          minimumDistanceM = distanceM;
-        }
-      },
+    const closestTrackPosition = calculateClosestTrackPosition(
+      mountain.longitude as number,
+      mountain.latitude as number,
+      allTrackPoints,
+      trackSegments,
+      trackSegmentIndex,
     );
 
-  if (minimumDistanceM > searchRadiusM) {
-  continue;
-}
+    if (closestTrackPosition.distanceM > searchRadiusM) {
+      continue;
+    }
 
     const confidence =
       calculateConfidence(
-        minimumDistanceM,
+        closestTrackPosition.distanceM,
         confirmationRadiusM,
         mountain.height,
-        highestTrackElevation,
+        closestTrackPosition.elevation,
       );
 
-    const candidate: DetectedMountain = {
+    const candidate: MountainDetectionCandidate = {
       mountainId: Number(mountain.id),
       mountainName:
         getMountainName(mountain),
@@ -454,31 +610,39 @@ export async function detectMountainFromTrack({
           : null,
 
       distanceM: Math.round(
-        minimumDistanceM,
+        closestTrackPosition.distanceM,
       ),
 
       confidence,
     };
 
-    if (
-      !bestMountain ||
-      candidate.confidence >
-        bestMountain.confidence ||
-      (
-        candidate.confidence ===
-          bestMountain.confidence &&
-        candidate.distanceM <
-          bestMountain.distanceM
-      )
-    ) {
-      bestMountain = candidate;
-    }
+    candidates.push(candidate);
   }
 
-  /*
-   * Не сохраняем слишком далёкую вершину
-   * как уверенно найденную.
-   */
+  candidates.sort((first, second) =>
+    second.confidence - first.confidence || first.distanceM - second.distanceM,
+  );
+
+  return candidates;
+}
+
+export async function detectMountainFromTrack({
+  supabase,
+  geojson,
+  searchRadiusM = 2_500,
+  confirmationRadiusM = 300,
+}: DetectMountainOptions): Promise<
+  DetectedMountain | null
+> {
+  const candidates = await evaluateMountainCandidatesForTrack({
+    supabase,
+    geojson,
+    searchRadiusM,
+    confirmationRadiusM,
+  });
+
+  const bestMountain = candidates[0] ?? null;
+
   if (
     !bestMountain ||
     bestMountain.distanceM >
@@ -487,5 +651,9 @@ export async function detectMountainFromTrack({
     return null;
   }
 
-  return bestMountain;
+  return {
+    ...bestMountain,
+    runnerUp: candidates[1] ?? null,
+    candidates,
+  };
 }
