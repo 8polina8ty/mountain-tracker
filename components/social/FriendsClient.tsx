@@ -1,294 +1,274 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { Search, UserPlus, MessageSquare, UserCheck } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { useRef, useState } from "react";
-
-import SocialActions from "@/components/social/SocialActions";
-import SocialUserRow from "@/components/social/SocialUserRow";
-import { Link } from "@/i18n/navigation";
-import {
-  normalizeSocialUser,
-  SOCIAL_SEARCH_MIN_LENGTH,
-  type SocialUser,
-} from "@/Lib/social";
 import { createClient } from "@/Lib/supabase/client";
+import SocialActions from "@/components/social/SocialActions";
+import type { RelationshipState } from "@/Lib/social";
+import { Avatar, PageHero, SectionHeading, StatusPill, SecondaryButton } from "@/components/ui-v2";
 
 export default function FriendsClient() {
-  const t = useTranslations("Social");
+  const searchParams = useSearchParams();
+  const t = useTranslations("Friends");
 
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SocialUser[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") ?? "");
+  const [searchResults, setSearchResults] = useState<Array<{ id: string; username: string; avatar_url: string | null; relationship: RelationshipState; request_id?: string }>>([]);
+  const [searching, setSearching] = useState(false);
+  const [friends, setFriends] = useState<Array<{ id: string; username: string; avatar_url: string | null }>>([]);
+  const [pendingRequests, setPendingRequests] = useState<Array<{ id: string; requester_id: string; requester_username: string; requester_avatar_url: string | null }>>([]);
+  const [loadingFriends, setLoadingFriends] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const searchGenerationRef = useRef(0);
+  const supabase = createClient();
 
-  async function search(event: React.FormEvent) {
-    event.preventDefault();
+  const loadFriends = useCallback(async () => {
+    setLoadingFriends(true);
+    try {
+      const { data, error } = await supabase.rpc("list_friends");
+      if (error) throw error;
+      setFriends(data ?? []);
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(t("Errors.loadFriendsFailed"));
+    } finally {
+      setLoadingFriends(false);
+    }
+  }, [supabase, t]);
 
-    const value = query.trim();
+  const loadPendingRequests = useCallback(async () => {
+    try {
+      const { data, error } = await supabase.rpc("list_incoming_friend_requests");
+      if (error) throw error;
+      setPendingRequests(data ?? []);
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(t("Errors.loadRequestsFailed"));
+    }
+  }, [supabase, t]);
 
-    if (value.length < SOCIAL_SEARCH_MIN_LENGTH) {
-      setError(
-        t("Search.minimum", {
-          count: SOCIAL_SEARCH_MIN_LENGTH,
-        })
-      );
+  useEffect(() => {
+    // Use setTimeout to avoid synchronous state updates in effect
+    const timer = setTimeout(() => {
+      loadFriends();
+      loadPendingRequests();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [loadFriends, loadPendingRequests]);
+
+  const handleSearch = useCallback(async (query: string) => {
+    if (!query.trim()) {
+      setSearchResults([]);
       return;
     }
-
-    const generation = ++searchGenerationRef.current;
-
-    setLoading(true);
-    setError("");
-
-    const response = await createClient().rpc("search_public_users", {
-      search_text: value,
-      result_limit: 20,
-      cursor_username: null,
-      cursor_user_id: null,
-    });
-
-    if (generation !== searchGenerationRef.current) {
-      return;
+    setSearching(true);
+    setErrorMessage("");
+    try {
+      const { data, error } = await supabase.rpc("search_public_users", {
+        search_query: query,
+        result_limit: 10,
+      });
+      if (error) throw error;
+      setSearchResults(data ?? []);
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(t("Errors.searchFailed"));
+    } finally {
+      setSearching(false);
     }
+  }, [supabase, t]);
 
-    setLoading(false);
+  useEffect(() => {
+    const timeout = setTimeout(() => handleSearch(searchQuery), 250);
+    return () => clearTimeout(timeout);
+  }, [searchQuery, handleSearch]);
 
-    if (response.error) {
-      setError(t("Errors.unavailable"));
-      setResults([]);
-      return;
-    }
-
-    const next = ((response.data ?? []) as unknown[])
-      .map(normalizeSocialUser)
-      .filter((row): row is SocialUser => row !== null);
-
-    setResults(next);
-  }
+  const handleFriendAction = useCallback(() => {
+    loadFriends();
+    loadPendingRequests();
+  }, [loadFriends, loadPendingRequests]);
 
   return (
-    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:px-6 lg:py-8">
-      <div className="mx-auto max-w-5xl">
-        <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.12em] text-[var(--color-forest)]">
-          {t("Friends.eyebrow")}
-        </p>
+    <main className="min-h-[calc(100dvh-64px)] bg-[var(--color-bg)] px-4 py-8 lg:px-6 lg:py-12">
+      <div className="mx-auto max-w-7xl space-y-10">
+        {/* Page Hero */}
+        <PageHero
+          eyebrow={t("eyebrow") ?? "Community"}
+          title={t("title") ?? "Friends"}
+          subtitle={t("description") ?? "Connect with fellow alpinists and share your expeditions."}
+        />
 
-        <div className="mt-2 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <h1 className="text-3xl font-bold text-[var(--color-text)]">
-              {t("Friends.title")}
-            </h1>
-
-            <p className="mt-2 text-[var(--color-text-muted)]">
-              {t("Friends.description")}
-            </p>
-          </div>
-
-          <nav
-            className="flex gap-2"
-            aria-label={t("Accessibility.sections")}
-          >
-            <Link
-              className="ui-pressable min-h-11 px-3 py-2 font-semibold text-[var(--color-forest)]"
-              href="/friends/requests"
-            >
-              {t("Requests.title")}
-            </Link>
-
-            <Link
-              className="ui-pressable min-h-11 px-3 py-2 font-semibold text-[var(--color-text-secondary)]"
-              href="/friends/blocked"
-            >
-              {t("Blocking.title")}
-            </Link>
-          </nav>
-        </div>
-
-        <section
-          className="mt-8 border-y border-[var(--color-border-strong)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-control)]"
-          aria-labelledby="social-search-title"
-        >
-          <h2
-            id="social-search-title"
-            className="text-xl font-bold"
-          >
-            {t("Search.title")}
-          </h2>
-
-          <form
-            className="mt-4 flex flex-col gap-2 sm:flex-row"
-            onSubmit={search}
-          >
-            <label
-              className="sr-only"
-              htmlFor="user-search"
-            >
-              {t("Search.label")}
-            </label>
-
-            <div className="relative flex-1">
-              <Search
-                aria-hidden="true"
-                className="absolute left-3 top-3 h-5 w-5 text-[var(--color-text-muted)]"
-              />
-
+        {/* Search Section */}
+        <section>
+          <SectionHeading
+            eyebrow={t("Search.eyebrow") ?? "Discover"}
+            title={t("Search.title") ?? "Find alpinists"}
+          />
+          <div className="mt-6">
+            <div className="relative max-w-md">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--color-text-muted)]" strokeWidth={2} />
               <input
-                id="user-search"
-                className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] pl-10 pr-3"
-                value={query}
-                maxLength={80}
-                onChange={(event) => {
-                  setQuery(event.target.value);
-                  setError("");
-                }}
-                placeholder={t("Search.placeholder")}
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t("Search.placeholder") ?? "Search by username..."}
+                className="ui-field w-full pl-11 pr-4"
+                aria-label={t("Search.placeholder") ?? "Search by username"}
               />
             </div>
 
-            <button
-              type="submit"
-              className="ui-pressable min-h-11 rounded-[var(--radius-control)] bg-[var(--color-forest)] px-5 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
-              disabled={loading}
-            >
-              {loading
-                ? t("Common.loading")
-                : t("Search.submit")}
-            </button>
-          </form>
+            {searching && (
+              <p className="mt-3 text-sm text-[var(--color-text-muted)]" role="status">
+                {t("Search.searching") ?? "Searching…"}
+              </p>
+            )}
 
-          {error && (
-            <p
-              role="alert"
-              className="mt-3 text-sm text-[var(--color-danger)]"
-            >
-              {error}
-            </p>
-          )}
+            {searchResults.length > 0 && (
+              <div className="mt-4 rounded-[var(--radius-card)] border border-[var(--color-border-soft)] bg-[var(--color-surface)] shadow-[var(--shadow-xs)] overflow-hidden">
+                {searchResults.map((user) => (
+                  <div
+                    key={user.id}
+                    className="flex items-center justify-between gap-4 border-b border-[var(--color-border-soft)] p-4 last:border-0 hover:bg-[var(--color-surface-muted)]"
+                  >
+                    <div className="flex items-center gap-4 min-w-0">
+                      <Avatar initials={user.username.charAt(0).toUpperCase()} size="md" src={user.avatar_url ?? undefined} />
+                      <div className="min-w-0">
+                        <p className="font-semibold truncate">{user.username}</p>
+                        <p className="technical text-[12px] text-[var(--color-text-muted)]">
+                          {user.relationship === "friends" && t("Search.alreadyFriends")}
+                          {user.relationship === "outgoing_pending" && t("Search.requestSent")}
+                          {user.relationship === "incoming_pending" && t("Search.pendingRequest")}
+                        </p>
+                      </div>
+                    </div>
+                    <SocialActions
+                      userId={user.id}
+                      initialState={user.relationship}
+                      requestId={user.request_id}
+                      onChanged={handleFriendAction}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
 
-          <ul className="mt-4">
-            {results.map((user) => (
-              <SocialUserRow
-                key={user.userId}
-                {...user}
-                action={
-                  <SocialActions
-                    userId={user.userId}
-                    requestId={user.requestId ?? undefined}
-                    initialState={user.relationshipState}
-                  />
-                }
-              />
-            ))}
-          </ul>
+            {searchQuery && !searching && searchResults.length === 0 && (
+              <div className="mt-4 rounded-[var(--radius-card)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface)] p-8 text-center">
+                <UserPlus className="mx-auto h-12 w-12 text-[var(--color-text-muted)]" strokeWidth={1.5} />
+                <p className="mt-4 text-[var(--color-text-secondary)]">
+                  {t("Search.noResults") ?? "No users found matching"} <span className="font-semibold">&ldquo;{searchQuery}&rdquo;</span>
+                </p>
+              </div>
+            )}
+
+            {errorMessage && (
+              <div className="mt-4 rounded-[var(--radius-card)] border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-4 text-[var(--color-danger)] text-sm" role="alert">
+                {errorMessage}
+              </div>
+            )}
+          </div>
         </section>
 
-        <FriendsList />
+        {/* Friend Requests */}
+        {pendingRequests.length > 0 && (
+          <section>
+            <SectionHeading
+              eyebrow={t("Requests.eyebrow") ?? "Incoming"}
+              title={t("Requests.title") ?? "Friend requests"}
+            />
+            <div className="mt-6 space-y-3">
+              {pendingRequests.map((req) => (
+                <div
+                  key={req.id}
+                  className="flex items-center justify-between gap-4 rounded-[var(--radius-card)] border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-xs)]"
+                >
+                  <div className="flex items-center gap-4 min-w-0">
+                    <Avatar initials={req.requester_username.charAt(0).toUpperCase()} size="md" src={req.requester_avatar_url ?? undefined} />
+                    <div className="min-w-0">
+                      <p className="font-semibold truncate">{req.requester_username}</p>
+                      <p className="technical text-[12px] text-[var(--color-text-muted)]">
+                        {t("Requests.wantsToConnect") ?? "Wants to connect"}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <StatusPill tone="info" size="small">
+                      {t("Requests.pending") ?? "Pending"}
+                    </StatusPill>
+                    <SocialActions
+                      userId={req.requester_id}
+                      initialState="incoming_pending"
+                      requestId={req.id}
+                      onChanged={handleFriendAction}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Friends List */}
+        <section>
+          <SectionHeading
+            eyebrow={t("List.eyebrow") ?? "Network"}
+            title={t("List.title") ?? "Your friends"}
+            description={friends.length === 0 ? t("List.emptyDescription") ?? "Start searching to add friends" : undefined}
+          />
+          <div className="mt-6">
+            {loadingFriends ? (
+              <div className="space-y-3" aria-busy="true">
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-4 animate-pulse">
+                    <div className="h-11 w-11 rounded-full bg-[var(--color-surface-muted)]" />
+                    <div className="flex-1 space-y-2">
+                      <div className="h-4 w-3/12 bg-[var(--color-surface-muted)] rounded" />
+                      <div className="h-3 w-2/12 bg-[var(--color-surface-muted)] rounded" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : friends.length === 0 ? (
+              <div className="rounded-[var(--radius-card)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface)] p-10 text-center">
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[var(--color-bg-secondary)] text-[var(--color-pine)]">
+                  <UserCheck size={28} strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-5 text-[20px] font-bold">{t("List.emptyTitle") ?? "No friends yet"}</h3>
+                <p className="mx-auto mt-2 max-w-md text-[14px] leading-relaxed text-[var(--color-text-muted)]">
+                  {t("List.emptyDescription") ?? "Search for alpinists above to build your network."}
+                </p>
+              </div>
+            ) : (
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {friends.map((friend) => (
+                  <article
+                    key={friend.id}
+                    className="ui-pressable group flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-xs)] hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-card)]"
+                  >
+                    <Avatar initials={friend.username.charAt(0).toUpperCase()} size="lg" src={friend.avatar_url ?? undefined} />
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold truncate">{friend.username}</p>
+                      <p className="technical text-[12px] text-[var(--color-text-muted)]">
+                        {t("List.friendSince") ?? "Friend"}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <StatusPill tone="success" size="small">
+                        <UserCheck size={10} className="mr-1" />
+                        {t("Common.friends") ?? "Friends"}
+                      </StatusPill>
+                      <a href={`/messages?user=${friend.id}`}>
+                        <SecondaryButton size="small" icon={MessageSquare}>{t("List.message") ?? "Message"}</SecondaryButton>
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
       </div>
     </main>
-  );
-}
-
-function FriendsList() {
-  const t = useTranslations("Social");
-
-  const [rows, setRows] = useState<SocialUser[] | null>(null);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const loadGenerationRef = useRef(0);
-
-  async function load() {
-    if (loading) {
-      return;
-    }
-
-    const generation = ++loadGenerationRef.current;
-
-    setLoading(true);
-    setError("");
-
-    const response = await createClient().rpc("list_friends", {
-      result_limit: 20,
-      cursor_username: null,
-      cursor_user_id: null,
-    });
-
-    if (generation !== loadGenerationRef.current) {
-      return;
-    }
-
-    setLoading(false);
-
-    if (response.error) {
-      setError(t("Errors.unavailable"));
-      setRows([]);
-      return;
-    }
-
-    const next = ((response.data ?? []) as unknown[])
-      .map(normalizeSocialUser)
-      .filter((row): row is SocialUser => row !== null);
-
-    setRows(next);
-  }
-
-  return (
-    <section className="mt-8 border-y border-[var(--color-border-strong)] bg-[var(--color-surface)] p-5">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-xl font-bold">
-          {t("Friends.accepted")}
-        </h2>
-
-        <button
-          type="button"
-          className="ui-pressable min-h-11 px-3 text-sm font-semibold text-[var(--color-forest)] disabled:cursor-not-allowed disabled:opacity-60"
-          onClick={() => void load()}
-          disabled={loading}
-        >
-          {loading
-            ? t("Common.loading")
-            : rows === null
-              ? t("Common.load")
-              : t("Common.refresh")}
-        </button>
-      </div>
-
-      {error && (
-        <p
-          role="alert"
-          className="mt-3 text-sm text-[var(--color-danger)]"
-        >
-          {error}
-        </p>
-      )}
-
-      {rows &&
-        (rows.length > 0 ? (
-          <ul>
-            {rows.map((user) => (
-              <SocialUserRow
-                key={user.userId}
-                {...user}
-                action={
-                  <SocialActions
-                    userId={user.userId}
-                    initialState="friends"
-                    onChanged={() => {
-                      void load();
-                    }}
-                  />
-                }
-              />
-            ))}
-          </ul>
-        ) : (
-          <p className="mt-4 text-sm text-[var(--color-text-muted)]">
-            {t("Friends.empty")}
-          </p>
-        ))}
-    </section>
   );
 }

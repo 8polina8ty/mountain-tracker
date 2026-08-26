@@ -1,0 +1,3199 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "mountain-tracker-osm-route/v1",
+  "datasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+  "manifestHash": "04b6390572fa2ac66a9c0070992e0251e14739ee1663edaa2ee51f02cbd1db19",
+  "recordCount": 46,
+  "records": [
+    {
+      "sourceRelationId": "20916",
+      "canonicalRouteSourceId": "20916",
+      "idempotencyKey": "openstreetmap:relation:20916:mountain-tracker-osm-route/v1",
+      "payloadHash": "e2995161ae6c8035d00f27ddab11dcb7fcb195c263d873bc11cfe19b0f722c9d",
+      "routeName": "Wanderweg 614",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5392,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-4",
+      "admin1Name": "Oberösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "300920907",
+        "peakName": "Großer Pyhrgas",
+        "peakElevationMeters": 2244,
+        "peakCoordinates": [
+          14.3975248,
+          47.6526569
+        ],
+        "mountainId": 12690,
+        "mountainName": "Großer Pyhrgas",
+        "mountainElevationMeters": 2244,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 3.3,
+        "endpointDistanceMeters": 7.3
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5392,
+        "componentLengthsMeters": [
+          5391.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.3524056,
+          "minimumLatitude": 47.6463704,
+          "maximumLongitude": 14.3974904,
+          "maximumLatitude": 47.6598242
+        },
+        "startCoordinate": [
+          14.3524056,
+          47.6598242
+        ],
+        "endCoordinate": [
+          14.3974672,
+          47.6527098
+        ],
+        "summitCoordinate": [
+          14.3975248,
+          47.6526569
+        ],
+        "endpointDistanceMeters": 7.3,
+        "startToSummitDistanceMeters": 3472.1,
+        "straightLineDistanceMeters": 3466.5,
+        "routeToStraightLineRatio": 1.56,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 446
+      }
+    },
+    {
+      "sourceRelationId": "33528",
+      "canonicalRouteSourceId": "33528",
+      "idempotencyKey": "openstreetmap:relation:33528:mountain-tracker-osm-route/v1",
+      "payloadHash": "5de39ac6ed3afdbe4ce008e58c74367d666b9811fb04ab60b099aa1413539dd6",
+      "routeName": "10",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5746,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "IT",
+      "countryName": "Italy",
+      "admin1Code": "IT-72843720B59566147937015",
+      "admin1Name": "Nord-Est",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "3006435036",
+        "peakName": "Lyfispitze - Punta Livi",
+        "peakElevationMeters": 3352,
+        "peakCoordinates": [
+          10.6875919,
+          46.5341461
+        ],
+        "mountainId": 83695,
+        "mountainName": "Lyfispitze",
+        "mountainElevationMeters": 3352,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5746,
+        "componentLengthsMeters": [
+          5745.6
+        ],
+        "boundingBox": {
+          "minimumLongitude": 10.6840227,
+          "minimumLatitude": 46.4995809,
+          "maximumLongitude": 10.712239,
+          "maximumLatitude": 46.5341461
+        },
+        "startCoordinate": [
+          10.712239,
+          46.4996413
+        ],
+        "endCoordinate": [
+          10.6875919,
+          46.5341461
+        ],
+        "summitCoordinate": [
+          10.6875919,
+          46.5341461
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 4275.2,
+        "straightLineDistanceMeters": 4275.2,
+        "routeToStraightLineRatio": 1.34,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 354
+      }
+    },
+    {
+      "sourceRelationId": "140270",
+      "canonicalRouteSourceId": "140270",
+      "idempotencyKey": "openstreetmap:relation:140270:mountain-tracker-osm-route/v1",
+      "payloadHash": "ef4cdff514241033fedd41b78542f77316685921d1febac22b861dc4ce056798",
+      "routeName": "Via Ferrata “Rosalba Grasselli”",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1304,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "IT",
+      "countryName": "Italy",
+      "admin1Code": "IT-72843720B59566147937015",
+      "admin1Name": "Nord-Est",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "2143684699",
+        "peakName": "Picco di Carnizza",
+        "peakElevationMeters": 2434,
+        "peakCoordinates": [
+          13.4333643,
+          46.3652266
+        ],
+        "mountainId": 77279,
+        "mountainName": "Picco di Carnizza",
+        "mountainElevationMeters": 2434,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0.2,
+        "endpointDistanceMeters": 2.2
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 1304,
+        "componentLengthsMeters": [
+          1304.1
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.4248885,
+          "minimumLatitude": 46.3652259,
+          "maximumLongitude": 13.4333928,
+          "maximumLatitude": 46.3718633
+        },
+        "startCoordinate": [
+          13.4249259,
+          46.3718633
+        ],
+        "endCoordinate": [
+          13.4333928,
+          46.3652304
+        ],
+        "summitCoordinate": [
+          13.4333643,
+          46.3652266
+        ],
+        "endpointDistanceMeters": 2.2,
+        "startToSummitDistanceMeters": 981.7,
+        "straightLineDistanceMeters": 982.9,
+        "routeToStraightLineRatio": 1.33,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 223
+      }
+    },
+    {
+      "sourceRelationId": "196164",
+      "canonicalRouteSourceId": "196164",
+      "idempotencyKey": "openstreetmap:relation:196164:mountain-tracker-osm-route/v1",
+      "payloadHash": "4e32e67180c4b03e91eb03c26802f74696418b092098d41b765891804c019aff",
+      "routeName": "Wanderweg 534",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 11734,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "335302468",
+        "peakName": "Fensteralm",
+        "peakElevationMeters": 1642,
+        "peakCoordinates": [
+          15.1530825,
+          47.2802064
+        ],
+        "mountainId": 13132,
+        "mountainName": "Fensteralm",
+        "mountainElevationMeters": 1642,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1,
+        "endpointDistanceMeters": 1
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 11734,
+        "componentLengthsMeters": [
+          11734.4
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.1530778,
+          "minimumLatitude": 47.2249387,
+          "maximumLongitude": 15.2373075,
+          "maximumLatitude": 47.2824621
+        },
+        "startCoordinate": [
+          15.2373075,
+          47.2249387
+        ],
+        "endCoordinate": [
+          15.1530778,
+          47.2802149
+        ],
+        "summitCoordinate": [
+          15.1530825,
+          47.2802064
+        ],
+        "endpointDistanceMeters": 1,
+        "startToSummitDistanceMeters": 8841.8,
+        "straightLineDistanceMeters": 8842.7,
+        "routeToStraightLineRatio": 1.33,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 507
+      }
+    },
+    {
+      "sourceRelationId": "199145",
+      "canonicalRouteSourceId": "199145",
+      "idempotencyKey": "openstreetmap:relation:199145:mountain-tracker-osm-route/v1",
+      "payloadHash": "e421ba184b92d778a75c9b7eb122991439686a74508598f68ff7b50fe94b54e8",
+      "routeName": "Wanderweg 610",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5902,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-4",
+      "admin1Name": "Oberösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "300920886",
+        "peakName": "Bosruck",
+        "peakElevationMeters": 1992,
+        "peakCoordinates": [
+          14.3461706,
+          47.622973
+        ],
+        "mountainId": 12684,
+        "mountainName": "Bosruck",
+        "mountainElevationMeters": 1992,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 3.9,
+        "endpointDistanceMeters": 3.9
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5902,
+        "componentLengthsMeters": [
+          5902.5
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.2977364,
+          "minimumLatitude": 47.6162332,
+          "maximumLongitude": 14.3461876,
+          "maximumLatitude": 47.6229403
+        },
+        "startCoordinate": [
+          14.2977364,
+          47.6186997
+        ],
+        "endCoordinate": [
+          14.3461876,
+          47.6229403
+        ],
+        "summitCoordinate": [
+          14.3461706,
+          47.622973
+        ],
+        "endpointDistanceMeters": 3.9,
+        "startToSummitDistanceMeters": 3661.1,
+        "straightLineDistanceMeters": 3661.9,
+        "routeToStraightLineRatio": 1.61,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 344
+      }
+    },
+    {
+      "sourceRelationId": "207900",
+      "canonicalRouteSourceId": "207900",
+      "idempotencyKey": "openstreetmap:relation:207900:mountain-tracker-osm-route/v1",
+      "payloadHash": "d199402d01d93f70d09a8685bfe0f17f09183bccff4431e59569c00b4fa3c350",
+      "routeName": "Wanderweg 791",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 8003,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "26863054",
+        "peakName": "Großer Knallstein",
+        "peakElevationMeters": 2599,
+        "peakCoordinates": [
+          13.9757742,
+          47.3203059
+        ],
+        "mountainId": 11872,
+        "mountainName": "Großer Knallstein",
+        "mountainElevationMeters": 2599,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0.2,
+        "endpointDistanceMeters": 3.3
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 8003,
+        "componentLengthsMeters": [
+          8003
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.9757313,
+          "minimumLatitude": 47.3086619,
+          "maximumLongitude": 14.0465038,
+          "maximumLatitude": 47.3203176
+        },
+        "startCoordinate": [
+          14.0465038,
+          47.3194591
+        ],
+        "endCoordinate": [
+          13.9757313,
+          47.3203001
+        ],
+        "summitCoordinate": [
+          13.9757742,
+          47.3203059
+        ],
+        "endpointDistanceMeters": 3.3,
+        "startToSummitDistanceMeters": 5332.4,
+        "straightLineDistanceMeters": 5335.6,
+        "routeToStraightLineRatio": 1.5,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 529
+      }
+    },
+    {
+      "sourceRelationId": "207913",
+      "canonicalRouteSourceId": "207913",
+      "idempotencyKey": "openstreetmap:relation:207913:mountain-tracker-osm-route/v1",
+      "payloadHash": "41b3f11a6851dd2fe3fa95fa75534c87f0060e35d272a33b7a359b2180e8f908",
+      "routeName": "Wanderweg 926A",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1155,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "471300819",
+        "peakName": "Schoberspitze",
+        "peakElevationMeters": 2423,
+        "peakCoordinates": [
+          14.1606502,
+          47.2893725
+        ],
+        "mountainId": 13929,
+        "mountainName": "Schoberspitze",
+        "mountainElevationMeters": 2423,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 6.1,
+        "endpointDistanceMeters": 7.2
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 1155,
+        "componentLengthsMeters": [
+          1154.9
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.1526833,
+          "minimumLatitude": 47.286378,
+          "maximumLongitude": 14.1607355,
+          "maximumLatitude": 47.2894009
+        },
+        "startCoordinate": [
+          14.1526833,
+          47.2866398
+        ],
+        "endCoordinate": [
+          14.1607355,
+          47.2894009
+        ],
+        "summitCoordinate": [
+          14.1606502,
+          47.2893725
+        ],
+        "endpointDistanceMeters": 7.2,
+        "startToSummitDistanceMeters": 673.4,
+        "straightLineDistanceMeters": 680.5,
+        "routeToStraightLineRatio": 1.7,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 108
+      }
+    },
+    {
+      "sourceRelationId": "222362",
+      "canonicalRouteSourceId": "222362",
+      "idempotencyKey": "openstreetmap:relation:222362:mountain-tracker-osm-route/v1",
+      "payloadHash": "6bb543d64df5c6f072428a435e3b79c5570d0bcac6999276692f31e50bda1630",
+      "routeName": "AV Weg 429 (Funtenseetauern Normalweg)",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4387,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made."
+      ],
+      "countryCode": null,
+      "countryName": null,
+      "admin1Code": null,
+      "admin1Name": null,
+      "administrationStatus": "AMBIGUOUS",
+      "summit": {
+        "peakOsmId": "2498250593",
+        "peakName": "Funtenseetauern",
+        "peakElevationMeters": 2578.4,
+        "peakCoordinates": [
+          12.9767787,
+          47.4850145
+        ],
+        "mountainId": 49,
+        "mountainName": "Funtenseetauern",
+        "mountainElevationMeters": 2578,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 4387,
+        "componentLengthsMeters": [
+          4386.9
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.9373928,
+          "minimumLatitude": 47.4848431,
+          "maximumLongitude": 12.9767787,
+          "maximumLatitude": 47.4954973
+        },
+        "startCoordinate": [
+          12.9373928,
+          47.4954973
+        ],
+        "endCoordinate": [
+          12.9767787,
+          47.4850145
+        ],
+        "summitCoordinate": [
+          12.9767787,
+          47.4850145
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 3180.6,
+        "straightLineDistanceMeters": 3180.6,
+        "routeToStraightLineRatio": 1.38,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 339
+      }
+    },
+    {
+      "sourceRelationId": "361148",
+      "canonicalRouteSourceId": "361148",
+      "idempotencyKey": "openstreetmap:relation:361148:mountain-tracker-osm-route/v1",
+      "payloadHash": "477cce97fc365394ff9d3df16fe9705305e8f7b3f54cdccee4b78e2eaee053de",
+      "routeName": "Wanderweg 10",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 7739,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "320693845",
+        "peakName": "Hohe Rannach",
+        "peakElevationMeters": 1018,
+        "peakCoordinates": [
+          15.4004901,
+          47.1731023
+        ],
+        "mountainId": 12787,
+        "mountainName": "Hohe Rannach",
+        "mountainElevationMeters": 1018,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.5,
+        "endpointDistanceMeters": 1.5
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 7739,
+        "componentLengthsMeters": [
+          7739
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.4004202,
+          "minimumLatitude": 47.1140362,
+          "maximumLongitude": 15.4133045,
+          "maximumLatitude": 47.1730895
+        },
+        "startCoordinate": [
+          15.4133045,
+          47.1140362
+        ],
+        "endCoordinate": [
+          15.4004939,
+          47.1730895
+        ],
+        "summitCoordinate": [
+          15.4004901,
+          47.1731023
+        ],
+        "endpointDistanceMeters": 1.5,
+        "startToSummitDistanceMeters": 6639,
+        "straightLineDistanceMeters": 6637.5,
+        "routeToStraightLineRatio": 1.17,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 400
+      }
+    },
+    {
+      "sourceRelationId": "915266",
+      "canonicalRouteSourceId": "915266",
+      "idempotencyKey": "openstreetmap:relation:915266:mountain-tracker-osm-route/v1",
+      "payloadHash": "09605cb95d55279e5898719b41c85be3dd3380c0c3ba0ac83ece9710ef3a4d96",
+      "routeName": "Güttlersteig",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3947,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-7",
+      "admin1Name": "Tirol",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1305583293",
+        "peakName": "Sonneck",
+        "peakElevationMeters": 2260,
+        "peakCoordinates": [
+          12.283543,
+          47.5617659
+        ],
+        "mountainId": 16207,
+        "mountainName": "Sonneck",
+        "mountainElevationMeters": 2260,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0.6,
+        "endpointDistanceMeters": 0.6
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 3947,
+        "componentLengthsMeters": [
+          3946.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.2634326,
+          "minimumLatitude": 47.5617648,
+          "maximumLongitude": 12.2835355,
+          "maximumLatitude": 47.5773766
+        },
+        "startCoordinate": [
+          12.2639112,
+          47.5773766
+        ],
+        "endCoordinate": [
+          12.2835355,
+          47.5617648
+        ],
+        "summitCoordinate": [
+          12.283543,
+          47.5617659
+        ],
+        "endpointDistanceMeters": 0.6,
+        "startToSummitDistanceMeters": 2276.5,
+        "straightLineDistanceMeters": 2276.2,
+        "routeToStraightLineRatio": 1.73,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 213
+      }
+    },
+    {
+      "sourceRelationId": "935393",
+      "canonicalRouteSourceId": "935393",
+      "idempotencyKey": "openstreetmap:relation:935393:mountain-tracker-osm-route/v1",
+      "payloadHash": "fa09d93990c608a372b4ee7d33be83087e4c9fc92b63aebdd2430a2b641cd252",
+      "routeName": "Wanderweg 37",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5413,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "747187964",
+        "peakName": "Repenstein",
+        "peakElevationMeters": 1956,
+        "peakCoordinates": [
+          14.6308292,
+          47.3040344
+        ],
+        "mountainId": 15091,
+        "mountainName": "Repenstein",
+        "mountainElevationMeters": 1956,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 5.7,
+        "endpointDistanceMeters": 5.7
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5413,
+        "componentLengthsMeters": [
+          5413.1
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.6235581,
+          "minimumLatitude": 47.2718034,
+          "maximumLongitude": 14.6318699,
+          "maximumLatitude": 47.3040381
+        },
+        "startCoordinate": [
+          14.6284179,
+          47.2718034
+        ],
+        "endCoordinate": [
+          14.6309043,
+          47.3040381
+        ],
+        "summitCoordinate": [
+          14.6308292,
+          47.3040344
+        ],
+        "endpointDistanceMeters": 5.7,
+        "startToSummitDistanceMeters": 3588.5,
+        "straightLineDistanceMeters": 3589.2,
+        "routeToStraightLineRatio": 1.51,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 229
+      }
+    },
+    {
+      "sourceRelationId": "936047",
+      "canonicalRouteSourceId": "936047",
+      "idempotencyKey": "openstreetmap:relation:936047:mountain-tracker-osm-route/v1",
+      "payloadHash": "13fcc7b22a5542acd19d2212dbe7faaf9dc1c2bd70de5cda4c3056004dabbcf6",
+      "routeName": "Wanderweg 627",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 648,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "300920848",
+        "peakName": "Dörfelstein",
+        "peakElevationMeters": 1070,
+        "peakCoordinates": [
+          14.4784977,
+          47.6036874
+        ],
+        "mountainId": 12674,
+        "mountainName": "Dörfelstein",
+        "mountainElevationMeters": 1070,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 648,
+        "componentLengthsMeters": [
+          648.4
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.4759899,
+          "minimumLatitude": 47.6036861,
+          "maximumLongitude": 14.4799407,
+          "maximumLatitude": 47.6057351
+        },
+        "startCoordinate": [
+          14.4795396,
+          47.6057351
+        ],
+        "endCoordinate": [
+          14.4784977,
+          47.6036874
+        ],
+        "summitCoordinate": [
+          14.4784977,
+          47.6036874
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 240.7,
+        "straightLineDistanceMeters": 240.7,
+        "routeToStraightLineRatio": 2.69,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 44
+      }
+    },
+    {
+      "sourceRelationId": "961283",
+      "canonicalRouteSourceId": "961283",
+      "idempotencyKey": "openstreetmap:relation:961283:mountain-tracker-osm-route/v1",
+      "payloadHash": "8364569666ada3d89db1ca404c3616a50b6ba30e7ad9ac8f12a6ed5704239884",
+      "routeName": "Wanderweg 282",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 884,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "771762123",
+        "peakName": "Hochtausing",
+        "peakElevationMeters": 1822,
+        "peakCoordinates": [
+          14.1563581,
+          47.5844403
+        ],
+        "mountainId": 15153,
+        "mountainName": "Hochtausing",
+        "mountainElevationMeters": 1822,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.7,
+        "endpointDistanceMeters": 5.7
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 884,
+        "componentLengthsMeters": [
+          884.2
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.1562928,
+          "minimumLatitude": 47.5844147,
+          "maximumLongitude": 14.1647083,
+          "maximumLatitude": 47.5868383
+        },
+        "startCoordinate": [
+          14.1647083,
+          47.5867788
+        ],
+        "endCoordinate": [
+          14.1562928,
+          47.5844147
+        ],
+        "summitCoordinate": [
+          14.1563581,
+          47.5844403
+        ],
+        "endpointDistanceMeters": 5.7,
+        "startToSummitDistanceMeters": 678.1,
+        "straightLineDistanceMeters": 683.7,
+        "routeToStraightLineRatio": 1.29,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 53
+      }
+    },
+    {
+      "sourceRelationId": "1065987",
+      "canonicalRouteSourceId": "1065987",
+      "idempotencyKey": "openstreetmap:relation:1065987:mountain-tracker-osm-route/v1",
+      "payloadHash": "34a7e1bd564cb12c3bcd090b7618ed12eb1ebcfa342d4614914a96a769bc34d4",
+      "routeName": "Wanderweg 740",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 11760,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-5",
+      "admin1Name": "Salzburg",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "964697099",
+        "peakName": "Weißeck",
+        "peakElevationMeters": 2711,
+        "peakCoordinates": [
+          13.3936411,
+          47.1624791
+        ],
+        "mountainId": 15760,
+        "mountainName": "Weißeck",
+        "mountainElevationMeters": 2711,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.5,
+        "endpointDistanceMeters": 1.5
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 11760,
+        "componentLengthsMeters": [
+          11759.6
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.3710202,
+          "minimumLatitude": 47.1123976,
+          "maximumLongitude": 13.4330294,
+          "maximumLatitude": 47.1625676
+        },
+        "startCoordinate": [
+          13.4268261,
+          47.1123976
+        ],
+        "endCoordinate": [
+          13.3936209,
+          47.162478
+        ],
+        "summitCoordinate": [
+          13.3936411,
+          47.1624791
+        ],
+        "endpointDistanceMeters": 1.5,
+        "startToSummitDistanceMeters": 6108.4,
+        "straightLineDistanceMeters": 6108.9,
+        "routeToStraightLineRatio": 1.93,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 804
+      }
+    },
+    {
+      "sourceRelationId": "1075677",
+      "canonicalRouteSourceId": "1075677",
+      "idempotencyKey": "openstreetmap:relation:1075677:mountain-tracker-osm-route/v1",
+      "payloadHash": "ed1cd2bb4714a6231c14db2e36c7d6f8badc01e9f596c12970c436726a61250c",
+      "routeName": "Wanderweg 548",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 915,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "SHORT_HIGH_SUMMIT_SEGMENT"
+      ],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-2",
+      "admin1Name": "Kärnten",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "2526776404",
+        "peakName": "Großer Hafner",
+        "peakElevationMeters": 3076,
+        "peakCoordinates": [
+          13.4007425,
+          47.0700618
+        ],
+        "mountainId": 18908,
+        "mountainName": "Großer Hafner",
+        "mountainElevationMeters": 3076,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 915,
+        "componentLengthsMeters": [
+          915.2
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.3911416,
+          "minimumLatitude": 47.0669533,
+          "maximumLongitude": 13.4007425,
+          "maximumLatitude": 47.0703025
+        },
+        "startCoordinate": [
+          13.3911416,
+          47.0669533
+        ],
+        "endCoordinate": [
+          13.4007425,
+          47.0700618
+        ],
+        "summitCoordinate": [
+          13.4007425,
+          47.0700618
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 805.1,
+        "straightLineDistanceMeters": 805.1,
+        "routeToStraightLineRatio": 1.14,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 64
+      }
+    },
+    {
+      "sourceRelationId": "1124155",
+      "canonicalRouteSourceId": "1124155",
+      "idempotencyKey": "openstreetmap:relation:1124155:mountain-tracker-osm-route/v1",
+      "payloadHash": "8ba568922142478ee8e30688ec05eb74bacf2cd64132a43512a975804d9fa35d",
+      "routeName": "Weg Nr. 1 - Zum Glescherblick - Oberaudorf/Hocheck",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1202,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "HIGH_ROUTE_TO_STRAIGHT_LINE_RATIO"
+      ],
+      "countryCode": "DE",
+      "countryName": "Germany",
+      "admin1Code": "DE-BY",
+      "admin1Name": "Bayern",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "885182782",
+        "peakName": "Gletscherblick",
+        "peakElevationMeters": 824,
+        "peakCoordinates": [
+          12.1489342,
+          47.6482196
+        ],
+        "mountainId": 4147,
+        "mountainName": "Gletscherblick",
+        "mountainElevationMeters": 824,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 1202,
+        "componentLengthsMeters": [
+          1202.3
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.1421983,
+          "minimumLatitude": 47.6463402,
+          "maximumLongitude": 12.1493188,
+          "maximumLatitude": 47.6482196
+        },
+        "startCoordinate": [
+          12.1493188,
+          47.64773
+        ],
+        "endCoordinate": [
+          12.1489342,
+          47.6482196
+        ],
+        "summitCoordinate": [
+          12.1489342,
+          47.6482196
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 61.6,
+        "straightLineDistanceMeters": 61.6,
+        "routeToStraightLineRatio": 19.51,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 53
+      }
+    },
+    {
+      "sourceRelationId": "1138510",
+      "canonicalRouteSourceId": "1138510",
+      "idempotencyKey": "openstreetmap:relation:1138510:mountain-tracker-osm-route/v1",
+      "payloadHash": "a0a668e97654abc3d88790616f56f5e1e4d0f77c2296940b8f3ed325dc3db81f",
+      "routeName": "Kaiserschützensteig",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 2056,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-7",
+      "admin1Name": "Tirol",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "713546737",
+        "peakName": "Ellmauer Halt",
+        "peakElevationMeters": 2342,
+        "peakCoordinates": [
+          12.3025296,
+          47.5616377
+        ],
+        "mountainId": 15021,
+        "mountainName": "Ellmauer Halt",
+        "mountainElevationMeters": 2342,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 4.4,
+        "endpointDistanceMeters": 4.4
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 2056,
+        "componentLengthsMeters": [
+          2056.3
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.2924347,
+          "minimumLatitude": 47.5616242,
+          "maximumLongitude": 12.302474,
+          "maximumLatitude": 47.5663732
+        },
+        "startCoordinate": [
+          12.2924347,
+          47.5638501
+        ],
+        "endCoordinate": [
+          12.302474,
+          47.5616242
+        ],
+        "summitCoordinate": [
+          12.3025296,
+          47.5616377
+        ],
+        "endpointDistanceMeters": 4.4,
+        "startToSummitDistanceMeters": 796.4,
+        "straightLineDistanceMeters": 792.9,
+        "routeToStraightLineRatio": 2.59,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 199
+      }
+    },
+    {
+      "sourceRelationId": "1140771",
+      "canonicalRouteSourceId": "1140771",
+      "idempotencyKey": "openstreetmap:relation:1140771:mountain-tracker-osm-route/v1",
+      "payloadHash": "fa2bb5bd48f577902a22a4cba6ad25b4f11f404592f9d5591921fdef44f7b3e5",
+      "routeName": "AV Weg 711A",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1211,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "SHORT_HIGH_SUMMIT_SEGMENT"
+      ],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-7",
+      "admin1Name": "Tirol",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "911134829",
+        "peakName": "Medelzkopf",
+        "peakElevationMeters": 2762,
+        "peakCoordinates": [
+          12.6288909,
+          47.1155879
+        ],
+        "mountainId": 15555,
+        "mountainName": "Medelzkopf",
+        "mountainElevationMeters": 2762,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 1211,
+        "componentLengthsMeters": [
+          1211
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.6225568,
+          "minimumLatitude": 47.1145613,
+          "maximumLongitude": 12.6288909,
+          "maximumLatitude": 47.1191269
+        },
+        "startCoordinate": [
+          12.6225568,
+          47.1191125
+        ],
+        "endCoordinate": [
+          12.6288909,
+          47.1155879
+        ],
+        "summitCoordinate": [
+          12.6288909,
+          47.1155879
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 619.1,
+        "straightLineDistanceMeters": 619.1,
+        "routeToStraightLineRatio": 1.96,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 158
+      }
+    },
+    {
+      "sourceRelationId": "1144001",
+      "canonicalRouteSourceId": "1144001",
+      "idempotencyKey": "openstreetmap:relation:1144001:mountain-tracker-osm-route/v1",
+      "payloadHash": "ad35248784a4d7edda5c8a0e7aba4fbc795249af911d734913b14c282f40216d",
+      "routeName": "Sentiero della Loffa",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1120,
+      "componentCount": 2,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "IT",
+      "countryName": "Italy",
+      "admin1Code": "IT-72843720B59566147937015",
+      "admin1Name": "Nord-Est",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "530831149",
+        "peakName": "Monte Cornetto",
+        "peakElevationMeters": 1899,
+        "peakCoordinates": [
+          11.1761914,
+          45.7469759
+        ],
+        "mountainId": 72079,
+        "mountainName": "Monte Cornetto",
+        "mountainElevationMeters": 1899,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 2.2,
+        "endpointDistanceMeters": 2.2
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 1120,
+        "componentLengthsMeters": [
+          1001.9,
+          117.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 11.1696067,
+          "minimumLatitude": 45.7469932,
+          "maximumLongitude": 11.1766172,
+          "maximumLatitude": 45.749586
+        },
+        "startCoordinate": [
+          11.1696067,
+          45.7495493
+        ],
+        "endCoordinate": [
+          11.1761777,
+          45.7469932
+        ],
+        "summitCoordinate": [
+          11.1761914,
+          45.7469759
+        ],
+        "endpointDistanceMeters": 2.2,
+        "startToSummitDistanceMeters": 585.6,
+        "straightLineDistanceMeters": 583.7,
+        "routeToStraightLineRatio": 1.92,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 129
+      }
+    },
+    {
+      "sourceRelationId": "1165714",
+      "canonicalRouteSourceId": "1165714",
+      "idempotencyKey": "openstreetmap:relation:1165714:mountain-tracker-osm-route/v1",
+      "payloadHash": "346158beda1cab11c23d67f97cc37f6107c880d5ec7a320fb491d5943a6bdfdf",
+      "routeName": "Wanderweg 437",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3667,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-4",
+      "admin1Name": "Oberösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "462673434",
+        "peakName": "Hochsalm",
+        "peakElevationMeters": 1405,
+        "peakCoordinates": [
+          13.991896,
+          47.879242
+        ],
+        "mountainId": 13894,
+        "mountainName": "Hochsalm",
+        "mountainElevationMeters": 1405,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0.4,
+        "endpointDistanceMeters": 0.9
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 3667,
+        "componentLengthsMeters": [
+          3667.4
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.9843727,
+          "minimumLatitude": 47.8792341,
+          "maximumLongitude": 13.9969001,
+          "maximumLatitude": 47.8984538
+        },
+        "startCoordinate": [
+          13.9843727,
+          47.8984343
+        ],
+        "endCoordinate": [
+          13.9919008,
+          47.8792341
+        ],
+        "summitCoordinate": [
+          13.991896,
+          47.879242
+        ],
+        "endpointDistanceMeters": 0.9,
+        "startToSummitDistanceMeters": 2206.6,
+        "straightLineDistanceMeters": 2207.5,
+        "routeToStraightLineRatio": 1.66,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 239
+      }
+    },
+    {
+      "sourceRelationId": "1229102",
+      "canonicalRouteSourceId": "1229102",
+      "idempotencyKey": "openstreetmap:relation:1229102:mountain-tracker-osm-route/v1",
+      "payloadHash": "02ea645f789b038711dfea96c47fe95d51321c82f6feea76fa3c15000c6bd5ce",
+      "routeName": "AV Weg 457 Alpeltalsteig",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5568,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably."
+      ],
+      "countryCode": null,
+      "countryName": null,
+      "admin1Code": null,
+      "admin1Name": null,
+      "administrationStatus": "UNASSIGNED",
+      "summit": {
+        "peakOsmId": "3186071317",
+        "peakName": "Hoher Göll",
+        "peakElevationMeters": 2522,
+        "peakCoordinates": [
+          13.0671406,
+          47.5939262
+        ],
+        "mountainId": 66,
+        "mountainName": "Hoher Göll",
+        "mountainElevationMeters": 2522,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 8,
+        "endpointDistanceMeters": 8
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5568,
+        "componentLengthsMeters": [
+          5567.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.0276138,
+          "minimumLatitude": 47.5881737,
+          "maximumLongitude": 13.0715857,
+          "maximumLatitude": 47.5972092
+        },
+        "startCoordinate": [
+          13.0276138,
+          47.5968197
+        ],
+        "endCoordinate": [
+          13.0671359,
+          47.5938547
+        ],
+        "summitCoordinate": [
+          13.0671406,
+          47.5939262
+        ],
+        "endpointDistanceMeters": 8,
+        "startToSummitDistanceMeters": 2981.4,
+        "straightLineDistanceMeters": 2981.9,
+        "routeToStraightLineRatio": 1.87,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 280
+      }
+    },
+    {
+      "sourceRelationId": "1271967",
+      "canonicalRouteSourceId": "1271967",
+      "idempotencyKey": "openstreetmap:relation:1271967:mountain-tracker-osm-route/v1",
+      "payloadHash": "4b46926956c1e65440dc8b28da1ccae960a4bb51709f769d081a0064de24803a",
+      "routeName": "Haakogelweg",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1044,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-3",
+      "admin1Name": "Niederösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "988874037",
+        "peakName": "Haakogel",
+        "peakElevationMeters": 884,
+        "peakCoordinates": [
+          15.7710701,
+          47.669938
+        ],
+        "mountainId": 15824,
+        "mountainName": "Haakogel",
+        "mountainElevationMeters": 884,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 1044,
+        "componentLengthsMeters": [
+          1043.8
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.764606,
+          "minimumLatitude": 47.6682749,
+          "maximumLongitude": 15.7710701,
+          "maximumLatitude": 47.6708205
+        },
+        "startCoordinate": [
+          15.764868,
+          47.6708205
+        ],
+        "endCoordinate": [
+          15.7710701,
+          47.669938
+        ],
+        "summitCoordinate": [
+          15.7710701,
+          47.669938
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 474.7,
+        "straightLineDistanceMeters": 474.7,
+        "routeToStraightLineRatio": 2.2,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 99
+      }
+    },
+    {
+      "sourceRelationId": "1490290",
+      "canonicalRouteSourceId": "1490290",
+      "idempotencyKey": "openstreetmap:relation:1490290:mountain-tracker-osm-route/v1",
+      "payloadHash": "5c060b8d77b2d319d64a36f541981e80b3bdc676cd7247633845ab7f943dcbe3",
+      "routeName": "Hainfeld (Kirche) - Hainfelder Hütte",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3248,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-3",
+      "admin1Name": "Niederösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1574657620",
+        "peakName": "Hainfelder Kirchenberg",
+        "peakElevationMeters": 924,
+        "peakCoordinates": [
+          15.7536905,
+          48.0193573
+        ],
+        "mountainId": 16967,
+        "mountainName": "Hainfelder Kirchenberg",
+        "mountainElevationMeters": 924,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.7,
+        "endpointDistanceMeters": 3.1
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 3248,
+        "componentLengthsMeters": [
+          3247.8
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.7499956,
+          "minimumLatitude": 48.019251,
+          "maximumLongitude": 15.7691382,
+          "maximumLatitude": 48.0347967
+        },
+        "startCoordinate": [
+          15.7691382,
+          48.034714
+        ],
+        "endCoordinate": [
+          15.7536872,
+          48.0193291
+        ],
+        "summitCoordinate": [
+          15.7536905,
+          48.0193573
+        ],
+        "endpointDistanceMeters": 3.1,
+        "startToSummitDistanceMeters": 2058,
+        "straightLineDistanceMeters": 2060.8,
+        "routeToStraightLineRatio": 1.58,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 148
+      }
+    },
+    {
+      "sourceRelationId": "1555542",
+      "canonicalRouteSourceId": "1555542",
+      "idempotencyKey": "openstreetmap:relation:1555542:mountain-tracker-osm-route/v1",
+      "payloadHash": "0600f3d4883ec17fc719f0c79db28745bd040e5e67ad3c692c9890ab4f2c4d1d",
+      "routeName": "Wanderweg 659 - Trainsjoch",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 7497,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-7",
+      "admin1Name": "Tirol",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "264035398",
+        "peakName": "Trainsjoch",
+        "peakElevationMeters": 1707,
+        "peakCoordinates": [
+          12.0543473,
+          47.615268
+        ],
+        "mountainId": 928,
+        "mountainName": "Trainsjoch",
+        "mountainElevationMeters": 1707,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0.8,
+        "endpointDistanceMeters": 1.7
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 7497,
+        "componentLengthsMeters": [
+          7497.1
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.0490144,
+          "minimumLatitude": 47.615255,
+          "maximumLongitude": 12.0809864,
+          "maximumLatitude": 47.6452557
+        },
+        "startCoordinate": [
+          12.0809864,
+          47.6452557
+        ],
+        "endCoordinate": [
+          12.0543345,
+          47.615255
+        ],
+        "summitCoordinate": [
+          12.0543473,
+          47.615268
+        ],
+        "endpointDistanceMeters": 1.7,
+        "startToSummitDistanceMeters": 3886.3,
+        "straightLineDistanceMeters": 3888.1,
+        "routeToStraightLineRatio": 1.93,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 389
+      }
+    },
+    {
+      "sourceRelationId": "1601155",
+      "canonicalRouteSourceId": "1601155",
+      "idempotencyKey": "openstreetmap:relation:1601155:mountain-tracker-osm-route/v1",
+      "payloadHash": "9662be5ab0796cae408021132de588c2d8f31325129340199bdbb20766745f4d",
+      "routeName": "Creste del Summano",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 2897,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "IT",
+      "countryName": "Italy",
+      "admin1Code": "IT-72843720B59566147937015",
+      "admin1Name": "Nord-Est",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "323606498",
+        "peakName": "Cima Summano",
+        "peakElevationMeters": 1296,
+        "peakCoordinates": [
+          11.3902428,
+          45.7595874
+        ],
+        "mountainId": 69547,
+        "mountainName": "Cima Summano",
+        "mountainElevationMeters": 1296,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 8.5
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 2897,
+        "componentLengthsMeters": [
+          2896.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 11.3665143,
+          "minimumLatitude": 45.759511,
+          "maximumLongitude": 11.3902465,
+          "maximumLatitude": 45.7675369
+        },
+        "startCoordinate": [
+          11.3665143,
+          45.7670301
+        ],
+        "endCoordinate": [
+          11.3902465,
+          45.759511
+        ],
+        "summitCoordinate": [
+          11.3902428,
+          45.7595874
+        ],
+        "endpointDistanceMeters": 8.5,
+        "startToSummitDistanceMeters": 2018.2,
+        "straightLineDistanceMeters": 2021.9,
+        "routeToStraightLineRatio": 1.43,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 298
+      }
+    },
+    {
+      "sourceRelationId": "1606996",
+      "canonicalRouteSourceId": "1606996",
+      "idempotencyKey": "openstreetmap:relation:1606996:mountain-tracker-osm-route/v1",
+      "payloadHash": "3526781fbf8df56d5e7d8a44f4985a978018774319865f64790bcb66109d7393",
+      "routeName": "Wanderweg 875",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4767,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-5",
+      "admin1Name": "Salzburg",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "26862916",
+        "peakName": "Gamsfeld",
+        "peakElevationMeters": 2027,
+        "peakCoordinates": [
+          13.4806591,
+          47.6233204
+        ],
+        "mountainId": 11861,
+        "mountainName": "Gamsfeld",
+        "mountainElevationMeters": 2027,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 4767,
+        "componentLengthsMeters": [
+          4766.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.4636161,
+          "minimumLatitude": 47.5984032,
+          "maximumLongitude": 13.4806591,
+          "maximumLatitude": 47.6233204
+        },
+        "startCoordinate": [
+          13.4636161,
+          47.5989218
+        ],
+        "endCoordinate": [
+          13.4806591,
+          47.6233204
+        ],
+        "summitCoordinate": [
+          13.4806591,
+          47.6233204
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 2998.8,
+        "straightLineDistanceMeters": 2998.8,
+        "routeToStraightLineRatio": 1.59,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 360
+      }
+    },
+    {
+      "sourceRelationId": "1641211",
+      "canonicalRouteSourceId": "1641211",
+      "idempotencyKey": "openstreetmap:relation:1641211:mountain-tracker-osm-route/v1",
+      "payloadHash": "d9505878f15c287b5651f8355dbc7b37d38878f83729e84f08ba27d3b00f6fc5",
+      "routeName": "Wanderweg 292",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4335,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-4",
+      "admin1Name": "Oberösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1341734808",
+        "peakName": "Seespitz",
+        "peakElevationMeters": 1574,
+        "peakCoordinates": [
+          14.3006882,
+          47.6782959
+        ],
+        "mountainId": 16280,
+        "mountainName": "Seespitz",
+        "mountainElevationMeters": 1574,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 2.6,
+        "endpointDistanceMeters": 2.6
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 4335,
+        "componentLengthsMeters": [
+          4335.2
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.2885835,
+          "minimumLatitude": 47.6711186,
+          "maximumLongitude": 14.3008336,
+          "maximumLatitude": 47.6907951
+        },
+        "startCoordinate": [
+          14.2970077,
+          47.6907951
+        ],
+        "endCoordinate": [
+          14.3006979,
+          47.6782737
+        ],
+        "summitCoordinate": [
+          14.3006882,
+          47.6782959
+        ],
+        "endpointDistanceMeters": 2.6,
+        "startToSummitDistanceMeters": 1416.9,
+        "straightLineDistanceMeters": 1419.5,
+        "routeToStraightLineRatio": 3.05,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 285
+      }
+    },
+    {
+      "sourceRelationId": "1667096",
+      "canonicalRouteSourceId": "1667096",
+      "idempotencyKey": "openstreetmap:relation:1667096:mountain-tracker-osm-route/v1",
+      "payloadHash": "f323f1e760ede07c2a2780c3a2700e612ee2a271df957d03713e16163e520954",
+      "routeName": "Barrage de Mauvoisin - Le Pleureur",
+      "semanticType": "summit_route",
+      "qualityScore": 95,
+      "distanceMeters": 4654,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "CH",
+      "countryName": "Switzerland",
+      "admin1Code": "CH-VS",
+      "admin1Name": "Valais",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "290497840",
+        "peakName": "Le Pleureur",
+        "peakElevationMeters": 3703,
+        "peakCoordinates": [
+          7.3691106,
+          46.0162844
+        ],
+        "mountainId": 208460,
+        "mountainName": "Le Pleureur",
+        "mountainElevationMeters": 3703,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 2,
+        "endpointDistanceMeters": 2
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 4654,
+        "componentLengthsMeters": [
+          4653.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 7.3504366,
+          "minimumLatitude": 45.9970992,
+          "maximumLongitude": 7.3698052,
+          "maximumLatitude": 46.0162664
+        },
+        "startCoordinate": [
+          7.3504366,
+          45.9996108
+        ],
+        "endCoordinate": [
+          7.3691125,
+          46.0162664
+        ],
+        "summitCoordinate": [
+          7.3691106,
+          46.0162844
+        ],
+        "endpointDistanceMeters": 2,
+        "startToSummitDistanceMeters": 2348.9,
+        "straightLineDistanceMeters": 2347.4,
+        "routeToStraightLineRatio": 1.98,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 285
+      }
+    },
+    {
+      "sourceRelationId": "1751818",
+      "canonicalRouteSourceId": "1751818",
+      "idempotencyKey": "openstreetmap:relation:1751818:mountain-tracker-osm-route/v1",
+      "payloadHash": "1bc603d720959a23932fcf45dc49f3a7ed1c355bebeece07089eb80f08899cb4",
+      "routeName": "AV Weg 437 (Taghaube)",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1066,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-5",
+      "admin1Name": "Salzburg",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1410391160",
+        "peakName": "Taghaube",
+        "peakElevationMeters": 2159,
+        "peakCoordinates": [
+          13.0560411,
+          47.4039791
+        ],
+        "mountainId": 16456,
+        "mountainName": "Taghaube",
+        "mountainElevationMeters": 2159,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0.9,
+        "endpointDistanceMeters": 0.9
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 1066,
+        "componentLengthsMeters": [
+          1066.5
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.0473957,
+          "minimumLatitude": 47.4022455,
+          "maximumLongitude": 13.0560849,
+          "maximumLatitude": 47.4039721
+        },
+        "startCoordinate": [
+          13.0473957,
+          47.4029538
+        ],
+        "endCoordinate": [
+          13.0560349,
+          47.4039721
+        ],
+        "summitCoordinate": [
+          13.0560411,
+          47.4039791
+        ],
+        "endpointDistanceMeters": 0.9,
+        "startToSummitDistanceMeters": 660.6,
+        "straightLineDistanceMeters": 660,
+        "routeToStraightLineRatio": 1.62,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 141
+      }
+    },
+    {
+      "sourceRelationId": "1777574",
+      "canonicalRouteSourceId": "1777574",
+      "idempotencyKey": "openstreetmap:relation:1777574:mountain-tracker-osm-route/v1",
+      "payloadHash": "f454e432da9cd4d95efc5f5503b7ad5870fc7b7e9f7d2535b66cf02234bf6931",
+      "routeName": "Wanderweg 31",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5920,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-3",
+      "admin1Name": "Niederösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "775050138",
+        "peakName": "Türnitzer Höger",
+        "peakElevationMeters": 1372,
+        "peakCoordinates": [
+          15.5559927,
+          47.9194377
+        ],
+        "mountainId": 15169,
+        "mountainName": "Türnitzer Höger",
+        "mountainElevationMeters": 1372,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 2.4,
+        "endpointDistanceMeters": 2.4
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5920,
+        "componentLengthsMeters": [
+          5919.8
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.5560048,
+          "minimumLatitude": 47.9177276,
+          "maximumLongitude": 15.6087766,
+          "maximumLatitude": 47.9276594
+        },
+        "startCoordinate": [
+          15.6087766,
+          47.925838
+        ],
+        "endCoordinate": [
+          15.5560048,
+          47.9194174
+        ],
+        "summitCoordinate": [
+          15.5559927,
+          47.9194377
+        ],
+        "endpointDistanceMeters": 2.4,
+        "startToSummitDistanceMeters": 3997.1,
+        "straightLineDistanceMeters": 3996.6,
+        "routeToStraightLineRatio": 1.48,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 273
+      }
+    },
+    {
+      "sourceRelationId": "1796122",
+      "canonicalRouteSourceId": "1796122",
+      "idempotencyKey": "openstreetmap:relation:1796122:mountain-tracker-osm-route/v1",
+      "payloadHash": "395ece21a0c1e7ba50c345f593240033b53c0b6ea785f1c5cd2a3a1cff0ef34d",
+      "routeName": "Zreče - Ančka - Golek",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3538,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "SI",
+      "countryName": "Slovenia",
+      "admin1Code": "SI03",
+      "admin1Name": "Vzhodna",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "3902613629",
+        "peakName": "Golek",
+        "peakElevationMeters": 769,
+        "peakCoordinates": [
+          15.361895,
+          46.3811301
+        ],
+        "mountainId": 151688,
+        "mountainName": "Golek",
+        "mountainElevationMeters": 769,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 3538,
+        "componentLengthsMeters": [
+          3538.4
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.361895,
+          "minimumLatitude": 46.3696594,
+          "maximumLongitude": 15.3903435,
+          "maximumLatitude": 46.3811301
+        },
+        "startCoordinate": [
+          15.3903435,
+          46.3708837
+        ],
+        "endCoordinate": [
+          15.361895,
+          46.3811301
+        ],
+        "summitCoordinate": [
+          15.361895,
+          46.3811301
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 2462,
+        "straightLineDistanceMeters": 2462,
+        "routeToStraightLineRatio": 1.44,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 209
+      }
+    },
+    {
+      "sourceRelationId": "1798968",
+      "canonicalRouteSourceId": "1798968",
+      "idempotencyKey": "openstreetmap:relation:1798968:mountain-tracker-osm-route/v1",
+      "payloadHash": "ebcd4615d591c7b3b9e38551583ea455eff95cee1d57d5f63c14c87d05b9b176",
+      "routeName": "Alta Via C.A.I. Gemona",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5738,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "countryCode": "IT",
+      "countryName": "Italy",
+      "admin1Code": "IT-72843720B59566147937015",
+      "admin1Name": "Nord-Est",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "26863825",
+        "peakName": "Cjampon",
+        "peakElevationMeters": 1709,
+        "peakCoordinates": [
+          13.1811838,
+          46.2945179
+        ],
+        "mountainId": 69028,
+        "mountainName": "Cjampon",
+        "mountainElevationMeters": 1709,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.2,
+        "endpointDistanceMeters": 1.2
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5738,
+        "componentLengthsMeters": [
+          5738.2
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.1811861,
+          "minimumLatitude": 46.2945072,
+          "maximumLongitude": 13.2412324,
+          "maximumLatitude": 46.3013154
+        },
+        "startCoordinate": [
+          13.2412324,
+          46.3013154
+        ],
+        "endCoordinate": [
+          13.1811861,
+          46.2945072
+        ],
+        "summitCoordinate": [
+          13.1811838,
+          46.2945179
+        ],
+        "endpointDistanceMeters": 1.2,
+        "startToSummitDistanceMeters": 4674.8,
+        "straightLineDistanceMeters": 4674.8,
+        "routeToStraightLineRatio": 1.23,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 750
+      }
+    },
+    {
+      "sourceRelationId": "1864752",
+      "canonicalRouteSourceId": "1864752",
+      "idempotencyKey": "openstreetmap:relation:1864752:mountain-tracker-osm-route/v1",
+      "payloadHash": "b9260431aecfbe9ab2ac1427f9014e100e8cc1137de1ae9017da49c826db9a2d",
+      "routeName": "Wanderweg 816b - Wilder Kaiser",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 986,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-7",
+      "admin1Name": "Tirol",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "256041892",
+        "peakName": "Lärcheck",
+        "peakElevationMeters": 2123,
+        "peakCoordinates": [
+          12.3515446,
+          47.569032
+        ],
+        "mountainId": 12101,
+        "mountainName": "Lärcheck",
+        "mountainElevationMeters": 2123,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 986,
+        "componentLengthsMeters": [
+          985.8
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.3432811,
+          "minimumLatitude": 47.5680871,
+          "maximumLongitude": 12.351665,
+          "maximumLatitude": 47.5695518
+        },
+        "startCoordinate": [
+          12.3432811,
+          47.5693638
+        ],
+        "endCoordinate": [
+          12.3515446,
+          47.569032
+        ],
+        "summitCoordinate": [
+          12.3515446,
+          47.569032
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 621.1,
+        "straightLineDistanceMeters": 621.1,
+        "routeToStraightLineRatio": 1.59,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 72
+      }
+    },
+    {
+      "sourceRelationId": "1877850",
+      "canonicalRouteSourceId": "1877850",
+      "idempotencyKey": "openstreetmap:relation:1877850:mountain-tracker-osm-route/v1",
+      "payloadHash": "d6129a4d10bd19eda295fde39dee4602bee1e76cc257360febe81229b1110672",
+      "routeName": "Meiselsteinalm-Gamskögerl",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4161,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-5",
+      "admin1Name": "Salzburg",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1295150195",
+        "peakName": "Gamskögerl",
+        "peakElevationMeters": 1747,
+        "peakCoordinates": [
+          13.0664424,
+          47.3475503
+        ],
+        "mountainId": 16169,
+        "mountainName": "Gamskögerl",
+        "mountainElevationMeters": 1747,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 4161,
+        "componentLengthsMeters": [
+          4161
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.0464844,
+          "minimumLatitude": 47.3227345,
+          "maximumLongitude": 13.0670357,
+          "maximumLatitude": 47.3475503
+        },
+        "startCoordinate": [
+          13.0464844,
+          47.3227345
+        ],
+        "endCoordinate": [
+          13.0664424,
+          47.3475503
+        ],
+        "summitCoordinate": [
+          13.0664424,
+          47.3475503
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 3142.7,
+        "straightLineDistanceMeters": 3142.7,
+        "routeToStraightLineRatio": 1.32,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 338
+      }
+    },
+    {
+      "sourceRelationId": "2050305",
+      "canonicalRouteSourceId": "2050305",
+      "idempotencyKey": "openstreetmap:relation:2050305:mountain-tracker-osm-route/v1",
+      "payloadHash": "6450a95584b1bcd6a2313d65e5a7a092bb79c52713e8c3d73a45fea48f664472",
+      "routeName": "Wanderweg 969a",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5576,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-6",
+      "admin1Name": "Steiermark",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "300920689",
+        "peakName": "Triebenfeldkogel",
+        "peakElevationMeters": 1884,
+        "peakCoordinates": [
+          14.5742124,
+          47.4257777
+        ],
+        "mountainId": 12638,
+        "mountainName": "Triebenfeldkogel",
+        "mountainElevationMeters": 1884,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.6,
+        "endpointDistanceMeters": 1.6
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 5576,
+        "componentLengthsMeters": [
+          5576.2
+        ],
+        "boundingBox": {
+          "minimumLongitude": 14.5718036,
+          "minimumLatitude": 47.3971758,
+          "maximumLongitude": 14.5880149,
+          "maximumLatitude": 47.4265726
+        },
+        "startCoordinate": [
+          14.5718036,
+          47.3990778
+        ],
+        "endCoordinate": [
+          14.5742326,
+          47.4257828
+        ],
+        "summitCoordinate": [
+          14.5742124,
+          47.4257777
+        ],
+        "endpointDistanceMeters": 1.6,
+        "startToSummitDistanceMeters": 2974.4,
+        "straightLineDistanceMeters": 2975.1,
+        "routeToStraightLineRatio": 1.87,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 264
+      }
+    },
+    {
+      "sourceRelationId": "2113697",
+      "canonicalRouteSourceId": "2113697",
+      "idempotencyKey": "openstreetmap:relation:2113697:mountain-tracker-osm-route/v1",
+      "payloadHash": "8c45f758c2788fc7ef144761072c229f342a6a547faebe0cda0025ac07302bdc",
+      "routeName": "Nußdorf-Bichleralm-Heuberg",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3875,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "DE",
+      "countryName": "Germany",
+      "admin1Code": "DE-BY",
+      "admin1Name": "Bayern",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "48783390",
+        "peakName": "Heuberg",
+        "peakElevationMeters": 1338,
+        "peakCoordinates": [
+          12.1843387,
+          47.7260968
+        ],
+        "mountainId": 1720,
+        "mountainName": "Heuberg",
+        "mountainElevationMeters": 1338,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 3875,
+        "componentLengthsMeters": [
+          3875.1
+        ],
+        "boundingBox": {
+          "minimumLongitude": 12.1628875,
+          "minimumLatitude": 47.7260968,
+          "maximumLongitude": 12.1843387,
+          "maximumLatitude": 47.7396395
+        },
+        "startCoordinate": [
+          12.1628875,
+          47.7396395
+        ],
+        "endCoordinate": [
+          12.1843387,
+          47.7260968
+        ],
+        "summitCoordinate": [
+          12.1843387,
+          47.7260968
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 2200.3,
+        "straightLineDistanceMeters": 2200.3,
+        "routeToStraightLineRatio": 1.76,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 909
+      }
+    },
+    {
+      "sourceRelationId": "2135331",
+      "canonicalRouteSourceId": "2135331",
+      "idempotencyKey": "openstreetmap:relation:2135331:mountain-tracker-osm-route/v1",
+      "payloadHash": "280769e256bfd61f7a909b1f542542b49e1d9d4f0daaecb9ed1d7c05d54e357c",
+      "routeName": "Wanderweg Schwarzsee - Kaiseregg",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6934,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "CH",
+      "countryName": "Switzerland",
+      "admin1Code": "CH-FR",
+      "admin1Name": "Fribourg",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "269544853",
+        "peakName": "Kaiseregg",
+        "peakElevationMeters": 2185,
+        "peakCoordinates": [
+          7.3190559,
+          46.6524972
+        ],
+        "mountainId": 208407,
+        "mountainName": "Kaiseregg",
+        "mountainElevationMeters": 2185,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.4,
+        "endpointDistanceMeters": 1.4
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 6934,
+        "componentLengthsMeters": [
+          6933.9
+        ],
+        "boundingBox": {
+          "minimumLongitude": 7.2893153,
+          "minimumLatitude": 46.6493909,
+          "maximumLongitude": 7.3191364,
+          "maximumLatitude": 46.6700931
+        },
+        "startCoordinate": [
+          7.2893153,
+          46.6699366
+        ],
+        "endCoordinate": [
+          7.3190741,
+          46.6524941
+        ],
+        "summitCoordinate": [
+          7.3190559,
+          46.6524972
+        ],
+        "endpointDistanceMeters": 1.4,
+        "startToSummitDistanceMeters": 2985.2,
+        "straightLineDistanceMeters": 2986.5,
+        "routeToStraightLineRatio": 2.32,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 634
+      }
+    },
+    {
+      "sourceRelationId": "2202791",
+      "canonicalRouteSourceId": "2202791",
+      "idempotencyKey": "openstreetmap:relation:2202791:mountain-tracker-osm-route/v1",
+      "payloadHash": "d55b7cacab0977e6fe4fb42b8b9bea5432d19bc94bb740817adef66d62d1234a",
+      "routeName": "Wanderweg 899",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3645,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-5",
+      "admin1Name": "Salzburg",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "26864450",
+        "peakName": "Rinnkogel",
+        "peakElevationMeters": 1823,
+        "peakCoordinates": [
+          13.4858916,
+          47.6668503
+        ],
+        "mountainId": 11934,
+        "mountainName": "Rinnkogel",
+        "mountainElevationMeters": 1823,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 2.2,
+        "endpointDistanceMeters": 4.2
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 3645,
+        "componentLengthsMeters": [
+          3645.1
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.4640638,
+          "minimumLatitude": 47.6575244,
+          "maximumLongitude": 13.48591,
+          "maximumLatitude": 47.6669615
+        },
+        "startCoordinate": [
+          13.4640638,
+          47.6601954
+        ],
+        "endCoordinate": [
+          13.48591,
+          47.6668149
+        ],
+        "summitCoordinate": [
+          13.4858916,
+          47.6668503
+        ],
+        "endpointDistanceMeters": 4.2,
+        "startToSummitDistanceMeters": 1794.3,
+        "straightLineDistanceMeters": 1794,
+        "routeToStraightLineRatio": 2.03,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 180
+      }
+    },
+    {
+      "sourceRelationId": "2210868",
+      "canonicalRouteSourceId": "2210868",
+      "idempotencyKey": "openstreetmap:relation:2210868:mountain-tracker-osm-route/v1",
+      "payloadHash": "336d40296e87675cc826711c678eba33d71ec66316536d7b42e1a131d8256820",
+      "routeName": "Maria Schutz - Sonnwendstein",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3794,
+      "componentCount": 2,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-3",
+      "admin1Name": "Niederösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1827984049",
+        "peakName": "Sonnwendstein",
+        "peakElevationMeters": 1523,
+        "peakCoordinates": [
+          15.8602751,
+          47.6296857
+        ],
+        "mountainId": 17628,
+        "mountainName": "Sonnwendstein",
+        "mountainElevationMeters": 1523,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 2.9,
+        "endpointDistanceMeters": 2.9
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 3794,
+        "componentLengthsMeters": [
+          3213.3,
+          580.9
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.8602381,
+          "minimumLatitude": 47.6292838,
+          "maximumLongitude": 15.8727832,
+          "maximumLatitude": 47.6413338
+        },
+        "startCoordinate": [
+          15.8710018,
+          47.6413338
+        ],
+        "endCoordinate": [
+          15.860309,
+          47.6296728
+        ],
+        "summitCoordinate": [
+          15.8602751,
+          47.6296857
+        ],
+        "endpointDistanceMeters": 2.9,
+        "startToSummitDistanceMeters": 1524.3,
+        "straightLineDistanceMeters": 1524.2,
+        "routeToStraightLineRatio": 2.49,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 222
+      }
+    },
+    {
+      "sourceRelationId": "2210870",
+      "canonicalRouteSourceId": "2210870",
+      "idempotencyKey": "openstreetmap:relation:2210870:mountain-tracker-osm-route/v1",
+      "payloadHash": "609cfc935ee59b930392c1c04dfbca7f5418ae63e0f966b1ed2bdc064d36ff89",
+      "routeName": "Schottwien - Eselstein",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4748,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-3",
+      "admin1Name": "Niederösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1403580617",
+        "peakName": "Eselstein",
+        "peakElevationMeters": 982,
+        "peakCoordinates": [
+          15.8498946,
+          47.6522941
+        ],
+        "mountainId": 16448,
+        "mountainName": "Eselstein",
+        "mountainElevationMeters": 982,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0.9,
+        "endpointDistanceMeters": 1.4
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 4748,
+        "componentLengthsMeters": [
+          4748.3
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.8495038,
+          "minimumLatitude": 47.6467766,
+          "maximumLongitude": 15.8733234,
+          "maximumLatitude": 47.6590757
+        },
+        "startCoordinate": [
+          15.8733234,
+          47.6590757
+        ],
+        "endCoordinate": [
+          15.8498873,
+          47.6523053
+        ],
+        "summitCoordinate": [
+          15.8498946,
+          47.6522941
+        ],
+        "endpointDistanceMeters": 1.4,
+        "startToSummitDistanceMeters": 1910,
+        "straightLineDistanceMeters": 1910,
+        "routeToStraightLineRatio": 2.49,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 275
+      }
+    },
+    {
+      "sourceRelationId": "2211742",
+      "canonicalRouteSourceId": "2211742",
+      "idempotencyKey": "openstreetmap:relation:2211742:mountain-tracker-osm-route/v1",
+      "payloadHash": "b67f64711b472a0ac8194d578e04b7a6f568c0837b93c4ea3c982fb94f49a73c",
+      "routeName": "Baumgarten - Erzkogel",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6502,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-3",
+      "admin1Name": "Niederösterreich",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "568680745",
+        "peakName": "Erzkogel",
+        "peakElevationMeters": 1504,
+        "peakCoordinates": [
+          15.8574524,
+          47.6223452
+        ],
+        "mountainId": 14799,
+        "mountainName": "Erzkogel",
+        "mountainElevationMeters": 1504,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 6502,
+        "componentLengthsMeters": [
+          6502.2
+        ],
+        "boundingBox": {
+          "minimumLongitude": 15.8567597,
+          "minimumLatitude": 47.6123258,
+          "maximumLongitude": 15.9165483,
+          "maximumLatitude": 47.6233258
+        },
+        "startCoordinate": [
+          15.9165483,
+          47.6125353
+        ],
+        "endCoordinate": [
+          15.8574524,
+          47.6223452
+        ],
+        "summitCoordinate": [
+          15.8574524,
+          47.6223452
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 4561.8,
+        "straightLineDistanceMeters": 4561.8,
+        "routeToStraightLineRatio": 1.43,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 252
+      }
+    },
+    {
+      "sourceRelationId": "2248159",
+      "canonicalRouteSourceId": "2248159",
+      "idempotencyKey": "openstreetmap:relation:2248159:mountain-tracker-osm-route/v1",
+      "payloadHash": "29d1614bb812ec07dc66fdeec2924d58cd0f84e82607a6057a4396bcd0b78cbc",
+      "routeName": "Wanderweg 525",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6835,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "AT",
+      "countryName": "Austria",
+      "admin1Code": "AT-5",
+      "admin1Name": "Salzburg",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1798823893",
+        "peakName": "Graukogel",
+        "peakElevationMeters": 2492,
+        "peakCoordinates": [
+          13.171371,
+          47.0973077
+        ],
+        "mountainId": 17529,
+        "mountainName": "Graukogel",
+        "mountainElevationMeters": 2492,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 7.7,
+        "endpointDistanceMeters": 7.7
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 6835,
+        "componentLengthsMeters": [
+          6835.2
+        ],
+        "boundingBox": {
+          "minimumLongitude": 13.1398708,
+          "minimumLatitude": 47.0971913,
+          "maximumLongitude": 13.1726135,
+          "maximumLatitude": 47.1164767
+        },
+        "startCoordinate": [
+          13.1398708,
+          47.1159389
+        ],
+        "endCoordinate": [
+          13.1714012,
+          47.0972415
+        ],
+        "summitCoordinate": [
+          13.171371,
+          47.0973077
+        ],
+        "endpointDistanceMeters": 7.7,
+        "startToSummitDistanceMeters": 3158.4,
+        "straightLineDistanceMeters": 3165,
+        "routeToStraightLineRatio": 2.16,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 487
+      }
+    },
+    {
+      "sourceRelationId": "3973107",
+      "canonicalRouteSourceId": "3973107",
+      "idempotencyKey": "openstreetmap:relation:3973107:mountain-tracker-osm-route/v1",
+      "payloadHash": "46d87dccbc6c6624ed205cefdb08817b080dd05e36cd2204354dfab2f0da7713",
+      "routeName": "Malbun Bergbahnen - Bergle - Schoenberg",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6226,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "LI",
+      "countryName": "Liechtenstein",
+      "admin1Code": "LI-07",
+      "admin1Name": "Schaan",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1342463884",
+        "peakName": "Schönberg",
+        "peakElevationMeters": 2104,
+        "peakCoordinates": [
+          9.593016,
+          47.1303811
+        ],
+        "mountainId": 295736,
+        "mountainName": "Schönberg",
+        "mountainElevationMeters": 2104,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 6226,
+        "componentLengthsMeters": [
+          6225.7
+        ],
+        "boundingBox": {
+          "minimumLongitude": 9.5786702,
+          "minimumLatitude": 47.1060781,
+          "maximumLongitude": 9.6057151,
+          "maximumLatitude": 47.1303811
+        },
+        "startCoordinate": [
+          9.6046766,
+          47.1060781
+        ],
+        "endCoordinate": [
+          9.593016,
+          47.1303811
+        ],
+        "summitCoordinate": [
+          9.593016,
+          47.1303811
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": 2842.8,
+        "straightLineDistanceMeters": 2842.8,
+        "routeToStraightLineRatio": 2.19,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 877
+      }
+    },
+    {
+      "sourceRelationId": "4103375",
+      "canonicalRouteSourceId": "4103375",
+      "idempotencyKey": "openstreetmap:relation:4103375:mountain-tracker-osm-route/v1",
+      "payloadHash": "ce3df6c5a21145adda0781e953739a052aed0b084e790a21241bf6770d1f395d",
+      "routeName": "12 - Mühlbach => Pfunders",
+      "semanticType": "summit_route",
+      "qualityScore": 77,
+      "distanceMeters": 17019,
+      "componentCount": 3,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "IT",
+      "countryName": "Italy",
+      "admin1Code": "IT-72843720B59566147937015",
+      "admin1Name": "Nord-Est",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "301549910",
+        "peakName": "Gitsch - Monte Cuzzo",
+        "peakElevationMeters": 2510,
+        "peakCoordinates": [
+          11.686882,
+          46.8595389
+        ],
+        "mountainId": 69341,
+        "mountainName": "Gitsch",
+        "mountainElevationMeters": 2510,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 17019,
+        "componentLengthsMeters": [
+          16787.3,
+          220.2,
+          11.6
+        ],
+        "boundingBox": {
+          "minimumLongitude": 11.6602378,
+          "minimumLatitude": 46.7961344,
+          "maximumLongitude": 11.7048659,
+          "maximumLatitude": 46.8904759
+        },
+        "startCoordinate": null,
+        "endCoordinate": null,
+        "summitCoordinate": [
+          11.686882,
+          46.8595389
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": null,
+        "straightLineDistanceMeters": null,
+        "routeToStraightLineRatio": null,
+        "routeToStraightLineStatus": "TOPOLOGY_UNAVAILABLE",
+        "topologyClassification": "BRANCHING",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 4,
+        "endpointOrientationReason": "TOPOLOGY_AMBIGUOUS",
+        "geometryPointCount": 1038
+      }
+    },
+    {
+      "sourceRelationId": "11192622",
+      "canonicalRouteSourceId": "11192622",
+      "idempotencyKey": "openstreetmap:relation:11192622:mountain-tracker-osm-route/v1",
+      "payloadHash": "63519eb0533a94a940081d39b27d8dfdc19ece570d35916bab64afa7293d7aa5",
+      "routeName": "Alta Via del Caffaro",
+      "semanticType": "summit_route",
+      "qualityScore": 71,
+      "distanceMeters": 79693,
+      "componentCount": 6,
+      "auditFlags": [],
+      "warnings": [
+        "HIGH_COMPONENT_COUNT",
+        "VERY_LONG_ROUTE"
+      ],
+      "countryCode": "IT",
+      "countryName": "Italy",
+      "admin1Code": "IT-72843720B99597932318450",
+      "admin1Name": "Nord-Ovest",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "523276765",
+        "peakName": "Monte Croce Domini",
+        "peakElevationMeters": 2055,
+        "peakCoordinates": [
+          10.4060515,
+          45.8999628
+        ],
+        "mountainId": 71748,
+        "mountainName": "Monte Croce Domini",
+        "mountainElevationMeters": 2055,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 0,
+        "endpointDistanceMeters": 0
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 79693,
+        "componentLengthsMeters": [
+          302.8,
+          45509.2,
+          890.1,
+          518.3,
+          13034,
+          19438.8
+        ],
+        "boundingBox": {
+          "minimumLongitude": 10.3863535,
+          "minimumLatitude": 45.7919706,
+          "maximumLongitude": 10.5100255,
+          "maximumLatitude": 45.9750126
+        },
+        "startCoordinate": null,
+        "endCoordinate": null,
+        "summitCoordinate": [
+          10.4060515,
+          45.8999628
+        ],
+        "endpointDistanceMeters": 0,
+        "startToSummitDistanceMeters": null,
+        "straightLineDistanceMeters": null,
+        "routeToStraightLineRatio": null,
+        "routeToStraightLineStatus": "TOPOLOGY_UNAVAILABLE",
+        "topologyClassification": "DISCONNECTED",
+        "connectedGroupCount": 4,
+        "physicalEndpointCount": 9,
+        "endpointOrientationReason": "TOPOLOGY_AMBIGUOUS",
+        "geometryPointCount": 5010
+      }
+    },
+    {
+      "sourceRelationId": "19538533",
+      "canonicalRouteSourceId": "19538533",
+      "idempotencyKey": "openstreetmap:relation:19538533:mountain-tracker-osm-route/v1",
+      "payloadHash": "6c91faa3d854961e3adc6b31e90290ed5361e0d78755d0e5dfc2cd6bc169a520",
+      "routeName": "Cheval Noir",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 7455,
+      "componentCount": 1,
+      "auditFlags": [],
+      "warnings": [],
+      "countryCode": "FR",
+      "countryName": "France",
+      "admin1Code": "FR-ARA",
+      "admin1Name": "Auvergne-Rhône-Alpes",
+      "administrationStatus": "ASSIGNED",
+      "summit": {
+        "peakOsmId": "1314161191",
+        "peakName": "Le Cheval Noir",
+        "peakElevationMeters": 2832,
+        "peakCoordinates": [
+          6.413681,
+          45.4219064
+        ],
+        "mountainId": 47149,
+        "mountainName": "Le Cheval Noir",
+        "mountainElevationMeters": 2832,
+        "matchClassification": "EXACT_MOUNTAIN_MATCH",
+        "finalAssociation": "CONFIRMED",
+        "finalConfidence": 1,
+        "minimumGeometryDistanceMeters": 1.7,
+        "endpointDistanceMeters": 1.7
+      },
+      "diagnostics": {
+        "totalDistanceMeters": 7455,
+        "componentLengthsMeters": [
+          7455.4
+        ],
+        "boundingBox": {
+          "minimumLongitude": 6.4049948,
+          "minimumLatitude": 45.397852,
+          "maximumLongitude": 6.4453112,
+          "maximumLatitude": 45.4219193
+        },
+        "startCoordinate": [
+          6.4453112,
+          45.3986061
+        ],
+        "endCoordinate": [
+          6.41367,
+          45.4219193
+        ],
+        "summitCoordinate": [
+          6.413681,
+          45.4219064
+        ],
+        "endpointDistanceMeters": 1.7,
+        "startToSummitDistanceMeters": 3579,
+        "straightLineDistanceMeters": 3580.6,
+        "routeToStraightLineRatio": 2.08,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "geometryPointCount": 541
+      }
+    }
+  ]
+}

@@ -16,7 +16,11 @@
       "eyebrow": "Persönlicher Expeditionseintrag",
       "avatarAlt": "Profilbild von {username}",
       "changeAvatar": "Profilbild ändern",
-      "uploading": "Wird hochgeladen…"
+      "uploading": "Wird hochgeladen…",
+      "complete": "Profil vollständig",
+      "languages": "DE / EN",
+      "manage": "Profil verwalten",
+      "emailUnavailable": "Keine E-Mail-Adresse verfügbar"
     },
     "Statistics": {
       "sectionLabel": "01 / Übersicht",
@@ -29,7 +33,10 @@
       "catalogProgress": "Gesamtfortschritt im Gipfelkatalog",
       "catalogCount": "{ascents} / {total} Gipfel",
       "noData": "Keine Daten",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "highest": "Höchster",
+      "totalElevation": "Gesamthöhe",
+      "achievements": "Meilensteine"
     },
     "Logbook": {
       "accessibleLabel": "Bereiche des Expeditionstagebuchs",
@@ -57,7 +64,24 @@
       "emptyDescription": "Öffne die Karte, wähle einen Gipfel und füge ihn zu deinen Favoriten hinzu.",
       "openMap": "Zur Karte",
       "saved": "Als Favorit gespeichert",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "eyebrow": "Favoriten",
+      "title": "Favorisierte Berge"
+    },
+    "Ascents": {
+      "eyebrow": "Aktuelle Tourenübersicht",
+      "title": "Letzte Besteigungen",
+      "record": "Besteigung erfassen",
+      "emptyTitle": "Noch keine Besteigungen erfasst",
+      "emptyDescription": "Erfasse deine erste Besteigung, um dein alpines Tourenbuch zu beginnen."
+    },
+    "Achievements": {
+      "eyebrow": "Meilensteine",
+      "title": "Meilensteine",
+      "milestone1": "10 Gipfel",
+      "milestone2": "25 Gipfel",
+      "milestone3": "10.000 Hm",
+      "milestone4": "Erster 2500er"
     },
     "Status": {
       "loading": "Konto wird geladen…",

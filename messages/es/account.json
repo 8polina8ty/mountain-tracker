@@ -16,7 +16,11 @@
       "eyebrow": "Ficha de expedición personal",
       "avatarAlt": "Foto de perfil de {username}",
       "changeAvatar": "Cambiar la foto de perfil",
-      "uploading": "Subiendo…"
+      "uploading": "Subiendo…",
+      "complete": "Perfil completo",
+      "languages": "DE / EN",
+      "manage": "Gestionar perfil",
+      "emailUnavailable": "Dirección de correo no disponible"
     },
     "Statistics": {
       "sectionLabel": "01 / Resumen",
@@ -29,7 +33,10 @@
       "catalogProgress": "Progreso general del catálogo",
       "catalogCount": "{ascents} / {total} cumbres",
       "noData": "Sin datos",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "highest": "Más alta",
+      "totalElevation": "Desnivel total",
+      "achievements": "Logros"
     },
     "Logbook": {
       "accessibleLabel": "Secciones del cuaderno de expedición",
@@ -57,7 +64,24 @@
       "emptyDescription": "Abre el mapa, elige una cumbre y añádela a tus favoritos.",
       "openMap": "Ir al mapa",
       "saved": "Guardada como favorita",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "eyebrow": "Favoritos",
+      "title": "Montañas favoritas"
+    },
+    "Ascents": {
+      "eyebrow": "Últimos registros de campo",
+      "title": "Ascensos recientes",
+      "record": "Registrar ascenso",
+      "emptyTitle": "Ningún ascenso registrado",
+      "emptyDescription": "Registra tu primer ascenso para empezar tu cuaderno alpino."
+    },
+    "Achievements": {
+      "eyebrow": "Hitos",
+      "title": "Logros",
+      "milestone1": "10 cumbres",
+      "milestone2": "25 cumbres",
+      "milestone3": "10.000 m desnivel",
+      "milestone4": "Primer 2500+"
     },
     "Status": {
       "loading": "Cargando la cuenta…",

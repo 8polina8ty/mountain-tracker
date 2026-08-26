@@ -14,7 +14,12 @@
     "signUp": "Регистрация",
     "logout": "Выйти",
     "navigationTitle": "Навигация",
-    "userFallback": "Пользователь"
+    "userFallback": "Пользователь",
+    "community": "Сообщество",
+    "primary": "Основное",
+    "tracks": "Треки",
+    "switchToLight": "Переключить на светлую тему",
+    "switchToDark": "Переключить на тёмную тему"
   },
   "LocaleSwitcher": {
     "language": "Язык"

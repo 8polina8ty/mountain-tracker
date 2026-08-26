@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight, Mountain, Search, TrendingUp, Trophy, Footprints, Award } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 
 import { createClient } from "@/Lib/supabase/client";
 import { Link } from "@/i18n/navigation";
+import { Avatar, Eyebrow, MetricRow } from "@/components/ui-v2";
 
 type RankingUser = {
   user_id: string;
@@ -32,8 +32,7 @@ export default function RankingPage() {
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [searchInput, setSearchInput] = useState("");
-  const [sortMode, setSortMode] =
-    useState<SortMode>("ascents");
+  const [sortMode, setSortMode] = useState<SortMode>("ascents");
 
   useEffect(() => {
     let cancelled = false;
@@ -44,9 +43,7 @@ export default function RankingPage() {
 
       const supabase = createClient();
 
-      const { data, error } = await supabase.rpc(
-        "get_user_ranking",
-      );
+      const { data, error } = await supabase.rpc("get_user_ranking");
 
       if (cancelled) {
         return;
@@ -60,32 +57,20 @@ export default function RankingPage() {
       }
 
       const loadedRanking: RankingUser[] = (
-  (data ?? []) as Record<string, unknown>[]
-).map((row) => ({
+        (data ?? []) as Record<string, unknown>[]
+      ).map((row) => ({
         user_id: String(row.user_id),
-        username: String(
-          row.username ?? t("Status.unknownUser"),
-        ),
+        username: String(row.username ?? t("Status.unknownUser")),
         avatar_url:
-          typeof row.avatar_url === "string"
-            ? row.avatar_url
-            : null,
-        ascents_count: Number(
-          row.ascents_count ?? 0,
-        ),
-        total_height: Number(
-          row.total_height ?? 0,
-        ),
-        highest_mountain_height: Number(
-          row.highest_mountain_height ?? 0,
-        ),
+          typeof row.avatar_url === "string" ? row.avatar_url : null,
+        ascents_count: Number(row.ascents_count ?? 0),
+        total_height: Number(row.total_height ?? 0),
+        highest_mountain_height: Number(row.highest_mountain_height ?? 0),
         highest_mountain_name:
           typeof row.highest_mountain_name === "string"
             ? row.highest_mountain_name
             : null,
-        achievements_count: Number(
-          row.achievements_count ?? 0,
-        ),
+        achievements_count: Number(row.achievements_count ?? 0),
       }));
 
       setRanking(loadedRanking);
@@ -100,42 +85,24 @@ export default function RankingPage() {
   }, [t]);
 
   const displayedRanking = useMemo(() => {
-    const search = searchInput
-      .trim()
-      .toLocaleLowerCase("ru-RU");
+    const search = searchInput.trim().toLocaleLowerCase("ru-RU");
 
     const result = ranking.filter((user) =>
-      user.username
-        .toLocaleLowerCase("ru-RU")
-        .includes(search),
+      user.username.toLocaleLowerCase("ru-RU").includes(search),
     );
 
     result.sort((first, second) => {
       switch (sortMode) {
         case "total-height":
-          return (
-            second.total_height -
-            first.total_height
-          );
-
+          return second.total_height - first.total_height;
         case "highest-mountain":
-          return (
-            second.highest_mountain_height -
-            first.highest_mountain_height
-          );
-
+          return second.highest_mountain_height - first.highest_mountain_height;
         case "achievements":
-          return (
-            second.achievements_count -
-            first.achievements_count
-          );
-
+          return second.achievements_count - first.achievements_count;
         default:
           return (
-            second.ascents_count -
-              first.ascents_count ||
-            second.total_height -
-              first.total_height
+            second.ascents_count - first.ascents_count ||
+            second.total_height - first.total_height
           );
       }
     });
@@ -149,9 +116,7 @@ export default function RankingPage() {
         stats.totalUsers += 1;
         stats.totalAscents += user.ascents_count;
         stats.totalHeight += user.total_height;
-        stats.totalAchievements +=
-          user.achievements_count;
-
+        stats.totalAchievements += user.achievements_count;
         return stats;
       },
       {
@@ -165,11 +130,8 @@ export default function RankingPage() {
 
   if (loading) {
     return (
-      <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 lg:min-h-[calc(100dvh-66px)]">
-        <div
-          className="border-l-2 border-[var(--color-forest)] bg-[var(--color-surface)] px-5 py-4 text-sm font-medium text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]"
-          role="status"
-        >
+      <main className="flex min-h-[calc(100dvh-64px)] items-center justify-center bg-[var(--color-bg)] px-4">
+        <div className="border-l-2 border-[var(--color-pine)] bg-[var(--color-surface)] px-5 py-4 text-sm font-medium text-[var(--color-text-secondary)] shadow-[var(--shadow-control)]" role="status">
           {t("Status.loading")}
         </div>
       </main>
@@ -177,148 +139,239 @@ export default function RankingPage() {
   }
 
   return (
-    <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-8 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-10">
-      <div className="mx-auto max-w-7xl">
-        <header className="border-b border-[var(--color-border-strong)] pb-8">
-          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.1em] text-[var(--color-forest)]">
-            {t("Header.eyebrow")}
-          </p>
+    <main className="min-h-[calc(100dvh-64px)] bg-[var(--color-bg)] px-4 py-8 lg:px-6 lg:py-12">
+      <div className="mx-auto max-w-5xl space-y-10">
+        {/* Compact Header */}
+        <header className="space-y-6">
+          <div>
+            <Eyebrow>{t("Header.eyebrow")}</Eyebrow>
+            <h1 className="mt-2 text-[28px] font-bold tracking-tight sm:text-[36px] lg:text-[40px]">{t("Header.title")}</h1>
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-muted)]">{t("Header.subtitle")}</p>
+          </div>
 
-          <h1 className="mt-3 text-4xl font-bold leading-tight text-[var(--color-text)] sm:text-5xl">
-            {t("Header.title")}
-          </h1>
-
-          <p className="mt-3 max-w-2xl text-[var(--color-text-secondary)]">
-            {t("Header.subtitle")}
-          </p>
+          {/* Community Stats inline */}
+          <MetricRow
+            metrics={[
+              { label: t("CommunityStats.users"), value: format.number(communityStats.totalUsers), icon: Search },
+              { label: t("CommunityStats.ascents"), value: format.number(communityStats.totalAscents), icon: Mountain },
+              { label: t("CommunityStats.totalElevation"), value: `${format.number(communityStats.totalHeight)} m`, icon: TrendingUp },
+              { label: t("CommunityStats.achievements"), value: format.number(communityStats.totalAchievements), icon: Trophy },
+            ]}
+          />
         </header>
 
-        <section className="py-6" aria-labelledby="community-summary-title">
-          <h2 id="community-summary-title" className="sr-only">
-            {t("CommunityStats.heading")}
-          </h2>
-          <dl className="grid grid-cols-2 border-y border-[var(--color-border)] lg:grid-cols-4">
-          <CommunityMetric
-            label={t("CommunityStats.users")}
-            value={format.number(communityStats.totalUsers)}
-          />
-
-          <CommunityMetric
-            label={t("CommunityStats.ascents")}
-            value={format.number(communityStats.totalAscents)}
-          />
-
-          <CommunityMetric
-            label={t("CommunityStats.totalElevation")}
-            value={`${format.number(communityStats.totalHeight)} ${t("Units.meter")}`}
-          />
-
-          <CommunityMetric
-            label={t("CommunityStats.achievements")}
-            value={format.number(communityStats.totalAchievements)}
-          />
-          </dl>
-        </section>
-
-        <section className="grid gap-3 border-b border-[var(--color-border-strong)] pb-6 md:grid-cols-[minmax(240px,1fr)_260px_auto] md:items-center" aria-label={t("Search.filtersLabel")}>
-          <label className="relative">
-            <span className="sr-only">{t("Search.label")}</span>
-            <Search
-              aria-hidden="true"
-              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-muted)]"
-            />
+        {/* Search & Filters Bar */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-1 items-center gap-3 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 shadow-[var(--shadow-xs)] min-w-[240px]">
+            <Search size={18} className="text-[var(--color-text-muted)]" strokeWidth={2} aria-hidden="true" />
             <input
               type="search"
               value={searchInput}
-              onChange={(event) =>
-                setSearchInput(event.target.value)
-              }
+              onChange={(event) => setSearchInput(event.target.value)}
               placeholder={t("Search.placeholder")}
-              className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] py-2 pl-10 pr-3 text-[var(--color-text)] outline-none"
+              className="h-12 flex-1 bg-transparent text-[14px] outline-none placeholder:text-[var(--color-text-muted)]"
+              aria-label={t("Search.label")}
             />
-          </label>
-
-          <label>
-            <span className="sr-only">{t("Sorting.label")}</span>
+          </div>
+          <div className="flex items-center gap-3">
             <select
               value={sortMode}
-              onChange={(event) =>
-                setSortMode(
-                  event.target.value as SortMode,
-                )
-              }
-              className="ui-field min-h-11 w-full rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)]"
+              onChange={(event) => setSortMode(event.target.value as SortMode)}
+              className="ui-field px-4 text-[14px] min-w-[220px]"
+              aria-label={t("Sorting.label")}
             >
               <option value="ascents">{t("Sorting.ascents")}</option>
               <option value="total-height">{t("Sorting.totalHeight")}</option>
               <option value="highest-mountain">{t("Sorting.highestMountain")}</option>
               <option value="achievements">{t("Sorting.achievements")}</option>
             </select>
-          </label>
-
-          <p className="[font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)] md:text-right" role="status">
-            {t("Search.shown", {
-              shown: displayedRanking.length,
-              total: ranking.length,
-            })}
-          </p>
-        </section>
+            <p className="flex items-center px-3 text-[13px] text-[var(--color-text-muted)]">
+              <span className="technical font-semibold">
+                {t("Search.shown", { shown: displayedRanking.length, total: ranking.length })}
+              </span>
+            </p>
+          </div>
+        </div>
 
         {errorMessage && (
-          <div
-            className="mt-6 border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-4 text-[var(--color-danger)]"
-            role="alert"
-          >
+          <div className="rounded-[var(--radius-card)] border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-5 text-[var(--color-danger)]" role="alert">
             {errorMessage}
           </div>
         )}
 
-        <section className="pt-8" aria-labelledby="ranking-registry-title">
-          <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.075em] text-[var(--color-text-muted)]">
-                {t("Table.eyebrow")}
-              </p>
-              <h2 id="ranking-registry-title" className="mt-1 text-3xl font-bold text-[var(--color-text)]">
-                {t("Table.title")}
-              </h2>
-            </div>
-            <p className="max-w-md text-sm text-[var(--color-text-muted)]">
-              {t("Table.sortingHint")}
-            </p>
-          </div>
+        {/* Ranking List */}
+        <section aria-labelledby="ranking-list-heading">
+          <h2 id="ranking-list-heading" className="sr-only">{t("Table.title")}</h2>
 
           {displayedRanking.length === 0 ? (
-            <div className="border-y border-[var(--color-border-strong)] py-12 text-center">
-              <h3 className="text-xl font-bold text-[var(--color-text)]">
-                {searchInput.trim()
-                  ? t("Status.noResultsTitle")
-                  : t("Status.emptyTitle")}
+            <div className="rounded-[var(--radius-card)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface)] p-12 text-center">
+              <h3 className="text-[18px] font-bold text-[var(--color-text)]">
+                {searchInput.trim() ? t("Status.noResultsTitle") : t("Status.emptyTitle")}
               </h3>
-              <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-muted)]">
-                {searchInput.trim()
-                  ? t("Status.noResultsDescription")
-                  : t("Status.emptyDescription")}
+              <p className="mx-auto mt-2 max-w-md text-[14px] leading-relaxed text-[var(--color-text-muted)]">
+                {searchInput.trim() ? t("Status.noResultsDescription") : t("Status.emptyDescription")}
               </p>
             </div>
           ) : (
-            <div className="border-t border-[var(--color-border-strong)]">
-              <div className="hidden grid-cols-[72px_minmax(190px,1.2fr)_110px_150px_minmax(180px,1fr)_110px_52px] items-center border-b border-[var(--color-border)] px-3 py-3 lg:grid">
-                <RegistryLabel>{t("Table.position")}</RegistryLabel>
-                <RegistryLabel>{t("Table.participant")}</RegistryLabel>
-                <RegistryLabel>{t("Table.ascents")}</RegistryLabel>
-                <RegistryLabel>{t("Table.totalElevation")}</RegistryLabel>
-                <RegistryLabel>{t("Table.highestPoint")}</RegistryLabel>
-                <RegistryLabel>{t("Table.achievements")}</RegistryLabel>
-                <span className="sr-only">{t("Table.profile")}</span>
+            <div className="rounded-[var(--radius-card)] border border-[var(--color-border-soft)] bg-[var(--color-surface)] shadow-[var(--shadow-xs)] overflow-hidden">
+              {/* Desktop Table */}
+              <div className="hidden lg:grid" style={{ gridTemplateColumns: "64px 200px 100px 140px 200px 100px 56px" }}>
+                {/* Header Row - static, normal flow */}
+                <div className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] technical">
+                  <span>{t("Table.rank")}</span>
+                </div>
+                <div className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] technical">
+                  <div className="flex items-center gap-2">
+                    <Footprints size={14} strokeWidth={2} className="text-[var(--color-pine)]" aria-hidden="true" />
+                    <span>{t("Table.ascents")}</span>
+                  </div>
+                </div>
+                <div className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] technical">
+                  <div className="flex items-center gap-2">
+                    <TrendingUp size={14} strokeWidth={2} className="text-[var(--color-pine)]" aria-hidden="true" />
+                    <span>{t("Table.totalElevation")}</span>
+                  </div>
+                </div>
+                <div className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] technical">
+                  <div className="flex items-center gap-2">
+                    <Mountain size={14} strokeWidth={2} className="text-[var(--color-pine)]" aria-hidden="true" />
+                    <span>{t("Table.highestPoint")}</span>
+                  </div>
+                </div>
+                <div className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] technical">
+                  <div className="flex items-center gap-2">
+                    <Award size={14} strokeWidth={2} className="text-[var(--color-ochre)]" aria-hidden="true" />
+                    <span>{t("Table.achievements")}</span>
+                  </div>
+                </div>
+                <div className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)] technical">
+                  <span className="sr-only">{t("Table.profile")}</span>
+                </div>
               </div>
-              <ol>
+
+              {/* Body Rows */}
+              <ol className="divide-y divide-[var(--color-border-soft)]" role="list">
                 {displayedRanking.map((user, index) => (
-                  <RankingRow
-                    key={user.user_id}
-                    user={user}
-                    position={index + 1}
-                  />
+                  <li key={user.user_id}>
+                    {/* Desktop Row */}
+                    <article className="hidden lg:grid items-center gap-4 p-4 transition-colors hover:bg-[var(--color-surface-muted)]" style={{ gridTemplateColumns: "64px 200px 100px 140px 200px 100px 56px" }}>
+                      {/* Rank */}
+                      <div className="text-center">
+                        <p className="technical text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
+                          {index + 1 <= 3 ? t("Table.topRank") : t("Table.rank")}
+                        </p>
+                        <p className={`mt-0.5 technical text-2xl font-bold tabular-nums ${index === 0 ? "text-[var(--color-ochre)]" : index === 1 ? "text-[var(--color-granite)]" : index === 2 ? "text-[var(--color-stone)]" : "text-[var(--color-text)]"}`}>
+                          {String(index + 1).padStart(2, "0")}
+                        </p>
+                      </div>
+
+                      {/* Participant */}
+                      <div className="flex min-w-0 items-center gap-3 pr-4">
+                        <Avatar
+                          initials={user.username.charAt(0).toUpperCase()}
+                          size="md"
+                          src={user.avatar_url ?? undefined}
+                        />
+                        <h3 className="truncate font-semibold text-[var(--color-text)]">{user.username}</h3>
+                      </div>
+
+                      {/* Ascents */}
+                      <div className="technical font-semibold tabular-nums text-[var(--color-pine)]">
+                        {format.number(user.ascents_count)}
+                      </div>
+
+                      {/* Total Elevation */}
+                      <div className="technical font-semibold tabular-nums text-[var(--color-text)]">
+                        {format.number(user.total_height)} m
+                      </div>
+
+                      {/* Highest Summit */}
+                      <div className="min-w-0 pr-4">
+                        <p className="truncate text-sm font-semibold text-[var(--color-text)]">
+                          {user.highest_mountain_name ?? t("Table.noData")}
+                        </p>
+                        {user.highest_mountain_name && (
+                          <p className="mt-0.5 technical text-xs tabular-nums text-[var(--color-text-muted)]">
+                            {format.number(user.highest_mountain_height)} m
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Achievements */}
+                      <div className="technical font-semibold tabular-nums text-[var(--color-text)]">
+                        {format.number(user.achievements_count)}
+                      </div>
+
+                      {/* Profile Action */}
+                      <Link
+                        href={`/users/${user.user_id}`}
+                        aria-label={t("Table.openUserProfile", { username: user.username })}
+                        className="ui-pressable group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-pine)]"
+                      >
+                        <ArrowUpRight size={18} className="transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2} aria-hidden="true" />
+                      </Link>
+                    </article>
+
+                    {/* Mobile Card */}
+                    <article className="lg:hidden p-4 border-b last:border-0 transition-colors hover:bg-[var(--color-surface-muted)]">
+                      <div className="flex items-start gap-3">
+                        {/* Rank + Avatar + Name */}
+                        <div className="flex items-center gap-3 min-w-0 flex-1">
+                          <div className="flex items-center justify-center w-12 h-12 shrink-0">
+                            <div className={`grid h-full w-full place-items-center rounded-full text-[18px] font-bold ${index === 0 ? "bg-gradient-to-br from-[var(--color-ochre)] to-[var(--color-ochre-deep)] text-white" : index === 1 ? "bg-[var(--color-granite)] text-white" : index === 2 ? "bg-[var(--color-stone)] text-white" : "bg-[var(--color-surface-muted)] text-[var(--color-text)] border border-[var(--color-border)]"}`}>
+                              {index + 1}
+                            </div>
+                          </div>
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2">
+                              <Avatar
+                                initials={user.username.charAt(0).toUpperCase()}
+                                size="md"
+                                src={user.avatar_url ?? undefined}
+                              />
+                              <h3 className="truncate font-semibold text-[var(--color-text)]">{user.username}</h3>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Profile Link */}
+                        <Link
+                          href={`/users/${user.user_id}`}
+                          aria-label={t("Table.openUserProfile", { username: user.username })}
+                          className="ui-pressable group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-pine)]"
+                        >
+                          <ArrowUpRight size={18} className="transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2} aria-hidden="true" />
+                        </Link>
+                      </div>
+
+                      {/* Metrics Grid */}
+                      <div className="mt-4 grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
+                        <div className="rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] p-3">
+                          <Footprints size={16} strokeWidth={2} className="mx-auto text-[var(--color-pine)]" aria-hidden="true" />
+                          <p className="mt-1.5 technical text-lg font-bold tabular-nums text-[var(--color-pine)]">{format.number(user.ascents_count)}</p>
+                          <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-[var(--color-text-muted)]">{t("Table.ascents")}</p>
+                        </div>
+                        <div className="rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] p-3">
+                          <TrendingUp size={16} strokeWidth={2} className="mx-auto text-[var(--color-pine)]" aria-hidden="true" />
+                          <p className="mt-1.5 technical text-lg font-bold tabular-nums text-[var(--color-text)]">{format.number(user.total_height)} m</p>
+                          <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-[var(--color-text-muted)]">{t("Table.totalElevation")}</p>
+                        </div>
+                        <div className="rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] p-3">
+                          <Mountain size={16} strokeWidth={2} className="mx-auto text-[var(--color-pine)]" aria-hidden="true" />
+                          <p className="mt-1.5 text-sm font-semibold text-[var(--color-text)] truncate">{user.highest_mountain_name ?? t("Table.noData")}</p>
+                          {user.highest_mountain_name && (
+                            <p className="technical text-xs tabular-nums text-[var(--color-text-muted)]">{format.number(user.highest_mountain_height)} m</p>
+                          )}
+                          <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-[var(--color-text-muted)]">{t("Table.highestPoint")}</p>
+                        </div>
+                        <div className="rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] p-3">
+                          <Award size={16} strokeWidth={2} className="mx-auto text-[var(--color-ochre)]" aria-hidden="true" />
+                          <p className="mt-1.5 technical text-lg font-bold tabular-nums text-[var(--color-text)]">{format.number(user.achievements_count)}</p>
+                          <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-[var(--color-text-muted)]">{t("Table.achievements")}</p>
+                        </div>
+                      </div>
+                    </article>
+                  </li>
                 ))}
               </ol>
             </div>
@@ -326,225 +379,5 @@ export default function RankingPage() {
         </section>
       </div>
     </main>
-  );
-}
-
-type CommunityMetricProps = {
-  label: string;
-  value: string;
-};
-
-function CommunityMetric({
-  label,
-  value,
-}: CommunityMetricProps) {
-  return (
-    <div className="min-w-0 border-b border-[var(--color-border-soft)] px-4 py-4 odd:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
-      <dt className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
-        {label}
-      </dt>
-
-      <dd className="mt-2 break-words [font-family:var(--font-technical)] text-xl font-bold tabular-nums text-[var(--color-text)] sm:text-2xl">
-        {value}
-      </dd>
-    </div>
-  );
-}
-
-type RankingRowProps = {
-  user: RankingUser;
-  position: number;
-};
-
-function RankingRow({
-  user,
-  position,
-}: RankingRowProps) {
-  const t = useTranslations("Ranking");
-  const format = useFormatter();
-  const topRank = position <= 3;
-  const formattedPosition = String(position).padStart(2, "0");
-
-  return (
-    <li>
-      <article
-        aria-label={t("Table.rowLabel", {
-          position,
-          username: user.username,
-        })}
-        className={[
-          "border-b border-[var(--color-border)] transition-colors duration-[var(--duration-fast)] hover:bg-[var(--color-surface-raised)]",
-          topRank
-            ? "border-l-2 border-l-[var(--color-border-strong)] bg-[var(--color-surface)]"
-            : "bg-transparent",
-        ].join(" ")}
-      >
-        <div className="p-4 lg:hidden">
-          <div className="flex items-start gap-3">
-            <RankMarker position={formattedPosition} topRank={topRank} />
-            <Avatar user={user} size="mobile" />
-            <div className="min-w-0 flex-1">
-              <h3 className="truncate text-lg font-bold text-[var(--color-text)]">
-                {user.username}
-              </h3>
-              <p className="mt-1 [font-family:var(--font-technical)] text-sm font-bold tabular-nums text-[var(--color-forest)]">
-                {t("Counts.ascents", { count: user.ascents_count })}
-              </p>
-            </div>
-          </div>
-
-          <dl className="mt-4 grid grid-cols-2 gap-px border-y border-[var(--color-border-soft)] bg-[var(--color-border-soft)]">
-            <RankingValue label={t("Table.totalElevation")} value={`${format.number(user.total_height)} ${t("Units.meter")}`} />
-            <RankingValue label={t("Achievements.label")} value={t("Achievements.milestones", { count: format.number(user.achievements_count), total: format.number(111) })} />
-            <RankingValue
-              label={t("Table.highestPoint")}
-              value={user.highest_mountain_name ?? t("Table.noData")}
-              detail={user.highest_mountain_name ? `${format.number(user.highest_mountain_height)} ${t("Units.meter")}` : undefined}
-              wide
-            />
-          </dl>
-
-          <Link
-            href={`/users/${user.user_id}`}
-            className="ui-pressable group mt-3 inline-flex min-h-11 w-full items-center justify-between rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-forest)] hover:text-[var(--color-forest)]"
-          >
-            {t("Table.openProfile")}
-            <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-        </div>
-
-        <div className="hidden grid-cols-[72px_minmax(190px,1.2fr)_110px_150px_minmax(180px,1fr)_110px_52px] items-center px-3 py-4 lg:grid">
-          <RankMarker position={formattedPosition} topRank={topRank} />
-          <div className="flex min-w-0 items-center gap-3 pr-4">
-            <Avatar user={user} size="desktop" />
-            <h3 className="truncate font-bold text-[var(--color-text)]">
-              {user.username}
-            </h3>
-          </div>
-          <DesktopMetric value={format.number(user.ascents_count)} emphasize />
-          <DesktopMetric value={`${format.number(user.total_height)} ${t("Units.meter")}`} />
-          <div className="min-w-0 pr-4">
-            <p className="truncate text-sm font-semibold text-[var(--color-text)]">
-              {user.highest_mountain_name ?? t("Table.noData")}
-            </p>
-            {user.highest_mountain_name && (
-              <p className="mt-0.5 [font-family:var(--font-technical)] text-xs tabular-nums text-[var(--color-text-muted)]">
-                {format.number(user.highest_mountain_height)} {t("Units.meter")}
-              </p>
-            )}
-          </div>
-          <DesktopMetric value={t("Achievements.milestones", { count: format.number(user.achievements_count), total: format.number(111) })} />
-          <Link
-            href={`/users/${user.user_id}`}
-            aria-label={t("Table.openUserProfile", {
-              username: user.username,
-            })}
-            className="ui-pressable group inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-forest)]"
-          >
-            <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-        </div>
-      </article>
-    </li>
-  );
-}
-
-type RankingValueProps = {
-  label: string;
-  value: string;
-  detail?: string;
-  wide?: boolean;
-};
-
-function RankingValue({
-  label,
-  value,
-  detail,
-  wide = false,
-}: RankingValueProps) {
-  return (
-    <div className={`min-w-0 bg-[var(--color-surface)] p-3 ${wide ? "col-span-2" : ""}`}>
-      <dt className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
-        {label}
-      </dt>
-
-      <dd className="mt-1 truncate font-semibold text-[var(--color-text)]">
-        {value}
-        {detail && (
-          <span className="ml-2 [font-family:var(--font-technical)] text-xs font-normal tabular-nums text-[var(--color-text-muted)]">
-            {detail}
-          </span>
-        )}
-      </dd>
-    </div>
-  );
-}
-
-function RegistryLabel({ children }: { children: string }) {
-  return (
-    <span className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
-      {children}
-    </span>
-  );
-}
-
-function RankMarker({
-  position,
-  topRank,
-}: {
-  position: string;
-  topRank: boolean;
-}) {
-  const t = useTranslations("Ranking.Table");
-
-  return (
-    <div className="w-12 shrink-0 lg:w-auto">
-      <p className="[font-family:var(--font-technical)] text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">
-        {topRank ? t("topRank") : t("rank")}
-      </p>
-      <p className="mt-0.5 [font-family:var(--font-technical)] text-2xl font-bold tabular-nums text-[var(--color-text)]">
-        {position}
-      </p>
-    </div>
-  );
-}
-
-function Avatar({
-  user,
-  size,
-}: {
-  user: RankingUser;
-  size: "mobile" | "desktop";
-}) {
-  const sizeClass = size === "mobile" ? "h-12 w-12" : "h-11 w-11";
-
-  return (
-    <div className={`relative flex ${sizeClass} shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] font-bold text-[var(--color-forest)]`}>
-      {user.avatar_url ? (
-        <Image
-          src={user.avatar_url}
-          alt=""
-          fill
-          sizes={size === "mobile" ? "48px" : "44px"}
-          className="object-cover"
-        />
-      ) : (
-        <span aria-hidden="true">{user.username.charAt(0).toUpperCase()}</span>
-      )}
-    </div>
-  );
-}
-
-function DesktopMetric({
-  value,
-  emphasize = false,
-}: {
-  value: string;
-  emphasize?: boolean;
-}) {
-  return (
-    <p className={`pr-3 [font-family:var(--font-technical)] text-sm font-bold tabular-nums ${emphasize ? "text-[var(--color-forest)]" : "text-[var(--color-text)]"}`}>
-      {value}
-    </p>
   );
 }

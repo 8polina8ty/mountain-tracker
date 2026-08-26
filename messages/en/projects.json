@@ -125,6 +125,8 @@
     "Conflict": { "conflictDetected": "Your changes were not saved", "day": "This day changed since you opened it.", "journal": "This journal entry changed since you opened it.", "order": "The day order changed since you opened it.", "permission": "Your project access or role changed. Refresh to continue safely.", "archived": "This expedition was archived and is now read-only.", "draftKept": "Your local draft is still here.", "reloadLatest": "Reload latest" },
     "Accessibility": {
       "projectList": "Your expedition projects"
-    }
+    },
+    "Invitations": { "title": "Pending invitations", "description": "You have pending expedition invitations.", "view": "View" },
+    "Shared": { "eyebrow": "Collaboration", "title": "Shared projects", "description": "Projects you collaborate on.", "viewAll": "View all", "noDetails": "Shared project" }
   }
 }

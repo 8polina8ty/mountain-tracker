@@ -125,6 +125,8 @@
     "Conflict": { "conflictDetected": "Le modifiche non sono state salvate", "day": "Questo giorno è cambiato da quando lo hai aperto.", "journal": "Questa voce del diario è cambiata da quando l’hai aperta.", "order": "L’ordine dei giorni è cambiato da quando lo hai aperto.", "permission": "Il tuo accesso o ruolo è cambiato. Aggiorna per continuare.", "archived": "Questa spedizione è stata archiviata ed è ora di sola lettura.", "draftKept": "La bozza locale è ancora disponibile.", "reloadLatest": "Carica la versione più recente" },
     "Accessibility": {
       "projectList": "I tuoi progetti di spedizione"
-    }
+    },
+    "Invitations": { "title": "Inviti in sospeso", "description": "Hai inviti alle spedizioni in sospeso.", "view": "Visualizza" },
+    "Shared": { "eyebrow": "Collaborazione", "title": "Progetti condivisi", "description": "Progetti a cui collabori.", "viewAll": "Mostra tutti", "noDetails": "Progetto condiviso" }
   }
 }

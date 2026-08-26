@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
     "auth",
     "database-test",
     "friends",
+    "internal",
     "messages",
     "notifications",
     "projects",

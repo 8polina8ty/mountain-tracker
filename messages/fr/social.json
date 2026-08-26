@@ -17,11 +17,17 @@
       "block": "Bloquer"
     },
     "Search": {
+      "eyebrow": "Découvrir",
       "title": "Trouver des personnes",
       "label": "Rechercher des utilisateurs publics",
       "placeholder": "Nom d'utilisateur ou nom d'affichage",
       "submit": "Rechercher",
-      "minimum": "Saisissez au moins {count} caractères."
+      "minimum": "Saisissez au moins {count} caractères.",
+      "searching": "Recherche…",
+      "noResults": "Aucun utilisateur trouvé pour",
+      "alreadyFriends": "Déjà amis",
+      "requestSent": "Demande envoyée",
+      "pendingRequest": "Demande en attente"
     },
     "Friends": {
       "eyebrow": "Compagnons de route",
@@ -31,9 +37,10 @@
       "empty": "Aucun ami accepté pour l'instant."
     },
     "Requests": {
+      "eyebrow": "Entrantes",
       "title": "Demandes",
-      "incoming": "Demandes reçues",
-      "outgoing": "Demandes envoyées",
+      "pending": "En attente",
+      "wantsToConnect": "Souhaite se connecter",
       "emptyIncoming": "Aucune demande reçue.",
       "emptyOutgoing": "Aucune demande envoyée."
     },
@@ -42,6 +49,14 @@
       "description": "Seules les personnes que vous avez bloquées apparaissent ici.",
       "confirm": "Bloquer cet utilisateur ? L'amitié et les demandes en attente seront supprimées.",
       "empty": "Vous n'avez bloqué personne."
+    },
+    "List": {
+      "eyebrow": "Réseau",
+      "title": "Vos amis",
+      "emptyTitle": "Aucun ami pour l'instant",
+      "emptyDescription": "Recherchez des alpinistes ci-dessus pour construire votre réseau.",
+      "friendSince": "Ami",
+      "message": "Message"
     },
     "Messages": {
       "eyebrow": "Communications d'expédition",
@@ -105,7 +120,10 @@
     },
     "Errors": {
       "unavailable": "Les fonctions sociales ne sont pas encore disponibles. Le déploiement de la base de données est peut-être encore en attente.",
-      "actionFailed": "L'action n'a pas pu être effectuée."
+      "actionFailed": "L'action n'a pas pu être effectuée.",
+      "loadFriendsFailed": "Impossible de charger les amis.",
+      "loadRequestsFailed": "Impossible de charger les demandes.",
+      "searchFailed": "La recherche a échoué."
     }
   }
 }

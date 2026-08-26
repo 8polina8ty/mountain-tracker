@@ -18,9 +18,10 @@ export async function loadPendingAchievementNotificationIds(
 export async function markAchievementNotificationDisplayed(
   supabase: SupabaseClient,
   achievementId: AchievementId,
-): Promise<void> {
-  const { error } = await supabase.rpc("mark_achievement_notification_notified", {
+): Promise<boolean> {
+  const { data, error } = await supabase.rpc("mark_achievement_notification_notified", {
     requested_achievement_id: achievementId,
   });
   if (error) throw error;
+  return data === true;
 }

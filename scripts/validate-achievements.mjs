@@ -446,6 +446,47 @@ async function testAchievementNotifications() {
   assert.equal(notified.has(pendingId), true);
   assert.deepEqual([pendingId].filter((id) => !notified.has(id)), []);
 
+  const durableRows = [{ achievement_id: "first-ascent", notified_at: null }];
+  const notificationClient = {
+    rpc: async (functionName, parameters) => {
+      if (functionName === "get_pending_achievement_notifications") {
+        return {
+          data: durableRows.filter((row) => row.notified_at === null),
+          error: null,
+        };
+      }
+      assert.equal(functionName, "mark_achievement_notification_notified");
+      const row = durableRows.find(
+        (item) => item.achievement_id === parameters.requested_achievement_id
+          && item.notified_at === null,
+      );
+      if (row) row.notified_at = "2026-08-23T12:00:00.000Z";
+      return { data: Boolean(row), error: null };
+    },
+  };
+  const loadPending = async () => {
+    const { data, error } = await notificationClient.rpc(
+      "get_pending_achievement_notifications",
+    );
+    if (error) throw error;
+    return data.map((row) => row.achievement_id);
+  };
+  const markDisplayed = async (achievementId) => {
+    const { data, error } = await notificationClient.rpc(
+      "mark_achievement_notification_notified",
+      { requested_achievement_id: achievementId },
+    );
+    if (error) throw error;
+    return data === true;
+  };
+  assert.deepEqual(
+    await loadPending(),
+    ["first-ascent"],
+  );
+  assert.equal(await markDisplayed("first-ascent"), true);
+  assert.deepEqual(await loadPending(), []);
+  assert.equal(await markDisplayed("first-ascent"), false);
+
   assert.equal(shouldReconcileAchievementMutation({ event: "ascent-created", succeeded: true }), true);
   assert.equal(shouldReconcileAchievementMutation({ event: "ascent-created", succeeded: false }), false);
   assert.equal(shouldReconcileAchievementMutation({ event: "photo-changed", succeeded: true }), true);
@@ -494,7 +535,18 @@ async function testAchievementNotifications() {
   assert.match(providerSource, /pendingLoadUserId\.current\s*===\s*userId/);
   assert.match(providerSource, /subscription\.unsubscribe\(\)/);
   assert.doesNotMatch(providerSource, /setInterval/);
-  assert.match(providerSource, /candidates\.map\(\(candidate\)\s*=>\s*markAchievementNotificationDisplayed/);
+  assert.match(providerSource, /claimAchievementIds\(\s*supabase,/);
+  assert.match(providerSource, /markAchievementNotificationDisplayed\(supabase, candidate\.id\)/);
+  assert.match(providerSource, /\.then\(enqueueCandidates\)/);
+  assert.doesNotMatch(
+    providerSource,
+    /enqueueCandidates\(candidates\);[\s\S]{0,200}markAchievementNotificationDisplayed/,
+  );
+  const notificationServiceSource = await readFile(
+    new URL("../Lib/achievementNotificationService.ts", import.meta.url),
+    "utf8",
+  );
+  assert.match(notificationServiceSource, /return data === true/);
 
   const legacyServiceSource = await readFile(
     new URL("../Lib/achievementService.ts", import.meta.url),
@@ -632,6 +684,45 @@ async function testTranslationCoverage() {
   }
 }
 
+async function testAccountV2Contracts() {
+  const [accountPageSource, accountNavigationSource, useAccountSource] = await Promise.all([
+    readFile(new URL("../app/[locale]/account/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/account/AccountNavigation.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../hooks/useAccount.ts", import.meta.url), "utf8"),
+  ]);
+  const staticKeys = (source, functionName, namespace = "") => [
+    ...source.matchAll(new RegExp(`\\b${functionName}\\(\\s*["']([^"']+)["']`, "g")),
+  ].map((match) => namespace ? `${namespace}.${match[1]}` : match[1]);
+  const accountKeys = new Set([
+    ...staticKeys(accountPageSource, "t"),
+    ...staticKeys(accountNavigationSource, "t", "Navigation"),
+    ...staticKeys(useAccountSource, "t", "Status"),
+    ...[...accountNavigationSource.matchAll(/labelKey:\s*"([^"]+)"/g)]
+      .map((match) => `Navigation.${match[1]}`),
+  ]);
+
+  for (const locale of ["de", "en", "ru", "fr", "it", "es"]) {
+    const catalog = JSON.parse(
+      await readFile(new URL(`../messages/${locale}/account.json`, import.meta.url), "utf8"),
+    ).Account;
+    const missing = [...accountKeys].filter((key) =>
+      key.split(".").reduce((value, segment) => value?.[segment], catalog) === undefined,
+    );
+    assert.deepEqual(missing, [], `Account translation references missing for ${locale}`);
+  }
+
+  assert.match(accountPageSource, /ACHIEVEMENT_MESSAGE_KEYS\[a\.id\]/);
+  assert.match(accountPageSource, /achievementT\(`Definitions\.\$\{ACHIEVEMENT_MESSAGE_KEYS\[a\.id\]\}\.title`\)/);
+  assert.doesNotMatch(accountPageSource, /t\(`Achievements\.\$\{a\.id\}`\)/);
+  assert.doesNotMatch(accountPageSource, /averageHeight\s*\*\s*totalMountains/);
+  assert.match(accountPageSource, /format\.number\(totalHeight\)/);
+  assert.match(
+    useAccountSource,
+    /const totalHeight = ascents\.reduce\([\s\S]*?Number\(ascent\.mountains\?\.height \?\? 0\)/,
+  );
+  assert.match(useAccountSource, /const unlockedAchievementsCount =\s*userAchievements\.length/);
+}
+
 testRegistryIntegrity();
 testEvaluator();
 testSnapshotNormalization();
@@ -640,6 +731,7 @@ await testAchievementNotifications();
 await testPublicAchievementSummary();
 await testAchievementBackfill();
 await testTranslationCoverage();
+await testAccountV2Contracts();
 
 console.log("Achievement registry integrity: passed (111 definitions)");
 console.log("Achievement evaluator thresholds: passed");

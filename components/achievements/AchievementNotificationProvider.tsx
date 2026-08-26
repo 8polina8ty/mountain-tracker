@@ -102,32 +102,52 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
     [],
   );
 
-  const enqueueAchievementIds = useCallback(
-    (ids: readonly AchievementId[]) => {
+  const claimAchievementIds = useCallback(
+    async (supabase: SupabaseClient, ids: readonly AchievementId[]) => {
       const candidates = ids.flatMap((id) => {
-          const candidate = candidateForId(id, true);
-          return candidate ? [candidate] : [];
-        });
-      enqueueCandidates(candidates);
-
-      const supabase = createClient();
-      void Promise.all(
-        candidates.map((candidate) =>
-          markAchievementNotificationDisplayed(supabase, candidate.id),
+        const candidate = candidateForId(id, true);
+        return candidate ? [candidate] : [];
+      });
+      const claimed = await Promise.all(
+        candidates.map(async (candidate) =>
+          await markAchievementNotificationDisplayed(supabase, candidate.id)
+            ? candidate
+            : null,
         ),
-      ).catch((error) =>
-        console.error("Unable to acknowledge achievement notification batch.", error),
+      );
+      return claimed.filter(
+        (candidate): candidate is AchievementNotificationCandidate => candidate !== null,
       );
     },
-    [enqueueCandidates],
+    [],
+  );
+
+  const enqueueAchievementIds = useCallback(
+    (ids: readonly AchievementId[]) => {
+      const supabase = createClient();
+      void claimAchievementIds(supabase, ids)
+        .then(enqueueCandidates)
+        .catch((error) =>
+          console.error("Unable to acknowledge achievement notification batch.", error),
+        );
+    },
+    [claimAchievementIds, enqueueCandidates],
   );
 
   const reconcileAfterUserAction = useCallback(
     async (supabase: SupabaseClient) => {
       const grants = await reconcileAchievementsAfterUserAction(supabase);
-      enqueueAchievementIds(grants.map((grant) => grant.achievementId));
+      try {
+        const candidates = await claimAchievementIds(
+          supabase,
+          grants.map((grant) => grant.achievementId),
+        );
+        enqueueCandidates(candidates);
+      } catch (error) {
+        console.error("Unable to acknowledge achievement notification batch.", error);
+      }
     },
-    [enqueueAchievementIds],
+    [claimAchievementIds, enqueueCandidates],
   );
 
   const showAchievementNotification = useCallback(
@@ -181,9 +201,19 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
         scheduledLoad = null;
         if (!active || sessionGeneration !== loadGeneration || pendingLoadUserId.current !== userId) return;
         void loadPendingAchievementNotificationIds(supabase)
-          .then((ids) => {
+          .then(async (ids) => {
             if (active && sessionGeneration === loadGeneration && pendingLoadUserId.current === userId) {
-              enqueueAchievementIds(ids.filter(isAchievementId));
+              try {
+                const candidates = await claimAchievementIds(
+                  supabase,
+                  ids.filter(isAchievementId),
+                );
+                if (active && sessionGeneration === loadGeneration && pendingLoadUserId.current === userId) {
+                  enqueueCandidates(candidates);
+                }
+              } catch (error) {
+                console.error("Unable to acknowledge achievement notification batch.", error);
+              }
             }
           })
           .catch((error) => {
@@ -212,7 +242,7 @@ export function AchievementNotificationProvider({ children }: { children: ReactN
       if (scheduledLoad !== null) window.clearTimeout(scheduledLoad);
       subscription.unsubscribe();
     };
-  }, [clearTimer, enqueueAchievementIds]);
+  }, [claimAchievementIds, clearTimer, enqueueCandidates]);
 
   useEffect(() => clearTimer, [clearTimer]);
 

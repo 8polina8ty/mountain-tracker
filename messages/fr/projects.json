@@ -125,6 +125,8 @@
     "Conflict": { "conflictDetected": "Vos modifications n’ont pas été enregistrées", "day": "Cette journée a changé depuis son ouverture.", "journal": "Cette entrée de journal a changé depuis son ouverture.", "order": "L’ordre des journées a changé depuis son ouverture.", "permission": "Votre accès ou votre rôle a changé. Actualisez pour continuer.", "archived": "Cette expédition a été archivée et est maintenant en lecture seule.", "draftKept": "Votre brouillon local est conservé.", "reloadLatest": "Charger la dernière version" },
     "Accessibility": {
       "projectList": "Vos projets d’expédition"
-    }
+    },
+    "Invitations": { "title": "Invitations en attente", "description": "Vous avez des invitations d’expédition en attente.", "view": "Voir" },
+    "Shared": { "eyebrow": "Collaboration", "title": "Projets partagés", "description": "Projets auxquels vous collaborez.", "viewAll": "Tout afficher", "noDetails": "Projet partagé" }
   }
 }

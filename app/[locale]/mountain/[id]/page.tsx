@@ -27,6 +27,7 @@ import { getMountainImageFromWikidata } from "@/Lib/wikimedia";
 import { getSummitWeather } from "@/Lib/weather/summitWeather";
 import MountainRouteMap from "@/components/mountain/MountainRouteMap";
 import SummitWeatherSection from "@/components/mountain/SummitWeatherSection";
+import CommunityRoutesSection, { type CommunityRouteView } from "@/components/mountain/CommunityRoutesSection";
 import ProjectPicker from "@/components/projects/ProjectPicker";
 
 import FavoriteMountainToggle from "@/components/mountain/FavoriteMountainToggle";
@@ -42,6 +43,7 @@ type MountainPageProps = {
     locale: Locale;
     id: string;
   }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
 type MountainRecord = {
@@ -225,8 +227,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function MountainPage({ params }: MountainPageProps) {
+export default async function MountainPage({ params, searchParams }: MountainPageProps) {
   const { id, locale } = await params;
+  const activeSearchParams = (await searchParams) ?? {};
   const t = await getTranslations({ locale, namespace: "Mountain" });
   const format = await getFormatter({ locale });
   const mountainId = Number(id);
@@ -301,6 +304,25 @@ export default async function MountainPage({ params }: MountainPageProps) {
   }
 
   const routes = (routesData ?? []) as MountainRoute[];
+
+  const requestedCommunityPage = Number(Array.isArray(activeSearchParams.communityPage)
+    ? activeSearchParams.communityPage[0]
+    : activeSearchParams.communityPage);
+  const communityPage = Number.isSafeInteger(requestedCommunityPage) && requestedCommunityPage > 0
+    ? requestedCommunityPage
+    : 1;
+  const communityPageSize = 10;
+  const communityStart = (communityPage - 1) * communityPageSize;
+  const { data: communityRouteData } = await supabase.rpc(
+    "list_published_mountain_community_routes",
+    {
+      requested_mountain_id: mountainId,
+      requested_limit: communityPageSize,
+      requested_offset: communityStart,
+    },
+  );
+  const communityRoutes = (communityRouteData ?? []) as CommunityRouteView[];
+  const communityRouteCount = Number(communityRoutes[0]?.total_count ?? 0);
 
   const { data: statisticsData, error: statisticsError } =
     await supabase.rpc("get_mountain_statistics", {
@@ -781,6 +803,18 @@ export default async function MountainPage({ params }: MountainPageProps) {
                 </p>
               </div>
             </section>
+
+            <CommunityRoutesSection
+              locale={locale}
+              mountainId={mountainId}
+              mountainName={mountainName}
+              routes={communityRoutes}
+              count={communityRouteCount ?? 0}
+              page={communityPage}
+              pageSize={communityPageSize}
+              authenticated={Boolean(user)}
+              searchParams={activeSearchParams}
+            />
 
             <section aria-labelledby="recent-ascents-title">
               <div className="border-b border-[var(--color-border-strong)] pb-5">

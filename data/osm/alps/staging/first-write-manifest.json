@@ -1,0 +1,654 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "mountain-tracker-osm-route/v1",
+  "datasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+  "recordCount": 46,
+  "expectedSummitAssociationCount": 46,
+  "records": [
+    {
+      "idempotencyKey": "openstreetmap:relation:20916:mountain-tracker-osm-route/v1",
+      "payloadHash": "e2995161ae6c8035d00f27ddab11dcb7fcb195c263d873bc11cfe19b0f722c9d",
+      "sourceRelationId": "20916",
+      "canonicalRouteSourceId": "20916",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "300920907",
+          "mountainId": 12690,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:33528:mountain-tracker-osm-route/v1",
+      "payloadHash": "5de39ac6ed3afdbe4ce008e58c74367d666b9811fb04ab60b099aa1413539dd6",
+      "sourceRelationId": "33528",
+      "canonicalRouteSourceId": "33528",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "3006435036",
+          "mountainId": 83695,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:140270:mountain-tracker-osm-route/v1",
+      "payloadHash": "ef4cdff514241033fedd41b78542f77316685921d1febac22b861dc4ce056798",
+      "sourceRelationId": "140270",
+      "canonicalRouteSourceId": "140270",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "2143684699",
+          "mountainId": 77279,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:196164:mountain-tracker-osm-route/v1",
+      "payloadHash": "4e32e67180c4b03e91eb03c26802f74696418b092098d41b765891804c019aff",
+      "sourceRelationId": "196164",
+      "canonicalRouteSourceId": "196164",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "335302468",
+          "mountainId": 13132,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:199145:mountain-tracker-osm-route/v1",
+      "payloadHash": "e421ba184b92d778a75c9b7eb122991439686a74508598f68ff7b50fe94b54e8",
+      "sourceRelationId": "199145",
+      "canonicalRouteSourceId": "199145",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "300920886",
+          "mountainId": 12684,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:207900:mountain-tracker-osm-route/v1",
+      "payloadHash": "d199402d01d93f70d09a8685bfe0f17f09183bccff4431e59569c00b4fa3c350",
+      "sourceRelationId": "207900",
+      "canonicalRouteSourceId": "207900",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "26863054",
+          "mountainId": 11872,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:207913:mountain-tracker-osm-route/v1",
+      "payloadHash": "41b3f11a6851dd2fe3fa95fa75534c87f0060e35d272a33b7a359b2180e8f908",
+      "sourceRelationId": "207913",
+      "canonicalRouteSourceId": "207913",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "471300819",
+          "mountainId": 13929,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:222362:mountain-tracker-osm-route/v1",
+      "payloadHash": "6bb543d64df5c6f072428a435e3b79c5570d0bcac6999276692f31e50bda1630",
+      "sourceRelationId": "222362",
+      "canonicalRouteSourceId": "222362",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "2498250593",
+          "mountainId": 49,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:361148:mountain-tracker-osm-route/v1",
+      "payloadHash": "477cce97fc365394ff9d3df16fe9705305e8f7b3f54cdccee4b78e2eaee053de",
+      "sourceRelationId": "361148",
+      "canonicalRouteSourceId": "361148",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "320693845",
+          "mountainId": 12787,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:915266:mountain-tracker-osm-route/v1",
+      "payloadHash": "09605cb95d55279e5898719b41c85be3dd3380c0c3ba0ac83ece9710ef3a4d96",
+      "sourceRelationId": "915266",
+      "canonicalRouteSourceId": "915266",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1305583293",
+          "mountainId": 16207,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:935393:mountain-tracker-osm-route/v1",
+      "payloadHash": "fa09d93990c608a372b4ee7d33be83087e4c9fc92b63aebdd2430a2b641cd252",
+      "sourceRelationId": "935393",
+      "canonicalRouteSourceId": "935393",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "747187964",
+          "mountainId": 15091,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:936047:mountain-tracker-osm-route/v1",
+      "payloadHash": "13fcc7b22a5542acd19d2212dbe7faaf9dc1c2bd70de5cda4c3056004dabbcf6",
+      "sourceRelationId": "936047",
+      "canonicalRouteSourceId": "936047",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "300920848",
+          "mountainId": 12674,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:961283:mountain-tracker-osm-route/v1",
+      "payloadHash": "8364569666ada3d89db1ca404c3616a50b6ba30e7ad9ac8f12a6ed5704239884",
+      "sourceRelationId": "961283",
+      "canonicalRouteSourceId": "961283",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "771762123",
+          "mountainId": 15153,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1065987:mountain-tracker-osm-route/v1",
+      "payloadHash": "34a7e1bd564cb12c3bcd090b7618ed12eb1ebcfa342d4614914a96a769bc34d4",
+      "sourceRelationId": "1065987",
+      "canonicalRouteSourceId": "1065987",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "964697099",
+          "mountainId": 15760,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1075677:mountain-tracker-osm-route/v1",
+      "payloadHash": "ed1cd2bb4714a6231c14db2e36c7d6f8badc01e9f596c12970c436726a61250c",
+      "sourceRelationId": "1075677",
+      "canonicalRouteSourceId": "1075677",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "2526776404",
+          "mountainId": 18908,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1124155:mountain-tracker-osm-route/v1",
+      "payloadHash": "8ba568922142478ee8e30688ec05eb74bacf2cd64132a43512a975804d9fa35d",
+      "sourceRelationId": "1124155",
+      "canonicalRouteSourceId": "1124155",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "885182782",
+          "mountainId": 4147,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1138510:mountain-tracker-osm-route/v1",
+      "payloadHash": "a0a668e97654abc3d88790616f56f5e1e4d0f77c2296940b8f3ed325dc3db81f",
+      "sourceRelationId": "1138510",
+      "canonicalRouteSourceId": "1138510",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "713546737",
+          "mountainId": 15021,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1140771:mountain-tracker-osm-route/v1",
+      "payloadHash": "fa2bb5bd48f577902a22a4cba6ad25b4f11f404592f9d5591921fdef44f7b3e5",
+      "sourceRelationId": "1140771",
+      "canonicalRouteSourceId": "1140771",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "911134829",
+          "mountainId": 15555,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1144001:mountain-tracker-osm-route/v1",
+      "payloadHash": "ad35248784a4d7edda5c8a0e7aba4fbc795249af911d734913b14c282f40216d",
+      "sourceRelationId": "1144001",
+      "canonicalRouteSourceId": "1144001",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "530831149",
+          "mountainId": 72079,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1165714:mountain-tracker-osm-route/v1",
+      "payloadHash": "346158beda1cab11c23d67f97cc37f6107c880d5ec7a320fb491d5943a6bdfdf",
+      "sourceRelationId": "1165714",
+      "canonicalRouteSourceId": "1165714",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "462673434",
+          "mountainId": 13894,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1229102:mountain-tracker-osm-route/v1",
+      "payloadHash": "02ea645f789b038711dfea96c47fe95d51321c82f6feea76fa3c15000c6bd5ce",
+      "sourceRelationId": "1229102",
+      "canonicalRouteSourceId": "1229102",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "3186071317",
+          "mountainId": 66,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1271967:mountain-tracker-osm-route/v1",
+      "payloadHash": "4b46926956c1e65440dc8b28da1ccae960a4bb51709f769d081a0064de24803a",
+      "sourceRelationId": "1271967",
+      "canonicalRouteSourceId": "1271967",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "988874037",
+          "mountainId": 15824,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1490290:mountain-tracker-osm-route/v1",
+      "payloadHash": "5c060b8d77b2d319d64a36f541981e80b3bdc676cd7247633845ab7f943dcbe3",
+      "sourceRelationId": "1490290",
+      "canonicalRouteSourceId": "1490290",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1574657620",
+          "mountainId": 16967,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1555542:mountain-tracker-osm-route/v1",
+      "payloadHash": "0600f3d4883ec17fc719f0c79db28745bd040e5e67ad3c692c9890ab4f2c4d1d",
+      "sourceRelationId": "1555542",
+      "canonicalRouteSourceId": "1555542",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "264035398",
+          "mountainId": 928,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1601155:mountain-tracker-osm-route/v1",
+      "payloadHash": "9662be5ab0796cae408021132de588c2d8f31325129340199bdbb20766745f4d",
+      "sourceRelationId": "1601155",
+      "canonicalRouteSourceId": "1601155",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "323606498",
+          "mountainId": 69547,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1606996:mountain-tracker-osm-route/v1",
+      "payloadHash": "3526781fbf8df56d5e7d8a44f4985a978018774319865f64790bcb66109d7393",
+      "sourceRelationId": "1606996",
+      "canonicalRouteSourceId": "1606996",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "26862916",
+          "mountainId": 11861,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1641211:mountain-tracker-osm-route/v1",
+      "payloadHash": "d9505878f15c287b5651f8355dbc7b37d38878f83729e84f08ba27d3b00f6fc5",
+      "sourceRelationId": "1641211",
+      "canonicalRouteSourceId": "1641211",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1341734808",
+          "mountainId": 16280,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1667096:mountain-tracker-osm-route/v1",
+      "payloadHash": "f323f1e760ede07c2a2780c3a2700e612ee2a271df957d03713e16163e520954",
+      "sourceRelationId": "1667096",
+      "canonicalRouteSourceId": "1667096",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "290497840",
+          "mountainId": 208460,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1751818:mountain-tracker-osm-route/v1",
+      "payloadHash": "1bc603d720959a23932fcf45dc49f3a7ed1c355bebeece07089eb80f08899cb4",
+      "sourceRelationId": "1751818",
+      "canonicalRouteSourceId": "1751818",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1410391160",
+          "mountainId": 16456,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1777574:mountain-tracker-osm-route/v1",
+      "payloadHash": "f454e432da9cd4d95efc5f5503b7ad5870fc7b7e9f7d2535b66cf02234bf6931",
+      "sourceRelationId": "1777574",
+      "canonicalRouteSourceId": "1777574",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "775050138",
+          "mountainId": 15169,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1796122:mountain-tracker-osm-route/v1",
+      "payloadHash": "395ece21a0c1e7ba50c345f593240033b53c0b6ea785f1c5cd2a3a1cff0ef34d",
+      "sourceRelationId": "1796122",
+      "canonicalRouteSourceId": "1796122",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "3902613629",
+          "mountainId": 151688,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1798968:mountain-tracker-osm-route/v1",
+      "payloadHash": "ebcd4615d591c7b3b9e38551583ea455eff95cee1d57d5f63c14c87d05b9b176",
+      "sourceRelationId": "1798968",
+      "canonicalRouteSourceId": "1798968",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "26863825",
+          "mountainId": 69028,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1864752:mountain-tracker-osm-route/v1",
+      "payloadHash": "b9260431aecfbe9ab2ac1427f9014e100e8cc1137de1ae9017da49c826db9a2d",
+      "sourceRelationId": "1864752",
+      "canonicalRouteSourceId": "1864752",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "256041892",
+          "mountainId": 12101,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:1877850:mountain-tracker-osm-route/v1",
+      "payloadHash": "d6129a4d10bd19eda295fde39dee4602bee1e76cc257360febe81229b1110672",
+      "sourceRelationId": "1877850",
+      "canonicalRouteSourceId": "1877850",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1295150195",
+          "mountainId": 16169,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2050305:mountain-tracker-osm-route/v1",
+      "payloadHash": "6450a95584b1bcd6a2313d65e5a7a092bb79c52713e8c3d73a45fea48f664472",
+      "sourceRelationId": "2050305",
+      "canonicalRouteSourceId": "2050305",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "300920689",
+          "mountainId": 12638,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2113697:mountain-tracker-osm-route/v1",
+      "payloadHash": "8c45f758c2788fc7ef144761072c229f342a6a547faebe0cda0025ac07302bdc",
+      "sourceRelationId": "2113697",
+      "canonicalRouteSourceId": "2113697",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "48783390",
+          "mountainId": 1720,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2135331:mountain-tracker-osm-route/v1",
+      "payloadHash": "280769e256bfd61f7a909b1f542542b49e1d9d4f0daaecb9ed1d7c05d54e357c",
+      "sourceRelationId": "2135331",
+      "canonicalRouteSourceId": "2135331",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "269544853",
+          "mountainId": 208407,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2202791:mountain-tracker-osm-route/v1",
+      "payloadHash": "d55b7cacab0977e6fe4fb42b8b9bea5432d19bc94bb740817adef66d62d1234a",
+      "sourceRelationId": "2202791",
+      "canonicalRouteSourceId": "2202791",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "26864450",
+          "mountainId": 11934,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2210868:mountain-tracker-osm-route/v1",
+      "payloadHash": "336d40296e87675cc826711c678eba33d71ec66316536d7b42e1a131d8256820",
+      "sourceRelationId": "2210868",
+      "canonicalRouteSourceId": "2210868",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1827984049",
+          "mountainId": 17628,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2210870:mountain-tracker-osm-route/v1",
+      "payloadHash": "609cfc935ee59b930392c1c04dfbca7f5418ae63e0f966b1ed2bdc064d36ff89",
+      "sourceRelationId": "2210870",
+      "canonicalRouteSourceId": "2210870",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1403580617",
+          "mountainId": 16448,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2211742:mountain-tracker-osm-route/v1",
+      "payloadHash": "b67f64711b472a0ac8194d578e04b7a6f568c0837b93c4ea3c982fb94f49a73c",
+      "sourceRelationId": "2211742",
+      "canonicalRouteSourceId": "2211742",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "568680745",
+          "mountainId": 14799,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:2248159:mountain-tracker-osm-route/v1",
+      "payloadHash": "29d1614bb812ec07dc66fdeec2924d58cd0f84e82607a6057a4396bcd0b78cbc",
+      "sourceRelationId": "2248159",
+      "canonicalRouteSourceId": "2248159",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1798823893",
+          "mountainId": 17529,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:3973107:mountain-tracker-osm-route/v1",
+      "payloadHash": "46d87dccbc6c6624ed205cefdb08817b080dd05e36cd2204354dfab2f0da7713",
+      "sourceRelationId": "3973107",
+      "canonicalRouteSourceId": "3973107",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1342463884",
+          "mountainId": 295736,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:4103375:mountain-tracker-osm-route/v1",
+      "payloadHash": "ce3df6c5a21145adda0781e953739a052aed0b084e790a21241bf6770d1f395d",
+      "sourceRelationId": "4103375",
+      "canonicalRouteSourceId": "4103375",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "301549910",
+          "mountainId": 69341,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:11192622:mountain-tracker-osm-route/v1",
+      "payloadHash": "63519eb0533a94a940081d39b27d8dfdc19ece570d35916bab64afa7293d7aa5",
+      "sourceRelationId": "11192622",
+      "canonicalRouteSourceId": "11192622",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "523276765",
+          "mountainId": 71748,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    },
+    {
+      "idempotencyKey": "openstreetmap:relation:19538533:mountain-tracker-osm-route/v1",
+      "payloadHash": "6c91faa3d854961e3adc6b31e90290ed5361e0d78755d0e5dfc2cd6bc169a520",
+      "sourceRelationId": "19538533",
+      "canonicalRouteSourceId": "19538533",
+      "expectedSummitAssociationCount": 1,
+      "mountainMatches": [
+        {
+          "peakOsmId": "1314161191",
+          "mountainId": 47149,
+          "classification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ]
+    }
+  ],
+  "manifestHash": "04b6390572fa2ac66a9c0070992e0251e14739ee1663edaa2ee51f02cbd1db19"
+}

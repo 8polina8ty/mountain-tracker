@@ -100,6 +100,70 @@ replaceExact(
   'assert.ok(projectDetailPage.includes("listProjectActivity") && projectDetailPage.includes("<ProjectActivity"), "RJ: private project activity UI is not wired");',
   'assert.ok(projectDetailPage.includes("listProjectActivity") && detailView.includes("<ProjectActivity"), "RJ: private project activity UI is not wired");',
 );
+replaceExact(
+  'const projectsListSource = await readFile(new URL("../app/[locale]/projects/page.tsx", import.meta.url), "utf8");',
+  'const projectsListSource = await readFile(new URL("../app/[locale]/projects/page.tsx", import.meta.url), "utf8");\nconst projectsListPresentation = await readFile(new URL("../components/projects/ProjectsClient.tsx", import.meta.url), "utf8");',
+);
+replaceExact(
+  'assert.ok(projectsListSource.includes("lifecycleOrder") && projectsListSource.includes(\'data-lifecycle-group\'), "Phase 8: project list lifecycle ordering missing");',
+  'assert.ok(projectsListSource.includes("lifecycleOrder") && projectsListPresentation.includes(\'data-lifecycle-group\'), "Phase 8: project list lifecycle ordering missing");',
+);
+replaceExact(
+  'const explorePage=await readFile(new URL("../app/[locale]/explore/page.tsx",import.meta.url),"utf8");',
+  'const explorePage=await readFile(new URL("../app/[locale]/explore/page.tsx",import.meta.url),"utf8");\nconst explorePresentation=await readFile(new URL("../components/explore/ExploreClient.tsx",import.meta.url),"utf8");',
+);
+replaceExact(
+  'assert.ok(explorePage.includes("createClient()")&&!explorePage.includes("createAdminClient")&&explorePage.includes(\'method="get"\')&&explorePage.includes(\'href={`/expeditions/${card.slug}`}\'),"Phase 12 anonymous server route boundary missing");',
+  'assert.ok(explorePage.includes("createClient()")&&!explorePage.includes("createAdminClient")&&explorePage.includes("parsePublicExpeditionSearch")&&explorePage.includes("searchPublicExpeditions"),"Phase 12 anonymous server route boundary missing");\nassert.ok(explorePresentation.includes(\'method="get"\')&&["q","year","minDistance","maxDistance","evidence","status","sort"].every((name)=>explorePresentation.includes(`name="${name}"`))&&explorePresentation.includes(\'href={`/expeditions/${card.slug}`}\'),"Phase 12 Explore GET presentation contract missing");',
+);
+replaceExact(
+  'assert.ok(explorePage.includes("placeholderImage")&&!explorePage.includes("storage_path"),"Phase 12 placeholder/media privacy contract missing");',
+  'assert.ok(explorePresentation.includes("placeholderImage")&&!(explorePage+explorePresentation).includes("storage_path"),"Phase 12 placeholder/media privacy contract missing");',
+);
+
+const projectsClientSource = await readFile(
+  new URL("../components/projects/ProjectsClient.tsx", import.meta.url),
+  "utf8",
+);
+const sharedProjectsSource = await readFile(
+  new URL("../components/projects/SharedProjects.tsx", import.meta.url),
+  "utf8",
+);
+const projectInvitationsSource = await readFile(
+  new URL("../components/projects/ProjectInvitations.tsx", import.meta.url),
+  "utf8",
+);
+
+function staticTranslationKeys(componentSource, functionName, namespace = "") {
+  const pattern = new RegExp(`\\b${functionName}\\(\\s*["']([^"']+)["']`, "g");
+  return [...componentSource.matchAll(pattern)].map((match) =>
+    namespace ? `${namespace}.${match[1]}` : match[1],
+  );
+}
+
+const referencedProjectsKeys = new Set([
+  ...staticTranslationKeys(projectsClientSource, "t"),
+  ...staticTranslationKeys(sharedProjectsSource, "t", "Team"),
+  ...staticTranslationKeys(sharedProjectsSource, "shared", "TeamShared"),
+  ...staticTranslationKeys(sharedProjectsSource, "status", "Status"),
+  ...staticTranslationKeys(projectInvitationsSource, "t", "Team"),
+  ...["planning", "ready", "active", "completed", "archived"].map((key) => `Status.${key}`),
+  ...["owner", "editor", "viewer"].map((key) => `Team.${key}`),
+]);
+
+for (const locale of ["de", "en", "ru", "fr", "it", "es"]) {
+  const catalog = JSON.parse(
+    await readFile(new URL(`../messages/${locale}/projects.json`, import.meta.url), "utf8"),
+  ).Projects;
+  const missingKeys = [...referencedProjectsKeys].filter((key) =>
+    key.split(".").reduce((value, segment) => value?.[segment], catalog) === undefined,
+  );
+  if (missingKeys.length > 0) {
+    throw new Error(
+      `Projects translation references missing for ${locale}: ${missingKeys.join(", ")}`,
+    );
+  }
+}
 
 const currentPage = await readFile(
   new URL("../app/[locale]/projects/[projectId]/page.tsx", import.meta.url),

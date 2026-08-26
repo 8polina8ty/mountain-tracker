@@ -16,7 +16,11 @@
       "eyebrow": "Fiche d'expédition personnelle",
       "avatarAlt": "Photo de profil de {username}",
       "changeAvatar": "Changer la photo de profil",
-      "uploading": "Téléversement…"
+      "uploading": "Téléversement…",
+      "complete": "Profil complet",
+      "languages": "DE / EN",
+      "manage": "Gérer le profil",
+      "emailUnavailable": "Adresse e-mail indisponible"
     },
     "Statistics": {
       "sectionLabel": "01 / Aperçu",
@@ -29,7 +33,10 @@
       "catalogProgress": "Progression globale du catalogue",
       "catalogCount": "{ascents} / {total} sommets",
       "noData": "Aucune donnée",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "highest": "Plus haut",
+      "totalElevation": "Dénivelé total",
+      "achievements": "Succès"
     },
     "Logbook": {
       "accessibleLabel": "Rubriques du carnet d'expédition",
@@ -57,7 +64,24 @@
       "emptyDescription": "Ouvrez la carte, choisissez un sommet et ajoutez-le à vos favoris.",
       "openMap": "Aller à la carte",
       "saved": "Enregistré comme favori",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "eyebrow": "Favoris",
+      "title": "Montagnes favorites"
+    },
+    "Ascents": {
+      "eyebrow": "Derniers relevés terrain",
+      "title": "Ascensions récentes",
+      "record": "Enregistrer une ascension",
+      "emptyTitle": "Aucune ascension enregistrée",
+      "emptyDescription": "Enregistrez votre première ascension pour commencer votre carnet alpin."
+    },
+    "Achievements": {
+      "eyebrow": "Étapes",
+      "title": "Succès",
+      "milestone1": "10 sommets",
+      "milestone2": "25 sommets",
+      "milestone3": "10 000 m de dénivelé",
+      "milestone4": "Premier 2500+"
     },
     "Status": {
       "loading": "Chargement du compte…",

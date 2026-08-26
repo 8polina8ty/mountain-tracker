@@ -14,7 +14,12 @@
     "signUp": "Sign up",
     "logout": "Log out",
     "navigationTitle": "Navigation",
-    "userFallback": "User"
+    "userFallback": "User",
+    "community": "Community",
+    "primary": "Primary",
+    "tracks": "Tracks",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
   },
   "LocaleSwitcher": {
     "language": "Language"

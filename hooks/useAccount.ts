@@ -73,6 +73,7 @@ type UseAccountResult = {
 
   highestMountain: Mountain | null;
   averageHeight: number;
+  totalHeight: number;
   latestAscent: Ascent | null;
 
   unlockedAchievementsCount: number;
@@ -170,9 +171,7 @@ const averageHeight =
 const latestAscent = ascents[0] ?? null;
 
 const unlockedAchievementsCount =
-  achievements.filter(
-    (achievement) => achievement.unlocked,
-  ).length;
+  userAchievements.length;
 
 const totalMountains = 5902;
 
@@ -534,6 +533,7 @@ if (favoritesError) {
 
   highestMountain,
   averageHeight,
+  totalHeight,
   latestAscent,
 
   unlockedAchievementsCount,

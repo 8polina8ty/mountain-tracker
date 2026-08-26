@@ -16,7 +16,11 @@
       "eyebrow": "Личная экспедиционная запись",
       "avatarAlt": "Аватар пользователя {username}",
       "changeAvatar": "Изменить аватар",
-      "uploading": "Загрузка…"
+      "uploading": "Загрузка…",
+      "complete": "Профиль заполнен",
+      "languages": "DE / EN",
+      "manage": "Управление профилем",
+      "emailUnavailable": "Адрес электронной почты недоступен"
     },
     "Statistics": {
       "sectionLabel": "01 / Сводка",
@@ -29,7 +33,10 @@
       "catalogProgress": "Общий прогресс каталога",
       "catalogCount": "{ascents} / {total} вершин",
       "noData": "Нет данных",
-      "meterUnit": "м"
+      "meterUnit": "м",
+      "highest": "Высшая",
+      "totalElevation": "Общий набор",
+      "achievements": "Достижения"
     },
     "Logbook": {
       "accessibleLabel": "Разделы экспедиционного журнала",
@@ -57,7 +64,24 @@
       "emptyDescription": "Откройте карту, выберите вершину и добавьте её в избранное.",
       "openMap": "Перейти к карте",
       "saved": "В избранном",
-      "meterUnit": "м"
+      "meterUnit": "м",
+      "eyebrow": "Избранное",
+      "title": "Избранные горы"
+    },
+    "Ascents": {
+      "eyebrow": "Последние полевые записи",
+      "title": "Последние восхождения",
+      "record": "Записать восхождение",
+      "emptyTitle": "Восхождений не записано",
+      "emptyDescription": "Запишите первое восхождение, чтобы начать алпинистский журнал."
+    },
+    "Achievements": {
+      "eyebrow": "Вехи",
+      "title": "Достижения",
+      "milestone1": "10 вершин",
+      "milestone2": "25 вершин",
+      "milestone3": "10 000 м набора",
+      "milestone4": "Первая 2500+"
     },
     "Status": {
       "loading": "Загружаю аккаунт…",

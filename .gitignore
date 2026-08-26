@@ -54,3 +54,13 @@ venv/
 # large local geodata
 date/*.osm.pbf
 date/boundaries/*.geojson
+
+# isolated OpenStreetMap bulk-ingestion inputs and generated artifacts
+/data/osm/source/*.osm.pbf
+/data/osm/alps/*.jsonl
+/data/osm/alps/summary.json
+/data/osm/alps/checkpoints/
+
+# local Phase 8A boundary source and normalized geometry (mixed open licences)
+/data/osm/boundaries/source/
+/data/osm/boundaries/*.geojson

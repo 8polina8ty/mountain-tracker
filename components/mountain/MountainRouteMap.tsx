@@ -10,13 +10,32 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { useTranslations } from "next-intl";
 
 type MountainRouteMapProps = {
-  geojsonUrl: string;
+  geojsonUrl?: string;
+  geojson?: RouteGeoJson;
   routeName: string;
+  qaMarkers?: {
+    summit: { coordinates: [number, number]; label: string };
+    mountain: { coordinates: [number, number]; label: string };
+  };
+  topologyEndpoints?: {
+    startCoordinate: [number, number];
+    endCoordinate: [number, number];
+  } | null;
 };
 
-type RouteGeoJson = GeoJSON.FeatureCollection<
+export type RouteGeoJson = GeoJSON.FeatureCollection<
   GeoJSON.LineString | GeoJSON.MultiLineString
->;
+> & {
+  mountainTracker?: {
+    topologyEndpoints?: {
+      startCoordinate: [number, number];
+      endCoordinate: [number, number];
+    } | null;
+    topologyClassification?: string;
+    endpointSelectionAmbiguous?: boolean;
+    endpointSelectionWarning?: string | null;
+  };
+};
 
 const ROUTE_SOURCE_ID = "mountain-route";
 const ROUTE_BORDER_LAYER_ID = "mountain-route-border";
@@ -24,7 +43,10 @@ const ROUTE_LAYER_ID = "mountain-route-line";
 
 export default function MountainRouteMap({
   geojsonUrl,
+  geojson,
   routeName,
+  qaMarkers,
+  topologyEndpoints,
 }: MountainRouteMapProps) {
   const t = useTranslations("Mountain.Map");
   const containerRef = useRef<HTMLDivElement | null>(
@@ -34,6 +56,8 @@ export default function MountainRouteMap({
   const mapRef = useRef<Map | null>(null);
   const startMarkerRef = useRef<Marker | null>(null);
   const finishMarkerRef = useRef<Marker | null>(null);
+  const summitMarkerRef = useRef<Marker | null>(null);
+  const mountainMarkerRef = useRef<Marker | null>(null);
 
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] =
@@ -86,9 +110,13 @@ export default function MountainRouteMap({
     return () => {
       startMarkerRef.current?.remove();
       finishMarkerRef.current?.remove();
+      summitMarkerRef.current?.remove();
+      mountainMarkerRef.current?.remove();
 
       startMarkerRef.current = null;
       finishMarkerRef.current = null;
+      summitMarkerRef.current = null;
+      mountainMarkerRef.current = null;
 
       map.remove();
       mapRef.current = null;
@@ -101,9 +129,9 @@ export default function MountainRouteMap({
   useEffect(() => {
     const currentMap = mapRef.current;
 
-if (!currentMap || !geojsonUrl) {
-  return;
-}
+    if (!currentMap || (!geojsonUrl && !geojson)) {
+      return;
+    }
 
 const map: Map = currentMap;
 
@@ -193,6 +221,7 @@ const map: Map = currentMap;
     function updateRoute(
       geojson: RouteGeoJson,
       coordinates: [number, number][],
+      resolvedTopologyEndpoints: MountainRouteMapProps["topologyEndpoints"],
     ) {
       if (effectCancelled || mapRef.current !== map) {
         return;
@@ -243,42 +272,76 @@ const map: Map = currentMap;
 
       startMarkerRef.current?.remove();
       finishMarkerRef.current?.remove();
+      summitMarkerRef.current?.remove();
+      mountainMarkerRef.current?.remove();
 
-      const firstCoordinate = coordinates[0];
-      const lastCoordinate =
-        coordinates[coordinates.length - 1];
+      const markerEndpoints =
+        resolvedTopologyEndpoints === undefined
+          ? {
+              start: coordinates[0],
+              end: coordinates[coordinates.length - 1],
+            }
+          : resolvedTopologyEndpoints === null
+            ? null
+            : {
+                start: resolvedTopologyEndpoints.startCoordinate,
+                end: resolvedTopologyEndpoints.endCoordinate,
+              };
+      const firstCoordinate = markerEndpoints?.start;
+      const lastCoordinate = markerEndpoints?.end;
 
-      startMarkerRef.current = new maplibregl.Marker({
-        element: createMarkerElement(
-          "S",
-          "bg-green-600",
-          t("startMarker", { routeName }),
-        ),
-        anchor: "center",
-      })
-        .setLngLat(firstCoordinate)
-        .setPopup(
-          new maplibregl.Popup({
-            offset: 24,
-          }).setText(t("startPopup", { routeName })),
-        )
-        .addTo(map);
+      if (firstCoordinate && lastCoordinate) {
+        startMarkerRef.current = new maplibregl.Marker({
+          element: createMarkerElement(
+            "S",
+            "bg-green-600",
+            t("startMarker", { routeName }),
+          ),
+          anchor: "center",
+        })
+          .setLngLat(firstCoordinate)
+          .setPopup(
+            new maplibregl.Popup({
+              offset: 24,
+            }).setText(t("startPopup", { routeName })),
+          )
+          .addTo(map);
 
-      finishMarkerRef.current = new maplibregl.Marker({
-        element: createMarkerElement(
-          "F",
-          "bg-red-600",
-          t("finishMarker", { routeName }),
-        ),
-        anchor: "center",
-      })
-        .setLngLat(lastCoordinate)
-        .setPopup(
-          new maplibregl.Popup({
-            offset: 24,
-          }).setText(t("finishPopup", { routeName })),
-        )
-        .addTo(map);
+        finishMarkerRef.current = new maplibregl.Marker({
+          element: createMarkerElement(
+            "F",
+            "bg-red-600",
+            t("finishMarker", { routeName }),
+          ),
+          anchor: "center",
+        })
+          .setLngLat(lastCoordinate)
+          .setPopup(
+            new maplibregl.Popup({
+              offset: 24,
+            }).setText(t("finishPopup", { routeName })),
+          )
+          .addTo(map);
+      }
+
+      if (qaMarkers) {
+        summitMarkerRef.current = new maplibregl.Marker({
+          element: createMarkerElement("P", "bg-amber-600", qaMarkers.summit.label),
+          anchor: "center",
+        })
+          .setLngLat(qaMarkers.summit.coordinates)
+          .setPopup(new maplibregl.Popup({ offset: 24 }).setText(qaMarkers.summit.label))
+          .addTo(map);
+
+        mountainMarkerRef.current = new maplibregl.Marker({
+          element: createMarkerElement("M", "bg-blue-700", qaMarkers.mountain.label),
+          anchor: "center",
+          offset: [18, -18],
+        })
+          .setLngLat(qaMarkers.mountain.coordinates)
+          .setPopup(new maplibregl.Popup({ offset: 24 }).setText(qaMarkers.mountain.label))
+          .addTo(map);
+      }
 
       const bounds = new maplibregl.LngLatBounds();
 
@@ -300,23 +363,27 @@ const map: Map = currentMap;
 
     async function loadRoute() {
       try {
-        const response = await fetch(geojsonUrl, {
-          signal: abortController.signal,
-          cache: "no-store",
-        });
+        let routeGeojson = geojson;
+        if (!routeGeojson) {
+          const response = await fetch(geojsonUrl as string, {
+            signal: abortController.signal,
+            cache: "no-store",
+          });
 
-        if (!response.ok) {
-          throw new Error(
-            t("requestFailed", { status: response.status }),
-          );
+          if (!response.ok) {
+            throw new Error(
+              t("requestFailed", { status: response.status }),
+            );
+          }
+
+          routeGeojson = (await response.json()) as RouteGeoJson;
         }
-
-        const geojson =
-          (await response.json()) as RouteGeoJson;
+        if (!routeGeojson) throw new Error(t("loadFailed"));
+        const loadedGeojson = routeGeojson;
 
         if (
-          geojson.type !== "FeatureCollection" ||
-          !Array.isArray(geojson.features)
+          loadedGeojson.type !== "FeatureCollection" ||
+          !Array.isArray(loadedGeojson.features)
         ) {
           throw new Error(
             t("invalidFeatureCollection"),
@@ -324,7 +391,17 @@ const map: Map = currentMap;
         }
 
         const coordinates =
-          getRouteCoordinates(geojson);
+          getRouteCoordinates(loadedGeojson);
+
+        const responseTopologyEndpoints =
+          loadedGeojson.mountainTracker &&
+          Object.hasOwn(loadedGeojson.mountainTracker, "topologyEndpoints")
+            ? loadedGeojson.mountainTracker.topologyEndpoints
+            : undefined;
+        const resolvedTopologyEndpoints =
+          topologyEndpoints === undefined
+            ? responseTopologyEndpoints
+            : topologyEndpoints;
 
         if (coordinates.length < 2) {
           throw new Error(
@@ -333,7 +410,7 @@ const map: Map = currentMap;
         }
 
         function showRoute() {
-          updateRoute(geojson, coordinates);
+          updateRoute(loadedGeojson, coordinates, resolvedTopologyEndpoints);
 
           if (!effectCancelled) {
             setLoading(false);
@@ -374,7 +451,7 @@ const map: Map = currentMap;
       effectCancelled = true;
       abortController.abort();
     };
-  }, [geojsonUrl, routeName, t]);
+  }, [geojson, geojsonUrl, qaMarkers, routeName, t, topologyEndpoints]);
 
   return (
     <div className="relative mt-8 overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-bg-terrain)] shadow-[var(--shadow-control)]">

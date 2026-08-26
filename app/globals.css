@@ -1,57 +1,84 @@
 @import "tailwindcss";
 
+/* ========================================
+   MOUNTAIN TRACKER — MODERN ALPINE DESIGN V2
+   ======================================== */
+
 :root {
   color-scheme: light;
 
-  --color-bg: #f2f3ee;
-  --color-bg-secondary: #e8ebe5;
-  --color-bg-terrain: #dde2da;
+  /* Alpine Background System */
+  --color-bg: #F8F6F1;
+  --color-bg-warm: #FAF8F3;
+  --color-bg-secondary: #F0EDE6;
+  --color-bg-terrain: #E8E4DC;
+  --color-bg-deep: #E5E1D9;
 
-  --color-surface: #fafbf7;
-  --color-surface-raised: #ffffff;
-  --color-surface-muted: #ecefea;
-  --color-surface-inverse: #17211c;
+  /* Surfaces */
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-muted: #F5F3ED;
+  --color-surface-overlay: rgba(255, 255, 255, 0.96);
+  --color-surface-inverse: #1A231E;
 
-  --color-text: #17211c;
-  --color-text-secondary: #3e4a43;
-  --color-text-muted: #667169;
-  --color-text-subtle: #879089;
-  --color-text-disabled: #a3aaa5;
-  --color-text-inverse: #f7f9f5;
+  /* Forest / Primary */
+  --color-pine: #1A4D38;
+  --color-pine-hover: #163D2E;
+  --color-pine-active: #122E23;
+  --color-forest: #2D6B4F;
+  --color-forest-hover: #256044;
+  --color-forest-active: #1D4D36;
+  --color-forest-light: #3D8263;
+  --color-spruce: #3A7A5A;
 
-  --color-border-soft: #e1e4de;
-  --color-border: #cdd3cc;
-  --color-border-strong: #a9b3ab;
-  --color-focus: #4e8b6d;
-  --color-focus-halo: #b8d7c5;
+  /* Text Hierarchy */
+  --color-text: #1A231E;
+  --color-text-secondary: #3A463E;
+  --color-text-muted: #6B7A6F;
+  --color-text-subtle: #8B998C;
+  --color-text-disabled: #A8B4A9;
+  --color-text-inverse: #F8F6F1;
 
-  --color-forest: #1f5a3d;
-  --color-forest-hover: #194b34;
-  --color-forest-active: #123b29;
-  --color-spruce: #317555;
-  --color-glacier: #3f7f8d;
-  --color-alpine-sky: #6d99aa;
-  --color-ochre: #b8782f;
-  --color-lichen: #76884a;
-  --color-granite: #69716b;
-  --color-snow: #f7f8f4;
+  /* Borders */
+  --color-border-soft: #E8E4DC;
+  --color-border: #D4CFC4;
+  --color-border-strong: #B8B3A6;
+  --color-border-inverse: rgba(255, 255, 255, 0.15);
 
-  --color-success: #2f7d50;
-  --color-success-soft: #e6f2e9;
-  --color-success-border: #a8ceb5;
-  --color-warning: #a6651f;
-  --color-warning-soft: #faf0de;
-  --color-warning-border: #e5c38c;
-  --color-danger: #b23b35;
-  --color-danger-soft: #f9e9e7;
-  --color-danger-border: #e4a8a3;
-  --color-info: #2e6f82;
-  --color-info-soft: #e6f1f4;
-  --color-info-border: #a8ccd4;
+  /* Focus */
+  --color-focus: #2D6B4F;
+  --color-focus-halo: rgba(45, 107, 79, 0.15);
 
-  --color-route: #0f7655;
-  --color-track: #1565c0;
+  /* Accent Colors */
+  --color-glacier: #4A9BAB;
+  --color-alpine-sky: #7BB8CC;
+  --color-ochre: #C4893A;
+  --color-ochre-deep: #A67230;
+  --color-lichen: #8A9F5C;
+  --color-granite: #6B7A6F;
+  --color-stone: #8B9590;
+  --color-snow: #FDFCFA;
 
+  /* Status Colors */
+  --color-success: #3A8A5F;
+  --color-success-soft: #E8F3ED;
+  --color-success-border: #A8D4B8;
+  --color-warning: #C4893A;
+  --color-warning-soft: #FFF5E6;
+  --color-warning-border: #E8C89A;
+  --color-danger: #C45A52;
+  --color-danger-soft: #FCEAE8;
+  --color-danger-border: #E8A8A0;
+  --color-info: #4A9BAB;
+  --color-info-soft: #E6F2F5;
+  --color-info-border: #A8D4DC;
+
+  /* Technical Colors */
+  --color-route: #3A8A5F;
+  --color-track: #4A8AC4;
+
+  /* Altitude Colors */
   --altitude-low: #22c55e;
   --altitude-medium-low: #84cc16;
   --altitude-medium: #facc15;
@@ -60,12 +87,12 @@
   --altitude-very-high: #9333ea;
   --altitude-extreme: #2563eb;
 
-  --font-ui: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Arial Narrow", "Aptos Narrow", "Segoe UI", Arial,
-    sans-serif;
-  --font-technical: "Cascadia Mono", "SFMono-Regular", Consolas,
-    "Liberation Mono", monospace;
+  /* Typography */
+  --font-ui: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-display: "Arial Narrow", "Aptos Narrow", "Segoe UI", Arial, sans-serif;
+  --font-technical: "Cascadia Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
 
+  /* Font Sizes */
   --font-size-label: 0.6875rem;
   --font-size-caption: 0.75rem;
   --font-size-small: 0.875rem;
@@ -77,6 +104,7 @@
   --font-size-hero: 3.5rem;
   --font-size-metric: 2.5rem;
 
+  /* Line Heights */
   --line-height-label: 1rem;
   --line-height-caption: 1.125rem;
   --line-height-small: 1.25rem;
@@ -88,11 +116,13 @@
   --line-height-hero: 3.75rem;
   --line-height-metric: 2.75rem;
 
+  /* Font Weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
+  /* Spacing */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -106,122 +136,184 @@
   --space-20: 80px;
   --space-24: 96px;
 
-  --radius-sm: 3px;
-  --radius-control: 6px;
-  --radius-card: 8px;
-  --radius-panel: 12px;
-  --radius-sheet: 20px;
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-control: 10px;
+  --radius-card: 14px;
+  --radius-panel: 20px;
+  --radius-sheet: 24px;
   --radius-pill: 999px;
 
-  --shadow-control: 0 1px 2px #0e151114, 0 2px 6px #0e15110a;
-  --shadow-card: 0 4px 12px #0e15110c, 0 1px 3px #0e151108;
-  --shadow-panel: 0 12px 36px #0e151118, 0 4px 12px #0e15110c;
-  --shadow-map-control: 0 6px 20px #0e151124;
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(26, 35, 30, 0.04);
+  --shadow-sm: 0 2px 4px rgba(26, 35, 30, 0.06);
+  --shadow-control: 0 2px 8px rgba(26, 35, 30, 0.08);
+  --shadow-card: 0 4px 16px rgba(26, 35, 30, 0.08), 0 1px 4px rgba(26, 35, 30, 0.04);
+  --shadow-panel: 0 12px 40px rgba(26, 35, 30, 0.12), 0 4px 12px rgba(26, 35, 30, 0.06);
+  --shadow-floating: 0 8px 32px rgba(26, 35, 30, 0.14), 0 2px 8px rgba(26, 35, 30, 0.08);
+  --shadow-hero: 0 20px 60px rgba(26, 35, 30, 0.16);
+  --shadow-map-control: 0 6px 20px rgba(26, 35, 30, 0.18);
 
+  /* Motion */
+  --duration-instant: 60ms;
   --duration-fast: 120ms;
-  --duration-base: 180ms;
-  --duration-panel: 260ms;
-  --duration-sheet: 320ms;
-  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Preserve the original names while components migrate to semantic tokens. */
+  /* Legacy aliases */
   --background: var(--color-bg);
   --foreground: var(--color-text);
 }
 
-@media print {
-  body > header, body > nav, .project-report-control { display: none !important; }
-  .project-report, .project-report article { background: white !important; color: black !important; }
-  .project-report .report-card, .project-report .report-media { break-inside: avoid; box-shadow: none !important; }
-  .project-report .report-day { break-inside: auto; }
-  .project-report .report-media-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
-  .project-report video, .project-report button, .project-report [role="dialog"] { display: none !important; }
-  @page { margin: 14mm; }
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-ui);
-  --font-mono: var(--font-technical);
-}
+/* ========================================
+   DARK MODE
+   ======================================== */
 
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --color-bg: #0e1511;
-  --color-bg-secondary: #121b16;
-  --color-bg-terrain: #101813;
+  /* Alpine Dark Background System */
+  --color-bg: #0E1512;
+  --color-bg-warm: #111916;
+  --color-bg-secondary: #151E19;
+  --color-bg-terrain: #1A241E;
+  --color-bg-deep: #1F2923;
 
-  --color-surface: #17221c;
-  --color-surface-raised: #1e2b24;
-  --color-surface-muted: #26352c;
-  --color-surface-inverse: #f0f3ee;
+  /* Surfaces */
+  --color-surface: #1A241E;
+  --color-surface-raised: #1F2923;
+  --color-surface-elevated: #1F2923;
+  --color-surface-muted: #232E27;
+  --color-surface-overlay: rgba(26, 36, 30, 0.98);
+  --color-surface-inverse: #F8F6F1;
 
-  --color-text: #f0f3ee;
-  --color-text-secondary: #c4cbc5;
-  --color-text-muted: #929d95;
-  --color-text-subtle: #6f7b73;
-  --color-text-disabled: #59655d;
-  --color-text-inverse: #0e1511;
+  /* Forest / Primary */
+  --color-pine: #57A87A;
+  --color-pine-hover: #6BC08F;
+  --color-pine-active: #4A966A;
+  --color-forest: #6BC08F;
+  --color-forest-hover: #7FD4A2;
+  --color-forest-active: #5AAE7A;
+  --color-forest-light: #7FD4A2;
+  --color-spruce: #7FC49A;
 
-  --color-border-soft: #2a392f;
-  --color-border: #3a4c40;
-  --color-border-strong: #596b60;
-  --color-focus: #69b98c;
-  --color-focus-halo: #315c45;
+  /* Text Hierarchy */
+  --color-text: #EBF0EC;
+  --color-text-secondary: #B8C4BB;
+  --color-text-muted: #7A8A7E;
+  --color-text-subtle: #5A6A5E;
+  --color-text-disabled: #4A5A4E;
+  --color-text-inverse: #0E1512;
 
-  --color-forest: #57a77a;
-  --color-forest-hover: #69b98c;
-  --color-forest-active: #438d65;
-  --color-success: #6fbf94;
-  --color-success-soft: #16241c;
-  --color-success-border: #2f5e44;
-  --color-warning: #d49a4e;
-  --color-warning-soft: #241d12;
-  --color-warning-border: #5e4a2a;
-  --color-danger: #e07a74;
-  --color-danger-soft: #241715;
-  --color-danger-border: #5e3833;
-  --color-info: #6cb5c8;
-  --color-info-soft: #122026;
-  --color-info-border: #2c4e5a;
-  --color-ochre: #d49a4e;
+  /* Borders */
+  --color-border-soft: #2A3830;
+  --color-border: #3A4840;
+  --color-border-strong: #4A5A50;
+  --color-border-inverse: rgba(255, 255, 255, 0.08);
+
+  /* Focus */
+  --color-focus: #6BC08F;
+  --color-focus-halo: rgba(107, 192, 143, 0.2);
+
+  /* Accent Colors */
+  --color-glacier: #7CC8D8;
+  --color-alpine-sky: #9CCEDC;
+  --color-ochre: #DAA050;
+  --color-ochre-deep: #C4893A;
+  --color-lichen: #A4B86C;
+  --color-granite: #7A8A7E;
+  --color-stone: #6A7A6E;
+  --color-snow: #232E27;
+
+  /* Status Colors */
+  --color-success: #6BC08F;
+  --color-success-soft: #1A2E24;
+  --color-success-border: #3A6A50;
+  --color-warning: #DAA050;
+  --color-warning-soft: #2E2418;
+  --color-warning-border: #6A5030;
+  --color-danger: #E07A70;
+  --color-danger-soft: #2E1E1C;
+  --color-danger-border: #6A4038;
+  --color-info: #7CC8D8;
+  --color-info-soft: #182022;
+  --color-info-border: #3A5A62;
+
+  /* Technical Colors */
+  --color-route: #6BC08F;
+  --color-track: #6AADDA;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-control: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
+  --shadow-panel: 0 12px 40px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-floating: 0 8px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-hero: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-map-control: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-technical);
+}
+
+* { box-sizing: border-box; }
 
 html {
   min-height: 100%;
   background: var(--color-bg);
-  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
+  margin: 0;
   min-height: 100dvh;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-ui);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
-h3,
-h4 {
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   text-wrap: balance;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0;
 }
 
-code,
-kbd,
-samp,
-pre,
-.technical {
+h1 { letter-spacing: -0.035em; }
+h2 { letter-spacing: -0.03em; }
+
+.technical, code, kbd, samp, pre {
   font-family: var(--font-technical);
-  font-feature-settings: "tnum" 1;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
 }
 
 ::selection {
@@ -229,16 +321,11 @@ pre,
   color: var(--color-text);
 }
 
-:where(
-  a,
-  button,
-  input,
-  select,
-  textarea,
-  summary,
-  [role="button"],
-  [tabindex]:not([tabindex="-1"])
-):focus-visible {
+/* ========================================
+   FOCUS STATES
+   ======================================== */
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;
 }
@@ -248,38 +335,54 @@ pre,
   outline-offset: -3px;
 }
 
+/* ========================================
+   INTERACTIVE PATTERNS
+   ======================================== */
+
 .ui-pressable {
   transition:
-    color var(--duration-fast) var(--ease-standard),
-    background-color var(--duration-fast) var(--ease-standard),
-    border-color var(--duration-fast) var(--ease-standard),
-    opacity var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard);
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+  cursor: pointer;
 }
 
-.ui-pressable:not(:disabled):not([aria-disabled="true"]):active {
+.ui-pressable:not(:disabled):active {
   transform: translateY(1px);
 }
 
+.ui-pressable:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form Fields */
 .ui-field {
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
   transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast) var(--ease-standard),
-    background-color var(--duration-fast) var(--ease-standard);
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
 }
 
-.ui-field::placeholder {
-  color: var(--color-text-muted);
-}
-
-.ui-field:hover:not(:disabled):not(:focus-visible) {
+.ui-field:hover {
   border-color: var(--color-border-strong);
 }
 
 .ui-field:focus-visible {
   border-color: var(--color-focus);
   box-shadow: 0 0 0 3px var(--color-focus-halo);
+  outline: none;
+}
+
+.ui-field::placeholder {
+  color: var(--color-text-muted);
 }
 
 .ui-field[aria-invalid="true"] {
@@ -299,22 +402,106 @@ pre,
 }
 
 .ui-progress-fill {
-  transition: width var(--duration-base) var(--ease-standard);
+  transition: width var(--duration-base) var(--ease-out);
 }
+
+/* ========================================
+   LAYOUT UTILITIES
+   ======================================== */
+
+.metric-grid > * + * {
+  border-left: 1px solid var(--color-border-soft);
+}
+
+@media (max-width: 767px) {
+  .metric-grid > * + * {
+    border-left: 0;
+    border-top: 1px solid var(--color-border-soft);
+  }
+}
+
+/* Hero Overlays */
+.hero-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(14, 21, 18, 0.88) 0%,
+    rgba(14, 21, 18, 0.5) 35%,
+    rgba(14, 21, 18, 0.15) 65%,
+    transparent 100%
+  );
+}
+
+.hero-overlay-dark {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.55) 40%,
+    rgba(0, 0, 0, 0.2) 70%,
+    transparent 100%
+  );
+}
+
+/* Surface Gradients */
+.surface-gradient {
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-muted) 100%);
+}
+
+.surface-gradient-warm {
+  background: linear-gradient(180deg, var(--color-bg-warm) 0%, var(--color-bg) 100%);
+}
+
+/* Dividers */
+.divider {
+  height: 1px;
+  background: var(--color-border-soft);
+}
+
+.divider-vertical {
+  width: 1px;
+  background: var(--color-border-soft);
+}
+
+/* Safe area for mobile bottom nav */
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-granite);
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-delay: 0ms !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
   .ui-pressable {
@@ -322,7 +509,10 @@ pre,
   }
 }
 
-/* Map route viewport and controls; scoped to avoid affecting embedded maps. */
+/* ========================================
+   MAP SHELL (Preserved from production)
+   ======================================== */
+
 .mountain-map-shell {
   height: calc(100vh - 58px);
 }
@@ -343,7 +533,7 @@ pre,
 .mountain-map-shell .maplibregl-ctrl-group button {
   height: 44px;
   width: 44px;
-  transition: background-color var(--duration-fast) var(--ease-standard);
+  transition: background-color var(--duration-fast) var(--ease-out);
 }
 
 .mountain-map-shell .maplibregl-ctrl-group button:hover {
@@ -382,5 +572,41 @@ pre,
     .mountain-map-shell {
       height: calc(100dvh - 66px);
     }
+  }
+}
+
+/* ========================================
+   PRINT
+   ======================================== */
+
+@media print {
+  body > header, body > nav, .project-report-control, .mobile-bottom-nav {
+    display: none !important;
+  }
+
+  .project-report, .project-report article {
+    background: white !important;
+    color: black !important;
+  }
+
+  .project-report .report-card, .project-report .report-media {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .project-report .report-day {
+    break-inside: auto;
+  }
+
+  .project-report .report-media-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+
+  .project-report video, .project-report button, .project-report [role="dialog"] {
+    display: none !important;
+  }
+
+  @page {
+    margin: 14mm;
   }
 }

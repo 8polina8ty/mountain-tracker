@@ -10,6 +10,14 @@ const packageLock = JSON.parse(
 const nvmrc = (
   await readFile(new URL("../.nvmrc", import.meta.url), "utf8")
 ).trim();
+const nextConfigSource = await readFile(
+  new URL("../next.config.ts", import.meta.url),
+  "utf8",
+);
+const v2ImageSources = await Promise.all([
+  readFile(new URL("../components/ui-v2.tsx", import.meta.url), "utf8"),
+  readFile(new URL("../components/explore/ExploreClient.tsx", import.meta.url), "utf8"),
+]);
 
 const nodeMajor = Number(process.versions.node.split(".")[0]);
 const lockRoot = packageLock.packages?.[""];
@@ -44,5 +52,33 @@ assert.equal(
   "string",
   "MapLibre must remain the active map dependency",
 );
+
+const staticV2ImageUrls = v2ImageSources.flatMap((componentSource) =>
+  [...componentSource.matchAll(/\b(?:image|src)="(https:\/\/[^\"]+)"/g)].map(
+    (match) => new URL(match[1]),
+  ),
+);
+const configuredStaticImagePatterns = [
+  ...nextConfigSource.matchAll(
+    /\{\s*protocol:\s*"([^"]+)",\s*hostname:\s*"([^"]+)",\s*pathname:\s*"([^"]+)",?\s*\}/g,
+  ),
+].map((match) => ({ protocol: match[1], hostname: match[2], pathname: match[3] }));
+
+for (const imageUrl of staticV2ImageUrls) {
+  const matched = configuredStaticImagePatterns.some((pattern) => {
+    const pathPrefix = pattern.pathname.endsWith("/**")
+      ? pattern.pathname.slice(0, -3)
+      : pattern.pathname;
+    return imageUrl.protocol === `${pattern.protocol}:`
+      && imageUrl.hostname === pattern.hostname
+      && (pattern.pathname.endsWith("/**")
+        ? imageUrl.pathname.startsWith(`${pathPrefix}/`)
+        : imageUrl.pathname === pathPrefix);
+  });
+  assert.ok(
+    matched,
+    `Static V2 next/image URL is not covered by images.remotePatterns: ${imageUrl.href}`,
+  );
+}
 
 console.log("Runtime and dependency baseline contracts passed.");

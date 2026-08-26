@@ -125,6 +125,8 @@
     "Conflict": { "conflictDetected": "Deine Änderungen wurden nicht gespeichert", "day": "Dieser Tag wurde geändert, seit du ihn geöffnet hast.", "journal": "Dieser Tagebucheintrag wurde geändert, seit du ihn geöffnet hast.", "order": "Die Reihenfolge der Tage wurde geändert.", "permission": "Dein Zugriff oder deine Rolle wurde geändert. Aktualisiere sicherheitshalber.", "archived": "Diese Expedition wurde archiviert und ist jetzt schreibgeschützt.", "draftKept": "Dein lokaler Entwurf bleibt erhalten.", "reloadLatest": "Neueste Version laden" },
     "Accessibility": {
       "projectList": "Deine Expeditionsprojekte"
-    }
+    },
+    "Invitations": { "title": "Ausstehende Einladungen", "description": "Du hast ausstehende Expeditionseinladungen.", "view": "Anzeigen" },
+    "Shared": { "eyebrow": "Zusammenarbeit", "title": "Geteilte Projekte", "description": "Projekte, an denen du mitarbeitest.", "viewAll": "Alle anzeigen", "noDetails": "Geteiltes Projekt" }
   }
 }

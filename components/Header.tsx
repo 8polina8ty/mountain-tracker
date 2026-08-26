@@ -2,11 +2,16 @@
 
 import type { User } from "@supabase/supabase-js";
 import {
-  LogIn,
+  Bell,
+  Compass,
   LogOut,
   Menu,
+  Moon,
   Mountain,
+  Sun,
+  Trophy,
   UserRound,
+  Users,
   X,
 } from "lucide-react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
@@ -21,46 +26,54 @@ import { formatUnreadBadge } from "@/Lib/socialMessaging";
 
 const standardEasing = [0.2, 0, 0, 1] as const;
 
-const navigationLinks = [
-  { href: "/map", labelKey: "map", primary: true },
-  { href: "/explore", labelKey: "explore", primary: false },
-  { href: "/ranking", labelKey: "ranking", primary: false },
-  {
-    href: "/account/ascents",
-    labelKey: "myAscents",
-    primary: false,
-  },
+/* ========================================
+   V2 NAVIGATION STRUCTURE
+   ======================================== */
+
+// Primary desktop navigation - 4 main areas
+const primaryNavItems = [
+  { href: "/explore", labelKey: "explore", icon: Compass },
+  { href: "/map", labelKey: "map", icon: Mountain },
+  { href: "/projects", labelKey: "projects", icon: Mountain },
+  { href: "/ranking", labelKey: "community", icon: Users },
 ] as const;
 
-const socialNavigationLink = {
-  href: "/friends",
-  labelKey: "friends",
-  primary: false,
-} as const;
-const projectsNavigationLink = {
-  href: "/projects",
-  labelKey: "projects",
-  primary: false,
-} as const;
-const messagesNavigationLink = {
-  href: "/messages",
-  labelKey: "messages",
-  primary: false,
-} as const;
-const notificationsNavigationLink = { href: "/notifications", labelKey: "notifications", primary: false } as const;
+// Mobile bottom navigation
+const mobileNavItems = [
+  { href: "/explore", labelKey: "explore", icon: Compass },
+  { href: "/map", labelKey: "map", icon: Mountain },
+  { href: "/projects", labelKey: "projects", icon: Mountain },
+  { href: "/ranking", labelKey: "community", icon: Trophy },
+] as const;
 
-const guestNavigationLinks = [
-  ...navigationLinks,
-  { href: "/account", labelKey: "account", primary: false },
+// Secondary destinations reachable from Community
+const communityNavItems = [
+  { href: "/ranking", labelKey: "ranking" },
+  { href: "/friends", labelKey: "friends" },
+  { href: "/messages", labelKey: "messages" },
+  { href: "/notifications", labelKey: "notifications" },
 ] as const;
 
 function isRouteActive(pathname: string, href: string) {
-  if (href === "/account") {
+  // Primary nav active states
+  if (href === "/explore") {
+    return pathname === "/explore" || pathname.startsWith("/mountain/");
+  }
+  if (href === "/projects") {
+    return pathname === "/projects" || pathname.startsWith("/projects/");
+  }
+  if (href === "/ranking") {
     return (
-      pathname === href || pathname.startsWith("/account/tracks")
+      pathname === "/ranking" ||
+      pathname.startsWith("/friends") ||
+      pathname.startsWith("/messages") ||
+      pathname.startsWith("/notifications") ||
+      pathname.startsWith("/users/")
     );
   }
-
+  if (href === "/account") {
+    return pathname === "/account" || pathname.startsWith("/account/");
+  }
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
@@ -77,49 +90,57 @@ export default function Header() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dark, setDark] = useState(false);
 
-useEffect(() => {
-  const supabase = createClient();
-  let active = true;
-  let authGeneration = 0;
+  // Theme management
+  useEffect(() => {
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+  }, [dark]);
 
-  async function loadUser() {
-    const generation = authGeneration;
+  // Auth state management (preserved from production)
+  useEffect(() => {
+    const supabase = createClient();
+    let active = true;
+    let authGeneration = 0;
+
+    async function loadUser() {
+      const generation = authGeneration;
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!active || generation !== authGeneration) {
+        return;
+      }
+
+      setUser(user);
+      setLoading(false);
+    }
+
+    void loadUser();
 
     const {
-      data: { user },
-    } = await supabase.auth.getUser();
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      authGeneration += 1;
 
-    if (!active || generation !== authGeneration) {
-      return;
-    }
+      if (!active) {
+        return;
+      }
 
-    setUser(user);
-    setLoading(false);
-  }
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
 
-  void loadUser();
+    return () => {
+      active = false;
+      authGeneration += 1;
+      subscription.unsubscribe();
+    };
+  }, []);
 
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange((_event, session) => {
-    authGeneration += 1;
-
-    if (!active) {
-      return;
-    }
-
-    setUser(session?.user ?? null);
-    setLoading(false);
-  });
-
-  return () => {
-    active = false;
-    authGeneration += 1;
-    subscription.unsubscribe();
-  };
-}, []);
-
+  // Dialog management
   useEffect(() => {
     const dialog = menuDialogRef.current;
 
@@ -188,150 +209,140 @@ useEffect(() => {
     t("userFallback");
 
   const accountIsActive = isRouteActive(pathname, "/account");
-  const visibleNavigationLinks = user
-    ? [...navigationLinks, projectsNavigationLink, socialNavigationLink, messagesNavigationLink, notificationsNavigationLink]
-    : guestNavigationLinks;
+  const isAuthPage = pathname === "/auth/login" || pathname === "/auth/sign-up";
 
   return (
-    <header className="sticky top-0 z-[100] h-[58px] w-full border-b border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] lg:h-[66px]">
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-3 px-3 sm:px-4 lg:gap-6 lg:px-6">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border-soft)] bg-[var(--color-surface)]/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        {/* Brand */}
         <Link
           href="/map"
-          className="ui-pressable flex h-11 min-w-0 shrink-0 items-center gap-2 px-1 text-[var(--color-text)] hover:text-[var(--color-forest)]"
+          className="ui-pressable flex shrink-0 items-center gap-3"
           aria-label={tAccessibility("openMap")}
         >
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-[var(--color-forest)] shadow-[var(--shadow-control)]">
-            <Mountain aria-hidden="true" size={21} strokeWidth={2} />
+          <span className="grid h-10 w-10 place-items-center rounded-[var(--radius-control)] bg-[var(--color-pine)] text-white shadow-[var(--shadow-control)]">
+            <Mountain size={20} strokeWidth={2} />
           </span>
-
-          <span className="truncate [font-family:var(--font-display)] text-base font-bold tracking-[0.01em] sm:text-lg">
-            Mountain Tracker
-          </span>
+          <div className="hidden sm:block">
+            <span className="block text-[15px] font-bold tracking-tight">Mountain Tracker</span>
+          </div>
         </Link>
 
+        {/* Primary Navigation - Desktop */}
         <nav
-          className="hidden h-full min-w-0 flex-1 items-stretch justify-center lg:flex"
+          className="hidden flex-1 items-center justify-center gap-1 lg:flex"
           aria-label={tAccessibility("mainNavigation")}
         >
-          {visibleNavigationLinks.map((link) => {
-            const isActive = isRouteActive(pathname, link.href);
-
+          {primaryNavItems.map((item) => {
+            const isActive = isRouteActive(pathname, item.href);
+            const Icon = item.icon;
             return (
               <Link
-                key={link.href}
-                href={link.href}
+                key={item.href}
+                href={item.href}
                 aria-current={isActive ? "page" : undefined}
-                aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : link.href === "/notifications" && totalUnreadProjectNotifications > 0 ? t("unreadNotifications", { count: totalUnreadProjectNotifications }) : undefined}
-                className={`ui-pressable relative flex h-full items-center border-b-2 px-4 text-sm font-semibold ${
+                className={`ui-pressable relative flex min-h-[44px] items-center gap-2.5 rounded-[var(--radius-control)] px-5 text-[14px] font-semibold transition-colors ${
                   isActive
-                    ? "border-[var(--color-forest)] text-[var(--color-text)]"
-                    : link.primary
-                      ? "border-transparent text-[var(--color-forest)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-forest-hover)]"
-                      : "border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
+                    ? "text-[var(--color-pine)]"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface-muted)]/60"
                 }`}
               >
-                {t(link.labelKey)}
-                {link.href === "/messages" && totalUnreadMessages > 0 && <UnreadBadge count={totalUnreadMessages} />}
-                {link.href === "/notifications" && totalUnreadProjectNotifications > 0 && <UnreadBadge count={totalUnreadProjectNotifications} />}
+                <Icon size={18} strokeWidth={2} />
+                {t(item.labelKey)}
+                {isActive && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className="absolute inset-x-2 -bottom-[1px] h-[2px] rounded-full bg-[var(--color-pine)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             );
           })}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 lg:flex">
-          <LocaleSwitcher />
+        {/* Right Actions */}
+        <div className="flex shrink-0 items-center gap-1">
+          {/* Language - Desktop */}
+          <div className="hidden lg:block">
+            <LocaleSwitcher />
+          </div>
+
+          {/* Theme Toggle */}
+          <button
+            type="button"
+            onClick={() => setDark((v) => !v)}
+            className="ui-pressable grid h-11 w-11 place-items-center rounded-[var(--radius-control)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)]/60"
+            aria-label={dark ? t("switchToLight") : t("switchToDark")}
+          >
+            {dark ? <Sun size={18} strokeWidth={2} /> : <Moon size={18} strokeWidth={2} />}
+          </button>
+
+          {/* Notifications */}
+          <Link
+            href="/notifications"
+            className="ui-pressable relative grid h-11 w-11 place-items-center rounded-[var(--radius-control)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)]/60"
+            aria-label={totalUnreadProjectNotifications > 0 ? tSocialAccessibility("unreadNotifications", { count: totalUnreadProjectNotifications }) : t("notifications")}
+          >
+            <Bell size={18} strokeWidth={2} />
+            {totalUnreadProjectNotifications > 0 && (
+              <span className="absolute right-2.5 top-2.5 h-2.5 w-2.5 rounded-full bg-[var(--color-danger)] ring-2 ring-[var(--color-surface)]" />
+            )}
+          </Link>
+
+          {/* Profile / Auth - Desktop */}
           {loading ? (
             <div
-              className="h-10 w-28 animate-pulse rounded-[var(--radius-control)] bg-[var(--color-surface-muted)]"
-              aria-hidden="true"
-            />
-          ) : user ? (
-            <>
-              <Link
-                href="/account"
-                aria-current={accountIsActive ? "page" : undefined}
-                className={`ui-pressable flex h-10 max-w-48 items-center gap-2 rounded-[var(--radius-control)] border px-3 text-sm font-semibold ${
-                  accountIsActive
-                    ? "border-[var(--color-forest)] bg-[var(--color-surface-muted)] text-[var(--color-text)]"
-                    : "border-[var(--color-border)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
-                }`}
-              >
-                <UserRound aria-hidden="true" size={17} />
-                <span className="truncate">{username}</span>
-              </Link>
-
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="ui-pressable flex h-10 min-w-10 items-center justify-center gap-2 rounded-[var(--radius-control)] border border-transparent px-2.5 text-sm font-semibold text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
-                aria-label={tAccessibility("logout")}
-              >
-                <LogOut aria-hidden="true" size={18} />
-                <span className="hidden xl:inline">{t("logout")}</span>
-              </button>
-            </>
-          ) : (
-            <>
-              <Link
-                href="/auth/login"
-                className="ui-pressable flex h-10 items-center px-3 text-sm font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-forest)]"
-              >
-                {t("login")}
-              </Link>
-
-              <Link
-                href="/auth/sign-up"
-                className="ui-pressable flex h-10 items-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
-              >
-                {t("signUp")}
-              </Link>
-            </>
-          )}
-        </div>
-
-        <div className="flex shrink-0 items-center gap-1 lg:hidden">
-          {loading ? (
-            <div
-              className="h-11 w-11 animate-pulse rounded-[var(--radius-control)] bg-[var(--color-surface-muted)]"
+              className="ml-1 hidden h-10 w-28 animate-pulse rounded-[var(--radius-control)] bg-[var(--color-surface-muted)] sm:block"
               aria-hidden="true"
             />
           ) : user ? (
             <Link
               href="/account"
-              aria-label={tAccessibility("accountFor", { username })}
               aria-current={accountIsActive ? "page" : undefined}
-              className={`ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border ${
-                accountIsActive
-                  ? "border-[var(--color-forest)] bg-[var(--color-surface-muted)] text-[var(--color-forest)]"
-                  : "border-transparent text-[var(--color-text-secondary)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface-muted)]"
+              aria-label={tAccessibility("accountFor", { username })}
+              className={`ui-pressable ml-1 hidden items-center gap-3 rounded-[var(--radius-control)] p-1.5 pr-4 hover:bg-[var(--color-surface-muted)]/60 sm:flex ${
+                accountIsActive ? "bg-[var(--color-surface-muted)]/60" : ""
               }`}
             >
-              <UserRound aria-hidden="true" size={20} />
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--color-pine)] to-[var(--color-forest-light)] text-[12px] font-bold text-white">
+                {username.slice(0, 2).toUpperCase()}
+              </span>
+              <span className="text-[14px] font-semibold">{username}</span>
             </Link>
           ) : (
-            <Link
-              href="/auth/login"
-              aria-label={tAccessibility("login")}
-              className="ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text-secondary)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface-muted)]"
-            >
-              <LogIn aria-hidden="true" size={20} />
-            </Link>
+            <div className="ml-1 hidden items-center gap-2 sm:flex">
+              <Link
+                href="/auth/login"
+                className="ui-pressable flex h-10 items-center px-3 text-[14px] font-semibold text-[var(--color-text-secondary)] hover:text-[var(--color-pine)]"
+              >
+                {t("login")}
+              </Link>
+              <Link
+                href="/auth/sign-up"
+                className="ui-pressable flex h-10 items-center rounded-[var(--radius-control)] bg-[var(--color-pine)] px-4 text-[14px] font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-pine-hover)]"
+              >
+                {t("signUp")}
+              </Link>
+            </div>
           )}
 
+          {/* Mobile Menu Toggle */}
           <button
             type="button"
-            onClick={() => setMenuOpen(true)}
-            className="ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-transparent text-[var(--color-text)] hover:border-[var(--color-border)] hover:bg-[var(--color-surface-muted)]"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="ui-pressable grid h-11 w-11 place-items-center rounded-[var(--radius-control)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)]/60 lg:hidden"
             aria-label={tAccessibility("openNavigation")}
             aria-haspopup="dialog"
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
           >
-            <Menu aria-hidden="true" size={22} />
+            {menuOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Navigation Dialog */}
       <dialog
         ref={menuDialogRef}
         id="mobile-navigation"
@@ -400,13 +411,13 @@ useEffect(() => {
                   ease: standardEasing,
                 },
               }}
-              className="absolute inset-y-0 right-0 flex h-dvh w-[min(22rem,calc(100%-1rem))] flex-col border-l border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-panel)]"
+              className="absolute inset-y-0 right-0 flex h-dvh w-[min(22rem,calc(100%-1rem))] flex-col border-l border-[var(--color-border-soft)] bg-[var(--color-surface)] shadow-[var(--shadow-panel)]"
             >
-              <div className="flex h-[58px] shrink-0 items-center justify-between border-b border-[var(--color-border)] px-4">
+              <div className="flex h-16 shrink-0 items-center justify-between border-b border-[var(--color-border-soft)] px-5">
                 <div>
                   <p
                     id="mobile-navigation-title"
-                    className="[font-family:var(--font-display)] text-lg font-bold"
+                    className="text-[15px] font-bold"
                   >
                     {t("navigationTitle")}
                   </p>
@@ -418,7 +429,7 @@ useEffect(() => {
                 <button
                   type="button"
                   onClick={() => setMenuOpen(false)}
-                  className="ui-pressable flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                  className="ui-pressable grid h-11 w-11 place-items-center rounded-[var(--radius-control)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
                   aria-label={tAccessibility("closeNavigation")}
                 >
                   <X aria-hidden="true" size={22} />
@@ -429,31 +440,101 @@ useEffect(() => {
                 className="flex-1 overflow-y-auto py-3"
                 aria-label={tAccessibility("mobileNavigation")}
               >
-                {visibleNavigationLinks.map((link) => {
-                  const isActive = isRouteActive(pathname, link.href);
+                {/* Primary Navigation */}
+                <div className="mb-4">
+                  <p className="px-5 pb-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+                    {t("primary")}
+                  </p>
+                  {primaryNavItems.map((link) => {
+                    const isActive = isRouteActive(pathname, link.href);
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={handleMenuNavigation}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`ui-pressable mx-3 flex min-h-11 items-center gap-3 rounded-[var(--radius-control)] px-4 text-[14px] font-semibold ${
+                          isActive
+                            ? "bg-[var(--color-surface-muted)] text-[var(--color-pine)]"
+                            : "text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                        }`}
+                      >
+                        <Icon size={18} strokeWidth={2} />
+                        {t(link.labelKey)}
+                      </Link>
+                    );
+                  })}
+                </div>
 
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={handleMenuNavigation}
-                      aria-current={isActive ? "page" : undefined}
-                      aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : link.href === "/notifications" && totalUnreadProjectNotifications > 0 ? t("unreadNotifications", { count: totalUnreadProjectNotifications }) : undefined}
-                      className={`ui-pressable mx-3 flex min-h-13 items-center border-l-2 px-4 text-base font-semibold ${
-                        isActive
-                          ? "border-[var(--color-forest)] bg-[var(--color-surface-muted)] text-[var(--color-text)]"
-                          : link.primary
-                            ? "border-transparent text-[var(--color-forest)] hover:bg-[var(--color-surface-muted)]"
-                            : "border-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
-                      }`}
-                    >
-                      <span className="flex min-w-0 flex-1 items-center justify-between gap-3"><span>{t(link.labelKey)}</span>{link.href === "/messages" && totalUnreadMessages > 0 && <UnreadBadge count={totalUnreadMessages} />}{link.href === "/notifications" && totalUnreadProjectNotifications > 0 && <UnreadBadge count={totalUnreadProjectNotifications} />}</span>
-                    </Link>
-                  );
-                })}
+                {/* Community Section */}
+                <div className="mb-4">
+                  <p className="px-5 pb-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+                    {t("community")}
+                  </p>
+                  {communityNavItems.map((link) => {
+                    const isActive = isRouteActive(pathname, link.href);
+                    const showUnreadBadge =
+                      (link.href === "/messages" && totalUnreadMessages > 0) ||
+                      (link.href === "/notifications" && totalUnreadProjectNotifications > 0);
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={handleMenuNavigation}
+                        aria-current={isActive ? "page" : undefined}
+                        aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : link.href === "/notifications" && totalUnreadProjectNotifications > 0 ? t("unreadNotifications", { count: totalUnreadProjectNotifications }) : undefined}
+                        className={`ui-pressable mx-3 flex min-h-11 items-center justify-between rounded-[var(--radius-control)] px-4 text-[14px] font-semibold ${
+                          isActive
+                            ? "bg-[var(--color-surface-muted)] text-[var(--color-pine)]"
+                            : "text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                        }`}
+                      >
+                        <span>{t(link.labelKey)}</span>
+                        {showUnreadBadge && (
+                          <UnreadBadge count={link.href === "/messages" ? totalUnreadMessages : totalUnreadProjectNotifications} />
+                        )}
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                {/* Account Section */}
+                <div>
+                  <p className="px-5 pb-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-text-muted)]">
+                    {t("account")}
+                  </p>
+                  <Link
+                    href="/account"
+                    onClick={handleMenuNavigation}
+                    aria-current={accountIsActive ? "page" : undefined}
+                    className={`ui-pressable mx-3 flex min-h-11 items-center gap-3 rounded-[var(--radius-control)] px-4 text-[14px] font-semibold ${
+                      accountIsActive
+                        ? "bg-[var(--color-surface-muted)] text-[var(--color-pine)]"
+                        : "text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                    }`}
+                  >
+                    <UserRound size={18} strokeWidth={2} />
+                    {t("account")}
+                  </Link>
+                  <Link
+                    href="/account/ascents"
+                    onClick={handleMenuNavigation}
+                    className="ui-pressable mx-3 flex min-h-11 items-center rounded-[var(--radius-control)] px-4 text-[14px] font-semibold text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                  >
+                    {t("myAscents")}
+                  </Link>
+                  <Link
+                    href="/account/tracks"
+                    onClick={handleMenuNavigation}
+                    className="ui-pressable mx-3 flex min-h-11 items-center rounded-[var(--radius-control)] px-4 text-[14px] font-semibold text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                  >
+                    {t("tracks")}
+                  </Link>
+                </div>
               </nav>
 
-              <div className="shrink-0 border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4">
+              <div className="shrink-0 border-t border-[var(--color-border-soft)] bg-[var(--color-bg-secondary)] p-4">
                 <div className="mb-3">
                   <LocaleSwitcher />
                 </div>
@@ -467,15 +548,15 @@ useEffect(() => {
                     <Link
                       href="/account"
                       onClick={handleMenuNavigation}
-                      className="ui-pressable flex min-h-11 min-w-0 items-center gap-3 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] px-3 py-2 text-[var(--color-text)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
+                      className="ui-pressable flex min-h-11 min-w-0 items-center gap-3 rounded-[var(--radius-control)] border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-3 py-2 text-[var(--color-text)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]"
                     >
                       <UserRound
                         aria-hidden="true"
-                        className="shrink-0 text-[var(--color-forest)]"
+                        className="shrink-0 text-[var(--color-pine)]"
                         size={20}
                       />
                       <span className="min-w-0">
-                        <span className="block truncate text-sm font-semibold">
+                        <span className="block truncate text-[14px] font-semibold">
                           {username}
                         </span>
                         <span className="block truncate text-xs text-[var(--color-text-muted)]">
@@ -487,7 +568,7 @@ useEffect(() => {
                     <button
                       type="button"
                       onClick={handleLogout}
-                      className="ui-pressable flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 text-sm font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
+                      className="ui-pressable flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-control)] border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-4 text-[14px] font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
                     >
                       <LogOut aria-hidden="true" size={18} />
                       {t("logout")}
@@ -498,7 +579,7 @@ useEffect(() => {
                     <Link
                       href="/auth/login"
                       onClick={handleMenuNavigation}
-                      className="ui-pressable flex min-h-11 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-surface-muted)]"
+                      className="ui-pressable flex min-h-11 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 text-[14px] font-semibold text-[var(--color-text)] hover:bg-[var(--color-surface-muted)]"
                     >
                       {t("login")}
                     </Link>
@@ -506,7 +587,7 @@ useEffect(() => {
                     <Link
                       href="/auth/sign-up"
                       onClick={handleMenuNavigation}
-                      className="ui-pressable flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-3 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)]"
+                      className="ui-pressable flex min-h-11 items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-pine)] px-3 text-[14px] font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-pine-hover)]"
                     >
                       {t("signUp")}
                     </Link>
@@ -517,10 +598,58 @@ useEffect(() => {
           )}
         </AnimatePresence>
       </dialog>
+
+      {/* Mobile Bottom Navigation */}
+      {!isAuthPage && (
+        <nav
+          className="mobile-bottom-nav fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-border-soft)] bg-[var(--color-surface)]/95 backdrop-blur-xl lg:hidden"
+          aria-label={tAccessibility("mobileNavigation")}
+        >
+          <div className="flex items-stretch justify-around safe-area-inset-bottom">
+            {mobileNavItems.map((item) => {
+              const isActive = isRouteActive(pathname, item.href);
+              const Icon = item.icon;
+              const showUnreadBadge =
+                (item.href === "/ranking" && (totalUnreadMessages > 0 || totalUnreadProjectNotifications > 0));
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`ui-pressable relative flex flex-1 flex-col items-center justify-center gap-1 py-2.5 transition-colors ${
+                    isActive ? "text-[var(--color-pine)]" : "text-[var(--color-text-muted)]"
+                  }`}
+                >
+                  <div className="relative">
+                    <Icon size={22} strokeWidth={2} />
+                    {showUnreadBadge && (
+                      <span className="absolute -right-1.5 -top-1 h-2 w-2 rounded-full bg-[var(--color-danger)] ring-2 ring-[var(--color-surface)]" />
+                    )}
+                  </div>
+                  <span className="text-[11px] font-semibold">{t(item.labelKey)}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="mobile-nav-indicator"
+                      className="absolute -top-[1px] h-[2px] w-12 rounded-full bg-[var(--color-pine)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
 
 function UnreadBadge({ count }: { count: number }) {
-  return <span aria-hidden="true" className="ml-2 inline-flex min-w-5 items-center justify-center rounded-full bg-[var(--color-forest)] px-1.5 py-0.5 text-[0.6875rem] font-bold leading-none text-white">{formatUnreadBadge(count)}</span>;
+  return (
+    <span
+      aria-hidden="true"
+      className="ml-2 inline-flex min-w-5 items-center justify-center rounded-full bg-[var(--color-pine)] px-1.5 py-0.5 text-[0.6875rem] font-bold leading-none text-white"
+    >
+      {formatUnreadBadge(count)}
+    </span>
+  );
 }

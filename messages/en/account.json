@@ -16,7 +16,11 @@
       "eyebrow": "Personal expedition record",
       "avatarAlt": "Profile photo of {username}",
       "changeAvatar": "Change profile photo",
-      "uploading": "Uploading…"
+      "uploading": "Uploading…",
+      "complete": "Profile complete",
+      "languages": "DE / EN",
+      "manage": "Manage profile",
+      "emailUnavailable": "No email address available"
     },
     "Statistics": {
       "sectionLabel": "01 / Summary",
@@ -29,7 +33,10 @@
       "catalogProgress": "Overall catalog progress",
       "catalogCount": "{ascents} / {total} peaks",
       "noData": "No data",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "highest": "Highest",
+      "totalElevation": "Total elevation",
+      "achievements": "Achievements"
     },
     "Logbook": {
       "accessibleLabel": "Expedition logbook sections",
@@ -57,7 +64,24 @@
       "emptyDescription": "Open the map, choose a peak, and add it to your favorites.",
       "openMap": "Go to map",
       "saved": "Saved as favorite",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "eyebrow": "Favorites",
+      "title": "Favorite mountains"
+    },
+    "Ascents": {
+      "eyebrow": "Recent field record",
+      "title": "Latest ascents",
+      "record": "Record ascent",
+      "emptyTitle": "No ascents recorded",
+      "emptyDescription": "Record your first ascent to start building your alpine logbook."
+    },
+    "Achievements": {
+      "eyebrow": "Milestones",
+      "title": "Achievements",
+      "milestone1": "10 summits",
+      "milestone2": "25 summits",
+      "milestone3": "10,000 m gain",
+      "milestone4": "First 2500+"
     },
     "Status": {
       "loading": "Loading account…",

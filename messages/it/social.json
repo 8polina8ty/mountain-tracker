@@ -17,11 +17,17 @@
       "block": "Blocca"
     },
     "Search": {
+      "eyebrow": "Scopri",
       "title": "Trova persone",
       "label": "Cerca utenti pubblici",
       "placeholder": "Nome utente o nome visualizzato",
       "submit": "Cerca",
-      "minimum": "Inserisci almeno {count} caratteri."
+      "minimum": "Inserisci almeno {count} caratteri.",
+      "searching": "Ricerca…",
+      "noResults": "Nessun utente trovato per",
+      "alreadyFriends": "Già amici",
+      "requestSent": "Richiesta inviata",
+      "pendingRequest": "Richiesta in attesa"
     },
     "Friends": {
       "eyebrow": "Compagni di percorso",
@@ -31,9 +37,10 @@
       "empty": "Nessun amico accettato per ora."
     },
     "Requests": {
+      "eyebrow": "In arrivo",
       "title": "Richieste",
-      "incoming": "Richieste ricevute",
-      "outgoing": "Richieste inviate",
+      "pending": "In attesa",
+      "wantsToConnect": "Vuole connettersi",
       "emptyIncoming": "Nessuna richiesta ricevuta.",
       "emptyOutgoing": "Nessuna richiesta inviata."
     },
@@ -42,6 +49,14 @@
       "description": "Qui compaiono solo le persone che hai bloccato.",
       "confirm": "Bloccare questo utente? Amicizie e richieste in sospeso verranno eliminate.",
       "empty": "Non hai bloccato nessuno."
+    },
+    "List": {
+      "eyebrow": "Rete",
+      "title": "I tuoi amici",
+      "emptyTitle": "Nessun amico per ora",
+      "emptyDescription": "Cerca alpinisti sopra per costruire la tua rete.",
+      "friendSince": "Amico",
+      "message": "Messaggio"
     },
     "Messages": {
       "eyebrow": "Comunicazioni di spedizione",
@@ -105,7 +120,10 @@
     },
     "Errors": {
       "unavailable": "Le funzioni social non sono ancora disponibili. Il deploy del database potrebbe essere ancora in corso.",
-      "actionFailed": "Impossibile completare l'operazione."
+      "actionFailed": "Impossibile completare l'operazione.",
+      "loadFriendsFailed": "Impossibile caricare gli amici.",
+      "loadRequestsFailed": "Impossibile caricare le richieste.",
+      "searchFailed": "Ricerca fallita."
     }
   }
 }

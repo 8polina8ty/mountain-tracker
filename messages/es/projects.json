@@ -125,6 +125,8 @@
     "Conflict": { "conflictDetected": "Los cambios no se guardaron", "day": "Este día cambió desde que lo abriste.", "journal": "Esta entrada del diario cambió desde que la abriste.", "order": "El orden de los días cambió desde que lo abriste.", "permission": "Tu acceso o función cambió. Actualiza para continuar.", "archived": "Esta expedición fue archivada y ahora es de solo lectura.", "draftKept": "Tu borrador local sigue disponible.", "reloadLatest": "Cargar la versión más reciente" },
     "Accessibility": {
       "projectList": "Tus proyectos de expedición"
-    }
+    },
+    "Invitations": { "title": "Invitaciones pendientes", "description": "Tienes invitaciones a expediciones pendientes.", "view": "Ver" },
+    "Shared": { "eyebrow": "Colaboración", "title": "Proyectos compartidos", "description": "Proyectos en los que colaboras.", "viewAll": "Ver todos", "noDetails": "Proyecto compartido" }
   }
 }

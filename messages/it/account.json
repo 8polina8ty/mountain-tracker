@@ -16,7 +16,11 @@
       "eyebrow": "Scheda di spedizione personale",
       "avatarAlt": "Foto del profilo di {username}",
       "changeAvatar": "Cambia foto del profilo",
-      "uploading": "Caricamento…"
+      "uploading": "Caricamento…",
+      "complete": "Profilo completo",
+      "languages": "DE / EN",
+      "manage": "Gestisci profilo",
+      "emailUnavailable": "Indirizzo e-mail non disponibile"
     },
     "Statistics": {
       "sectionLabel": "01 / Panoramica",
@@ -29,7 +33,10 @@
       "catalogProgress": "Avanzamento complessivo del catalogo",
       "catalogCount": "{ascents} / {total} vette",
       "noData": "Nessun dato",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "highest": "Più alta",
+      "totalElevation": "Dislivello totale",
+      "achievements": "Traguardi"
     },
     "Logbook": {
       "accessibleLabel": "Sezioni del diario di spedizione",
@@ -57,7 +64,24 @@
       "emptyDescription": "Apri la mappa, scegli una vetta e aggiungila ai preferiti.",
       "openMap": "Vai alla mappa",
       "saved": "Salvata come preferita",
-      "meterUnit": "m"
+      "meterUnit": "m",
+      "eyebrow": "Preferiti",
+      "title": "Montagne preferite"
+    },
+    "Ascents": {
+      "eyebrow": "Ultimi rilievi sul campo",
+      "title": "Salite recenti",
+      "record": "Registra salita",
+      "emptyTitle": "Nessuna salita registrata",
+      "emptyDescription": "Registra la tua prima salita per iniziare il tuo diario alpino."
+    },
+    "Achievements": {
+      "eyebrow": "Traguardi",
+      "title": "Traguardi",
+      "milestone1": "10 vette",
+      "milestone2": "25 vette",
+      "milestone3": "10.000 m dislivello",
+      "milestone4": "Primo 2500+"
     },
     "Status": {
       "loading": "Caricamento dell'account…",
