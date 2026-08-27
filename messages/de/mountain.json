@@ -39,6 +39,7 @@
         "climbing": "Kletterroute",
         "skiTouring": "Skitour",
         "mixed": "Kombinierte Route",
+        "other": "Sonstige Route",
         "route": "Route"
       },
       "startPoint": "Ausgangspunkt",

@@ -39,6 +39,7 @@
         "climbing": "Arrampicata",
         "skiTouring": "Sci alpinismo",
         "mixed": "Itinerario misto",
+        "other": "Altro itinerario",
         "route": "Itinerario"
       },
       "startPoint": "Punto di partenza",

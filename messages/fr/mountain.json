@@ -39,6 +39,7 @@
         "climbing": "Escalade",
         "skiTouring": "Ski de randonnée",
         "mixed": "Itinéraire combiné",
+        "other": "Autre itinéraire",
         "route": "Itinéraire"
       },
       "startPoint": "Point de départ",

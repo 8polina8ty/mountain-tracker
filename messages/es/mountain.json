@@ -39,6 +39,7 @@
         "climbing": "Escalada",
         "skiTouring": "Esquí de travesía",
         "mixed": "Ruta combinada",
+        "other": "Otra ruta",
         "route": "Ruta"
       },
       "startPoint": "Punto de partida",

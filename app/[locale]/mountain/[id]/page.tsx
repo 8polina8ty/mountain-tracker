@@ -107,6 +107,7 @@ function getRouteTypeKey(routeType: string):
   | "climbing"
   | "skiTouring"
   | "mixed"
+  | "other"
   | "route" {
   switch (routeType) {
     case "hiking":
@@ -121,6 +122,8 @@ function getRouteTypeKey(routeType: string):
       return "skiTouring";
     case "mixed":
       return "mixed";
+    case "other":
+      return "other";
     default:
       return "route";
   }
