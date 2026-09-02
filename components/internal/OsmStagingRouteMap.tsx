@@ -12,11 +12,16 @@ export default function OsmStagingRouteMap({
   routeName,
   summit,
   mountain,
+  startContext,
 }: {
   geometry: PreviewRouteGeometry;
   routeName: string;
   summit: { coordinates: PreviewCoordinate; name: string };
   mountain: { coordinates: PreviewCoordinate; name: string };
+  startContext?: {
+    coordinates: PreviewCoordinate;
+    label: string;
+  } | null;
 }) {
   const topology = analyzeRouteTopology(geometry);
   const endpointSelection = selectRouteEndpoints(topology, [summit.coordinates]);
@@ -24,8 +29,18 @@ export default function OsmStagingRouteMap({
     ? {
         startCoordinate: endpointSelection.startCoordinate as PreviewCoordinate,
         endCoordinate: endpointSelection.endCoordinate as PreviewCoordinate,
+        startLabel: startContext?.label,
       }
     : null;
+
+  if (
+    startContext &&
+    (!topologyEndpoints ||
+      topologyEndpoints.startCoordinate[0] !== startContext.coordinates[0] ||
+      topologyEndpoints.startCoordinate[1] !== startContext.coordinates[1])
+  ) {
+    throw new Error("Phase 11H start context does not match the selected route endpoint.");
+  }
 
   return (
     <>

@@ -20,6 +20,8 @@ type MountainRouteMapProps = {
   topologyEndpoints?: {
     startCoordinate: [number, number];
     endCoordinate: [number, number];
+    startLabel?: string;
+    endLabel?: string;
   } | null;
 };
 
@@ -30,6 +32,8 @@ export type RouteGeoJson = GeoJSON.FeatureCollection<
     topologyEndpoints?: {
       startCoordinate: [number, number];
       endCoordinate: [number, number];
+      startLabel?: string;
+      endLabel?: string;
     } | null;
     topologyClassification?: string;
     endpointSelectionAmbiguous?: boolean;
@@ -286,16 +290,26 @@ const map: Map = currentMap;
             : {
                 start: resolvedTopologyEndpoints.startCoordinate,
                 end: resolvedTopologyEndpoints.endCoordinate,
+                startLabel: resolvedTopologyEndpoints.startLabel,
+                endLabel: resolvedTopologyEndpoints.endLabel,
               };
       const firstCoordinate = markerEndpoints?.start;
       const lastCoordinate = markerEndpoints?.end;
+      const startAccessibleLabel =
+        markerEndpoints?.startLabel ?? t("startMarker", { routeName });
+      const startPopupLabel =
+        markerEndpoints?.startLabel ?? t("startPopup", { routeName });
+      const finishAccessibleLabel =
+        markerEndpoints?.endLabel ?? t("finishMarker", { routeName });
+      const finishPopupLabel =
+        markerEndpoints?.endLabel ?? t("finishPopup", { routeName });
 
       if (firstCoordinate && lastCoordinate) {
         startMarkerRef.current = new maplibregl.Marker({
           element: createMarkerElement(
             "S",
             "bg-green-600",
-            t("startMarker", { routeName }),
+            startAccessibleLabel,
           ),
           anchor: "center",
         })
@@ -303,7 +317,7 @@ const map: Map = currentMap;
           .setPopup(
             new maplibregl.Popup({
               offset: 24,
-            }).setText(t("startPopup", { routeName })),
+            }).setText(startPopupLabel),
           )
           .addTo(map);
 
@@ -311,7 +325,7 @@ const map: Map = currentMap;
           element: createMarkerElement(
             "F",
             "bg-red-600",
-            t("finishMarker", { routeName }),
+            finishAccessibleLabel,
           ),
           anchor: "center",
         })
@@ -319,7 +333,7 @@ const map: Map = currentMap;
           .setPopup(
             new maplibregl.Popup({
               offset: 24,
-            }).setText(t("finishPopup", { routeName })),
+            }).setText(finishPopupLabel),
           )
           .addTo(map);
       }
@@ -357,7 +371,9 @@ const map: Map = currentMap;
           left: 60,
         },
         maxZoom: 14,
-        duration: 800,
+        duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? 0
+          : 800,
       });
     }
 

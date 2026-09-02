@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11I_B2_PREFLIGHT",
+  "phase": "Phase 11I-B2a live SELECT-only preflight on the new frozen B2 contract.",
+  "databaseMode": "SELECT_ONLY",
+  "readOnly": true,
+  "publishable": false,
+  "checkedAt": "2026-09-02T18:37:03.659Z",
+  "queueFileSha256": "ca9b9dca7f84985dc1bf49f6ca5835de6b6b20b9447aff5faf9b611b97b48dcd",
+  "queueCount": 45,
+  "stageableCount": 44,
+  "blockedCount": 1,
+  "blockedRelation": "19752996",
+  "records": [
+    {
+      "canonicalRelationId": "14450146",
+      "peakOsmId": "479127124",
+      "frozenMountainId": 70786,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "8479420",
+      "peakOsmId": "255973218",
+      "frozenMountainId": 12026,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "20732419",
+      "peakOsmId": "2866858103",
+      "frozenMountainId": 211326,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "19723934",
+      "peakOsmId": "2732100164",
+      "frozenMountainId": 20055,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "7619608",
+      "peakOsmId": "1589793263",
+      "frozenMountainId": 75485,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "20336298",
+      "peakOsmId": "454092684",
+      "frozenMountainId": 208822,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "13217296",
+      "peakOsmId": "26863007",
+      "frozenMountainId": 45366,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "3914732",
+      "peakOsmId": "1509984608",
+      "frozenMountainId": 75230,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "3127359",
+      "peakOsmId": "522807411",
+      "frozenMountainId": 71634,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "15854068",
+      "peakOsmId": "2234907362",
+      "frozenMountainId": 77571,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "3153237",
+      "peakOsmId": "523276617",
+      "frozenMountainId": 71708,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "6118857",
+      "peakOsmId": "1663938836",
+      "frozenMountainId": 75824,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "2707130",
+      "peakOsmId": "557832363",
+      "frozenMountainId": 72367,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "14629092",
+      "peakOsmId": "7297072136",
+      "frozenMountainId": 91361,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "15904161",
+      "peakOsmId": "2710892680",
+      "frozenMountainId": 82916,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "5515251",
+      "peakOsmId": "333899881",
+      "frozenMountainId": 13099,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "2173614",
+      "peakOsmId": "307308095",
+      "frozenMountainId": 69458,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "5573664",
+      "peakOsmId": "26864010",
+      "frozenMountainId": 69145,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "14510044",
+      "peakOsmId": "3266959070",
+      "frozenMountainId": 84517,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "15721946",
+      "peakOsmId": "256042739",
+      "frozenMountainId": 12131,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "140644",
+      "peakOsmId": "2534284083",
+      "frozenMountainId": 19137,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "14587091",
+      "peakOsmId": "1588156103",
+      "frozenMountainId": 75478,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "14718223",
+      "peakOsmId": "1512654235",
+      "frozenMountainId": 75237,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "19420984",
+      "peakOsmId": "3003004163",
+      "frozenMountainId": 211376,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "7842649",
+      "peakOsmId": "5190947484",
+      "frozenMountainId": 88806,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "14680095",
+      "peakOsmId": "726133727",
+      "frozenMountainId": 72991,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "6580908",
+      "peakOsmId": "967035588",
+      "frozenMountainId": 46768,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "7480385",
+      "peakOsmId": "1352380200",
+      "frozenMountainId": 74585,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "12238631",
+      "peakOsmId": "676620448",
+      "frozenMountainId": 72890,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "19744018",
+      "peakOsmId": "343412890",
+      "frozenMountainId": 45696,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "1722966",
+      "peakOsmId": "473127303",
+      "frozenMountainId": 13940,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "12836107",
+      "peakOsmId": "1372793645",
+      "frozenMountainId": 210180,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "15902354",
+      "peakOsmId": "2710892680",
+      "frozenMountainId": 82916,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "11215495",
+      "peakOsmId": "1001250876",
+      "frozenMountainId": 73808,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "15003355",
+      "peakOsmId": "522236726",
+      "frozenMountainId": 71482,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "8528032",
+      "peakOsmId": "445797066",
+      "frozenMountainId": 208778,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "5745905",
+      "peakOsmId": "1372561189",
+      "frozenMountainId": 16372,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "9192721",
+      "peakOsmId": "361374622",
+      "frozenMountainId": 13262,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "19370185",
+      "peakOsmId": "256041918",
+      "frozenMountainId": 12103,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "14605009",
+      "peakOsmId": "1393460961",
+      "frozenMountainId": 74836,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "9512293",
+      "peakOsmId": "2161621983",
+      "frozenMountainId": 77401,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "18507059",
+      "peakOsmId": "2082169247",
+      "frozenMountainId": 210871,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "20732405",
+      "peakOsmId": "1140515018",
+      "frozenMountainId": 209779,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    },
+    {
+      "canonicalRelationId": "3345673",
+      "peakOsmId": "1472383815",
+      "frozenMountainId": 75127,
+      "action": "WOULD_CREATE",
+      "reason": null,
+      "identityDrift": false,
+      "downstream": {
+        "staging": false,
+        "published": false,
+        "active": false
+      }
+    }
+  ],
+  "summary": {
+    "wouldCreate": 44,
+    "exactUnchanged": 0,
+    "payloadConflicts": 0,
+    "qaConflicts": 0,
+    "activeOverlap": 0,
+    "mountainIdentityDrift": 0,
+    "otherBlocked": 0
+  },
+  "executionSafe": true,
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "a3885fcf2d4cf6c6ceecc2e528001b2f3a65c3668657fc19c8cf3cb1d8268718"
+}

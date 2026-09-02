@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11E_WARNING_EVIDENCE_AUDIT",
+  "readOnly": true,
+  "sourceIdentity": {
+    "pbfPath": "data/osm/source/alps-latest.osm.pbf",
+    "pbfSizeBytes": 2310928096,
+    "pbfModifiedMilliseconds": 1787606468000,
+    "pbfSha256": "15ff62ed82c01b2153ec22d1b4cd53d1e94b87ecf38ab176eee60360972a6fc5",
+    "pipelineDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "pipelineGeneratedAt": "2026-08-25T01:54:50.930Z",
+    "checkpointPath": "data/osm/alps/checkpoints/fafc4f7a772832f2/bulk-store.sqlite",
+    "checkpointManifestSha256": "80552d6ed18595257a094fd20c1a9d5266828c65048ccb486de052518f5b64dc",
+    "motorwayIndexContentHash": "f28f56b03845217aa6fc7344c4ec71e530c7666671928370577d56994e535db1",
+    "phase7AuditHash": "52fc9b4f80c2c678299916e91ab0b9937b037d9df252a2b779f6967290a3c593",
+    "importPlanDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "importPlanRecordCount": 1065,
+    "phase11dReadinessHash": "a4615deb9406320e1abc8eac670582297b0ba56ea4efbc52f9fa33f311f63cdc"
+  },
+  "warningCount": 40,
+  "recoveredWarningCount": 0,
+  "warningDistribution": {
+    "ADMIN_BOUNDARY_AMBIGUOUS": 17,
+    "ADMIN_BOUNDARY_UNASSIGNED": 23
+  },
+  "records": [
+    {
+      "sourceRelationId": "222362",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "1228961",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "1229102",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "1720931",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "1720933",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "1735952",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "2124988",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "2316776",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "2357114",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "2725147",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "3046499",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "3175667",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "3987920",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "3997944",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "5223286",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "5223287",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "5571802",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "6594808",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "8449404",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "12132169",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "12400853",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "12508928",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "13938964",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "14214875",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "14445454",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "15714054",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "15730072",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "15794211",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "16123256",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "16277129",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "16322756",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "16465224",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "16468845",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "17415884",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "18872736",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "18872934",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "19810516",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "19902106",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "21047735",
+      "warning": "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+      "warningCode": "ADMIN_BOUNDARY_UNASSIGNED",
+      "underlyingEvidence": "At least one route coordinate could not be assigned reliably.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    },
+    {
+      "sourceRelationId": "21177606",
+      "warning": "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "warningCode": "ADMIN_BOUNDARY_AMBIGUOUS",
+      "underlyingEvidence": "Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+      "recovered": false,
+      "resolution": "No newer authoritative evidence resolves administrative assignment; road-safety SAFE does not supersede this metadata warning."
+    }
+  ],
+  "deterministicArtifactHash": "f9126d92e3e265c4342c20f1a24b72ba765b47d19fd9b7c6753a225e9df0220b"
+}

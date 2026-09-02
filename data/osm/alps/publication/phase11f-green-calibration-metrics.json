@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11F_GREEN_CALIBRATION_METRICS",
+  "readOnly": true,
+  "sampleAlgorithmVersion": "mountain-tracker-phase11f-green-calibration/v1",
+  "sampleHash": "93052ef66af34c539850f5cbcdb0ef694656e7cf2ef862c6ec6831a9a76e8955",
+  "stagedPayloadCompatible": 2,
+  "currentSnapshot": {
+    "sampleSize": 298,
+    "approved": 0,
+    "needsReview": 0,
+    "rejected": 0,
+    "pending": 298,
+    "falseGreen": 0,
+    "categoryBreakdown": {
+      "RECOVERED": {
+        "PENDING": 232,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "RANDOM": {
+        "PENDING": 41,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "BOUNDARY": {
+        "PENDING": 26,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      }
+    },
+    "reasonCodeBreakdown": {
+      "TOPOLOGY_RECOVERED_PRIMARY_PATH": {
+        "PENDING": 232,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY": {
+        "PENDING": 232,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "SUPPORTED_HIKING_ACTIVITY": {
+        "PENDING": 298,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "GEOMETRY_VALID": {
+        "PENDING": 298,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "SINGLE_CONFIRMED_SUMMIT": {
+        "PENDING": 298,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "EXACT_MOUNTAIN_IDENTITY": {
+        "PENDING": 298,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "SIMPLE_TOPOLOGY": {
+        "PENDING": 298,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      },
+      "ROAD_SAFETY_SAFE": {
+        "PENDING": 298,
+        "VISUALLY_APPROVED": 0,
+        "NEEDS_REVIEW": 0,
+        "REJECTED": 0
+      }
+    },
+    "needsReviewRelations": [],
+    "rejectedRelations": [],
+    "meaningfulNeedsReviewClusterRule": "At least two NEEDS_REVIEW decisions sharing an audit category or reason code.",
+    "meaningfulNeedsReviewClusters": [],
+    "automaticPolicyActivationAllowed": false
+  },
+  "policyActivationAttempted": false,
+  "autoApprovalEnabled": false,
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "fe244132b382f924fef26ee6f480b0db0fee2dcbf58c2bff8c15693ae802abcb"
+}

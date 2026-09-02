@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11F_CONTROLLED_STAGING_READINESS",
+  "readOnly": true,
+  "checkpoint": {
+    "active": 118,
+    "green": 641,
+    "yellow": 63,
+    "recoveredGreen": 234,
+    "excludedDriftRelations": [
+      "1144001",
+      "2210868"
+    ]
+  },
+  "executableContract": {
+    "total": 702,
+    "hash": "f74bc4ed52b77e36fea62b82fcf7cfc10e0e1b044486e1e1439c128c0695f65c",
+    "manifestHash": "79f24510e2cfb3f2988681e5c9c092b4841b7156a174439e70d49871649394f0"
+  },
+  "unchangedVerification": {
+    "exact": 66,
+    "drift": 0,
+    "hash": "3d3f777d9f618ef1b410ab4419fef6c2883730ea96563f0e0b0b7ad891da8c70"
+  },
+  "greenCalibration": {
+    "unique": 298,
+    "recovered": 232,
+    "random": 41,
+    "boundary": 26,
+    "hash": "93052ef66af34c539850f5cbcdb0ef694656e7cf2ef862c6ec6831a9a76e8955",
+    "artifactHash": "f22b8bc34d3a6083f117a8408f8e49d747ba28434f4a625e7a0a69a91793df84"
+  },
+  "yellow": {
+    "total": 63,
+    "payloadCompatibleExistingDecisions": 11,
+    "pending": 52
+  },
+  "runtimeQueue": {
+    "id": "phase11f",
+    "path": "/internal/osm-staging?queue=phase11f",
+    "size": 298,
+    "hash": "49e98ed4848c1b0022553b0bfdd55c116f92e77bc72dfee4aec8fe378c64bb17",
+    "artifactHash": "e4c19ecb57d3960ca668f4894473e38ed02fdf1b0c5cb88ab76777c0f0e5321c"
+  },
+  "stagingPreflight": {
+    "total": 702,
+    "wouldCreate": 636,
+    "unchanged": 66,
+    "blocked": 0,
+    "conflicts": 0,
+    "hash": "804ddcea1c43ac0ecfa08a3aaf5b40c198fd8f0e20437c7dd04792bb5c105957"
+  },
+  "executionAuthorization": {
+    "command": "node --experimental-strip-types scripts/osm-import/stage-phase11f-routes.ts --execute --contract data/osm/alps/staging/phase11f-executable-staging-contract.json --token PHASE11F:f74bc4ed52b77e36fea62b82fcf7cfc10e0e1b044486e1e1439c128c0695f65c:79f24510e2cfb3f2988681e5c9c092b4841b7156a174439e70d49871649394f0",
+    "token": "PHASE11F:f74bc4ed52b77e36fea62b82fcf7cfc10e0e1b044486e1e1439c128c0695f65c:79f24510e2cfb3f2988681e5c9c092b4841b7156a174439e70d49871649394f0",
+    "executed": false,
+    "explicitUserApprovalRequired": true
+  },
+  "artifactHashes": {
+    "frozenContract": "f74bc4ed52b77e36fea62b82fcf7cfc10e0e1b044486e1e1439c128c0695f65c",
+    "unchangedVerification": "3d3f777d9f618ef1b410ab4419fef6c2883730ea96563f0e0b0b7ad891da8c70",
+    "sample": "f22b8bc34d3a6083f117a8408f8e49d747ba28434f4a625e7a0a69a91793df84",
+    "queue": "e4c19ecb57d3960ca668f4894473e38ed02fdf1b0c5cb88ab76777c0f0e5321c",
+    "queueManifest": "2b6e8fcfa59bac83684313671e9880e2ebdb1ca21d1667971fd38e98c0f066cf",
+    "queueMetadata": "7bb5546751098cbbda668eb45ffbc96862f9ab0b3b2eefd7569cf000913a99d5",
+    "yellowPolicy": "19768c043db52e2a58d7dca2db21a6de3daeee047ed9b045892710f6588a5da1",
+    "metrics": "c1874c3239624145f43d894225dcbe5690e29204aa4a51fac3d136068af49ec2",
+    "machinePolicy": "ee7dbc245105745964661dfc58e7ca35143fc79f7286638e27d02d3c8599596b",
+    "preflight": "804ddcea1c43ac0ecfa08a3aaf5b40c198fd8f0e20437c7dd04792bb5c105957",
+    "authorization": "729d104011ec90332c207d915ec30a9180be9f011e4f7ade232d47111000e61a"
+  },
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "69494a9195c334a35001ca5476b6d20f91be0bceec549334d6b03f364d232729"
+}

@@ -1,0 +1,3660 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11H_NAME_RESOLUTION_AUDIT",
+  "contractVersion": "mountain-tracker-phase11h-name-resolution/v1",
+  "readOnly": true,
+  "publishable": false,
+  "recordCount": 121,
+  "counts": {
+    "REF_ONLY": 28,
+    "DERIVED_SOURCE_BACKED": 88,
+    "UNRESOLVED": 4,
+    "SOURCE_NAME": 1
+  },
+  "nameReady": 89,
+  "nameUnresolved": 32,
+  "refPartition": {
+    "TECHNICAL_ONLY_REF": 89,
+    "NO_REF": 27,
+    "HUMAN_MEANINGFUL_REF": 5
+  },
+  "hutNameResolved": 20,
+  "baseNameResolved": 69,
+  "records": [
+    {
+      "canonicalRelationId": "140644",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "149",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "2534284083",
+        "peakName": "Cima di Mezzo / Keller Warte",
+        "peakElevationMeters": 2713
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"149\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "386084c14ba6990ba5b73c1bfe9f68b49ee9c538b69b14a1012c3002a59f1284"
+    },
+    {
+      "canonicalRelationId": "140728",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "170",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "8482699758",
+        "name": "Ravascletto Via Valcalda (Funivia)",
+        "distanceMeters": 63.00210720123616
+      },
+      "summitEntity": {
+        "peakSourceId": "403021284",
+        "peakName": "Monte Arvenis",
+        "peakElevationMeters": 1968
+      },
+      "derivedDisplayName": "Ravascletto Via Valcalda (Funivia) – Monte Arvenis",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Ravascletto Via Valcalda (Funivia)\" (8482699758, 63 m from start).",
+        "Exact summit entity \"Monte Arvenis\" (peak 403021284).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Ravascletto (quota 963 m)\".",
+        "Relation to tag corroborates summit: \"Monte Arvenis (quota 1968 m)\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "bb6af256cabd9a000ac950ea0152c99a564bc0a87f6b4c17c75f752a1fe7c461"
+    },
+    {
+      "canonicalRelationId": "141542",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "619",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "parking",
+        "objectType": "way",
+        "osmid": "60237419",
+        "name": "Cadramazzo",
+        "distanceMeters": 196.44033882424807
+      },
+      "summitEntity": {
+        "peakSourceId": "2514354335",
+        "peakName": "Cuel de la Bareta / Çuc Barete",
+        "peakElevationMeters": 1522
+      },
+      "derivedDisplayName": "Cadramazzo – Cuel de la Bareta / Çuc Barete",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature parking \"Cadramazzo\" (60237419, 196 m from start).",
+        "Exact summit entity \"Cuel de la Bareta / Çuc Barete\" (peak 2514354335).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Cadramazzo (quota 412 m)\".",
+        "Relation to tag corroborates summit: \"Cuel de la Bareta (quota 1522 m)\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "8a06f26ccb5a51dac91f136dad04bf55d41f73266e52e56e4666c984124bb96b"
+    },
+    {
+      "canonicalRelationId": "141588",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "653",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1609024487",
+        "peakName": "Cima del Lago / Jerebica",
+        "peakElevationMeters": 2126
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"653\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "aa97aa017891d32ef30771a63d1046cffa61f741436d29b754b24a337d3b1f82"
+    },
+    {
+      "canonicalRelationId": "223797",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "477570821",
+        "name": "Hinter Saggberg",
+        "distanceMeters": 13.366419171489724
+      },
+      "summitEntity": {
+        "peakSourceId": "478790435",
+        "peakName": "Vorder Glärnisch",
+        "peakElevationMeters": 2328
+      },
+      "derivedDisplayName": "Hinter Saggberg – Vorder Glärnisch",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Hinter Saggberg\" (477570821, 13 m from start).",
+        "Exact summit entity \"Vorder Glärnisch\" (peak 478790435).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Hinter Saggberg\".",
+        "Relation to tag corroborates summit: \"Vorder Glärnisch\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "8b3e386ef56c8d40c61d27afe40cf9039eecb92c645f797f12cac4865c607ce5"
+    },
+    {
+      "canonicalRelationId": "1192038",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "25",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "2419135716",
+        "name": "Zanser Alm - Malga Zannes",
+        "distanceMeters": 20.285685623797793
+      },
+      "summitEntity": {
+        "peakSourceId": "926333205",
+        "peakName": "Tullen",
+        "peakElevationMeters": 2655
+      },
+      "derivedDisplayName": "Zanser Alm - Malga Zannes – Tullen",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Zanser Alm - Malga Zannes\" (2419135716, 20 m from start).",
+        "Exact summit entity \"Tullen\" (peak 926333205).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "1143fc9b0cc6c93d6f3532842a8fe013c88d3e62ce2c831168efa85d8b0b0d73"
+    },
+    {
+      "canonicalRelationId": "1722966",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "30573888",
+        "name": "Kürsingerhütte",
+        "distanceMeters": 23.743280234608964
+      },
+      "summitEntity": {
+        "peakSourceId": "473127303",
+        "peakName": "Keeskogel",
+        "peakElevationMeters": 3291
+      },
+      "derivedDisplayName": "Kürsingerhütte – Keeskogel",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Kürsingerhütte\" (30573888, 24 m from start).",
+        "Exact summit entity \"Keeskogel\" (peak 473127303).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "4e123492b1671665539f2c9f9d549c09463b7e5cd8651ee99ba5e3db66b2853c"
+    },
+    {
+      "canonicalRelationId": "1759045",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "7C",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1351061369",
+        "peakName": "Alta Luce",
+        "peakElevationMeters": 3184
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"7C\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "c7ac3b7b7f08aa9284ebd6476c2bdc1187047cbebe55c608a9b50d8d83904167"
+    },
+    {
+      "canonicalRelationId": "2080865",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "735",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "354632119",
+        "name": "Stupizza / Štupca",
+        "distanceMeters": 118.98178007522476
+      },
+      "summitEntity": {
+        "peakSourceId": "2080376798",
+        "peakName": "Monte Vogu",
+        "peakElevationMeters": 1124
+      },
+      "derivedDisplayName": "Stupizza / Štupca – Monte Vogu",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Stupizza / Štupca\" (354632119, 119 m from start).",
+        "Exact summit entity \"Monte Vogu\" (peak 2080376798).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Stupizza (quota 203 m)\".",
+        "Relation to tag corroborates summit: \"Monte Vogu (quota 1124 m)\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "2a5ef509f35d76422860fd440c21fbf5a56796802813537d94336df68478f16e"
+    },
+    {
+      "canonicalRelationId": "2173614",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "65",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "307308095",
+        "peakName": "Putzenhöhe - Cime di Pozzo",
+        "peakElevationMeters": 2438
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"65\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "b75a5b4c6e1ae60ad9f65739b29be3ec64d6c47e1149c0be172bf391ec0636dc"
+    },
+    {
+      "canonicalRelationId": "2361300",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "6",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1252732573",
+        "peakName": "Monte Zerbion",
+        "peakElevationMeters": 2722
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"6\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "c45995048c18dbdbb866af46c0673f1962a5281ffe64073c6290510980dc2045"
+    },
+    {
+      "canonicalRelationId": "2424255",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "302",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "62511655",
+        "name": "Galbiate",
+        "distanceMeters": 289.67936559207885
+      },
+      "summitEntity": {
+        "peakSourceId": "457647840",
+        "peakName": "Monte Barro",
+        "peakElevationMeters": 922
+      },
+      "derivedDisplayName": "Galbiate – Monte Barro",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Galbiate\" (62511655, 290 m from start).",
+        "Exact summit entity \"Monte Barro\" (peak 457647840).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Galbiate (lavatoio)\".",
+        "Relation to tag corroborates summit: \"Monte Barro\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "60eb30e2217389b6fba3f90d777dc9d8082b2166d598bfc537f30417e8bfea89"
+    },
+    {
+      "canonicalRelationId": "2465034",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "14",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1838256775",
+        "peakName": "Piza de Puez - Östliche Puezspitze - Piz de Puez",
+        "peakElevationMeters": 2913
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"14\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "278301bbf9fdf152a27bc289b7f0264fc83df4a7e082248e644db8ca712cb3a0"
+    },
+    {
+      "canonicalRelationId": "2600276",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "362",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "2287146470",
+        "name": "Lumezzane Pieve",
+        "distanceMeters": 12.723565749132721
+      },
+      "summitEntity": {
+        "peakSourceId": "2817880330",
+        "peakName": "Corna di Sonclino",
+        "peakElevationMeters": 1352
+      },
+      "derivedDisplayName": "Lumezzane Pieve – Corna di Sonclino",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Lumezzane Pieve\" (2287146470, 13 m from start).",
+        "Exact summit entity \"Corna di Sonclino\" (peak 2817880330).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Lumezzane (Pieve)\".",
+        "Relation to tag corroborates summit: \"Corna di Sonclino\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "29349761fa43961bd1ef71987679ed8f6f941c28ad6e4db20e01cbd0362dddf6"
+    },
+    {
+      "canonicalRelationId": "2604268",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "313",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "2286644611",
+        "name": "Gardone Val Trompia (Piazzetto)",
+        "distanceMeters": 13.434638985645465
+      },
+      "summitEntity": {
+        "peakSourceId": "527319764",
+        "peakName": "Punta Almana",
+        "peakElevationMeters": 1390
+      },
+      "derivedDisplayName": "Gardone Val Trompia (Piazzetto) – Punta Almana",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Gardone Val Trompia (Piazzetto)\" (2286644611, 13 m from start).",
+        "Exact summit entity \"Punta Almana\" (peak 527319764).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Gardone Val Trompia (Piazzetto / Centro storico)\".",
+        "Relation to tag corroborates summit: \"Punta Almana\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "18c3edf58936788ed707e8709d9f2db319e715a37b678b9d90a64f3dc7335249"
+    },
+    {
+      "canonicalRelationId": "2707130",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "376",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "9741172989",
+        "name": "Pregno",
+        "distanceMeters": 15.910340307884386
+      },
+      "summitEntity": {
+        "peakSourceId": "557832363",
+        "peakName": "Monte Palosso",
+        "peakElevationMeters": 1150
+      },
+      "derivedDisplayName": "Pregno – Monte Palosso",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Pregno\" (9741172989, 16 m from start).",
+        "Exact summit entity \"Monte Palosso\" (peak 557832363).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Villa Carcina (Pregno)\".",
+        "Relation to tag corroborates summit: \"Monte Palosso\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "b51473897b7c39a09925567f03cb9554f9c99495d7d865af6d89b11e6f97a283"
+    },
+    {
+      "canonicalRelationId": "2830944",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "909",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "8736162417",
+        "name": "Santa Elisabetta",
+        "distanceMeters": 87.04112399677281
+      },
+      "summitEntity": {
+        "peakSourceId": "2553132348",
+        "peakName": "Punta Quinseina Nord",
+        "peakElevationMeters": 2344
+      },
+      "derivedDisplayName": "Santa Elisabetta – Punta Quinseina Nord",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Santa Elisabetta\" (8736162417, 87 m from start).",
+        "Exact summit entity \"Punta Quinseina Nord\" (peak 2553132348).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Colleretto Castelnuovo, Santa Elisabetta, bivio TON909-TON917\".",
+        "Relation to tag corroborates summit: \"Castelnuovo Nigra, Punta Quinseina\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "0620ca8e514d9304528156c566c05f9617fa4a719a868b75c896c4b5ea4a46a5"
+    },
+    {
+      "canonicalRelationId": "2992792",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "755",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "66503327",
+        "name": "Savogna / Sauodnja",
+        "distanceMeters": 244.0764323725486
+      },
+      "summitEntity": {
+        "peakSourceId": "1794348483",
+        "peakName": "Monte San Canziano",
+        "peakElevationMeters": 723
+      },
+      "derivedDisplayName": "Savogna / Sauodnja – Monte San Canziano",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Savogna / Sauodnja\" (66503327, 244 m from start).",
+        "Exact summit entity \"Monte San Canziano\" (peak 1794348483).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Savogna (quota 210 m)\".",
+        "Relation to tag corroborates summit: \"Monte S. Canziano (quota 723 m)\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "3c564d4438bb509374d1bca5822095999696a96051d40470be46271c77740aae"
+    },
+    {
+      "canonicalRelationId": "3127353",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "182",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "522807406",
+        "peakName": "Pizzo Camino",
+        "peakElevationMeters": 2491
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"182\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "473d243aa41407982e6bc97001432c875012427e1f36fc2fcd722f32d04b3a4e"
+    },
+    {
+      "canonicalRelationId": "3127359",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "189",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "522807411",
+        "peakName": "Cima Moren",
+        "peakElevationMeters": 2417
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"189\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "018941722637bfe60b39c743466ded6f4f24b49a3dcba4de05c5bb4c9457d0ef"
+    },
+    {
+      "canonicalRelationId": "3153237",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "355",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "2415657433",
+        "name": "Tizio",
+        "distanceMeters": 33.58792550808397
+      },
+      "summitEntity": {
+        "peakSourceId": "523276617",
+        "peakName": "Monte Colombine",
+        "peakElevationMeters": 2217
+      },
+      "derivedDisplayName": "Tizio – Monte Colombine",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Tizio\" (2415657433, 34 m from start).",
+        "Exact summit entity \"Monte Colombine\" (peak 523276617).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Collio (Ponte Tizio)\".",
+        "Relation to tag corroborates summit: \"Monte Colombine\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "bfc2cccd30b1e0cf3083aa7a4025bced2342f1ad3363472761b4b6a4c209df7b"
+    },
+    {
+      "canonicalRelationId": "3235952",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "345",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "2468327817",
+        "name": "Chiesa di San Rocco",
+        "distanceMeters": 5.407619811951478
+      },
+      "summitEntity": {
+        "peakSourceId": "522807468",
+        "peakName": "Monte Ario",
+        "peakElevationMeters": 1755
+      },
+      "derivedDisplayName": "Chiesa di San Rocco – Monte Ario",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Chiesa di San Rocco\" (2468327817, 5 m from start).",
+        "Exact summit entity \"Monte Ario\" (peak 522807468).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Bovegno (San Rocco)\".",
+        "Relation to tag corroborates summit: \"Monte Ario\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "f0ff1e84b7b58c4aaa11ae913a16f9107b2f7fdc924421d3c868873a42657856"
+    },
+    {
+      "canonicalRelationId": "3277923",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "363",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "2287146470",
+        "name": "Lumezzane Pieve",
+        "distanceMeters": 12.723565749132721
+      },
+      "summitEntity": {
+        "peakSourceId": "2817880330",
+        "peakName": "Corna di Sonclino",
+        "peakElevationMeters": 1352
+      },
+      "derivedDisplayName": "Lumezzane Pieve – Corna di Sonclino",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Lumezzane Pieve\" (2287146470, 13 m from start).",
+        "Exact summit entity \"Corna di Sonclino\" (peak 2817880330).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Lumezzane (Pieve)\".",
+        "Relation to tag corroborates summit: \"Corna di Sonclino\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "65b2689053fbba0d3a3e4ec1846279bc07583f91beb67cba976d83311e6c3dde"
+    },
+    {
+      "canonicalRelationId": "3345673",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "27",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "node",
+        "osmid": "2755885861",
+        "name": "Schutzhütte Schneeberg - Rifugio Monteneve",
+        "distanceMeters": 19.220298835878665
+      },
+      "summitEntity": {
+        "peakSourceId": "1472383815",
+        "peakName": "Hochwart - Guardia Alta",
+        "peakElevationMeters": 2608
+      },
+      "derivedDisplayName": "Schutzhütte Schneeberg - Rifugio Monteneve – Hochwart - Guardia Alta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Schutzhütte Schneeberg - Rifugio Monteneve\" (2755885861, 19 m from start).",
+        "Exact summit entity \"Hochwart - Guardia Alta\" (peak 1472383815).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "2eb02c9ee3b50db8e87b2ae82e853a3622b1b1c2ff577063367e7dd9526a577f"
+    },
+    {
+      "canonicalRelationId": "3347064",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "338",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "4935713442",
+        "name": "Graticelle",
+        "distanceMeters": 10.416561658657645
+      },
+      "summitEntity": {
+        "peakSourceId": "522807476",
+        "peakName": "Monte Muffetto",
+        "peakElevationMeters": 2062
+      },
+      "derivedDisplayName": "Graticelle – Monte Muffetto",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Graticelle\" (4935713442, 10 m from start).",
+        "Exact summit entity \"Monte Muffetto\" (peak 522807476).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Bovegno (Graticelle)\".",
+        "Relation to tag corroborates summit: \"Monte Muffetto\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "9177608c18ccd47ac208553d8b4a20b040c09afe92df965de93e22d49a5dfb72"
+    },
+    {
+      "canonicalRelationId": "3896562",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "350",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "2076954058",
+        "name": "San Colombano",
+        "distanceMeters": 292.1317960276382
+      },
+      "summitEntity": {
+        "peakSourceId": "1509984608",
+        "peakName": "Corna Blacca",
+        "peakElevationMeters": 2006
+      },
+      "derivedDisplayName": "San Colombano – Corna Blacca",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"San Colombano\" (2076954058, 292 m from start).",
+        "Exact summit entity \"Corna Blacca\" (peak 1509984608).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Collio (San Colombano - Naàni)\".",
+        "Relation to tag corroborates summit: \"Cima Corna Blacca\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "d4ee0f66c738c2f104e4d971bd9d80a6da18ed054247660dac1e60578da36884"
+    },
+    {
+      "canonicalRelationId": "3914732",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "349",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "13306152679",
+        "name": "Collio Val Trompia",
+        "distanceMeters": 20.717942596734535
+      },
+      "summitEntity": {
+        "peakSourceId": "1509984608",
+        "peakName": "Corna Blacca",
+        "peakElevationMeters": 2006
+      },
+      "derivedDisplayName": "Collio Val Trompia – Corna Blacca",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Collio Val Trompia\" (13306152679, 21 m from start).",
+        "Exact summit entity \"Corna Blacca\" (peak 1509984608).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Collio (Trampolino)\".",
+        "Relation to tag corroborates summit: \"Cima Corna Blacca\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "eeda8e13317a66482805d6aad4bb59e24b5c3e4a8953afb17260c80815c079a0"
+    },
+    {
+      "canonicalRelationId": "5504319",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "7",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "419733464",
+        "peakName": "Zerminiger - Cima Cermigna",
+        "peakElevationMeters": 3110
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"7\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "8d0f6dbd8d388381d9f674925350d6d2323b6b3350cce0409700302925c7c8d4"
+    },
+    {
+      "canonicalRelationId": "5515251",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "1A",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "node",
+        "osmid": "2755910091",
+        "name": "Hochfeilerhütte",
+        "distanceMeters": 15.023147372389735
+      },
+      "summitEntity": {
+        "peakSourceId": "333899881",
+        "peakName": "Hochfeiler - Gran Pilastro",
+        "peakElevationMeters": 3509
+      },
+      "derivedDisplayName": "Hochfeilerhütte – Hochfeiler - Gran Pilastro",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Hochfeilerhütte\" (2755910091, 15 m from start).",
+        "Exact summit entity \"Hochfeiler - Gran Pilastro\" (peak 333899881).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "af8500661e04216a74a28f3b5b95930e9845f0f5ccc9676a106718c5f40dc01c"
+    },
+    {
+      "canonicalRelationId": "5515346",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "10",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "3578142598",
+        "name": "Sankt Jakob, Feuerwehr - San Giacomo, Vigili del fuoco",
+        "distanceMeters": 39.1122466418365
+      },
+      "summitEntity": {
+        "peakSourceId": "932271690",
+        "peakName": "Felbe",
+        "peakElevationMeters": 2849
+      },
+      "derivedDisplayName": "Sankt Jakob, Feuerwehr - San Giacomo, Vigili del fuoco – Felbe",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Sankt Jakob, Feuerwehr - San Giacomo, Vigili del fuoco\" (3578142598, 39 m from start).",
+        "Exact summit entity \"Felbe\" (peak 932271690).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "ab93486a41d810dbd5dcbdd65169c182d8469e5fc43a6dd161d7daa03e2e1707"
+    },
+    {
+      "canonicalRelationId": "5573664",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "634",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "26864010",
+        "peakName": "Monte Aviolo",
+        "peakElevationMeters": 2881
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"634\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "348943c654eb635976e6fde79334592a6ee34a97105e744dfc559f5c0d34a9f0"
+    },
+    {
+      "canonicalRelationId": "5583776",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "4",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "parking",
+        "objectType": "way",
+        "osmid": "231616682",
+        "name": "Kehre 4",
+        "distanceMeters": 111.06780588203772
+      },
+      "summitEntity": {
+        "peakSourceId": "3640236069",
+        "peakName": "Rotbachlspitze - Croda Rossa",
+        "peakElevationMeters": 2897
+      },
+      "derivedDisplayName": "Kehre 4 – Rotbachlspitze - Croda Rossa",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature parking \"Kehre 4\" (231616682, 111 m from start).",
+        "Exact summit entity \"Rotbachlspitze - Croda Rossa\" (peak 3640236069).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "8bd6bdcb6e183712d87766fe75d70fbe088eb418489dc2bbd3e2ba8fc96f6eef"
+    },
+    {
+      "canonicalRelationId": "5745905",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "73",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "wilderness_hut",
+        "objectType": "way",
+        "osmid": "59411694",
+        "name": "Oberseite Alm",
+        "distanceMeters": 66.45150381267435
+      },
+      "summitEntity": {
+        "peakSourceId": "1372561189",
+        "peakName": "Weißes Beil",
+        "peakElevationMeters": 2766
+      },
+      "derivedDisplayName": "Oberseite Alm – Weißes Beil",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature wilderness_hut \"Oberseite Alm\" (59411694, 66 m from start).",
+        "Exact summit entity \"Weißes Beil\" (peak 1372561189).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "ace5992b5cc6f0d670a00ce8851b675db8abd87e7dd4e644b7a78960c62e7492"
+    },
+    {
+      "canonicalRelationId": "6118857",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "14",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "6620262794",
+        "name": "14",
+        "distanceMeters": 8.214555539410938
+      },
+      "summitEntity": {
+        "peakSourceId": "1663938836",
+        "peakName": "Mont Corquet",
+        "peakElevationMeters": 2530
+      },
+      "derivedDisplayName": "14 – Mont Corquet",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"14\" (6620262794, 8 m from start).",
+        "Exact summit entity \"Mont Corquet\" (peak 1663938836).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Les Druges\".",
+        "Relation to tag corroborates summit: \"Mont Corquet\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "c9275dd024260f1962e7f91920b48bfe0e38a1d41715b2441f92386f089b4a97"
+    },
+    {
+      "canonicalRelationId": "6182621",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "924",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "471450373",
+        "name": "Casera Pal",
+        "distanceMeters": 35.12780517747373
+      },
+      "summitEntity": {
+        "peakSourceId": "402388565",
+        "peakName": "Cimon del Cavallo",
+        "peakElevationMeters": 2251
+      },
+      "derivedDisplayName": "Casera Pal – Cimon del Cavallo",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Casera Pal\" (471450373, 35 m from start).",
+        "Exact summit entity \"Cimon del Cavallo\" (peak 402388565).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Casera Pal\".",
+        "Relation to tag corroborates summit: \"Cimon del Cavallo - confine Regione\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "c1f5d5d9d7fa2747817e1811bedf1069e5456abc50c9ff7311a6e0b278807325"
+    },
+    {
+      "canonicalRelationId": "6545670",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "11",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "12450760070",
+        "name": "Rungger",
+        "distanceMeters": 15.13403713148469
+      },
+      "summitEntity": {
+        "peakSourceId": "292512982",
+        "peakName": "Astjoch - Cima Lasta",
+        "peakElevationMeters": 2194
+      },
+      "derivedDisplayName": "Rungger – Astjoch - Cima Lasta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Rungger\" (12450760070, 15 m from start).",
+        "Exact summit entity \"Astjoch - Cima Lasta\" (peak 292512982).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "33d8f6411c383a8231ae9ea6e97be2cbd8269f987258fed092077544c95951af"
+    },
+    {
+      "canonicalRelationId": "6580908",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "13D",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "147172024",
+        "name": "Rifugio Gian Federico Benevolo",
+        "distanceMeters": 11.23002723141699
+      },
+      "summitEntity": {
+        "peakSourceId": "967035588",
+        "peakName": "Becca La Traversière / Pointe de la Traversière",
+        "peakElevationMeters": 3337
+      },
+      "derivedDisplayName": "Rifugio Gian Federico Benevolo – Becca La Traversière / Pointe de la Traversière",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Rifugio Gian Federico Benevolo\" (147172024, 11 m from start).",
+        "Exact summit entity \"Becca La Traversière / Pointe de la Traversière\" (peak 967035588).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "909fe64eb6bd77c776ee3bf178e8480aafd1a12792561c127d288ac5e7aae325"
+    },
+    {
+      "canonicalRelationId": "7277796",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "14",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "8350228968",
+        "peakName": "Ötsch - Cima d'Accia",
+        "peakElevationMeters": 2592
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"14\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "282c8c04c1ba0beddf11d37561b963eb885be477121feb8948042b327af74d3b"
+    },
+    {
+      "canonicalRelationId": "7278092",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "14B",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "4822801489",
+        "peakName": "Ratschinger Kreuz",
+        "peakElevationMeters": 2359
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"14B\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "89c8af3b47ab61524eb07211406601594dc097b117a67352a510a50f6d1cbec3"
+    },
+    {
+      "canonicalRelationId": "7278122",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "29",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "8761715037",
+        "name": "Gewinges",
+        "distanceMeters": 18.38372560158196
+      },
+      "summitEntity": {
+        "peakSourceId": "419832972",
+        "peakName": "Zunderspitz - Cima dell'Incendio",
+        "peakElevationMeters": 2380
+      },
+      "derivedDisplayName": "Gewinges – Zunderspitz - Cima dell'Incendio",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Gewinges\" (8761715037, 18 m from start).",
+        "Exact summit entity \"Zunderspitz - Cima dell'Incendio\" (peak 419832972).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "779af26465c3d30a4f06dfd442e2ec7b83ff9533e97fe2de1dea7974b63ea28d"
+    },
+    {
+      "canonicalRelationId": "7425111",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "2",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "4909971208",
+        "name": "St. Martin, Außerdorf - San Martino, Außerdorf",
+        "distanceMeters": 93.56369780790789
+      },
+      "summitEntity": {
+        "peakSourceId": "4919228149",
+        "peakName": "Alplerspitz - Punta Alpetta",
+        "peakElevationMeters": 2750
+      },
+      "derivedDisplayName": "St. Martin, Außerdorf - San Martino, Außerdorf – Alplerspitz - Punta Alpetta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"St. Martin, Außerdorf - San Martino, Außerdorf\" (4909971208, 94 m from start).",
+        "Exact summit entity \"Alplerspitz - Punta Alpetta\" (peak 4919228149).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "d9dd8f4a52e34f48cec2504722ed7f5b85b14ed4f443042bc61d10aefcd22bcd"
+    },
+    {
+      "canonicalRelationId": "7480385",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "326",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "61840394",
+        "name": "Rifugio Luigi Albani",
+        "distanceMeters": 46.79351584136179
+      },
+      "summitEntity": {
+        "peakSourceId": "1352380200",
+        "peakName": "Monte Visolo",
+        "peakElevationMeters": 2370
+      },
+      "derivedDisplayName": "Rifugio Luigi Albani – Monte Visolo",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Rifugio Luigi Albani\" (61840394, 47 m from start).",
+        "Exact summit entity \"Monte Visolo\" (peak 1352380200).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Rifugio Albani\".",
+        "Relation to tag corroborates summit: \"Monte Visolo\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "bae7ae73957ecab5a06e172cd8e9e8043975dfd02f1871c31dc7fadad7035d64"
+    },
+    {
+      "canonicalRelationId": "7619608",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "518",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "node",
+        "osmid": "1411029986",
+        "name": "Malga Kraun",
+        "distanceMeters": 20.59215782870405
+      },
+      "summitEntity": {
+        "peakSourceId": "1589793263",
+        "peakName": "Cima Roccapiana",
+        "peakElevationMeters": 1874
+      },
+      "derivedDisplayName": "Malga Kraun – Cima Roccapiana",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Malga Kraun\" (1411029986, 21 m from start).",
+        "Exact summit entity \"Cima Roccapiana\" (peak 1589793263).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Rifugio e Malga Kraun (bivio 507)\".",
+        "Relation to tag corroborates summit: \"Cima Roccapiana (bivio 500)\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "bd9b00f38dea3170cc5215959c44258aedc5179052d2ef8087dabe9a84e369f8"
+    },
+    {
+      "canonicalRelationId": "7631511",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "538",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "6246726277",
+        "name": "Foresto",
+        "distanceMeters": 4.283184099365272
+      },
+      "summitEntity": {
+        "peakSourceId": "3301214109",
+        "peakName": "Monte Ciarmetta",
+        "peakElevationMeters": 1648
+      },
+      "derivedDisplayName": "Foresto – Monte Ciarmetta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Foresto\" (6246726277, 4 m from start).",
+        "Exact summit entity \"Monte Ciarmetta\" (peak 3301214109).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Bivio 536B-538-560, Foresto\".",
+        "Relation to tag corroborates summit: \"Monte Ciarmetta\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "f2cb91e602da6a55adfc647af11bad9944c344c9279fac93516fcb0f678ea87d"
+    },
+    {
+      "canonicalRelationId": "7644785",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "832",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "5166435382",
+        "peakName": "Cima Bonze",
+        "peakElevationMeters": 2516
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"832\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "c00e91a867996baea7d8f9d85c37bdb11e95f9a23eab6047323be1a4d3d775ce"
+    },
+    {
+      "canonicalRelationId": "7796932",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "1",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "5279925953",
+        "name": "Fonte di Gajum",
+        "distanceMeters": 7.12801755472999
+      },
+      "summitEntity": {
+        "peakSourceId": "10790873315",
+        "peakName": "Corno di Canzo Occidentale",
+        "peakElevationMeters": 1373
+      },
+      "derivedDisplayName": "Fonte di Gajum – Corno di Canzo Occidentale",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Fonte di Gajum\" (5279925953, 7 m from start).",
+        "Exact summit entity \"Corno di Canzo Occidentale\" (peak 10790873315).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Fonti di Gajum\".",
+        "Relation to tag corroborates summit: \"Vetta Corno Occidentale\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "bcefcf7d7497bcc4f2a47adb6e822b285845e8009039430f513d707a0fb0d541"
+    },
+    {
+      "canonicalRelationId": "7842649",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "A46",
+      "refKind": "HUMAN_MEANINGFUL_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "5884964140",
+        "name": "Nibbio",
+        "distanceMeters": 92.70305433984848
+      },
+      "summitEntity": {
+        "peakSourceId": "5190947484",
+        "peakName": "Mot Gianin",
+        "peakElevationMeters": 1049
+      },
+      "derivedDisplayName": "Nibbio – Mot Gianin",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Nibbio\" (5884964140, 93 m from start).",
+        "Exact summit entity \"Mot Gianin\" (peak 5190947484).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Nibbio\".",
+        "Relation to tag corroborates summit: \"Mot Gianin\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "75f5e9b85dbfe1aae2128e3e0f13e8bbe18ef1dcd8db799f7823228a822a7439"
+    },
+    {
+      "canonicalRelationId": "8479420",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "31",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "255973218",
+        "peakName": "Zischgeles",
+        "peakElevationMeters": 3004
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"31\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "65d47cb5609e0e3e7eafffceeefaa705bcca486d15fe7a2cbe340eb10ea22068"
+    },
+    {
+      "canonicalRelationId": "8528032",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "616170840",
+        "name": "Kistenpasshütte",
+        "distanceMeters": 30.753619880435
+      },
+      "summitEntity": {
+        "peakSourceId": "445797066",
+        "peakName": "Muttenbergen",
+        "peakElevationMeters": 2956
+      },
+      "derivedDisplayName": "Kistenpasshütte – Muttenbergen",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Kistenpasshütte\" (616170840, 31 m from start).",
+        "Exact summit entity \"Muttenbergen\" (peak 445797066).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Punkt 2729\".",
+        "Relation to tag corroborates summit: \"Muttenberge\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "15fc60764b863687e6486644a73eb641d9fd8540f3a6bb9ee8968ab6c8b7cb93"
+    },
+    {
+      "canonicalRelationId": "8540698",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "535",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "9560253844",
+        "name": "Pian de la Casera Vegia",
+        "distanceMeters": 26.450102552825573
+      },
+      "summitEntity": {
+        "peakSourceId": "3250128464",
+        "peakName": "Petorgnon",
+        "peakElevationMeters": 1914
+      },
+      "derivedDisplayName": "Pian de la Casera Vegia – Petorgnon",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Pian de la Casera Vegia\" (9560253844, 26 m from start).",
+        "Exact summit entity \"Petorgnon\" (peak 3250128464).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Valle de La Malisia\".",
+        "Relation to tag corroborates summit: \"Cima di Petorgnon\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "6367997b33cd845a149a749e45da0a5df2b6e7d65a462bb2eb0c5034e0fb9e09"
+    },
+    {
+      "canonicalRelationId": "9077076",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "754",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "2943600233",
+        "name": "Camo",
+        "distanceMeters": 69.77840201873583
+      },
+      "summitEntity": {
+        "peakSourceId": "2094645769",
+        "peakName": "Monte Avigno",
+        "peakElevationMeters": 1136
+      },
+      "derivedDisplayName": "Camo – Monte Avigno",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Camo\" (2943600233, 70 m from start).",
+        "Exact summit entity \"Monte Avigno\" (peak 2094645769).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Valduggia\".",
+        "Relation to tag corroborates summit: \"Monte Avigno o Navigno\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "ba1eb9439844186c51efc62153a1cb377c202a2b0e4df1384c86aaa99d26d6bc"
+    },
+    {
+      "canonicalRelationId": "9192721",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "141809448",
+        "name": "Albert Appel-Haus",
+        "distanceMeters": 142.9511377015939
+      },
+      "summitEntity": {
+        "peakSourceId": "361374622",
+        "peakName": "Großer Woising",
+        "peakElevationMeters": 2064
+      },
+      "derivedDisplayName": "Albert Appel-Haus – Großer Woising",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Albert Appel-Haus\" (141809448, 143 m from start).",
+        "Exact summit entity \"Großer Woising\" (peak 361374622).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "7524b709f5bc2f20001e4e0e8b05081ad22a29687489fe5091e00e154988f74d"
+    },
+    {
+      "canonicalRelationId": "9356180",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "715",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "3255030674",
+        "name": "Foresto",
+        "distanceMeters": 86.67289541734498
+      },
+      "summitEntity": {
+        "peakSourceId": "2932496642",
+        "peakName": "Castello di Gavala",
+        "peakElevationMeters": 1827
+      },
+      "derivedDisplayName": "Foresto – Castello di Gavala",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Foresto\" (3255030674, 87 m from start).",
+        "Exact summit entity \"Castello di Gavala\" (peak 2932496642).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Borgosesia, frazione Foresto, bivio VCA715-VCA724\".",
+        "Relation to tag corroborates summit: \"Monte Luvol, bivio VCA711-VCA715\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "f17927a0ea2993aa0a355493005f8fe82be9c4315e55ecde72cb60c09e4ab3b6"
+    },
+    {
+      "canonicalRelationId": "9465878",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "600",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "1982544476",
+        "name": "Campidaglio",
+        "distanceMeters": 20.003459483663423
+      },
+      "summitEntity": {
+        "peakSourceId": "2132397105",
+        "peakName": "Punta d'Arbella",
+        "peakElevationMeters": 1879
+      },
+      "derivedDisplayName": "Campidaglio – Punta d'Arbella",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Campidaglio\" (1982544476, 20 m from start).",
+        "Exact summit entity \"Punta d'Arbella\" (peak 2132397105).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Campidaglio\".",
+        "Relation to tag corroborates summit: \"Punta Arbella\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "e8c95678778a21633161ed0fcbe0b8cae541080eacd69f92fed1ac23a99ba129"
+    },
+    {
+      "canonicalRelationId": "9512293",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "27",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "103325526",
+        "name": "Sennes Hütte",
+        "distanceMeters": 19.942176865861136
+      },
+      "summitEntity": {
+        "peakSourceId": "2161621983",
+        "peakName": "Muntejela de Sennes - Monte Sella di Sennes",
+        "peakElevationMeters": 2787
+      },
+      "derivedDisplayName": "Sennes Hütte – Muntejela de Sennes - Monte Sella di Sennes",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Sennes Hütte\" (103325526, 20 m from start).",
+        "Exact summit entity \"Muntejela de Sennes - Monte Sella di Sennes\" (peak 2161621983).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "30433bcfd5be78d499353879ea91ea1cbb49f0a4456dc2d6a29863a7fc276c75"
+    },
+    {
+      "canonicalRelationId": "9753194",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "3149695966",
+        "name": "Dräckloch",
+        "distanceMeters": 5.578231567912823
+      },
+      "summitEntity": {
+        "peakSourceId": "5047803358",
+        "peakName": "Pfannenstock",
+        "peakElevationMeters": 2572
+      },
+      "derivedDisplayName": "Dräckloch – Pfannenstock",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Dräckloch\" (3149695966, 6 m from start).",
+        "Exact summit entity \"Pfannenstock\" (peak 5047803358).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Chratzerenfurggeli\".",
+        "Relation to tag corroborates summit: \"Dräckloch\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "cd268b4641fa637c1f0d9639c93483c8d2b8daa8f2b50764deff8ca03bc71599"
+    },
+    {
+      "canonicalRelationId": "9810339",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "508",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "487240199",
+        "name": "Case Bortot",
+        "distanceMeters": 37.56670242859528
+      },
+      "summitEntity": {
+        "peakSourceId": "3271021559",
+        "peakName": "Zimon De Terne",
+        "peakElevationMeters": 1794
+      },
+      "derivedDisplayName": "Case Bortot – Zimon De Terne",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Case Bortot\" (487240199, 38 m from start).",
+        "Exact summit entity \"Zimon De Terne\" (peak 3271021559).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Bolzano B. - Case Bortot\".",
+        "Relation to tag corroborates summit: \"Monte terne o Zimon di Terne\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "a6cdab1b6706b68171ed55d1a45228f5e7338224c362bf986e3da937f39eb30f"
+    },
+    {
+      "canonicalRelationId": "9975080",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "504",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "851653535",
+        "peakName": "Canto Alto",
+        "peakElevationMeters": 1146
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"504\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "6acf21922f82e444d8a5eeac05cfeac7ac7bc3fe1f8c4667ee99bce08b52ff56"
+    },
+    {
+      "canonicalRelationId": "10243056",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "912",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1897972345",
+        "peakName": "Punta di Verzel",
+        "peakElevationMeters": 2406
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"912\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "d559cbeeb0974c8d50e955a9d4b1ab8e270b544169d733b6bb2dde070e70f019"
+    },
+    {
+      "canonicalRelationId": "11215495",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "25",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "node",
+        "osmid": "9917556570",
+        "name": "Tiefrastenhütte",
+        "distanceMeters": 190.29937266872727
+      },
+      "summitEntity": {
+        "peakSourceId": "1001250876",
+        "peakName": "Kempspitz - Monte Pausa di Gruppo",
+        "peakElevationMeters": 2704
+      },
+      "derivedDisplayName": "Tiefrastenhütte – Kempspitz - Monte Pausa di Gruppo",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Tiefrastenhütte\" (9917556570, 190 m from start).",
+        "Exact summit entity \"Kempspitz - Monte Pausa di Gruppo\" (peak 1001250876).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "7ff892651bfe2f0bfa12c55e0bd61d95b5d378785ccbad363b92e6832824f738"
+    },
+    {
+      "canonicalRelationId": "11249620",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "E26",
+      "refKind": "HUMAN_MEANINGFUL_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1962153735",
+        "peakName": "Monte Mazzaro",
+        "peakElevationMeters": 1739
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"E26\" (HUMAN_MEANINGFUL_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "b4a6b1d2e4a7962849b2252a908b97f27f5631421df72ce785395d49163547f5"
+    },
+    {
+      "canonicalRelationId": "11520675",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "721",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "62512248",
+        "name": "Moggio",
+        "distanceMeters": 168.83320436983306
+      },
+      "summitEntity": {
+        "peakSourceId": "457711401",
+        "peakName": "Zucco Orscellera",
+        "peakElevationMeters": 1858
+      },
+      "derivedDisplayName": "Moggio – Zucco Orscellera",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Moggio\" (62512248, 169 m from start).",
+        "Exact summit entity \"Zucco Orscellera\" (peak 457711401).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Moggio\".",
+        "Relation to tag corroborates summit: \"Zucco Orscellera\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "fe291c1b6bd6acf893eff308472fc3dcc3a21cc1076232c63d34b0d2a88dac2c"
+    },
+    {
+      "canonicalRelationId": "11826028",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "594A",
+      "refKind": "HUMAN_MEANINGFUL_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1917198305",
+        "peakName": "Pizzo di Spino",
+        "peakElevationMeters": 958
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"594A\" (HUMAN_MEANINGFUL_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "16e11b56f638c0e05f5e2961c475005714900959c1427ef53d8bafac481cd98b"
+    },
+    {
+      "canonicalRelationId": "12183543",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "2B",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "4919228149",
+        "peakName": "Alplerspitz - Punta Alpetta",
+        "peakElevationMeters": 2750
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"2B\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "8939ecd13e139bf382f1e5d7269377eb07510fb70b5e754d32bb5a8b32b8ce5a"
+    },
+    {
+      "canonicalRelationId": "12225397",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "220",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "7533955808",
+        "name": "Pisgiù",
+        "distanceMeters": 9.34329341482905
+      },
+      "summitEntity": {
+        "peakSourceId": "851653535",
+        "peakName": "Canto Alto",
+        "peakElevationMeters": 1146
+      },
+      "derivedDisplayName": "Pisgiù – Canto Alto",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Pisgiù\" (7533955808, 9 m from start).",
+        "Exact summit entity \"Canto Alto\" (peak 851653535).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Pisgiu\".",
+        "Relation to tag corroborates summit: \"Monte Canto Alto\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "28c19316aaa3ec0773d2f1cbcad707a92b98b62013346ad45d6f0d734838abc2"
+    },
+    {
+      "canonicalRelationId": "12238631",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "17A",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "node",
+        "osmid": "9917556569",
+        "name": "Brixner Hütte - Rifugio Bressanone",
+        "distanceMeters": 17.506379169990637
+      },
+      "summitEntity": {
+        "peakSourceId": "676620448",
+        "peakName": "Wurmaulspitze - Cima Valmala",
+        "peakElevationMeters": 3022
+      },
+      "derivedDisplayName": "Brixner Hütte - Rifugio Bressanone – Wurmaulspitze - Cima Valmala",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Brixner Hütte - Rifugio Bressanone\" (9917556569, 18 m from start).",
+        "Exact summit entity \"Wurmaulspitze - Cima Valmala\" (peak 676620448).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "22514e5cb5a48641aafe93dd8296ac406dcb248608e4c3892f298fdf75aed5b3"
+    },
+    {
+      "canonicalRelationId": "12255236",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "234",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "845681162",
+        "name": "Zorzone",
+        "distanceMeters": 226.10520899806698
+      },
+      "summitEntity": {
+        "peakSourceId": "492484259",
+        "peakName": "Cima di Menna",
+        "peakElevationMeters": 2300
+      },
+      "derivedDisplayName": "Zorzone – Cima di Menna",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Zorzone\" (845681162, 226 m from start).",
+        "Exact summit entity \"Cima di Menna\" (peak 492484259).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Zorzone\".",
+        "Relation to tag corroborates summit: \"Monte Menna\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "69c59c91b7114a2e4a7391c575edd674f02f86a3deaa61292a37532cd31db08e"
+    },
+    {
+      "canonicalRelationId": "12275862",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "241",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "492509172",
+        "peakName": "Cima Vaccaro",
+        "peakElevationMeters": 1958
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"241\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "800fcdb24f756d71913388a0089ae56949a8132100fcbebff45c5cff17951816"
+    },
+    {
+      "canonicalRelationId": "12330451",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "811285356",
+        "name": "Firstboden",
+        "distanceMeters": 8.956331402515795
+      },
+      "summitEntity": {
+        "peakSourceId": "2423075795",
+        "peakName": "Mittaghorn",
+        "peakElevationMeters": 2415
+      },
+      "derivedDisplayName": "Firstboden – Mittaghorn",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Firstboden\" (811285356, 9 m from start).",
+        "Exact summit entity \"Mittaghorn\" (peak 2423075795).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Firstboden\".",
+        "Relation to tag corroborates summit: \"Mittaghorn\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "fc06c7655e5b2a8a347c1058907e4d981c854d0dba43eddfb2403e802ffa52e2"
+    },
+    {
+      "canonicalRelationId": "12454515",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "2",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "290772507",
+        "name": "Tschengls - Cengles",
+        "distanceMeters": 69.38443060765204
+      },
+      "summitEntity": {
+        "peakSourceId": "5308349402",
+        "peakName": "Tschenglser Köpfl - Dosso di Cengles",
+        "peakElevationMeters": 2516
+      },
+      "derivedDisplayName": "Tschengls - Cengles – Tschenglser Köpfl - Dosso di Cengles",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Tschengls - Cengles\" (290772507, 69 m from start).",
+        "Exact summit entity \"Tschenglser Köpfl - Dosso di Cengles\" (peak 5308349402).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "faa06fb55b6ec7bf3ae18666153bd48efadd3f88bf610d85908a4e651b06d409"
+    },
+    {
+      "canonicalRelationId": "12836107",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1372793645",
+        "peakName": "Sandhubel",
+        "peakElevationMeters": 2764
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": null,
+      "nameEvidence": [
+        "No source name, official/local name, exact named start entity, or exact summit name available. Fail closed."
+      ],
+      "nameStatus": "UNRESOLVED",
+      "deterministicResolutionHash": "c07fda0fa0d8e7f03626fb58e9eb9754287311b7a1d42ee1f8272fb577192220"
+    },
+    {
+      "canonicalRelationId": "12933742",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "24",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1567714675",
+        "peakName": "Mont Saron",
+        "peakElevationMeters": 2681
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"24\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "138d2b0eb5590b325f8a43b1ffa1ce069819b7815fabce13d60187e66ef349c4"
+    },
+    {
+      "canonicalRelationId": "13217296",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "70215945",
+        "name": "Rifugio Città di Ciriè",
+        "distanceMeters": 114.78175269768047
+      },
+      "summitEntity": {
+        "peakSourceId": "26863007",
+        "peakName": "Uia di Ciamarella",
+        "peakElevationMeters": 3676
+      },
+      "derivedDisplayName": "Rifugio Città di Ciriè – Uia di Ciamarella",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Rifugio Città di Ciriè\" (70215945, 115 m from start).",
+        "Exact summit entity \"Uia di Ciamarella\" (peak 26863007).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Pian della Mussa\".",
+        "Relation to tag corroborates summit: \"Vetta Ciamarella\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "df39485d38f4086f924c6c2bed21c6f62116bbd6e59db76a098b08a7618080a9"
+    },
+    {
+      "canonicalRelationId": "13409028",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "4",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1327562335",
+        "peakName": "Mont Tantané",
+        "peakElevationMeters": 2734
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"4\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "f80a3ee29994896f3a4e051c253d24aa48a675546eaf04923b1cd2affb73ed1f"
+    },
+    {
+      "canonicalRelationId": "13767517",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "201X",
+      "refKind": "HUMAN_MEANINGFUL_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "2151520480",
+        "name": "Cà di Janzo",
+        "distanceMeters": 88.1135882996832
+      },
+      "summitEntity": {
+        "peakSourceId": "2192119245",
+        "peakName": "Cima Mutta",
+        "peakElevationMeters": 2135
+      },
+      "derivedDisplayName": "Cà di Janzo – Cima Mutta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Cà di Janzo\" (2151520480, 88 m from start).",
+        "Exact summit entity \"Cima Mutta\" (peak 2192119245).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Bivio VCA201D-VCA201X presso Ca' di Janzo\".",
+        "Relation to tag corroborates summit: \"Cima Mutta\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "780a5da38a61e27d1852ed892a0a23a86073d2df73021804568d688fc70daa49"
+    },
+    {
+      "canonicalRelationId": "14043057",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "5",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "64777041",
+        "name": "Graun im Vinschgau - Curon Venosta",
+        "distanceMeters": 275.02384450977
+      },
+      "summitEntity": {
+        "peakSourceId": "328330300",
+        "peakName": "Klopaier Spitze",
+        "peakElevationMeters": 2918
+      },
+      "derivedDisplayName": "Graun im Vinschgau - Curon Venosta – Klopaier Spitze",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Graun im Vinschgau - Curon Venosta\" (64777041, 275 m from start).",
+        "Exact summit entity \"Klopaier Spitze\" (peak 328330300).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "3ddd6681d63724185c6de4e7c509e56ccd9ce545443df317ee41b9247e3bc378"
+    },
+    {
+      "canonicalRelationId": "14450146",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "693",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "62508675",
+        "name": "Cevo",
+        "distanceMeters": 203.667408408736
+      },
+      "summitEntity": {
+        "peakSourceId": "479127124",
+        "peakName": "Pian della Regina",
+        "peakElevationMeters": 2628
+      },
+      "derivedDisplayName": "Cevo – Pian della Regina",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Cevo\" (62508675, 204 m from start).",
+        "Exact summit entity \"Pian della Regina\" (peak 479127124).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Cevo\".",
+        "Relation to tag corroborates summit: \"Pian della Regina\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "4f720358dfd70b8488b15f4a268f702026599b2159301bcccbe804a24d0db4a8"
+    },
+    {
+      "canonicalRelationId": "14510044",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "329",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "8719126712",
+        "name": "Zergolon",
+        "distanceMeters": 97.8274549254445
+      },
+      "summitEntity": {
+        "peakSourceId": "3266959070",
+        "peakName": "Monte Schiavon",
+        "peakElevationMeters": 2326
+      },
+      "derivedDisplayName": "Zergolon – Monte Schiavon",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Zergolon\" (8719126712, 98 m from start).",
+        "Exact summit entity \"Monte Schiavon\" (peak 3266959070).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"a monte di Zergolon - da sentiero 328 (quota 1534)\".",
+        "Relation to tag corroborates summit: \"Monte Schiavon (quota 2326)\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "0322e934aefd99ef0572c965a147fe12f805b0f1932115f776faf205b50d79dc"
+    },
+    {
+      "canonicalRelationId": "14575910",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "20",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "1548829053",
+        "name": "La Joux",
+        "distanceMeters": 102.67445911091774
+      },
+      "summitEntity": {
+        "peakSourceId": "963323297",
+        "peakName": "Becca Pouegnenta",
+        "peakElevationMeters": 2827
+      },
+      "derivedDisplayName": "La Joux – Becca Pouegnenta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"La Joux\" (1548829053, 103 m from start).",
+        "Exact summit entity \"Becca Pouegnenta\" (peak 963323297).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Joux\".",
+        "Relation to tag corroborates summit: \"Becca Pouegnenta\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "295ff8a06e4ff40aefb7c5e901cc9de1f6fcf79056cc1449ff6dde1617efde05"
+    },
+    {
+      "canonicalRelationId": "14579123",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "2",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "1599612849",
+        "name": "Cré",
+        "distanceMeters": 28.68389230558358
+      },
+      "summitEntity": {
+        "peakSourceId": "1814344543",
+        "peakName": "Pointe Chaligne",
+        "peakElevationMeters": 2607
+      },
+      "derivedDisplayName": "Cré – Pointe Chaligne",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Cré\" (1599612849, 29 m from start).",
+        "Exact summit entity \"Pointe Chaligne\" (peak 1814344543).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Cré\".",
+        "Relation to tag corroborates summit: \"Pointe Chaligne\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "631197e6d117c4eaa840ba39e6153c0907187007ff5863cbc6789a13005fc3ee"
+    },
+    {
+      "canonicalRelationId": "14587091",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "8A",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "968074301",
+        "name": "Le Pont",
+        "distanceMeters": 229.46041454686207
+      },
+      "summitEntity": {
+        "peakSourceId": "1588156103",
+        "peakName": "Punta Valletta",
+        "peakElevationMeters": 2803
+      },
+      "derivedDisplayName": "Le Pont – Punta Valletta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Le Pont\" (968074301, 229 m from start).",
+        "Exact summit entity \"Punta Valletta\" (peak 1588156103).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Saint-Léonard\".",
+        "Relation to tag corroborates summit: \"Punta Valletta\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "87e0dcd986d4fde24adcd50da2ea63fe28b13e05ccab3795759c9cc91521579a"
+    },
+    {
+      "canonicalRelationId": "14597744",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "835",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "13511495322",
+        "name": "indicazione bilingue per magnodeno",
+        "distanceMeters": 16.728238461565567
+      },
+      "summitEntity": {
+        "peakSourceId": "457711561",
+        "peakName": "Monte Magnodeno",
+        "peakElevationMeters": 1241
+      },
+      "derivedDisplayName": "indicazione bilingue per magnodeno – Monte Magnodeno",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"indicazione bilingue per magnodeno\" (13511495322, 17 m from start).",
+        "Exact summit entity \"Monte Magnodeno\" (peak 457711561).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Erve\".",
+        "Relation to tag corroborates summit: \"Monte Magnodeno\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "6a0c98c6b3fce11df551b0425e68a6f60d286030cea615ee41e2db7565ead8d3"
+    },
+    {
+      "canonicalRelationId": "14598869",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "4",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "963950475",
+        "name": "Chez-les-Blanc-Dessus",
+        "distanceMeters": 173.52415310249907
+      },
+      "summitEntity": {
+        "peakSourceId": "1814344543",
+        "peakName": "Pointe Chaligne",
+        "peakElevationMeters": 2607
+      },
+      "derivedDisplayName": "Chez-les-Blanc-Dessus – Pointe Chaligne",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Chez-les-Blanc-Dessus\" (963950475, 174 m from start).",
+        "Exact summit entity \"Pointe Chaligne\" (peak 1814344543).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Chez-Les-Blancs\".",
+        "Relation to tag corroborates summit: \"Pointe Chaligne\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "120f05892337e6d34583e661460e7dc62d98c807b98e85caec86ed43a7fad96d"
+    },
+    {
+      "canonicalRelationId": "14605009",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "11",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "node",
+        "osmid": "353049844",
+        "name": "Rifugio Oratorio di Cuney",
+        "distanceMeters": 18.158931071894305
+      },
+      "summitEntity": {
+        "peakSourceId": "1393460961",
+        "peakName": "Becca de Fontaney",
+        "peakElevationMeters": 2972
+      },
+      "derivedDisplayName": "Rifugio Oratorio di Cuney – Becca de Fontaney",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Rifugio Oratorio di Cuney\" (353049844, 18 m from start).",
+        "Exact summit entity \"Becca de Fontaney\" (peak 1393460961).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Rifugio Oratorio di Cunéy\".",
+        "Relation to tag corroborates summit: \"Becca Fontaney\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "4371e7a11bc89f1f46685d212cda338edd46e095e3c57086e0bc8908f3f7c9b7"
+    },
+    {
+      "canonicalRelationId": "14629092",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "4G",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "1351826576",
+        "name": "Le Chardonney",
+        "distanceMeters": 85.51121712137974
+      },
+      "summitEntity": {
+        "peakSourceId": "7297072136",
+        "peakName": "Bec de Monpey",
+        "peakElevationMeters": 1985
+      },
+      "derivedDisplayName": "Le Chardonney – Bec de Monpey",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Le Chardonney\" (1351826576, 86 m from start).",
+        "Exact summit entity \"Bec de Monpey\" (peak 7297072136).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Chardonney\".",
+        "Relation to tag corroborates summit: \"Bec de Monpey\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "4c29a2b7e8a4ce40ad84e65a8037c395fa14ac61373c98b6c7508887f1b27028"
+    },
+    {
+      "canonicalRelationId": "14630773",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "1",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "1646682313",
+        "name": "Cloutraz",
+        "distanceMeters": 20.25851269828254
+      },
+      "summitEntity": {
+        "peakSourceId": "726133727",
+        "peakName": "Monte Barbeston",
+        "peakElevationMeters": 2482
+      },
+      "derivedDisplayName": "Cloutraz – Monte Barbeston",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Cloutraz\" (1646682313, 20 m from start).",
+        "Exact summit entity \"Monte Barbeston\" (peak 726133727).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Cloutraz\".",
+        "Relation to tag corroborates summit: \"Mont Barbeston\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "cb8cf4f01126148b556098f76ca37b660fb9bd0f04cbe9b72da68a2736899c4c"
+    },
+    {
+      "canonicalRelationId": "14661761",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "2",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "1966715592",
+        "name": "105 2",
+        "distanceMeters": 48.16400185860494
+      },
+      "summitEntity": {
+        "peakSourceId": "1252732573",
+        "peakName": "Monte Zerbion",
+        "peakElevationMeters": 2722
+      },
+      "derivedDisplayName": "105 2 – Monte Zerbion",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"105 2\" (1966715592, 48 m from start).",
+        "Exact summit entity \"Monte Zerbion\" (peak 1252732573).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Barmasc\".",
+        "Relation to tag corroborates summit: \"Mont Zerbion\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "06c3fe6854f4c0200f166e1400ebabacaa1b347df0cff73550f9f1e9723a7d0f"
+    },
+    {
+      "canonicalRelationId": "14664007",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "4",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1290254273",
+        "peakName": "Monte Croce",
+        "peakElevationMeters": 2895
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"4\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "ec52382f84027859fdaada56a7894d062d8bab65320c4d7da7bce94e7b6ae03b"
+    },
+    {
+      "canonicalRelationId": "14680095",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "8",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "726133727",
+        "peakName": "Monte Barbeston",
+        "peakElevationMeters": 2482
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"8\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "8c9eca46a939cd27bb019cd28ade5babbda839c29e2d1ac24756a0a9ec331e73"
+    },
+    {
+      "canonicalRelationId": "14687136",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "14B",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "6298816699",
+        "name": "Dublanc",
+        "distanceMeters": 2.0207543979271088
+      },
+      "summitEntity": {
+        "peakSourceId": "4990137643",
+        "peakName": "Tête du Mont",
+        "peakElevationMeters": 1897
+      },
+      "derivedDisplayName": "Dublanc – Tête du Mont",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Dublanc\" (6298816699, 2 m from start).",
+        "Exact summit entity \"Tête du Mont\" (peak 4990137643).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Dublanc\".",
+        "Relation to tag corroborates summit: \"Tete du Mont\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "94f5497f774d80ea7fcf9c5296889394094605a812f0e98bc79c0bd5bebe61e6"
+    },
+    {
+      "canonicalRelationId": "14718223",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "4B",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1512654235",
+        "peakName": "Mont Du Prial",
+        "peakElevationMeters": 2411
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"4B\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "bd000a65dbba8c95668dc8c50b0e501f649f95650b1b7c970f507d68e2677d9c"
+    },
+    {
+      "canonicalRelationId": "15003355",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "157A",
+      "refKind": "HUMAN_MEANINGFUL_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "wilderness_hut",
+        "objectType": "way",
+        "osmid": "178840155",
+        "name": "Bivacco Val Baione",
+        "distanceMeters": 9.892079887263375
+      },
+      "summitEntity": {
+        "peakSourceId": "522236726",
+        "peakName": "Cima dei Ladrinai",
+        "peakElevationMeters": 2400
+      },
+      "derivedDisplayName": "Bivacco Val Baione – Cima dei Ladrinai",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature wilderness_hut \"Bivacco Val Baione\" (178840155, 10 m from start).",
+        "Exact summit entity \"Cima dei Ladrinai\" (peak 522236726).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Bivacco Val Baione\".",
+        "Relation to tag corroborates summit: \"Cima Ladrinai\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "83ab329707e9738272345cf926ebc75d614263337afaba77a24d3dc9070a095c"
+    },
+    {
+      "canonicalRelationId": "15509763",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "561",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "63631097",
+        "name": "Sabbia",
+        "distanceMeters": 134.39336853893508
+      },
+      "summitEntity": {
+        "peakSourceId": "1878553670",
+        "peakName": "Monte Capio",
+        "peakElevationMeters": 2172
+      },
+      "derivedDisplayName": "Sabbia – Monte Capio",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Sabbia\" (63631097, 134 m from start).",
+        "Exact summit entity \"Monte Capio\" (peak 1878553670).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Sabbia, località San Giuseppe\".",
+        "Relation to tag corroborates summit: \"Monte Capio\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "eabeecf3deb81e6b62e230b1852549c4f4390b28f73d44a15cf3fd9dc9c87b8a"
+    },
+    {
+      "canonicalRelationId": "15706531",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "2637110849",
+        "name": "Ca. d' Starnam",
+        "distanceMeters": 5.6186346664850655
+      },
+      "summitEntity": {
+        "peakSourceId": "412731775",
+        "peakName": "Piz da la Margna",
+        "peakElevationMeters": 3159
+      },
+      "derivedDisplayName": "Ca. d' Starnam – Piz da la Margna",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Ca. d' Starnam\" (2637110849, 6 m from start).",
+        "Exact summit entity \"Piz da la Margna\" (peak 412731775).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Ca d'Starnam\".",
+        "Relation to tag corroborates summit: \"Piz da la Margna\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "14eac81bcd761af3335e19d3ee148d728c5425b393c72f920330689c93497b7e"
+    },
+    {
+      "canonicalRelationId": "15721946",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "553986644",
+        "name": "Edmund-Graf-Hütte",
+        "distanceMeters": 15.06396815978134
+      },
+      "summitEntity": {
+        "peakSourceId": "256042739",
+        "peakName": "Hoher Riffler (Süd)",
+        "peakElevationMeters": 3165
+      },
+      "derivedDisplayName": "Edmund-Graf-Hütte – Hoher Riffler (Süd)",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Edmund-Graf-Hütte\" (553986644, 15 m from start).",
+        "Exact summit entity \"Hoher Riffler (Süd)\" (peak 256042739).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Edmund-Graf-Hütte\".",
+        "Relation to tag corroborates summit: \"Hoher Riffler\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "fff43865f8894400190c4ce9984e5b8126344e6c5e079cf39434aa43802250ef"
+    },
+    {
+      "canonicalRelationId": "15854068",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "226",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "2234907362",
+        "peakName": "Monte Ventolaro",
+        "peakElevationMeters": 1833
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"226\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "41219b411dc55a8ab43f9a917f424781db1152ae6fbb07ac2f3ea4628f28b5fe"
+    },
+    {
+      "canonicalRelationId": "15880536",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "278",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "2207935502",
+        "peakName": "Punta Sivella",
+        "peakElevationMeters": 2523
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"278\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "69eed1f1cd09a7bc7603bfb44ada7e19a8f4932e3e17736a315c8c7f676759d1"
+    },
+    {
+      "canonicalRelationId": "15898386",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "363",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "node",
+        "osmid": "2263212221",
+        "name": "Campo Ragozzi",
+        "distanceMeters": 111.87327591847696
+      },
+      "summitEntity": {
+        "peakSourceId": "3409106500",
+        "peakName": "Piovatte d'Egua",
+        "peakElevationMeters": 2469
+      },
+      "derivedDisplayName": "Campo Ragozzi – Piovatte d'Egua",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Campo Ragozzi\" (2263212221, 112 m from start).",
+        "Exact summit entity \"Piovatte d'Egua\" (peak 3409106500).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Campo Ragozzi\".",
+        "Relation to tag corroborates summit: \"Cima Pianone\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "dfb12f73298ce8fa3a820fbacf9b5b654cb48136d9fd93f762c7a1c617e11eaf"
+    },
+    {
+      "canonicalRelationId": "15902354",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "397",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "wilderness_hut",
+        "objectType": "way",
+        "osmid": "211458421",
+        "name": "Punto Appoggio Alpe Cavaione",
+        "distanceMeters": 7.67853241949027
+      },
+      "summitEntity": {
+        "peakSourceId": "2710892680",
+        "peakName": "Pizzo Tracciora di Cervatto",
+        "peakElevationMeters": 1917
+      },
+      "derivedDisplayName": "Punto Appoggio Alpe Cavaione – Pizzo Tracciora di Cervatto",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature wilderness_hut \"Punto Appoggio Alpe Cavaione\" (211458421, 8 m from start).",
+        "Exact summit entity \"Pizzo Tracciora di Cervatto\" (peak 2710892680).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Alpe Cavaione\".",
+        "Relation to tag corroborates summit: \"Alpe Prato Bianco Inferiore\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "61eb4f9b431cf4e1d59a54d6fe71907dcac7cc7a681e5f113427225293ae93d6"
+    },
+    {
+      "canonicalRelationId": "15904161",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "400",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "63631091",
+        "name": "Rossa",
+        "distanceMeters": 12.222078172072981
+      },
+      "summitEntity": {
+        "peakSourceId": "2710892680",
+        "peakName": "Pizzo Tracciora di Cervatto",
+        "peakElevationMeters": 1917
+      },
+      "derivedDisplayName": "Rossa – Pizzo Tracciora di Cervatto",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Rossa\" (63631091, 12 m from start).",
+        "Exact summit entity \"Pizzo Tracciora di Cervatto\" (peak 2710892680).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Rossa, Palazzo Comunale\".",
+        "Relation to tag corroborates summit: \"Cravagliana, Pizzo Tracciora\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "d6de4aa58da29666518a8b9c9356553d6b6a80a9d510a41509db1f38f8032cdf"
+    },
+    {
+      "canonicalRelationId": "16120584",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "11062945874",
+        "name": "Rütimos",
+        "distanceMeters": 4.0542138951516
+      },
+      "summitEntity": {
+        "peakSourceId": "3210678909",
+        "peakName": "Jänzi",
+        "peakElevationMeters": 1738
+      },
+      "derivedDisplayName": "Rütimos – Jänzi",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Rütimos\" (11062945874, 4 m from start).",
+        "Exact summit entity \"Jänzi\" (peak 3210678909).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Jänzi\".",
+        "Relation to tag corroborates summit: \"Rütimos\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "bfa6593557da73dc7dc0a00935c7fe0cc552c7ad7ee6c2cc511cab10ed638e21"
+    },
+    {
+      "canonicalRelationId": "17394648",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "905",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "1661470061",
+        "name": "Germanello",
+        "distanceMeters": 195.78709563981917
+      },
+      "summitEntity": {
+        "peakSourceId": "457398076",
+        "peakName": "Monte Colmegnone",
+        "peakElevationMeters": 1378
+      },
+      "derivedDisplayName": "Germanello – Monte Colmegnone",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Germanello\" (1661470061, 196 m from start).",
+        "Exact summit entity \"Monte Colmegnone\" (peak 457398076).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Laglio\".",
+        "Relation to tag corroborates summit: \"Monte Colmegnone\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "f1676e0d7746edee74cf363a2b57be3f2ec60a3bed0ce9a2c90ce9f66449d2c0"
+    },
+    {
+      "canonicalRelationId": "17434102",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "7757146241",
+        "name": "Les Passes du Croz",
+        "distanceMeters": 3.033109856949971
+      },
+      "summitEntity": {
+        "peakSourceId": "1193394644",
+        "peakName": "Dent de Verreu",
+        "peakElevationMeters": 1901
+      },
+      "derivedDisplayName": "Les Passes du Croz – Dent de Verreu",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Les Passes du Croz\" (7757146241, 3 m from start).",
+        "Exact summit entity \"Dent de Verreu\" (peak 1193394644).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "295e3a3b306afd360eaed75b2c27af62f088800a43cf91edf33e74e01bf4ac96"
+    },
+    {
+      "canonicalRelationId": "18014235",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "7784047608",
+        "name": "Kops Gasthaus Zeinisjoch",
+        "distanceMeters": 102.04499675651599
+      },
+      "summitEntity": {
+        "peakSourceId": "333213348",
+        "peakName": "Fädnerspitze",
+        "peakElevationMeters": 2788
+      },
+      "derivedDisplayName": "Kops Gasthaus Zeinisjoch – Fädnerspitze",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Kops Gasthaus Zeinisjoch\" (7784047608, 102 m from start).",
+        "Exact summit entity \"Fädnerspitze\" (peak 333213348).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Zeinisjochhaus\".",
+        "Relation to tag corroborates summit: \"Fädnerspitze\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "d4ada45ca8882e4d0568f00d22c26baaa0b9d54924d40f5b63242c8df9f736c2"
+    },
+    {
+      "canonicalRelationId": "18045420",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "289421967",
+        "peakName": "Walmendinger Horn",
+        "peakElevationMeters": 1990
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": null,
+      "nameEvidence": [
+        "No source name, official/local name, exact named start entity, or exact summit name available. Fail closed."
+      ],
+      "nameStatus": "UNRESOLVED",
+      "deterministicResolutionHash": "02575407a99b5beed8daf4f37f0641894c18b2a7a1a4c7010b60064bb546325b"
+    },
+    {
+      "canonicalRelationId": "18507059",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "223110652",
+        "name": "Lämmerenhütte",
+        "distanceMeters": 45.71460078990231
+      },
+      "summitEntity": {
+        "peakSourceId": "2082169247",
+        "peakName": "Schwarzhorn",
+        "peakElevationMeters": 3105
+      },
+      "derivedDisplayName": "Lämmerenhütte – Schwarzhorn",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Lämmerenhütte\" (223110652, 46 m from start).",
+        "Exact summit entity \"Schwarzhorn\" (peak 2082169247).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Lämmernhütte\".",
+        "Relation to tag corroborates summit: \"Schwarzhorn\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "d239a44b2ff8e8436bf28cc2f2972772e4ac2b25687eb3d8b9a42870f8fcf422"
+    },
+    {
+      "canonicalRelationId": "19370185",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "256041918",
+        "peakName": "Kreuzspitze",
+        "peakElevationMeters": 3455
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": null,
+      "nameEvidence": [
+        "No source name, official/local name, exact named start entity, or exact summit name available. Fail closed."
+      ],
+      "nameStatus": "UNRESOLVED",
+      "deterministicResolutionHash": "006e5f708bd25ded98ccf98ab42ca6fd7d73f9b3e865caa15cccc0122857ce77"
+    },
+    {
+      "canonicalRelationId": "19420984",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "1736699456",
+        "name": "Ganne",
+        "distanceMeters": 18.451087155105284
+      },
+      "summitEntity": {
+        "peakSourceId": "3003004163",
+        "peakName": "Madom da Sgióf",
+        "peakElevationMeters": 2265
+      },
+      "derivedDisplayName": "Ganne – Madom da Sgióf",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Ganne\" (1736699456, 18 m from start).",
+        "Exact summit entity \"Madom da Sgióf\" (peak 3003004163).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Ganne\".",
+        "Relation to tag corroborates summit: \"Madom di Sgiof\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "2569a08edb26981bea26fa45716761af494a75f445589aab8f9a043e22a4160b"
+    },
+    {
+      "canonicalRelationId": "19429396",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "3",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "307305240",
+        "peakName": "Kolbenspitze - La Clava",
+        "peakElevationMeters": 2868
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "ROUTE_REF_ONLY",
+      "nameEvidence": [
+        "No human-readable name available; only route ref \"3\" (TECHNICAL_ONLY_REF) retained as metadata, not a primary public name."
+      ],
+      "nameStatus": "REF_ONLY",
+      "deterministicResolutionHash": "33860bfc3355edf4fa4f4ccbd1d3f3263a85b21133e7c861df847c7ee1c10b87"
+    },
+    {
+      "canonicalRelationId": "19650235",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": null,
+      "summitEntity": {
+        "peakSourceId": "1360637441",
+        "peakName": "Torrenthorn",
+        "peakElevationMeters": 2997.9
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": null,
+      "nameEvidence": [
+        "No source name, official/local name, exact named start entity, or exact summit name available. Fail closed."
+      ],
+      "nameStatus": "UNRESOLVED",
+      "deterministicResolutionHash": "607390f54dec8c5f7e01f19050f28f0631db7c6431288f4dead2eb01fd8da0d6"
+    },
+    {
+      "canonicalRelationId": "19723934",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "725",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "bus_stop",
+        "objectType": "node",
+        "osmid": "7086589792",
+        "name": "Weißpriach Fanningberghöhe",
+        "distanceMeters": 78.40923876789581
+      },
+      "summitEntity": {
+        "peakSourceId": "2732100164",
+        "peakName": "Kleines Gurpitscheck",
+        "peakElevationMeters": 2378
+      },
+      "derivedDisplayName": "Weißpriach Fanningberghöhe – Kleines Gurpitscheck",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature bus_stop \"Weißpriach Fanningberghöhe\" (7086589792, 78 m from start).",
+        "Exact summit entity \"Kleines Gurpitscheck\" (peak 2732100164).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Fanningberghöhe\".",
+        "Relation to tag corroborates summit: \"Kleines Gurpitscheck\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "91cf46f0596b435869a5a57178008a737463542aeed883aa6fe49fa014daceeb"
+    },
+    {
+      "canonicalRelationId": "19744018",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "11112377549",
+        "name": "Le Laythet",
+        "distanceMeters": 2.9938923863067934
+      },
+      "summitEntity": {
+        "peakSourceId": "343412890",
+        "peakName": "Tête Pelouse",
+        "peakElevationMeters": 2537
+      },
+      "derivedDisplayName": "Le Laythet – Tête Pelouse",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Le Laythet\" (11112377549, 3 m from start).",
+        "Exact summit entity \"Tête Pelouse\" (peak 343412890).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "458aa27bd41802093ea340f1d72bf5df54262f34c159b1e7cfde8a76cf6bf321"
+    },
+    {
+      "canonicalRelationId": "19752996",
+      "sourceName": "Mälachji - Wyssgrat",
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "7888024034",
+        "name": "Mälachji",
+        "distanceMeters": 36.70960179764451
+      },
+      "summitEntity": {
+        "peakSourceId": "14110138897",
+        "peakName": null,
+        "peakElevationMeters": 2886
+      },
+      "derivedDisplayName": null,
+      "sourceNamePreservedAsNull": false,
+      "nameOrigin": "RELATION_NAME",
+      "nameEvidence": [
+        "OSM relation name tag: \"Mälachji - Wyssgrat\"."
+      ],
+      "nameStatus": "SOURCE_NAME",
+      "deterministicResolutionHash": "f63543e897fc73237f938d3780ffc3d45833fbcd666938b964875981fba7aeb1"
+    },
+    {
+      "canonicalRelationId": "19753941",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "3076387839",
+        "name": "L'Aulp de Fier",
+        "distanceMeters": 3.3394341756653865
+      },
+      "summitEntity": {
+        "peakSourceId": "343435358",
+        "peakName": "Pointe de Mandallaz",
+        "peakElevationMeters": 2277
+      },
+      "derivedDisplayName": "L'Aulp de Fier – Pointe de Mandallaz",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"L'Aulp de Fier\" (3076387839, 3 m from start).",
+        "Exact summit entity \"Pointe de Mandallaz\" (peak 343435358).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "5cd6547eba226c90710c4a6b51ddfaad1f02b226e789de095550fa8df5f6b951"
+    },
+    {
+      "canonicalRelationId": "19762023",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "1877484121",
+        "name": "Hotel Belalp Aletschbord",
+        "distanceMeters": 3.1794447242006685
+      },
+      "summitEntity": {
+        "peakSourceId": "863295209",
+        "peakName": "Sparrhorn",
+        "peakElevationMeters": 3021
+      },
+      "derivedDisplayName": "Hotel Belalp Aletschbord – Sparrhorn",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Hotel Belalp Aletschbord\" (1877484121, 3 m from start).",
+        "Exact summit entity \"Sparrhorn\" (peak 863295209).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Hotel Belalp Aletschbord\".",
+        "Relation to tag corroborates summit: \"Sparrhorn\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "cd6fd91f40bf010d6a0fe81eb24d52d199888b67ef04b13701d277a41207c958"
+    },
+    {
+      "canonicalRelationId": "19895667",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "village",
+        "objectType": "node",
+        "osmid": "240034256",
+        "name": "Oberems",
+        "distanceMeters": 285.8912227510461
+      },
+      "summitEntity": {
+        "peakSourceId": "1373153210",
+        "peakName": "Emshorn",
+        "peakElevationMeters": 2633
+      },
+      "derivedDisplayName": "Oberems – Emshorn",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature village \"Oberems\" (240034256, 286 m from start).",
+        "Exact summit entity \"Emshorn\" (peak 1373153210).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Oberems\".",
+        "Relation to tag corroborates summit: \"Emshorn\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "d8ed14758e590121c9bb4b9c021d33af9c50f024a64a1c91eb301c75f7d64f0b"
+    },
+    {
+      "canonicalRelationId": "19938496",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": "622",
+      "refKind": "TECHNICAL_ONLY_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "hamlet",
+        "objectType": "way",
+        "osmid": "182433340",
+        "name": "Cima",
+        "distanceMeters": 69.10321075333087
+      },
+      "summitEntity": {
+        "peakSourceId": "418946058",
+        "peakName": "Monte Bronzone",
+        "peakElevationMeters": 1434
+      },
+      "derivedDisplayName": "Cima – Monte Bronzone",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature hamlet \"Cima\" (182433340, 69 m from start).",
+        "Exact summit entity \"Monte Bronzone\" (peak 418946058).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Cima\".",
+        "Relation to tag corroborates summit: \"Monte Bronzone\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "bbe170bed248bae547acd2360332713ce4ef40dd483aee1896688b95a7645d17"
+    },
+    {
+      "canonicalRelationId": "20336298",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "286906994",
+        "name": "Arpille",
+        "distanceMeters": 91.77915653909456
+      },
+      "summitEntity": {
+        "peakSourceId": "454092684",
+        "peakName": "La Pare",
+        "peakElevationMeters": 2540
+      },
+      "derivedDisplayName": "Arpille – La Pare",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Arpille\" (286906994, 92 m from start).",
+        "Exact summit entity \"La Pare\" (peak 454092684).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Arpille\".",
+        "Relation to tag corroborates summit: \"La Pare\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "f40222e67ff4493ac557084d9deb8fc4a792a5dfb4df9801cfef8ae2a8409ae6"
+    },
+    {
+      "canonicalRelationId": "20607084",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "BASE_START",
+      "startEntity": {
+        "featureType": "trailhead_info",
+        "objectType": "node",
+        "osmid": "11181962781",
+        "name": "Rippetli",
+        "distanceMeters": 5.416714614303699
+      },
+      "summitEntity": {
+        "peakSourceId": "1501652956",
+        "peakName": "Schopfenspitz - Gros Brun",
+        "peakElevationMeters": 2104
+      },
+      "derivedDisplayName": "Rippetli – Schopfenspitz - Gros Brun",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature trailhead_info \"Rippetli\" (11181962781, 5 m from start).",
+        "Exact summit entity \"Schopfenspitz - Gros Brun\" (peak 1501652956).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Rippetli\".",
+        "Relation to tag corroborates summit: \"Schopfenspitz\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "e73762786461918b9ec0351cd89c4e0d2804cb0a5dbea84e3227cb262303fa45"
+    },
+    {
+      "canonicalRelationId": "20732405",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "238108553",
+        "name": "Auta Chia",
+        "distanceMeters": 22.27629927280248
+      },
+      "summitEntity": {
+        "peakSourceId": "1140515018",
+        "peakName": "La Berra",
+        "peakElevationMeters": 1719
+      },
+      "derivedDisplayName": "Auta Chia – La Berra",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Auta Chia\" (238108553, 22 m from start).",
+        "Exact summit entity \"La Berra\" (peak 1140515018).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"La Berra\".",
+        "Relation to tag corroborates summit: \"Buvette de l'Hauta Chia\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "a1ec8edfc886827023144b384a5f38dc767008c1cec07551f1f7f7e7727c8afc"
+    },
+    {
+      "canonicalRelationId": "20732419",
+      "sourceName": null,
+      "officialName": null,
+      "localName": null,
+      "ref": null,
+      "refKind": "NO_REF",
+      "startContext": "HUT_START",
+      "startEntity": {
+        "featureType": "alpine_hut",
+        "objectType": "way",
+        "osmid": "238108553",
+        "name": "Auta Chia",
+        "distanceMeters": 25.212133377219708
+      },
+      "summitEntity": {
+        "peakSourceId": "2866858103",
+        "peakName": "La Patta",
+        "peakElevationMeters": 1616
+      },
+      "derivedDisplayName": "Auta Chia – La Patta",
+      "sourceNamePreservedAsNull": true,
+      "nameOrigin": "DERIVED_FROM_FROZEN_OSM",
+      "nameEvidence": [
+        "Exact named start feature alpine_hut \"Auta Chia\" (238108553, 25 m from start).",
+        "Exact summit entity \"La Patta\" (peak 2866858103).",
+        "Derived label composed from frozen OSM evidence only; never written to the OSM relation name.",
+        "Relation from tag corroborates start: \"Auta Chia\".",
+        "Relation to tag corroborates summit: \"La Patta\"."
+      ],
+      "nameStatus": "DERIVED_SOURCE_BACKED",
+      "deterministicResolutionHash": "22bd0461aa9409f036799529b53c8f7e8c741541321ea7fb1faaf97c50ba5710"
+    }
+  ],
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "73c575ec05901a945d8d533dd03cfadaf19191f38b8c60117ce717a4c22e0eb9"
+}

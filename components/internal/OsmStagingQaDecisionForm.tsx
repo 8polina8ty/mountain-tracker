@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { CheckCircle2, Save, SkipForward, TriangleAlert } from "lucide-react";
 
 import {
@@ -9,6 +9,8 @@ import {
   type PreviewQaStatus,
 } from "@/Lib/osmStagingPreview/core";
 import { saveOsmStagingQaDecision } from "@/app/[locale]/internal/osm-staging/actions";
+import { getQaKeyboardAction } from "@/Lib/osmStagingPreview/keyboard";
+import { previewQueueHref, type PreviewQueueId } from "@/Lib/osmStagingPreview/queue-core";
 import { useRouter } from "@/i18n/navigation";
 
 const STATUS_LABELS: Record<PreviewQaStatus, string> = {
@@ -22,14 +24,18 @@ export default function OsmStagingQaDecisionForm({
   stagingRouteId,
   currentDecision,
   writesAvailable,
+  previousRouteId,
   nextRouteId,
   nextPendingId,
+  queueId,
 }: {
   stagingRouteId: string;
   currentDecision: PreviewQaDecision | null;
   writesAvailable: boolean;
+  previousRouteId: string | null;
   nextRouteId: string | null;
   nextPendingId: string | null;
+  queueId: PreviewQueueId | null;
 }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -37,6 +43,43 @@ export default function OsmStagingQaDecisionForm({
   const [note, setNote] = useState(currentDecision?.reviewerNote ?? "");
   const [savedDecision, setSavedDecision] = useState<PreviewQaDecision | null>(currentDecision);
   const [message, setMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      const target = event.target;
+      const editableOrControlContext =
+        target instanceof Element &&
+        target.closest(
+          'input,textarea,select,button,a,[contenteditable]:not([contenteditable="false"])',
+        ) !== null;
+      const action = getQaKeyboardAction({
+        key: event.key,
+        editableOrControlContext,
+        ctrlKey: event.ctrlKey,
+        altKey: event.altKey,
+        metaKey: event.metaKey,
+        shiftKey: event.shiftKey,
+        repeat: event.repeat,
+      });
+      if (!action) return;
+      if (action.type === "SELECT_STATUS") {
+        if (!writesAvailable || isPending) return;
+        event.preventDefault();
+        setStatus(action.status);
+        setMessage(`Selected ${STATUS_LABELS[action.status]}. Save is still required.`);
+        return;
+      }
+      const destinationId =
+        action.type === "PREVIOUS_ROUTE" ? previousRouteId : nextRouteId;
+      if (!destinationId) return;
+      event.preventDefault();
+      router.push(
+        previewQueueHref(`/internal/osm-staging/${destinationId}`, queueId),
+      );
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isPending, nextRouteId, previousRouteId, queueId, router, writesAvailable]);
 
   function save(destination: "STAY" | "NEXT" | "NEXT_PENDING") {
     if (status === "REJECTED" && !window.confirm("Reject this staging route? This records a QA decision but does not delete or publish anything.")) {
@@ -50,6 +93,7 @@ export default function OsmStagingQaDecisionForm({
           status,
           reviewerNote: note,
           expectedVersion: savedDecision?.version ?? null,
+          queueId,
         });
         if (!result.ok) {
           setMessage(result.message);
@@ -67,7 +111,9 @@ export default function OsmStagingQaDecisionForm({
         setNote(decision?.reviewerNote ?? "");
         setMessage(result.changed ? "Decision saved." : "Already pending; nothing changed.");
         const destinationId = destination === "NEXT_PENDING" ? nextPendingId : destination === "NEXT" ? nextRouteId : null;
-        if (destinationId) router.push(`/internal/osm-staging/${destinationId}`);
+        if (destinationId) {
+          router.push(previewQueueHref(`/internal/osm-staging/${destinationId}`, queueId));
+        }
         else router.refresh();
       } catch (error) {
         setMessage(
@@ -127,6 +173,9 @@ export default function OsmStagingQaDecisionForm({
         </div>
       </fieldset>
       {message && <p aria-live="polite" className="mt-3 text-sm font-semibold text-[var(--color-text-secondary)]">{message}</p>}
+      <p className="mt-4 text-xs text-[var(--color-text-muted)]">
+        Shortcuts: A approve · N needs review · R reject · ← previous · → next. Decision shortcuts select only; use Save to record the decision.
+      </p>
       <p className="mt-4 text-xs text-[var(--color-text-muted)]">A visual approval remains an internal QA state. It does not publish this route.</p>
     </section>
   );

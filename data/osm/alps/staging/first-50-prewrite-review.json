@@ -1,0 +1,2950 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-25T01:54:50.930Z",
+  "selectionMethod": "Greedy deterministic coverage of operation, match, semantic, quality, length, elevation, and available country strata; then named/high-quality routes; numeric source ID tie-break.",
+  "inputHashes": {
+    "importPlanSha256": "8fd979a25a7c53bacfc8fcd6ca19b69cb09e76affc792b1ff9e2be01244c1a9e",
+    "first50Sha256": "7b6be2ad38c7d7fdec289b315f1d11b888ef0edbe1b1058bac4f0765a4a5ef3b",
+    "first50QaSha256": "f81204f83784717a7644236a09800417fb71efa36069ed11e8796760ee148050"
+  },
+  "datasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+  "mountainRowsRead": 47,
+  "summary": {
+    "reviewed": 50,
+    "ready": 37,
+    "warning": 9,
+    "blocked": 4,
+    "approved": 46,
+    "expectedRouteRows": 46,
+    "expectedSummitRows": 46
+  },
+  "records": [
+    {
+      "sourceRelationId": "20916",
+      "routeName": "Wanderweg 614",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 5392,
+        "startToSummitDistanceMeters": 3472.1,
+        "sourceFirstToSummitDistanceMeters": 3472.1,
+        "straightLineDistanceMeters": 3466.5,
+        "routeToStraightLineRatio": 1.56,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 3377,
+        "boundingBoxHeightMeters": 1496,
+        "boundingBoxDiagonalMeters": 3693.5,
+        "componentCount": 1,
+        "endpointDistanceMeters": 7.3
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "300920907",
+          "mountainId": 12690,
+          "osmCoordinates": [
+            14.3975248,
+            47.6526569
+          ],
+          "mountainCoordinates": [
+            14.3975248,
+            47.6526569
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2244,
+          "mountainElevationMeters": 2244,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "gro er pyhrgas",
+          "normalizedMountainNames": [
+            "gro er pyhrgas"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 300920907.",
+            "Phase 2 geometry is MATCHED at 3.3 m from the route.",
+            "Nearest component endpoint is 7.3 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:20916:mountain-tracker-osm-route/v1",
+      "payloadHash": "e2995161ae6c8035d00f27ddab11dcb7fcb195c263d873bc11cfe19b0f722c9d"
+    },
+    {
+      "sourceRelationId": "17497615",
+      "routeName": "Zaka - Ojstrica - Mala Osojnica",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "disposition": "BLOCKED",
+      "approvedForFirstWrite": false,
+      "hardFailures": [
+        "CURRENT_OPERATION:BLOCKED_NO_MOUNTAIN",
+        "MISSING_CURRENT_MOUNTAIN:472502272",
+        "MOUNTAIN_MATCH_NOT_EXACT:472502272"
+      ],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 1340,
+        "startToSummitDistanceMeters": null,
+        "sourceFirstToSummitDistanceMeters": 539.1,
+        "straightLineDistanceMeters": null,
+        "routeToStraightLineRatio": null,
+        "routeToStraightLineStatus": "TOPOLOGY_UNAVAILABLE",
+        "topologyClassification": "BRANCHING",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 3,
+        "endpointOrientationReason": "TOPOLOGY_AMBIGUOUS",
+        "boundingBoxWidthMeters": 573.9,
+        "boundingBoxHeightMeters": 404,
+        "boundingBoxDiagonalMeters": 701.9,
+        "componentCount": 2,
+        "endpointDistanceMeters": 3.3
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "472502272",
+          "mountainId": null,
+          "osmCoordinates": [
+            14.0784584,
+            46.3596329
+          ],
+          "mountainCoordinates": null,
+          "coordinateDifferenceMeters": null,
+          "osmElevationMeters": 610,
+          "mountainElevationMeters": null,
+          "elevationDifferenceMeters": null,
+          "normalizedPeakName": "ojstrica",
+          "normalizedMountainNames": [],
+          "evidence": [
+            "No Mountain Tracker mountain is within 75 m.",
+            "A matching name alone is not sufficient.",
+            "Phase 2 geometry is MATCHED at 3.3 m from the route.",
+            "Nearest component endpoint is 3.3 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:17497615:mountain-tracker-osm-route/v1",
+      "payloadHash": "411d344194e401a6ecbeb3a5e96812575433581f6204010a5b3e97003da67f53"
+    },
+    {
+      "sourceRelationId": "4103375",
+      "routeName": "12 - Mühlbach => Pfunders",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 17019,
+        "startToSummitDistanceMeters": null,
+        "sourceFirstToSummitDistanceMeters": 6989.2,
+        "straightLineDistanceMeters": null,
+        "routeToStraightLineRatio": null,
+        "routeToStraightLineStatus": "TOPOLOGY_UNAVAILABLE",
+        "topologyClassification": "BRANCHING",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 4,
+        "endpointOrientationReason": "TOPOLOGY_AMBIGUOUS",
+        "boundingBoxWidthMeters": 3394.3,
+        "boundingBoxHeightMeters": 10490.3,
+        "boundingBoxDiagonalMeters": 11025.8,
+        "componentCount": 3,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "301549910",
+          "mountainId": 69341,
+          "osmCoordinates": [
+            11.686882,
+            46.8595389
+          ],
+          "mountainCoordinates": [
+            11.686882,
+            46.8595389
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2510,
+          "mountainElevationMeters": 2510,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "gitsch monte cuzzo",
+          "normalizedMountainNames": [
+            "gitsch monte cuzzo",
+            "gitsch"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 301549910.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:4103375:mountain-tracker-osm-route/v1",
+      "payloadHash": "ce3df6c5a21145adda0781e953739a052aed0b084e790a21241bf6770d1f395d"
+    },
+    {
+      "sourceRelationId": "3970095",
+      "routeName": "Pt 1605 - Schwändiliflueh",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "disposition": "BLOCKED",
+      "approvedForFirstWrite": false,
+      "hardFailures": [
+        "CURRENT_OPERATION:BLOCKED_NO_MOUNTAIN",
+        "MISSING_CURRENT_MOUNTAIN:3025226297",
+        "MOUNTAIN_MATCH_NOT_EXACT:3025226297"
+      ],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 2147,
+        "startToSummitDistanceMeters": 1830.2,
+        "sourceFirstToSummitDistanceMeters": 1830.2,
+        "straightLineDistanceMeters": 1833.6,
+        "routeToStraightLineRatio": 1.17,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1265,
+        "boundingBoxHeightMeters": 1399.6,
+        "boundingBoxDiagonalMeters": 1886.6,
+        "componentCount": 1,
+        "endpointDistanceMeters": 4.1
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "3025226297",
+          "mountainId": null,
+          "osmCoordinates": [
+            8.0375511,
+            46.8876423
+          ],
+          "mountainCoordinates": null,
+          "coordinateDifferenceMeters": null,
+          "osmElevationMeters": null,
+          "mountainElevationMeters": null,
+          "elevationDifferenceMeters": null,
+          "normalizedPeakName": "schwandiliflue",
+          "normalizedMountainNames": [],
+          "evidence": [
+            "No Mountain Tracker mountain is within 75 m.",
+            "A matching name alone is not sufficient.",
+            "Phase 2 geometry is MATCHED at 3.6 m from the route.",
+            "Nearest component endpoint is 4.1 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:3970095:mountain-tracker-osm-route/v1",
+      "payloadHash": "ac809f2f87828f7db7a6da32033eec21e90ae6e27a9185683acc097dc567affd"
+    },
+    {
+      "sourceRelationId": "222362",
+      "routeName": "AV Weg 429 (Funtenseetauern Normalweg)",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made."
+      ],
+      "geometry": {
+        "routeDistanceMeters": 4387,
+        "startToSummitDistanceMeters": 3180.6,
+        "sourceFirstToSummitDistanceMeters": 3180.6,
+        "straightLineDistanceMeters": 3180.6,
+        "routeToStraightLineRatio": 1.38,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2959.3,
+        "boundingBoxHeightMeters": 1184.7,
+        "boundingBoxDiagonalMeters": 3187.6,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "2498250593",
+          "mountainId": 49,
+          "osmCoordinates": [
+            12.9767787,
+            47.4850145
+          ],
+          "mountainCoordinates": [
+            12.9767787,
+            47.4850145
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2578.4,
+          "mountainElevationMeters": 2578,
+          "elevationDifferenceMeters": 0.40000000000009095,
+          "normalizedPeakName": "funtenseetauern",
+          "normalizedMountainNames": [
+            "funtenseetauern"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 2498250593.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:222362:mountain-tracker-osm-route/v1",
+      "payloadHash": "6bb543d64df5c6f072428a435e3b79c5570d0bcac6999276692f31e50bda1630"
+    },
+    {
+      "sourceRelationId": "1124155",
+      "routeName": "Weg Nr. 1 - Zum Glescherblick - Oberaudorf/Hocheck",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "HIGH_ROUTE_TO_STRAIGHT_LINE_RATIO"
+      ],
+      "geometry": {
+        "routeDistanceMeters": 1202,
+        "startToSummitDistanceMeters": 61.6,
+        "sourceFirstToSummitDistanceMeters": 61.6,
+        "straightLineDistanceMeters": 61.6,
+        "routeToStraightLineRatio": 19.51,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 533.4,
+        "boundingBoxHeightMeters": 209,
+        "boundingBoxDiagonalMeters": 572.9,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "885182782",
+          "mountainId": 4147,
+          "osmCoordinates": [
+            12.1489342,
+            47.6482196
+          ],
+          "mountainCoordinates": [
+            12.1489342,
+            47.6482196
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 824,
+          "mountainElevationMeters": 824,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "gletscherblick",
+          "normalizedMountainNames": [
+            "gletscherblick"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 885182782.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1124155:mountain-tracker-osm-route/v1",
+      "payloadHash": "8ba568922142478ee8e30688ec05eb74bacf2cd64132a43512a975804d9fa35d"
+    },
+    {
+      "sourceRelationId": "1229102",
+      "routeName": "AV Weg 457 Alpeltalsteig",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably."
+      ],
+      "geometry": {
+        "routeDistanceMeters": 5568,
+        "startToSummitDistanceMeters": 2981.4,
+        "sourceFirstToSummitDistanceMeters": 2981.4,
+        "straightLineDistanceMeters": 2981.9,
+        "routeToStraightLineRatio": 1.87,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 3297.4,
+        "boundingBoxHeightMeters": 1004.7,
+        "boundingBoxDiagonalMeters": 3447.1,
+        "componentCount": 1,
+        "endpointDistanceMeters": 8
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "3186071317",
+          "mountainId": 66,
+          "osmCoordinates": [
+            13.0671406,
+            47.5939262
+          ],
+          "mountainCoordinates": [
+            13.0671406,
+            47.5939262
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2522,
+          "mountainElevationMeters": 2522,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "hoher goll",
+          "normalizedMountainNames": [
+            "hoher goll"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 3186071317.",
+            "Phase 2 geometry is MATCHED at 8 m from the route.",
+            "Nearest component endpoint is 8 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1229102:mountain-tracker-osm-route/v1",
+      "payloadHash": "02ea645f789b038711dfea96c47fe95d51321c82f6feea76fa3c15000c6bd5ce"
+    },
+    {
+      "sourceRelationId": "3973107",
+      "routeName": "Malbun Bergbahnen - Bergle - Schoenberg",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 6226,
+        "startToSummitDistanceMeters": 2842.8,
+        "sourceFirstToSummitDistanceMeters": 2842.8,
+        "straightLineDistanceMeters": 2842.8,
+        "routeToStraightLineRatio": 2.19,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2046.4,
+        "boundingBoxHeightMeters": 2702.4,
+        "boundingBoxDiagonalMeters": 3389.8,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1342463884",
+          "mountainId": 295736,
+          "osmCoordinates": [
+            9.593016,
+            47.1303811
+          ],
+          "mountainCoordinates": [
+            9.593016,
+            47.1303811
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2104,
+          "mountainElevationMeters": 2104,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "schonberg",
+          "normalizedMountainNames": [
+            "schonberg"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1342463884.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:3973107:mountain-tracker-osm-route/v1",
+      "payloadHash": "46d87dccbc6c6624ed205cefdb08817b080dd05e36cd2204354dfab2f0da7713"
+    },
+    {
+      "sourceRelationId": "19538533",
+      "routeName": "Cheval Noir",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 7455,
+        "startToSummitDistanceMeters": 3579,
+        "sourceFirstToSummitDistanceMeters": 3579,
+        "straightLineDistanceMeters": 3580.6,
+        "routeToStraightLineRatio": 2.08,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 3147.2,
+        "boundingBoxHeightMeters": 2676.2,
+        "boundingBoxDiagonalMeters": 4131.2,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.7
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1314161191",
+          "mountainId": 47149,
+          "osmCoordinates": [
+            6.413681,
+            45.4219064
+          ],
+          "mountainCoordinates": [
+            6.413681,
+            45.4219064
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2832,
+          "mountainElevationMeters": 2832,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "le cheval noir",
+          "normalizedMountainNames": [
+            "le cheval noir"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1314161191.",
+            "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+            "Nearest component endpoint is 1.7 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:19538533:mountain-tracker-osm-route/v1",
+      "payloadHash": "6c91faa3d854961e3adc6b31e90290ed5361e0d78755d0e5dfc2cd6bc169a520"
+    },
+    {
+      "sourceRelationId": "19898386",
+      "routeName": "Pl. Zapleč - Snežna jama - Krasji vrh",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "disposition": "BLOCKED",
+      "approvedForFirstWrite": false,
+      "hardFailures": [
+        "CURRENT_OPERATION:BLOCKED_NO_MOUNTAIN",
+        "MOUNTAIN_MATCH_NOT_EXACT:4228270420",
+        "MOUNTAIN_OSM_ID_CHANGED:4228270420"
+      ],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 4321,
+        "startToSummitDistanceMeters": 3005.3,
+        "sourceFirstToSummitDistanceMeters": 3005.3,
+        "straightLineDistanceMeters": 3002.4,
+        "routeToStraightLineRatio": 1.44,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2930.5,
+        "boundingBoxHeightMeters": 806.2,
+        "boundingBoxDiagonalMeters": 3039.4,
+        "componentCount": 1,
+        "endpointDistanceMeters": 3.6
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "4228270420",
+          "mountainId": 151342,
+          "osmCoordinates": [
+            13.5923173,
+            46.2893175
+          ],
+          "mountainCoordinates": [
+            13.5923173,
+            46.2893175
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1777,
+          "mountainElevationMeters": 1777,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "krasji vrh",
+          "normalizedMountainNames": [
+            "krasji vrh"
+          ],
+          "evidence": [
+            "One mountain is within 0 m and passes the elevation safeguard.",
+            "Normalized name provides supporting evidence.",
+            "PROBABLE matches are diagnostic only and are never attached automatically.",
+            "Phase 2 geometry is MATCHED at 3.5 m from the route.",
+            "Nearest component endpoint is 3.6 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:19898386:mountain-tracker-osm-route/v1",
+      "payloadHash": "b132d77a51ffb3ecb9dae75b0c700a6882cc2224f1d531859f3ef7f8b18b3d3d"
+    },
+    {
+      "sourceRelationId": "1667096",
+      "routeName": "Barrage de Mauvoisin - Le Pleureur",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 4654,
+        "startToSummitDistanceMeters": 2348.9,
+        "sourceFirstToSummitDistanceMeters": 2348.9,
+        "straightLineDistanceMeters": 2347.4,
+        "routeToStraightLineRatio": 1.98,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1495.9,
+        "boundingBoxHeightMeters": 2131.3,
+        "boundingBoxDiagonalMeters": 2603.9,
+        "componentCount": 1,
+        "endpointDistanceMeters": 2
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "290497840",
+          "mountainId": 208460,
+          "osmCoordinates": [
+            7.3691106,
+            46.0162844
+          ],
+          "mountainCoordinates": [
+            7.3691106,
+            46.0162844
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 3703,
+          "mountainElevationMeters": 3703,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "le pleureur",
+          "normalizedMountainNames": [
+            "le pleureur"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 290497840.",
+            "Phase 2 geometry is MATCHED at 2 m from the route.",
+            "Nearest component endpoint is 2 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1667096:mountain-tracker-osm-route/v1",
+      "payloadHash": "f323f1e760ede07c2a2780c3a2700e612ee2a271df957d03713e16163e520954"
+    },
+    {
+      "sourceRelationId": "11192622",
+      "routeName": "Alta Via del Caffaro",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "HIGH_COMPONENT_COUNT",
+        "VERY_LONG_ROUTE"
+      ],
+      "geometry": {
+        "routeDistanceMeters": 79693,
+        "startToSummitDistanceMeters": null,
+        "sourceFirstToSummitDistanceMeters": 9718.9,
+        "straightLineDistanceMeters": null,
+        "routeToStraightLineRatio": null,
+        "routeToStraightLineStatus": "TOPOLOGY_UNAVAILABLE",
+        "topologyClassification": "DISCONNECTED",
+        "connectedGroupCount": 4,
+        "physicalEndpointCount": 9,
+        "endpointOrientationReason": "TOPOLOGY_AMBIGUOUS",
+        "boundingBoxWidthMeters": 9572.8,
+        "boundingBoxHeightMeters": 20353.4,
+        "boundingBoxDiagonalMeters": 22492.2,
+        "componentCount": 6,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "523276765",
+          "mountainId": 71748,
+          "osmCoordinates": [
+            10.4060515,
+            45.8999628
+          ],
+          "mountainCoordinates": [
+            10.4060515,
+            45.8999628
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2055,
+          "mountainElevationMeters": 2055,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "monte croce domini",
+          "normalizedMountainNames": [
+            "monte croce domini"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 523276765.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:11192622:mountain-tracker-osm-route/v1",
+      "payloadHash": "63519eb0533a94a940081d39b27d8dfdc19ece570d35916bab64afa7293d7aa5"
+    },
+    {
+      "sourceRelationId": "33528",
+      "routeName": "10",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 5746,
+        "startToSummitDistanceMeters": 4275.2,
+        "sourceFirstToSummitDistanceMeters": 4275.2,
+        "straightLineDistanceMeters": 4275.2,
+        "routeToStraightLineRatio": 1.34,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2159.1,
+        "boundingBoxHeightMeters": 3843.5,
+        "boundingBoxDiagonalMeters": 4408.4,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "3006435036",
+          "mountainId": 83695,
+          "osmCoordinates": [
+            10.6875919,
+            46.5341461
+          ],
+          "mountainCoordinates": [
+            10.6875919,
+            46.5341461
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 3352,
+          "mountainElevationMeters": 3352,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "lyfispitze punta livi",
+          "normalizedMountainNames": [
+            "lyfispitze punta livi",
+            "lyfispitze"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 3006435036.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:33528:mountain-tracker-osm-route/v1",
+      "payloadHash": "5de39ac6ed3afdbe4ce008e58c74367d666b9811fb04ab60b099aa1413539dd6"
+    },
+    {
+      "sourceRelationId": "140270",
+      "routeName": "Via Ferrata “Rosalba Grasselli”",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 1304,
+        "startToSummitDistanceMeters": 981.7,
+        "sourceFirstToSummitDistanceMeters": 981.7,
+        "straightLineDistanceMeters": 982.9,
+        "routeToStraightLineRatio": 1.33,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 652.5,
+        "boundingBoxHeightMeters": 738,
+        "boundingBoxDiagonalMeters": 985.1,
+        "componentCount": 1,
+        "endpointDistanceMeters": 2.2
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "2143684699",
+          "mountainId": 77279,
+          "osmCoordinates": [
+            13.4333643,
+            46.3652266
+          ],
+          "mountainCoordinates": [
+            13.4333643,
+            46.3652266
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2434,
+          "mountainElevationMeters": 2434,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "picco di carnizza",
+          "normalizedMountainNames": [
+            "picco di carnizza"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 2143684699.",
+            "Phase 2 geometry is MATCHED at 0.2 m from the route.",
+            "Nearest component endpoint is 2.2 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:140270:mountain-tracker-osm-route/v1",
+      "payloadHash": "ef4cdff514241033fedd41b78542f77316685921d1febac22b861dc4ce056798"
+    },
+    {
+      "sourceRelationId": "196164",
+      "routeName": "Wanderweg 534",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 11734,
+        "startToSummitDistanceMeters": 8841.8,
+        "sourceFirstToSummitDistanceMeters": 8841.8,
+        "straightLineDistanceMeters": 8842.7,
+        "routeToStraightLineRatio": 1.33,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 6357.2,
+        "boundingBoxHeightMeters": 6396.3,
+        "boundingBoxDiagonalMeters": 9018.1,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "335302468",
+          "mountainId": 13132,
+          "osmCoordinates": [
+            15.1530825,
+            47.2802064
+          ],
+          "mountainCoordinates": [
+            15.1530825,
+            47.2802064
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1642,
+          "mountainElevationMeters": 1642,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "fensteralm",
+          "normalizedMountainNames": [
+            "fensteralm"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 335302468.",
+            "Phase 2 geometry is MATCHED at 1 m from the route.",
+            "Nearest component endpoint is 1 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:196164:mountain-tracker-osm-route/v1",
+      "payloadHash": "4e32e67180c4b03e91eb03c26802f74696418b092098d41b765891804c019aff"
+    },
+    {
+      "sourceRelationId": "199145",
+      "routeName": "Wanderweg 610",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 5902,
+        "startToSummitDistanceMeters": 3661.1,
+        "sourceFirstToSummitDistanceMeters": 3661.1,
+        "straightLineDistanceMeters": 3661.9,
+        "routeToStraightLineRatio": 1.61,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 3631.5,
+        "boundingBoxHeightMeters": 745.8,
+        "boundingBoxDiagonalMeters": 3707.3,
+        "componentCount": 1,
+        "endpointDistanceMeters": 3.9
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "300920886",
+          "mountainId": 12684,
+          "osmCoordinates": [
+            14.3461706,
+            47.622973
+          ],
+          "mountainCoordinates": [
+            14.3461706,
+            47.622973
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1992,
+          "mountainElevationMeters": 1992,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "bosruck",
+          "normalizedMountainNames": [
+            "bosruck"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 300920886.",
+            "Phase 2 geometry is MATCHED at 3.9 m from the route.",
+            "Nearest component endpoint is 3.9 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:199145:mountain-tracker-osm-route/v1",
+      "payloadHash": "e421ba184b92d778a75c9b7eb122991439686a74508598f68ff7b50fe94b54e8"
+    },
+    {
+      "sourceRelationId": "207900",
+      "routeName": "Wanderweg 791",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 8003,
+        "startToSummitDistanceMeters": 5332.4,
+        "sourceFirstToSummitDistanceMeters": 5332.4,
+        "straightLineDistanceMeters": 5335.6,
+        "routeToStraightLineRatio": 1.5,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 5335.4,
+        "boundingBoxHeightMeters": 1296.1,
+        "boundingBoxDiagonalMeters": 5490.5,
+        "componentCount": 1,
+        "endpointDistanceMeters": 3.3
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "26863054",
+          "mountainId": 11872,
+          "osmCoordinates": [
+            13.9757742,
+            47.3203059
+          ],
+          "mountainCoordinates": [
+            13.9757742,
+            47.3203059
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2599,
+          "mountainElevationMeters": 2599,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "gro er knallstein",
+          "normalizedMountainNames": [
+            "gro er knallstein"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 26863054.",
+            "Phase 2 geometry is MATCHED at 0.2 m from the route.",
+            "Nearest component endpoint is 3.3 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:207900:mountain-tracker-osm-route/v1",
+      "payloadHash": "d199402d01d93f70d09a8685bfe0f17f09183bccff4431e59569c00b4fa3c350"
+    },
+    {
+      "sourceRelationId": "207913",
+      "routeName": "Wanderweg 926A",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 1155,
+        "startToSummitDistanceMeters": 673.4,
+        "sourceFirstToSummitDistanceMeters": 673.4,
+        "straightLineDistanceMeters": 680.5,
+        "routeToStraightLineRatio": 1.7,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 607.3,
+        "boundingBoxHeightMeters": 336.1,
+        "boundingBoxDiagonalMeters": 694.2,
+        "componentCount": 1,
+        "endpointDistanceMeters": 7.2
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "471300819",
+          "mountainId": 13929,
+          "osmCoordinates": [
+            14.1606502,
+            47.2893725
+          ],
+          "mountainCoordinates": [
+            14.1606502,
+            47.2893725
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2423,
+          "mountainElevationMeters": 2423,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "schoberspitze",
+          "normalizedMountainNames": [
+            "schoberspitze"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 471300819.",
+            "Phase 2 geometry is MATCHED at 6.1 m from the route.",
+            "Nearest component endpoint is 7.2 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:207913:mountain-tracker-osm-route/v1",
+      "payloadHash": "41b3f11a6851dd2fe3fa95fa75534c87f0060e35d272a33b7a359b2180e8f908"
+    },
+    {
+      "sourceRelationId": "361148",
+      "routeName": "Wanderweg 10",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 7739,
+        "startToSummitDistanceMeters": 6639,
+        "sourceFirstToSummitDistanceMeters": 6639,
+        "straightLineDistanceMeters": 6637.5,
+        "routeToStraightLineRatio": 1.17,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 974.5,
+        "boundingBoxHeightMeters": 6566.4,
+        "boundingBoxDiagonalMeters": 6638.3,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.5
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "320693845",
+          "mountainId": 12787,
+          "osmCoordinates": [
+            15.4004901,
+            47.1731023
+          ],
+          "mountainCoordinates": [
+            15.4004901,
+            47.1731023
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1018,
+          "mountainElevationMeters": 1018,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "hohe rannach",
+          "normalizedMountainNames": [
+            "hohe rannach"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 320693845.",
+            "Phase 2 geometry is MATCHED at 1.5 m from the route.",
+            "Nearest component endpoint is 1.5 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:361148:mountain-tracker-osm-route/v1",
+      "payloadHash": "477cce97fc365394ff9d3df16fe9705305e8f7b3f54cdccee4b78e2eaee053de"
+    },
+    {
+      "sourceRelationId": "660063",
+      "routeName": "Winzendorf - Größenberg",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "disposition": "BLOCKED",
+      "approvedForFirstWrite": false,
+      "hardFailures": [
+        "CURRENT_OPERATION:BLOCKED_NO_MOUNTAIN",
+        "MISSING_CURRENT_MOUNTAIN:638977221",
+        "MOUNTAIN_MATCH_NOT_EXACT:638977221"
+      ],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3417,
+        "startToSummitDistanceMeters": 2690.5,
+        "sourceFirstToSummitDistanceMeters": 2690.5,
+        "straightLineDistanceMeters": 2692.5,
+        "routeToStraightLineRatio": 1.27,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 880.6,
+        "boundingBoxHeightMeters": 2609.4,
+        "boundingBoxDiagonalMeters": 2754,
+        "componentCount": 1,
+        "endpointDistanceMeters": 4.9
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "638977221",
+          "mountainId": null,
+          "osmCoordinates": [
+            16.1204721,
+            47.8344193
+          ],
+          "mountainCoordinates": null,
+          "coordinateDifferenceMeters": null,
+          "osmElevationMeters": 605,
+          "mountainElevationMeters": null,
+          "elevationDifferenceMeters": null,
+          "normalizedPeakName": "gro enberg",
+          "normalizedMountainNames": [],
+          "evidence": [
+            "No Mountain Tracker mountain is within 75 m.",
+            "A matching name alone is not sufficient.",
+            "Phase 2 geometry is MATCHED at 4.9 m from the route.",
+            "Nearest component endpoint is 4.9 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:660063:mountain-tracker-osm-route/v1",
+      "payloadHash": "869066851d440125fb3ffc7988b0a087da30c159d84b7f7a1319fd15f2317c79"
+    },
+    {
+      "sourceRelationId": "915266",
+      "routeName": "Güttlersteig",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3947,
+        "startToSummitDistanceMeters": 2276.5,
+        "sourceFirstToSummitDistanceMeters": 2276.5,
+        "straightLineDistanceMeters": 2276.2,
+        "routeToStraightLineRatio": 1.73,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1508.2,
+        "boundingBoxHeightMeters": 1736,
+        "boundingBoxDiagonalMeters": 2299.6,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0.6
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1305583293",
+          "mountainId": 16207,
+          "osmCoordinates": [
+            12.283543,
+            47.5617659
+          ],
+          "mountainCoordinates": [
+            12.283543,
+            47.5617659
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2260,
+          "mountainElevationMeters": 2260,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "sonneck",
+          "normalizedMountainNames": [
+            "sonneck"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1305583293.",
+            "Phase 2 geometry is MATCHED at 0.6 m from the route.",
+            "Nearest component endpoint is 0.6 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:915266:mountain-tracker-osm-route/v1",
+      "payloadHash": "09605cb95d55279e5898719b41c85be3dd3380c0c3ba0ac83ece9710ef3a4d96"
+    },
+    {
+      "sourceRelationId": "935393",
+      "routeName": "Wanderweg 37",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 5413,
+        "startToSummitDistanceMeters": 3588.5,
+        "sourceFirstToSummitDistanceMeters": 3588.5,
+        "straightLineDistanceMeters": 3589.2,
+        "routeToStraightLineRatio": 1.51,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 626.9,
+        "boundingBoxHeightMeters": 3584.3,
+        "boundingBoxDiagonalMeters": 3638.8,
+        "componentCount": 1,
+        "endpointDistanceMeters": 5.7
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "747187964",
+          "mountainId": 15091,
+          "osmCoordinates": [
+            14.6308292,
+            47.3040344
+          ],
+          "mountainCoordinates": [
+            14.6308292,
+            47.3040344
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1956,
+          "mountainElevationMeters": 1956,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "repenstein",
+          "normalizedMountainNames": [
+            "repenstein"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 747187964.",
+            "Phase 2 geometry is MATCHED at 5.7 m from the route.",
+            "Nearest component endpoint is 5.7 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:935393:mountain-tracker-osm-route/v1",
+      "payloadHash": "fa09d93990c608a372b4ee7d33be83087e4c9fc92b63aebdd2430a2b641cd252"
+    },
+    {
+      "sourceRelationId": "936047",
+      "routeName": "Wanderweg 627",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 648,
+        "startToSummitDistanceMeters": 240.7,
+        "sourceFirstToSummitDistanceMeters": 240.7,
+        "straightLineDistanceMeters": 240.7,
+        "routeToStraightLineRatio": 2.69,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 296.2,
+        "boundingBoxHeightMeters": 227.8,
+        "boundingBoxDiagonalMeters": 373.7,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "300920848",
+          "mountainId": 12674,
+          "osmCoordinates": [
+            14.4784977,
+            47.6036874
+          ],
+          "mountainCoordinates": [
+            14.4784977,
+            47.6036874
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1070,
+          "mountainElevationMeters": 1070,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "dorfelstein",
+          "normalizedMountainNames": [
+            "dorfelstein"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 300920848.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:936047:mountain-tracker-osm-route/v1",
+      "payloadHash": "13fcc7b22a5542acd19d2212dbe7faaf9dc1c2bd70de5cda4c3056004dabbcf6"
+    },
+    {
+      "sourceRelationId": "961283",
+      "routeName": "Wanderweg 282",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 884,
+        "startToSummitDistanceMeters": 678.1,
+        "sourceFirstToSummitDistanceMeters": 678.1,
+        "straightLineDistanceMeters": 683.7,
+        "routeToStraightLineRatio": 1.29,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 631.2,
+        "boundingBoxHeightMeters": 269.5,
+        "boundingBoxDiagonalMeters": 686.3,
+        "componentCount": 1,
+        "endpointDistanceMeters": 5.7
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "771762123",
+          "mountainId": 15153,
+          "osmCoordinates": [
+            14.1563581,
+            47.5844403
+          ],
+          "mountainCoordinates": [
+            14.1563581,
+            47.5844403
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1822,
+          "mountainElevationMeters": 1822,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "hochtausing",
+          "normalizedMountainNames": [
+            "hochtausing"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 771762123.",
+            "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+            "Nearest component endpoint is 5.7 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:961283:mountain-tracker-osm-route/v1",
+      "payloadHash": "8364569666ada3d89db1ca404c3616a50b6ba30e7ad9ac8f12a6ed5704239884"
+    },
+    {
+      "sourceRelationId": "1065987",
+      "routeName": "Wanderweg 740",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 11760,
+        "startToSummitDistanceMeters": 6108.4,
+        "sourceFirstToSummitDistanceMeters": 6108.4,
+        "straightLineDistanceMeters": 6108.9,
+        "routeToStraightLineRatio": 1.93,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 4690.3,
+        "boundingBoxHeightMeters": 5578.7,
+        "boundingBoxDiagonalMeters": 7288.4,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.5
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "964697099",
+          "mountainId": 15760,
+          "osmCoordinates": [
+            13.3936411,
+            47.1624791
+          ],
+          "mountainCoordinates": [
+            13.3936411,
+            47.1624791
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2711,
+          "mountainElevationMeters": 2711,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "wei eck",
+          "normalizedMountainNames": [
+            "wei eck"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 964697099.",
+            "Phase 2 geometry is MATCHED at 1.5 m from the route.",
+            "Nearest component endpoint is 1.5 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1065987:mountain-tracker-osm-route/v1",
+      "payloadHash": "34a7e1bd564cb12c3bcd090b7618ed12eb1ebcfa342d4614914a96a769bc34d4"
+    },
+    {
+      "sourceRelationId": "1075677",
+      "routeName": "Wanderweg 548",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "SHORT_HIGH_SUMMIT_SEGMENT"
+      ],
+      "geometry": {
+        "routeDistanceMeters": 915,
+        "startToSummitDistanceMeters": 805.1,
+        "sourceFirstToSummitDistanceMeters": 805.1,
+        "straightLineDistanceMeters": 805.1,
+        "routeToStraightLineRatio": 1.14,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 727.1,
+        "boundingBoxHeightMeters": 372.4,
+        "boundingBoxDiagonalMeters": 817,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "2526776404",
+          "mountainId": 18908,
+          "osmCoordinates": [
+            13.4007425,
+            47.0700618
+          ],
+          "mountainCoordinates": [
+            13.4007425,
+            47.0700618
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 3076,
+          "mountainElevationMeters": 3076,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "gro er hafner",
+          "normalizedMountainNames": [
+            "gro er hafner"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 2526776404.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1075677:mountain-tracker-osm-route/v1",
+      "payloadHash": "ed1cd2bb4714a6231c14db2e36c7d6f8badc01e9f596c12970c436726a61250c"
+    },
+    {
+      "sourceRelationId": "1138510",
+      "routeName": "Kaiserschützensteig",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 2056,
+        "startToSummitDistanceMeters": 796.4,
+        "sourceFirstToSummitDistanceMeters": 796.4,
+        "straightLineDistanceMeters": 792.9,
+        "routeToStraightLineRatio": 2.59,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 753.3,
+        "boundingBoxHeightMeters": 528.1,
+        "boundingBoxDiagonalMeters": 919.9,
+        "componentCount": 1,
+        "endpointDistanceMeters": 4.4
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "713546737",
+          "mountainId": 15021,
+          "osmCoordinates": [
+            12.3025296,
+            47.5616377
+          ],
+          "mountainCoordinates": [
+            12.3025296,
+            47.5616377
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2342,
+          "mountainElevationMeters": 2342,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "ellmauer halt",
+          "normalizedMountainNames": [
+            "ellmauer halt"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 713546737.",
+            "Phase 2 geometry is MATCHED at 4.4 m from the route.",
+            "Nearest component endpoint is 4.4 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1138510:mountain-tracker-osm-route/v1",
+      "payloadHash": "a0a668e97654abc3d88790616f56f5e1e4d0f77c2296940b8f3ed325dc3db81f"
+    },
+    {
+      "sourceRelationId": "1140771",
+      "routeName": "AV Weg 711A",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "SHORT_HIGH_SUMMIT_SEGMENT"
+      ],
+      "geometry": {
+        "routeDistanceMeters": 1211,
+        "startToSummitDistanceMeters": 619.1,
+        "sourceFirstToSummitDistanceMeters": 619.1,
+        "straightLineDistanceMeters": 619.1,
+        "routeToStraightLineRatio": 1.96,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 479.3,
+        "boundingBoxHeightMeters": 507.7,
+        "boundingBoxDiagonalMeters": 698.2,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "911134829",
+          "mountainId": 15555,
+          "osmCoordinates": [
+            12.6288909,
+            47.1155879
+          ],
+          "mountainCoordinates": [
+            12.6288909,
+            47.1155879
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2762,
+          "mountainElevationMeters": 2762,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "medelzkopf",
+          "normalizedMountainNames": [
+            "medelzkopf"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 911134829.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1140771:mountain-tracker-osm-route/v1",
+      "payloadHash": "fa2bb5bd48f577902a22a4cba6ad25b4f11f404592f9d5591921fdef44f7b3e5"
+    },
+    {
+      "sourceRelationId": "1144001",
+      "routeName": "Sentiero della Loffa",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 1120,
+        "startToSummitDistanceMeters": 585.6,
+        "sourceFirstToSummitDistanceMeters": 78.1,
+        "straightLineDistanceMeters": 583.7,
+        "routeToStraightLineRatio": 1.92,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 544,
+        "boundingBoxHeightMeters": 288.3,
+        "boundingBoxDiagonalMeters": 615.6,
+        "componentCount": 2,
+        "endpointDistanceMeters": 2.2
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "530831149",
+          "mountainId": 72079,
+          "osmCoordinates": [
+            11.1761914,
+            45.7469759
+          ],
+          "mountainCoordinates": [
+            11.1761914,
+            45.7469759
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1899,
+          "mountainElevationMeters": 1899,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "monte cornetto",
+          "normalizedMountainNames": [
+            "monte cornetto"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 530831149.",
+            "Phase 2 geometry is MATCHED at 2.2 m from the route.",
+            "Nearest component endpoint is 2.2 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1144001:mountain-tracker-osm-route/v1",
+      "payloadHash": "ad35248784a4d7edda5c8a0e7aba4fbc795249af911d734913b14c282f40216d"
+    },
+    {
+      "sourceRelationId": "1165714",
+      "routeName": "Wanderweg 437",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3667,
+        "startToSummitDistanceMeters": 2206.6,
+        "sourceFirstToSummitDistanceMeters": 2206.6,
+        "straightLineDistanceMeters": 2207.5,
+        "routeToStraightLineRatio": 1.66,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 934.1,
+        "boundingBoxHeightMeters": 2137.1,
+        "boundingBoxDiagonalMeters": 2332.4,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0.9
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "462673434",
+          "mountainId": 13894,
+          "osmCoordinates": [
+            13.991896,
+            47.879242
+          ],
+          "mountainCoordinates": [
+            13.991896,
+            47.879242
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1405,
+          "mountainElevationMeters": 1405,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "hochsalm",
+          "normalizedMountainNames": [
+            "hochsalm"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 462673434.",
+            "Phase 2 geometry is MATCHED at 0.4 m from the route.",
+            "Nearest component endpoint is 0.9 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1165714:mountain-tracker-osm-route/v1",
+      "payloadHash": "346158beda1cab11c23d67f97cc37f6107c880d5ec7a320fb491d5943a6bdfdf"
+    },
+    {
+      "sourceRelationId": "1271967",
+      "routeName": "Haakogelweg",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "geometry": {
+        "routeDistanceMeters": 1044,
+        "startToSummitDistanceMeters": 474.7,
+        "sourceFirstToSummitDistanceMeters": 0,
+        "straightLineDistanceMeters": 474.7,
+        "routeToStraightLineRatio": 2.2,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 484,
+        "boundingBoxHeightMeters": 283.1,
+        "boundingBoxDiagonalMeters": 560.7,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "988874037",
+          "mountainId": 15824,
+          "osmCoordinates": [
+            15.7710701,
+            47.669938
+          ],
+          "mountainCoordinates": [
+            15.7710701,
+            47.669938
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 884,
+          "mountainElevationMeters": 884,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "haakogel",
+          "normalizedMountainNames": [
+            "haakogel"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 988874037.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1271967:mountain-tracker-osm-route/v1",
+      "payloadHash": "4b46926956c1e65440dc8b28da1ccae960a4bb51709f769d081a0064de24803a"
+    },
+    {
+      "sourceRelationId": "1490290",
+      "routeName": "Hainfeld (Kirche) - Hainfelder Hütte",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3248,
+        "startToSummitDistanceMeters": 2058,
+        "sourceFirstToSummitDistanceMeters": 2058,
+        "straightLineDistanceMeters": 2060.8,
+        "routeToStraightLineRatio": 1.58,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1423.5,
+        "boundingBoxHeightMeters": 1728.6,
+        "boundingBoxDiagonalMeters": 2239.3,
+        "componentCount": 1,
+        "endpointDistanceMeters": 3.1
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1574657620",
+          "mountainId": 16967,
+          "osmCoordinates": [
+            15.7536905,
+            48.0193573
+          ],
+          "mountainCoordinates": [
+            15.7536905,
+            48.0193573
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 924,
+          "mountainElevationMeters": 924,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "hainfelder kirchenberg",
+          "normalizedMountainNames": [
+            "hainfelder kirchenberg"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1574657620.",
+            "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+            "Nearest component endpoint is 3.1 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1490290:mountain-tracker-osm-route/v1",
+      "payloadHash": "5c060b8d77b2d319d64a36f541981e80b3bdc676cd7247633845ab7f943dcbe3"
+    },
+    {
+      "sourceRelationId": "1555542",
+      "routeName": "Wanderweg 659 - Trainsjoch",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 7497,
+        "startToSummitDistanceMeters": 3886.3,
+        "sourceFirstToSummitDistanceMeters": 3886.3,
+        "straightLineDistanceMeters": 3888.1,
+        "routeToStraightLineRatio": 1.93,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2395.8,
+        "boundingBoxHeightMeters": 3335.9,
+        "boundingBoxDiagonalMeters": 4107.1,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.7
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "264035398",
+          "mountainId": 928,
+          "osmCoordinates": [
+            12.0543473,
+            47.615268
+          ],
+          "mountainCoordinates": [
+            12.0543473,
+            47.615268
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1707,
+          "mountainElevationMeters": 1707,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "trainsjoch",
+          "normalizedMountainNames": [
+            "trainsjoch"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 264035398.",
+            "Phase 2 geometry is MATCHED at 0.8 m from the route.",
+            "Nearest component endpoint is 1.7 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1555542:mountain-tracker-osm-route/v1",
+      "payloadHash": "0600f3d4883ec17fc719f0c79db28745bd040e5e67ad3c692c9890ab4f2c4d1d"
+    },
+    {
+      "sourceRelationId": "1601155",
+      "routeName": "Creste del Summano",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 2897,
+        "startToSummitDistanceMeters": 2018.2,
+        "sourceFirstToSummitDistanceMeters": 2018.2,
+        "straightLineDistanceMeters": 2021.9,
+        "routeToStraightLineRatio": 1.43,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1841,
+        "boundingBoxHeightMeters": 892.4,
+        "boundingBoxDiagonalMeters": 2045.9,
+        "componentCount": 1,
+        "endpointDistanceMeters": 8.5
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "323606498",
+          "mountainId": 69547,
+          "osmCoordinates": [
+            11.3902428,
+            45.7595874
+          ],
+          "mountainCoordinates": [
+            11.3902428,
+            45.7595874
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1296,
+          "mountainElevationMeters": 1296,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "cima summano",
+          "normalizedMountainNames": [
+            "cima summano"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 323606498.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 8.5 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1601155:mountain-tracker-osm-route/v1",
+      "payloadHash": "9662be5ab0796cae408021132de588c2d8f31325129340199bdbb20766745f4d"
+    },
+    {
+      "sourceRelationId": "1606996",
+      "routeName": "Wanderweg 875",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 4767,
+        "startToSummitDistanceMeters": 2998.8,
+        "sourceFirstToSummitDistanceMeters": 2998.8,
+        "straightLineDistanceMeters": 2998.8,
+        "routeToStraightLineRatio": 1.59,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1277.6,
+        "boundingBoxHeightMeters": 2770.7,
+        "boundingBoxDiagonalMeters": 3051,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "26862916",
+          "mountainId": 11861,
+          "osmCoordinates": [
+            13.4806591,
+            47.6233204
+          ],
+          "mountainCoordinates": [
+            13.4806591,
+            47.6233204
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2027,
+          "mountainElevationMeters": 2027,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "gamsfeld",
+          "normalizedMountainNames": [
+            "gamsfeld"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 26862916.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1606996:mountain-tracker-osm-route/v1",
+      "payloadHash": "3526781fbf8df56d5e7d8a44f4985a978018774319865f64790bcb66109d7393"
+    },
+    {
+      "sourceRelationId": "1641211",
+      "routeName": "Wanderweg 292",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 4335,
+        "startToSummitDistanceMeters": 1416.9,
+        "sourceFirstToSummitDistanceMeters": 1416.9,
+        "straightLineDistanceMeters": 1419.5,
+        "routeToStraightLineRatio": 3.05,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 917.1,
+        "boundingBoxHeightMeters": 2187.9,
+        "boundingBoxDiagonalMeters": 2372.4,
+        "componentCount": 1,
+        "endpointDistanceMeters": 2.6
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1341734808",
+          "mountainId": 16280,
+          "osmCoordinates": [
+            14.3006882,
+            47.6782959
+          ],
+          "mountainCoordinates": [
+            14.3006882,
+            47.6782959
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1574,
+          "mountainElevationMeters": 1574,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "seespitz",
+          "normalizedMountainNames": [
+            "seespitz"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1341734808.",
+            "Phase 2 geometry is MATCHED at 2.6 m from the route.",
+            "Nearest component endpoint is 2.6 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1641211:mountain-tracker-osm-route/v1",
+      "payloadHash": "d9505878f15c287b5651f8355dbc7b37d38878f83729e84f08ba27d3b00f6fc5"
+    },
+    {
+      "sourceRelationId": "1751818",
+      "routeName": "AV Weg 437 (Taghaube)",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "geometry": {
+        "routeDistanceMeters": 1066,
+        "startToSummitDistanceMeters": 660.6,
+        "sourceFirstToSummitDistanceMeters": 0.9,
+        "straightLineDistanceMeters": 660,
+        "routeToStraightLineRatio": 1.62,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 654,
+        "boundingBoxHeightMeters": 192,
+        "boundingBoxDiagonalMeters": 681.6,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0.9
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1410391160",
+          "mountainId": 16456,
+          "osmCoordinates": [
+            13.0560411,
+            47.4039791
+          ],
+          "mountainCoordinates": [
+            13.0560411,
+            47.4039791
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2159,
+          "mountainElevationMeters": 2159,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "taghaube",
+          "normalizedMountainNames": [
+            "taghaube"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1410391160.",
+            "Phase 2 geometry is MATCHED at 0.9 m from the route.",
+            "Nearest component endpoint is 0.9 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1751818:mountain-tracker-osm-route/v1",
+      "payloadHash": "1bc603d720959a23932fcf45dc49f3a7ed1c355bebeece07089eb80f08899cb4"
+    },
+    {
+      "sourceRelationId": "1777574",
+      "routeName": "Wanderweg 31",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 5920,
+        "startToSummitDistanceMeters": 3997.1,
+        "sourceFirstToSummitDistanceMeters": 3997.1,
+        "straightLineDistanceMeters": 3996.6,
+        "routeToStraightLineRatio": 1.48,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 3932.3,
+        "boundingBoxHeightMeters": 1104.4,
+        "boundingBoxDiagonalMeters": 4084.4,
+        "componentCount": 1,
+        "endpointDistanceMeters": 2.4
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "775050138",
+          "mountainId": 15169,
+          "osmCoordinates": [
+            15.5559927,
+            47.9194377
+          ],
+          "mountainCoordinates": [
+            15.5559927,
+            47.9194377
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1372,
+          "mountainElevationMeters": 1372,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "turnitzer hoger",
+          "normalizedMountainNames": [
+            "turnitzer hoger"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 775050138.",
+            "Phase 2 geometry is MATCHED at 2.4 m from the route.",
+            "Nearest component endpoint is 2.4 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1777574:mountain-tracker-osm-route/v1",
+      "payloadHash": "f454e432da9cd4d95efc5f5503b7ad5870fc7b7e9f7d2535b66cf02234bf6931"
+    },
+    {
+      "sourceRelationId": "1796122",
+      "routeName": "Zreče - Ančka - Golek",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3538,
+        "startToSummitDistanceMeters": 2462,
+        "sourceFirstToSummitDistanceMeters": 2462,
+        "straightLineDistanceMeters": 2462,
+        "routeToStraightLineRatio": 1.44,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2182.5,
+        "boundingBoxHeightMeters": 1275.5,
+        "boundingBoxDiagonalMeters": 2527.9,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "3902613629",
+          "mountainId": 151688,
+          "osmCoordinates": [
+            15.361895,
+            46.3811301
+          ],
+          "mountainCoordinates": [
+            15.361895,
+            46.3811301
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 769,
+          "mountainElevationMeters": 769,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "golek",
+          "normalizedMountainNames": [
+            "golek"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 3902613629.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1796122:mountain-tracker-osm-route/v1",
+      "payloadHash": "395ece21a0c1e7ba50c345f593240033b53c0b6ea785f1c5cd2a3a1cff0ef34d"
+    },
+    {
+      "sourceRelationId": "1798968",
+      "routeName": "Alta Via C.A.I. Gemona",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "WARNING",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "geometry": {
+        "routeDistanceMeters": 5738,
+        "startToSummitDistanceMeters": 4674.8,
+        "sourceFirstToSummitDistanceMeters": 1.2,
+        "straightLineDistanceMeters": 4674.8,
+        "routeToStraightLineRatio": 1.23,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 4613.1,
+        "boundingBoxHeightMeters": 757,
+        "boundingBoxDiagonalMeters": 4674.8,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.2
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "26863825",
+          "mountainId": 69028,
+          "osmCoordinates": [
+            13.1811838,
+            46.2945179
+          ],
+          "mountainCoordinates": [
+            13.1811838,
+            46.2945179
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1709,
+          "mountainElevationMeters": 1709,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "cjampon",
+          "normalizedMountainNames": [
+            "cjampon"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 26863825.",
+            "Phase 2 geometry is MATCHED at 1.2 m from the route.",
+            "Nearest component endpoint is 1.2 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1798968:mountain-tracker-osm-route/v1",
+      "payloadHash": "ebcd4615d591c7b3b9e38551583ea455eff95cee1d57d5f63c14c87d05b9b176"
+    },
+    {
+      "sourceRelationId": "1864752",
+      "routeName": "Wanderweg 816b - Wilder Kaiser",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 986,
+        "startToSummitDistanceMeters": 621.1,
+        "sourceFirstToSummitDistanceMeters": 621.1,
+        "straightLineDistanceMeters": 621.1,
+        "routeToStraightLineRatio": 1.59,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 629,
+        "boundingBoxHeightMeters": 162.9,
+        "boundingBoxDiagonalMeters": 649.7,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "256041892",
+          "mountainId": 12101,
+          "osmCoordinates": [
+            12.3515446,
+            47.569032
+          ],
+          "mountainCoordinates": [
+            12.3515446,
+            47.569032
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2123,
+          "mountainElevationMeters": 2123,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "larcheck",
+          "normalizedMountainNames": [
+            "larcheck"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 256041892.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1864752:mountain-tracker-osm-route/v1",
+      "payloadHash": "b9260431aecfbe9ab2ac1427f9014e100e8cc1137de1ae9017da49c826db9a2d"
+    },
+    {
+      "sourceRelationId": "1877850",
+      "routeName": "Meiselsteinalm-Gamskögerl",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 4161,
+        "startToSummitDistanceMeters": 3142.7,
+        "sourceFirstToSummitDistanceMeters": 3142.7,
+        "straightLineDistanceMeters": 3142.7,
+        "routeToStraightLineRatio": 1.32,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1548.7,
+        "boundingBoxHeightMeters": 2759.4,
+        "boundingBoxDiagonalMeters": 3164.3,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1295150195",
+          "mountainId": 16169,
+          "osmCoordinates": [
+            13.0664424,
+            47.3475503
+          ],
+          "mountainCoordinates": [
+            13.0664424,
+            47.3475503
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1747,
+          "mountainElevationMeters": 1747,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "gamskogerl",
+          "normalizedMountainNames": [
+            "gamskogerl"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1295150195.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:1877850:mountain-tracker-osm-route/v1",
+      "payloadHash": "d6129a4d10bd19eda295fde39dee4602bee1e76cc257360febe81229b1110672"
+    },
+    {
+      "sourceRelationId": "2050305",
+      "routeName": "Wanderweg 969a",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 5576,
+        "startToSummitDistanceMeters": 2974.4,
+        "sourceFirstToSummitDistanceMeters": 2974.4,
+        "straightLineDistanceMeters": 2975.1,
+        "routeToStraightLineRatio": 1.87,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1219.9,
+        "boundingBoxHeightMeters": 3268.8,
+        "boundingBoxDiagonalMeters": 3489,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.6
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "300920689",
+          "mountainId": 12638,
+          "osmCoordinates": [
+            14.5742124,
+            47.4257777
+          ],
+          "mountainCoordinates": [
+            14.5742124,
+            47.4257777
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1884,
+          "mountainElevationMeters": 1884,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "triebenfeldkogel",
+          "normalizedMountainNames": [
+            "triebenfeldkogel"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 300920689.",
+            "Phase 2 geometry is MATCHED at 1.6 m from the route.",
+            "Nearest component endpoint is 1.6 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2050305:mountain-tracker-osm-route/v1",
+      "payloadHash": "6450a95584b1bcd6a2313d65e5a7a092bb79c52713e8c3d73a45fea48f664472"
+    },
+    {
+      "sourceRelationId": "2113697",
+      "routeName": "Nußdorf-Bichleralm-Heuberg",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3875,
+        "startToSummitDistanceMeters": 2200.3,
+        "sourceFirstToSummitDistanceMeters": 2200.3,
+        "straightLineDistanceMeters": 2200.3,
+        "routeToStraightLineRatio": 1.76,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1604.3,
+        "boundingBoxHeightMeters": 1505.9,
+        "boundingBoxDiagonalMeters": 2200.3,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "48783390",
+          "mountainId": 1720,
+          "osmCoordinates": [
+            12.1843387,
+            47.7260968
+          ],
+          "mountainCoordinates": [
+            12.1843387,
+            47.7260968
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1338,
+          "mountainElevationMeters": 1338,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "heuberg",
+          "normalizedMountainNames": [
+            "heuberg"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 48783390.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2113697:mountain-tracker-osm-route/v1",
+      "payloadHash": "8c45f758c2788fc7ef144761072c229f342a6a547faebe0cda0025ac07302bdc"
+    },
+    {
+      "sourceRelationId": "2135331",
+      "routeName": "Wanderweg Schwarzsee - Kaiseregg",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 6934,
+        "startToSummitDistanceMeters": 2985.2,
+        "sourceFirstToSummitDistanceMeters": 2985.2,
+        "straightLineDistanceMeters": 2986.5,
+        "routeToStraightLineRatio": 2.32,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2275.8,
+        "boundingBoxHeightMeters": 2302,
+        "boundingBoxDiagonalMeters": 3237.1,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.4
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "269544853",
+          "mountainId": 208407,
+          "osmCoordinates": [
+            7.3190559,
+            46.6524972
+          ],
+          "mountainCoordinates": [
+            7.3190559,
+            46.6524972
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2185,
+          "mountainElevationMeters": 2185,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "kaiseregg",
+          "normalizedMountainNames": [
+            "kaiseregg"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 269544853.",
+            "Phase 2 geometry is MATCHED at 1.4 m from the route.",
+            "Nearest component endpoint is 1.4 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2135331:mountain-tracker-osm-route/v1",
+      "payloadHash": "280769e256bfd61f7a909b1f542542b49e1d9d4f0daaecb9ed1d7c05d54e357c"
+    },
+    {
+      "sourceRelationId": "2202791",
+      "routeName": "Wanderweg 899",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3645,
+        "startToSummitDistanceMeters": 1794.3,
+        "sourceFirstToSummitDistanceMeters": 1794.3,
+        "straightLineDistanceMeters": 1794,
+        "routeToStraightLineRatio": 2.03,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1636.1,
+        "boundingBoxHeightMeters": 1049.4,
+        "boundingBoxDiagonalMeters": 1943.7,
+        "componentCount": 1,
+        "endpointDistanceMeters": 4.2
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "26864450",
+          "mountainId": 11934,
+          "osmCoordinates": [
+            13.4858916,
+            47.6668503
+          ],
+          "mountainCoordinates": [
+            13.4858916,
+            47.6668503
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1823,
+          "mountainElevationMeters": 1823,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "rinnkogel",
+          "normalizedMountainNames": [
+            "rinnkogel"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 26864450.",
+            "Phase 2 geometry is MATCHED at 2.2 m from the route.",
+            "Nearest component endpoint is 4.2 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2202791:mountain-tracker-osm-route/v1",
+      "payloadHash": "d55b7cacab0977e6fe4fb42b8b9bea5432d19bc94bb740817adef66d62d1234a"
+    },
+    {
+      "sourceRelationId": "2210868",
+      "routeName": "Maria Schutz - Sonnwendstein",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 3794,
+        "startToSummitDistanceMeters": 1524.3,
+        "sourceFirstToSummitDistanceMeters": 1320.3,
+        "straightLineDistanceMeters": 1524.2,
+        "routeToStraightLineRatio": 2.49,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 940,
+        "boundingBoxHeightMeters": 1339.9,
+        "boundingBoxDiagonalMeters": 1636.7,
+        "componentCount": 2,
+        "endpointDistanceMeters": 2.9
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1827984049",
+          "mountainId": 17628,
+          "osmCoordinates": [
+            15.8602751,
+            47.6296857
+          ],
+          "mountainCoordinates": [
+            15.8602751,
+            47.6296857
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1523,
+          "mountainElevationMeters": 1523,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "sonnwendstein",
+          "normalizedMountainNames": [
+            "sonnwendstein"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1827984049.",
+            "Phase 2 geometry is MATCHED at 2.9 m from the route.",
+            "Nearest component endpoint is 2.9 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2210868:mountain-tracker-osm-route/v1",
+      "payloadHash": "336d40296e87675cc826711c678eba33d71ec66316536d7b42e1a131d8256820"
+    },
+    {
+      "sourceRelationId": "2210870",
+      "routeName": "Schottwien - Eselstein",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 4748,
+        "startToSummitDistanceMeters": 1910,
+        "sourceFirstToSummitDistanceMeters": 1910,
+        "straightLineDistanceMeters": 1910,
+        "routeToStraightLineRatio": 2.49,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 1784.2,
+        "boundingBoxHeightMeters": 1367.6,
+        "boundingBoxDiagonalMeters": 2248,
+        "componentCount": 1,
+        "endpointDistanceMeters": 1.4
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1403580617",
+          "mountainId": 16448,
+          "osmCoordinates": [
+            15.8498946,
+            47.6522941
+          ],
+          "mountainCoordinates": [
+            15.8498946,
+            47.6522941
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 982,
+          "mountainElevationMeters": 982,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "eselstein",
+          "normalizedMountainNames": [
+            "eselstein"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1403580617.",
+            "Phase 2 geometry is MATCHED at 0.9 m from the route.",
+            "Nearest component endpoint is 1.4 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2210870:mountain-tracker-osm-route/v1",
+      "payloadHash": "609cfc935ee59b930392c1c04dfbca7f5418ae63e0f966b1ed2bdc064d36ff89"
+    },
+    {
+      "sourceRelationId": "2211742",
+      "routeName": "Baumgarten - Erzkogel",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 6502,
+        "startToSummitDistanceMeters": 4561.8,
+        "sourceFirstToSummitDistanceMeters": 4561.8,
+        "straightLineDistanceMeters": 4561.8,
+        "routeToStraightLineRatio": 1.43,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 4481.4,
+        "boundingBoxHeightMeters": 1223.1,
+        "boundingBoxDiagonalMeters": 4645.3,
+        "componentCount": 1,
+        "endpointDistanceMeters": 0
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "568680745",
+          "mountainId": 14799,
+          "osmCoordinates": [
+            15.8574524,
+            47.6223452
+          ],
+          "mountainCoordinates": [
+            15.8574524,
+            47.6223452
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 1504,
+          "mountainElevationMeters": 1504,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "erzkogel",
+          "normalizedMountainNames": [
+            "erzkogel"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 568680745.",
+            "Phase 2 geometry is MATCHED at 0 m from the route.",
+            "Nearest component endpoint is 0 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2211742:mountain-tracker-osm-route/v1",
+      "payloadHash": "b67f64711b472a0ac8194d578e04b7a6f568c0837b93c4ea3c982fb94f49a73c"
+    },
+    {
+      "sourceRelationId": "2248159",
+      "routeName": "Wanderweg 525",
+      "operation": "READY_FOR_STAGING",
+      "disposition": "READY",
+      "approvedForFirstWrite": true,
+      "hardFailures": [],
+      "warnings": [],
+      "geometry": {
+        "routeDistanceMeters": 6835,
+        "startToSummitDistanceMeters": 3158.4,
+        "sourceFirstToSummitDistanceMeters": 3158.4,
+        "straightLineDistanceMeters": 3165,
+        "routeToStraightLineRatio": 2.16,
+        "routeToStraightLineStatus": "AVAILABLE",
+        "topologyClassification": "SIMPLE",
+        "connectedGroupCount": 1,
+        "physicalEndpointCount": 2,
+        "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+        "boundingBoxWidthMeters": 2478.1,
+        "boundingBoxHeightMeters": 2144.4,
+        "boundingBoxDiagonalMeters": 3277.1,
+        "componentCount": 1,
+        "endpointDistanceMeters": 7.7
+      },
+      "mountainSafety": [
+        {
+          "peakOsmId": "1798823893",
+          "mountainId": 17529,
+          "osmCoordinates": [
+            13.171371,
+            47.0973077
+          ],
+          "mountainCoordinates": [
+            13.171371,
+            47.0973077
+          ],
+          "coordinateDifferenceMeters": 0,
+          "osmElevationMeters": 2492,
+          "mountainElevationMeters": 2492,
+          "elevationDifferenceMeters": 0,
+          "normalizedPeakName": "graukogel",
+          "normalizedMountainNames": [
+            "graukogel"
+          ],
+          "evidence": [
+            "Mountain Tracker osm_id exactly matches OSM peak 1798823893.",
+            "Phase 2 geometry is MATCHED at 7.7 m from the route.",
+            "Nearest component endpoint is 7.7 m from the peak.",
+            "Route semantic type is summit_route (0.96 confidence).",
+            "Peak is within 10 m of a component endpoint.",
+            "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+          ]
+        }
+      ],
+      "idempotencyKey": "openstreetmap:relation:2248159:mountain-tracker-osm-route/v1",
+      "payloadHash": "29d1614bb812ec07dc66fdeec2924d58cd0f84e82607a6057a4396bcd0b78cbc"
+    }
+  ]
+}

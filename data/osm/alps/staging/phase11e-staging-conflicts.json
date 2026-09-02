@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11E_STAGING_CONFLICT_DIAGNOSTIC",
+  "readOnly": true,
+  "sourceIdentity": {
+    "pbfPath": "data/osm/source/alps-latest.osm.pbf",
+    "pbfSizeBytes": 2310928096,
+    "pbfModifiedMilliseconds": 1787606468000,
+    "pbfSha256": "15ff62ed82c01b2153ec22d1b4cd53d1e94b87ecf38ab176eee60360972a6fc5",
+    "pipelineDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "pipelineGeneratedAt": "2026-08-25T01:54:50.930Z",
+    "checkpointPath": "data/osm/alps/checkpoints/fafc4f7a772832f2/bulk-store.sqlite",
+    "checkpointManifestSha256": "80552d6ed18595257a094fd20c1a9d5266828c65048ccb486de052518f5b64dc",
+    "motorwayIndexContentHash": "f28f56b03845217aa6fc7344c4ec71e530c7666671928370577d56994e535db1",
+    "phase7AuditHash": "52fc9b4f80c2c678299916e91ab0b9937b037d9df252a2b779f6967290a3c593",
+    "importPlanDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "importPlanRecordCount": 1065,
+    "phase11dReadinessHash": "a4615deb9406320e1abc8eac670582297b0ba56ea4efbc52f9fa33f311f63cdc"
+  },
+  "queueId": "phase11e",
+  "conflictCount": 2,
+  "excludedFromExecutableManifest": true,
+  "executableManifestPath": "data/osm/alps/staging/phase11e-staging-manifest.json",
+  "records": [
+    {
+      "canonicalRelationId": "1144001",
+      "stagingRouteId": "e7e6f65e-ac60-4e6d-8eaa-ea5105e8ddb0",
+      "qualificationStatus": "GREEN",
+      "mountainIdentity": [
+        {
+          "peakOsmId": "530831149",
+          "mountainId": 72079
+        }
+      ],
+      "existingStagingIdentity": {
+        "stagingRouteId": "e7e6f65e-ac60-4e6d-8eaa-ea5105e8ddb0",
+        "idempotencyKey": "openstreetmap:relation:1144001:mountain-tracker-osm-route/v1",
+        "payloadHash": "ad35248784a4d7edda5c8a0e7aba4fbc795249af911d734913b14c282f40216d",
+        "geometryHash": "90acd40cf082c2d466c62f50b9f3b4e43e8e370bd8dfc155d381f8aabbe279ed",
+        "geometryType": "MultiLineString",
+        "componentCount": 2,
+        "sourceRelationId": "1144001",
+        "canonicalSourceId": "1144001",
+        "contractVersion": "mountain-tracker-osm-route/v1",
+        "importEligibility": "AUTO_IMPORT_READY",
+        "matchedPrimaryMountainId": 72079,
+        "summitIdentities": [
+          {
+            "peakOsmId": "530831149",
+            "mountainId": 72079,
+            "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH",
+            "finalAssociation": "CONFIRMED"
+          }
+        ]
+      },
+      "plannedStagingIdentity": {
+        "stagingRouteId": null,
+        "idempotencyKey": "openstreetmap:relation:1144001:mountain-tracker-osm-route/v1",
+        "payloadHash": "c7e8f4260291926b5824b944f02f334508d54f8b2533b662cc74cc89377d3878",
+        "geometryHash": "15f9c0064592ff838c39503680da44448488d4ff069f391152865e4c6c655796",
+        "geometryType": "LineString",
+        "componentCount": 1,
+        "sourceRelationId": "1144001",
+        "canonicalSourceId": "1144001",
+        "contractVersion": "mountain-tracker-osm-route/v1",
+        "importEligibility": "AUTO_IMPORT_READY",
+        "matchedPrimaryMountainId": 72079,
+        "summitIdentities": [
+          {
+            "peakOsmId": "530831149",
+            "mountainId": 72079,
+            "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH",
+            "finalAssociation": "CONFIRMED"
+          }
+        ]
+      },
+      "sourceUrl": "https://www.openstreetmap.org/relation/1144001",
+      "existingGeometryHash": "90acd40cf082c2d466c62f50b9f3b4e43e8e370bd8dfc155d381f8aabbe279ed",
+      "plannedGeometryHash": "15f9c0064592ff838c39503680da44448488d4ff069f391152865e4c6c655796",
+      "existingStagingPayloadHash": "ad35248784a4d7edda5c8a0e7aba4fbc795249af911d734913b14c282f40216d",
+      "plannedStagingPayloadHash": "c7e8f4260291926b5824b944f02f334508d54f8b2533b662cc74cc89377d3878",
+      "mismatchFields": [
+        "payloadHash",
+        "geometryHash"
+      ],
+      "exactConflictReason": "The existing historical staging row is internally consistent, but Phase 11E member-chain recovery changed MultiLineString/2 to LineString/1 and changed the geometry/payload hashes under the same relation/idempotency identity. Overwriting it is forbidden.",
+      "classification": "F_ACTUAL_DATA_DRIFT",
+      "exactResumeMatch": false,
+      "historicalQaDecision": {
+        "status": "VISUALLY_APPROVED",
+        "stagingPayloadHash": "ad35248784a4d7edda5c8a0e7aba4fbc795249af911d734913b14c282f40216d"
+      },
+      "currentPayloadBoundQaStatus": null,
+      "excludedFromExecutableManifest": true
+    },
+    {
+      "canonicalRelationId": "2210868",
+      "stagingRouteId": "ececa849-7305-48eb-81c4-976a04f60d51",
+      "qualificationStatus": "GREEN",
+      "mountainIdentity": [
+        {
+          "peakOsmId": "1827984049",
+          "mountainId": 17628
+        }
+      ],
+      "existingStagingIdentity": {
+        "stagingRouteId": "ececa849-7305-48eb-81c4-976a04f60d51",
+        "idempotencyKey": "openstreetmap:relation:2210868:mountain-tracker-osm-route/v1",
+        "payloadHash": "336d40296e87675cc826711c678eba33d71ec66316536d7b42e1a131d8256820",
+        "geometryHash": "0fd96b023c0d5be3920118609a5984bcdbda5a6e727aad0a56e8e672d3c71457",
+        "geometryType": "MultiLineString",
+        "componentCount": 2,
+        "sourceRelationId": "2210868",
+        "canonicalSourceId": "2210868",
+        "contractVersion": "mountain-tracker-osm-route/v1",
+        "importEligibility": "AUTO_IMPORT_READY",
+        "matchedPrimaryMountainId": 17628,
+        "summitIdentities": [
+          {
+            "peakOsmId": "1827984049",
+            "mountainId": 17628,
+            "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH",
+            "finalAssociation": "CONFIRMED"
+          }
+        ]
+      },
+      "plannedStagingIdentity": {
+        "stagingRouteId": null,
+        "idempotencyKey": "openstreetmap:relation:2210868:mountain-tracker-osm-route/v1",
+        "payloadHash": "de686b6db59953023ea0aec8546af75784a35dacd622ef686f4e1cc33f62e847",
+        "geometryHash": "6b2c897a23ec7209f44f0ff5b40a950ea360cff986a46a967fa82ae5f43764f4",
+        "geometryType": "LineString",
+        "componentCount": 1,
+        "sourceRelationId": "2210868",
+        "canonicalSourceId": "2210868",
+        "contractVersion": "mountain-tracker-osm-route/v1",
+        "importEligibility": "AUTO_IMPORT_READY",
+        "matchedPrimaryMountainId": 17628,
+        "summitIdentities": [
+          {
+            "peakOsmId": "1827984049",
+            "mountainId": 17628,
+            "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH",
+            "finalAssociation": "CONFIRMED"
+          }
+        ]
+      },
+      "sourceUrl": "https://www.openstreetmap.org/relation/2210868",
+      "existingGeometryHash": "0fd96b023c0d5be3920118609a5984bcdbda5a6e727aad0a56e8e672d3c71457",
+      "plannedGeometryHash": "6b2c897a23ec7209f44f0ff5b40a950ea360cff986a46a967fa82ae5f43764f4",
+      "existingStagingPayloadHash": "336d40296e87675cc826711c678eba33d71ec66316536d7b42e1a131d8256820",
+      "plannedStagingPayloadHash": "de686b6db59953023ea0aec8546af75784a35dacd622ef686f4e1cc33f62e847",
+      "mismatchFields": [
+        "payloadHash",
+        "geometryHash"
+      ],
+      "exactConflictReason": "The existing historical staging row is internally consistent, but Phase 11E member-chain recovery changed MultiLineString/2 to LineString/1 and changed the geometry/payload hashes under the same relation/idempotency identity. Overwriting it is forbidden.",
+      "classification": "F_ACTUAL_DATA_DRIFT",
+      "exactResumeMatch": false,
+      "historicalQaDecision": {
+        "status": "VISUALLY_APPROVED",
+        "stagingPayloadHash": "336d40296e87675cc826711c678eba33d71ec66316536d7b42e1a131d8256820"
+      },
+      "currentPayloadBoundQaStatus": null,
+      "excludedFromExecutableManifest": true
+    }
+  ],
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "be5060f9391bf916640bab9aa8f6b9b02e0b8d36112e7476f2c70542fd72d51a"
+}

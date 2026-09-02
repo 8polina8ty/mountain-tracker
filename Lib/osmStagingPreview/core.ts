@@ -83,6 +83,15 @@ export interface PreviewMetadataRecord {
   componentCount: number;
   auditFlags: string[];
   warnings: string[];
+  qualificationStatus?: "GREEN" | "YELLOW" | "RED";
+  auditCategories?: Array<"RECOVERED" | "RANDOM" | "BOUNDARY">;
+  qualificationScore?: number;
+  qualificationReasonCodes?: string[];
+  qualificationHash?: string;
+  recoveredByPhase11e?: boolean;
+  roadSafetyStatus?: string;
+  roadSafetyReasonCodes?: string[];
+  roadSafetyIdentityHash?: string;
   countryCode: string | null;
   countryName: string | null;
   admin1Code: string | null;
@@ -137,6 +146,7 @@ export interface PreviewQaDecisionInput {
   status: PreviewQaStatus;
   reviewerNote: string | null;
   expectedVersion: number | null;
+  queueId: "phase11c4" | "phase11d" | "phase11e" | "phase11h" | null;
 }
 
 export interface PreviewQaProgress {
@@ -155,6 +165,7 @@ export interface PreviewRouteFilters {
   quality: string;
   warning: "ALL" | "WITH" | "WITHOUT" | "WARNINGS_PENDING";
   status: PreviewQaStatus | "ALL";
+  qualification?: "ALL" | "GREEN" | "YELLOW" | "RED";
 }
 
 export interface PreviewMountainRecord {
@@ -266,11 +277,22 @@ export function parseQaDecisionInput(value: unknown): PreviewQaDecisionInput {
   if (reviewerNote && (/[^\x09\x0A\x20-\x7E\xA0-\u{10FFFF}]/u.test(reviewerNote) || /<\/?[a-z][^>]*>/i.test(reviewerNote))) {
     throw new Error("QA reviewer note must be plain text.");
   }
+  const queueId = input.queueId ?? null;
+  if (
+    queueId !== null &&
+    queueId !== "phase11c4" &&
+    queueId !== "phase11d" &&
+    queueId !== "phase11e" &&
+    queueId !== "phase11h"
+  ) {
+    throw new Error("Invalid QA queue ID.");
+  }
   return {
     stagingRouteId,
     status: input.status,
     reviewerNote,
     expectedVersion: expectedVersion === null ? null : Number(expectedVersion),
+    queueId,
   };
 }
 
@@ -292,13 +314,16 @@ function compareNumericIds(left: string, right: string): number {
   return left.localeCompare(right, "en", { numeric: true });
 }
 
-export function validatePhase9Manifest(manifest: PreviewManifest): void {
+export function validatePreviewManifest(
+  manifest: PreviewManifest,
+  expectedRecordCount: number,
+): void {
   if (manifest.schemaVersion !== 1) throw new Error("Unsupported preview manifest schema.");
   if (manifest.contractVersion !== PHASE9_CONTRACT_VERSION) {
     throw new Error("Preview manifest contract version mismatch.");
   }
-  if (manifest.recordCount !== PHASE9_REVIEWED_ROUTE_COUNT) {
-    throw new Error(`Preview manifest must contain exactly ${PHASE9_REVIEWED_ROUTE_COUNT} routes.`);
+  if (manifest.recordCount !== expectedRecordCount) {
+    throw new Error(`Preview manifest must contain exactly ${expectedRecordCount} routes.`);
   }
   if (manifest.records.length !== manifest.recordCount) {
     throw new Error("Preview manifest record count mismatch.");
@@ -314,12 +339,21 @@ export function validatePhase9Manifest(manifest: PreviewManifest): void {
   }
 }
 
+export function validatePhase9Manifest(manifest: PreviewManifest): void {
+  validatePreviewManifest(manifest, PHASE9_REVIEWED_ROUTE_COUNT);
+}
+
 export function validateManifestApprovedRows(input: {
   manifest: PreviewManifest;
   routes: PreviewStagingRouteRow[];
   summits: PreviewStagingSummitRow[];
+  expectedRecordCount?: number;
+  preserveManifestOrder?: boolean;
 }): ValidatedStagingRecord[] {
-  validatePhase9Manifest(input.manifest);
+  validatePreviewManifest(
+    input.manifest,
+    input.expectedRecordCount ?? PHASE9_REVIEWED_ROUTE_COUNT,
+  );
   if (input.routes.length !== input.manifest.recordCount) {
     throw new Error("Staging route set does not exactly match the reviewed manifest.");
   }
@@ -381,19 +415,23 @@ export function validateManifestApprovedRows(input: {
   if (input.summits.length !== input.manifest.expectedSummitAssociationCount) {
     throw new Error("Staging summit set does not exactly match the reviewed manifest.");
   }
-  return validated.sort((left, right) =>
-    compareNumericIds(left.route.source_relation_id, right.route.source_relation_id),
-  );
+  return input.preserveManifestOrder
+    ? validated
+    : validated.sort((left, right) =>
+        compareNumericIds(left.route.source_relation_id, right.route.source_relation_id),
+      );
 }
 
 export function createApprovedListItems(input: {
   validated: ValidatedStagingRecord[];
   metadata: PreviewMetadataDocument;
   qaDecisions?: StoredPreviewQaDecision[];
+  expectedRecordCount?: number;
 }): ApprovedStagingRouteListItem[] {
   if (
     input.metadata.contractVersion !== PHASE9_CONTRACT_VERSION ||
-    input.metadata.recordCount !== PHASE9_REVIEWED_ROUTE_COUNT
+    input.metadata.recordCount !==
+      (input.expectedRecordCount ?? PHASE9_REVIEWED_ROUTE_COUNT)
   ) {
     throw new Error("Preview metadata contract or count mismatch.");
   }
@@ -503,6 +541,11 @@ export function filterPreviewRoutes(
     if (
       filters.warning === "WARNINGS_PENDING" &&
       (route.warnings.length === 0 || route.qaStatus !== "PENDING")
+    ) return false;
+    if (
+      filters.qualification &&
+      filters.qualification !== "ALL" &&
+      route.qualificationStatus !== filters.qualification
     ) return false;
     return filters.status === "ALL" || route.qaStatus === filters.status;
   });
@@ -648,5 +691,20 @@ export function createPreviewNavigation(
       routes.slice(index + 1).find((route) => route.qaStatus === "PENDING")?.stagingRouteId ??
       routes.slice(0, index).find((route) => route.qaStatus === "PENDING")?.stagingRouteId ??
       null,
+  };
+}
+
+export function createPreviewQueueState(
+  routes: ApprovedStagingRouteListItem[],
+  stagingRouteId: string,
+): { position: number; total: number; reviewed: number; remaining: number } {
+  const index = routes.findIndex((route) => route.stagingRouteId === stagingRouteId);
+  if (index < 0) throw new Error("Preview route is not in the selected queue.");
+  const progress = summarizeQaProgress(routes);
+  return {
+    position: index + 1,
+    total: progress.total,
+    reviewed: progress.decided,
+    remaining: progress.pending,
   };
 }

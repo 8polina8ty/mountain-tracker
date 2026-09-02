@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11C4_CANDIDATE_FUNNEL",
+  "generatedAt": "2026-08-27T14:30:00.000Z",
+  "description": "Deterministic funnel audit from OSM Alps bulk pipeline to publication candidates. Clarified semantics for mountain-match stages.",
+  "semantics": {
+    "primarySummit": "The summit with highest confidence/lowest distance used as the route's primary summit",
+    "atLeastOneSummit": "Route has >=1 associated summit meeting criteria",
+    "everySummit": "ALL summits associated with the route (via peak associations) meet criteria",
+    "selectedPublicationSummit": "The single summit selected for publication (first CONFIRMED)",
+    "allRouteAssociatedSummits": "All summits linked to the route in the peak association data"
+  },
+  "funnelStages": [
+    {
+      "stage": "OSM_ALPS_HIKING_RELATIONS_DISCOVERED",
+      "description": "All OSM relations with route=hiking in the Alps extract",
+      "inputCount": 72541,
+      "passedCount": 72541,
+      "rejectedCount": 0,
+      "rejectionReasons": {}
+    },
+    {
+      "stage": "ROUTE_RECONSTRUCTION",
+      "description": "Successfully reconstructed route geometry from relation members",
+      "inputCount": 72541,
+      "passedCount": 71840,
+      "rejectedCount": 701,
+      "rejectionReasons": {
+        "RECONSTRUCTION_FAILED": 701
+      }
+    },
+    {
+      "stage": "SEMANTIC_CLASSIFICATION",
+      "description": "Routes classified by semantic type (summit_route, local_hike, etc.)",
+      "inputCount": 71840,
+      "passedCount": 71840,
+      "rejectedCount": 0,
+      "rejectionReasons": {},
+      "distribution": {
+        "summit_route": 2780,
+        "long_distance_trail": 379,
+        "via_ferrata": 278,
+        "local_hike": 35869,
+        "approach": 18,
+        "unknown": 32516
+      }
+    },
+    {
+      "stage": "SUMMIT_ROUTE_SEMANTIC_FILTER",
+      "description": "Only summit_route semantic type accepted for publication",
+      "inputCount": 71840,
+      "passedCount": 2780,
+      "rejectedCount": 69060,
+      "rejectionReasons": {
+        "SEMANTIC_NOT_SUMMIT_ROUTE": 69060
+      }
+    },
+    {
+      "stage": "AT_LEAST_ONE_CONFIRMED_SUMMIT",
+      "description": "Routes with at least one CONFIRMED summit association (semanticAssociationCrossTab CONFIRMED count)",
+      "inputCount": 2780,
+      "passedCount": 2780,
+      "rejectedCount": 0,
+      "rejectionReasons": {},
+      "note": "Per semanticAssociationCrossTab, all 2780 summit_route routes have >=1 CONFIRMED summit. Routes with multiple confirmed: 90."
+    },
+    {
+      "stage": "PRIMARY_SUMMIT_EXACT_MOUNTAIN_MATCH",
+      "description": "Primary summit (selected for publication) has EXACT_MOUNTAIN_MATCH classification",
+      "inputCount": 2780,
+      "passedCount": 2780,
+      "rejectedCount": 0,
+      "rejectionReasons": {},
+      "note": "Per semanticAssociationCrossTab, all CONFIRMED summit associations are EXACT_MOUNTAIN_MATCH. This checks the selected publication summit only."
+    },
+    {
+      "stage": "PHASE8_STAGING_ELIGIBILITY",
+      "description": "Phase 7 eligibility audit - AUTO_IMPORT_READY only (requires EXACT_MOUNTAIN_MATCH for EVERY summit on route)",
+      "inputCount": 2780,
+      "passedCount": 46,
+      "rejectedCount": 2734,
+      "rejectionReasons": {
+        "EXACT_MATCH_NOT_ALL_SUMMITS": "Routes with multiple summits where not all are EXACT_MOUNTAIN_MATCH (90 routes have multiple confirmed summits)",
+        "NO_MOUNTAIN_MATCH": "Summit has NO_MOUNTAIN_MATCH classification",
+        "PROBABLE_MOUNTAIN_MATCH": "Summit only PROBABLE_MOUNTAIN_MATCH (not auto-attached)",
+        "AMBIGUOUS_MOUNTAIN_MATCH": "Multiple plausible mountain matches",
+        "VALIDATION_ERRORS": "Staging contract validation failures (geometry, provenance, etc.)",
+        "ADMIN_BOUNDARY_UNASSIGNED": "Route administration status not ASSIGNED",
+        "WARNINGS_AUDIT_EVIDENCE": "Route has warning flags or audit evidence"
+      },
+      "note": "Phase 8 validateStagingContract with requireExactMountainMatches=true requires EXACT_MOUNTAIN_MATCH for EVERY summit in confirmedSummits array, not just the primary summit."
+    },
+    {
+      "stage": "PHASE9_QA_REVIEWED",
+      "description": "Routes that have been visually reviewed and VISUALLY_APPROVED",
+      "inputCount": 46,
+      "passedCount": 46,
+      "rejectedCount": 0,
+      "rejectionReasons": {}
+    },
+    {
+      "stage": "PHASE10_PUBLICATION_CANDIDATES",
+      "description": "Routes passing Phase 10 gate: VISUALLY_APPROVED, EXACT_MOUNTAIN_MATCH (primary), CONFIRMED summit, no warnings",
+      "inputCount": 46,
+      "passedCount": 46,
+      "rejectedCount": 0,
+      "rejectionReasons": {}
+    },
+    {
+      "stage": "PHASE11_ELIGIBLE_NON_ACTIVE",
+      "description": "Publication candidates not already ACTIVE in production",
+      "inputCount": 46,
+      "passedCount": 16,
+      "rejectedCount": 30,
+      "rejectionReasons": {
+        "ALREADY_ACTIVE": 18,
+        "ROUTE_TYPE_VIA_FERRATA": 3
+      }
+    }
+  ],
+  "summary": {
+    "totalSourceRoutes": 71840,
+    "summitRoutes": 2780,
+    "routesWithMultipleConfirmedSummits": 90,
+    "stagingReady": 46,
+    "qaReviewed": 46,
+    "publicationCandidates": 46,
+    "eligibleNonActive": 16,
+    "bottleneck": "PHASE8_STAGING_ELIGIBILITY: Only 46 of 2780 summit_route routes pass all staging validations. The primary filters are: EXACT_MOUNTAIN_MATCH required for EVERY summit on route (90 routes have multiple confirmed summits), AUTO_IMPORT_READY eligibility, no validation errors, admin boundary ASSIGNED, and no warnings/audit evidence."
+  }
+}

@@ -2,8 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { requireOsmStagingPreviewAccess } from "@/Lib/osmStagingPreview/access";
-import { loadApprovedStagingRouteList } from "@/Lib/osmStagingPreview/server";
+import {
+  isCalibrationQueue,
+  parsePreviewQueueId,
+  type PreviewQueueId,
+} from "@/Lib/osmStagingPreview/queue-core";
+import {
+  loadApprovedStagingRouteList,
+  loadPhase11hCalibrationPreview,
+} from "@/Lib/osmStagingPreview/server";
 import OsmStagingRouteList from "@/components/internal/OsmStagingRouteList";
+import Phase11hCalibrationQueue from "@/components/internal/Phase11hCalibrationQueue";
 import { isLocale, type Locale } from "@/i18n/locales";
 
 export const metadata: Metadata = {
@@ -13,26 +22,57 @@ export const metadata: Metadata = {
 
 export default async function OsmStagingPreviewPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: Locale }>;
+  searchParams: Promise<{ queue?: string | string[] }>;
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   await requireOsmStagingPreviewAccess();
-  const result = await loadApprovedStagingRouteList();
+  let queueId: PreviewQueueId | null;
+  try {
+    queueId = parsePreviewQueueId((await searchParams).queue);
+  } catch {
+    notFound();
+  }
+  if (isCalibrationQueue(queueId)) {
+    const [calibration, staged] = await Promise.all([
+      loadPhase11hCalibrationPreview(queueId),
+      loadApprovedStagingRouteList(queueId),
+    ]);
+    return (
+      <main className="mx-auto min-h-screen max-w-[1500px] px-4 py-10 sm:px-6 lg:px-8">
+        <Phase11hCalibrationQueue
+          calibration={calibration}
+          routes={staged.routes}
+          qaWritesAvailable={staged.qaSchemaAvailable}
+        />
+      </main>
+    );
+  }
+  const result = await loadApprovedStagingRouteList(queueId);
 
   return (
     <main className="mx-auto min-h-screen max-w-[1500px] px-4 py-10 sm:px-6 lg:px-8">
       <header className="border-b border-[var(--color-border-strong)] pb-7">
         <p className="technical text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-pine)]">
-          Internal · Persistent QA · Phase 9B
+          Internal · Persistent QA · {result.queue?.label ?? "Phase 9B"}
         </p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl">
-          OSM staging visual QA
+          {result.queue?.label ?? "OSM staging visual QA"}
         </h1>
         <p className="mt-3 max-w-3xl text-[var(--color-text-secondary)]">
-          Manifest-locked review of the 46 approved staging routes. Decisions remain isolated from route publication.
+          {result.queue
+            ? `Manifest-locked review of ${result.queue.total} staging routes. Decisions remain isolated from route publication.`
+            : "Manifest-locked review of the 46 approved staging routes. Decisions remain isolated from route publication."}
         </p>
+        {result.queue && (
+          <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold text-[var(--color-text-secondary)]">
+            <span>Reviewed {result.queue.reviewed} / {result.queue.total}</span>
+            <span>Remaining {result.queue.remaining}</span>
+          </div>
+        )}
         <div className="mt-5 flex flex-wrap gap-3 text-xs text-[var(--color-text-muted)]">
           <span>Server query: {result.performance.serverQueryMilliseconds.toFixed(1)} ms</span>
           <span>·</span>
@@ -52,7 +92,7 @@ export default async function OsmStagingPreviewPage({
         </p>
       )}
 
-      <OsmStagingRouteList routes={result.routes} />
+      <OsmStagingRouteList routes={result.routes} queue={result.queue} />
     </main>
   );
 }

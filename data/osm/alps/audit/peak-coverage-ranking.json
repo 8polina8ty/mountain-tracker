@@ -1,0 +1,1258 @@
+{
+  "top100ByConfirmedRouteCount": [
+    {
+      "peakSourceId": "26864438",
+      "peakName": "Punta Cermenati (Monte Resegone)",
+      "elevationMeters": 1875,
+      "confirmedSourceRouteCount": 7,
+      "canonicalRouteVariantCount": 7,
+      "averageRouteQuality": 75.43,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "11586484042",
+      "peakName": "Blueme",
+      "elevationMeters": 1392,
+      "confirmedSourceRouteCount": 7,
+      "canonicalRouteVariantCount": 7,
+      "averageRouteQuality": 62.71,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "418117276",
+      "peakName": "Tschiernock",
+      "elevationMeters": 2088,
+      "confirmedSourceRouteCount": 6,
+      "canonicalRouteVariantCount": 6,
+      "averageRouteQuality": 78.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "344591473",
+      "peakName": "Hühnerkogel / Košenjak",
+      "elevationMeters": 1522,
+      "confirmedSourceRouteCount": 6,
+      "canonicalRouteVariantCount": 6,
+      "averageRouteQuality": 84.83,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "1814344543",
+      "peakName": "Pointe Chaligne",
+      "elevationMeters": 2607,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 77.4,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "1311884365",
+      "peakName": "Becca d'Aver",
+      "elevationMeters": 2469,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 76.8,
+      "highestRouteQuality": 85
+    },
+    {
+      "peakSourceId": "26863444",
+      "peakName": "Kuhgrat",
+      "elevationMeters": 2122,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 56,
+      "highestRouteQuality": 61
+    },
+    {
+      "peakSourceId": "1594993025",
+      "peakName": "Raduha",
+      "elevationMeters": 2062,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 83,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "26864352",
+      "peakName": "Porezen",
+      "elevationMeters": 1632,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 95,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "527246106",
+      "peakName": "Corna Trentapassi",
+      "elevationMeters": 1244,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 72,
+      "highestRouteQuality": 85
+    },
+    {
+      "peakSourceId": "851653535",
+      "peakName": "Canto Alto",
+      "elevationMeters": 1146,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 73.2,
+      "highestRouteQuality": 96
+    },
+    {
+      "peakSourceId": "465507041",
+      "peakName": "Monte Pravello",
+      "elevationMeters": 1015,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 61.4,
+      "highestRouteQuality": 81
+    },
+    {
+      "peakSourceId": "3902613632",
+      "peakName": "Stolpnik",
+      "elevationMeters": 1012,
+      "confirmedSourceRouteCount": 5,
+      "canonicalRouteVariantCount": 5,
+      "averageRouteQuality": 91.8,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "1451518829",
+      "peakName": "Monte Mars",
+      "elevationMeters": 2600,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 66.25,
+      "highestRouteQuality": 71
+    },
+    {
+      "peakSourceId": "1659572456",
+      "peakName": "Marchkinkele - Cornetto Di Confine",
+      "elevationMeters": 2545,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 74.75,
+      "highestRouteQuality": 82
+    },
+    {
+      "peakSourceId": "726133727",
+      "peakName": "Monte Barbeston",
+      "elevationMeters": 2482,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 80.5,
+      "highestRouteQuality": 85
+    },
+    {
+      "peakSourceId": "1843185025",
+      "peakName": "Ojstrica",
+      "elevationMeters": 2350,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 86,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "4259018947",
+      "peakName": "Piza Pranseies",
+      "elevationMeters": 2254,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 64.25,
+      "highestRouteQuality": 75
+    },
+    {
+      "peakSourceId": "2433401131",
+      "peakName": "Rappastein",
+      "elevationMeters": 2222,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 91.5,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "2291218257",
+      "peakName": "Chrüz",
+      "elevationMeters": 2196,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 64,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "1413608979",
+      "peakName": "Gründegg",
+      "elevationMeters": 2168,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 78.25,
+      "highestRouteQuality": 94
+    },
+    {
+      "peakSourceId": "26863701",
+      "peakName": "Mirnock",
+      "elevationMeters": 2110,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 88.5,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "1342463884",
+      "peakName": "Schönberg",
+      "elevationMeters": 2104,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 84,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "173559350",
+      "peakName": "Gemmenalphorn",
+      "elevationMeters": 2061,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 73.5,
+      "highestRouteQuality": 81
+    },
+    {
+      "peakSourceId": "459849352",
+      "peakName": "Schibenspitz",
+      "elevationMeters": 2060,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 65,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "514612932",
+      "peakName": "Monte Due Mani",
+      "elevationMeters": 1666,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 76.25,
+      "highestRouteQuality": 82
+    },
+    {
+      "peakSourceId": "474844098",
+      "peakName": "Matajur",
+      "elevationMeters": 1645,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 62.75,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "5866403393",
+      "peakName": "Törlkopf",
+      "elevationMeters": 1607,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 70,
+      "highestRouteQuality": 70
+    },
+    {
+      "peakSourceId": "304367646",
+      "peakName": "Krummbachstein",
+      "elevationMeters": 1603,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 62.75,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "26865140",
+      "peakName": "Wildbarren",
+      "elevationMeters": 1448,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 75.5,
+      "highestRouteQuality": 86
+    },
+    {
+      "peakSourceId": "610887887",
+      "peakName": "Wachthubel",
+      "elevationMeters": 1415,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 75.5,
+      "highestRouteQuality": 80
+    },
+    {
+      "peakSourceId": "317817278",
+      "peakName": "Schnebelhorn",
+      "elevationMeters": 1291,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 76.5,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "2497172622",
+      "peakName": "Kucelj",
+      "elevationMeters": 1237,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 74.25,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "1790054574",
+      "peakName": "Wilkethöchi",
+      "elevationMeters": 1172,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 45.5,
+      "highestRouteQuality": 68
+    },
+    {
+      "peakSourceId": "465275697",
+      "peakName": "Punta di Orino",
+      "elevationMeters": 1139,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 61,
+      "highestRouteQuality": 81
+    },
+    {
+      "peakSourceId": "1929447247",
+      "peakName": "Hochwacht",
+      "elevationMeters": 989,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 60.5,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "3902613629",
+      "peakName": "Golek",
+      "elevationMeters": 769,
+      "confirmedSourceRouteCount": 4,
+      "canonicalRouteVariantCount": 4,
+      "averageRouteQuality": 91,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "256041881",
+      "peakName": "Kreuzspitze",
+      "elevationMeters": 3155,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 88.33,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "26864288",
+      "peakName": "Piz Daint",
+      "elevationMeters": 2968,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 55.33,
+      "highestRouteQuality": 66
+    },
+    {
+      "peakSourceId": "26864958",
+      "peakName": "Triglav",
+      "elevationMeters": 2864,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 91.33,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "3048781775",
+      "peakName": "Motta di Plété Occidentale",
+      "elevationMeters": 2840,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 43.67,
+      "highestRouteQuality": 58
+    },
+    {
+      "peakSourceId": "26863928",
+      "peakName": "Monte Peralba",
+      "elevationMeters": 2694,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 72.67,
+      "highestRouteQuality": 90
+    },
+    {
+      "peakSourceId": "479127124",
+      "peakName": "Pian della Regina",
+      "elevationMeters": 2628,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 83,
+      "highestRouteQuality": 83
+    },
+    {
+      "peakSourceId": "26863517",
+      "peakName": "Le Catogne",
+      "elevationMeters": 2598,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 94,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "425270092",
+      "peakName": "Falknis",
+      "elevationMeters": 2565,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 53.33,
+      "highestRouteQuality": 82
+    },
+    {
+      "peakSourceId": "26863079",
+      "peakName": "Großes Gurpitscheck",
+      "elevationMeters": 2526,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 81.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "1801658230",
+      "peakName": "Gufelstock",
+      "elevationMeters": 2436,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 72,
+      "highestRouteQuality": 77
+    },
+    {
+      "peakSourceId": "1843185014",
+      "peakName": "Koroška Rinka",
+      "elevationMeters": 2433,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 87.33,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "1249590382",
+      "peakName": "Chaiserstuel",
+      "elevationMeters": 2400,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 91.67,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "425329935",
+      "peakName": "Vilan",
+      "elevationMeters": 2377,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 57.33,
+      "highestRouteQuality": 66
+    },
+    {
+      "peakSourceId": "1366605472",
+      "peakName": "Stubeck",
+      "elevationMeters": 2370,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 93,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "9898971715",
+      "peakName": "Grimming",
+      "elevationMeters": 2351,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 86,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "1675512681",
+      "peakName": "Bavški Grintavec",
+      "elevationMeters": 2347,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 88.67,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "713546737",
+      "peakName": "Ellmauer Halt",
+      "elevationMeters": 2342,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 74.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "5747872882",
+      "peakName": "Mittlerer Sattelkopf",
+      "elevationMeters": 2320,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 2,
+      "averageRouteQuality": 79,
+      "highestRouteQuality": 90
+    },
+    {
+      "peakSourceId": "26864964",
+      "peakName": "Creta di Aip / Trogkofel",
+      "elevationMeters": 2279,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 96.33,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "777929283",
+      "peakName": "Ponza Grande / Visoka Ponca",
+      "elevationMeters": 2274,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 97.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "475196718",
+      "peakName": "Kreuzjoch",
+      "elevationMeters": 2261,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 74.67,
+      "highestRouteQuality": 80
+    },
+    {
+      "peakSourceId": "26863438",
+      "peakName": "Krn",
+      "elevationMeters": 2244,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 77.67,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "1313134678",
+      "peakName": "Schuhflicker",
+      "elevationMeters": 2214,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 72,
+      "highestRouteQuality": 94
+    },
+    {
+      "peakSourceId": "2104355852",
+      "peakName": "Croce di Fana",
+      "elevationMeters": 2211,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 89.33,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "2513074861",
+      "peakName": "Rombon",
+      "elevationMeters": 2208,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 81.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "2966650017",
+      "peakName": "Kreuzeck",
+      "elevationMeters": 2204,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 82.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "90486978",
+      "peakName": "Galinakopf",
+      "elevationMeters": 2198,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 50,
+      "highestRouteQuality": 67
+    },
+    {
+      "peakSourceId": "457506203",
+      "peakName": "Grigna Meridionale",
+      "elevationMeters": 2177,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 91.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "365065878",
+      "peakName": "Pointe de Chaurionde",
+      "elevationMeters": 2173,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 63.33,
+      "highestRouteQuality": 70
+    },
+    {
+      "peakSourceId": "970679375",
+      "peakName": "Monte Massone",
+      "elevationMeters": 2161,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 98.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "242664544",
+      "peakName": "Dreibündenstein",
+      "elevationMeters": 2160,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 88.67,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "7647477089",
+      "peakName": "Monte Zeda",
+      "elevationMeters": 2156,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 82,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "26863306",
+      "peakName": "Kammspitz",
+      "elevationMeters": 2139,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 98,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "26864845",
+      "peakName": "Storžič",
+      "elevationMeters": 2132,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 70.33,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "474860432",
+      "peakName": "Velika Baba",
+      "elevationMeters": 2127,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 82,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "287532185",
+      "peakName": "Schönberg (Wildenkogel)",
+      "elevationMeters": 2090,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 91.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "378315800",
+      "peakName": "Le Chapotet",
+      "elevationMeters": 2083,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 67.33,
+      "highestRouteQuality": 70
+    },
+    {
+      "peakSourceId": "2035310159",
+      "peakName": "Homad",
+      "elevationMeters": 2076,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 88.67,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "3382067850",
+      "peakName": "Daube",
+      "elevationMeters": 2076,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 72.67,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "1369928071",
+      "peakName": "Vrh nad Škrbino",
+      "elevationMeters": 2054,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 83.67,
+      "highestRouteQuality": 99
+    },
+    {
+      "peakSourceId": "492484484",
+      "peakName": "Cima di Grem",
+      "elevationMeters": 2049,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 77.33,
+      "highestRouteQuality": 85
+    },
+    {
+      "peakSourceId": "4707413703",
+      "peakName": "Fürstein",
+      "elevationMeters": 2040,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 67.33,
+      "highestRouteQuality": 81
+    },
+    {
+      "peakSourceId": "761180509",
+      "peakName": "Schibengütsch",
+      "elevationMeters": 2037,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 91.67,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "26863780",
+      "peakName": "Monte Alben",
+      "elevationMeters": 2019,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 72.33,
+      "highestRouteQuality": 85
+    },
+    {
+      "peakSourceId": "2399702564",
+      "peakName": "Schwalbenwand",
+      "elevationMeters": 2011,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 84,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "9893840707",
+      "peakName": "Char de la Turche",
+      "elevationMeters": 2010,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 64,
+      "highestRouteQuality": 70
+    },
+    {
+      "peakSourceId": "1509984608",
+      "peakName": "Corna Blacca",
+      "elevationMeters": 2006,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 85,
+      "highestRouteQuality": 87
+    },
+    {
+      "peakSourceId": "1992206153",
+      "peakName": "Sommet du Couar",
+      "elevationMeters": 1988,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 63,
+      "highestRouteQuality": 90
+    },
+    {
+      "peakSourceId": "1446366967",
+      "peakName": "Burst",
+      "elevationMeters": 1968,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 67.67,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "286759519",
+      "peakName": "Mooskopf",
+      "elevationMeters": 1961,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 32,
+      "highestRouteQuality": 35
+    },
+    {
+      "peakSourceId": "2582431188",
+      "peakName": "Pointe de Perret",
+      "elevationMeters": 1941,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 62.33,
+      "highestRouteQuality": 65
+    },
+    {
+      "peakSourceId": "411034353",
+      "peakName": "Rochers de Leschaux",
+      "elevationMeters": 1936,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 67,
+      "highestRouteQuality": 70
+    },
+    {
+      "peakSourceId": "895308487",
+      "peakName": "Slemenova špica",
+      "elevationMeters": 1911,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 70.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "906932480",
+      "peakName": "Zingel",
+      "elevationMeters": 1905,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 92.33,
+      "highestRouteQuality": 95
+    },
+    {
+      "peakSourceId": "2020029646",
+      "peakName": "Gross Güslen",
+      "elevationMeters": 1833,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 60.67,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "747787670",
+      "peakName": "Buochserhorn",
+      "elevationMeters": 1806,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 76,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "5044280284",
+      "peakName": "La Bourgeoise",
+      "elevationMeters": 1771.9,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 52.33,
+      "highestRouteQuality": 62
+    },
+    {
+      "peakSourceId": "1295150195",
+      "peakName": "Gamskögerl",
+      "elevationMeters": 1747,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 82.33,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "726815322",
+      "peakName": "Monte Armetta",
+      "elevationMeters": 1739,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 77.67,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "3210678909",
+      "peakName": "Jänzi",
+      "elevationMeters": 1738,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 76,
+      "highestRouteQuality": 76
+    },
+    {
+      "peakSourceId": "1140515018",
+      "peakName": "La Berra",
+      "elevationMeters": 1719,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 81.33,
+      "highestRouteQuality": 100
+    },
+    {
+      "peakSourceId": "9851581913",
+      "peakName": "Le Reculet",
+      "elevationMeters": 1717,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 57.33,
+      "highestRouteQuality": 60
+    },
+    {
+      "peakSourceId": "496009171",
+      "peakName": "Gross Aubrig",
+      "elevationMeters": 1695,
+      "confirmedSourceRouteCount": 3,
+      "canonicalRouteVariantCount": 3,
+      "averageRouteQuality": 55.67,
+      "highestRouteQuality": 76
+    }
+  ],
+  "highestCoveredPeaks": [
+    {
+      "peakSourceId": "26864153",
+      "name": "Ortler - Ortles",
+      "elevationMeters": 3905,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "307287040",
+      "name": "Südliche Zufallspitze - Cevedale II",
+      "elevationMeters": 3757,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "26865132",
+      "name": "Weißkugel - Palla Bianca",
+      "elevationMeters": 3738,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "421818424",
+      "name": "Monte Zebrù",
+      "elevationMeters": 3735,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "290497840",
+      "name": "Le Pleureur",
+      "elevationMeters": 3703,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "26863007",
+      "name": "Uia di Ciamarella",
+      "elevationMeters": 3676,
+      "confirmedRouteCount": 2
+    },
+    {
+      "peakSourceId": "1887921008",
+      "name": "Gross Bigerhorn",
+      "elevationMeters": 3626,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "647370017",
+      "name": "Üssers Barrhorn",
+      "elevationMeters": 3610,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "26863857",
+      "name": "Monte Emilius",
+      "elevationMeters": 3559,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "425371500",
+      "name": "Vertainspitze - Cima Vertana",
+      "elevationMeters": 3545,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "960548740",
+      "name": "Rocciamelone",
+      "elevationMeters": 3538,
+      "confirmedRouteCount": 2
+    },
+    {
+      "peakSourceId": "425371507",
+      "name": "Hohe Angelusspitze - L'Angelo Grande",
+      "elevationMeters": 3521,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "333899881",
+      "name": "Hochfeiler - Gran Pilastro",
+      "elevationMeters": 3509,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "256042770",
+      "name": "Schrankogel",
+      "elevationMeters": 3497,
+      "confirmedRouteCount": 2
+    },
+    {
+      "peakSourceId": "256041842",
+      "name": "Hochwilde - Cima Altissima",
+      "elevationMeters": 3482,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "673010808",
+      "name": "Geisterspitze - Punta degli Spiriti",
+      "elevationMeters": 3467,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "423105294",
+      "name": "Tuckettspitze",
+      "elevationMeters": 3462,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "321173424",
+      "name": "Wilder Pfaff - Cima del Prete",
+      "elevationMeters": 3456,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "256041918",
+      "name": "Kreuzspitze",
+      "elevationMeters": 3455,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "1673211667",
+      "name": "Östliche Simonyspitze",
+      "elevationMeters": 3448,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "7050073111",
+      "name": "Hinterer Eggenspitz - Cima Sternai",
+      "elevationMeters": 3443,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "256041703",
+      "name": "Wilder Freiger - Cima Libera",
+      "elevationMeters": 3418,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "985193580",
+      "name": "Punta di Bioula",
+      "elevationMeters": 3414,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "393192181",
+      "name": "Oberrothorn",
+      "elevationMeters": 3413,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "393167833",
+      "name": "Mettelhorn",
+      "elevationMeters": 3410,
+      "confirmedRouteCount": 1
+    }
+  ],
+  "lowestCoveredPeaks": [
+    {
+      "peakSourceId": "279769585",
+      "name": "San Peyre",
+      "elevationMeters": 131,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "5958497394",
+      "name": "Monte Pauso",
+      "elevationMeters": 202,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "2986758326",
+      "name": "Rocche del Castello",
+      "elevationMeters": 280,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "10060860564",
+      "name": null,
+      "elevationMeters": 293,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "529488494",
+      "name": "Il Monticello",
+      "elevationMeters": 307,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "2491945295",
+      "name": null,
+      "elevationMeters": 323,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "458225822",
+      "name": "Montecchio Sud",
+      "elevationMeters": 331,
+      "confirmedRouteCount": 2
+    },
+    {
+      "peakSourceId": "1710234160",
+      "name": "Béouveyre",
+      "elevationMeters": 366,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "2127306663",
+      "name": "Rocca di Caldè",
+      "elevationMeters": 373,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "975776185",
+      "name": "Monte Curlo",
+      "elevationMeters": 383,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "6292128397",
+      "name": "Monte Gussa",
+      "elevationMeters": 389,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "1285572128",
+      "name": "Rocca Carpanea",
+      "elevationMeters": 390,
+      "confirmedRouteCount": 2
+    },
+    {
+      "peakSourceId": "3045815632",
+      "name": "Colle Mea",
+      "elevationMeters": 398,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "2401919047",
+      "name": "Kozlov rob",
+      "elevationMeters": 426,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "470327515",
+      "name": "Monte San Giacomo",
+      "elevationMeters": 427,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "2085154452",
+      "name": "Hundskogel",
+      "elevationMeters": 433,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "9187766830",
+      "name": null,
+      "elevationMeters": 459,
+      "confirmedRouteCount": 2
+    },
+    {
+      "peakSourceId": "1558411884",
+      "name": null,
+      "elevationMeters": 463,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "1286560094",
+      "name": "Haschlberg",
+      "elevationMeters": 470,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "8591903955",
+      "name": "Várhely",
+      "elevationMeters": 482,
+      "confirmedRouteCount": 2
+    },
+    {
+      "peakSourceId": "3284826345",
+      "name": "Monte Peso",
+      "elevationMeters": 483,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "582646240",
+      "name": "Tulbinger Kogel",
+      "elevationMeters": 494,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "318719244",
+      "name": "Waxenberg",
+      "elevationMeters": 501,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "6125744668",
+      "name": "Stari grad",
+      "elevationMeters": 502,
+      "confirmedRouteCount": 1
+    },
+    {
+      "peakSourceId": "3741445565",
+      "name": "Radigundenstein",
+      "elevationMeters": 511,
+      "confirmedRouteCount": 1
+    }
+  ],
+  "highestElevationCoveredPeak": {
+    "peakSourceId": "26864153",
+    "name": "Ortler - Ortles",
+    "elevationMeters": 3905,
+    "confirmedRouteCount": 1
+  },
+  "elevationCoverage": {
+    "atLeast4000Meters": 0,
+    "atLeast3000Meters": 165,
+    "atLeast2000Meters": 1196,
+    "missingElevation": 27,
+    "unnamed": 26
+  },
+  "countryRegionCoverage": {
+    "status": "UNAVAILABLE_FROM_CURRENT_ARTIFACTS",
+    "method": "Only explicit OSM addr:country, is_in:country_code, or country_code tags are accepted; names and coordinates are not guessed or reverse-geocoded.",
+    "explicitCountryAssignedCoveredPeaks": 0,
+    "unassignedCoveredPeaks": 2094,
+    "countries": {
+      "DE": {
+        "country": "Germany",
+        "coveredPeaks": 0
+      },
+      "AT": {
+        "country": "Austria",
+        "coveredPeaks": 0
+      },
+      "CH": {
+        "country": "Switzerland",
+        "coveredPeaks": 0
+      },
+      "IT": {
+        "country": "Italy",
+        "coveredPeaks": 0
+      },
+      "FR": {
+        "country": "France",
+        "coveredPeaks": 0
+      },
+      "SI": {
+        "country": "Slovenia",
+        "coveredPeaks": 0
+      },
+      "LI": {
+        "country": "Liechtenstein",
+        "coveredPeaks": 0
+      }
+    },
+    "limitation": "The Phase 6 artifacts contain no administrative-boundary join, so comprehensive country/region coverage requires a future offline boundary dataset."
+  }
+}

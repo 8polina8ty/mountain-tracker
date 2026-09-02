@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 2,
+  "artifactType": "PHASE11F2_START_CONTEXT_READINESS",
+  "phase": "11F.2",
+  "readOnly": true,
+  "frozenDatasetIdentity": {
+    "dataset": "alps",
+    "pbfSource": "data/osm/source/alps-latest.osm.pbf",
+    "classificationArtifact": "data/osm/alps/staging/phase11f2-start-context-classification.json",
+    "classificationArtifactSha256": "5148d21466d6d8bb28a20abf5db789f7f014132a4aeb21c2833c187b3c0ad6d8",
+    "baselineArtifact": "data/osm/alps/staging/phase11f1-start-context-classification.json",
+    "baselineArtifactSha256": "b741568991500375f5be5d845a2facffb6d99e9e7d4be602251e236fd104b3f3",
+    "totalRoutes": 641
+  },
+  "classifierContract": {
+    "version": "mountain-tracker-start-context/v2",
+    "implementation": "scripts/osm-import/start-context-classifier3.ts",
+    "evidenceModelVersion": "phase11f2-evidence/v2",
+    "thresholds": {
+      "hutProximityThresholdMeters": 200,
+      "highMountainProximityThresholdMeters": 500,
+      "parkingThresholdMeters": 300,
+      "trailheadThresholdMeters": 300,
+      "trailheadInfoThresholdMeters": 100,
+      "settlementThresholdMeters": 1000,
+      "settlementTightThresholdMeters": 300,
+      "transitThresholdMeters": 150,
+      "dwellingThresholdMeters": 600,
+      "dwellingTightThresholdMeters": 100,
+      "eleNodeRadiusMeters": 300,
+      "minVerticalGainForBaseStartMeters": 500
+    }
+  },
+  "finalClassificationCounts": {
+    "BASE_START": 74,
+    "HUT_START": 49,
+    "HIGH_MOUNTAIN_START": 263,
+    "AMBIGUOUS_START": 255
+  },
+  "greenCompatibleTotal": 123,
+  "newlyRecovered": {
+    "BASE_START": 40,
+    "HUT_START": 37,
+    "total": 77
+  },
+  "f1OverQualificationRemovals": {
+    "toHighMountainStart": 9,
+    "toAmbiguousStart": 2,
+    "total": 11
+  },
+  "tothorn": {
+    "canonicalRelationId": 274491,
+    "classification": "HIGH_MOUNTAIN_START",
+    "green": false
+  },
+  "machineQualification": {
+    "machineQualifiedSafe500": false,
+    "machineQualifiedSafe600": false,
+    "gapTo500": 377,
+    "truthfulMachineQualifiedSafe500": 74,
+    "truthfulMachineQualifiedSafe600": 123,
+    "falselyQualifiedAsGreen": 0
+  },
+  "humanQaReconciliation": {
+    "rejectedToGreen": 0,
+    "rejectedToGreenRelationIds": [],
+    "needsReviewToGreen": 0,
+    "needsReviewToGreenRelationIds": [],
+    "visuallyApprovedRoutes": 13,
+    "visuallyApprovedDistribution": {
+      "BASE_START": 0,
+      "HUT_START": 0,
+      "HIGH_MOUNTAIN_START": 10,
+      "AMBIGUOUS_START": 3
+    },
+    "falseGreenCount": 0
+  },
+  "finalSemantics": {
+    "BASE_START_greenCompatible": true,
+    "HUT_START_greenCompatible": true,
+    "HIGH_MOUNTAIN_START_greenCompatible": false,
+    "AMBIGUOUS_START_greenCompatible": false,
+    "automaticExceptionsAllowed": []
+  },
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "8e626e657086884525002f51e8c34d661f6d9a887dc928cddba38d0626c99b9e"
+}

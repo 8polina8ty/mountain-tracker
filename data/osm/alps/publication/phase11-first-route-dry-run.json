@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11_PUBLICATION_DRY_RUN",
+  "publicationContractVersion": "mountain-tracker-osm-publication/v1",
+  "candidateSetContentHash": "350ea8006be8406b20ab68c763ebbe05bfea7c3a2a1fa2427c4a9fc37fc964d0",
+  "candidateManifestHash": "71aba18a7fc1a62dccef729fdd60cebd9a2dcac02442d358e8f2c6c0bb99504f",
+  "summary": {
+    "attempted": 1,
+    "wouldCreate": 1,
+    "wouldSkipUnchanged": 0,
+    "blocked": 0,
+    "warningCandidates": 0,
+    "topologyCounts": {
+      "SIMPLE": 1
+    },
+    "missingTargetFields": {
+      "start_location": 1,
+      "difficulty_system": 1,
+      "difficulty_value": 1,
+      "elevation_gain_m": 1,
+      "duration_minutes": 1,
+      "description": 1,
+      "best_season": 1,
+      "equipment": 1,
+      "gpx_url": 1,
+      "created_by": 1
+    },
+    "unsupportedMappings": 0,
+    "geometryBlockers": 0,
+    "provenanceBlockers": 0,
+    "provenanceSchemaAvailable": true,
+    "databaseWrites": 0,
+    "publicationWrites": 0
+  },
+  "records": [
+    {
+      "sourceRelationId": "196164",
+      "stagingRouteId": "f35e1dd3-39c0-4217-be1f-dc635165a369",
+      "targetMountainId": 13132,
+      "action": "WOULD_CREATE",
+      "blockers": [],
+      "warnings": [],
+      "mountainRoutePayload": {
+        "mountain_id": 13132,
+        "name": "Wanderweg 534",
+        "start_location": null,
+        "route_type": "hiking",
+        "difficulty_system": null,
+        "difficulty_value": null,
+        "distance_km": 11.734,
+        "elevation_gain_m": null,
+        "duration_minutes": null,
+        "description": null,
+        "best_season": null,
+        "equipment": null,
+        "warnings": null,
+        "gpx_url": null,
+        "source_name": "OpenStreetMap",
+        "source_url": "https://www.openstreetmap.org/relation/196164",
+        "is_verified": true,
+        "created_by": null,
+        "geojson_url": "/api/osm-route-publications/openstreetmap/relation/196164/geojson"
+      },
+      "provenancePayload": {
+        "publication_contract_version": "mountain-tracker-osm-publication/v1",
+        "publication_idempotency_key": "openstreetmap:relation:196164:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1",
+        "staging_route_id": "f35e1dd3-39c0-4217-be1f-dc635165a369",
+        "provider": "openstreetmap",
+        "canonical_relation_id": "196164",
+        "source_relation_ids": [
+          "196164"
+        ],
+        "staging_payload_hash": "4e32e67180c4b03e91eb03c26802f74696418b092098d41b765891804c019aff",
+        "candidate_content_hash": "080c3210595ea5dff20958cf8a3f5380f096b6a20b0e6d0d71eeec1b2dd9964e",
+        "candidate_set_content_hash": "350ea8006be8406b20ab68c763ebbe05bfea7c3a2a1fa2427c4a9fc37fc964d0",
+        "candidate_manifest_hash": "71aba18a7fc1a62dccef729fdd60cebd9a2dcac02442d358e8f2c6c0bb99504f",
+        "dataset_fingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+        "geometry_hash": "6fdc587da224ec3a2650023833bfe12cb9a71c5c68ed1a115686e3a423915c0f",
+        "qa_status": "VISUALLY_APPROVED",
+        "qa_decision_version": 1,
+        "qa_reviewer_user_id": "23b17e48-4b08-48d3-bc09-f2f6da1311a2",
+        "qa_reviewed_at": "2026-08-26T18:24:12.007924+00:00",
+        "qa_reviewer_note": null,
+        "qa_history_snapshot": [
+          {
+            "id": 35,
+            "stagingRouteId": "f35e1dd3-39c0-4217-be1f-dc635165a369",
+            "oldStatus": "PENDING",
+            "newStatus": "VISUALLY_APPROVED",
+            "reviewerNote": null,
+            "reviewerUserId": "23b17e48-4b08-48d3-bc09-f2f6da1311a2",
+            "decisionVersion": 1,
+            "occurredAt": "2026-08-26T18:24:12.007924+00:00"
+          }
+        ],
+        "qa_history_hash": "6e9562aea9e834d774c9cf8e6faa96561f4ab8342753381537f8c5e8186afd75",
+        "source_url": "https://www.openstreetmap.org/relation/196164",
+        "source_license": "ODbL-1.0",
+        "source_attribution": "© OpenStreetMap contributors",
+        "topology": {
+          "classification": "SIMPLE",
+          "connectedGroupCount": 1,
+          "physicalEndpointCount": 2,
+          "physicalEndpoints": [
+            {
+              "coordinate": [
+                15.2373075,
+                47.2249387
+              ],
+              "degree": 1
+            },
+            {
+              "coordinate": [
+                15.1530778,
+                47.2802149
+              ],
+              "degree": 1
+            }
+          ],
+          "startCoordinate": [
+            15.2373075,
+            47.2249387
+          ],
+          "endCoordinate": [
+            15.1530778,
+            47.2802149
+          ],
+          "endpointOrientationReason": "CONFIRMED_SUMMIT_ENDPOINT",
+          "endpointSelectionAmbiguous": false,
+          "endpointSelectionWarning": null,
+          "summitEndpointDistanceMeters": 1,
+          "straightLineDistanceMeters": 8842.7,
+          "routeToStraightLineRatio": 1.33,
+          "routeToStraightLineStatus": "AVAILABLE"
+        },
+        "audit_evidence": {
+          "warningState": {
+            "reviewedFlags": [],
+            "activeFlags": [],
+            "resolvedRepresentationalFlags": [],
+            "legacyStartToSummitDistanceMeters": 8841.8,
+            "legacyRouteToStraightLineRatio": 1.33
+          },
+          "auditFlags": [],
+          "summit": {
+            "peakOsmId": "335302468",
+            "peakName": "Fensteralm",
+            "peakCoordinates": [
+              15.1530825,
+              47.2802064
+            ],
+            "mountainId": 13132,
+            "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH",
+            "associationClassification": "CONFIRMED",
+            "finalConfidence": 1,
+            "minimumGeometryDistanceMeters": 1,
+            "endpointDistanceMeters": 1,
+            "evidence": [
+              "Phase 2 geometry is MATCHED at 1 m from the route.",
+              "Nearest component endpoint is 1 m from the peak.",
+              "Route semantic type is summit_route (0.96 confidence).",
+              "Peak is within 10 m of a component endpoint.",
+              "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+            ]
+          },
+          "administration": {
+            "status": "ASSIGNED",
+            "countryCode": "AT",
+            "countryName": "Austria",
+            "admin1Code": "AT-6",
+            "admin1Name": "Steiermark",
+            "source": "Federal Office for Metrology and Survey, Austria via geoBoundaries",
+            "sourceUrl": "https://www.bev.gv.at/",
+            "license": "Creative Commons Attribution-ShareAlike 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "Federal Office for Metrology and Survey, Austria and geoBoundaries; CC BY-SA 2.0; geometry normalized for Mountain Tracker.",
+            "version": "geoBoundaries-gbOpen-9469f09-2023-12-12:AUT-ADM1-97560089:2017",
+            "boundaryProvenance": {
+              "provider": "William & Mary geoLab",
+              "dataset": "geoBoundaries gbOpen ADM1 high-precision single-country files",
+              "source": "geoBoundaries and the per-feature government/open-data sources",
+              "license": "Mixed commercial-compatible open licenses; see each feature's license, licenseUrl, and attribution fields.",
+              "version": "geoBoundaries-gbOpen-9469f09-2023-12-12",
+              "sourceUrl": "https://www.geoboundaries.org/",
+              "attribution": "Boundary data normalized from geoBoundaries gbOpen; per-feature attribution and license terms apply. Geometry was reformatted and combined for offline point-in-polygon use."
+            }
+          },
+          "duplicateProvenance": {
+            "duplicateGroupId": null,
+            "sourceRouteIds": [
+              "196164"
+            ],
+            "removedDuplicateRepresentationIds": [],
+            "sourceProvenance": [
+              {
+                "routeSourceId": "196164",
+                "sourceUrl": "https://www.openstreetmap.org/relation/196164",
+                "provenanceId": "openstreetmap-odbl-geofabrik-alps",
+                "license": "ODbL-1.0",
+                "attribution": "© OpenStreetMap contributors"
+              }
+            ]
+          }
+        },
+        "target_payload_hash": "823e7dfd6ddc19f8be5d32b1f0c11824f0c60c4ee5aa74b5ef167b40ded0a35d"
+      },
+      "geometryStrategy": {
+        "kind": "STAGING_BACKED_SAME_ORIGIN_ENDPOINT",
+        "rawGeometryPreserved": true,
+        "syntheticConnectors": false,
+        "endpointMode": "EXPLICIT_PHYSICAL_ENDPOINTS"
+      }
+    }
+  ]
+}

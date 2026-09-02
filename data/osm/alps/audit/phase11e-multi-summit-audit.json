@@ -1,0 +1,1031 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11E_MULTI_SUMMIT_AUDIT",
+  "readOnly": true,
+  "sourceIdentity": {
+    "pbfPath": "data/osm/source/alps-latest.osm.pbf",
+    "pbfSizeBytes": 2310928096,
+    "pbfModifiedMilliseconds": 1787606468000,
+    "pbfSha256": "15ff62ed82c01b2153ec22d1b4cd53d1e94b87ecf38ab176eee60360972a6fc5",
+    "pipelineDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "pipelineGeneratedAt": "2026-08-25T01:54:50.930Z",
+    "checkpointPath": "data/osm/alps/checkpoints/fafc4f7a772832f2/bulk-store.sqlite",
+    "checkpointManifestSha256": "80552d6ed18595257a094fd20c1a9d5266828c65048ccb486de052518f5b64dc",
+    "motorwayIndexContentHash": "f28f56b03845217aa6fc7344c4ec71e530c7666671928370577d56994e535db1",
+    "phase7AuditHash": "52fc9b4f80c2c678299916e91ab0b9937b037d9df252a2b779f6967290a3c593",
+    "importPlanDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "importPlanRecordCount": 1065,
+    "phase11dReadinessHash": "a4615deb9406320e1abc8eac670582297b0ba56ea4efbc52f9fa33f311f63cdc"
+  },
+  "routeCount": 90,
+  "allExactIdentityCount": 85,
+  "recoveredGreenCount": 0,
+  "records": [
+    {
+      "sourceRelationId": "157923",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "420429965",
+        "420429966"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "164365",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "897365579",
+        "9936123602"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "167878",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "286759519",
+        "3651143944"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "1157707",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "554555752",
+        "1659572456"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "1174336",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "394921980",
+        "425371496"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "1388684",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "26864487",
+        "260858296"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "1721155",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2018641182",
+        "3461408880"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "1880169",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1295150195",
+        "1416646696"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "1903220",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "26864555",
+        "1295150195"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "1993598",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "264056090",
+        "264056175"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "2063063",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "474844098",
+        "9723538032"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "2129097",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1711432078",
+        "1711432079"
+      ],
+      "allSummitIdentitiesExact": false,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "2208517",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1758733182",
+        "1758733192"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "2316782",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "1843185014",
+        "1843185019",
+        "1843187729"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "2659879",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1313134678",
+        "1893296575"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "3274457",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2431542030",
+        "2443543878"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "4083704",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "906932480",
+        "3109076726"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "4227233",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "304367646",
+        "988756414",
+        "1250880337"
+      ],
+      "allSummitIdentitiesExact": false,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "4712473",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "459849374",
+        "2035310159"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "5143713",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2035160961",
+        "2096245313"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "5149963",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "173559350",
+        "1276246921"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "5349401",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "26863187",
+        "601650137"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "5586842",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "333491972",
+        "2808382803"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "5667002",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "300920711",
+        "2994983286"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "5824093",
+      "confirmedSummitCount": 4,
+      "peakOsmIds": [
+        "903403228",
+        "903403240",
+        "3045815632",
+        "3045822334"
+      ],
+      "allSummitIdentitiesExact": false,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "6346068",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "4260078053",
+        "4260078054"
+      ],
+      "allSummitIdentitiesExact": false,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "6475432",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "837880919",
+        "3695542840"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "6635683",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "256041730",
+        "473471883"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "6656318",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "3811621742",
+        "5354099556",
+        "10779330314"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "6851854",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "301861034",
+        "4586985355"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "6863715",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "313974459",
+        "439753239"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "7004124",
+      "confirmedSummitCount": 4,
+      "peakOsmIds": [
+        "363301055",
+        "363608488",
+        "889389926",
+        "1595165479"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "7323179",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1374156718",
+        "1374160477"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "7371381",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "398230266",
+        "398230269"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "8014304",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "848785471",
+        "5406711409"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "8848749",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "520435297",
+        "6014960064"
+      ],
+      "allSummitIdentitiesExact": false,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "9507918",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "499968184",
+        "1624945976",
+        "2409254827"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "9508156",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "491527427",
+        "3698635808"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "9636644",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1897972345",
+        "2553132348"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "9700800",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "26863030",
+        "457506203"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "9844104",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "382976805",
+        "10739983682"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "11517353",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "3098510175",
+        "3098512945"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "11671691",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "256041881",
+        "1694911079"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "11730817",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "457711361",
+        "457711444"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "11787510",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "491575348",
+        "2574751850"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "11986910",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "747467811",
+        "747467887"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "12184292",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "276645294",
+        "1045719310"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "12279840",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "394921961",
+        "425371496"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "12330459",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "896378106",
+        "3439347642"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "12353442",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1732199688",
+        "4166385286"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "12454513",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1458872726",
+        "7475670312"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "13235917",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "290456226",
+        "306632386"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "14134760",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "3729505433",
+        "9980254650"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "14653193",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "3048645660",
+        "3048781775"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "14664364",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "491536117",
+        "1876921756"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "14890606",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "364039073",
+        "366107285"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "14910570",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "457398081",
+        "457398138"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15029547",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "465275697",
+        "465507211"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15400044",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "393422021",
+        "394861145"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15447258",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "392106952",
+        "1858194307",
+        "2929637545"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15451967",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1430453438",
+        "1430569397"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15726359",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "703333641",
+        "1321665506"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15743644",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "256041882",
+        "2857652202"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15743685",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "763107618",
+        "1374050237",
+        "1838495476"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15750380",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1602956084",
+        "2895059861"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15762914",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "256041696",
+        "2679393222"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15762935",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1514489187",
+        "5747872882"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15773139",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "256042851",
+        "889074509"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15773145",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "889074508",
+        "889074511"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15773351",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "256041729",
+        "636047082"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15798205",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "256041958",
+        "4971266221"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15828222",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "2276767430",
+        "4208908065",
+        "11360893989"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "15865950",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2216102181",
+        "2216102187"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "16034899",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2914618207",
+        "5313290891"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "16088064",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "286759519",
+        "2268591914"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "16124665",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "471298421",
+        "1330277049"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "16293298",
+      "confirmedSummitCount": 5,
+      "peakOsmIds": [
+        "2365859040",
+        "2365859085",
+        "2451335946",
+        "4245874027",
+        "4245909140"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "17078431",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "413595395",
+        "413595455"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "17134372",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "917040139",
+        "2932447783"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "17434103",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1193394644",
+        "7746915596"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "17480853",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "26864487",
+        "2213748620"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "17868533",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "826487944",
+        "3426546778"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "17951361",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2959781373",
+        "5351564261"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "18014196",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1905694438",
+        "2031663305"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "18087867",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2671047762",
+        "2671047901"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "18259757",
+      "confirmedSummitCount": 3,
+      "peakOsmIds": [
+        "399334790",
+        "3922196657",
+        "3922196658"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "19531524",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "306981723",
+        "13101333873"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "19658410",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "1887921008",
+        "1887921420"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "19680847",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2497172622",
+        "2497173317"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    },
+    {
+      "sourceRelationId": "19681067",
+      "confirmedSummitCount": 2,
+      "peakOsmIds": [
+        "2497172622",
+        "2497173317"
+      ],
+      "allSummitIdentitiesExact": true,
+      "recoveredToGreen": false,
+      "reason": "The current single-primary-mountain publication representation cannot preserve multi-summit semantics without loss."
+    }
+  ],
+  "deterministicArtifactHash": "1396e0f8006ac7ba0f50a58ab57f640b8c49d27dcee2a0b1ea2001c9d48cd674"
+}

@@ -1,0 +1,4322 @@
+{
+  "limitPerCategory": 25,
+  "categoryKeys": {
+    "highestQuality": [
+      "20916:300920907",
+      "33528:3006435036",
+      "140270:2143684699",
+      "196164:335302468",
+      "199145:300920886",
+      "207900:26863054",
+      "207913:471300819",
+      "222362:2498250593",
+      "361148:320693845",
+      "660063:638977221",
+      "915266:1305583293",
+      "935393:747187964",
+      "936047:300920848",
+      "961283:771762123",
+      "1065987:964697099",
+      "1075677:2526776404",
+      "1124155:885182782",
+      "1138510:713546737",
+      "1140771:911134829",
+      "1144001:530831149",
+      "1165714:462673434",
+      "1229102:3186071317",
+      "1271967:988874037",
+      "1490290:1574657620",
+      "1555542:264035398"
+    ],
+    "lowestQuality": [
+      "11221847:7114042096",
+      "14432808:7105442188",
+      "4124835:443317598",
+      "7004124:363301055",
+      "9906087:26863097",
+      "14707868:7924927548",
+      "15550641:457470763",
+      "12847804:438255446",
+      "12886245:9116258843",
+      "19084383:784221368",
+      "1174336:394921980",
+      "1781086:1459164186",
+      "3339475:830333072",
+      "12183396:1247230283",
+      "12267816:26864153",
+      "12492206:3148173987",
+      "13271648:1821569260",
+      "17459678:1790054574",
+      "19585873:1820763442",
+      "19667168:8044688551",
+      "19717742:425270092",
+      "19725242:7660057004",
+      "18206426:294632103",
+      "6863715:313974459",
+      "1155861:470624091"
+    ],
+    "multipleSummitCases": [
+      "16293298:2365859040",
+      "5824093:903403228",
+      "7004124:363301055",
+      "2316782:1843185014",
+      "4227233:304367646",
+      "6656318:3811621742",
+      "9507918:499968184",
+      "15447258:392106952",
+      "15743685:763107618",
+      "15828222:2276767430",
+      "18259757:399334790",
+      "157923:420429965",
+      "164365:897365579",
+      "167878:286759519",
+      "1157707:554555752",
+      "1174336:394921980",
+      "1388684:26864487",
+      "1721155:2018641182",
+      "1880169:1295150195",
+      "1903220:26864555",
+      "1993598:264056090",
+      "2063063:474844098",
+      "2129097:1711432078",
+      "2208517:1758733182",
+      "2659879:1313134678"
+    ],
+    "longestRoutes": [
+      "167878:286759519",
+      "4227233:304367646",
+      "11513932:1595165348",
+      "15419015:2367801485",
+      "6656318:3811621742",
+      "17275026:2035943291",
+      "15029547:465275697",
+      "9812835:469207035",
+      "14432808:7105442188",
+      "11192622:523276765",
+      "7004124:363301055",
+      "15828222:2276767430",
+      "16464681:2441281495",
+      "14707868:7924927548",
+      "17480853:26864487",
+      "16315876:5236027034",
+      "13799745:419854769",
+      "1705242:382978330",
+      "11539317:26862693",
+      "5586842:333491972",
+      "6684547:1410399862",
+      "7587931:26863907",
+      "9922420:2588675489",
+      "7726510:1284901748",
+      "4677295:409624273"
+    ],
+    "shortestRoutes": [
+      "8664872:5866403393",
+      "8664871:5866403393",
+      "6346068:4260078053",
+      "8664874:5866403393",
+      "8664870:5866403393",
+      "19438349:863628555",
+      "18910015:12585156467",
+      "20395140:3454605834",
+      "15523261:965378756",
+      "14556402:8562087389",
+      "4010376:3046782641",
+      "14987780:522237107",
+      "20302630:11646993723",
+      "19739628:11187963888",
+      "6483759:1438723906",
+      "14319513:279621905",
+      "18789813:12340825730",
+      "13652932:26862743",
+      "3531911:378684612",
+      "157923:420429965",
+      "19626173:11646993692",
+      "14758915:26862779",
+      "2442201:2401015253",
+      "17083084:5572165520",
+      "2129097:1711432078"
+    ],
+    "geographicallyDistributedDeterministic": [
+      "20916:300920907",
+      "2127823:1710234160",
+      "9504224:551457322",
+      "13908127:2934568986",
+      "8778831:5958497394",
+      "19202810:198100973",
+      "3987920:8591903955",
+      "1589781:1286560094",
+      "18872736:1277096610",
+      "12246126:513907117",
+      "12754829:1308004907",
+      "18827975:11646994205",
+      "17565125:249757788",
+      "33922:520127061",
+      "18748591:5487185903",
+      "6132841:698523674",
+      "2659727:1780343529",
+      "13494602:279769585",
+      "10106469:554847668",
+      "17502628:12025557664",
+      "3670139:4622131992",
+      "18741430:2313619693",
+      "109751:324935570",
+      "14585232:1372432837",
+      "12857625:1372805092"
+    ]
+  },
+  "uniqueEntryCount": 138,
+  "entries": [
+    {
+      "sampleKey": "20916:300920907",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic",
+        "highestQuality"
+      ],
+      "routeSourceId": "20916",
+      "routeName": "Wanderweg 614",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 5392,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "300920907",
+      "peakName": "Großer Pyhrgas",
+      "peakElevationMeters": 2244,
+      "peakCoordinates": [
+        14.3975248,
+        47.6526569
+      ],
+      "minimumGeometryDistanceMeters": 3.3,
+      "endpointDistanceMeters": 7.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.3 m from the route.",
+        "Nearest component endpoint is 7.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "33528:3006435036",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "33528",
+      "routeName": "10",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 5746,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "3006435036",
+      "peakName": "Lyfispitze - Punta Livi",
+      "peakElevationMeters": 3352,
+      "peakCoordinates": [
+        10.6875919,
+        46.5341461
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "33922:520127061",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "33922",
+      "routeName": "Wanderweg 622",
+      "semanticType": "summit_route",
+      "routeQualityScore": 77,
+      "routeDistanceMeters": 15950,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "520127061",
+      "peakName": "Pleiskopf",
+      "peakElevationMeters": 2560,
+      "peakCoordinates": [
+        10.6520453,
+        47.2524277
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "109751:324935570",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "109751",
+      "routeName": "Wanderweg 531",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "routeDistanceMeters": 13789,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "324935570",
+      "peakName": "Kreuzkogel",
+      "peakElevationMeters": 1181,
+      "peakCoordinates": [
+        15.3445883,
+        47.314303
+      ],
+      "minimumGeometryDistanceMeters": 1.6,
+      "endpointDistanceMeters": 1.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.6 m from the route.",
+        "Nearest component endpoint is 1.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "140270:2143684699",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "140270",
+      "routeName": "Via Ferrata “Rosalba Grasselli”",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 1304,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2143684699",
+      "peakName": "Picco di Carnizza",
+      "peakElevationMeters": 2434,
+      "peakCoordinates": [
+        13.4333643,
+        46.3652266
+      ],
+      "minimumGeometryDistanceMeters": 0.2,
+      "endpointDistanceMeters": 2.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.2 m from the route.",
+        "Nearest component endpoint is 2.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "157923:420429965",
+      "sampleCategories": [
+        "multipleSummitCases",
+        "shortestRoutes"
+      ],
+      "routeSourceId": "157923",
+      "routeName": "Schafberg Vorgipfel - Schafberg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 81,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "420429965",
+      "peakName": "Wildhauser Schafberg",
+      "peakElevationMeters": 2373,
+      "peakCoordinates": [
+        9.3520965,
+        47.2294373
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "164365:897365579",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "164365",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 66,
+      "routeDistanceMeters": 2805,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "897365579",
+      "peakName": "Chli Tändli",
+      "peakElevationMeters": 1483,
+      "peakCoordinates": [
+        8.6954283,
+        47.0785129
+      ],
+      "minimumGeometryDistanceMeters": 0.4,
+      "endpointDistanceMeters": 5.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.4 m from the route.",
+        "Nearest component endpoint is 5.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "167878:286759519",
+      "sampleCategories": [
+        "longestRoutes",
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "167878",
+      "routeName": "Salzburger Almenweg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 31,
+      "routeDistanceMeters": 339305,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "286759519",
+      "peakName": "Mooskopf",
+      "peakElevationMeters": 1961,
+      "peakCoordinates": [
+        13.3479982,
+        47.2927611
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "196164:335302468",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "196164",
+      "routeName": "Wanderweg 534",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 11734,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "335302468",
+      "peakName": "Fensteralm",
+      "peakElevationMeters": 1642,
+      "peakCoordinates": [
+        15.1530825,
+        47.2802064
+      ],
+      "minimumGeometryDistanceMeters": 1,
+      "endpointDistanceMeters": 1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1 m from the route.",
+        "Nearest component endpoint is 1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "199145:300920886",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "199145",
+      "routeName": "Wanderweg 610",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 5902,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "300920886",
+      "peakName": "Bosruck",
+      "peakElevationMeters": 1992,
+      "peakCoordinates": [
+        14.3461706,
+        47.622973
+      ],
+      "minimumGeometryDistanceMeters": 3.9,
+      "endpointDistanceMeters": 3.9,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.9 m from the route.",
+        "Nearest component endpoint is 3.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "207900:26863054",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "207900",
+      "routeName": "Wanderweg 791",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 8003,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "26863054",
+      "peakName": "Großer Knallstein",
+      "peakElevationMeters": 2599,
+      "peakCoordinates": [
+        13.9757742,
+        47.3203059
+      ],
+      "minimumGeometryDistanceMeters": 0.2,
+      "endpointDistanceMeters": 3.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.2 m from the route.",
+        "Nearest component endpoint is 3.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "207913:471300819",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "207913",
+      "routeName": "Wanderweg 926A",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 1155,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "471300819",
+      "peakName": "Schoberspitze",
+      "peakElevationMeters": 2423,
+      "peakCoordinates": [
+        14.1606502,
+        47.2893725
+      ],
+      "minimumGeometryDistanceMeters": 6.1,
+      "endpointDistanceMeters": 7.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 6.1 m from the route.",
+        "Nearest component endpoint is 7.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "222362:2498250593",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "222362",
+      "routeName": "AV Weg 429 (Funtenseetauern Normalweg)",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 4387,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2498250593",
+      "peakName": "Funtenseetauern",
+      "peakElevationMeters": 2578.4,
+      "peakCoordinates": [
+        12.9767787,
+        47.4850145
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "361148:320693845",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "361148",
+      "routeName": "Wanderweg 10",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 7739,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "320693845",
+      "peakName": "Hohe Rannach",
+      "peakElevationMeters": 1018,
+      "peakCoordinates": [
+        15.4004901,
+        47.1731023
+      ],
+      "minimumGeometryDistanceMeters": 1.5,
+      "endpointDistanceMeters": 1.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.5 m from the route.",
+        "Nearest component endpoint is 1.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "660063:638977221",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "660063",
+      "routeName": "Winzendorf - Größenberg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 3417,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "638977221",
+      "peakName": "Größenberg",
+      "peakElevationMeters": 605,
+      "peakCoordinates": [
+        16.1204721,
+        47.8344193
+      ],
+      "minimumGeometryDistanceMeters": 4.9,
+      "endpointDistanceMeters": 4.9,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.9 m from the route.",
+        "Nearest component endpoint is 4.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "915266:1305583293",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "915266",
+      "routeName": "Güttlersteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 3947,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1305583293",
+      "peakName": "Sonneck",
+      "peakElevationMeters": 2260,
+      "peakCoordinates": [
+        12.283543,
+        47.5617659
+      ],
+      "minimumGeometryDistanceMeters": 0.6,
+      "endpointDistanceMeters": 0.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.6 m from the route.",
+        "Nearest component endpoint is 0.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "935393:747187964",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "935393",
+      "routeName": "Wanderweg 37",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 5413,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "747187964",
+      "peakName": "Repenstein",
+      "peakElevationMeters": 1956,
+      "peakCoordinates": [
+        14.6308292,
+        47.3040344
+      ],
+      "minimumGeometryDistanceMeters": 5.7,
+      "endpointDistanceMeters": 5.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 5.7 m from the route.",
+        "Nearest component endpoint is 5.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "936047:300920848",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "936047",
+      "routeName": "Wanderweg 627",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 648,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "300920848",
+      "peakName": "Dörfelstein",
+      "peakElevationMeters": 1070,
+      "peakCoordinates": [
+        14.4784977,
+        47.6036874
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "961283:771762123",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "961283",
+      "routeName": "Wanderweg 282",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 884,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "771762123",
+      "peakName": "Hochtausing",
+      "peakElevationMeters": 1822,
+      "peakCoordinates": [
+        14.1563581,
+        47.5844403
+      ],
+      "minimumGeometryDistanceMeters": 1.7,
+      "endpointDistanceMeters": 5.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+        "Nearest component endpoint is 5.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1065987:964697099",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1065987",
+      "routeName": "Wanderweg 740",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 11760,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "964697099",
+      "peakName": "Weißeck",
+      "peakElevationMeters": 2711,
+      "peakCoordinates": [
+        13.3936411,
+        47.1624791
+      ],
+      "minimumGeometryDistanceMeters": 1.5,
+      "endpointDistanceMeters": 1.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.5 m from the route.",
+        "Nearest component endpoint is 1.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1075677:2526776404",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1075677",
+      "routeName": "Wanderweg 548",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 915,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2526776404",
+      "peakName": "Großer Hafner",
+      "peakElevationMeters": 3076,
+      "peakCoordinates": [
+        13.4007425,
+        47.0700618
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1124155:885182782",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1124155",
+      "routeName": "Weg Nr. 1 - Zum Glescherblick - Oberaudorf/Hocheck",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 1202,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "885182782",
+      "peakName": "Gletscherblick",
+      "peakElevationMeters": 824,
+      "peakCoordinates": [
+        12.1489342,
+        47.6482196
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1138510:713546737",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1138510",
+      "routeName": "Kaiserschützensteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 2056,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "713546737",
+      "peakName": "Ellmauer Halt",
+      "peakElevationMeters": 2342,
+      "peakCoordinates": [
+        12.3025296,
+        47.5616377
+      ],
+      "minimumGeometryDistanceMeters": 4.4,
+      "endpointDistanceMeters": 4.4,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.4 m from the route.",
+        "Nearest component endpoint is 4.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1140771:911134829",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1140771",
+      "routeName": "AV Weg 711A",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 1211,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "911134829",
+      "peakName": "Medelzkopf",
+      "peakElevationMeters": 2762,
+      "peakCoordinates": [
+        12.6288909,
+        47.1155879
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1144001:530831149",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1144001",
+      "routeName": "Sentiero della Loffa",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 1120,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "530831149",
+      "peakName": "Monte Cornetto",
+      "peakElevationMeters": 1899,
+      "peakCoordinates": [
+        11.1761914,
+        45.7469759
+      ],
+      "minimumGeometryDistanceMeters": 2.2,
+      "endpointDistanceMeters": 2.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.2 m from the route.",
+        "Nearest component endpoint is 2.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1155861:470624091",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "1155861",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 19,
+      "routeDistanceMeters": 17383,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "470624091",
+      "peakName": "Croda del Becco - Sas dla Porta - Seekofel",
+      "peakElevationMeters": 2810,
+      "peakCoordinates": [
+        12.0726392,
+        46.6749918
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1157707:554555752",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "1157707",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 69,
+      "routeDistanceMeters": 17683,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "554555752",
+      "peakName": "Toblacher Pfannhorn - Corno di Fana",
+      "peakElevationMeters": 2663,
+      "peakCoordinates": [
+        12.2845216,
+        46.782827
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1165714:462673434",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1165714",
+      "routeName": "Wanderweg 437",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 3667,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "462673434",
+      "peakName": "Hochsalm",
+      "peakElevationMeters": 1405,
+      "peakCoordinates": [
+        13.991896,
+        47.879242
+      ],
+      "minimumGeometryDistanceMeters": 0.4,
+      "endpointDistanceMeters": 0.9,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.4 m from the route.",
+        "Nearest component endpoint is 0.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1174336:394921980",
+      "sampleCategories": [
+        "lowestQuality",
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "1174336",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 15,
+      "routeDistanceMeters": 19605,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "394921980",
+      "peakName": "Croda di Cengels - Tschenglser Hochwand",
+      "peakElevationMeters": 3375,
+      "peakCoordinates": [
+        10.629135,
+        46.5642975
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1229102:3186071317",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1229102",
+      "routeName": "AV Weg 457 Alpeltalsteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 5568,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "3186071317",
+      "peakName": "Hoher Göll",
+      "peakElevationMeters": 2522,
+      "peakCoordinates": [
+        13.0671406,
+        47.5939262
+      ],
+      "minimumGeometryDistanceMeters": 8,
+      "endpointDistanceMeters": 8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 8 m from the route.",
+        "Nearest component endpoint is 8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1271967:988874037",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1271967",
+      "routeName": "Haakogelweg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 1044,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "988874037",
+      "peakName": "Haakogel",
+      "peakElevationMeters": 884,
+      "peakCoordinates": [
+        15.7710701,
+        47.669938
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1388684:26864487",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "1388684",
+      "routeName": "Wanderweg 642 - Spitzingsee",
+      "semanticType": "summit_route",
+      "routeQualityScore": 66,
+      "routeDistanceMeters": 13285,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "26864487",
+      "peakName": "Rotwand",
+      "peakElevationMeters": 1884,
+      "peakCoordinates": [
+        11.9344203,
+        47.6502104
+      ],
+      "minimumGeometryDistanceMeters": 0.5,
+      "endpointDistanceMeters": 0.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.5 m from the route.",
+        "Nearest component endpoint is 0.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1490290:1574657620",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1490290",
+      "routeName": "Hainfeld (Kirche) - Hainfelder Hütte",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 3248,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1574657620",
+      "peakName": "Hainfelder Kirchenberg",
+      "peakElevationMeters": 924,
+      "peakCoordinates": [
+        15.7536905,
+        48.0193573
+      ],
+      "minimumGeometryDistanceMeters": 1.7,
+      "endpointDistanceMeters": 3.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+        "Nearest component endpoint is 3.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1555542:264035398",
+      "sampleCategories": [
+        "highestQuality"
+      ],
+      "routeSourceId": "1555542",
+      "routeName": "Wanderweg 659 - Trainsjoch",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 7497,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "264035398",
+      "peakName": "Trainsjoch",
+      "peakElevationMeters": 1707,
+      "peakCoordinates": [
+        12.0543473,
+        47.615268
+      ],
+      "minimumGeometryDistanceMeters": 0.8,
+      "endpointDistanceMeters": 1.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.8 m from the route.",
+        "Nearest component endpoint is 1.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1589781:1286560094",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "1589781",
+      "routeName": "Schiffleutewanderweg Etappe 1",
+      "semanticType": "summit_route",
+      "routeQualityScore": 45,
+      "routeDistanceMeters": 4244,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1286560094",
+      "peakName": "Haschlberg",
+      "peakElevationMeters": 470,
+      "peakCoordinates": [
+        12.1385357,
+        47.7731298
+      ],
+      "minimumGeometryDistanceMeters": 0.8,
+      "endpointDistanceMeters": 0.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.8 m from the route.",
+        "Nearest component endpoint is 0.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1705242:382978330",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "1705242",
+      "routeName": "AV Weg 102 (Tauernkopf Weg)",
+      "semanticType": "summit_route",
+      "routeQualityScore": 40,
+      "routeDistanceMeters": 37470,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "382978330",
+      "peakName": "Hoher Sonnblick",
+      "peakElevationMeters": 3106,
+      "peakCoordinates": [
+        12.9574308,
+        47.0540959
+      ],
+      "minimumGeometryDistanceMeters": 7.3,
+      "endpointDistanceMeters": 7.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 7.3 m from the route.",
+        "Nearest component endpoint is 7.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1721155:2018641182",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "1721155",
+      "routeName": "Wanderweg 683 - Karawanken",
+      "semanticType": "summit_route",
+      "routeQualityScore": 59,
+      "routeDistanceMeters": 7574,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "2018641182",
+      "peakName": "Schwarzkogel / Kresišče",
+      "peakElevationMeters": 1842,
+      "peakCoordinates": [
+        13.8951782,
+        46.5198587
+      ],
+      "minimumGeometryDistanceMeters": 1.2,
+      "endpointDistanceMeters": 1.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.2 m from the route.",
+        "Nearest component endpoint is 1.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1781086:1459164186",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "1781086",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 15,
+      "routeDistanceMeters": 10093,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1459164186",
+      "peakName": "Durakopf",
+      "peakElevationMeters": 2275,
+      "peakCoordinates": [
+        12.1291006,
+        46.8028008
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1880169:1295150195",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "1880169",
+      "routeName": "Urpass-Gamskögerl-Hochegg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 66,
+      "routeDistanceMeters": 10820,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "1295150195",
+      "peakName": "Gamskögerl",
+      "peakElevationMeters": 1747,
+      "peakCoordinates": [
+        13.0664424,
+        47.3475503
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1903220:26864555",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "1903220",
+      "routeName": "AV Weg 447",
+      "semanticType": "summit_route",
+      "routeQualityScore": 81,
+      "routeDistanceMeters": 8912,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "26864555",
+      "peakName": "Schneebergkreuz",
+      "peakElevationMeters": 1936,
+      "peakCoordinates": [
+        13.0693549,
+        47.3655085
+      ],
+      "minimumGeometryDistanceMeters": 1.9,
+      "endpointDistanceMeters": 3.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.9 m from the route.",
+        "Nearest component endpoint is 3.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "1993598:264056090",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "1993598",
+      "routeName": "Wanderweg 622 - Bayerische Voralpen",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "routeDistanceMeters": 7568,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "264056090",
+      "peakName": "Ochsenkamp",
+      "peakElevationMeters": 1594,
+      "peakCoordinates": [
+        11.6660249,
+        47.6661218
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2063063:474844098",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "2063063",
+      "routeName": "Sentiero \"Sergio Muzzolini\"",
+      "semanticType": "summit_route",
+      "routeQualityScore": 50,
+      "routeDistanceMeters": 9100,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "474844098",
+      "peakName": "Matajur",
+      "peakElevationMeters": 1645,
+      "peakCoordinates": [
+        13.5294695,
+        46.2121701
+      ],
+      "minimumGeometryDistanceMeters": 2,
+      "endpointDistanceMeters": 2.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2 m from the route.",
+        "Nearest component endpoint is 2.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2127823:1710234160",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "2127823",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 25,
+      "routeDistanceMeters": 4558,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1710234160",
+      "peakName": "Béouveyre",
+      "peakElevationMeters": 366,
+      "peakCoordinates": [
+        5.3641186,
+        43.2232693
+      ],
+      "minimumGeometryDistanceMeters": 2.4,
+      "endpointDistanceMeters": 3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.4 m from the route.",
+        "Nearest component endpoint is 3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2129097:1711432078",
+      "sampleCategories": [
+        "multipleSummitCases",
+        "shortestRoutes"
+      ],
+      "routeSourceId": "2129097",
+      "routeName": "Kamerlingsteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 99,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "1711432078",
+      "peakName": "Baumgartnerturm",
+      "peakElevationMeters": null,
+      "peakCoordinates": [
+        16.0201479,
+        47.8103591
+      ],
+      "minimumGeometryDistanceMeters": 7,
+      "endpointDistanceMeters": 8.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 7 m from the route.",
+        "Nearest component endpoint is 8.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2208517:1758733182",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "2208517",
+      "routeName": "Hundspfad",
+      "semanticType": "summit_route",
+      "routeQualityScore": 67,
+      "routeDistanceMeters": 5788,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "1758733182",
+      "peakName": "Brandleck",
+      "peakElevationMeters": 2247,
+      "peakCoordinates": [
+        14.0640543,
+        47.6601961
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2316782:1843185014",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "2316782",
+      "routeName": "Rinke",
+      "semanticType": "summit_route",
+      "routeQualityScore": 72,
+      "routeDistanceMeters": 1447,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "1843185014",
+      "peakName": "Koroška Rinka",
+      "peakElevationMeters": 2433,
+      "peakCoordinates": [
+        14.565127,
+        46.367725
+      ],
+      "minimumGeometryDistanceMeters": 0.3,
+      "endpointDistanceMeters": 1.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.3 m from the route.",
+        "Nearest component endpoint is 1.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2442201:2401015253",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "2442201",
+      "routeName": "Jubiläumsaussicht",
+      "semanticType": "summit_route",
+      "routeQualityScore": 75,
+      "routeDistanceMeters": 93,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2401015253",
+      "peakName": "Hochberg",
+      "peakElevationMeters": 993,
+      "peakCoordinates": [
+        15.870861,
+        47.705394
+      ],
+      "minimumGeometryDistanceMeters": 3.1,
+      "endpointDistanceMeters": 3.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.1 m from the route.",
+        "Nearest component endpoint is 3.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2659727:1780343529",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "2659727",
+      "routeName": "Wanderweg 55",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "routeDistanceMeters": 6532,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1780343529",
+      "peakName": "Hundegg",
+      "peakElevationMeters": 2079,
+      "peakCoordinates": [
+        13.2471947,
+        47.1875173
+      ],
+      "minimumGeometryDistanceMeters": 1.8,
+      "endpointDistanceMeters": 2.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.8 m from the route.",
+        "Nearest component endpoint is 2.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "2659879:1313134678",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "2659879",
+      "routeName": "Wanderweg 36",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "routeDistanceMeters": 17485,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "1313134678",
+      "peakName": "Schuhflicker",
+      "peakElevationMeters": 2214,
+      "peakCoordinates": [
+        13.1499911,
+        47.2628239
+      ],
+      "minimumGeometryDistanceMeters": 1.2,
+      "endpointDistanceMeters": 1.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.2 m from the route.",
+        "Nearest component endpoint is 1.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "3339475:830333072",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "3339475",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 15,
+      "routeDistanceMeters": 9196,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "830333072",
+      "peakName": "Hofmannspitze - Cima Piccola",
+      "peakElevationMeters": 3113,
+      "peakCoordinates": [
+        11.1746937,
+        46.9427241
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "3531911:378684612",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "3531911",
+      "routeName": "Belpberg/Chutze",
+      "semanticType": "summit_route",
+      "routeQualityScore": 74,
+      "routeDistanceMeters": 77,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "378684612",
+      "peakName": "Belpberg",
+      "peakElevationMeters": 892,
+      "peakCoordinates": [
+        7.5258571,
+        46.8602277
+      ],
+      "minimumGeometryDistanceMeters": 2.2,
+      "endpointDistanceMeters": 6.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.2 m from the route.",
+        "Nearest component endpoint is 6.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "3670139:4622131992",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "3670139",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 80,
+      "routeDistanceMeters": 866,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "4622131992",
+      "peakName": "Grätliegg",
+      "peakElevationMeters": 1140,
+      "peakCoordinates": [
+        7.9317526,
+        46.9553544
+      ],
+      "minimumGeometryDistanceMeters": 1.2,
+      "endpointDistanceMeters": 5.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.2 m from the route.",
+        "Nearest component endpoint is 5.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "3987920:8591903955",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "3987920",
+      "routeName": "Z▲ (Ifjúság tábori aut.m. (3.) – Tolvajárki kulcsos ház – Várhely kilátó)",
+      "semanticType": "summit_route",
+      "routeQualityScore": 76,
+      "routeDistanceMeters": 2079,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "8591903955",
+      "peakName": "Várhely",
+      "peakElevationMeters": 482,
+      "peakCoordinates": [
+        16.5324261,
+        47.6664032
+      ],
+      "minimumGeometryDistanceMeters": 1.7,
+      "endpointDistanceMeters": 2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+        "Nearest component endpoint is 2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "4010376:3046782641",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "4010376",
+      "routeName": "Nördlich Stockflue - Stockflue",
+      "semanticType": "summit_route",
+      "routeQualityScore": 74,
+      "routeDistanceMeters": 44,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "3046782641",
+      "peakName": "Stockflue",
+      "peakElevationMeters": 1137,
+      "peakCoordinates": [
+        8.5936151,
+        47.0108767
+      ],
+      "minimumGeometryDistanceMeters": 5.1,
+      "endpointDistanceMeters": 5.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 5.1 m from the route.",
+        "Nearest component endpoint is 5.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "4124835:443317598",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "4124835",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 10,
+      "routeDistanceMeters": 10062,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "443317598",
+      "peakName": "L'Étoile",
+      "peakElevationMeters": 652,
+      "peakCoordinates": [
+        5.4386603,
+        43.391096
+      ],
+      "minimumGeometryDistanceMeters": 4.1,
+      "endpointDistanceMeters": 8.4,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.1 m from the route.",
+        "Nearest component endpoint is 8.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "4227233:304367646",
+      "sampleCategories": [
+        "longestRoutes",
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "4227233",
+      "routeName": "Wiener Alpenbogen",
+      "semanticType": "summit_route",
+      "routeQualityScore": 36,
+      "routeDistanceMeters": 281516,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "304367646",
+      "peakName": "Krummbachstein",
+      "peakElevationMeters": 1603,
+      "peakCoordinates": [
+        15.83251,
+        47.74185
+      ],
+      "minimumGeometryDistanceMeters": 3.3,
+      "endpointDistanceMeters": 3.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.3 m from the route.",
+        "Nearest component endpoint is 3.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "4677295:409624273",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "4677295",
+      "routeName": "Ceraino - Corno d'Aquilio",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 27615,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "409624273",
+      "peakName": "Corno d'Aquilio",
+      "peakElevationMeters": 1545,
+      "peakCoordinates": [
+        10.943048,
+        45.671456
+      ],
+      "minimumGeometryDistanceMeters": 4.5,
+      "endpointDistanceMeters": 4.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.5 m from the route.",
+        "Nearest component endpoint is 4.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "5586842:333491972",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "5586842",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 41,
+      "routeDistanceMeters": 36436,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "333491972",
+      "peakName": "Wolfendorn - Spina del Lupo",
+      "peakElevationMeters": 2774,
+      "peakCoordinates": [
+        11.5377973,
+        46.9841927
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "5824093:903403228",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "5824093",
+      "routeName": "Sentiero Balcone Mediterraneo T8",
+      "semanticType": "summit_route",
+      "routeQualityScore": 45,
+      "routeDistanceMeters": 14819,
+      "routeConfirmedSummitCount": 4,
+      "peakSourceId": "903403228",
+      "peakName": "Monte Ceresa",
+      "peakElevationMeters": 913,
+      "peakCoordinates": [
+        8.0416783,
+        43.9810959
+      ],
+      "minimumGeometryDistanceMeters": 6.5,
+      "endpointDistanceMeters": 7.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 6.5 m from the route.",
+        "Nearest component endpoint is 7.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "6132841:698523674",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "6132841",
+      "routeName": "Welterbesteig Wachau Etappe 10",
+      "semanticType": "summit_route",
+      "routeQualityScore": 40,
+      "routeDistanceMeters": 15101,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "698523674",
+      "peakName": "Hoher Stein",
+      "peakElevationMeters": 712,
+      "peakCoordinates": [
+        15.4386557,
+        48.3485098
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "6346068:4260078053",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "6346068",
+      "routeName": "Plattensteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 13,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "4260078053",
+      "peakName": "Nordturm",
+      "peakElevationMeters": null,
+      "peakCoordinates": [
+        15.8711641,
+        47.7045449
+      ],
+      "minimumGeometryDistanceMeters": 7.9,
+      "endpointDistanceMeters": 8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 7.9 m from the route.",
+        "Nearest component endpoint is 8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "6483759:1438723906",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "6483759",
+      "routeName": "Hundskopfklettersteig (Sektion 1)",
+      "semanticType": "summit_route",
+      "routeQualityScore": 55,
+      "routeDistanceMeters": 69,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1438723906",
+      "peakName": "Hundskopf",
+      "peakElevationMeters": 1730,
+      "peakCoordinates": [
+        12.3096466,
+        47.5806716
+      ],
+      "minimumGeometryDistanceMeters": 0.9,
+      "endpointDistanceMeters": 1.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.9 m from the route.",
+        "Nearest component endpoint is 1.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "6656318:3811621742",
+      "sampleCategories": [
+        "longestRoutes",
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "6656318",
+      "routeName": "Wandergebiet Oberstaufen",
+      "semanticType": "summit_route",
+      "routeQualityScore": 27,
+      "routeDistanceMeters": 168719,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "3811621742",
+      "peakName": "Hochhäderich",
+      "peakElevationMeters": 1566,
+      "peakCoordinates": [
+        10.00322,
+        47.481808
+      ],
+      "minimumGeometryDistanceMeters": 2.7,
+      "endpointDistanceMeters": 7.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.7 m from the route.",
+        "Nearest component endpoint is 7.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "6684547:1410399862",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "6684547",
+      "routeName": "Wanderrouten Wolfgangsee",
+      "semanticType": "summit_route",
+      "routeQualityScore": 35,
+      "routeDistanceMeters": 33337,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1410399862",
+      "peakName": "Vormauerstein",
+      "peakElevationMeters": 1450,
+      "peakCoordinates": [
+        13.4616945,
+        47.7538491
+      ],
+      "minimumGeometryDistanceMeters": 2.1,
+      "endpointDistanceMeters": 2.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.1 m from the route.",
+        "Nearest component endpoint is 2.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "6863715:313974459",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "6863715",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 18,
+      "routeDistanceMeters": 4771,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "313974459",
+      "peakName": "Peitlerkofel - Sass de Pütia - Sass de Putia",
+      "peakElevationMeters": 2875,
+      "peakCoordinates": [
+        11.8205348,
+        46.6588572
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "7004124:363301055",
+      "sampleCategories": [
+        "longestRoutes",
+        "lowestQuality",
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "7004124",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 10,
+      "routeDistanceMeters": 76776,
+      "routeConfirmedSummitCount": 4,
+      "peakSourceId": "363301055",
+      "peakName": "Veliko Špičje",
+      "peakElevationMeters": 2398,
+      "peakCoordinates": [
+        13.7669612,
+        46.3438701
+      ],
+      "minimumGeometryDistanceMeters": 1.1,
+      "endpointDistanceMeters": 1.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.1 m from the route.",
+        "Nearest component endpoint is 1.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "7587931:26863907",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "7587931",
+      "routeName": "V00 - Dorsale Vergante",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 28837,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "26863907",
+      "peakName": "Mottarone",
+      "peakElevationMeters": 1491,
+      "peakCoordinates": [
+        8.453891,
+        45.8815402
+      ],
+      "minimumGeometryDistanceMeters": 4.1,
+      "endpointDistanceMeters": 4.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.1 m from the route.",
+        "Nearest component endpoint is 4.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "7726510:1284901748",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "7726510",
+      "routeName": "Wanderweg 913",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "routeDistanceMeters": 27713,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1284901748",
+      "peakName": "Masenberg",
+      "peakElevationMeters": 1261,
+      "peakCoordinates": [
+        15.8748709,
+        47.3491468
+      ],
+      "minimumGeometryDistanceMeters": 1,
+      "endpointDistanceMeters": 1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1 m from the route.",
+        "Nearest component endpoint is 1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "8664870:5866403393",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "8664870",
+      "routeName": "Törlkopf-Normalweg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 23,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5866403393",
+      "peakName": "Törlkopf",
+      "peakElevationMeters": 1607,
+      "peakCoordinates": [
+        15.765975,
+        47.713659
+      ],
+      "minimumGeometryDistanceMeters": 1.6,
+      "endpointDistanceMeters": 1.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.6 m from the route.",
+        "Nearest component endpoint is 1.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "8664871:5866403393",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "8664871",
+      "routeName": "Staiger-Fenster",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 7,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5866403393",
+      "peakName": "Törlkopf",
+      "peakElevationMeters": 1607,
+      "peakCoordinates": [
+        15.765975,
+        47.713659
+      ],
+      "minimumGeometryDistanceMeters": 7.8,
+      "endpointDistanceMeters": 7.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 7.8 m from the route.",
+        "Nearest component endpoint is 7.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "8664872:5866403393",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "8664872",
+      "routeName": "Pehofer-Aufschwung",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 6,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5866403393",
+      "peakName": "Törlkopf",
+      "peakElevationMeters": 1607,
+      "peakCoordinates": [
+        15.765975,
+        47.713659
+      ],
+      "minimumGeometryDistanceMeters": 5.9,
+      "endpointDistanceMeters": 5.9,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 5.9 m from the route.",
+        "Nearest component endpoint is 5.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "8664874:5866403393",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "8664874",
+      "routeName": "Heindlpfeiler",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 13,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5866403393",
+      "peakName": "Törlkopf",
+      "peakElevationMeters": 1607,
+      "peakCoordinates": [
+        15.765975,
+        47.713659
+      ],
+      "minimumGeometryDistanceMeters": 8.7,
+      "endpointDistanceMeters": 8.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 8.7 m from the route.",
+        "Nearest component endpoint is 8.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "8778831:5958497394",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "8778831",
+      "routeName": "Sentiero panoramico e naturalistico",
+      "semanticType": "summit_route",
+      "routeQualityScore": 60,
+      "routeDistanceMeters": 1743,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5958497394",
+      "peakName": "Monte Pauso",
+      "peakElevationMeters": 202,
+      "peakCoordinates": [
+        11.6566751,
+        45.7503352
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "9504224:551457322",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "9504224",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 80,
+      "routeDistanceMeters": 2007,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "551457322",
+      "peakName": "Hüttchopf",
+      "peakElevationMeters": 1232,
+      "peakCoordinates": [
+        8.9487717,
+        47.3131125
+      ],
+      "minimumGeometryDistanceMeters": 5.1,
+      "endpointDistanceMeters": 5.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 5.1 m from the route.",
+        "Nearest component endpoint is 5.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "9507918:499968184",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "9507918",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 52,
+      "routeDistanceMeters": 5192,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "499968184",
+      "peakName": "Piz de Lavarela - La Varella",
+      "peakElevationMeters": 3055,
+      "peakCoordinates": [
+        11.9711128,
+        46.5851256
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "9812835:469207035",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "9812835",
+      "routeName": "Wanderwegenetz Bad Hindelang",
+      "semanticType": "summit_route",
+      "routeQualityScore": 26,
+      "routeDistanceMeters": 121552,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "469207035",
+      "peakName": "Rotspitz",
+      "peakElevationMeters": 2034,
+      "peakCoordinates": [
+        10.369341,
+        47.4595011
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "9906087:26863097",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "9906087",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 10,
+      "routeDistanceMeters": 7440,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "26863097",
+      "peakName": "Handlesberg",
+      "peakElevationMeters": 1371,
+      "peakCoordinates": [
+        15.739558,
+        47.825669
+      ],
+      "minimumGeometryDistanceMeters": 1.3,
+      "endpointDistanceMeters": 1.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.3 m from the route.",
+        "Nearest component endpoint is 1.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "9922420:2588675489",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "9922420",
+      "routeName": "Pustertaler Almweg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 53,
+      "routeDistanceMeters": 27893,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2588675489",
+      "peakName": "Hochstein",
+      "peakElevationMeters": 2057,
+      "peakCoordinates": [
+        12.6928747,
+        46.8238881
+      ],
+      "minimumGeometryDistanceMeters": 3,
+      "endpointDistanceMeters": 8.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3 m from the route.",
+        "Nearest component endpoint is 8.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "10106469:554847668",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "10106469",
+      "routeName": "Cimetta - Pian della Cimetta",
+      "semanticType": "summit_route",
+      "routeQualityScore": 64,
+      "routeDistanceMeters": 460,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "554847668",
+      "peakName": "Cimetta",
+      "peakElevationMeters": 1671,
+      "peakCoordinates": [
+        8.7910473,
+        46.2008148
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "11192622:523276765",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "11192622",
+      "routeName": "Alta Via del Caffaro",
+      "semanticType": "summit_route",
+      "routeQualityScore": 71,
+      "routeDistanceMeters": 79693,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "523276765",
+      "peakName": "Monte Croce Domini",
+      "peakElevationMeters": 2055,
+      "peakCoordinates": [
+        10.4060515,
+        45.8999628
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "11221847:7114042096",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "11221847",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 0,
+      "routeDistanceMeters": 6104,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "7114042096",
+      "peakName": "Pic du Taoumé",
+      "peakElevationMeters": 667,
+      "peakCoordinates": [
+        5.5276202,
+        43.3418711
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "11513932:1595165348",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "11513932",
+      "routeName": "Slovenska geološka pot",
+      "semanticType": "summit_route",
+      "routeQualityScore": 38,
+      "routeDistanceMeters": 274602,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1595165348",
+      "peakName": "Škofič",
+      "peakElevationMeters": 2013,
+      "peakCoordinates": [
+        13.6888915,
+        46.2552357
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "11539317:26862693",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "11539317",
+      "routeName": "Alta Via del Granito",
+      "semanticType": "summit_route",
+      "routeQualityScore": 39,
+      "routeDistanceMeters": 36715,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "26862693",
+      "peakName": "Cima d'Asta",
+      "peakElevationMeters": 2847,
+      "peakCoordinates": [
+        11.6052937,
+        46.1766183
+      ],
+      "minimumGeometryDistanceMeters": 3.3,
+      "endpointDistanceMeters": 3.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.3 m from the route.",
+        "Nearest component endpoint is 3.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12183396:1247230283",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "12183396",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 15,
+      "routeDistanceMeters": 6204,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1247230283",
+      "peakName": "Seeblspitz - Punta della Sciabola",
+      "peakElevationMeters": 2347,
+      "peakCoordinates": [
+        11.3369566,
+        46.760667
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12246126:513907117",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "12246126",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 81,
+      "routeDistanceMeters": 5027,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "513907117",
+      "peakName": "Monte Misma",
+      "peakElevationMeters": 1161,
+      "peakCoordinates": [
+        9.8185167,
+        45.7367759
+      ],
+      "minimumGeometryDistanceMeters": 2.8,
+      "endpointDistanceMeters": 4.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.8 m from the route.",
+        "Nearest component endpoint is 4.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12267816:26864153",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "12267816",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 15,
+      "routeDistanceMeters": 10467,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "26864153",
+      "peakName": "Ortler - Ortles",
+      "peakElevationMeters": 3905,
+      "peakCoordinates": [
+        10.5449304,
+        46.5090956
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12492206:3148173987",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "12492206",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 15,
+      "routeDistanceMeters": 13717,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "3148173987",
+      "peakName": "Saurüssel - Grugno di Porco",
+      "peakElevationMeters": 2727,
+      "peakCoordinates": [
+        10.6671497,
+        46.5793154
+      ],
+      "minimumGeometryDistanceMeters": 0.4,
+      "endpointDistanceMeters": 0.4,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.4 m from the route.",
+        "Nearest component endpoint is 0.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12754829:1308004907",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "12754829",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 76,
+      "routeDistanceMeters": 2238,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1308004907",
+      "peakName": "Grand Tournalin - Punta Sud",
+      "peakElevationMeters": 3371,
+      "peakCoordinates": [
+        7.6872562,
+        45.8712043
+      ],
+      "minimumGeometryDistanceMeters": 1,
+      "endpointDistanceMeters": 1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1 m from the route.",
+        "Nearest component endpoint is 1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12847804:438255446",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "12847804",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 14,
+      "routeDistanceMeters": 22686,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "438255446",
+      "peakName": "Gürgaletsch",
+      "peakElevationMeters": 2441,
+      "peakCoordinates": [
+        9.5826587,
+        46.7972091
+      ],
+      "minimumGeometryDistanceMeters": 4.6,
+      "endpointDistanceMeters": 4.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.6 m from the route.",
+        "Nearest component endpoint is 4.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12857625:1372805092",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "12857625",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 51,
+      "routeDistanceMeters": 1313,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1372805092",
+      "peakName": "Schiahorn",
+      "peakElevationMeters": 2709,
+      "peakCoordinates": [
+        9.8040349,
+        46.8179137
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "12886245:9116258843",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "12886245",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 14,
+      "routeDistanceMeters": 18586,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "9116258843",
+      "peakName": "Büelenhorn",
+      "peakElevationMeters": 2808,
+      "peakCoordinates": [
+        9.7663241,
+        46.6724322
+      ],
+      "minimumGeometryDistanceMeters": 0.3,
+      "endpointDistanceMeters": 1.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.3 m from the route.",
+        "Nearest component endpoint is 1.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "13271648:1821569260",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "13271648",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 15,
+      "routeDistanceMeters": 13109,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1821569260",
+      "peakName": "Monteròdes",
+      "peakElevationMeters": 2361,
+      "peakCoordinates": [
+        10.4687486,
+        46.690272
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "13494602:279769585",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "13494602",
+      "routeName": "Châteaux de La Napoule",
+      "semanticType": "summit_route",
+      "routeQualityScore": 46,
+      "routeDistanceMeters": 5031,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "279769585",
+      "peakName": "San Peyre",
+      "peakElevationMeters": 131,
+      "peakCoordinates": [
+        6.9372791,
+        43.5251342
+      ],
+      "minimumGeometryDistanceMeters": 3.9,
+      "endpointDistanceMeters": 6.9,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.9 m from the route.",
+        "Nearest component endpoint is 6.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "13652932:26862743",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "13652932",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 30,
+      "routeDistanceMeters": 76,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "26862743",
+      "peakName": "Crêt de la Neige",
+      "peakElevationMeters": 1718,
+      "peakCoordinates": [
+        5.939626,
+        46.270925
+      ],
+      "minimumGeometryDistanceMeters": 3.1,
+      "endpointDistanceMeters": 3.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.1 m from the route.",
+        "Nearest component endpoint is 3.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "13799745:419854769",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "13799745",
+      "routeName": "Vranov let",
+      "semanticType": "summit_route",
+      "routeQualityScore": 30,
+      "routeDistanceMeters": 42547,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "419854769",
+      "peakName": "Jezerski vrh",
+      "peakElevationMeters": 1537,
+      "peakCoordinates": [
+        15.2644016,
+        46.4938123
+      ],
+      "minimumGeometryDistanceMeters": 0.3,
+      "endpointDistanceMeters": 2.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.3 m from the route.",
+        "Nearest component endpoint is 2.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "13908127:2934568986",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "13908127",
+      "routeName": "Ponte Isola - Bric Berba",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "routeDistanceMeters": 4449,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2934568986",
+      "peakName": "Bric Berba",
+      "peakElevationMeters": 563,
+      "peakCoordinates": [
+        8.3691245,
+        44.2375881
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "14319513:279621905",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "14319513",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 51,
+      "routeDistanceMeters": 69,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "279621905",
+      "peakName": "Brisen",
+      "peakElevationMeters": 2404,
+      "peakCoordinates": [
+        8.4583098,
+        46.8987838
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "14432808:7105442188",
+      "sampleCategories": [
+        "longestRoutes",
+        "lowestQuality"
+      ],
+      "routeSourceId": "14432808",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 9,
+      "routeDistanceMeters": 97236,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "7105442188",
+      "peakName": "Crap Cavigliauna",
+      "peakElevationMeters": 2073,
+      "peakCoordinates": [
+        9.0285194,
+        46.8034525
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "14556402:8562087389",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "14556402",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 56,
+      "routeDistanceMeters": 40,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "8562087389",
+      "peakName": "Pizzetti",
+      "peakElevationMeters": 541,
+      "peakCoordinates": [
+        9.3829628,
+        45.8694162
+      ],
+      "minimumGeometryDistanceMeters": 1.3,
+      "endpointDistanceMeters": 1.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.3 m from the route.",
+        "Nearest component endpoint is 1.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "14585232:1372432837",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "14585232",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 76,
+      "routeDistanceMeters": 2626,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1372432837",
+      "peakName": "Teysachaux",
+      "peakElevationMeters": 1909,
+      "peakCoordinates": [
+        6.996342,
+        46.534054
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "14707868:7924927548",
+      "sampleCategories": [
+        "longestRoutes",
+        "lowestQuality"
+      ],
+      "routeSourceId": "14707868",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 10,
+      "routeDistanceMeters": 64427,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "7924927548",
+      "peakName": "Älpeltispitz",
+      "peakElevationMeters": 2686,
+      "peakCoordinates": [
+        9.9261032,
+        46.884597
+      ],
+      "minimumGeometryDistanceMeters": 1.9,
+      "endpointDistanceMeters": 2.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.9 m from the route.",
+        "Nearest component endpoint is 2.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "14758915:26862779",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "14758915",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 35,
+      "routeDistanceMeters": 92,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "26862779",
+      "peakName": "Dent de Crolles",
+      "peakElevationMeters": 2062,
+      "peakCoordinates": [
+        5.8555566,
+        45.3082229
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "14987780:522237107",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "14987780",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 56,
+      "routeDistanceMeters": 54,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "522237107",
+      "peakName": "Monte Calighè occidentale",
+      "peakElevationMeters": 2698,
+      "peakCoordinates": [
+        10.0424794,
+        46.2197745
+      ],
+      "minimumGeometryDistanceMeters": 1.5,
+      "endpointDistanceMeters": 1.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.5 m from the route.",
+        "Nearest component endpoint is 1.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "15029547:465275697",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "15029547",
+      "routeName": "Via Verde Varesina",
+      "semanticType": "summit_route",
+      "routeQualityScore": 42,
+      "routeDistanceMeters": 148732,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "465275697",
+      "peakName": "Punta di Orino",
+      "peakElevationMeters": 1139,
+      "peakCoordinates": [
+        8.7372245,
+        45.8730475
+      ],
+      "minimumGeometryDistanceMeters": 2.1,
+      "endpointDistanceMeters": 8.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.1 m from the route.",
+        "Nearest component endpoint is 8.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "15419015:2367801485",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "15419015",
+      "routeName": "Luchs Trail",
+      "semanticType": "summit_route",
+      "routeQualityScore": 28,
+      "routeDistanceMeters": 214698,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2367801485",
+      "peakName": "Anhartskogel",
+      "peakElevationMeters": 1750,
+      "peakCoordinates": [
+        14.5822337,
+        47.5124926
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 9.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 9.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "15447258:392106952",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "15447258",
+      "routeName": "AV Weg 723",
+      "semanticType": "summit_route",
+      "routeQualityScore": 56,
+      "routeDistanceMeters": 24704,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "392106952",
+      "peakName": "Hoher Tenn",
+      "peakElevationMeters": 3368,
+      "peakCoordinates": [
+        12.7587276,
+        47.1800091
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "15523261:965378756",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "15523261",
+      "routeName": "Turmstein-Klettersteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 60,
+      "routeDistanceMeters": 39,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "965378756",
+      "peakName": "Turmstein",
+      "peakElevationMeters": 1416,
+      "peakCoordinates": [
+        15.7820888,
+        47.769739
+      ],
+      "minimumGeometryDistanceMeters": 1.3,
+      "endpointDistanceMeters": 1.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.3 m from the route.",
+        "Nearest component endpoint is 1.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "15550641:457470763",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "15550641",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 13,
+      "routeDistanceMeters": 4619,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "457470763",
+      "peakName": "Monte Megna",
+      "peakElevationMeters": 1049,
+      "peakCoordinates": [
+        9.2795198,
+        45.8792236
+      ],
+      "minimumGeometryDistanceMeters": 2.7,
+      "endpointDistanceMeters": 2.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.7 m from the route.",
+        "Nearest component endpoint is 2.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "15743685:763107618",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "15743685",
+      "routeName": "Wanderwge 60 - Gerlos",
+      "semanticType": "summit_route",
+      "routeQualityScore": 43,
+      "routeDistanceMeters": 5409,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "763107618",
+      "peakName": "Ochsenkopf",
+      "peakElevationMeters": 2469,
+      "peakCoordinates": [
+        12.0786186,
+        47.2751106
+      ],
+      "minimumGeometryDistanceMeters": 1.7,
+      "endpointDistanceMeters": 1.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+        "Nearest component endpoint is 1.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "15828222:2276767430",
+      "sampleCategories": [
+        "longestRoutes",
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "15828222",
+      "routeName": "Tržiška planinska pot",
+      "semanticType": "summit_route",
+      "routeQualityScore": 34,
+      "routeDistanceMeters": 70451,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "2276767430",
+      "peakName": "Šentanski vrh",
+      "peakElevationMeters": 1635,
+      "peakCoordinates": [
+        14.2541805,
+        46.3822767
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "16293298:2365859040",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "16293298",
+      "routeName": "Obhodnica Ratitovec",
+      "semanticType": "summit_route",
+      "routeQualityScore": 39,
+      "routeDistanceMeters": 19560,
+      "routeConfirmedSummitCount": 5,
+      "peakSourceId": "2365859040",
+      "peakName": "Kačji rob (Ovharn)",
+      "peakElevationMeters": 1552,
+      "peakCoordinates": [
+        14.0566935,
+        46.2425099
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "16315876:5236027034",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "16315876",
+      "routeName": "Komendska planinska pot",
+      "semanticType": "summit_route",
+      "routeQualityScore": 39,
+      "routeDistanceMeters": 49453,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5236027034",
+      "peakName": "Kamniški vrh",
+      "peakElevationMeters": 1259,
+      "peakCoordinates": [
+        14.5798137,
+        46.2879294
+      ],
+      "minimumGeometryDistanceMeters": 1.2,
+      "endpointDistanceMeters": 1.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.2 m from the route.",
+        "Nearest component endpoint is 1.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "16464681:2441281495",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "16464681",
+      "routeName": "Gschnitztaler Hüttentour",
+      "semanticType": "summit_route",
+      "routeQualityScore": 34,
+      "routeDistanceMeters": 69670,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2441281495",
+      "peakName": "Peilspitze",
+      "peakElevationMeters": 2392,
+      "peakCoordinates": [
+        11.3905901,
+        47.1028832
+      ],
+      "minimumGeometryDistanceMeters": 0.1,
+      "endpointDistanceMeters": 0.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.1 m from the route.",
+        "Nearest component endpoint is 0.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "17083084:5572165520",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "17083084",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 35,
+      "routeDistanceMeters": 97,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5572165520",
+      "peakName": "Le Tapin",
+      "peakElevationMeters": 1202,
+      "peakCoordinates": [
+        6.0447946,
+        45.5154358
+      ],
+      "minimumGeometryDistanceMeters": 3.1,
+      "endpointDistanceMeters": 3.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.1 m from the route.",
+        "Nearest component endpoint is 3.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "17275026:2035943291",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "17275026",
+      "routeName": "Kalkalpenweg",
+      "semanticType": "summit_route",
+      "routeQualityScore": 42,
+      "routeDistanceMeters": 153310,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2035943291",
+      "peakName": "Gamsstein",
+      "peakElevationMeters": 1275,
+      "peakCoordinates": [
+        14.5404824,
+        47.834456
+      ],
+      "minimumGeometryDistanceMeters": 8.3,
+      "endpointDistanceMeters": 8.3,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 8.3 m from the route.",
+        "Nearest component endpoint is 8.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "17459678:1790054574",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "17459678",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 16,
+      "routeDistanceMeters": 3029,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1790054574",
+      "peakName": "Wilkethöchi",
+      "peakElevationMeters": 1172,
+      "peakCoordinates": [
+        9.1745781,
+        47.3382916
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "17480853:26864487",
+      "sampleCategories": [
+        "longestRoutes"
+      ],
+      "routeSourceId": "17480853",
+      "routeName": "Wanderwegenetz Landkreis Miesbach",
+      "semanticType": "summit_route",
+      "routeQualityScore": 34,
+      "routeDistanceMeters": 57087,
+      "routeConfirmedSummitCount": 2,
+      "peakSourceId": "26864487",
+      "peakName": "Rotwand",
+      "peakElevationMeters": 1884,
+      "peakCoordinates": [
+        11.9344203,
+        47.6502104
+      ],
+      "minimumGeometryDistanceMeters": 0.6,
+      "endpointDistanceMeters": 0.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.6 m from the route.",
+        "Nearest component endpoint is 0.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "17502628:12025557664",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "17502628",
+      "routeName": "Klettersteig Toblinger Knoten / Via Ferrata Torre di Toblin",
+      "semanticType": "summit_route",
+      "routeQualityScore": 82,
+      "routeDistanceMeters": 165,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "12025557664",
+      "peakName": "Toblinger Knoten - Torre di Toblin",
+      "peakElevationMeters": 2564,
+      "peakCoordinates": [
+        12.308055,
+        46.641719
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "17565125:249757788",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "17565125",
+      "routeName": "Sl. Konjice - Skala (plezalna)",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "routeDistanceMeters": 1626,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "249757788",
+      "peakName": "Skala",
+      "peakElevationMeters": 777,
+      "peakCoordinates": [
+        15.4155284,
+        46.325205
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18206426:294632103",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "18206426",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 17,
+      "routeDistanceMeters": 23133,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "294632103",
+      "peakName": "Riedkopf",
+      "peakElevationMeters": 2551,
+      "peakCoordinates": [
+        9.8777771,
+        46.9749946
+      ],
+      "minimumGeometryDistanceMeters": 1.1,
+      "endpointDistanceMeters": 1.1,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.1 m from the route.",
+        "Nearest component endpoint is 1.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18259757:399334790",
+      "sampleCategories": [
+        "multipleSummitCases"
+      ],
+      "routeSourceId": "18259757",
+      "routeName": "Wanderweg 745 West",
+      "semanticType": "summit_route",
+      "routeQualityScore": 45,
+      "routeDistanceMeters": 6922,
+      "routeConfirmedSummitCount": 3,
+      "peakSourceId": "399334790",
+      "peakName": "Hochfeind",
+      "peakElevationMeters": 2687,
+      "peakCoordinates": [
+        13.4944019,
+        47.1876157
+      ],
+      "minimumGeometryDistanceMeters": 3.6,
+      "endpointDistanceMeters": 4.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.6 m from the route.",
+        "Nearest component endpoint is 4.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18741430:2313619693",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "18741430",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 62,
+      "routeDistanceMeters": 149,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "2313619693",
+      "peakName": "Aiguille de Chalais",
+      "peakElevationMeters": 1089,
+      "peakCoordinates": [
+        5.660681,
+        45.2939755
+      ],
+      "minimumGeometryDistanceMeters": 7.6,
+      "endpointDistanceMeters": 7.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 7.6 m from the route.",
+        "Nearest component endpoint is 7.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18748591:5487185903",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "18748591",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 1150,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "5487185903",
+      "peakName": "Mont Rachas",
+      "peakElevationMeters": 898,
+      "peakCoordinates": [
+        5.0004503,
+        44.5016563
+      ],
+      "minimumGeometryDistanceMeters": 4.9,
+      "endpointDistanceMeters": 5.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.9 m from the route.",
+        "Nearest component endpoint is 5.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18789813:12340825730",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "18789813",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 40,
+      "routeDistanceMeters": 71,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "12340825730",
+      "peakName": "Pierre des Millières",
+      "peakElevationMeters": 750,
+      "peakCoordinates": [
+        5.7277763,
+        45.5997767
+      ],
+      "minimumGeometryDistanceMeters": 2.6,
+      "endpointDistanceMeters": 2.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.6 m from the route.",
+        "Nearest component endpoint is 2.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18827975:11646994205",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "18827975",
+      "routeName": "Mont Guillaume - Col de Trempa-Latz",
+      "semanticType": "summit_route",
+      "routeQualityScore": 95,
+      "routeDistanceMeters": 1225,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "11646994205",
+      "peakName": "Mont Guillaume",
+      "peakElevationMeters": 2545,
+      "peakCoordinates": [
+        6.4370959,
+        44.5854181
+      ],
+      "minimumGeometryDistanceMeters": 8,
+      "endpointDistanceMeters": 9.4,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 8 m from the route.",
+        "Nearest component endpoint is 9.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18872736:1277096610",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "18872736",
+      "routeName": "Solkan - Sabotin (sev. pot)",
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "routeDistanceMeters": 4687,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1277096610",
+      "peakName": "Sabotino / Sabotin",
+      "peakElevationMeters": 609,
+      "peakCoordinates": [
+        13.6347018,
+        45.9884572
+      ],
+      "minimumGeometryDistanceMeters": 4,
+      "endpointDistanceMeters": 4,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4 m from the route.",
+        "Nearest component endpoint is 4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "18910015:12585156467",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "18910015",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 45,
+      "routeDistanceMeters": 30,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "12585156467",
+      "peakName": "Smereška peč",
+      "peakElevationMeters": 712,
+      "peakCoordinates": [
+        15.2801555,
+        46.3830139
+      ],
+      "minimumGeometryDistanceMeters": 1.2,
+      "endpointDistanceMeters": 1.2,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.2 m from the route.",
+        "Nearest component endpoint is 1.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19084383:784221368",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "19084383",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 14,
+      "routeDistanceMeters": 3830,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "784221368",
+      "peakName": "Gradišče (Njivica)",
+      "peakElevationMeters": 1667,
+      "peakCoordinates": [
+        14.6439291,
+        46.2980466
+      ],
+      "minimumGeometryDistanceMeters": 0.4,
+      "endpointDistanceMeters": 0.4,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.4 m from the route.",
+        "Nearest component endpoint is 0.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19202810:198100973",
+      "sampleCategories": [
+        "geographicallyDistributedDeterministic"
+      ],
+      "routeSourceId": "19202810",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 47,
+      "routeDistanceMeters": 2839,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "198100973",
+      "peakName": "Montoisey",
+      "peakElevationMeters": 1680,
+      "peakCoordinates": [
+        5.9618365,
+        46.2872022
+      ],
+      "minimumGeometryDistanceMeters": 1.1,
+      "endpointDistanceMeters": 6.6,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.1 m from the route.",
+        "Nearest component endpoint is 6.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19438349:863628555",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "19438349",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 45,
+      "routeDistanceMeters": 27,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "863628555",
+      "peakName": "La Belle Étoile",
+      "peakElevationMeters": 1841,
+      "peakCoordinates": [
+        6.330728,
+        45.6952185
+      ],
+      "minimumGeometryDistanceMeters": 2.7,
+      "endpointDistanceMeters": 2.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.7 m from the route.",
+        "Nearest component endpoint is 2.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19585873:1820763442",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "19585873",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 16,
+      "routeDistanceMeters": 10309,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "1820763442",
+      "peakName": "Piz Lagalb",
+      "peakElevationMeters": 2959,
+      "peakCoordinates": [
+        10.0235884,
+        46.4315785
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19626173:11646993692",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "19626173",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 40,
+      "routeDistanceMeters": 89,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "11646993692",
+      "peakName": "Mont Joly",
+      "peakElevationMeters": 2524,
+      "peakCoordinates": [
+        6.6929854,
+        45.8259882
+      ],
+      "minimumGeometryDistanceMeters": 9.7,
+      "endpointDistanceMeters": 9.7,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 9.7 m from the route.",
+        "Nearest component endpoint is 9.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19667168:8044688551",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "19667168",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 16,
+      "routeDistanceMeters": 27292,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "8044688551",
+      "peakName": "Chavagl Pitschen",
+      "peakElevationMeters": 2229,
+      "peakCoordinates": [
+        9.6938156,
+        46.6447098
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19717742:425270092",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "19717742",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 16,
+      "routeDistanceMeters": 14737,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "425270092",
+      "peakName": "Falknis",
+      "peakElevationMeters": 2565,
+      "peakCoordinates": [
+        9.5640342,
+        47.0504402
+      ],
+      "minimumGeometryDistanceMeters": 2.9,
+      "endpointDistanceMeters": 2.9,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.9 m from the route.",
+        "Nearest component endpoint is 2.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19725242:7660057004",
+      "sampleCategories": [
+        "lowestQuality"
+      ],
+      "routeSourceId": "19725242",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 16,
+      "routeDistanceMeters": 16198,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "7660057004",
+      "peakName": "Crap Putèr",
+      "peakElevationMeters": 2368,
+      "peakCoordinates": [
+        10.2178231,
+        46.7541718
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 0,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 0 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "19739628:11187963888",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "19739628",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 40,
+      "routeDistanceMeters": 67,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "11187963888",
+      "peakName": "Tête du Danay",
+      "peakElevationMeters": 1731,
+      "peakCoordinates": [
+        6.4482989,
+        45.9220947
+      ],
+      "minimumGeometryDistanceMeters": 3.3,
+      "endpointDistanceMeters": 3.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.3 m from the route.",
+        "Nearest component endpoint is 3.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "20302630:11646993723",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "20302630",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 40,
+      "routeDistanceMeters": 63,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "11646993723",
+      "peakName": "Mont d'Armenaz",
+      "peakElevationMeters": 2158,
+      "peakCoordinates": [
+        6.237497,
+        45.6279804
+      ],
+      "minimumGeometryDistanceMeters": 0.8,
+      "endpointDistanceMeters": 0.8,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.8 m from the route.",
+        "Nearest component endpoint is 0.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    },
+    {
+      "sampleKey": "20395140:3454605834",
+      "sampleCategories": [
+        "shortestRoutes"
+      ],
+      "routeSourceId": "20395140",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 45,
+      "routeDistanceMeters": 36,
+      "routeConfirmedSummitCount": 1,
+      "peakSourceId": "3454605834",
+      "peakName": "Rocher de Bellevue",
+      "peakElevationMeters": 948,
+      "peakCoordinates": [
+        5.6575685,
+        45.2910304
+      ],
+      "minimumGeometryDistanceMeters": 9.5,
+      "endpointDistanceMeters": 9.5,
+      "finalConfidence": 1,
+      "finalAssociation": "CONFIRMED",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 9.5 m from the route.",
+        "Nearest component endpoint is 9.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Peak is within 10 m of a component endpoint.",
+        "Confirmed because MATCHED geometry ends extremely close to the summit and semantics do not indicate an unrelated long-distance trail."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11F2_EXTRACTION_AUDIT",
+  "pbfPath": "data/osm/source/alps-latest.osm.pbf",
+  "generatedAt": "2026-08-31T20:34:36.363Z",
+  "counts": {
+    "tourism=alpine_hut": {
+      "node": 947,
+      "way": 3103,
+      "relation": 19
+    },
+    "tourism=wilderness_hut": {
+      "node": 328,
+      "way": 1362,
+      "relation": 7
+    },
+    "amenity=parking": {
+      "node": 26847,
+      "way": 278039,
+      "relation": 1932
+    },
+    "railway=station": {
+      "node": 2251,
+      "way": 96,
+      "relation": 18
+    },
+    "public_transport=station": {
+      "node": 13606,
+      "way": 2048,
+      "relation": 23
+    },
+    "highway=bus_stop": {
+      "node": 154465,
+      "way": 318,
+      "relation": 10
+    },
+    "highway=trailhead": {
+      "node": 102,
+      "way": 0,
+      "relation": 0
+    },
+    "tourism=information": {
+      "node": 254345,
+      "way": 675,
+      "relation": 7
+    },
+    "natural=saddle": {
+      "node": 17084,
+      "way": 2,
+      "relation": 1
+    },
+    "mountain_pass=yes": {
+      "node": 6979,
+      "way": 1,
+      "relation": 0
+    },
+    "natural=peak": {
+      "node": 58436,
+      "way": 2,
+      "relation": 6
+    },
+    "natural=ridge": {
+      "node": 3,
+      "way": 14413,
+      "relation": 1
+    }
+  },
+  "note": "Node-only extraction (Phase 11F.1) only captured the node counts; ways/areas and relations were ignored for huts, parking, transit, settlements, and trailheads."
+}

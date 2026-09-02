@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11H_READINESS",
+  "contractVersion": "mountain-tracker-phase11h-human-calibration/v1",
+  "readOnly": true,
+  "publishable": false,
+  "autoApprovalEnabled": false,
+  "existingValidatedGreen": 124,
+  "phase11gNewGreen": 121,
+  "combinedMachineGreen": 245,
+  "nameResolution": {
+    "counts": {
+      "REF_ONLY": 28,
+      "DERIVED_SOURCE_BACKED": 88,
+      "UNRESOLVED": 4,
+      "SOURCE_NAME": 1
+    },
+    "nameReadyTotal": 89,
+    "nameUnresolvedTotal": 32,
+    "hutNameResolved": 20,
+    "baseNameResolved": 69,
+    "refPartition": {
+      "TECHNICAL_ONLY_REF": 89,
+      "NO_REF": 27,
+      "HUMAN_MEANINGFUL_REF": 5
+    }
+  },
+  "calibration": {
+    "sampleSize": 45,
+    "sampleBase": 24,
+    "sampleHut": 21,
+    "sampleNamed": 1,
+    "sampleMissingName": 44,
+    "sampleDerivedName": 34,
+    "sampleUnresolvedName": 10,
+    "sampleLowQuality": 8,
+    "sampleRandomControl": 17,
+    "qualityBands": {
+      "Q65_74": 8,
+      "Q75_89": 36,
+      "Q90": 1
+    },
+    "humanCalibrationReady": true
+  },
+  "publicationPartition": {
+    "MACHINE_GREEN_NAME_READY": 89,
+    "MACHINE_GREEN_NAME_UNRESOLVED": 32,
+    "HUMAN_QA_EXISTING_APPROVED": 0,
+    "HUMAN_QA_PENDING": 121,
+    "HUMAN_QA_BLOCKED": 0
+  },
+  "finalPartition": {
+    "READY_FOR_HUMAN_QA": 121,
+    "NAME_RESOLVED": 89,
+    "NAME_UNRESOLVED": 32,
+    "BLOCKED_BY_HUMAN_QA": 0,
+    "READY_FOR_CONTROLLED_STAGING": 0
+  },
+  "humanGuards": {
+    "rejectedMachineEligible": 0,
+    "needsReviewMachineEligible": 0,
+    "existingApprovedCount": 0,
+    "reconciledArtifactHits": 0,
+    "artifactsScanned": 77,
+    "derivedNameRequiresHumanConfirmation": true,
+    "visuallyApprovedIsNotNameApproval": true
+  },
+  "stagingForReview": {
+    "requiredForInteractiveUi": true,
+    "artifactOnlyQueueSupported": false,
+    "planExecuted": false,
+    "planPath": "data/osm/alps/staging/phase11h-controlled-staging-plan.json",
+    "wouldCreate": 45,
+    "unchanged": 0,
+    "conflicts": 0,
+    "blocked": 0
+  },
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "74338bd622f08fa00efa9a5d80c33e0fb54cdcf8c66c572fbb47d5efa9af38a6"
+}

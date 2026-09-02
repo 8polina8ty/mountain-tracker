@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11C1_FIRST_BATCH_MANIFEST",
+  "publicationContractVersion": "mountain-tracker-osm-publication/v1",
+  "maxBatchSize": 5,
+  "candidateSetContentHash": "350ea8006be8406b20ab68c763ebbe05bfea7c3a2a1fa2427c4a9fc37fc964d0",
+  "candidateManifestHash": "71aba18a7fc1a62dccef729fdd60cebd9a2dcac02442d358e8f2c6c0bb99504f",
+  "excludedActiveRelationId": "196164",
+  "excludedSemanticRiskRelationIds": [
+    "140270"
+  ],
+  "selectionOrder": [
+    "warning-free-only",
+    "no-via-ferrata-indication",
+    "SIMPLE-topology-first",
+    "EXACT_MOUNTAIN_MATCH-only",
+    "CONFIRMED-summit-only",
+    "quality-desc",
+    "numeric-canonical-relation-id-asc"
+  ],
+  "selectionReason": "First five unpublished warning-free candidates with ordinary summit-route semantics and no via-ferrata indication; SIMPLE topology first, then highest quality, then numeric canonical relation ID.",
+  "records": [
+    {
+      "sourceRelationId": "20916",
+      "canonicalRouteSourceId": "20916",
+      "stagingRouteId": "3f036da4-20f0-4c46-8def-fdb95b772f2f",
+      "mountainId": 12690,
+      "routeName": "Wanderweg 614",
+      "candidateContentHash": "a9483df2dd7a560a04e61ca8ba897af3c419a8a3918e16f18ccc50b1cb54d190",
+      "stagingPayloadHash": "e2995161ae6c8035d00f27ddab11dcb7fcb195c263d873bc11cfe19b0f722c9d",
+      "targetPayloadHash": "e571b2f6128ccfecf23666a48a89de55d91fa3fcb944b9cd27fea6c45571a371",
+      "geometryHash": "0e38f272e8a5ac913e243d1e9f5ed564960fa161f948fb6e489c9184fde4ed7d",
+      "qaDecisionVersion": 1,
+      "publicationIdempotencyKey": "openstreetmap:relation:20916:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1"
+    },
+    {
+      "sourceRelationId": "33528",
+      "canonicalRouteSourceId": "33528",
+      "stagingRouteId": "575ddbcd-cb94-4b2a-bb97-bbb61bdbad28",
+      "mountainId": 83695,
+      "routeName": "10",
+      "candidateContentHash": "4729ed370187a5abeaed4c3fe78d8f2df9cc2c3b2764b029c64cf9c6801ea847",
+      "stagingPayloadHash": "5de39ac6ed3afdbe4ce008e58c74367d666b9811fb04ab60b099aa1413539dd6",
+      "targetPayloadHash": "9e9019dc6d4954bec807bdf7548030f780b3cc240a13fb26a6987019002011a2",
+      "geometryHash": "461c71592b30484b2ff6f4434b6af1fe4c1323ef512ce56ccccc4ae655ef02bf",
+      "qaDecisionVersion": 1,
+      "publicationIdempotencyKey": "openstreetmap:relation:33528:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1"
+    },
+    {
+      "sourceRelationId": "199145",
+      "canonicalRouteSourceId": "199145",
+      "stagingRouteId": "eeec2dc4-0223-4330-b0c7-3f03401005bb",
+      "mountainId": 12684,
+      "routeName": "Wanderweg 610",
+      "candidateContentHash": "778fb850cf9d9593270529f3e9026a3912338c674d347447116f95d56bd9c408",
+      "stagingPayloadHash": "e421ba184b92d778a75c9b7eb122991439686a74508598f68ff7b50fe94b54e8",
+      "targetPayloadHash": "5e9097c2811e596f3d43f84392216d8c0bce55c4b316f795f076ef25281a504f",
+      "geometryHash": "36e5a23e139eae03cf22f78e83738bd87b56588c427562dc98c1f6265fbf564f",
+      "qaDecisionVersion": 1,
+      "publicationIdempotencyKey": "openstreetmap:relation:199145:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1"
+    },
+    {
+      "sourceRelationId": "207900",
+      "canonicalRouteSourceId": "207900",
+      "stagingRouteId": "8afa672a-206c-4750-beba-f66433172efc",
+      "mountainId": 11872,
+      "routeName": "Wanderweg 791",
+      "candidateContentHash": "966b0be3e9b9da66cd9deb5169e482e54ea65697f9c7b53614f7a72bd7d86f3f",
+      "stagingPayloadHash": "d199402d01d93f70d09a8685bfe0f17f09183bccff4431e59569c00b4fa3c350",
+      "targetPayloadHash": "45b93795835c6ad828d7127be64d38d4a191bd6e38dba05bf657802cf09920d5",
+      "geometryHash": "77bd7e4a1de782ae4696fa32a2f6b4ac2eece774c832f60650aa777abfd1da9b",
+      "qaDecisionVersion": 1,
+      "publicationIdempotencyKey": "openstreetmap:relation:207900:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1"
+    },
+    {
+      "sourceRelationId": "207913",
+      "canonicalRouteSourceId": "207913",
+      "stagingRouteId": "2014765a-15d1-4b12-8106-3e120d50677a",
+      "mountainId": 13929,
+      "routeName": "Wanderweg 926A",
+      "candidateContentHash": "a7d2412af654bf27a6b40cceb6a13b5af98927a6baaf34a07500bdb696db49d4",
+      "stagingPayloadHash": "41b3f11a6851dd2fe3fa95fa75534c87f0060e35d272a33b7a359b2180e8f908",
+      "targetPayloadHash": "649b4371ecef16a3f1666092f9b0d5bcda2866e3db7461376ba2e0a7e22ee23b",
+      "geometryHash": "ff8f9f8b08a6b8ba615b847eec8dc32cf48e7de1b146533399056ad518177272",
+      "qaDecisionVersion": 1,
+      "publicationIdempotencyKey": "openstreetmap:relation:207913:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1"
+    }
+  ],
+  "deterministicBatchManifestHash": "bc64dcd954cf1b9ce153d14462215995af7c57e4e6e0f60c6f08dcbb1c25e8d1"
+}

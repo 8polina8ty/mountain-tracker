@@ -1,0 +1,852 @@
+{
+  "selectionMethod": "Greedy deterministic coverage of operation, match, semantic, quality, length, elevation, and available country strata; then named/high-quality routes; numeric source ID tie-break.",
+  "selectedCount": 50,
+  "composition": {
+    "operations": {
+      "READY_FOR_STAGING": 46,
+      "BLOCKED_NO_MOUNTAIN": 4,
+      "BLOCKED_AMBIGUOUS": 0,
+      "BLOCKED_VALIDATION": 0
+    },
+    "semanticTypes": {
+      "summit_route": 50
+    },
+    "mountainMatchClassifications": {
+      "EXACT_MOUNTAIN_MATCH": 46,
+      "PROBABLE_MOUNTAIN_MATCH": 1,
+      "NO_MOUNTAIN_MATCH": 3,
+      "AMBIGUOUS_MOUNTAIN_MATCH": 0
+    },
+    "countries": {
+      "AT": 31,
+      "SI": 3,
+      "IT": 7,
+      "CH": 3,
+      "ambiguous": 1,
+      "DE": 2,
+      "unassigned": 1,
+      "LI": 1,
+      "FR": 1
+    },
+    "qualityBands": {
+      "90-100": 47,
+      "80-89": 1,
+      "70-79": 2
+    },
+    "routeLengthBands": {
+      "5-15km": 18,
+      "<5km": 30,
+      "15-30km": 1,
+      ">=30km": 1
+    },
+    "elevationBands": {
+      "1500-2499m": 26,
+      "<1500m": 13,
+      "2500-3499m": 9,
+      "unknown": 1,
+      ">=3500m": 1
+    }
+  },
+  "routes": [
+    {
+      "sourceRelationId": "20916",
+      "canonicalRouteSourceId": "20916",
+      "routeName": "Wanderweg 614",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5392,
+      "elevationMeters": 2244,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:20916:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "17497615",
+      "canonicalRouteSourceId": "17497615",
+      "routeName": "Zaka - Ojstrica - Mala Osojnica",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "semanticType": "summit_route",
+      "qualityScore": 89,
+      "distanceMeters": 1340,
+      "elevationMeters": 610,
+      "countryCode": "SI",
+      "mountainMatchClassifications": [
+        "NO_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:17497615:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "4103375",
+      "canonicalRouteSourceId": "4103375",
+      "routeName": "12 - Mühlbach => Pfunders",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 77,
+      "distanceMeters": 17019,
+      "elevationMeters": 2510,
+      "countryCode": "IT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:4103375:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "3970095",
+      "canonicalRouteSourceId": "3970095",
+      "routeName": "Pt 1605 - Schwändiliflueh",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "semanticType": "summit_route",
+      "qualityScore": 99,
+      "distanceMeters": 2147,
+      "elevationMeters": null,
+      "countryCode": "CH",
+      "mountainMatchClassifications": [
+        "NO_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:3970095:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "222362",
+      "canonicalRouteSourceId": "222362",
+      "routeName": "AV Weg 429 (Funtenseetauern Normalweg)",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4387,
+      "elevationMeters": 2578.4,
+      "countryCode": null,
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:222362:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1124155",
+      "canonicalRouteSourceId": "1124155",
+      "routeName": "Weg Nr. 1 - Zum Glescherblick - Oberaudorf/Hocheck",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1202,
+      "elevationMeters": 824,
+      "countryCode": "DE",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1124155:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1229102",
+      "canonicalRouteSourceId": "1229102",
+      "routeName": "AV Weg 457 Alpeltalsteig",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5568,
+      "elevationMeters": 2522,
+      "countryCode": null,
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1229102:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "3973107",
+      "canonicalRouteSourceId": "3973107",
+      "routeName": "Malbun Bergbahnen - Bergle - Schoenberg",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6226,
+      "elevationMeters": 2104,
+      "countryCode": "LI",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:3973107:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "19538533",
+      "canonicalRouteSourceId": "19538533",
+      "routeName": "Cheval Noir",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 7455,
+      "elevationMeters": 2832,
+      "countryCode": "FR",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:19538533:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "19898386",
+      "canonicalRouteSourceId": "19898386",
+      "routeName": "Pl. Zapleč - Snežna jama - Krasji vrh",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "semanticType": "summit_route",
+      "qualityScore": 99,
+      "distanceMeters": 4321,
+      "elevationMeters": 1777,
+      "countryCode": "SI",
+      "mountainMatchClassifications": [
+        "PROBABLE_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:19898386:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1667096",
+      "canonicalRouteSourceId": "1667096",
+      "routeName": "Barrage de Mauvoisin - Le Pleureur",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 95,
+      "distanceMeters": 4654,
+      "elevationMeters": 3703,
+      "countryCode": "CH",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1667096:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "11192622",
+      "canonicalRouteSourceId": "11192622",
+      "routeName": "Alta Via del Caffaro",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 71,
+      "distanceMeters": 79693,
+      "elevationMeters": 2055,
+      "countryCode": "IT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:11192622:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "33528",
+      "canonicalRouteSourceId": "33528",
+      "routeName": "10",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5746,
+      "elevationMeters": 3352,
+      "countryCode": "IT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:33528:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "140270",
+      "canonicalRouteSourceId": "140270",
+      "routeName": "Via Ferrata “Rosalba Grasselli”",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1304,
+      "elevationMeters": 2434,
+      "countryCode": "IT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:140270:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "196164",
+      "canonicalRouteSourceId": "196164",
+      "routeName": "Wanderweg 534",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 11734,
+      "elevationMeters": 1642,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:196164:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "199145",
+      "canonicalRouteSourceId": "199145",
+      "routeName": "Wanderweg 610",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5902,
+      "elevationMeters": 1992,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:199145:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "207900",
+      "canonicalRouteSourceId": "207900",
+      "routeName": "Wanderweg 791",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 8003,
+      "elevationMeters": 2599,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:207900:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "207913",
+      "canonicalRouteSourceId": "207913",
+      "routeName": "Wanderweg 926A",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1155,
+      "elevationMeters": 2423,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:207913:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "361148",
+      "canonicalRouteSourceId": "361148",
+      "routeName": "Wanderweg 10",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 7739,
+      "elevationMeters": 1018,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:361148:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "660063",
+      "canonicalRouteSourceId": "660063",
+      "routeName": "Winzendorf - Größenberg",
+      "operation": "BLOCKED_NO_MOUNTAIN",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3417,
+      "elevationMeters": 605,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "NO_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:660063:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "915266",
+      "canonicalRouteSourceId": "915266",
+      "routeName": "Güttlersteig",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3947,
+      "elevationMeters": 2260,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:915266:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "935393",
+      "canonicalRouteSourceId": "935393",
+      "routeName": "Wanderweg 37",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5413,
+      "elevationMeters": 1956,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:935393:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "936047",
+      "canonicalRouteSourceId": "936047",
+      "routeName": "Wanderweg 627",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 648,
+      "elevationMeters": 1070,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:936047:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "961283",
+      "canonicalRouteSourceId": "961283",
+      "routeName": "Wanderweg 282",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 884,
+      "elevationMeters": 1822,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:961283:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1065987",
+      "canonicalRouteSourceId": "1065987",
+      "routeName": "Wanderweg 740",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 11760,
+      "elevationMeters": 2711,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1065987:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1075677",
+      "canonicalRouteSourceId": "1075677",
+      "routeName": "Wanderweg 548",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 915,
+      "elevationMeters": 3076,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1075677:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1138510",
+      "canonicalRouteSourceId": "1138510",
+      "routeName": "Kaiserschützensteig",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 2056,
+      "elevationMeters": 2342,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1138510:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1140771",
+      "canonicalRouteSourceId": "1140771",
+      "routeName": "AV Weg 711A",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1211,
+      "elevationMeters": 2762,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1140771:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1144001",
+      "canonicalRouteSourceId": "1144001",
+      "routeName": "Sentiero della Loffa",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1120,
+      "elevationMeters": 1899,
+      "countryCode": "IT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1144001:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1165714",
+      "canonicalRouteSourceId": "1165714",
+      "routeName": "Wanderweg 437",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3667,
+      "elevationMeters": 1405,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1165714:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1271967",
+      "canonicalRouteSourceId": "1271967",
+      "routeName": "Haakogelweg",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1044,
+      "elevationMeters": 884,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1271967:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1490290",
+      "canonicalRouteSourceId": "1490290",
+      "routeName": "Hainfeld (Kirche) - Hainfelder Hütte",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3248,
+      "elevationMeters": 924,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1490290:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1555542",
+      "canonicalRouteSourceId": "1555542",
+      "routeName": "Wanderweg 659 - Trainsjoch",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 7497,
+      "elevationMeters": 1707,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1555542:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1601155",
+      "canonicalRouteSourceId": "1601155",
+      "routeName": "Creste del Summano",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 2897,
+      "elevationMeters": 1296,
+      "countryCode": "IT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1601155:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1606996",
+      "canonicalRouteSourceId": "1606996",
+      "routeName": "Wanderweg 875",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4767,
+      "elevationMeters": 2027,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1606996:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1641211",
+      "canonicalRouteSourceId": "1641211",
+      "routeName": "Wanderweg 292",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4335,
+      "elevationMeters": 1574,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1641211:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1751818",
+      "canonicalRouteSourceId": "1751818",
+      "routeName": "AV Weg 437 (Taghaube)",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 1066,
+      "elevationMeters": 2159,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1751818:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1777574",
+      "canonicalRouteSourceId": "1777574",
+      "routeName": "Wanderweg 31",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5920,
+      "elevationMeters": 1372,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1777574:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1796122",
+      "canonicalRouteSourceId": "1796122",
+      "routeName": "Zreče - Ančka - Golek",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3538,
+      "elevationMeters": 769,
+      "countryCode": "SI",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1796122:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1798968",
+      "canonicalRouteSourceId": "1798968",
+      "routeName": "Alta Via C.A.I. Gemona",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5738,
+      "elevationMeters": 1709,
+      "countryCode": "IT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1798968:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1864752",
+      "canonicalRouteSourceId": "1864752",
+      "routeName": "Wanderweg 816b - Wilder Kaiser",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 986,
+      "elevationMeters": 2123,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1864752:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "1877850",
+      "canonicalRouteSourceId": "1877850",
+      "routeName": "Meiselsteinalm-Gamskögerl",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4161,
+      "elevationMeters": 1747,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:1877850:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2050305",
+      "canonicalRouteSourceId": "2050305",
+      "routeName": "Wanderweg 969a",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 5576,
+      "elevationMeters": 1884,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2050305:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2113697",
+      "canonicalRouteSourceId": "2113697",
+      "routeName": "Nußdorf-Bichleralm-Heuberg",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3875,
+      "elevationMeters": 1338,
+      "countryCode": "DE",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2113697:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2135331",
+      "canonicalRouteSourceId": "2135331",
+      "routeName": "Wanderweg Schwarzsee - Kaiseregg",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6934,
+      "elevationMeters": 2185,
+      "countryCode": "CH",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2135331:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2202791",
+      "canonicalRouteSourceId": "2202791",
+      "routeName": "Wanderweg 899",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3645,
+      "elevationMeters": 1823,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2202791:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2210868",
+      "canonicalRouteSourceId": "2210868",
+      "routeName": "Maria Schutz - Sonnwendstein",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 3794,
+      "elevationMeters": 1523,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2210868:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2210870",
+      "canonicalRouteSourceId": "2210870",
+      "routeName": "Schottwien - Eselstein",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 4748,
+      "elevationMeters": 982,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2210870:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2211742",
+      "canonicalRouteSourceId": "2211742",
+      "routeName": "Baumgarten - Erzkogel",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6502,
+      "elevationMeters": 1504,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2211742:mountain-tracker-osm-route/v1"
+    },
+    {
+      "sourceRelationId": "2248159",
+      "canonicalRouteSourceId": "2248159",
+      "routeName": "Wanderweg 525",
+      "operation": "READY_FOR_STAGING",
+      "semanticType": "summit_route",
+      "qualityScore": 100,
+      "distanceMeters": 6835,
+      "elevationMeters": 2492,
+      "countryCode": "AT",
+      "mountainMatchClassifications": [
+        "EXACT_MOUNTAIN_MATCH"
+      ],
+      "auditFlags": [],
+      "idempotencyKey": "openstreetmap:relation:2248159:mountain-tracker-osm-route/v1"
+    }
+  ]
+}

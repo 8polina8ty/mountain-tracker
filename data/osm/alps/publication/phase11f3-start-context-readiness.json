@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "artifactType": "PHASE11F3_START_CONTEXT_READINESS",
+  "generatedAt": "2026-09-01T06:12:36.839Z",
+  "elevationHierarchyVersion": "1",
+  "totalGreenRoutes": 641,
+  "machineQualifiedSafe500": 75,
+  "machineQualifiedSafe600": 124,
+  "truthfulMachineQualifiedSafe500": 75,
+  "truthfulMachineQualifiedSafe600": 124,
+  "falselyQualifiedAsGenUin": 0,
+  "highMountainStart": 263,
+  "ambiguousStart": 254,
+  "tothornRemainsNotGreen": true,
+  "recoveredBaseFromAmbiguous": 1,
+  "note": "Green-compatible = BASE_START + HUT_START. Deterministic start elevation from frozen OSM evidence only (hierarchy v1).",
+  "deterministicArtifactHash": "ebfaa93521d3e162e11cc28dd99156f193793b76d1228bbfef7342a1ff964079"
+}

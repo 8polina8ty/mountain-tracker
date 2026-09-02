@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11F_MACHINE_PUBLICATION_POLICY_PROPOSAL",
+  "readOnly": true,
+  "policyVersion": "mountain-tracker-machine-qualified-publication-policy/v1-proposal",
+  "status": "PROPOSAL_ONLY",
+  "activated": false,
+  "attestationType": "MACHINE_QUALIFIED_V1",
+  "existingHumanQaSemanticsUnchanged": true,
+  "humanQaRequiredUnderCurrentContract": "VISUALLY_APPROVED",
+  "immutableEvidence": [
+    "qualificationAlgorithmVersion",
+    "qualificationArtifactHash",
+    "geometryHash",
+    "roadSafetyHash",
+    "mountainIdentity",
+    "summitIdentity",
+    "sourceRelationIdentity",
+    "stagingPayloadHash",
+    "calibrationPolicyVersion",
+    "calibrationSampleHash"
+  ],
+  "validityRules": [
+    "Attestation type must remain distinct from VISUALLY_APPROVED.",
+    "Every evidence field is included in one immutable evidence hash.",
+    "Any payload, geometry, road-safety, mountain, summit, source, qualification, or calibration identity change invalidates the attestation.",
+    "Calibration must be complete and automaticPolicyActivationAllowed must be true before a later separately approved activation.",
+    "No current RPC or publication path accepts MACHINE_QUALIFIED_V1."
+  ],
+  "securityReview": [
+    {
+      "risk": "Unauthorized machine publication",
+      "control": "Server-only entry point; require an administrator authorization gate and service-role credentials unavailable to clients."
+    },
+    {
+      "risk": "RLS bypass through service role",
+      "control": "Keep the service role in a narrow server module; validate the frozen allowlist before every privileged call and never expose a client-callable generic publisher."
+    },
+    {
+      "risk": "IDOR or arbitrary relation selection",
+      "control": "Accept only the fixed queue ID and frozen relation identities; reject filesystem paths, URLs, caller-supplied mountain IDs, and routes outside the contract."
+    },
+    {
+      "risk": "Payload substitution",
+      "control": "Bind attestation and publication to source, summit, mountain, staging payload, geometry, qualification, road-safety, and calibration hashes."
+    },
+    {
+      "risk": "Replay or duplicate publication",
+      "control": "Use an idempotency key plus a consumed attestation identity and fail closed on an existing publication or changed staging state."
+    },
+    {
+      "risk": "Qualification artifact tampering",
+      "control": "Verify deterministic artifact and per-route qualification hashes against an allowlisted algorithm version."
+    },
+    {
+      "risk": "Stale geometry or road safety",
+      "control": "Recompute all bound hashes immediately before publication; any mismatch invalidates MACHINE_QUALIFIED_V1."
+    },
+    {
+      "risk": "QA history corruption",
+      "control": "Machine attestation is append-only and separate from immutable human QA history; it must never insert or rewrite VISUALLY_APPROVED decisions."
+    },
+    {
+      "risk": "Concurrent staging overwrite",
+      "control": "Use an exclusive controlled execution window, recheck every route before its RPC, abort on any changed identity, and require a future compare-and-set RPC before adversarial concurrent execution."
+    }
+  ],
+  "databaseOrRpcChangesImplemented": false,
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "ee7dbc245105745964661dfc58e7ca35143fc79f7286638e27d02d3c8599596b"
+}

@@ -1,0 +1,570 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11I_B2_STAGEABILITY",
+  "contractVersion": "mountain-tracker-phase11i-b2-stageability/v1",
+  "readOnly": true,
+  "publishable": false,
+  "qaDecisionWrites": 0,
+  "autoApprovalEnabled": false,
+  "originalQueueCount": 45,
+  "stageableCount": 44,
+  "blockedCount": 1,
+  "exactCount": 44,
+  "missingCount": 1,
+  "ambiguousCount": 0,
+  "blockedRelation": {
+    "canonicalRelationId": "19752996",
+    "route": null,
+    "summitOsmId": "14110138897",
+    "blockingReason": "MOUNTAIN_IDENTITY_MISSING"
+  },
+  "records": [
+    {
+      "canonicalRelationId": "14450146",
+      "summitOsmId": "479127124",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 70786,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 479127124 returned exactly one row with id=70786.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "19752996",
+      "summitOsmId": "14110138897",
+      "mountainResolutionStatus": "MISSING",
+      "resolvedMountainId": null,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 14110138897 returned zero rows.",
+        "No exact public.mountains identity exists for this frozen summit OSM identity.",
+        "Staging blocked until the exact mountain identity exists in the deployed mountain contract."
+      ],
+      "stagingEligible": false,
+      "blockingReason": "MOUNTAIN_IDENTITY_MISSING"
+    },
+    {
+      "canonicalRelationId": "8479420",
+      "summitOsmId": "255973218",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 12026,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 255973218 returned exactly one row with id=12026.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "20732419",
+      "summitOsmId": "2866858103",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 211326,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2866858103 returned exactly one row with id=211326.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "19723934",
+      "summitOsmId": "2732100164",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 20055,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2732100164 returned exactly one row with id=20055.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "7619608",
+      "summitOsmId": "1589793263",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 75485,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1589793263 returned exactly one row with id=75485.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "20336298",
+      "summitOsmId": "454092684",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 208822,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 454092684 returned exactly one row with id=208822.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "13217296",
+      "summitOsmId": "26863007",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 45366,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 26863007 returned exactly one row with id=45366.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "3914732",
+      "summitOsmId": "1509984608",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 75230,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1509984608 returned exactly one row with id=75230.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "3127359",
+      "summitOsmId": "522807411",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 71634,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 522807411 returned exactly one row with id=71634.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "15854068",
+      "summitOsmId": "2234907362",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 77571,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2234907362 returned exactly one row with id=77571.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "3153237",
+      "summitOsmId": "523276617",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 71708,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 523276617 returned exactly one row with id=71708.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "6118857",
+      "summitOsmId": "1663938836",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 75824,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1663938836 returned exactly one row with id=75824.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "2707130",
+      "summitOsmId": "557832363",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 72367,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 557832363 returned exactly one row with id=72367.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "14629092",
+      "summitOsmId": "7297072136",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 91361,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 7297072136 returned exactly one row with id=91361.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "15904161",
+      "summitOsmId": "2710892680",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 82916,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2710892680 returned exactly one row with id=82916.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "5515251",
+      "summitOsmId": "333899881",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 13099,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 333899881 returned exactly one row with id=13099.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "2173614",
+      "summitOsmId": "307308095",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 69458,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 307308095 returned exactly one row with id=69458.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "5573664",
+      "summitOsmId": "26864010",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 69145,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 26864010 returned exactly one row with id=69145.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "14510044",
+      "summitOsmId": "3266959070",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 84517,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 3266959070 returned exactly one row with id=84517.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "15721946",
+      "summitOsmId": "256042739",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 12131,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 256042739 returned exactly one row with id=12131.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "140644",
+      "summitOsmId": "2534284083",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 19137,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2534284083 returned exactly one row with id=19137.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "14587091",
+      "summitOsmId": "1588156103",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 75478,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1588156103 returned exactly one row with id=75478.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "14718223",
+      "summitOsmId": "1512654235",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 75237,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1512654235 returned exactly one row with id=75237.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "19420984",
+      "summitOsmId": "3003004163",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 211376,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 3003004163 returned exactly one row with id=211376.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "7842649",
+      "summitOsmId": "5190947484",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 88806,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 5190947484 returned exactly one row with id=88806.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "14680095",
+      "summitOsmId": "726133727",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 72991,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 726133727 returned exactly one row with id=72991.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "6580908",
+      "summitOsmId": "967035588",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 46768,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 967035588 returned exactly one row with id=46768.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "7480385",
+      "summitOsmId": "1352380200",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 74585,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1352380200 returned exactly one row with id=74585.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "12238631",
+      "summitOsmId": "676620448",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 72890,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 676620448 returned exactly one row with id=72890.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "19744018",
+      "summitOsmId": "343412890",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 45696,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 343412890 returned exactly one row with id=45696.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "1722966",
+      "summitOsmId": "473127303",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 13940,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 473127303 returned exactly one row with id=13940.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "12836107",
+      "summitOsmId": "1372793645",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 210180,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1372793645 returned exactly one row with id=210180.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "15902354",
+      "summitOsmId": "2710892680",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 82916,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2710892680 returned exactly one row with id=82916.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "11215495",
+      "summitOsmId": "1001250876",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 73808,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1001250876 returned exactly one row with id=73808.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "15003355",
+      "summitOsmId": "522236726",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 71482,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 522236726 returned exactly one row with id=71482.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "8528032",
+      "summitOsmId": "445797066",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 208778,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 445797066 returned exactly one row with id=208778.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "5745905",
+      "summitOsmId": "1372561189",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 16372,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1372561189 returned exactly one row with id=16372.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "9192721",
+      "summitOsmId": "361374622",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 13262,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 361374622 returned exactly one row with id=13262.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "19370185",
+      "summitOsmId": "256041918",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 12103,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 256041918 returned exactly one row with id=12103.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "14605009",
+      "summitOsmId": "1393460961",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 74836,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1393460961 returned exactly one row with id=74836.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "9512293",
+      "summitOsmId": "2161621983",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 77401,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2161621983 returned exactly one row with id=77401.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "18507059",
+      "summitOsmId": "2082169247",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 210871,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 2082169247 returned exactly one row with id=210871.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "20732405",
+      "summitOsmId": "1140515018",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 209779,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1140515018 returned exactly one row with id=209779.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    },
+    {
+      "canonicalRelationId": "3345673",
+      "summitOsmId": "1472383815",
+      "mountainResolutionStatus": "EXACT",
+      "resolvedMountainId": 75127,
+      "resolutionEvidence": [
+        "Live read-only mountains.osm_id lookup for peak 1472383815 returned exactly one row with id=75127.",
+        "Stageability classification: EXACT_MOUNTAIN_MATCH."
+      ],
+      "stagingEligible": true,
+      "blockingReason": null
+    }
+  ],
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "17fe9046fa03bb3142684fe0051f3cf55c75a6e1286140800e0710874e6562e2"
+}

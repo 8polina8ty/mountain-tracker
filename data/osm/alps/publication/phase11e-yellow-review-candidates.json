@@ -1,0 +1,2660 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11E_YELLOW_REVIEW_CANDIDATES",
+  "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+  "readOnly": true,
+  "publishable": false,
+  "humanQaRequiredForPublication": true,
+  "autoApprovalEnabled": false,
+  "sourceIdentity": {
+    "pbfPath": "data/osm/source/alps-latest.osm.pbf",
+    "pbfSizeBytes": 2310928096,
+    "pbfModifiedMilliseconds": 1787606468000,
+    "pbfSha256": "15ff62ed82c01b2153ec22d1b4cd53d1e94b87ecf38ab176eee60360972a6fc5",
+    "pipelineDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "pipelineGeneratedAt": "2026-08-25T01:54:50.930Z",
+    "checkpointPath": "data/osm/alps/checkpoints/fafc4f7a772832f2/bulk-store.sqlite",
+    "checkpointManifestSha256": "80552d6ed18595257a094fd20c1a9d5266828c65048ccb486de052518f5b64dc",
+    "motorwayIndexContentHash": "f28f56b03845217aa6fc7344c4ec71e530c7666671928370577d56994e535db1",
+    "phase7AuditHash": "52fc9b4f80c2c678299916e91ab0b9937b037d9df252a2b779f6967290a3c593",
+    "importPlanDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "importPlanRecordCount": 1065,
+    "phase11dReadinessHash": "a4615deb9406320e1abc8eac670582297b0ba56ea4efbc52f9fa33f311f63cdc"
+  },
+  "recordCount": 63,
+  "records": [
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "157922",
+      "canonicalRouteSourceId": "157922",
+      "sourceUrl": "https://www.openstreetmap.org/relation/157922",
+      "stagingIdempotencyKey": "openstreetmap:relation:157922:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "e47ab04ff729ef5b600527aefc86a2985c23723760c988548da7fc0d371e98d0",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "420429966",
+          "mountainId": 208723,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "206b587c2abc5433775e838deb9171a73594e26fd894a407830faf9980cc97d6",
+      "deterministicQualificationHash": "26358741f470ed14209ec0e2f2163a36a7dcb2f9e90360c25ecf4550f1514d80"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "222362",
+      "canonicalRouteSourceId": "222362",
+      "sourceUrl": "https://www.openstreetmap.org/relation/222362",
+      "stagingIdempotencyKey": "openstreetmap:relation:222362:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "6bb543d64df5c6f072428a435e3b79c5570d0bcac6999276692f31e50bda1630",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2498250593",
+          "mountainId": 49,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "f5f35f6d630387507e20092b88e9bb9367d7439e4b71b987eceb4a3d96f6bbc2",
+      "deterministicQualificationHash": "70db1730914aed750d26d013a59581176d271875a775c89b68eba970eaa006ac"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "365793",
+      "canonicalRouteSourceId": "365793",
+      "sourceUrl": "https://www.openstreetmap.org/relation/365793",
+      "stagingIdempotencyKey": "openstreetmap:relation:365793:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "c120ff2b5cd544424f98f16500feb9ab8b1bf7ec0507a8f5011689c8465bfdd1",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "NON_SIMPLE_TOPOLOGY",
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 80,
+      "routeType": "hiking",
+      "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "435173020",
+          "mountainId": 13729,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "76dbdd20d435c06713f9dae8a3ac1ae2637212e0d8385a3386332ac8c43c9f18",
+      "deterministicQualificationHash": "10823ae537a02ebd2fa817fefbe69844d5218755c35d520923998c823a3d9c9b"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "1229102",
+      "canonicalRouteSourceId": "1229102",
+      "sourceUrl": "https://www.openstreetmap.org/relation/1229102",
+      "stagingIdempotencyKey": "openstreetmap:relation:1229102:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "02ea645f789b038711dfea96c47fe95d51321c82f6feea76fa3c15000c6bd5ce",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "3186071317",
+          "mountainId": 66,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "74530f286ca24e98e339e60629c3f458f89080e4541387b97a53903f4ee8779c",
+      "deterministicQualificationHash": "13dad75c8d84615139ad7d0b2d9331796a4a1ffbd6a9327f5fc25f4f87e74eb2"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "1424767",
+      "canonicalRouteSourceId": "1424767",
+      "sourceUrl": "https://www.openstreetmap.org/relation/1424767",
+      "stagingIdempotencyKey": "openstreetmap:relation:1424767:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "c52bd74aef9af2e028af05357ec6c8402cfc3c1e2810547b122283042d4e258b",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "324941040",
+          "mountainId": 12970,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "7aa9531e5d5a633f1aab21bb38702dcd4462cefb4fb10b54d4e68814a42bd3f5",
+      "deterministicQualificationHash": "8c9b9903ef69ddb0d5bb5404eed4e92259d657e48e85f598a06581030c440844"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "1567472",
+      "canonicalRouteSourceId": "1567472",
+      "sourceUrl": "https://www.openstreetmap.org/relation/1567472",
+      "stagingIdempotencyKey": "openstreetmap:relation:1567472:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "f19c6bae092a67798965eea563db498698bc976326600f8aacfac1bcdd820a66",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1249938545",
+          "mountainId": 16090,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "035e94e713f8936d91e0720c312f3b63572522b67dcbe247bad586e6a408d342",
+      "deterministicQualificationHash": "d299d0677c261d3902850ed4d626a2f71f87badf97770c88fb84f6f3f07295a0"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "1903488",
+      "canonicalRouteSourceId": "1903488",
+      "sourceUrl": "https://www.openstreetmap.org/relation/1903488",
+      "stagingIdempotencyKey": "openstreetmap:relation:1903488:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "68a1f78cb8c798c2c5eddc95a54399cfd0dc624ed72f37df63f37ea1e7e479be",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "339116845",
+          "mountainId": 13174,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "5820d33a87266df6ecb540274a26865738da5e7cdff5703f817eed2eca951854",
+      "deterministicQualificationHash": "a0ad2d500696d3d7070e1830a5708e568eea370d563e0181256eff77be2a4db3"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "2316776",
+      "canonicalRouteSourceId": "2316776",
+      "sourceUrl": "https://www.openstreetmap.org/relation/2316776",
+      "stagingIdempotencyKey": "openstreetmap:relation:2316776:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "54bd64ab0276169ae33f05d93ef6b463388a52dfae23dd6f993c0c336943fcc9",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 95,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2466988785",
+          "mountainId": 18740,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "034a533c8e127f229faa59c35458f6e736f6cfacabb41bae9f55ad1968db4a8f",
+      "deterministicQualificationHash": "6174f6da1ada2a4cc347bbd08cde6bf02723af5eee7dd610d224009205bd98ea"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "2357114",
+      "canonicalRouteSourceId": "2357114",
+      "sourceUrl": "https://www.openstreetmap.org/relation/2357114",
+      "stagingIdempotencyKey": "openstreetmap:relation:2357114:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "7f9051046fd0116f2786abef07a050f8a68104430ae5a47e8ebc2875f3eb3ace",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "504799999",
+          "mountainId": 171,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "f66a8f1d6f7fa882bf3d9423d0122f17d522142dcc4de54b6d231f1d0f3aa7f4",
+      "deterministicQualificationHash": "fdbee9ecdf843b1acb614087fbaa7b3f3e8d161e4bf66d5d964bac2bb24d6a3f"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "2409592",
+      "canonicalRouteSourceId": "2409592",
+      "sourceUrl": "https://www.openstreetmap.org/relation/2409592",
+      "stagingIdempotencyKey": "openstreetmap:relation:2409592:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "9fd7c6b225f83b3f0263be7e4b80570b65e4a20cc4406858cedb620cbd388848",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 85,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1910122071",
+          "mountainId": 76752,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "f7c9bef5400e2a934dd37b5d528ba93141e621a2f4d48809d567ac79b961dc31",
+      "deterministicQualificationHash": "fbf4d42e5bd502cd6c1353c6ae14c09ffb1b7e267b4b5a8b8a96e141f2e59885"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "2725147",
+      "canonicalRouteSourceId": "2725147",
+      "sourceUrl": "https://www.openstreetmap.org/relation/2725147",
+      "stagingIdempotencyKey": "openstreetmap:relation:2725147:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "100be85199b99be19029671d4cd41d8517286d565e903f092d4012a47f96f792",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "348139963",
+          "mountainId": 200,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "3914847d3c2e799414b66ff219549c9692fe6708b972995150b16a14787a996d",
+      "deterministicQualificationHash": "06649b36f678c402355283e80e7c67ea11c60b3d226f45788c9351f346bb9796"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "2950961",
+      "canonicalRouteSourceId": "2950961",
+      "sourceUrl": "https://www.openstreetmap.org/relation/2950961",
+      "stagingIdempotencyKey": "openstreetmap:relation:2950961:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "084a38717be3f702a7919cc185a5ade1ed3b1bbcb9adba8314600b90c6b86576",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "26863095",
+          "mountainId": 208278,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "f9ed4f26d1ac549a702f5a9e1da593ee5a31aa10c22b9f57dcfa522f21330b81",
+      "deterministicQualificationHash": "5c5fd85471000c3f4f1776ef2b2f036dd7d55da25f1fbec30ba4449d884b6c46"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "3046499",
+      "canonicalRouteSourceId": "3046499",
+      "sourceUrl": "https://www.openstreetmap.org/relation/3046499",
+      "stagingIdempotencyKey": "openstreetmap:relation:3046499:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "6d113f66d471e27f1791661a4c32cc0b71d954828015d6c3f7e141c09bef7e05",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1309408820",
+          "mountainId": 16212,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "8ae13dc930cd991e76294b6f06536de9981f99bba9d7236dd9e65c8aae32fe79",
+      "deterministicQualificationHash": "9b651598f4cb1116a48e37f2afb70f81e99a0830c15baaa4b573a5dfe6e5a0a3"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "3086937",
+      "canonicalRouteSourceId": "3086937",
+      "sourceUrl": "https://www.openstreetmap.org/relation/3086937",
+      "stagingIdempotencyKey": "openstreetmap:relation:3086937:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "c60a926399953808ab86183611aedb46153008d5bfa9b65d71abf85483b0c946",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 85,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1102437630",
+          "mountainId": 15980,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "1fe89b1f275e7d925ac78c4b3d6be1b98c684ce4d18cb2b83029caaef048ea9e",
+      "deterministicQualificationHash": "73b5d9e054398c479c24b0c8fdfcea291aa3d9e49a04774f9fe637af82c18ac4"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "3175667",
+      "canonicalRouteSourceId": "3175667",
+      "sourceUrl": "https://www.openstreetmap.org/relation/3175667",
+      "stagingIdempotencyKey": "openstreetmap:relation:3175667:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "3534ad1cd42e1fdef2a9044e4b2981b0ba035cbffe7d008267a75f5e99144cfe",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "664510186",
+          "mountainId": 85,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "cdaef887e1a572aa24f9b3baaa528986ec7e0d4cce563a4f108844a09f889c50",
+      "deterministicQualificationHash": "e0e67b15ec0c1072c475cc1bddd9655a44237bf04d322bd8f63b9d41a9a7183e"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "3997944",
+      "canonicalRouteSourceId": "3997944",
+      "sourceUrl": "https://www.openstreetmap.org/relation/3997944",
+      "stagingIdempotencyKey": "openstreetmap:relation:3997944:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "2e0d8c5de5b4ec8ee4f1c3396fb8f7fb8051ca5a5a128a1103a1353316bdac6d",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "26864550",
+          "mountainId": 11938,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "34b945f10c233e6ea81e4ca962a537e8a1e5dbcef053a50f852ad6390f631a9f",
+      "deterministicQualificationHash": "5fd931d2285a4e0dc09821cca15305fdfa60ce49392f509415723b762de8fed7"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "4002029",
+      "canonicalRouteSourceId": "4002029",
+      "sourceUrl": "https://www.openstreetmap.org/relation/4002029",
+      "stagingIdempotencyKey": "openstreetmap:relation:4002029:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "ebd42fe15f5fbf55a6a873e6b9291b681c65b7b7c85f617cd525861f02a3bad2",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 85,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2143684700",
+          "mountainId": 77280,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "afcfcc445cd6aaaf24ad112f5b82ab22739ebdf20a72c58d8c2701b7452d079c",
+      "deterministicQualificationHash": "126be834677fabca053ed5089e6aeaaa9c1b8fc7509cdc96d3772b0ee0682948"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "4065565",
+      "canonicalRouteSourceId": "4065565",
+      "sourceUrl": "https://www.openstreetmap.org/relation/4065565",
+      "stagingIdempotencyKey": "openstreetmap:relation:4065565:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "d54090a02f9d97032353f4700d96b609b93a719d74234d164beadd214f3cdc17",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 85,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "26864908",
+          "mountainId": 69188,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "84eebb8bf2fa7f8bc350ed65b1dc8dcce838ede20d83e8e3789ff199d342bdcc",
+      "deterministicQualificationHash": "b2274aafe916a623333f96439b2bbf6fc2a02cbdaffecd179f833c96875f1c09"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "4083702",
+      "canonicalRouteSourceId": "4083702",
+      "sourceUrl": "https://www.openstreetmap.org/relation/4083702",
+      "stagingIdempotencyKey": "openstreetmap:relation:4083702:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "9053e47c374cb4901575ed9038f448d489183a1882c6bd4ce545dbb54f25ce62",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "906932480",
+          "mountainId": 209652,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "f245b019cd7161adfdbca408546c8294671bb425c6a34cafee2c49b72dc0dc37",
+      "deterministicQualificationHash": "0bfc8cdc273a16d8183c9ced60b6b1e41b7eea07b7ad73e6ad5469b902823150"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "5223286",
+      "canonicalRouteSourceId": "5223286",
+      "sourceUrl": "https://www.openstreetmap.org/relation/5223286",
+      "stagingIdempotencyKey": "openstreetmap:relation:5223286:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "743c631d62b49f506c364eb79e16dd9b6a30bb5f1f6fb23bac7d4a5010a12f83",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2262791679",
+          "mountainId": 1338,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "VISUALLY_APPROVED",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "a03cbaa89b8d7c10df47002b27750e70eb07fac492bb23f9d15769fee108389c",
+      "deterministicQualificationHash": "648d8d8da626bb3ec0406958272963e2ecef15c4af1e60230768de5baca93f7d"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "5571802",
+      "canonicalRouteSourceId": "5571802",
+      "sourceUrl": "https://www.openstreetmap.org/relation/5571802",
+      "stagingIdempotencyKey": "openstreetmap:relation:5571802:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "e04f3e53e24286a16fefc8b29554c4e30bf9852473eefde2672fa08ddc8fcb3b",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 90,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2951199452",
+          "mountainId": 49213,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "094c004fd6755b1ad5cb5445926d8e700efd4339165e12e7ee1c89327656f8bd",
+      "deterministicQualificationHash": "0697d47bc7feda888577b00828392f7d2e89231fda4b76bbbaecf566c0b18464"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "6627768",
+      "canonicalRouteSourceId": "6627768",
+      "sourceUrl": "https://www.openstreetmap.org/relation/6627768",
+      "stagingIdempotencyKey": "openstreetmap:relation:6627768:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "472229f9422a124bdcb1e01dbdfd63f8cca951d3e498909026bd12086c588344",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "4622365967",
+          "mountainId": 212170,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "7a1937dc345a91801af3ac1f2f4706e1a5b03c4d02d73cf535b971b2fa8e4264",
+      "deterministicQualificationHash": "c483dfc146e42ba0b5e1f310a977125e243dbc3a8aceafafff1be41eaf19cd1f"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "7901690",
+      "canonicalRouteSourceId": "7901690",
+      "sourceUrl": "https://www.openstreetmap.org/relation/7901690",
+      "stagingIdempotencyKey": "openstreetmap:relation:7901690:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "900b889c21b7f74412cdd306f62144af1bb4434cb86520d6b8d591dba8a7be92",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "HUMAN_QA_NEEDS_REVIEW",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "412877074",
+          "mountainId": 69784,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "NEEDS_REVIEW",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "d54b72f9e65b6440d33959d7fbe913a5146306e8fc59516fe72141b61571298d",
+      "deterministicQualificationHash": "08c6f1125a19271ed34b80d5f25c2c9e7277a6a7a30f3f2b98c23372a1630d3a"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "7901912",
+      "canonicalRouteSourceId": "7901912",
+      "sourceUrl": "https://www.openstreetmap.org/relation/7901912",
+      "stagingIdempotencyKey": "openstreetmap:relation:7901912:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "f4a02c21a58c501101fe61d62b526ed938071a1c67e533e8f7be68e3502d00f7",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "HUMAN_QA_NEEDS_REVIEW",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "412877074",
+          "mountainId": 69784,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "NEEDS_REVIEW",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "c68462be3ad594bfb74fd2bfc79130fe826914e843b2d66816bb34fd35961402",
+      "deterministicQualificationHash": "74ac98acfb590a735a78792f9144567ba039f7c2ad6d5b5f8050c3f7fa89f572"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "7963993",
+      "canonicalRouteSourceId": "7963993",
+      "sourceUrl": "https://www.openstreetmap.org/relation/7963993",
+      "stagingIdempotencyKey": "openstreetmap:relation:7963993:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "af2cc9466091a2525393a69b52404838896a154e928a206a8be6dde5d201d3c6",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "HUMAN_QA_NEEDS_REVIEW",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "7647477089",
+          "mountainId": 91638,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": "NEEDS_REVIEW",
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "24386bbe48942e3be8ceebbb8d2cfb9acf24a8f944e6dcdcd141750e236877b6",
+      "deterministicQualificationHash": "3ccf0afa473faae56f0456839407afbe8afd573b24be1aa343b25068c147b2d6"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "8014302",
+      "canonicalRouteSourceId": "8014302",
+      "sourceUrl": "https://www.openstreetmap.org/relation/8014302",
+      "stagingIdempotencyKey": "openstreetmap:relation:8014302:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "351d8cf65e438037a09de06792b5964bf08389da44b84ddac343001127a92643",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "848785471",
+          "mountainId": 209592,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "9ef86714abe1a7f69aa8bcefbd096539ea14cde3352a36156474c0123eccce33",
+      "deterministicQualificationHash": "a9e061d4f512390c3f4efb02d370ff17c9145612e7b27850d28377f76d7a5242"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "8449404",
+      "canonicalRouteSourceId": "8449404",
+      "sourceUrl": "https://www.openstreetmap.org/relation/8449404",
+      "stagingIdempotencyKey": "openstreetmap:relation:8449404:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "74d8db0b6498f08f7986f4b33a1602b97b711f19b230abf4c1b7bbb4f1ac4cf8",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 95,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2466988785",
+          "mountainId": 18740,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "edb767681ff1ea5fb38f1ae9b1373586765d177c5af5a5233e8731ac0b4ec4f0",
+      "deterministicQualificationHash": "54801dbdbd8be32f22704a925cf846fc89b4c4fa4d61495569ce6041034e3e38"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "9854804",
+      "canonicalRouteSourceId": "9854804",
+      "sourceUrl": "https://www.openstreetmap.org/relation/9854804",
+      "stagingIdempotencyKey": "openstreetmap:relation:9854804:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "875905184e7da96816cf6cedcc0a0529e64ae3e9c73712572ad3a1625131b721",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "288112733",
+          "mountainId": 12480,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "e1dde0fc284733f5894994e782fb7daade4fa1fcb890e36c44c369c2295fbea1",
+      "deterministicQualificationHash": "2d35c5612aa4338566837693b612f53451a3097c196f976e30de10d0fc9486de"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "9854805",
+      "canonicalRouteSourceId": "9854805",
+      "sourceUrl": "https://www.openstreetmap.org/relation/9854805",
+      "stagingIdempotencyKey": "openstreetmap:relation:9854805:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "263d062adf2b45fd2c73e775eeb4f9abb0c56c5e8ba54efc63fbaea43893a119",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "370248454",
+          "mountainId": 13466,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "0163fbdb58c565040f1c624ef1550aaf2a6fdeedc194da8e37fee3891d7f927c",
+      "deterministicQualificationHash": "3304a8a8d0a892d0136147b22e3b6048509f8ab651e88457602d52f7486695f1"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "9974572",
+      "canonicalRouteSourceId": "9974572",
+      "sourceUrl": "https://www.openstreetmap.org/relation/9974572",
+      "stagingIdempotencyKey": "openstreetmap:relation:9974572:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "6723027c47cece103400e48507829bc2bb326a5c57ae6ce7ad36221229568528",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "255973617",
+          "mountainId": 12027,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "92e00443102f69e783bda482240c13c96ac3d08e403d59d969d9c3dfc1e11e8a",
+      "deterministicQualificationHash": "e354ca2eb0b88c5aab9847da9b07bc972d210111f511e829526aba201ee630d1"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "11366792",
+      "canonicalRouteSourceId": "11366792",
+      "sourceUrl": "https://www.openstreetmap.org/relation/11366792",
+      "stagingIdempotencyKey": "openstreetmap:relation:11366792:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "781b73fc774d7bdd48046c84bec75f7316a6a006836af3204cfd3974a1d9ec0d",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2268591921",
+          "mountainId": 18181,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "d4224360790086c5fd3026bf5ccb15b1ebe419266e8bac7eaefca125ed29e85f",
+      "deterministicQualificationHash": "3965f22367d8277c02f3b8fbe9c5e28f113b8d33b4a71a7186120d6b56e4f900"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "12400853",
+      "canonicalRouteSourceId": "12400853",
+      "sourceUrl": "https://www.openstreetmap.org/relation/12400853",
+      "stagingIdempotencyKey": "openstreetmap:relation:12400853:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "dc06bb910833ad1620255378f60940cff6cf38a4285e009d3dbb95554b274147",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2409093301",
+          "mountainId": 18535,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "23359c525b230dc30820c7bb1215cdabdf8644511958b9a5d68a0e6f20038091",
+      "deterministicQualificationHash": "e7ca6fbf2abe1e5f773bc8e0aa484ea0937190eb6bb2e47521dcdb0337031d90"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "13938964",
+      "canonicalRouteSourceId": "13938964",
+      "sourceUrl": "https://www.openstreetmap.org/relation/13938964",
+      "stagingIdempotencyKey": "openstreetmap:relation:13938964:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "babe5ed1d77677d7d07da4d5807b22f665cf33a78d5ed8a39c1b52a1f06e5b07",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1372958476",
+          "mountainId": 74730,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "406b9e2b0d493284c5a49316d6c818032b38e7ceed8781d71741fe8072d55830",
+      "deterministicQualificationHash": "677ff0fbb26ede1db6638e0d66928d8c1525fe5c28df6f2a11b85fc1c586e5c8"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "14214875",
+      "canonicalRouteSourceId": "14214875",
+      "sourceUrl": "https://www.openstreetmap.org/relation/14214875",
+      "stagingIdempotencyKey": "openstreetmap:relation:14214875:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "7dd16590c938ab334b553452538fe1c799e7341b18c33f909664c563baad73e5",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 90,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "474849673",
+          "mountainId": 70732,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "e5b205094d7efd717e3e69c9a7a4a7285ead27d7d291bfdc0f27b0d782c457ea",
+      "deterministicQualificationHash": "28e9319c58148a5928c3e7c6872734c92a9e7bbd16b93cbe3359fff8e5c63453"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "14445454",
+      "canonicalRouteSourceId": "14445454",
+      "sourceUrl": "https://www.openstreetmap.org/relation/14445454",
+      "stagingIdempotencyKey": "openstreetmap:relation:14445454:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "0281e86d5a6673aedb9f793eae26386e54d06aa1032c99903d29354d57b0fa58",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 90,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "293247920",
+          "mountainId": 150,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "f78ecd04dbe9107b24bb241f0604b535473575195bebad8e01e4d527287d040e",
+      "deterministicQualificationHash": "6a2c77a58aa2bfe682779cc2293452f7f5b1231cb44960c0c414353ad0873b39"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "14585514",
+      "canonicalRouteSourceId": "14585514",
+      "sourceUrl": "https://www.openstreetmap.org/relation/14585514",
+      "stagingIdempotencyKey": "openstreetmap:relation:14585514:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "4f14f6f5ac688ba7e42f051faf6351a35781654493d64f06fa234c0db3a7ab52",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "NON_SIMPLE_TOPOLOGY",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1140515018",
+          "mountainId": 209779,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "420570dc8d3a6079a69e437d75982bc7e9420fa34a1ec3c0f67a3cbb2ea907f1",
+      "deterministicQualificationHash": "af8bdfd19db0ccfbd7f3aa09cf60a22773846b9c7449cfe592126bd24e1c8cad"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "14761204",
+      "canonicalRouteSourceId": "14761204",
+      "sourceUrl": "https://www.openstreetmap.org/relation/14761204",
+      "stagingIdempotencyKey": "openstreetmap:relation:14761204:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "2b06ade3f31149dad68b025aebc787013d745b8f16323af4c7c088efa9cbe1c4",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 86,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "524403658",
+          "mountainId": 14527,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "4165d522a5a951a928306e9c0e3d3598e5088183b870b0a52f4645755591ebc9",
+      "deterministicQualificationHash": "37da11b938b0c7189e7c5289c4700b3296daa5c5129cb855935d18a777479b4e"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "15714054",
+      "canonicalRouteSourceId": "15714054",
+      "sourceUrl": "https://www.openstreetmap.org/relation/15714054",
+      "stagingIdempotencyKey": "openstreetmap:relation:15714054:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "8a27a1626ae9ff60e83650715332d618364b09553e9428f1fafb048100eaee06",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "474855258",
+          "mountainId": 13952,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "77e11e696d19768179eb9116a99fcba8f8418427fe27dd3fe6633bb8f79afacd",
+      "deterministicQualificationHash": "a9ec543ec43b2a885b3312b7601552a5cc75e3400b87a3536f7151b350124090"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "15730072",
+      "canonicalRouteSourceId": "15730072",
+      "sourceUrl": "https://www.openstreetmap.org/relation/15730072",
+      "stagingIdempotencyKey": "openstreetmap:relation:15730072:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "617c3a28e12dd3ed78095701439609712a45df019493ee3bcec6d5f0cff3d42b",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "421008446",
+          "mountainId": 13709,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "93f271c3c99affb9210c48724e5b15598b783efcecf10532f1450bf8617324a9",
+      "deterministicQualificationHash": "abf0dd3ea0d2a7db3a3d4d246c6744e088a3d38218c09be7b5032384b611444a"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "15794211",
+      "canonicalRouteSourceId": "15794211",
+      "sourceUrl": "https://www.openstreetmap.org/relation/15794211",
+      "stagingIdempotencyKey": "openstreetmap:relation:15794211:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "b934ea83a2dbd569cebebd72963fac029b30f96f3454d7acc3c7c971e4726e3a",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2959800071",
+          "mountainId": 20706,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "208c111e72033e65d1049261ce757c23a2bb41fa838857c24fba4805fb8284b7",
+      "deterministicQualificationHash": "e104bf215cdcea215359f8d1a89eaea576277bc9fe9e7f0debd671863a2f01a0"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "16123256",
+      "canonicalRouteSourceId": "16123256",
+      "sourceUrl": "https://www.openstreetmap.org/relation/16123256",
+      "stagingIdempotencyKey": "openstreetmap:relation:16123256:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "64f0447e29bc38c40b51587e2dbcd2013afe2f42f0c867d297c893943e8fe58f",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "474860432",
+          "mountainId": 13964,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "efd1771dbcd075c546327afe5a430046c361f99a32c0f93d7230a4f0803394b9",
+      "deterministicQualificationHash": "cdcfa4e978c3a98b61f2868850af8d404d25c2fece6c432b57e192dfe2665141"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "16277129",
+      "canonicalRouteSourceId": "16277129",
+      "sourceUrl": "https://www.openstreetmap.org/relation/16277129",
+      "stagingIdempotencyKey": "openstreetmap:relation:16277129:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "5cb243482db772e6881ff8022f94d13cda5647b8188a1dc2241fee292dbef436",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1330277041",
+          "mountainId": 16258,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "5823328736ca9af37eef21b629eaf40430a9dbe261b66c019823665d926bb1f5",
+      "deterministicQualificationHash": "5bc1d24ac54bf2e8877e8b2afe4d83c86ab3e95e12985e1c96036fee3eca8a1c"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "16322756",
+      "canonicalRouteSourceId": "16322756",
+      "sourceUrl": "https://www.openstreetmap.org/relation/16322756",
+      "stagingIdempotencyKey": "openstreetmap:relation:16322756:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "7aded87d1206cf07cb0d39f646a3830abfa41a8e858045ea4ba35edb3d61a4b2",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1330277036",
+          "mountainId": 16257,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "8bfa378b5c431e5f65d6e047555669ec9d83545aa3dc3e35d27d201d695e9028",
+      "deterministicQualificationHash": "1a13d57d09e8c5e4d11fcdec381ebccdde05929dc6fa0aae6e38ed6511fe0744"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "16465224",
+      "canonicalRouteSourceId": "16465224",
+      "sourceUrl": "https://www.openstreetmap.org/relation/16465224",
+      "stagingIdempotencyKey": "openstreetmap:relation:16465224:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "44a310246718c305931b231e20cf22601f7982bff9df98b2e796eaf87468d036",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2518368888",
+          "mountainId": 80799,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "ac9cfabde2fe924e91da01bcd9b98cb245b99a0676e3afd4e573869104b285f9",
+      "deterministicQualificationHash": "18be48f532b5722457771b87ada3a06e22c8d01ba051e6733b978932dd336f61"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "16468845",
+      "canonicalRouteSourceId": "16468845",
+      "sourceUrl": "https://www.openstreetmap.org/relation/16468845",
+      "stagingIdempotencyKey": "openstreetmap:relation:16468845:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "120b3b1a59fe81869919afa1f27416a6d48ee4f048aa89bbe54acc891512e19b",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2518368888",
+          "mountainId": 80799,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "688ad874433bbd88514e42d931716b21306df29f2227e85ffcb31ef339bcc5c8",
+      "deterministicQualificationHash": "bbb48453269cdee203a060b9c0cc1eb6945b05311eb7c1e4e19f66eddd2b5c7e"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "16843983",
+      "canonicalRouteSourceId": "16843983",
+      "sourceUrl": "https://www.openstreetmap.org/relation/16843983",
+      "stagingIdempotencyKey": "openstreetmap:relation:16843983:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "f4f43cafa8dd70865433becc4cdf03915ee03e9dda00f5b1002be59131a2e463",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 85,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2581072684",
+          "mountainId": 82428,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "c9815aa7c0041d54956bd5546c20ef46d6898028d17e230b573a8e62fa04a86a",
+      "deterministicQualificationHash": "6d8fbb96e2ed432ef2cec3d322acb12b346e503c2b3fa6b19dc2a560ad2ab4e0"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "17415884",
+      "canonicalRouteSourceId": "17415884",
+      "sourceUrl": "https://www.openstreetmap.org/relation/17415884",
+      "stagingIdempotencyKey": "openstreetmap:relation:17415884:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "bd36dfc3eec7b90794f2fda8d3b1b42cea88ac1ef3b839def696bec73df1ca11",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1609024487",
+          "mountainId": 75544,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "55a1d8045866499aae0f1f085a1ef3b91340f1d303234b3a67bb076c3e273fed",
+      "deterministicQualificationHash": "6b28f8b5dab6975231412016527040a3ade42f3e2542e069f4ce96ed32e0e5ea"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "17646720",
+      "canonicalRouteSourceId": "17646720",
+      "sourceUrl": "https://www.openstreetmap.org/relation/17646720",
+      "stagingIdempotencyKey": "openstreetmap:relation:17646720:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "4520a26531350e62968b6a5a71bfa7c87175b2b704d8521adf74e999826320d0",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 82,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "313974459",
+          "mountainId": 69512,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "bf1161c919e7a5ef7cbd3611a131cae8a949f351a2452408f28436486a4ed1f0",
+      "deterministicQualificationHash": "4bfef79b6ffbe6e7dd06a7815c1d77d75f922edd9c45db5311606073373a8139"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "17933474",
+      "canonicalRouteSourceId": "17933474",
+      "sourceUrl": "https://www.openstreetmap.org/relation/17933474",
+      "stagingIdempotencyKey": "openstreetmap:relation:17933474:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "fd050acbb13de49566602befb0457d1208e003ba14baf49c5499d61f3e978f02",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 85,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1685910314",
+          "mountainId": 75854,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "05215a9140614fb4bfc9bd5ae7f2807ba281d3cbebb7e472e768383dd617674e",
+      "deterministicQualificationHash": "cf7d7c043345cfd6e32b93d22548bf33426e557f45dbf5caf62cd0c9f038f4d7"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "18660554",
+      "canonicalRouteSourceId": "18660554",
+      "sourceUrl": "https://www.openstreetmap.org/relation/18660554",
+      "stagingIdempotencyKey": "openstreetmap:relation:18660554:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "8c5f3e7872ad2779e83b475acd5a5348d4e87e5bb2e393f7f8e0f91b988118a0",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "651950128",
+          "mountainId": 14896,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "604732a902c01e24f401779addbd5ed1925a3811f94269e47882664fdb85dbed",
+      "deterministicQualificationHash": "6ee7c56b9614b11ddb62ee6dea0d1e584a0768b18ba581334f15b6d332469628"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "18765265",
+      "canonicalRouteSourceId": "18765265",
+      "sourceUrl": "https://www.openstreetmap.org/relation/18765265",
+      "stagingIdempotencyKey": "openstreetmap:relation:18765265:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "7521449648778c32e83d0ca50c3b92ad6d45db12b3555b3b3df7d89720cabb38",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1738384616",
+          "mountainId": 47947,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "f01de8aa8e208243731421c6ba5dab5f03953d56fc307975b96473c346f91392",
+      "deterministicQualificationHash": "ce666bf04d5ac462ad8770a439c87c95a00419372d7228b6f069ad9e81d916a0"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "18766161",
+      "canonicalRouteSourceId": "18766161",
+      "sourceUrl": "https://www.openstreetmap.org/relation/18766161",
+      "stagingIdempotencyKey": "openstreetmap:relation:18766161:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "3a476039c42df9564d971e8d804b4b61306e14a2c669e37a7c73092ce171145d",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "3372237443",
+          "mountainId": 49524,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "7d5a8eb6e5fa4f11a5cc74c3b6b2d146feae7cd43089779cb735db392cde417a",
+      "deterministicQualificationHash": "534fa2a4fb17061c8b3e8e96640dcfe4230cb77c7c0c976dbcf3843767bdbf8c"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "18860362",
+      "canonicalRouteSourceId": "18860362",
+      "sourceUrl": "https://www.openstreetmap.org/relation/18860362",
+      "stagingIdempotencyKey": "openstreetmap:relation:18860362:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "e9da73f78b603867dc436d2e974c7fed748be7ec8f95d6c4611c167597bc5111",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1786340459",
+          "mountainId": 17493,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "0da70ccbf8ed8e3f0e11efb1a2dc0946a67e835fb8a20561b5d8df9b0689e7bf",
+      "deterministicQualificationHash": "c891d3aff4057f56cbf44a2bf4a608dc24d63fdd71613ad83baf42f317a807b9"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "19172111",
+      "canonicalRouteSourceId": "19172111",
+      "sourceUrl": "https://www.openstreetmap.org/relation/19172111",
+      "stagingIdempotencyKey": "openstreetmap:relation:19172111:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "39caa4c1dc95af8393445546714707da8909c1ad7ae1fd34c92d350553780365",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "884213235",
+          "mountainId": 46683,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "a710c0071eb672996027f743b36647cf39b5af4ec11997275b5fc9cec510cffd",
+      "deterministicQualificationHash": "0b18660af11369fbc14775cdd8bdfee76dabec29d277c905a9a32f700c84348c"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "19520337",
+      "canonicalRouteSourceId": "19520337",
+      "sourceUrl": "https://www.openstreetmap.org/relation/19520337",
+      "stagingIdempotencyKey": "openstreetmap:relation:19520337:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "b440e4260e8bd2f97ea6728876f3059b8ad587e255db0e58916cced4fd5e3acf",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 82,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "461698872",
+          "mountainId": 46057,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "2819d3efd9892bbae23d51d5c0b1cb0300410093be529143d3019efcf826a809",
+      "deterministicQualificationHash": "704ce71381d115ba7f5723111d8ddfbfdbe7ac242a5084499ab1f650abb4996c"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "19637827",
+      "canonicalRouteSourceId": "19637827",
+      "sourceUrl": "https://www.openstreetmap.org/relation/19637827",
+      "stagingIdempotencyKey": "openstreetmap:relation:19637827:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "4087e15bdcf8b6851e52ec991994ac23fe65bf43a40d00fd1d6853cbee85b6f9",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "460379074",
+          "mountainId": 209096,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "f9dabfdd70b341f99d8ed0931aae30f7b58a2a46b450ac764ae1405250db9eb0",
+      "deterministicQualificationHash": "ab56fb693c1b8d4e61a7b894f1b727ed56d1c6f9893db483d52fc45db92d1ea6"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "19810516",
+      "canonicalRouteSourceId": "19810516",
+      "sourceUrl": "https://www.openstreetmap.org/relation/19810516",
+      "stagingIdempotencyKey": "openstreetmap:relation:19810516:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "5b97bbc9786f8c68ca39e973ac78dda8d21f34f187e4099d12f2c29ec5c9ba16",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 100,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2907850048",
+          "mountainId": 20489,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "637df07f5ab41640a71e6ec5d845c76a9bf35c137372c5a2fb55290b9cd8ba64",
+      "deterministicQualificationHash": "f4b343ae346f880d389dd33c65bb0a417dc9d36dfa2edd9b7930b04885e54845"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "19901843",
+      "canonicalRouteSourceId": "19901843",
+      "sourceUrl": "https://www.openstreetmap.org/relation/19901843",
+      "stagingIdempotencyKey": "openstreetmap:relation:19901843:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "e4c677b59d0cfffa7e79f9330c08415fd910f528e78323a746510805e1e934ad",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "12770375525",
+          "mountainId": 57961,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "3cd45ae462522e183267b6b5389d987cc798470b82dac43fbe194bfc2c8778a5",
+      "deterministicQualificationHash": "d11cf0227e848e0418dea8c9c1cc027e8d7dcffb281970f54cbb456a81d07e89"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "19902106",
+      "canonicalRouteSourceId": "19902106",
+      "sourceUrl": "https://www.openstreetmap.org/relation/19902106",
+      "stagingIdempotencyKey": "openstreetmap:relation:19902106:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "7003c714474677e631c62a5148bc8c08db4ef6b56ac284ce93b78c4835fc96e6",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "2510809383",
+          "mountainId": 80567,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "a1668f67283c967285f7303400539a1f4250e68f67177ee55ac4fb92562e15de",
+      "deterministicQualificationHash": "4e1e31591414c956039f3a882c9def01771a8f84388ae6371f49e9c8678662ed"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "20739968",
+      "canonicalRouteSourceId": "20739968",
+      "sourceUrl": "https://www.openstreetmap.org/relation/20739968",
+      "stagingIdempotencyKey": "openstreetmap:relation:20739968:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "4df0c11571fa211ced11d0cccfebcd055f9fedf08a01d3e5e9c30a36bcbe907d",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 85,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "3126794705",
+          "mountainId": 49347,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "8bf792e8de2f26ef30260bfc7368333bf09eabcf6e4f2ff65f98d28a662622fb",
+      "deterministicQualificationHash": "1f36de77771698e39fd3fdb14dddd2c9aee3d8e50f2b4c964c54cc184e4a424b"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "21047735",
+      "canonicalRouteSourceId": "21047735",
+      "sourceUrl": "https://www.openstreetmap.org/relation/21047735",
+      "stagingIdempotencyKey": "openstreetmap:relation:21047735:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "fa63f6d18a996735021489a0e337f4677ba03089347be3d4372b0e65cf8c4d3b",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "474860432",
+          "mountainId": 13964,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "c3f662822193ad3d825077b54a1f16e00d166197595a65534a5c97173110aa02",
+      "deterministicQualificationHash": "824784333348940f6c08944150a69309220e1cec8d4aa3d86e82752c22c1f189"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "21175267",
+      "canonicalRouteSourceId": "21175267",
+      "sourceUrl": "https://www.openstreetmap.org/relation/21175267",
+      "stagingIdempotencyKey": "openstreetmap:relation:21175267:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "7827c185fa912ab10cc85cddb2f408e2de99b1aa1505748253b044eb6ed054ca",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "QUALITY_BELOW_GREEN_THRESHOLD",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 87,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "1863241933",
+          "mountainId": 48150,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": false,
+      "recoveryReasonCodes": [],
+      "basePhase11dQualificationHash": "5820d83674a02b4326adbaaaf5c72ab1bd7cce2fdbfcf0984b16c48c0dc61d88",
+      "deterministicQualificationHash": "6c4a35d926f9825fa7c13e5c81eefc3121d35be20104084793069819eac7fed9"
+    },
+    {
+      "qualificationContractVersion": "mountain-tracker-osm-candidate-recovery/v1",
+      "sourceRelationId": "21177606",
+      "canonicalRouteSourceId": "21177606",
+      "sourceUrl": "https://www.openstreetmap.org/relation/21177606",
+      "stagingIdempotencyKey": "openstreetmap:relation:21177606:mountain-tracker-osm-route/v1",
+      "stagingPayloadHash": "282876beb89733124be2fea667d4d83bbd10c4e235d35b06a00d42e56cae3357",
+      "status": "YELLOW",
+      "reasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY",
+        "WARNING_EVIDENCE_PRESENT",
+        "SUPPORTED_HIKING_ACTIVITY",
+        "GEOMETRY_VALID",
+        "SINGLE_CONFIRMED_SUMMIT",
+        "EXACT_MOUNTAIN_IDENTITY",
+        "SIMPLE_TOPOLOGY",
+        "ROAD_SAFETY_SAFE"
+      ],
+      "qualityScore": 99,
+      "routeType": "hiking",
+      "topologyClassification": "SIMPLE",
+      "connectedGroupCount": 1,
+      "physicalEndpointCount": 2,
+      "endpointSelectionAmbiguous": false,
+      "roadSafetyStatus": "SAFE",
+      "roadSafetyReasonCodes": [],
+      "summitIdentities": [
+        {
+          "peakOsmId": "474844098",
+          "mountainId": 70729,
+          "finalAssociation": "CONFIRMED",
+          "mountainMatchClassification": "EXACT_MOUNTAIN_MATCH"
+        }
+      ],
+      "humanQaStatus": null,
+      "autoApprovalEnabled": false,
+      "qaWrites": 0,
+      "recoveredByPhase11e": true,
+      "recoveryReasonCodes": [
+        "TOPOLOGY_RECOVERED_PRIMARY_PATH",
+        "QUALITY_RECALCULATED_FROM_RECOVERED_GEOMETRY"
+      ],
+      "basePhase11dQualificationHash": "75697d02afc01d51e39a1da3ec334f394b8e15ab25db74f3c0c1479c2bbe2f27",
+      "deterministicQualificationHash": "bcc557a7b4482c6b49a6fd35e55d959f607ac0c4e2bf85bee6a0c50fba914ee4"
+    }
+  ],
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "69c82111d4fd49ede9d19491da85719f22275e5e59a0a207d447641a6c6afbd7"
+}

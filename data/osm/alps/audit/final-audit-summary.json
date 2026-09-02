@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "sourcePhase": 6,
+  "sourceGeneratedAt": "2026-08-25T01:54:50.930Z",
+  "sourceMode": "confirmed-full",
+  "provenance": {
+    "id": "openstreetmap-odbl-geofabrik-alps",
+    "source": "openstreetmap",
+    "extractProvider": "Geofabrik GmbH",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "sourcePage": "https://download.geofabrik.de/europe/alps.html"
+  },
+  "sourceDataset": {
+    "hikingRelationsAnalyzed": 72541,
+    "reconstructedRoutes": 71840,
+    "rejectedRoutes": 701,
+    "peaks": 58436
+  },
+  "confirmedRoutes": {
+    "totalConfirmedAssociations": 2885,
+    "uniqueRoutesWithConfirmedSummit": 2780,
+    "routesWithExactlyOneConfirmedSummit": 2690,
+    "routesWithMultipleConfirmedSummits": 90,
+    "maximumConfirmedSummitsOnOneRoute": 5,
+    "averageConfirmedSummitsPerConfirmedRoute": 1.04
+  },
+  "peakCoverage": {
+    "uniqueConfirmedPeaks": 2094,
+    "percentageOfAllPeaksCovered": 3.5834,
+    "exactly1ConfirmedRoute": 1506,
+    "from2To5ConfirmedRoutes": 584,
+    "from6To10ConfirmedRoutes": 4,
+    "moreThan10ConfirmedRoutes": 0,
+    "maximumConfirmedRoutesForOnePeak": 7,
+    "averageRoutesPerCoveredPeak": 1.38
+  },
+  "deduplication": {
+    "exactDuplicatePairs": 269,
+    "nearDuplicatePairs": 74,
+    "duplicateGroups": 308,
+    "routesContainedInDuplicateGroups": 633,
+    "canonicalRoutesSelected": 308,
+    "confirmedRoutesRemovedOnlyAsDuplicateRepresentations": 8,
+    "uniqueCanonicalConfirmedRoutesRemaining": 2772
+  },
+  "qualityAudit": {
+    "buckets": {
+      "90-100": 718,
+      "80-89": 504,
+      "70-79": 534,
+      "60-69": 388,
+      "50-59": 251,
+      "<50": 385
+    },
+    "statistics": {
+      "count": 2780,
+      "missing": 0,
+      "minimum": 0,
+      "maximum": 100,
+      "average": 73.56,
+      "median": 76,
+      "p10": 44,
+      "p25": 62,
+      "p75": 90,
+      "p90": 100
+    },
+    "flagCounts": {
+      "LOW_QUALITY": 385,
+      "HIGH_FRAGMENTATION": 241,
+      "MISSING_NAME": 1283,
+      "UNKNOWN_SEMANTIC": 0,
+      "SUSPICIOUS_SHORT": 25,
+      "SUSPICIOUS_LONG": 0,
+      "MULTIPLE_SUMMITS": 90
+    }
+  },
+  "confirmedAssociationAudit": {
+    "total": 2885,
+    "geometryDistanceBuckets": {
+      "0-5": 2496,
+      ">5-15": 389,
+      ">15-30": 0,
+      ">30": 0
+    },
+    "endpointDistanceBuckets": {
+      "0-10": 2885,
+      ">10-30": 0,
+      ">30-60": 0,
+      ">60": 0
+    },
+    "confidenceBuckets": {
+      "1.00": 2885,
+      "0.95-0.999": 0,
+      "0.90-0.949": 0,
+      "<0.90": 0
+    },
+    "geometryDistanceStatistics": {
+      "count": 2885,
+      "missing": 0,
+      "minimum": 0,
+      "maximum": 10,
+      "average": 2.03,
+      "median": 1.2,
+      "p10": 0,
+      "p25": 0,
+      "p75": 3.2,
+      "p90": 5.8
+    },
+    "endpointDistanceStatistics": {
+      "count": 2885,
+      "missing": 0,
+      "minimum": 0,
+      "maximum": 10,
+      "average": 2.5,
+      "median": 1.6,
+      "p10": 0,
+      "p25": 0,
+      "p75": 4.2,
+      "p90": 6.86
+    },
+    "confidenceStatistics": {
+      "count": 2885,
+      "missing": 0,
+      "minimum": 1,
+      "maximum": 1,
+      "average": 1,
+      "median": 1,
+      "p10": 1,
+      "p25": 1,
+      "p75": 1,
+      "p90": 1
+    },
+    "peakElevationStatistics": {
+      "count": 2855,
+      "missing": 30,
+      "minimum": 131,
+      "maximum": 3905,
+      "average": 2027.32,
+      "median": 2081,
+      "p10": 1117.6,
+      "p25": 1582,
+      "p75": 2486,
+      "p90": 2869
+    },
+    "routeQualityStatistics": {
+      "count": 2885,
+      "missing": 0,
+      "minimum": 0,
+      "maximum": 100,
+      "average": 72.88,
+      "median": 76,
+      "p10": 43,
+      "p25": 60,
+      "p75": 90,
+      "p90": 100
+    }
+  },
+  "reviewAnalysis": {
+    "totalReviewAssociations": 25387,
+    "uniqueRoutesWithReview": 12038,
+    "uniquePeaksInReview": 13758,
+    "highConfidenceAllCriteriaOpportunities": 45
+  },
+  "countryRegionCoverage": {
+    "status": "UNAVAILABLE_FROM_CURRENT_ARTIFACTS",
+    "method": "Only explicit OSM addr:country, is_in:country_code, or country_code tags are accepted; names and coordinates are not guessed or reverse-geocoded.",
+    "explicitCountryAssignedCoveredPeaks": 0,
+    "unassignedCoveredPeaks": 2094,
+    "countries": {
+      "DE": {
+        "country": "Germany",
+        "coveredPeaks": 0
+      },
+      "AT": {
+        "country": "Austria",
+        "coveredPeaks": 0
+      },
+      "CH": {
+        "country": "Switzerland",
+        "coveredPeaks": 0
+      },
+      "IT": {
+        "country": "Italy",
+        "coveredPeaks": 0
+      },
+      "FR": {
+        "country": "France",
+        "coveredPeaks": 0
+      },
+      "SI": {
+        "country": "Slovenia",
+        "coveredPeaks": 0
+      },
+      "LI": {
+        "country": "Liechtenstein",
+        "coveredPeaks": 0
+      }
+    },
+    "limitation": "The Phase 6 artifacts contain no administrative-boundary join, so comprehensive country/region coverage requires a future offline boundary dataset."
+  },
+  "importEligibility": {
+    "AUTO_IMPORT_READY": 1065,
+    "MANUAL_REVIEW_REQUIRED": 1707,
+    "EXCLUDE": 0,
+    "uniquePeaksCoveredByAutoImportReadyRoutes": 840,
+    "rules": {
+      "automaticImportMinimumQuality": 70,
+      "lowQualityThreshold": 50,
+      "highFragmentationComponentCount": 10,
+      "suspiciousShortDistanceMeters": 100,
+      "suspiciousLongDistanceMeters": 500000,
+      "reviewOpportunityLimit": 100,
+      "manualSamplePerCategory": 25,
+      "rankingLimit": 100
+    }
+  },
+  "integrity": {
+    "criticalFailureCount": 0,
+    "totalFailureCount": 0,
+    "status": "PASS",
+    "failures": []
+  },
+  "remainingDataQualityRisks": [
+    "REVIEW associations remain unpublished and require matcher research or manual validation.",
+    "Country/region coverage is incomplete without an offline administrative-boundary join.",
+    "Canonical merging preserves source association provenance, but Phase 8 must define the durable import schema and review workflow.",
+    "Low-quality, fragmented, unnamed, unusually short/long, multiple-summit, and unknown-semantic routes require manual inspection."
+  ],
+  "recommendedPhase8": [
+    "Manually validate the deterministic confirmed and high-confidence REVIEW samples.",
+    "Define a reviewed staging schema and idempotent dry-run importer for AUTO_IMPORT_READY canonical routes only.",
+    "Add an offline Alps administrative-boundary join before country-level reporting or rollout decisions.",
+    "Preserve OSM source IDs, ODbL attribution, canonical/source provenance, and merged summit associations during staging.",
+    "Do not publish REVIEW records automatically; establish an explicit adjudication workflow."
+  ],
+  "deterministicContentHash": "5f2d65ce0d975a5f8e9e0d9d68d7fecc64ed5208a667adf4b9cbf735a157d82b",
+  "performance": {
+    "inputLoadingMilliseconds": 9352.8,
+    "aggregationMilliseconds": 270.4,
+    "dedupCanonicalProcessingMilliseconds": 83.9,
+    "auditGenerationMilliseconds": 1400.4,
+    "outputWritingMilliseconds": 774.9,
+    "totalRuntimeMilliseconds": 11109.5,
+    "peakObservedRssMegabytes": 456.1,
+    "inputRows": {
+      "routes": 71840,
+      "peaks": 58436,
+      "analyses": 71840,
+      "duplicateGroups": 308
+    },
+    "expensivePhase6WorkRepeated": false
+  }
+}

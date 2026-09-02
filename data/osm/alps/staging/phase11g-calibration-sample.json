@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11G_CALIBRATION_SAMPLE",
+  "expansionContractVersion": "mountain-tracker-osm-candidate-expansion/v1",
+  "readOnly": true,
+  "purpose": "Deterministic human-review calibration sample for full-ascent GREEN candidates.",
+  "sampleSize": 20,
+  "sampleDeterministicSelection": "sorted by deterministicQualificationHash ascending",
+  "sample": [
+    {
+      "canonicalRouteSourceId": "14450146",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 83
+    },
+    {
+      "canonicalRouteSourceId": "19752996",
+      "routeName": "Mälachji - Wyssgrat",
+      "greenClass": "GREEN_NAMED",
+      "startContext": "BASE_START",
+      "qualityScore": 95
+    },
+    {
+      "canonicalRouteSourceId": "8479420",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 70
+    },
+    {
+      "canonicalRouteSourceId": "20732419",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "HUT_START",
+      "qualityScore": 76
+    },
+    {
+      "canonicalRouteSourceId": "19723934",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 80
+    },
+    {
+      "canonicalRouteSourceId": "7619608",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "HUT_START",
+      "qualityScore": 85
+    },
+    {
+      "canonicalRouteSourceId": "20336298",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 76
+    },
+    {
+      "canonicalRouteSourceId": "13217296",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "HUT_START",
+      "qualityScore": 71
+    },
+    {
+      "canonicalRouteSourceId": "3914732",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 87
+    },
+    {
+      "canonicalRouteSourceId": "3127359",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 83
+    },
+    {
+      "canonicalRouteSourceId": "15854068",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 81
+    },
+    {
+      "canonicalRouteSourceId": "3153237",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 87
+    },
+    {
+      "canonicalRouteSourceId": "6118857",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 87
+    },
+    {
+      "canonicalRouteSourceId": "2707130",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 87
+    },
+    {
+      "canonicalRouteSourceId": "14629092",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 81
+    },
+    {
+      "canonicalRouteSourceId": "15904161",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 81
+    },
+    {
+      "canonicalRouteSourceId": "5515251",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "HUT_START",
+      "qualityScore": 79
+    },
+    {
+      "canonicalRouteSourceId": "2173614",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 79
+    },
+    {
+      "canonicalRouteSourceId": "5573664",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 85
+    },
+    {
+      "canonicalRouteSourceId": "14510044",
+      "routeName": null,
+      "greenClass": "GREEN_MISSING_NAME",
+      "startContext": "BASE_START",
+      "qualityScore": 85
+    }
+  ],
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "ef07053cbc71a45cbe32b7cf6a5a799166f7a6cc26aaf20efaac9ff6d3eb0558"
+}

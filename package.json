@@ -16,6 +16,15 @@
     "test:weather": "node --experimental-strip-types scripts/validate-weather.mjs",
     "test:trackRecording": "node --experimental-strip-types scripts/validate-track-recording.mjs",
     "test:projects": "node --experimental-strip-types scripts/validate-projects.mjs && node --experimental-strip-types scripts/validate-journal-hardening.mjs && node --experimental-strip-types scripts/validate-gps-evidence-hardening.mjs && node --experimental-strip-types scripts/validate-project-detail-hardening.mjs && node --experimental-strip-types scripts/validate-project-query-scaling.mjs && node --experimental-strip-types scripts/validate-project-journal-pagination.mjs && node --experimental-strip-types scripts/validate-public-report-hardening.mjs",
+    "phase11f:prepare": "node --experimental-strip-types scripts/osm-import/generate-phase11f-controlled-staging.ts",
+    "phase11f:calibration": "node --experimental-strip-types scripts/osm-import/report-phase11f-green-calibration.ts",
+    "phase11h:prepare": "node --experimental-strip-types scripts/osm-import/generate-phase11h-artifacts.ts",
+    "phase11i:execute-dry-run": "node --experimental-strip-types scripts/osm-import/execute-phase11h-controlled-staging.ts",
+    "phase11i:reconcile-calibration": "node --experimental-strip-types scripts/osm-import/reconcile-phase11i-human-calibration.ts",
+    "test:phase11h": "node --experimental-strip-types --test scripts/osm-import/phase11h-naming.test.ts scripts/osm-import/phase11h-artifacts.test.ts scripts/osm-import/phase11i-b1.test.ts Lib/osmStagingPreview/phase11h-calibration.test.ts Lib/osmStagingPreview/phase11h-visual-qa.test.ts",
+    "test:phase11f": "node --experimental-strip-types --test scripts/osm-import/phase11f-controlled-staging.test.ts scripts/osm-import/phase11f-artifacts.test.ts scripts/osm-import/phase11f3-start-elevation.test.ts scripts/osm-import/phase11f3-artifacts.test.ts scripts/osm-import/ele-normalizer.test.ts Lib/osmStagingPreview/queue.test.ts Lib/osmStagingPreview/preview.test.ts Lib/osmStagingPreview/query-errors.test.ts Lib/supabase/chunked-in-query-core.test.ts",
+    "test:phase11i": "node --experimental-strip-types --test scripts/osm-import/phase11i-b2.test.ts scripts/osm-import/phase11i-human-calibration-result.test.ts",
+    "test:phase11closure": "node --experimental-strip-types --test scripts/osm-import/phase11-final-closure-report.test.ts",
     "test:release": "npm run test:release-preflight && npm run test:runtime && npm run test:release-hardening && npm run lint && npm run typecheck && npm run test:achievements && npm run test:social && npm run test:weather && npm run test:trackRecording && npm run test:projects && npm run build"
   },
   "dependencies": {
@@ -38,6 +47,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
+    "osm-pbf-parser-node": "1.1.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

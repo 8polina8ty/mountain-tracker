@@ -1,0 +1,867 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11C3_SCALE_READINESS",
+  "generatedAt": "2026-08-28T20:18:12.866Z",
+  "baselineSnapshot": {
+    "baselineActiveCount": 18,
+    "baselineV1Count": 6,
+    "baselineV2Count": 12,
+    "baselineRelationIds": [
+      "20916",
+      "33528",
+      "140270",
+      "196164",
+      "199145",
+      "207900",
+      "207913",
+      "361148",
+      "915266",
+      "961283",
+      "1165714",
+      "1796122",
+      "1877850",
+      "2050305",
+      "2135331",
+      "2202791",
+      "2210870",
+      "3973107"
+    ],
+    "baselinePublicationIdempotencyKeys": [
+      "openstreetmap:relation:1165714:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:140270:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:1796122:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:1877850:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:196164:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1",
+      "openstreetmap:relation:199145:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1",
+      "openstreetmap:relation:2050305:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:207900:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1",
+      "openstreetmap:relation:207913:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1",
+      "openstreetmap:relation:20916:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1",
+      "openstreetmap:relation:2135331:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:2202791:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:2210870:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:33528:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v1",
+      "openstreetmap:relation:361148:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:3973107:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:915266:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "openstreetmap:relation:961283:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2"
+    ],
+    "baselineHash": "d9949a94a8d3ee5308fba9f4febd1aa1c5dd0152e0b56b09665b678646f5269d"
+  },
+  "candidatePool": {
+    "totalStagingRoutes": 46,
+    "totalReviewedRoutes": 46,
+    "totalVisuallyApproved": 46,
+    "totalCandidates": 46,
+    "currentActive": 18,
+    "eligibleNonActive": 16,
+    "blockedCandidates": 30,
+    "warningCandidates": 10,
+    "manualReviewRequired": 0,
+    "topologyDistribution": {
+      "SIMPLE": 42,
+      "CONNECTED_TWO_ENDPOINTS": 2,
+      "BRANCHING": 1,
+      "DISCONNECTED": 1
+    },
+    "semanticTypeDistribution": {
+      "summit_route": 46
+    },
+    "routeTypeDistribution": {
+      "hiking": 43,
+      "via_ferrata": 3
+    },
+    "exactMountainMatchCount": 46,
+    "confirmedSummitCount": 46,
+    "duplicateSourceUrlConflicts": 0,
+    "existingPublicationConflicts": 18,
+    "additionalApprovalsNeededForTarget": 84,
+    "status": "INSUFFICIENT_ELIGIBLE_CANDIDATES"
+  },
+  "qaExpansionQueue": [
+    {
+      "sourceRelationId": "1877850",
+      "canonicalRouteSourceId": "1877850",
+      "stagingRouteId": "c3a75688-4ee8-4766-9d60-6889a70fbd3d",
+      "mountainId": 16169,
+      "routeName": "Meiselsteinalm-Gamskögerl",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2669,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "1138510",
+      "canonicalRouteSourceId": "1138510",
+      "stagingRouteId": "f6ecb285-9729-4233-b88b-12dfbeabb869",
+      "mountainId": 15021,
+      "routeName": "Kaiserschützensteig",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "via_ferrata",
+      "blockers": [
+        "ROUTE_TYPE_VIA_FERRATA"
+      ],
+      "warnings": [],
+      "priorityScore": 2648,
+      "reasonForBlock": "ROUTE_TYPE_VIA_FERRATA"
+    },
+    {
+      "sourceRelationId": "1864752",
+      "canonicalRouteSourceId": "1864752",
+      "stagingRouteId": "d6f0628c-8c1c-4fb9-be1b-cd082d538b5e",
+      "mountainId": 12101,
+      "routeName": "Wanderweg 816b - Wilder Kaiser",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "via_ferrata",
+      "blockers": [
+        "ROUTE_TYPE_VIA_FERRATA"
+      ],
+      "warnings": [],
+      "priorityScore": 2648,
+      "reasonForBlock": "ROUTE_TYPE_VIA_FERRATA"
+    },
+    {
+      "sourceRelationId": "33528",
+      "canonicalRouteSourceId": "33528",
+      "stagingRouteId": "575ddbcd-cb94-4b2a-bb97-bbb61bdbad28",
+      "mountainId": 83695,
+      "routeName": "10",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2646,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "140270",
+      "canonicalRouteSourceId": "140270",
+      "stagingRouteId": "e5127538-d51a-424e-bdc9-bba9d434d87a",
+      "mountainId": 77279,
+      "routeName": "Via Ferrata “Rosalba Grasselli”",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "via_ferrata",
+      "blockers": [
+        "ALREADY_ACTIVE",
+        "ROUTE_TYPE_VIA_FERRATA"
+      ],
+      "warnings": [],
+      "priorityScore": 2646,
+      "reasonForBlock": "ALREADY_ACTIVE; ROUTE_TYPE_VIA_FERRATA"
+    },
+    {
+      "sourceRelationId": "20916",
+      "canonicalRouteSourceId": "20916",
+      "stagingRouteId": "3f036da4-20f0-4c46-8def-fdb95b772f2f",
+      "mountainId": 12690,
+      "routeName": "Wanderweg 614",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2645,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "915266",
+      "canonicalRouteSourceId": "915266",
+      "stagingRouteId": "1577654f-e0ee-45bd-a2e3-392dff70c303",
+      "mountainId": 16207,
+      "routeName": "Güttlersteig",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2645,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "2202791",
+      "canonicalRouteSourceId": "2202791",
+      "stagingRouteId": "f8f59f3b-9139-4f04-9cfe-166aff588c65",
+      "mountainId": 11934,
+      "routeName": "Wanderweg 899",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2645,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "2210870",
+      "canonicalRouteSourceId": "2210870",
+      "stagingRouteId": "43e247f8-a1a1-4663-a784-221e6cd15be3",
+      "mountainId": 16448,
+      "routeName": "Schottwien - Eselstein",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2645,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "3973107",
+      "canonicalRouteSourceId": "3973107",
+      "stagingRouteId": "b66ce980-c699-4c5c-b617-64f559ad8af4",
+      "mountainId": 295736,
+      "routeName": "Malbun Bergbahnen - Bergle - Schoenberg",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2645,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "935393",
+      "canonicalRouteSourceId": "935393",
+      "stagingRouteId": "5fc9d77c-87e6-490e-965b-323056419e5d",
+      "mountainId": 15091,
+      "routeName": "Wanderweg 37",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "961283",
+      "canonicalRouteSourceId": "961283",
+      "stagingRouteId": "4e3c406d-eca0-4467-969b-48a55a2ebb41",
+      "mountainId": 15153,
+      "routeName": "Wanderweg 282",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "1165714",
+      "canonicalRouteSourceId": "1165714",
+      "stagingRouteId": "60d7b23e-34c7-4a8a-b779-1ee18e108f33",
+      "mountainId": 13894,
+      "routeName": "Wanderweg 437",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "1606996",
+      "canonicalRouteSourceId": "1606996",
+      "stagingRouteId": "4e37f279-af12-40ae-9a14-4ac0648e7571",
+      "mountainId": 11861,
+      "routeName": "Wanderweg 875",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1641211",
+      "canonicalRouteSourceId": "1641211",
+      "stagingRouteId": "4ca124b2-0f8a-41ea-b45d-c939baf058ac",
+      "mountainId": 16280,
+      "routeName": "Wanderweg 292",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1796122",
+      "canonicalRouteSourceId": "1796122",
+      "stagingRouteId": "fbb97385-ec7c-4cb4-bd67-e2cd6b1c9891",
+      "mountainId": 151688,
+      "routeName": "Zreče - Ančka - Golek",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "2050305",
+      "canonicalRouteSourceId": "2050305",
+      "stagingRouteId": "b885b1eb-30c3-4329-8b2e-8b63d5dfd81d",
+      "mountainId": 12638,
+      "routeName": "Wanderweg 969a",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "2135331",
+      "canonicalRouteSourceId": "2135331",
+      "stagingRouteId": "ff70a986-1eb6-4ca4-b4a8-51da2dc9ef96",
+      "mountainId": 208407,
+      "routeName": "Wanderweg Schwarzsee - Kaiseregg",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "2248159",
+      "canonicalRouteSourceId": "2248159",
+      "stagingRouteId": "5786d1e7-e42c-4c0c-986c-3a42130df1fc",
+      "mountainId": 17529,
+      "routeName": "Wanderweg 525",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2644,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "196164",
+      "canonicalRouteSourceId": "196164",
+      "stagingRouteId": "f35e1dd3-39c0-4217-be1f-dc635165a369",
+      "mountainId": 13132,
+      "routeName": "Wanderweg 534",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "199145",
+      "canonicalRouteSourceId": "199145",
+      "stagingRouteId": "eeec2dc4-0223-4330-b0c7-3f03401005bb",
+      "mountainId": 12684,
+      "routeName": "Wanderweg 610",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "207900",
+      "canonicalRouteSourceId": "207900",
+      "stagingRouteId": "8afa672a-206c-4750-beba-f66433172efc",
+      "mountainId": 11872,
+      "routeName": "Wanderweg 791",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "207913",
+      "canonicalRouteSourceId": "207913",
+      "stagingRouteId": "2014765a-15d1-4b12-8106-3e120d50677a",
+      "mountainId": 13929,
+      "routeName": "Wanderweg 926A",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "361148",
+      "canonicalRouteSourceId": "361148",
+      "stagingRouteId": "a30c7d57-dd20-4995-954e-339e7ba78a15",
+      "mountainId": 12787,
+      "routeName": "Wanderweg 10",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "ALREADY_ACTIVE"
+      ],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": "ALREADY_ACTIVE"
+    },
+    {
+      "sourceRelationId": "936047",
+      "canonicalRouteSourceId": "936047",
+      "stagingRouteId": "c0157b5b-b9cc-4fba-8c21-b4b03eb69949",
+      "mountainId": 12674,
+      "routeName": "Wanderweg 627",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1065987",
+      "canonicalRouteSourceId": "1065987",
+      "stagingRouteId": "c538a619-1d8a-445d-9869-62e0e49e8afe",
+      "mountainId": 15760,
+      "routeName": "Wanderweg 740",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1490290",
+      "canonicalRouteSourceId": "1490290",
+      "stagingRouteId": "4fa3e7c1-a684-4123-a3ed-ec59ddbe838a",
+      "mountainId": 16967,
+      "routeName": "Hainfeld (Kirche) - Hainfelder Hütte",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1555542",
+      "canonicalRouteSourceId": "1555542",
+      "stagingRouteId": "1c03dfa6-6a35-4df1-8f58-4c438184eb02",
+      "mountainId": 928,
+      "routeName": "Wanderweg 659 - Trainsjoch",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1777574",
+      "canonicalRouteSourceId": "1777574",
+      "stagingRouteId": "4f94079a-df3c-4cfa-a35b-9b48e869bb35",
+      "mountainId": 15169,
+      "routeName": "Wanderweg 31",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "2113697",
+      "canonicalRouteSourceId": "2113697",
+      "stagingRouteId": "8010e76d-a2f6-4669-92d1-59dfd38f0e1a",
+      "mountainId": 1720,
+      "routeName": "Nußdorf-Bichleralm-Heuberg",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "2211742",
+      "canonicalRouteSourceId": "2211742",
+      "stagingRouteId": "52ea2286-02d7-40d9-9950-0e5a48116eb5",
+      "mountainId": 14799,
+      "routeName": "Baumgarten - Erzkogel",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2643,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "19538533",
+      "canonicalRouteSourceId": "19538533",
+      "stagingRouteId": "7896095f-338f-4ce3-bff5-1fd90c7862f8",
+      "mountainId": 47149,
+      "routeName": "Cheval Noir",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2642,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1601155",
+      "canonicalRouteSourceId": "1601155",
+      "stagingRouteId": "76b6b4aa-7d51-4779-a951-32fc8cc2b2ad",
+      "mountainId": 69547,
+      "routeName": "Creste del Summano",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2639,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1667096",
+      "canonicalRouteSourceId": "1667096",
+      "stagingRouteId": "6d872ff9-0f4e-49cd-9723-dffd76e5f568",
+      "mountainId": 208460,
+      "routeName": "Barrage de Mauvoisin - Le Pleureur",
+      "quality": 95,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 2594,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1140771",
+      "canonicalRouteSourceId": "1140771",
+      "stagingRouteId": "90684900-0659-4040-87f3-c19947bd6f85",
+      "mountainId": 15555,
+      "routeName": "AV Weg 711A",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "SHORT_HIGH_SUMMIT_SEGMENT",
+        "SHORT_HIGH_SUMMIT_SEGMENT"
+      ],
+      "priorityScore": 2145,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "1229102",
+      "canonicalRouteSourceId": "1229102",
+      "stagingRouteId": "a12963ea-41d5-41f6-825d-5199a53e2805",
+      "mountainId": 66,
+      "routeName": "AV Weg 457 Alpeltalsteig",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably.",
+        "Offline administrative-boundary enrichment is unassigned: At least one route coordinate could not be assigned reliably."
+      ],
+      "priorityScore": 2145,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "1271967",
+      "canonicalRouteSourceId": "1271967",
+      "stagingRouteId": "ed5ce82f-efa3-46a2-b0c6-c4fa86694dde",
+      "mountainId": 15824,
+      "routeName": "Haakogelweg",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT",
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "priorityScore": 2144,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "1751818",
+      "canonicalRouteSourceId": "1751818",
+      "stagingRouteId": "f8330dc0-1a2c-46fe-9519-d46f71f101e2",
+      "mountainId": 16456,
+      "routeName": "AV Weg 437 (Taghaube)",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT",
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "priorityScore": 2144,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "222362",
+      "canonicalRouteSourceId": "222362",
+      "stagingRouteId": "d501ba51-b3f1-4d87-a0cd-8ed94e7cd6df",
+      "mountainId": 49,
+      "routeName": "AV Weg 429 (Funtenseetauern Normalweg)",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made.",
+        "Offline administrative-boundary enrichment is ambiguous: Route coordinates resolve to multiple administrative polygons; no arbitrary assignment was made."
+      ],
+      "priorityScore": 2143,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "1075677",
+      "canonicalRouteSourceId": "1075677",
+      "stagingRouteId": "e35d1ae4-75c2-4fd3-bf9c-74c37180daa7",
+      "mountainId": 18908,
+      "routeName": "Wanderweg 548",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "SHORT_HIGH_SUMMIT_SEGMENT",
+        "SHORT_HIGH_SUMMIT_SEGMENT"
+      ],
+      "priorityScore": 2143,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "1124155",
+      "canonicalRouteSourceId": "1124155",
+      "stagingRouteId": "162303d3-796a-4857-ba71-599c57cf8c2e",
+      "mountainId": 4147,
+      "routeName": "Weg Nr. 1 - Zum Glescherblick - Oberaudorf/Hocheck",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "HIGH_ROUTE_TO_STRAIGHT_LINE_RATIO",
+        "HIGH_ROUTE_TO_STRAIGHT_LINE_RATIO"
+      ],
+      "priorityScore": 2143,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "1798968",
+      "canonicalRouteSourceId": "1798968",
+      "stagingRouteId": "9bd0c2d3-a120-43a3-9612-4595fc639f81",
+      "mountainId": 69028,
+      "routeName": "Alta Via C.A.I. Gemona",
+      "quality": 100,
+      "topologyClassification": "SIMPLE",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT",
+        "ROUTE_ORIENTATION_STARTS_AT_SUMMIT"
+      ],
+      "priorityScore": 2143,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "2210868",
+      "canonicalRouteSourceId": "2210868",
+      "stagingRouteId": "ececa849-7305-48eb-81c4-976a04f60d51",
+      "mountainId": 17628,
+      "routeName": "Maria Schutz - Sonnwendstein",
+      "quality": 100,
+      "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 1644,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "1144001",
+      "canonicalRouteSourceId": "1144001",
+      "stagingRouteId": "e7e6f65e-ac60-4e6d-8eaa-ea5105e8ddb0",
+      "mountainId": 72079,
+      "routeName": "Sentiero della Loffa",
+      "quality": 100,
+      "topologyClassification": "CONNECTED_TWO_ENDPOINTS",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [],
+      "warnings": [],
+      "priorityScore": 1640,
+      "reasonForBlock": null
+    },
+    {
+      "sourceRelationId": "4103375",
+      "canonicalRouteSourceId": "4103375",
+      "stagingRouteId": "007a13ee-b329-45ba-9b82-840c33749d8a",
+      "mountainId": 69341,
+      "routeName": "12 - Mühlbach => Pfunders",
+      "quality": 77,
+      "topologyClassification": "BRANCHING",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "BRANCHING_ENDPOINT_SELECTION_AMBIGUOUS"
+      ],
+      "priorityScore": 915,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    },
+    {
+      "sourceRelationId": "11192622",
+      "canonicalRouteSourceId": "11192622",
+      "stagingRouteId": "6d86c0c8-8e1b-45ee-8ec5-7053078d4824",
+      "mountainId": 71748,
+      "routeName": "Alta Via del Caffaro",
+      "quality": 71,
+      "topologyClassification": "DISCONNECTED",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "blockers": [
+        "WARNING_OR_AUDIT_EVIDENCE"
+      ],
+      "warnings": [
+        "HIGH_COMPONENT_COUNT",
+        "VERY_LONG_ROUTE",
+        "HIGH_COMPONENT_COUNT",
+        "VERY_LONG_ROUTE",
+        "DISCONNECTED_GLOBAL_ENDPOINTS_UNAVAILABLE"
+      ],
+      "priorityScore": 854,
+      "reasonForBlock": "WARNING_OR_AUDIT_EVIDENCE"
+    }
+  ],
+  "deterministicReadinessHash": "78b2ddf0a60bf107c119b509ada33c8d7a7c91338506359099fd19a8af9de969"
+}

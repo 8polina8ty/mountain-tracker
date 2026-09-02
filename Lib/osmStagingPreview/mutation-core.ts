@@ -29,7 +29,7 @@ export interface QaMutationResult {
 
 export interface QaMutationDependencies {
   authorize: () => Promise<{ userId: string }>;
-  validateTarget: (stagingRouteId: string) => Promise<QaMutationTarget>;
+  validateTarget: (input: PreviewQaDecisionInput) => Promise<QaMutationTarget>;
   writeDecision: (input: QaMutationWriteInput) => Promise<QaMutationResult>;
 }
 
@@ -39,7 +39,7 @@ export async function executeQaDecisionMutation(
 ): Promise<QaMutationResult> {
   const { userId } = await dependencies.authorize();
   const input = parseQaDecisionInput(rawInput);
-  const target = await dependencies.validateTarget(input.stagingRouteId);
+  const target = await dependencies.validateTarget(input);
   if (
     target.stagingRouteId !== input.stagingRouteId ||
     target.contractVersion !== "mountain-tracker-osm-route/v1" ||

@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11I_B2_EXECUTION_CONTRACT",
+  "contractVersion": "mountain-tracker-phase11i-b2-execution-contract/v1",
+  "readOnly": true,
+  "publishable": false,
+  "qaDecisionWrites": 0,
+  "autoApprovalEnabled": false,
+  "executed": false,
+  "databaseModeBefore": "SELECT_ONLY",
+  "phase": "Phase 11I-B2a frozen staging payload contract validated; execution in Phase 11I-B2b requires explicit user command with the execution token.",
+  "originalQueueHash": "ca9b9dca7f84985dc1bf49f6ca5835de6b6b20b9447aff5faf9b611b97b48dcd",
+  "originalQueueCount": 45,
+  "stageableSubsetHash": "17fe9046fa03bb3142684fe0051f3cf55c75a6e1286140800e0710874e6562e2",
+  "stageableCount": 44,
+  "blockedCount": 1,
+  "sourceSnapshotHash": "ab3dc1805d7dec17d9d76e8c26d150a2a84fc66c9c97c9b722e1bc9f0d8ee8aa",
+  "stageabilityHash": "17fe9046fa03bb3142684fe0051f3cf55c75a6e1286140800e0710874e6562e2",
+  "payloadArtifactHash": "77faea5ae82a78a963e8c8ad196eabfe639d770a0bb94a93c1e78ecefd27aecc",
+  "oldExecutionToken": "PHASE11I:dc67c337539e454ce089f9624e3c2965da846beea902b86b7052e4b5b2aa24e8:ca9b9dca7f84985dc1bf49f6ca5835de6b6b20b9447aff5faf9b611b97b48dcd",
+  "executionToken": "PHASE11I-B2:8d2c9a7382ec78eae5cd935acdf735a5cc08f711318ea31db00651b7c9516063:ca9b9dca7f84985dc1bf49f6ca5835de6b6b20b9447aff5faf9b611b97b48dcd",
+  "records": [
+    {
+      "canonicalRelationId": "14450146",
+      "peakOsmId": "479127124",
+      "mountainId": 70786,
+      "geometryHash": "b640b1085cefcee4f262b8880f26ae70b9a1ad69183721b6aa97cf7fb4372582",
+      "qualificationHash": "0313a92e899f745f637282c8d51645a2524a207c0379f3f274c4aa4661f273a7",
+      "mainPayloadHash": "2d44692102963f0ded084db4ea85e4e74fc1ee78863c9d494a5baae56c16b2c9",
+      "summitPayloadHash": "d4b60dd13d810543afcf95e1115bc5efd664fee93948a9efa7ceca97efaf72b3"
+    },
+    {
+      "canonicalRelationId": "8479420",
+      "peakOsmId": "255973218",
+      "mountainId": 12026,
+      "geometryHash": "0e8a1f4b18d0343f82db3fb1f59c3017abf21fb07b0ceb46202cb4585725dc5e",
+      "qualificationHash": "0505a72a4e64cdf626b7e00c9886a75426f7158e604955311940481f82c3e772",
+      "mainPayloadHash": "0d0c16be84f55f1539458059ff66584809c9f6c60a33689d8c2717204f8f2830",
+      "summitPayloadHash": "883bf7ebabe4ec76ffb3882eed9912f0a61de5bb80aee3fd8a955b5c8a819eac"
+    },
+    {
+      "canonicalRelationId": "20732419",
+      "peakOsmId": "2866858103",
+      "mountainId": 211326,
+      "geometryHash": "d0a81441d656c52f61d1ed78a1599b3b46a0524b91919d36a9ebde4901f4c154",
+      "qualificationHash": "051e1fbe0a9d16631d746e115cbbbd317c345b9a80c7ca09200025cb45607f92",
+      "mainPayloadHash": "acbb183d3faa41c93e77406902a906031af97b30ce506491204db9bc244395b0",
+      "summitPayloadHash": "26cf5efcd15e64d56eb8274fe5aac0298da699213718aa97da34de74d1551ce7"
+    },
+    {
+      "canonicalRelationId": "19723934",
+      "peakOsmId": "2732100164",
+      "mountainId": 20055,
+      "geometryHash": "c8950be92e5e57f64a35b42afeb3255d9103f42fdffb20b297098787a26d093e",
+      "qualificationHash": "0be3196ee7128e952963bb6de4c9d09b9ba1c7b3f17e47db207d0c194f8f2269",
+      "mainPayloadHash": "15dedb8108392d6b7e3efd9f1607df33dea30b1e566a2086a55ec239e8525976",
+      "summitPayloadHash": "e63622eff0840bdc4f9773b03e4b28a8996778defc41be30fdabddd8425b8f9d"
+    },
+    {
+      "canonicalRelationId": "7619608",
+      "peakOsmId": "1589793263",
+      "mountainId": 75485,
+      "geometryHash": "6dc0da8e4f1733baaebde5808bb62581997a611f432f4a4392ba3c99ce113f1b",
+      "qualificationHash": "0d85816623df3701dafceaa4898509b103a7e3f08119addd8c1f27cfe2646dea",
+      "mainPayloadHash": "619b0f886a72a03601b7a6511b23a85e13d5c945548e89bc07997b758b9984d1",
+      "summitPayloadHash": "8ecec2877b4db6e8c0712b72950e0b572d6484a3e918ccfeeb707bcd3a5679ef"
+    },
+    {
+      "canonicalRelationId": "20336298",
+      "peakOsmId": "454092684",
+      "mountainId": 208822,
+      "geometryHash": "344d48da1012656d21c267319f623424c5f2bb9ad2a69d12d825b31411f44deb",
+      "qualificationHash": "0e6ae14e73130a7f7cbab8ecc39cafd6429cdeee97e0507d0bb850c1d7186f2c",
+      "mainPayloadHash": "2a75cad14765845ddb0ca8ed81597716d46c905e0efc36273df513ce5bddae90",
+      "summitPayloadHash": "9596fea331c655b7c3a3d8d077900ccf239cc80656f2eed57dc1792e7e824bf7"
+    },
+    {
+      "canonicalRelationId": "13217296",
+      "peakOsmId": "26863007",
+      "mountainId": 45366,
+      "geometryHash": "751d26b2f3ee2ab3818db2dbeb61d16590db7dc04aed5207ea552b3d675af76b",
+      "qualificationHash": "0f1e16512426697bd2c11d46d1da3d7efd1ed5f8b01c0a8da29f0ebe4d5bbd0c",
+      "mainPayloadHash": "f47f3e2ad49d91b1b13cabd2b0d95c678b0ad92be02be9435523abeefd56218a",
+      "summitPayloadHash": "5b2f9fa9e65797711c3be8e665a4749ac0e41ca9652dabfb955b567cf8707b68"
+    },
+    {
+      "canonicalRelationId": "3914732",
+      "peakOsmId": "1509984608",
+      "mountainId": 75230,
+      "geometryHash": "4c1c0c4cf85a8c26f6cc369b9f3415c776602d20324272e1ba2ec67ba8ed11f0",
+      "qualificationHash": "113eed3b0f9a1679f5eaed1257fe84dfeffce0e3990b5bba0251ac5615940f31",
+      "mainPayloadHash": "e251d2dd48bab8b547b4a13efb4fb748adb1e2cbb9d2f39bd6b1f0db9553ef08",
+      "summitPayloadHash": "62d086a1557fbd9f9ee8323d66232017ca50cf78b0b5eb89ca440910fd765aab"
+    },
+    {
+      "canonicalRelationId": "3127359",
+      "peakOsmId": "522807411",
+      "mountainId": 71634,
+      "geometryHash": "87b505908ecab507a5488e3b0346c305f20fc4918de7357346f7100885b441e6",
+      "qualificationHash": "121673c1952dfba550458de55f450c19b902db7cfea251ea8943a161dcbc4f09",
+      "mainPayloadHash": "df2e51e30b5d0492a6dba1b3d824ea7072d9433ec642be384f195fd99a35e1c1",
+      "summitPayloadHash": "05be55990b3789f84d668e011c9a3ba6682af983b2df5dff744e7138b58eea4d"
+    },
+    {
+      "canonicalRelationId": "15854068",
+      "peakOsmId": "2234907362",
+      "mountainId": 77571,
+      "geometryHash": "db4e4e9b67ea21a58ef93602e6deefb512ca9f79457ecf63890bb09184c32707",
+      "qualificationHash": "156f6359b3bc9d7ad662421359c4cf2f759068dc935fc8515f4688fbfb9162f6",
+      "mainPayloadHash": "5673f590f34af9bd0150d125100b7d13e08b8e50d87e762113677bd70b3db510",
+      "summitPayloadHash": "7ab749b495bfb5849a7bd49dae1c062d4a02c7472b7e63791d66666a09f6e775"
+    },
+    {
+      "canonicalRelationId": "3153237",
+      "peakOsmId": "523276617",
+      "mountainId": 71708,
+      "geometryHash": "6ea019a91b23610310433201d81e55960c24372dc0e8b46732e2e1a3f3ec2c63",
+      "qualificationHash": "15d87db461cae12200a24ec48e6986c8655c438e3ca414de922b576e0de80198",
+      "mainPayloadHash": "f28413dc24660f32038ee616f6f12cac10908d2809e50c018cf612e23dbf0322",
+      "summitPayloadHash": "b92e037af59c3f767561198995bd8052bcd8394a0722898b67a3c4ad81484018"
+    },
+    {
+      "canonicalRelationId": "6118857",
+      "peakOsmId": "1663938836",
+      "mountainId": 75824,
+      "geometryHash": "1dff7887d5db16afa75d1ef79afb4d5202e8f2cb22f201eb4b719a8870837205",
+      "qualificationHash": "1c4cd97f1f022c1f15cd18149c23d3869d92e2194d4d5ef74238be9aa4f1168b",
+      "mainPayloadHash": "d44a95fd7f56f2f7d4a9844a38d2cde8d65040efe7c692639a93487622771621",
+      "summitPayloadHash": "09053ac46971f4d8b601c05bff855979624ade7d5dd48bffa5a30f305b204093"
+    },
+    {
+      "canonicalRelationId": "2707130",
+      "peakOsmId": "557832363",
+      "mountainId": 72367,
+      "geometryHash": "c026d17e046631e8665866373efcba3af538f47dafd3db4128cb5df73534af6d",
+      "qualificationHash": "1cbd4d08b958664469fb8e881f35f71502bea7f7925be827531cc50c62c2e852",
+      "mainPayloadHash": "7c4d87e6a502495d219b6f5fcbbfb7925e191342f6b3241563876524a98340c5",
+      "summitPayloadHash": "a4836b478c602b436a72ce8c44c0c6b7ecb7d7a530035af8d3ca7750af9b27f6"
+    },
+    {
+      "canonicalRelationId": "14629092",
+      "peakOsmId": "7297072136",
+      "mountainId": 91361,
+      "geometryHash": "d962fd2c062e66ba90062b19cf07d46be8f30c77f7d9644ba1403ae09c154914",
+      "qualificationHash": "22fe2dd2710ad09fe8e96e27ad449d126316dcd2a23304018d98e19b1c0788b2",
+      "mainPayloadHash": "aac130e2f0946d0b3cac79bc1b356a8ee394d50a9e30ed4932630afa94bd5c52",
+      "summitPayloadHash": "d27118b376049d92a8aecc1ec2e1ad2786d6f87520a881d2a3d6d4874a0f2e4a"
+    },
+    {
+      "canonicalRelationId": "15904161",
+      "peakOsmId": "2710892680",
+      "mountainId": 82916,
+      "geometryHash": "ab11403b7fec634727c21e4bc8ffcf9b40b6f42a8ef0bbf07d80e511d0248fde",
+      "qualificationHash": "23d703fa17c60e9bd743419c5538bec11cbb04b1eb8db1ed2f688c9f54e44e72",
+      "mainPayloadHash": "333483f18f163c53b7b18d69eb7688aa9124ccf769da466f4ed845fab70bb107",
+      "summitPayloadHash": "cc0d21d3b18b09d948e66cd5188f3b83b75ba603d49fdbdd4242ee0d919d42a8"
+    },
+    {
+      "canonicalRelationId": "5515251",
+      "peakOsmId": "333899881",
+      "mountainId": 13099,
+      "geometryHash": "2ea788e94a4f867195d0369421c80068fd8d21806661220e90825748b275b246",
+      "qualificationHash": "263cfc6bc3ecd8e3a82e2739a0c08401f14172e2087a07a8dcb401af2babd5b6",
+      "mainPayloadHash": "6f0a1694c011578e2e947762fc3eadfccbd5152228ac97ff2ef8809f8f91182c",
+      "summitPayloadHash": "4f65e7d3f23f4a78a616e47cdf65fe328b0cc88a45fbd146afc7f141ea189444"
+    },
+    {
+      "canonicalRelationId": "2173614",
+      "peakOsmId": "307308095",
+      "mountainId": 69458,
+      "geometryHash": "af7bbce2b215df2c5193e99cd10be5602bd00b4b694ca5a9a2a54e0534e44a69",
+      "qualificationHash": "27fb49fa2e88d446e3adfcf08d8d5382a9fc66c11122fa1c40c1861e90358cdf",
+      "mainPayloadHash": "c37d077b94a10cefc0eb52147f82a29e87160a8dfa626a68834dfcc333a05c75",
+      "summitPayloadHash": "6663f5ea7ef702283bb58e0304e4cd9938aa10e0e56bba33c6448598f3b895e5"
+    },
+    {
+      "canonicalRelationId": "5573664",
+      "peakOsmId": "26864010",
+      "mountainId": 69145,
+      "geometryHash": "bfcbbd4231b3e941594c8f476a5ea300489ef1a8ab3b63c6308023abcd644c66",
+      "qualificationHash": "29d08bb65843be3e7cdf2a0873c645636baa35d7ada39f9076f0a588c48866a9",
+      "mainPayloadHash": "90521c26636a8f2b4bb06e2635bfcfdb138755e1f7dbffea36b6ee5c532258fe",
+      "summitPayloadHash": "290aecda1c062ca2637e2a6436b66d5133ec493286bf53fff68416a337efc802"
+    },
+    {
+      "canonicalRelationId": "14510044",
+      "peakOsmId": "3266959070",
+      "mountainId": 84517,
+      "geometryHash": "012363c678ec9ba46454f63440fd502002014d6eab96993b7d49d71011402efb",
+      "qualificationHash": "2af1a17ba757e893e5aad5db2cdc6ddd2489c86ed794d703de53b48bac806c9c",
+      "mainPayloadHash": "e98628aeabe833180d8cc7917eff86d237589cc8c210673e2f9d4073fc86f166",
+      "summitPayloadHash": "128a5233ffe60063965d6295ef8c8dbf7d0f1fea692dd5179149b0920ef37292"
+    },
+    {
+      "canonicalRelationId": "15721946",
+      "peakOsmId": "256042739",
+      "mountainId": 12131,
+      "geometryHash": "ee32fd053290f4fe323e0bbbc7c5422647f9fc5fdc13bb705bf7586203b938fb",
+      "qualificationHash": "2ca39bba352ba95a02925cf0efce7a87c8ac9198c6038f1511a28e4490a5a1b1",
+      "mainPayloadHash": "404a058a4e0f871b0935afa0c219663a078167b923e701fb9aceb055418a7e82",
+      "summitPayloadHash": "d392159dfb8371a4b0449555a3ef4d2e41d2df2bd1babce71122658a18ca6c3a"
+    },
+    {
+      "canonicalRelationId": "140644",
+      "peakOsmId": "2534284083",
+      "mountainId": 19137,
+      "geometryHash": "e87027597007fdbf54b89dac454d1694df0c5604fa8ded64723ba131866af66d",
+      "qualificationHash": "2cf66fa486deb8d07433c022008b56fd849dd8486a7d7e36fef15ec3ada16797",
+      "mainPayloadHash": "7980b5d200acf4ac33725a112f5bf202f741c2f9b09789602526f142f3c2182c",
+      "summitPayloadHash": "5338874cbc9dfb5c7d60e306a2caf01662f89ebb00ad96dc71cbcb945e8c8f75"
+    },
+    {
+      "canonicalRelationId": "14587091",
+      "peakOsmId": "1588156103",
+      "mountainId": 75478,
+      "geometryHash": "b9c7027ca2d4c49d5a413d70c2c4e4f3bf1510fb4178bc8f1bfb5b9697d4d791",
+      "qualificationHash": "3062a3cb172187bbbe10e5e339d6c9637b2de9f38fc99eb064c3c4f3a1eb5010",
+      "mainPayloadHash": "a3713735b45052c3a3fff3ec8575001d99dd3f219f0744b1273072857dc0db43",
+      "summitPayloadHash": "fc13827dd0ac94089a183431a0315dfb33bc4b892b5707a9599dd2de1e56a7c9"
+    },
+    {
+      "canonicalRelationId": "14718223",
+      "peakOsmId": "1512654235",
+      "mountainId": 75237,
+      "geometryHash": "a55e972ede41e24518b4ab4dc1fd563d6e57abfd1f071bfaadc8f5d194f6fc79",
+      "qualificationHash": "30a0c9b5b68f51fd35d1385ceb1ae9df1f4f7043ed9b3a4c2102a623354c2cbe",
+      "mainPayloadHash": "e8193d5ff26758ba011af5b544b1e9d120ce03bd9624b52f062fed6360718b4f",
+      "summitPayloadHash": "fe840b1bfad2fa790d89f71abb72074fe9f7867b14f1c80e461403540200db8e"
+    },
+    {
+      "canonicalRelationId": "19420984",
+      "peakOsmId": "3003004163",
+      "mountainId": 211376,
+      "geometryHash": "7fb36f19437ace40437bc7cf0c32ceb725cf803b29cb96a9da1dbd4bb2342907",
+      "qualificationHash": "335a750ee5cb1ce168d255d14f86cc65e0288986a0abdf99ce625a478d493f4c",
+      "mainPayloadHash": "9343762b1214513ba73f51f532a71a65bae3b6b329c07379ffd4df31aab8ad1d",
+      "summitPayloadHash": "b327b72cb033c4f31747c1d61fef5cf73873ea5fc5f05d159c9443324b373206"
+    },
+    {
+      "canonicalRelationId": "7842649",
+      "peakOsmId": "5190947484",
+      "mountainId": 88806,
+      "geometryHash": "e08ea75eb3a79584ef07f83c2b843fa9ba3346651c394c40e2dec967fdf145de",
+      "qualificationHash": "36582ed2bbea0d60cbda8bedb484e8731b7e0975adea6e344ed8f9c9b8d95538",
+      "mainPayloadHash": "cf873bafe11412b897c7f2c0b19219c6f50097748c29923fddbf28e12e12da48",
+      "summitPayloadHash": "67dcf61c3aebbfd6757bb7f047d11571b58ce66d5ab5c34c84bab492a62dacb0"
+    },
+    {
+      "canonicalRelationId": "14680095",
+      "peakOsmId": "726133727",
+      "mountainId": 72991,
+      "geometryHash": "5ede366d082b1e5bc72ccf3f8a8cf44814cb938a676bf4992b06cc385ff579fd",
+      "qualificationHash": "3788bd1468150a7b6a6f13162ab05cf9a7d4dd0f4ef511267bf22458a1116bfe",
+      "mainPayloadHash": "5a37dc855b5231389b85997b3ab2af870775ce85430b7d7995473253ad9579e9",
+      "summitPayloadHash": "cc3f6a97324792cda82d04da38c7e073aaad18f7275188995cd4378b7bb4718b"
+    },
+    {
+      "canonicalRelationId": "6580908",
+      "peakOsmId": "967035588",
+      "mountainId": 46768,
+      "geometryHash": "952b8b9e8bdde8af57f4b5996c562c81d2414d6160e1e788b5baa7395856e642",
+      "qualificationHash": "385c5afa29e0c6e7dca92aca87e86717f084d0d309f3f08d153ca0e8a8d79fd4",
+      "mainPayloadHash": "76621b2042e3550eb157f0ba2ead12f4cb3ae3e85323128b43f05dbb7cade4ad",
+      "summitPayloadHash": "682436e59e319e250a95332cb1cdc9dee21adb37c1d5e44aebbf2cbf941aa34c"
+    },
+    {
+      "canonicalRelationId": "7480385",
+      "peakOsmId": "1352380200",
+      "mountainId": 74585,
+      "geometryHash": "d3c269a4eab2ab7fa1bb92fbb0e5b1a5bb0ec895ae3cc1fe842332645426321c",
+      "qualificationHash": "3a528771a0cdb1db16e03727fb62f49f5d357e3479ca5cffde29bdd5b0295d60",
+      "mainPayloadHash": "17cecde6809f1241b978d6b84aa1790d1d77f297cbd9f15b8be47ef3d7a95ab3",
+      "summitPayloadHash": "bb3321fda2eabb759c120e5505567b1cd3478c0c186abcae2ad75c444631042f"
+    },
+    {
+      "canonicalRelationId": "12238631",
+      "peakOsmId": "676620448",
+      "mountainId": 72890,
+      "geometryHash": "fb6786a9f0156409dfaa7eaf8fc25c44ae3e697112b355b84b65a4dc290b4068",
+      "qualificationHash": "50b57714cd4bf303195d73b029c1e6fcdbc27fd826f76f50d6b7da1c929981fe",
+      "mainPayloadHash": "5b5e5f615d3159c9e44c4ddd8b474d7cb962a29559132275873f00c932151269",
+      "summitPayloadHash": "d9c0e75e0dda7e9e450a377a337eafef506138ca983d63f61e1374e66135b047"
+    },
+    {
+      "canonicalRelationId": "19744018",
+      "peakOsmId": "343412890",
+      "mountainId": 45696,
+      "geometryHash": "a95024546fa223b4587f6c42d0d900aa230094768dda6da9c661449a5a14558e",
+      "qualificationHash": "5195b2576fb5afc21bd5f5e92df37a9af453546cb44c03eae1fa011f2c197222",
+      "mainPayloadHash": "e18f671e733b76e0a7164b8ee503b32a8fa101b17415de5afefe3433d61b846d",
+      "summitPayloadHash": "fd02ced67d780d412081324aa24cd32dbad4f5d25f64c56be19faa4458bb2d54"
+    },
+    {
+      "canonicalRelationId": "1722966",
+      "peakOsmId": "473127303",
+      "mountainId": 13940,
+      "geometryHash": "d0f8ef2d45b406f248e4b9abfd7bbd0c46ae7a82cd6505533611de6fbe1e63fb",
+      "qualificationHash": "52157dfffa38079f6797868de1a5014b40674158f264c5b54d0415e528c38c58",
+      "mainPayloadHash": "562dbb83c30b39bfe7c31fa2b0108cae13c058b131ff13ec28ff6c2723306db3",
+      "summitPayloadHash": "a34ae8582939d90b81f327ded6953f592d2a4b37baff6331cf3e84208521daa4"
+    },
+    {
+      "canonicalRelationId": "12836107",
+      "peakOsmId": "1372793645",
+      "mountainId": 210180,
+      "geometryHash": "b3eedea953f40fb601f06231e3682ea80bbfaea743cfadf31b8a9f982c4b6601",
+      "qualificationHash": "5e112bbd1585f0386b8ccf1fc846e9c0ba9f3f43a06cb043e89a3ca9dccd764b",
+      "mainPayloadHash": "00ee23427e2662d8b449ada5c9c3552af576be08d7e1b6c5c34eecac7633295d",
+      "summitPayloadHash": "7851708632e3b86a7ced5e4b06c6b14e92002311bfc66123f073a358418f1a61"
+    },
+    {
+      "canonicalRelationId": "15902354",
+      "peakOsmId": "2710892680",
+      "mountainId": 82916,
+      "geometryHash": "625be3ae0ae3d6bc98a000edfef2259b855afa50fd9350551fa0526f4ae043fb",
+      "qualificationHash": "63ae508b9cf98fcd4f63d763c9f9a32973d99df8a04b8d56ee608ef632e3d738",
+      "mainPayloadHash": "1b1d57ca2dbe48588e9a79830967bfbb4aabeb2c0f9e1a372e8d0955a5968864",
+      "summitPayloadHash": "c335f688b392d5646c0f409257a89f59913ff04140fc37760d5a851acf55be27"
+    },
+    {
+      "canonicalRelationId": "11215495",
+      "peakOsmId": "1001250876",
+      "mountainId": 73808,
+      "geometryHash": "60224cd7c34d40fd21651287f51435252157fe64187976607532f333e6d9c14c",
+      "qualificationHash": "656fbffd09cccff4dbb208f7f03e9307be93d46aa01bff2dc4d2a241bcdcbf6a",
+      "mainPayloadHash": "fd9a92384795b52f40fe6ca351b6a3decba460b5aa2b8b09dddc089583eb3a07",
+      "summitPayloadHash": "23106c6ce03fd0215e8a5a785a2a36692beaa4962b354dca1eed91ced445995d"
+    },
+    {
+      "canonicalRelationId": "15003355",
+      "peakOsmId": "522236726",
+      "mountainId": 71482,
+      "geometryHash": "9938a2f94138530fe535c22eaff4cd1d61b0463620d0173d7fafca9ea9dcbdc7",
+      "qualificationHash": "65cd4402cc0d4dcb150b361f3a12083d51a40d349cd9dd226a3465112c265598",
+      "mainPayloadHash": "548d8c3068c40b0ba12db14324feb1b1dff93c5efb15e30c116a8051a0e97a7f",
+      "summitPayloadHash": "bb97815965eb6bc0b8481ec8af0f3adb1796e203425288f17cf9a5819b3208ff"
+    },
+    {
+      "canonicalRelationId": "8528032",
+      "peakOsmId": "445797066",
+      "mountainId": 208778,
+      "geometryHash": "7a8df6f2e72eb06f90912a7bd73716ad3c24c497a5938b4da89646ec38997260",
+      "qualificationHash": "7138e15fc64b7f8fe69c384b216f5fb604e094879083d85a18f901720faef3d8",
+      "mainPayloadHash": "24a9a77c1bd6416dc95481d04129f1b3b27a755dd8893baf6e583dc9f182b1c6",
+      "summitPayloadHash": "94b8f6ebb438ae7e1620a011393ab416f8faabbf06811a4412ed9cc6b19e547f"
+    },
+    {
+      "canonicalRelationId": "5745905",
+      "peakOsmId": "1372561189",
+      "mountainId": 16372,
+      "geometryHash": "6cea6348a4a84554dc5fb22c6ed9b618ad777cbda715f08699befe6105d18563",
+      "qualificationHash": "7be25e3c440dc4563923944134c13dd6841e6ed258e6e7acfda5e49bdc5da935",
+      "mainPayloadHash": "d6632b1ccc12b1bda05d5a02eb00bf8167085f468619fc3a43f705604ba1979d",
+      "summitPayloadHash": "1e85d66e6846ff61a43230fffdd2791c5e71547c668e10bb9a2667f937a609e3"
+    },
+    {
+      "canonicalRelationId": "9192721",
+      "peakOsmId": "361374622",
+      "mountainId": 13262,
+      "geometryHash": "8a5d704822decf0b36db73ffbb68575d689d276eaae70a07b1a63d816068c3a3",
+      "qualificationHash": "9019685fd6dee567adf10b888c444fc878c8ddce633b1f71288ee704d13f91bd",
+      "mainPayloadHash": "9bcacd0b3ed889878870089752ed0e424e784ddf5f34ed91d53adc04eeeacea4",
+      "summitPayloadHash": "863417129cde62734e80d1e66d98563a21f046b631fb5fdaa0fd4de2d026b351"
+    },
+    {
+      "canonicalRelationId": "19370185",
+      "peakOsmId": "256041918",
+      "mountainId": 12103,
+      "geometryHash": "2daae14ad18985d6abe0c0e9e46a23c89da7e4da1d5dd3595bbd6ac3801b07f2",
+      "qualificationHash": "9ddc17cbcc4ad09ca915d7dfa936a56492378f93d58900a1090b69d35efbe1bd",
+      "mainPayloadHash": "f5796486c0d200e487df8c611a598024074952b2a2be3980c7719cec9d882726",
+      "summitPayloadHash": "d65a237070698c2bf00f513385d7a91ea0636d1c958dc50a7be4e07d5125370a"
+    },
+    {
+      "canonicalRelationId": "14605009",
+      "peakOsmId": "1393460961",
+      "mountainId": 74836,
+      "geometryHash": "2f110c2e7a06a86af6c423a1f0c5016a4d0aa14c43713749a65823052dfb416a",
+      "qualificationHash": "cb0ab33cd6efae8546972a9f31db534d9dd540d7eb766495a22e8a1c884a903b",
+      "mainPayloadHash": "fb9ea2ca646a4f70e0148fc06cce0421aba43942153f2eb2ad7ed7db07c7692e",
+      "summitPayloadHash": "106383bf3d7188fa51a6d10a6b95eb47749beb2db8eab2beb3146a84f507d323"
+    },
+    {
+      "canonicalRelationId": "9512293",
+      "peakOsmId": "2161621983",
+      "mountainId": 77401,
+      "geometryHash": "8eb8914af7e95c98fc45995d17f05f51e95333f7f1dbd884074047202473bdde",
+      "qualificationHash": "ce3b0ebc4a193b29e06d40888dc4150a05756e8c1cace86a85a188b77979b915",
+      "mainPayloadHash": "2a9ab762090d4a4bcb91c315164ad1adc1ed978490f52eae1fbd7634a6f171f3",
+      "summitPayloadHash": "7e53a612cda89d37e994663c82b638109aaf90f5c6cfe689530f48cbe4d0b60d"
+    },
+    {
+      "canonicalRelationId": "18507059",
+      "peakOsmId": "2082169247",
+      "mountainId": 210871,
+      "geometryHash": "5ce16d4182661b6548a0b448a2bbad0ec2caa947a952e7a0c0d562c6f2042db9",
+      "qualificationHash": "d609c0a57df37fbf7b495e42e3bcdd2a86677a1ff147bafc4567178207aace1e",
+      "mainPayloadHash": "73084d0f5e5fe089d399ea5e59c8758da756377a191327f32f900149fac022d5",
+      "summitPayloadHash": "0d26c4c80b63a8440aa06e2d19c0d38d802b8bbe58d9e168a63f851a33cc62ca"
+    },
+    {
+      "canonicalRelationId": "20732405",
+      "peakOsmId": "1140515018",
+      "mountainId": 209779,
+      "geometryHash": "a32609b973a1aef809eb6f05e157fb7d062a6a600b5f32a9490a18d66c788085",
+      "qualificationHash": "e03f8ffcfb9caee085f8fa585d4e0ae185a686ec7cde051fc19129bffd1e5354",
+      "mainPayloadHash": "2fba79a455d8f5315319d241b885f1d181709946c20dc84002577d8b2ca54d8f",
+      "summitPayloadHash": "4ed0231ae13b16352bfd3d1ae9dcbaf72b7dfcf55c5f73c510413fd6cad47a0a"
+    },
+    {
+      "canonicalRelationId": "3345673",
+      "peakOsmId": "1472383815",
+      "mountainId": 75127,
+      "geometryHash": "be39d792824c7f970a4ba3706cf04292b13bce4e89b3d4da9327d02e2b78d1d8",
+      "qualificationHash": "ea04dfd8caf0387a369cd36d5422a32100671cf8053e42a580908333c596b3f0",
+      "mainPayloadHash": "42d78d3abb71b65d486c0c70fe342102b35f04520283113f31074f2997e12335",
+      "summitPayloadHash": "b11c25a5f875a31f7016b6e09a81766724412b700e71a4feda4be42c7cbbbc66"
+    }
+  ],
+  "blockedRecords": [
+    {
+      "canonicalRelationId": "19752996",
+      "summitOsmId": "14110138897",
+      "blockingReason": "MOUNTAIN_IDENTITY_MISSING"
+    }
+  ],
+  "expectedBeforeState": {
+    "stagingRowsForRelations": 0,
+    "summitAssociationRowsForRelations": 0,
+    "qaDecisionRows": 0,
+    "qaHistoryRows": 0,
+    "publishedRoutesForRelations": 0
+  },
+  "expectedAfterState": {
+    "stagingRowsForRelations": 44,
+    "summitAssociationRowsForRelations": 44,
+    "qaDecisionRows": 0,
+    "qaHistoryRows": 0,
+    "publishedRoutesForRelations": 0
+  },
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "af4bb5fa6ebc691b82aad7b6fc1a295833b109df8da7775e916011aee07b35a0"
+}

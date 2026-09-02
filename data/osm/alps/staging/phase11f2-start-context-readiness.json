@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-31T21:30:21.717Z",
+  "totalGreenRoutes": 641,
+  "machineQualifiedSafe500": 74,
+  "machineQualifiedSafe600": 123,
+  "truthfulMachineQualifiedSafe500": 74,
+  "truthfulMachineQualifiedSafe600": 123,
+  "falselyQualifiedAsGenUin": 0,
+  "highMountainStart": 263,
+  "ambiguousStart": 255,
+  "tothornRemainsNotGreen": true,
+  "note": "Green-compatible = BASE_START + HUT_START. Compound base evidence + deterministic frozen elevation required for BASE_START."
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11C2A_V2_CANARY_MANIFEST",
+  "publicationContractVersion": "mountain-tracker-osm-publication/v2",
+  "exactCandidateCount": 2,
+  "phase10CandidateSetContentHash": "350ea8006be8406b20ab68c763ebbe05bfea7c3a2a1fa2427c4a9fc37fc964d0",
+  "phase10CandidateManifestHash": "71aba18a7fc1a62dccef729fdd60cebd9a2dcac02442d358e8f2c6c0bb99504f",
+  "excludedActiveRelationIds": [
+    "20916",
+    "33528",
+    "196164",
+    "199145",
+    "207900",
+    "207913"
+  ],
+  "selectionPolicy": [
+    "unpublished-only",
+    "VISUALLY_APPROVED-only",
+    "EXACT_MOUNTAIN_MATCH-only",
+    "CONFIRMED-summit-only",
+    "warning-and-audit-free-only",
+    "manualReviewRequired=false",
+    "one-hiking-and-one-via_ferrata",
+    "SIMPLE-topology-first",
+    "quality-desc",
+    "numeric-canonical-relation-id-asc"
+  ],
+  "records": [
+    {
+      "sourceRelationId": "361148",
+      "canonicalRouteSourceId": "361148",
+      "stagingRouteId": "a30c7d57-dd20-4995-954e-339e7ba78a15",
+      "mountainId": 12787,
+      "routeName": "Wanderweg 10",
+      "semanticType": "summit_route",
+      "routeType": "hiking",
+      "activityCanonicalJson": "{\"confidence\":0.9,\"conflictingTypes\":[],\"evidence\":[\"Walking/hiking route or network evidence is present and no technical activity evidence conflicts with it.\"],\"manualReviewRequired\":false,\"routeType\":\"hiking\",\"schemaVersion\":1,\"semanticType\":\"summit_route\",\"sourceEvidenceHash\":\"bd73c4e871e20e964e8512b4b68147c1170b823c4f7403cb1028f39e93b7d7af\"}",
+      "activityClassificationHash": "0c62d8ca93c96481245293177d305c9ef4c172dd81279d2979384e23113d5b09",
+      "sourceEvidenceHash": "bd73c4e871e20e964e8512b4b68147c1170b823c4f7403cb1028f39e93b7d7af",
+      "candidateContentHash": "c5dbc04614bb448d911ed7d16a39b701583b0658bf944594bc955046f058afd4",
+      "stagingPayloadHash": "477cce97fc365394ff9d3df16fe9705305e8f7b3f54cdccee4b78e2eaee053de",
+      "targetPayloadHash": "a364ffc3b6da65d6b7ce85789d594d9ed829ab4e91d9ef91c3f3a16da7e97886",
+      "geometryHash": "a4552febb0f2a427b2e7471e8024607d2f007f5eeb8f7efdeed498c3f9fd2d17",
+      "qaDecisionVersion": 1,
+      "publicationIdempotencyKey": "openstreetmap:relation:361148:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "publicationContractVersion": "mountain-tracker-osm-publication/v2"
+    },
+    {
+      "sourceRelationId": "140270",
+      "canonicalRouteSourceId": "140270",
+      "stagingRouteId": "e5127538-d51a-424e-bdc9-bba9d434d87a",
+      "mountainId": 77279,
+      "routeName": "Via Ferrata “Rosalba Grasselli”",
+      "semanticType": "summit_route",
+      "routeType": "via_ferrata",
+      "activityCanonicalJson": "{\"confidence\":0.95,\"conflictingTypes\":[],\"evidence\":[\"Explicit via-ferrata/Klettersteig identity or CAI EEA evidence.\"],\"manualReviewRequired\":false,\"routeType\":\"via_ferrata\",\"schemaVersion\":1,\"semanticType\":\"summit_route\",\"sourceEvidenceHash\":\"b2165dd3bf7bce1777b0bb031b8a2d6eee33a838fab8e9698d2c8d6ceae0120e\"}",
+      "activityClassificationHash": "3dcb145b260b04458b8fe7e3e0a301f07d5589e10330c7e5c7364c0fa7ad4e42",
+      "sourceEvidenceHash": "b2165dd3bf7bce1777b0bb031b8a2d6eee33a838fab8e9698d2c8d6ceae0120e",
+      "candidateContentHash": "85086f5110cef41d19b9ed94f49412727d008aac274ff14e8f18dbea1fc1b889",
+      "stagingPayloadHash": "ef4cdff514241033fedd41b78542f77316685921d1febac22b861dc4ce056798",
+      "targetPayloadHash": "fa3d4aa6249a10b5c7200fe08fd397ce4d69294d5e2b945a1c7b694d4ed9ac48",
+      "geometryHash": "73dc13e61521378b737f2e12423065185ca9d4d48961ab069db57a11fd3f84b2",
+      "qaDecisionVersion": 1,
+      "publicationIdempotencyKey": "openstreetmap:relation:140270:mountain-tracker-osm-route/v1:mountain-tracker-osm-publication/v2",
+      "publicationContractVersion": "mountain-tracker-osm-publication/v2"
+    }
+  ],
+  "deterministicV2ManifestHash": "787c9bc2a9b64dfbc181bf679e4b357acbe7dbd66a6bda462ec47f62a4f422f0"
+}

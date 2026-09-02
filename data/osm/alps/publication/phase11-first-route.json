@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11_FIRST_PUBLICATION_MANIFEST",
+  "publicationContractVersion": "mountain-tracker-osm-publication/v1",
+  "selectionPolicy": "quality-desc,abs(distanceMeters-10000)-asc,numeric-sourceRelationId-asc",
+  "selectionReason": "Highest-quality eligible non-warning SIMPLE LineString; ordinary length nearest 10 km under the deterministic tie-break.",
+  "stagingRouteId": "f35e1dd3-39c0-4217-be1f-dc635165a369",
+  "mountainId": 13132,
+  "canonicalRelationId": "196164",
+  "sourceRelationIds": [
+    "196164"
+  ],
+  "stagingPayloadHash": "4e32e67180c4b03e91eb03c26802f74696418b092098d41b765891804c019aff",
+  "candidateContentHash": "080c3210595ea5dff20958cf8a3f5380f096b6a20b0e6d0d71eeec1b2dd9964e",
+  "candidateSetContentHash": "350ea8006be8406b20ab68c763ebbe05bfea7c3a2a1fa2427c4a9fc37fc964d0",
+  "candidateManifestHash": "71aba18a7fc1a62dccef729fdd60cebd9a2dcac02442d358e8f2c6c0bb99504f",
+  "datasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+  "qaDecision": {
+    "status": "VISUALLY_APPROVED",
+    "reviewerUserId": "23b17e48-4b08-48d3-bc09-f2f6da1311a2",
+    "reviewerNote": null,
+    "reviewedAt": "2026-08-26T18:24:12.007924+00:00",
+    "version": 1
+  },
+  "geometryHash": "6fdc587da224ec3a2650023833bfe12cb9a71c5c68ed1a115686e3a423915c0f",
+  "expectedTargetPayloadHash": "823e7dfd6ddc19f8be5d32b1f0c11824f0c60c4ee5aa74b5ef167b40ded0a35d",
+  "deterministicManifestHash": "4a6d5b4bb824a634e2dff814580000366ef646094b62c83b7ce6fa27ccacc814"
+}

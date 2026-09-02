@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11D_SCALE_READINESS",
+  "readOnly": true,
+  "qualificationContractVersion": "mountain-tracker-osm-scale-qualification/v1",
+  "sourceIdentity": {
+    "pbfPath": "data/osm/source/alps-latest.osm.pbf",
+    "pbfSizeBytes": 2310928096,
+    "pbfModifiedMilliseconds": 1787606468000,
+    "pbfSha256": "15ff62ed82c01b2153ec22d1b4cd53d1e94b87ecf38ab176eee60360972a6fc5",
+    "pipelineDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "pipelineGeneratedAt": "2026-08-25T01:54:50.930Z",
+    "checkpointPath": "data/osm/alps/checkpoints/fafc4f7a772832f2/bulk-store.sqlite",
+    "checkpointManifestSha256": "80552d6ed18595257a094fd20c1a9d5266828c65048ccb486de052518f5b64dc",
+    "motorwayIndexContentHash": "f28f56b03845217aa6fc7344c4ec71e530c7666671928370577d56994e535db1",
+    "phase7AuditHash": "52fc9b4f80c2c678299916e91ab0b9937b037d9df252a2b779f6967290a3c593",
+    "importPlanDatasetFingerprint": "92009a09accefcbf6622bd098140f80e468c1b3ba43e2ace52b793c6fa2d3d6a",
+    "importPlanRecordCount": 1065
+  },
+  "checkpoint": {
+    "expectedActive": 118,
+    "actualActive": 118,
+    "uniqueActiveRelations": 118,
+    "duplicateActiveSourceUrls": 0
+  },
+  "funnel": {
+    "discoveredRelations": 72541,
+    "reconstructedRelations": 71840,
+    "routeAnalysisRecords": 71840,
+    "summitRoute": 2780,
+    "confirmedSummitAssociations": 2885,
+    "candidatePopulation": 1065,
+    "exactMountainMatchAssociations": 1024,
+    "allConfirmedSummitsExact": 1024,
+    "stagingReadyBeforePhase11d": 1024,
+    "geometryValid": 1024,
+    "supportedHiking": 989,
+    "simpleTopologyWithValidStartFinish": 577,
+    "nonActive": 947,
+    "nonActiveAfterSimpleTopologyGate": 460,
+    "publicationGateEligibleBeforeQa": 459,
+    "publicationGateEligibleRoadSafety": {
+      "SAFE": 459
+    }
+  },
+  "qualification": {
+    "greenMinimumQuality": 90,
+    "autoApprovalEnabled": false,
+    "nonActiveQualificationTotals": {
+      "green": 407,
+      "yellow": 201,
+      "red": 339
+    },
+    "nonActiveGreenSafeHiking": 407,
+    "nonActiveYellowHiking": 201,
+    "nonActiveRedHiking": 304,
+    "noValidStartFinish": 185,
+    "excessiveDetour": {
+      "enabled": false,
+      "count": 0,
+      "reason": "Endpoint straight-line ratios do not prove a safe shorter mountain path; no network-shortest-path evidence exists in the frozen contract."
+    },
+    "reasonDistribution": {
+      "NO_VALID_START_FINISH": 185,
+      "COMPLEX_TOPOLOGY": 185,
+      "QUALITY_BELOW_SUPPORTED_THRESHOLD": 181,
+      "SUPPORTED_HIKING_ACTIVITY": 912,
+      "GEOMETRY_VALID": 947,
+      "SINGLE_CONFIRMED_SUMMIT": 947,
+      "EXACT_MOUNTAIN_IDENTITY": 906,
+      "ROAD_SAFETY_SAFE": 947,
+      "NON_SIMPLE_TOPOLOGY": 258,
+      "QUALITY_BELOW_GREEN_THRESHOLD": 180,
+      "SIMPLE_TOPOLOGY": 503,
+      "WARNING_EVIDENCE_PRESENT": 40,
+      "NO_EXACT_REQUIRED_MOUNTAIN_IDENTITY": 41,
+      "UNSUPPORTED_ROUTE_TYPE": 35,
+      "HUMAN_QA_REJECTED": 1,
+      "HUMAN_QA_NEEDS_REVIEW": 3,
+      "CLOSED_LOOP_REVIEW": 1
+    },
+    "bottleneckTo500": {
+      "greenGap": 93,
+      "nonGreenCandidateCount": 540,
+      "primaryBottleneckDistribution": {
+        "NO_VALID_START_FINISH": 170,
+        "NON_SIMPLE_TOPOLOGY": 149,
+        "QUALITY_BELOW_SUPPORTED_THRESHOLD": 93,
+        "WARNING_EVIDENCE_PRESENT": 23,
+        "NO_EXACT_REQUIRED_MOUNTAIN_IDENTITY": 40,
+        "UNSUPPORTED_ROUTE_TYPE": 35,
+        "QUALITY_BELOW_GREEN_THRESHOLD": 26,
+        "HUMAN_QA_REJECTED": 1,
+        "HUMAN_QA_NEEDS_REVIEW": 3
+      },
+      "publicationGateEligibleButNotGreen": 52,
+      "publicationGateEligibleButNotGreenReasonDistribution": {
+        "WARNING_EVIDENCE_PRESENT": 23,
+        "QUALITY_BELOW_GREEN_THRESHOLD": 26,
+        "HUMAN_QA_NEEDS_REVIEW": 3
+      }
+    }
+  },
+  "roadSafety": {
+    "candidateCount": 1065,
+    "statusDistribution": {
+      "SAFE": 1065
+    },
+    "roadWaysIndexed": 44644,
+    "roadNodesIndexed": 284960,
+    "spatialBoundsQueries": 10748,
+    "spatialCandidateChecks": 191,
+    "exactIntersectionChecks": 642437
+  },
+  "calibration": {
+    "qaSnapshotHash": "4d0d7eab99f1b8c9d7b91ba6b1907825a52313945edb87f6f59ae880a039eb95",
+    "reviewedDecisionCount": 152,
+    "matrix": {
+      "VISUALLY_APPROVED": {
+        "GREEN": 130,
+        "YELLOW": 10,
+        "RED": 8
+      },
+      "NEEDS_REVIEW": {
+        "GREEN": 0,
+        "YELLOW": 3,
+        "RED": 0
+      },
+      "REJECTED": {
+        "GREEN": 0,
+        "YELLOW": 0,
+        "RED": 1
+      }
+    },
+    "falseGreenCount": 0,
+    "falseGreenRelationIds": [],
+    "preventedFalseGreens": [
+      {
+        "sourceRelationId": "7901690",
+        "humanQaStatus": "NEEDS_REVIEW",
+        "preGuardStatus": "GREEN",
+        "finalStatus": "YELLOW",
+        "finalReasonCodes": [
+          "HUMAN_QA_NEEDS_REVIEW",
+          "SUPPORTED_HIKING_ACTIVITY",
+          "GEOMETRY_VALID",
+          "SINGLE_CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_IDENTITY",
+          "SIMPLE_TOPOLOGY",
+          "ROAD_SAFETY_SAFE"
+        ]
+      },
+      {
+        "sourceRelationId": "7901912",
+        "humanQaStatus": "NEEDS_REVIEW",
+        "preGuardStatus": "GREEN",
+        "finalStatus": "YELLOW",
+        "finalReasonCodes": [
+          "HUMAN_QA_NEEDS_REVIEW",
+          "SUPPORTED_HIKING_ACTIVITY",
+          "GEOMETRY_VALID",
+          "SINGLE_CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_IDENTITY",
+          "SIMPLE_TOPOLOGY",
+          "ROAD_SAFETY_SAFE"
+        ]
+      },
+      {
+        "sourceRelationId": "7963993",
+        "humanQaStatus": "NEEDS_REVIEW",
+        "preGuardStatus": "GREEN",
+        "finalStatus": "YELLOW",
+        "finalReasonCodes": [
+          "HUMAN_QA_NEEDS_REVIEW",
+          "SUPPORTED_HIKING_ACTIVITY",
+          "GEOMETRY_VALID",
+          "SINGLE_CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_IDENTITY",
+          "SIMPLE_TOPOLOGY",
+          "ROAD_SAFETY_SAFE"
+        ]
+      }
+    ],
+    "policy": "Current human NEEDS_REVIEW forces YELLOW and REJECTED forces RED; machine qualification never writes QA."
+  },
+  "readiness": {
+    "machineQualifiedSafe500": false,
+    "machineQualifiedReserveBeyond500": 0,
+    "humanQaPublicationReady500": false,
+    "humanQaPublicationReadyCount": 13
+  },
+  "queue": {
+    "queueId": "phase11d",
+    "size": 600,
+    "hash": "51da284f1c340209d37adaf85e3ac9c3765b2a557de2ea85b239421b55ea0482",
+    "qualificationCounts": {
+      "GREEN": 407,
+      "YELLOW": 193
+    },
+    "stagingRequiredBeforeRuntimeUse": true
+  },
+  "stagingPreflight": {
+    "totalPlanned": 600,
+    "alreadyStaged": 68,
+    "wouldCreate": 532,
+    "unchanged": 68,
+    "blocked": 0,
+    "conflicts": 0,
+    "hash": "3dc0c501233bbad3adb8cb8c638ac2c498f7bf2f7391fb10f93425c639e889bc"
+  },
+  "artifactHashes": {
+    "qualifiedSafeCandidates": "0d522b98b6d6c1769049fc89e2829e226df73e49f2f07f50d6f12d28b22798d0",
+    "yellowReviewCandidates": "031f97883d39fe173c2b83ee8c7ac81dd78f0b0d89562c9178902d519284e226",
+    "redBlockedCandidates": "6b6c74ebc6bb54b42e48a2f8943d1c22bc19300a9281fba580e27b12ce70f11c",
+    "queue": "213ee5a3586b2916c25c8cbf42a97fab8eef062cf4fc62f9ff9b2d772ee1db1f",
+    "stagingManifest": "4f9c1610a4a63820e322eff35704ba4c2b7a24b8f85f891912b96171d7cab063",
+    "previewMetadata": "069e2b4e5699a0309a7fd9a33563b6a61e7d0e005669d1fd01cd1200d1119391",
+    "stagingPreflight": "3dc0c501233bbad3adb8cb8c638ac2c498f7bf2f7391fb10f93425c639e889bc"
+  },
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "a4615deb9406320e1abc8eac670582297b0ba56ea4efbc52f9fa33f311f63cdc"
+}

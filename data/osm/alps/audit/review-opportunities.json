@@ -1,0 +1,1089 @@
+{
+  "classificationPolicy": "Diagnostic only. Every record remains REVIEW; this artifact never promotes associations.",
+  "totalReviewAssociations": 25387,
+  "uniqueRoutesWithReview": 12038,
+  "uniquePeaksInReview": 13758,
+  "confidenceBuckets": {
+    "1.00": 935,
+    "0.95-0.999": 4531,
+    "0.90-0.949": 2199,
+    "<0.90": 17722
+  },
+  "confidenceStatistics": {
+    "count": 25387,
+    "missing": 0,
+    "minimum": 0,
+    "maximum": 1,
+    "average": 0.62,
+    "median": 0.62,
+    "p10": 0.23,
+    "p25": 0.37,
+    "p75": 0.93,
+    "p90": 0.98
+  },
+  "semanticTypeDistribution": {
+    "approach": 6,
+    "local_hike": 15555,
+    "long_distance_trail": 1198,
+    "summit_route": 2485,
+    "unknown": 5861,
+    "via_ferrata": 282
+  },
+  "geometryDistanceBuckets": {
+    "0-5": 3561,
+    ">5-15": 2533,
+    ">15-30": 2349,
+    ">30": 16944
+  },
+  "endpointDistanceBuckets": {
+    "0-10": 10,
+    ">10-30": 946,
+    ">30-60": 1016,
+    ">60": 23415
+  },
+  "opportunityCriteriaCounts": {
+    "geometryDistanceAtMost5Meters": 3561,
+    "confidenceAtLeast095": 5466,
+    "endpointDistanceAtMost100Meters": 3242,
+    "summitRouteSemantics": 2485
+  },
+  "allFourCriteriaCount": 45,
+  "sampleLimit": 100,
+  "highestConfidenceAllCriteriaSample": [
+    {
+      "routeSourceId": "13038139",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 46,
+      "peakSourceId": "1497419636",
+      "peakName": "Almkogel",
+      "peakElevationMeters": 1513,
+      "peakCoordinates": [
+        14.5647555,
+        47.8256891
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 10.7,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 10.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "13038140",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 40,
+      "peakSourceId": "1497419636",
+      "peakName": "Almkogel",
+      "peakElevationMeters": 1513,
+      "peakCoordinates": [
+        14.5647555,
+        47.8256891
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 10.7,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 10.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "16315876",
+      "routeName": "Komendska planinska pot",
+      "semanticType": "summit_route",
+      "routeQualityScore": 39,
+      "peakSourceId": "4210463926",
+      "peakName": "Kompotela",
+      "peakElevationMeters": 1989,
+      "peakCoordinates": [
+        14.5624755,
+        46.3152655
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 27,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 27 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "2429112",
+      "routeName": "Sentiero attrezzato \"De Monte Pascul\"",
+      "semanticType": "summit_route",
+      "routeQualityScore": 29,
+      "peakSourceId": "1927225487",
+      "peakName": "Monte Tinisa (Cima est)",
+      "peakElevationMeters": 2080,
+      "peakCoordinates": [
+        12.7278752,
+        46.4129099
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 36.6,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 36.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "17557957",
+      "routeName": "Dovška Baba - Hruški vrh",
+      "semanticType": "summit_route",
+      "routeQualityScore": 99,
+      "peakSourceId": "2406426130",
+      "peakName": "Rosenkogel / Hruški vrh",
+      "peakElevationMeters": 1776,
+      "peakCoordinates": [
+        14.0066432,
+        46.4813439
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 36.7,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 36.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "140260",
+      "routeName": "Via normale Monte Sernio",
+      "semanticType": "summit_route",
+      "routeQualityScore": 94,
+      "peakSourceId": "1807721242",
+      "peakName": null,
+      "peakElevationMeters": 2185,
+      "peakCoordinates": [
+        13.1381675,
+        46.4752519
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 46.2,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 46.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "171686",
+      "routeName": "7 - Gablersteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 60,
+      "peakSourceId": "440720631",
+      "peakName": "Großer Gabler - Monte Forca Grande",
+      "peakElevationMeters": 2574,
+      "peakCoordinates": [
+        11.7629974,
+        46.6902465
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 65.6,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 65.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "15762920",
+      "routeName": "Wanderweg 23",
+      "semanticType": "summit_route",
+      "routeQualityScore": 65,
+      "peakSourceId": "6594506246",
+      "peakName": "Hinterer Sattelkopf",
+      "peakElevationMeters": 2670,
+      "peakCoordinates": [
+        10.5647488,
+        47.0634839
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 87.8,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 87.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "16464681",
+      "routeName": "Gschnitztaler Hüttentour",
+      "semanticType": "summit_route",
+      "routeQualityScore": 34,
+      "peakSourceId": "1639183790",
+      "peakName": "Nösslachjoch-Kreuzgipfel",
+      "peakElevationMeters": 2221,
+      "peakCoordinates": [
+        11.4425408,
+        47.0595022
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 96.6,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 96.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "16214502",
+      "routeName": "Super 7 Gipfeltour",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "peakSourceId": "874427228",
+      "peakName": "Seekarspitze",
+      "peakElevationMeters": 2350,
+      "peakCoordinates": [
+        13.5434003,
+        47.2729444
+      ],
+      "minimumGeometryDistanceMeters": 0,
+      "endpointDistanceMeters": 97.5,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0 m from the route.",
+        "Nearest component endpoint is 97.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "4245360",
+      "routeName": "Wanderweg 131 Kreischberg-Prankerhöhe",
+      "semanticType": "summit_route",
+      "routeQualityScore": 75,
+      "peakSourceId": "2512102979",
+      "peakName": "Prankerhöhe",
+      "peakElevationMeters": 2166,
+      "peakCoordinates": [
+        14.0688139,
+        47.0234873
+      ],
+      "minimumGeometryDistanceMeters": 0.6,
+      "endpointDistanceMeters": 81.5,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.6 m from the route.",
+        "Nearest component endpoint is 81.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "2420429",
+      "routeName": "Wanderweg 49 - Kaiserwinkl",
+      "semanticType": "summit_route",
+      "routeQualityScore": 69,
+      "peakSourceId": "1917700363",
+      "peakName": "Harauer Spitze",
+      "peakElevationMeters": 1117,
+      "peakCoordinates": [
+        12.3503213,
+        47.6636873
+      ],
+      "minimumGeometryDistanceMeters": 0.7,
+      "endpointDistanceMeters": 69.5,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.7 m from the route.",
+        "Nearest component endpoint is 69.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "17408125",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "peakSourceId": "3079274353",
+      "peakName": null,
+      "peakElevationMeters": 2010,
+      "peakCoordinates": [
+        6.725887,
+        46.134519
+      ],
+      "minimumGeometryDistanceMeters": 0.8,
+      "endpointDistanceMeters": 46.1,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.8 m from the route.",
+        "Nearest component endpoint is 46.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "5824355",
+      "routeName": "Wanderweg 19",
+      "semanticType": "summit_route",
+      "routeQualityScore": 56,
+      "peakSourceId": "292943327",
+      "peakName": "Vorderes Sonnwendjoch",
+      "peakElevationMeters": 2224,
+      "peakCoordinates": [
+        11.8010535,
+        47.444691
+      ],
+      "minimumGeometryDistanceMeters": 0.8,
+      "endpointDistanceMeters": 62.8,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 0.8 m from the route.",
+        "Nearest component endpoint is 62.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "7276582",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 25,
+      "peakSourceId": "1560190198",
+      "peakName": "Monte Piatto cima ovest / Trinški Vrh",
+      "peakElevationMeters": 1138,
+      "peakCoordinates": [
+        13.6510648,
+        46.1873059
+      ],
+      "minimumGeometryDistanceMeters": 1.1,
+      "endpointDistanceMeters": 11.7,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.1 m from the route.",
+        "Nearest component endpoint is 11.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "9880567",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 25,
+      "peakSourceId": "1560190198",
+      "peakName": "Monte Piatto cima ovest / Trinški Vrh",
+      "peakElevationMeters": 1138,
+      "peakCoordinates": [
+        13.6510648,
+        46.1873059
+      ],
+      "minimumGeometryDistanceMeters": 1.1,
+      "endpointDistanceMeters": 11.7,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.1 m from the route.",
+        "Nearest component endpoint is 11.7 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "4073243",
+      "routeName": "Tschipparällehore - Mäggisserehore",
+      "semanticType": "summit_route",
+      "routeQualityScore": 99,
+      "peakSourceId": "1244933892",
+      "peakName": "Mäggisserhore",
+      "peakElevationMeters": 2348,
+      "peakCoordinates": [
+        7.599474,
+        46.5968292
+      ],
+      "minimumGeometryDistanceMeters": 1.1,
+      "endpointDistanceMeters": 28.5,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.1 m from the route.",
+        "Nearest component endpoint is 28.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "16523619",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 36,
+      "peakSourceId": "1109178448",
+      "peakName": "Sumpfkopf",
+      "peakElevationMeters": 2341,
+      "peakCoordinates": [
+        11.5367816,
+        47.0865374
+      ],
+      "minimumGeometryDistanceMeters": 1.3,
+      "endpointDistanceMeters": 51.8,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.3 m from the route.",
+        "Nearest component endpoint is 51.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "16034899",
+      "routeName": "Blejska koča - Mrežce - Lipanski vrh - Brda",
+      "semanticType": "summit_route",
+      "routeQualityScore": 39,
+      "peakSourceId": "5544885712",
+      "peakName": "Lipanski vrh",
+      "peakElevationMeters": 1974,
+      "peakCoordinates": [
+        13.9200599,
+        46.3786462
+      ],
+      "minimumGeometryDistanceMeters": 1.3,
+      "endpointDistanceMeters": 55.8,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.3 m from the route.",
+        "Nearest component endpoint is 55.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "1924294",
+      "routeName": "Adlerweg Etappe 92 - Kaiserwinkl",
+      "semanticType": "summit_route",
+      "routeQualityScore": 39,
+      "peakSourceId": "267433562",
+      "peakName": "Breitenstein",
+      "peakElevationMeters": 1661,
+      "peakCoordinates": [
+        12.3380388,
+        47.6971732
+      ],
+      "minimumGeometryDistanceMeters": 1.4,
+      "endpointDistanceMeters": 20.2,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.4 m from the route.",
+        "Nearest component endpoint is 20.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "14134760",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 33,
+      "peakSourceId": "516721281",
+      "peakName": "Westlicher Mataunkopf",
+      "peakElevationMeters": 2890,
+      "peakCoordinates": [
+        10.5785601,
+        46.8481467
+      ],
+      "minimumGeometryDistanceMeters": 1.4,
+      "endpointDistanceMeters": 25.4,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.4 m from the route.",
+        "Nearest component endpoint is 25.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "13793440",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 65,
+      "peakSourceId": "847259150",
+      "peakName": "Zehnerkopf - Cima Dieci",
+      "peakElevationMeters": 2675,
+      "peakCoordinates": [
+        10.49183,
+        46.7888427
+      ],
+      "minimumGeometryDistanceMeters": 1.4,
+      "endpointDistanceMeters": 98.4,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.4 m from the route.",
+        "Nearest component endpoint is 98.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "6010165",
+      "routeName": "Wanderweg 11",
+      "semanticType": "summit_route",
+      "routeQualityScore": 100,
+      "peakSourceId": "370253937",
+      "peakName": "Schreinl",
+      "peakElevationMeters": 2154,
+      "peakCoordinates": [
+        14.1675778,
+        47.3806971
+      ],
+      "minimumGeometryDistanceMeters": 1.7,
+      "endpointDistanceMeters": 14.3,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.7 m from the route.",
+        "Nearest component endpoint is 14.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "7276582",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 25,
+      "peakSourceId": "474842751",
+      "peakName": "Monte Nachnoi / Nagnoj",
+      "peakElevationMeters": 1193,
+      "peakCoordinates": [
+        13.6336125,
+        46.1917847
+      ],
+      "minimumGeometryDistanceMeters": 1.8,
+      "endpointDistanceMeters": 92,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.8 m from the route.",
+        "Nearest component endpoint is 92 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "9880567",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 25,
+      "peakSourceId": "474842751",
+      "peakName": "Monte Nachnoi / Nagnoj",
+      "peakElevationMeters": 1193,
+      "peakCoordinates": [
+        13.6336125,
+        46.1917847
+      ],
+      "minimumGeometryDistanceMeters": 1.8,
+      "endpointDistanceMeters": 92,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.8 m from the route.",
+        "Nearest component endpoint is 92 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "1704504",
+      "routeName": "Wanderweg 689, Grete-Klinger-Steig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "peakSourceId": "6500848589",
+      "peakName": "Slezak Kreuz",
+      "peakElevationMeters": 1776,
+      "peakCoordinates": [
+        14.9747823,
+        47.4882253
+      ],
+      "minimumGeometryDistanceMeters": 1.9,
+      "endpointDistanceMeters": 16.6,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.9 m from the route.",
+        "Nearest component endpoint is 16.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "6656318",
+      "routeName": "Wandergebiet Oberstaufen",
+      "semanticType": "summit_route",
+      "routeQualityScore": 27,
+      "peakSourceId": "2634986749",
+      "peakName": null,
+      "peakElevationMeters": 1531,
+      "peakCoordinates": [
+        10.016412,
+        47.484781
+      ],
+      "minimumGeometryDistanceMeters": 1.9,
+      "endpointDistanceMeters": 27.5,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 1.9 m from the route.",
+        "Nearest component endpoint is 27.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "17592942",
+      "routeName": "Sv. Jakob - Javorov vrh",
+      "semanticType": "summit_route",
+      "routeQualityScore": 91,
+      "peakSourceId": "6251254438",
+      "peakName": "Sv. Jakob",
+      "peakElevationMeters": 961,
+      "peakCoordinates": [
+        14.4415501,
+        46.3151111
+      ],
+      "minimumGeometryDistanceMeters": 2,
+      "endpointDistanceMeters": 42.9,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2 m from the route.",
+        "Nearest component endpoint is 42.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "18527317",
+      "routeName": "Dol - Močnikovo sedlo - Stegovnik",
+      "semanticType": "summit_route",
+      "routeQualityScore": 95,
+      "peakSourceId": "12114559659",
+      "peakName": null,
+      "peakElevationMeters": null,
+      "peakCoordinates": [
+        14.4199595,
+        46.3954441
+      ],
+      "minimumGeometryDistanceMeters": 2.1,
+      "endpointDistanceMeters": 22,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.1 m from the route.",
+        "Nearest component endpoint is 22 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "21024466",
+      "routeName": "Fevča - Stegovnik",
+      "semanticType": "summit_route",
+      "routeQualityScore": 99,
+      "peakSourceId": "12114559659",
+      "peakName": null,
+      "peakElevationMeters": null,
+      "peakCoordinates": [
+        14.4199595,
+        46.3954441
+      ],
+      "minimumGeometryDistanceMeters": 2.1,
+      "endpointDistanceMeters": 22,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.1 m from the route.",
+        "Nearest component endpoint is 22 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "16299646",
+      "routeName": "Staničev dom - Rjavina",
+      "semanticType": "summit_route",
+      "routeQualityScore": 73,
+      "peakSourceId": "1595165332",
+      "peakName": "Mala Rjavina",
+      "peakElevationMeters": 2530,
+      "peakCoordinates": [
+        13.8767102,
+        46.3904685
+      ],
+      "minimumGeometryDistanceMeters": 2.1,
+      "endpointDistanceMeters": 96.2,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.1 m from the route.",
+        "Nearest component endpoint is 96.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "11092843",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 45,
+      "peakSourceId": "13121798568",
+      "peakName": "Pizzo dell’Orsera",
+      "peakElevationMeters": 949.8,
+      "peakCoordinates": [
+        8.6376668,
+        45.9109988
+      ],
+      "minimumGeometryDistanceMeters": 2.5,
+      "endpointDistanceMeters": 11.3,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.5 m from the route.",
+        "Nearest component endpoint is 11.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "13651467",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 70,
+      "peakSourceId": "343669982",
+      "peakName": "Montrond",
+      "peakElevationMeters": 1600,
+      "peakCoordinates": [
+        6.0063507,
+        46.3479913
+      ],
+      "minimumGeometryDistanceMeters": 2.9,
+      "endpointDistanceMeters": 22.6,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.9 m from the route.",
+        "Nearest component endpoint is 22.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "15487255",
+      "routeName": "Mittersill - Auf der Platte - Pihapper Spitze",
+      "semanticType": "summit_route",
+      "routeQualityScore": 66,
+      "peakSourceId": "12031162740",
+      "peakName": "Pflugsberg",
+      "peakElevationMeters": 2414,
+      "peakCoordinates": [
+        12.4555788,
+        47.2380718
+      ],
+      "minimumGeometryDistanceMeters": 2.9,
+      "endpointDistanceMeters": 26.5,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 2.9 m from the route.",
+        "Nearest component endpoint is 26.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "6428688",
+      "routeName": "Innsbrucker Klettersteig",
+      "semanticType": "summit_route",
+      "routeQualityScore": 90,
+      "peakSourceId": "524599029",
+      "peakName": "Seegrubenspitze",
+      "peakElevationMeters": 2350,
+      "peakCoordinates": [
+        11.379275,
+        47.3121747
+      ],
+      "minimumGeometryDistanceMeters": 3.1,
+      "endpointDistanceMeters": 67.4,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.1 m from the route.",
+        "Nearest component endpoint is 67.4 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "15000005",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 71,
+      "peakSourceId": "522236997",
+      "peakName": "Monte Sellero",
+      "peakElevationMeters": 2744,
+      "peakCoordinates": [
+        10.1848191,
+        46.0810085
+      ],
+      "minimumGeometryDistanceMeters": 3.2,
+      "endpointDistanceMeters": 17.2,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.2 m from the route.",
+        "Nearest component endpoint is 17.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "17954168",
+      "routeName": "Wanderweg 607",
+      "semanticType": "summit_route",
+      "routeQualityScore": 35,
+      "peakSourceId": "191018794",
+      "peakName": "Kratzer",
+      "peakElevationMeters": 1545,
+      "peakCoordinates": [
+        11.7053909,
+        47.6655995
+      ],
+      "minimumGeometryDistanceMeters": 3.6,
+      "endpointDistanceMeters": 52.5,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.6 m from the route.",
+        "Nearest component endpoint is 52.5 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "10117189",
+      "routeName": "Sentiero attrezzato \"Ceconi Carlo\"",
+      "semanticType": "summit_route",
+      "routeQualityScore": 90,
+      "peakSourceId": "6853846416",
+      "peakName": "Anticima Monte Tuglia",
+      "peakElevationMeters": 1932,
+      "peakCoordinates": [
+        12.7661552,
+        46.5660857
+      ],
+      "minimumGeometryDistanceMeters": 3.9,
+      "endpointDistanceMeters": 59.3,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.9 m from the route.",
+        "Nearest component endpoint is 59.3 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "15966755",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 41,
+      "peakSourceId": "496010849",
+      "peakName": null,
+      "peakElevationMeters": 1525,
+      "peakCoordinates": [
+        8.8756231,
+        47.1061956
+      ],
+      "minimumGeometryDistanceMeters": 3.9,
+      "endpointDistanceMeters": 68.2,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 3.9 m from the route.",
+        "Nearest component endpoint is 68.2 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "11221847",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 0,
+      "peakSourceId": "2495232163",
+      "peakName": "Grande Tête Rouge",
+      "peakElevationMeters": 520,
+      "peakCoordinates": [
+        5.5086701,
+        43.3351471
+      ],
+      "minimumGeometryDistanceMeters": 4.3,
+      "endpointDistanceMeters": 45.8,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.3 m from the route.",
+        "Nearest component endpoint is 45.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "6656318",
+      "routeName": "Wandergebiet Oberstaufen",
+      "semanticType": "summit_route",
+      "routeQualityScore": 27,
+      "peakSourceId": "6835921044",
+      "peakName": "Hochgrat",
+      "peakElevationMeters": 1834,
+      "peakCoordinates": [
+        10.078628,
+        47.4953531
+      ],
+      "minimumGeometryDistanceMeters": 4.4,
+      "endpointDistanceMeters": 37.6,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.4 m from the route.",
+        "Nearest component endpoint is 37.6 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "11986910",
+      "routeName": "Wanderweg 834",
+      "semanticType": "summit_route",
+      "routeQualityScore": 77,
+      "peakSourceId": "7015319542",
+      "peakName": null,
+      "peakElevationMeters": 1815,
+      "peakCoordinates": [
+        13.6749382,
+        47.8142875
+      ],
+      "minimumGeometryDistanceMeters": 4.4,
+      "endpointDistanceMeters": 56.8,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.4 m from the route.",
+        "Nearest component endpoint is 56.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "2659879",
+      "routeName": "Wanderweg 36",
+      "semanticType": "summit_route",
+      "routeQualityScore": 44,
+      "peakSourceId": "11446076175",
+      "peakName": "Kieserl",
+      "peakElevationMeters": 1954,
+      "peakCoordinates": [
+        13.1534327,
+        47.2430669
+      ],
+      "minimumGeometryDistanceMeters": 4.7,
+      "endpointDistanceMeters": 65.1,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.7 m from the route.",
+        "Nearest component endpoint is 65.1 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "3277923",
+      "routeName": null,
+      "semanticType": "summit_route",
+      "routeQualityScore": 87,
+      "peakSourceId": "1997753836",
+      "peakName": "Corna di Sonclino Anticima Est",
+      "peakElevationMeters": 1349,
+      "peakCoordinates": [
+        10.2512164,
+        45.6784322
+      ],
+      "minimumGeometryDistanceMeters": 4.9,
+      "endpointDistanceMeters": 71.9,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 4.9 m from the route.",
+        "Nearest component endpoint is 71.9 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    },
+    {
+      "routeSourceId": "15745986",
+      "routeName": "Wanderweg 715",
+      "semanticType": "summit_route",
+      "routeQualityScore": 53,
+      "peakSourceId": "4257591899",
+      "peakName": "Hinterer Fager",
+      "peakElevationMeters": 1964,
+      "peakCoordinates": [
+        13.5380672,
+        47.3229179
+      ],
+      "minimumGeometryDistanceMeters": 5,
+      "endpointDistanceMeters": 30.8,
+      "finalConfidence": 1,
+      "finalAssociation": "REVIEW",
+      "reasons": [
+        "Phase 2 geometry is MATCHED at 5 m from the route.",
+        "Nearest component endpoint is 30.8 m from the peak.",
+        "Route semantic type is summit_route (0.96 confidence).",
+        "Evidence is retained for human review but is not strong enough to confirm."
+      ]
+    }
+  ]
+}

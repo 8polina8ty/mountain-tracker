@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11I_B2_CONTROLLED_STAGING_EXECUTION_RECEIPT",
+  "contractVersion": "mountain-tracker-phase11i-b2-execution-contract/v1",
+  "contractHash": "af4bb5fa6ebc691b82aad7b6fc1a295833b109df8da7775e916011aee07b35a0",
+  "contractFileSha256": "027d1be0303decf9ebdb7e006f21b04e805dfc636d2605b12e51ae7888d63ea9",
+  "queueHash": "ca9b9dca7f84985dc1bf49f6ca5835de6b6b20b9447aff5faf9b611b97b48dcd",
+  "stageableSubsetHash": "17fe9046fa03bb3142684fe0051f3cf55c75a6e1286140800e0710874e6562e2",
+  "sourceSnapshotHash": "ab3dc1805d7dec17d9d76e8c26d150a2a84fc66c9c97c9b722e1bc9f0d8ee8aa",
+  "payloadArtifactHash": "77faea5ae82a78a963e8c8ad196eabfe639d770a0bb94a93c1e78ecefd27aecc",
+  "executionContractHash": "af4bb5fa6ebc691b82aad7b6fc1a295833b109df8da7775e916011aee07b35a0",
+  "executionToken": "PHASE11I-B2:8d2c9a7382ec78eae5cd935acdf735a5cc08f711318ea31db00651b7c9516063:ca9b9dca7f84985dc1bf49f6ca5835de6b6b20b9447aff5faf9b611b97b48dcd",
+  "authorizedCount": 44,
+  "blockedCount": 1,
+  "blockedRelation": "19752996",
+  "beforeState": {
+    "wouldCreate": 44,
+    "exactUnchanged": 0,
+    "payloadConflicts": 0,
+    "qaConflicts": 0,
+    "activeOverlap": 0,
+    "mountainIdentityDrift": 0,
+    "otherBlocked": 0
+  },
+  "execution": {
+    "rpcSuccesses": 44,
+    "rpcFailures": 0,
+    "stagedResults": [
+      "14450146:84fb4444-2b9c-4dc8-acc6-1b57c05f66ce",
+      "8479420:ef277bda-4e2c-4435-bce7-a032b31e05a3",
+      "20732419:13b8dcf7-8724-41ed-8164-87423cb1c718",
+      "19723934:2cd35014-20ce-46c9-adb9-14c9c51c284a",
+      "7619608:d3b1d218-5f89-494c-af92-11c9086c82d2",
+      "20336298:d73b9b46-d6e9-460c-8f5a-319d1327e092",
+      "13217296:e17f4621-ad59-4ee4-84d4-8db1aa08fb89",
+      "3914732:e8b0d477-13a4-4ebe-bbc8-f69c7b071472",
+      "3127359:df019825-520d-4f6c-b48e-9510b7e58ba3",
+      "15854068:f3695f3e-7743-4717-99fb-e45e4919f290",
+      "3153237:6e57a0fd-7f46-4236-8a69-51d0bf318b2a",
+      "6118857:24175b08-6889-4939-a838-a294a51d3398",
+      "2707130:0648e027-48fe-4cbc-b5a6-89662297bc7d",
+      "14629092:7df266c9-2b1e-40a2-beae-812ee088e20f",
+      "15904161:2bce0b98-c89c-46f1-a309-ded3a3b633f5",
+      "5515251:d3241696-284d-4a77-b9fc-fe340727c256",
+      "2173614:7b419709-f092-4d62-a083-0676ca121e34",
+      "5573664:0f397bab-c7ff-4822-9848-dbaf7f2e6dfd",
+      "14510044:16153136-ac62-438c-a187-987afa073b0f",
+      "15721946:7cd97921-e187-4f1d-b817-d90527c0829c",
+      "140644:d8254e11-1926-43cc-b43c-c1b76fe0e49d",
+      "14587091:b8bfced4-76d1-4434-9287-3f08ecffe0e3",
+      "14718223:bc6ddcf8-f0ac-472f-9541-c7db3fbd2490",
+      "19420984:b755260e-d734-4954-948b-157999ec2cf8",
+      "7842649:2e1d8774-afd8-4277-a013-6de885258c64",
+      "14680095:ae591c92-a9c1-4105-916c-9d2a85d21eb6",
+      "6580908:34d2f1bc-c6ba-4fb3-84a0-fe44694ddfbd",
+      "7480385:4ded1507-3807-4bf6-8ec6-2e413e931792",
+      "12238631:e9fbefd7-ee63-4914-b3cd-ff5bc26cde62",
+      "19744018:b5b10f14-dcbe-4816-b4af-812ed8d86790",
+      "1722966:d58be1e6-0360-4bbf-97ef-6ecf2008d06b",
+      "12836107:2640462d-9829-4012-bd7e-4bdf736c5bf9",
+      "15902354:93a4fbca-bad7-4697-9d45-f9005ebfb99b",
+      "11215495:00245b76-8fd6-4286-9612-bf9fe8e5490b",
+      "15003355:9cfb2832-7f58-4186-a8dc-f21d09e799ff",
+      "8528032:3c062245-6f70-4fa4-acc0-ea10beaf667d",
+      "5745905:1279574b-6eb9-4fa1-b651-ad9b5cbd4e60",
+      "9192721:7c5ba34f-3082-47b7-88ea-8d036a97ee30",
+      "19370185:9699c1a0-6d62-48a7-9215-abf82eeb54cf",
+      "14605009:d4165137-c1e0-49f3-a5c9-a09bfce4fc5f",
+      "9512293:542a36cc-d4eb-40f2-87a5-a70a33e918e1",
+      "18507059:4b0680fa-e1d9-4d48-a44c-330f1c328a45",
+      "20732405:e6b6bd4b-ef6f-480a-b6bf-25d146e03dad",
+      "3345673:8619a8d7-da92-4352-ac20-e88498e97455"
+    ],
+    "rpcFailuresList": []
+  },
+  "afterState": {
+    "stagingRowsForAuthorized": 44,
+    "exactPayloadMatches": 44,
+    "summitStagingForAuthorized": 44,
+    "payloadMismatches": 0,
+    "mountainIdentityMismatches": 0,
+    "qaDecisionRows": 0,
+    "qaHistoryRows": 0,
+    "publicationRows": 0,
+    "activeChanges": 0,
+    "blockedRelationStagingRows": 0,
+    "visibleApproved": 0,
+    "needsReview": 0,
+    "rejected": 0,
+    "summary": {
+      "wouldCreate": 0,
+      "exactUnchanged": 44,
+      "payloadConflicts": 0,
+      "qaConflicts": 0,
+      "activeOverlap": 0,
+      "mountainIdentityDrift": 0,
+      "otherBlocked": 0
+    },
+    "records": [
+      {
+        "canonicalRelationId": "14450146",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "8479420",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "20732419",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "19723934",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "7619608",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "20336298",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "13217296",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "3914732",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "3127359",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "15854068",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "3153237",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "6118857",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "2707130",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "14629092",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "15904161",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "5515251",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "2173614",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "5573664",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "14510044",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "15721946",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "140644",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "14587091",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "14718223",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "19420984",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "7842649",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "14680095",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "6580908",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "7480385",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "12238631",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "19744018",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "1722966",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "12836107",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "15902354",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "11215495",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "15003355",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "8528032",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "5745905",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "9192721",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "19370185",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "14605009",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "9512293",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "18507059",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "20732405",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      },
+      {
+        "canonicalRelationId": "3345673",
+        "action": "EXACT_UNCHANGED",
+        "reason": null
+      }
+    ]
+  },
+  "writes": {
+    "databaseWrites": 44,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "relationIds": [
+    "14450146",
+    "8479420",
+    "20732419",
+    "19723934",
+    "7619608",
+    "20336298",
+    "13217296",
+    "3914732",
+    "3127359",
+    "15854068",
+    "3153237",
+    "6118857",
+    "2707130",
+    "14629092",
+    "15904161",
+    "5515251",
+    "2173614",
+    "5573664",
+    "14510044",
+    "15721946",
+    "140644",
+    "14587091",
+    "14718223",
+    "19420984",
+    "7842649",
+    "14680095",
+    "6580908",
+    "7480385",
+    "12238631",
+    "19744018",
+    "1722966",
+    "12836107",
+    "15902354",
+    "11215495",
+    "15003355",
+    "8528032",
+    "5745905",
+    "9192721",
+    "19370185",
+    "14605009",
+    "9512293",
+    "18507059",
+    "20732405",
+    "3345673"
+  ],
+  "qaWrites": 0,
+  "publicationWrites": 0,
+  "activeChanges": 0,
+  "qaDecisionRowsCreated": 0,
+  "qaHistoryRowsCreated": 0,
+  "blockedRelationStagingRows": 0,
+  "completionTimestamp": "2026-09-02T19:23:21.865Z",
+  "deterministicArtifactHash": "44473fddc4c637d49bb01a893a557f532af35f59c0c5b2a8a08296fbb668ce80"
+}

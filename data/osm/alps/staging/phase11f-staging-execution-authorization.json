@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11F_STAGING_EXECUTION_AUTHORIZATION",
+  "readOnly": true,
+  "approvalRequired": true,
+  "executionWasRun": false,
+  "frozenContractHash": "f74bc4ed52b77e36fea62b82fcf7cfc10e0e1b044486e1e1439c128c0695f65c",
+  "executableManifestHash": "79f24510e2cfb3f2988681e5c9c092b4841b7156a174439e70d49871649394f0",
+  "token": "PHASE11F:f74bc4ed52b77e36fea62b82fcf7cfc10e0e1b044486e1e1439c128c0695f65c:79f24510e2cfb3f2988681e5c9c092b4841b7156a174439e70d49871649394f0",
+  "exactCommand": "node --experimental-strip-types scripts/osm-import/stage-phase11f-routes.ts --execute --contract data/osm/alps/staging/phase11f-executable-staging-contract.json --token PHASE11F:f74bc4ed52b77e36fea62b82fcf7cfc10e0e1b044486e1e1439c128c0695f65c:79f24510e2cfb3f2988681e5c9c092b4841b7156a174439e70d49871649394f0",
+  "expectedExecution": {
+    "newStagingRows": 636,
+    "exactUnchanged": 66,
+    "overwrite": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0,
+    "activeChanges": 0,
+    "excludedRelations": [
+      "1144001",
+      "2210868"
+    ],
+    "resultingStagingReadyQueue": 702
+  },
+  "writes": {
+    "databaseWrites": 0,
+    "qaWrites": 0,
+    "publicationWrites": 0
+  },
+  "deterministicArtifactHash": "729d104011ec90332c207d915ec30a9180be9f011e4f7ade232d47111000e61a"
+}

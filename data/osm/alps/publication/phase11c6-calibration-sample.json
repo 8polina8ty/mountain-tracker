@@ -1,0 +1,1375 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11C6_CALIBRATION_SAMPLE",
+  "generatedAt": "2026-08-25T01:54:50.930Z",
+  "sourceQueueHash": "403b33a436e684480bc08c7b0e40db33a8305f98bbc445a9b7f69619849b2d60",
+  "deterministicSampleHash": "06ab554b570c1b2a19a447047e15f9557adb671a9b58e055acc8fb4bde6b667b",
+  "description": "Deterministic GREEN calibration sample for human review only. Recommendations never save or approve QA decisions.",
+  "totalAvailable": {
+    "green": 135,
+    "yellow": 7,
+    "red": 8
+  },
+  "targets": {
+    "green": 50,
+    "yellow": 25,
+    "red": 25
+  },
+  "selected": {
+    "green": 50,
+    "yellow": 0,
+    "red": 0
+  },
+  "routes": [
+    {
+      "relationId": "2331008",
+      "routeName": "Wanderweg 746",
+      "mountainId": 20234,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "2374906",
+      "routeName": "Wanderweg 833: Höllkogelweg",
+      "mountainId": 17741,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "2406197",
+      "routeName": "Wanderweg 891 Rettenkogel über Sonntagskaralm",
+      "mountainId": 12377,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "2406198",
+      "routeName": "Wanderweg 893 Laufenbergalm",
+      "mountainId": 12377,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "2928983",
+      "routeName": "Wanderweg 18 auf den Rosskogel",
+      "mountainId": 12912,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "2928984",
+      "routeName": "Wanderweg 277",
+      "mountainId": 12896,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3046500",
+      "routeName": "Kordeschkopfsteig",
+      "mountainId": 13967,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3086797",
+      "routeName": "Hohe Munde",
+      "mountainId": 14900,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3096386",
+      "routeName": "Zechnerkarspitzweg",
+      "mountainId": 16218,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3211181",
+      "routeName": "Vo di Moncodeno - Monte Croce",
+      "mountainId": 70230,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3213583",
+      "routeName": "Bocchetta di Prada - Monte Croce",
+      "mountainId": 70230,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3262687",
+      "routeName": "Wanderweg 170",
+      "mountainId": 11935,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3474772",
+      "routeName": "Sentiero delle Cime",
+      "mountainId": 73044,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3705580",
+      "routeName": "Marmentino - Monte Castello della Pena",
+      "mountainId": 71998,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3743690",
+      "routeName": "Wanderweg 523 Auernig",
+      "mountainId": 17993,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3786854",
+      "routeName": "AV Weg 146 (Sadnig)",
+      "mountainId": 14849,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3803490",
+      "routeName": "Wanderweg 550",
+      "mountainId": 19031,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3960813",
+      "routeName": "Wanderweg 121 Peitlernock",
+      "mountainId": 17584,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3970179",
+      "routeName": "Lunz am See, Almgasthaus Rehberg - Maißzinken",
+      "mountainId": 20946,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3973110",
+      "routeName": "Rappenstein - Suecka",
+      "mountainId": 295742,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3975609",
+      "routeName": "Malbun Bergbahnen - Sassfoerkle - Schoenberg",
+      "mountainId": 295736,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3976489",
+      "routeName": "Gamsbrünndlweg",
+      "mountainId": 13697,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3984562",
+      "routeName": "Wanderweg 542",
+      "mountainId": 16345,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3984590",
+      "routeName": "Wanderweg 557",
+      "mountainId": 16344,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3998310",
+      "routeName": "Wanderweg 180 Mirnock - Schwarzsee",
+      "mountainId": 11918,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "3999350",
+      "routeName": "Wanderweg 22",
+      "mountainId": 20093,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4003435",
+      "routeName": "Perau - Platz - Tschiernock",
+      "mountainId": 13697,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4004301",
+      "routeName": "Wanderweg 10 - Zetzweg über Raas",
+      "mountainId": 15397,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4148576",
+      "routeName": "Wanderweg 562",
+      "mountainId": 23976,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4238433",
+      "routeName": "Wanderweg 536: Rudolstädter Weg",
+      "mountainId": 18910,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4509589",
+      "routeName": "Nauders Wanderweg Nr. 25",
+      "mountainId": 14077,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4509644",
+      "routeName": "Nauders Wanderweg Nr. 16",
+      "mountainId": 13593,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4555445",
+      "routeName": "Wanderweg 233",
+      "mountainId": 13867,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4662080",
+      "routeName": "AV Weg 423",
+      "mountainId": 690,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4677295",
+      "routeName": "Ceraino - Corno d'Aquilio",
+      "mountainId": 69767,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4726026",
+      "routeName": "Wanderweg 438 Rauchkofel",
+      "mountainId": 21145,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4834647",
+      "routeName": "Zwanzigerberg",
+      "mountainId": 12006,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "4835818",
+      "routeName": "Wanderweg 258",
+      "mountainId": 13913,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5227743",
+      "routeName": "Frankenfelsberg - Höhenweg",
+      "mountainId": 25295,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5295763",
+      "routeName": "Wanderweg 288a",
+      "mountainId": 16665,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5303154",
+      "routeName": "Wanderweg 690",
+      "mountainId": 12649,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5330830",
+      "routeName": "Wanderweg 282a",
+      "mountainId": 15153,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5363860",
+      "routeName": "Sabbio Chiese (Ponte della Fame) - Monte Corvino",
+      "mountainId": 82854,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5373300",
+      "routeName": "Wanderweg 825",
+      "mountainId": 16068,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5373301",
+      "routeName": "Wanderweg 826",
+      "mountainId": 16068,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5405900",
+      "routeName": "Sentiero dei Fiori",
+      "mountainId": 72052,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5415209",
+      "routeName": "Wanderweg 841",
+      "mountainId": 17451,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5421878",
+      "routeName": "Wanderweg 625",
+      "mountainId": 12689,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5491491",
+      "routeName": "Wanderweg 662",
+      "mountainId": 12676,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    },
+    {
+      "relationId": "5586645",
+      "routeName": "Wanderweg 628",
+      "mountainId": 15432,
+      "quality": 100,
+      "topology": "SIMPLE",
+      "semanticType": "summit_route",
+      "activityRouteType": "hiking",
+      "autoQa": {
+        "recommendation": "GREEN",
+        "score": 91,
+        "reasonCodes": [
+          "CONFIRMED_SUMMIT",
+          "EXACT_MOUNTAIN_MATCH",
+          "SIMPLE_TOPOLOGY",
+          "VALID_GEOMETRY",
+          "QUALITY_100",
+          "NO_WARNINGS",
+          "ACTIVITY_SAFE",
+          "MANUAL_REVIEW_FALSE",
+          "HIGH_CONFIDENCE_ACTIVITY",
+          "SEMANTIC_SUMMIT_ROUTE",
+          "ADMIN_ASSIGNED"
+        ],
+        "explanation": "Strong evidence for approval: Confirmed summit, Exact mountain match, Simple topology, Valid geometry, Quality 100, No warnings, Activity classification safe, Manual review not required, High activity confidence, Summit route semantic type, Admin boundary assigned"
+      }
+    }
+  ]
+}

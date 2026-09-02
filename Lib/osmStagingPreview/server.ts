@@ -6,12 +6,17 @@ import { resolve } from "node:path";
 
 import { createAdminClient } from "@/Lib/supabase/admin";
 import {
+  ChunkedInQueryError,
+  loadChunkedInQuery,
+} from "@/Lib/supabase/chunked-in-query";
+import {
   buildRouteFeatureCollection,
   calculateRouteDiagnostics,
   coordinateDistanceMeters,
   createApprovedListItems,
   normalizePreviewName,
   PHASE9_CONTRACT_VERSION,
+  summarizeQaProgress,
   validateManifestApprovedRows,
   validatePhase9Manifest,
   type ApprovedStagingRouteDetail,
@@ -24,6 +29,24 @@ import {
   type PreviewStagingSummitRow,
   type StoredPreviewQaDecision,
 } from "./core";
+import {
+  getPreviewQueueDefinition,
+  isCalibrationQueue,
+  type PreviewQueueId,
+} from "./queue-core";
+import {
+  loadPreviewQueueContract,
+} from "./phase11h-calibration";
+import {
+  loadPhase11hVisualQaContract,
+  type Phase11hVisualQaContract,
+  type Phase11hVisualQaRouteContext,
+} from "./phase11h-visual-qa";
+export {
+  loadPhase11hCalibrationPreview,
+  type Phase11hCalibrationPreviewResult,
+} from "./phase11h-calibration";
+import { isMissingPreviewQaSchemaError } from "./query-errors";
 
 const STAGING_DIRECTORY = resolve("data/osm/alps/staging");
 const MANIFEST_PATH = resolve(STAGING_DIRECTORY, "first-write-manifest.json");
@@ -51,6 +74,13 @@ interface StagingPayload {
 
 interface DetailRouteRow {
   id: string;
+  contract_version: string;
+  idempotency_key: string;
+  payload_hash: string;
+  source_relation_id: string;
+  canonical_source_id: string;
+  import_eligibility: string;
+  matched_primary_mountain_id: number | string | null;
   geometry_geojson: unknown;
   payload: unknown;
 }
@@ -68,6 +98,13 @@ interface DatabaseMountainRow {
 export interface PreviewListResult {
   routes: ApprovedStagingRouteListItem[];
   qaSchemaAvailable: boolean;
+  queue: {
+    id: PreviewQueueId;
+    label: string;
+    total: number;
+    reviewed: number;
+    remaining: number;
+  } | null;
   performance: {
     serverQueryMilliseconds: number;
     stagingMetadataQueryMilliseconds: number;
@@ -76,8 +113,23 @@ export interface PreviewListResult {
   };
 }
 
+
+
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function canonicalJson(value: unknown): string {
+  if (Array.isArray(value)) {
+    return `[${value.map(canonicalJson).join(",")}]`;
+  }
+  if (isObject(value)) {
+    return `{${Object.keys(value)
+      .sort()
+      .map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`)
+      .join(",")}}`;
+  }
+  return JSON.stringify(value);
 }
 
 function normalizedOsmAttribution(value: string): string {
@@ -86,12 +138,21 @@ function normalizedOsmAttribution(value: string): string {
     : value;
 }
 
-function isMissingQaSchemaError(error: { code?: string; message?: string }): boolean {
-  return (
-    error.code === "42P01" ||
-    error.code === "PGRST205" ||
-    /osm_staging_route_visual_qa.*(?:not found|does not exist)/i.test(error.message ?? "")
-  );
+function assertExactQueryIdentitySet(input: {
+  queryLabel: string;
+  expected: readonly string[];
+  actual: readonly string[];
+}): void {
+  const actualSet = new Set(input.actual);
+  if (
+    actualSet.size !== input.actual.length ||
+    actualSet.size !== input.expected.length ||
+    input.expected.some((identity) => !actualSet.has(identity))
+  ) {
+    throw new Error(
+      `${input.queryLabel} returned ${actualSet.size} of ${input.expected.length} required identities.`,
+    );
+  }
 }
 
 function parseGeometry(value: unknown): PreviewRouteGeometry {
@@ -140,6 +201,42 @@ async function loadLocalContracts(): Promise<{
     throw new Error("Phase 9 metadata does not match the reviewed manifest.");
   }
   return { manifest, metadata };
+}
+
+interface LoadedPreviewContracts {
+  manifest: PreviewManifest;
+  metadata: PreviewMetadataDocument;
+  expectedRecordCount: number;
+  phase11h: Phase11hVisualQaContract | null;
+}
+
+async function loadContracts(
+  queueId: PreviewQueueId | null,
+): Promise<LoadedPreviewContracts> {
+  if (queueId === null) {
+    const contracts = await loadLocalContracts();
+    return {
+      ...contracts,
+      expectedRecordCount: contracts.manifest.recordCount,
+      phase11h: null,
+    };
+  }
+  if (isCalibrationQueue(queueId)) {
+    const contract = await loadPhase11hVisualQaContract();
+    return {
+      manifest: contract.manifest,
+      metadata: contract.metadata,
+      expectedRecordCount: contract.contexts.length,
+      phase11h: contract,
+    };
+  }
+  const contract = await loadPreviewQueueContract(queueId);
+  return {
+    manifest: contract.manifest,
+    metadata: contract.metadata,
+    expectedRecordCount: contract.definition.expectedTotal,
+    phase11h: null,
+  };
 }
 
 function mapRouteRow(value: Record<string, unknown>): PreviewStagingRouteRow {
@@ -195,59 +292,135 @@ function mapQaDecision(value: Record<string, unknown>): StoredPreviewQaDecision 
   };
 }
 
-export async function loadApprovedStagingRouteList(): Promise<PreviewListResult> {
+export async function loadApprovedStagingRouteList(
+  queueId: PreviewQueueId | null = null,
+): Promise<PreviewListResult> {
   const startedAt = performance.now();
-  const { manifest, metadata } = await loadLocalContracts();
+  const { manifest, metadata, expectedRecordCount, phase11h } =
+    await loadContracts(queueId);
   const admin = createAdminClient();
   const stagingMetadataStartedAt = performance.now();
-  const { data: routeData, error: routeError } = await admin
-    .from("osm_route_import_staging")
-    .select(
-      "id,contract_version,idempotency_key,payload_hash,source_relation_id,canonical_source_id,route_name,semantic_type,quality_score,distance_meters,matched_primary_mountain_id,audit_flags,import_eligibility",
-    )
-    .in("idempotency_key", manifest.records.map((record) => record.idempotencyKey));
-  if (routeError) throw new Error(`Staging preview route query failed: ${routeError.message}`);
-  const routes = ((routeData ?? []) as Array<Record<string, unknown>>).map(mapRouteRow);
+  const expectedIdempotencyKeys = manifest.records.map((record) => record.idempotencyKey);
+  const routeData = await loadChunkedInQuery({
+    values: expectedIdempotencyKeys,
+    queryLabel: "Staging preview route query",
+    loadChunk: (idempotencyKeys) =>
+      admin
+        .from("osm_route_import_staging")
+        .select(
+          "id,contract_version,idempotency_key,payload_hash,source_relation_id,canonical_source_id,route_name,semantic_type,quality_score,distance_meters,matched_primary_mountain_id,audit_flags,import_eligibility",
+        )
+        .in("idempotency_key", idempotencyKeys),
+    rowIdentity: (row) => String((row as Record<string, unknown>).idempotency_key),
+  });
+  const routes = (routeData as Array<Record<string, unknown>>).map(mapRouteRow);
+  assertExactQueryIdentitySet({
+    queryLabel: "Staging preview route query",
+    expected: expectedIdempotencyKeys,
+    actual: routes.map((route) => route.idempotency_key),
+  });
   const stagingMetadataQueryMilliseconds = performance.now() - stagingMetadataStartedAt;
   const [summitMeasurement, qaMeasurement] = await Promise.all([
     (async () => {
       const queryStartedAt = performance.now();
-      const result = await admin
-      .from("osm_route_import_summit_staging")
-      .select(
-        "staging_route_id,peak_osm_id,mountain_id,mountain_match_classification,final_association,final_confidence,minimum_geometry_distance_meters,endpoint_distance_meters",
-      )
-        .in("staging_route_id", routes.map((route) => route.id));
-      return { result, milliseconds: performance.now() - queryStartedAt };
+      const data = await loadChunkedInQuery({
+        values: routes.map((route) => route.id),
+        queryLabel: "Staging preview summit query",
+        loadChunk: (stagingRouteIds) =>
+          admin
+            .from("osm_route_import_summit_staging")
+            .select(
+              "staging_route_id,peak_osm_id,mountain_id,mountain_match_classification,final_association,final_confidence,minimum_geometry_distance_meters,endpoint_distance_meters",
+            )
+            .in("staging_route_id", stagingRouteIds),
+        rowIdentity: (row) => {
+          const value = row as Record<string, unknown>;
+          return `${String(value.staging_route_id)}:${String(value.peak_osm_id)}`;
+        },
+      });
+      return { data, milliseconds: performance.now() - queryStartedAt };
     })(),
     (async () => {
       const queryStartedAt = performance.now();
-      const result = await admin
-      .from("osm_staging_route_visual_qa")
-      .select(
-        "staging_route_id,status,reviewer_note,reviewed_at,reviewer_user_id,version",
-      )
-        .in("staging_route_id", routes.map((route) => route.id));
-      return { result, milliseconds: performance.now() - queryStartedAt };
+      try {
+        const data = await loadChunkedInQuery({
+          values: routes.map((route) => route.id),
+          queryLabel: "Staging preview QA query",
+          loadChunk: (stagingRouteIds) =>
+            admin
+              .from("osm_staging_route_visual_qa")
+              .select(
+                "staging_route_id,status,reviewer_note,reviewed_at,reviewer_user_id,version",
+              )
+              .in("staging_route_id", stagingRouteIds),
+          rowIdentity: (row) =>
+            String((row as Record<string, unknown>).staging_route_id),
+        });
+        return {
+          data,
+          schemaAvailable: true,
+          milliseconds: performance.now() - queryStartedAt,
+        };
+      } catch (error) {
+        if (
+          error instanceof ChunkedInQueryError &&
+          isMissingPreviewQaSchemaError({
+            code: error.queryErrorCode,
+            message: error.queryErrorMessage,
+          })
+        ) {
+          return {
+            data: [],
+            schemaAvailable: false,
+            milliseconds: performance.now() - queryStartedAt,
+          };
+        }
+        throw error;
+      }
     })(),
   ]);
-  const summitResult = summitMeasurement.result;
-  const qaResult = qaMeasurement.result;
   const qaDecisionQueryMilliseconds = qaMeasurement.milliseconds;
-  const { data: summitData, error: summitError } = summitResult;
-  if (summitError) throw new Error(`Staging preview summit query failed: ${summitError.message}`);
-  const qaSchemaAvailable = !qaResult.error;
-  if (qaResult.error && !isMissingQaSchemaError(qaResult.error)) {
-    throw new Error(`Staging preview QA query failed: ${qaResult.error.message}`);
+  const qaSchemaAvailable = qaMeasurement.schemaAvailable;
+  const summits = (summitMeasurement.data as Array<Record<string, unknown>>).map(mapSummitRow);
+  const qaDecisions = (qaMeasurement.data as Array<Record<string, unknown>>).map(mapQaDecision);
+  const validated = validateManifestApprovedRows({
+    manifest,
+    routes,
+    summits,
+    expectedRecordCount,
+    preserveManifestOrder: queueId !== null,
+  });
+  const listItems = createApprovedListItems({
+    validated,
+    metadata,
+    qaDecisions,
+    expectedRecordCount,
+  });
+  if (
+    phase11h &&
+    listItems.some((route) => {
+      const context = phase11h.contexts.find(
+        (candidate) => candidate.canonicalRelationId === route.sourceRelationId,
+      );
+      return !context || context.stagingRouteId !== route.stagingRouteId;
+    })
+  ) {
+    throw new Error("Phase 11H live staging identity does not match the execution receipt.");
   }
-  const summits = ((summitData ?? []) as Array<Record<string, unknown>>).map(mapSummitRow);
-  const qaDecisions = ((qaResult.data ?? []) as Array<Record<string, unknown>>).map(mapQaDecision);
-  const validated = validateManifestApprovedRows({ manifest, routes, summits });
-  const listItems = createApprovedListItems({ validated, metadata, qaDecisions });
+  const progress = summarizeQaProgress(listItems);
   const serializedPayloadBytes = Buffer.byteLength(JSON.stringify(listItems), "utf8");
   return {
     routes: listItems,
     qaSchemaAvailable,
+    queue: queueId
+      ? {
+          id: queueId,
+          label: getPreviewQueueDefinition(queueId).label,
+          total: progress.total,
+          reviewed: progress.decided,
+          remaining: progress.pending,
+        }
+      : null,
     performance: {
       serverQueryMilliseconds: Math.round((performance.now() - startedAt) * 10) / 10,
       stagingMetadataQueryMilliseconds:
@@ -258,6 +431,8 @@ export async function loadApprovedStagingRouteList(): Promise<PreviewListResult>
   };
 }
 
+
+
 export interface ValidatedQaMutationTarget {
   listItem: ApprovedStagingRouteListItem;
   manifestRecord: PreviewManifest["records"][number];
@@ -265,10 +440,11 @@ export interface ValidatedQaMutationTarget {
 
 export async function loadValidatedQaMutationTarget(
   stagingRouteId: string,
+  queueId: PreviewQueueId | null = null,
 ): Promise<ValidatedQaMutationTarget> {
   const [{ routes, qaSchemaAvailable }, { manifest }] = await Promise.all([
-    loadApprovedStagingRouteList(),
-    loadLocalContracts(),
+    loadApprovedStagingRouteList(queueId),
+    loadContracts(queueId),
   ]);
   if (!qaSchemaAvailable) throw new Error("Phase 9B QA schema is not available.");
   const listItem = routes.find((route) => route.stagingRouteId === stagingRouteId);
@@ -296,21 +472,34 @@ function mapMountain(row: DatabaseMountainRow): PreviewMountainRecord {
 
 export async function loadApprovedStagingRouteDetail(
   stagingRouteId: string,
+  queueId: PreviewQueueId | null = null,
 ): Promise<{
   detail: ApprovedStagingRouteDetail;
   navigationRoutes: ApprovedStagingRouteListItem[];
   qaSchemaAvailable: boolean;
+  phase11hContext: Phase11hVisualQaRouteContext | null;
 }> {
   const startedAt = performance.now();
-  const list = await loadApprovedStagingRouteList();
+  const [list, contracts] = await Promise.all([
+    loadApprovedStagingRouteList(queueId),
+    loadContracts(queueId),
+  ]);
   const listItem = list.routes.find((route) => route.stagingRouteId === stagingRouteId);
   if (!listItem) throw new Error("Staging preview route is not manifest-approved.");
+  const phase11hContext = contracts.phase11h?.contexts.find(
+    (context) => context.canonicalRelationId === listItem.sourceRelationId,
+  ) ?? null;
+  if (isCalibrationQueue(queueId) && !phase11hContext) {
+    throw new Error("Phase 11H visual QA context is missing.");
+  }
   const admin = createAdminClient();
   const [{ data: routeData, error: routeError }, { data: mountainData, error: mountainError }] =
     await Promise.all([
       admin
         .from("osm_route_import_staging")
-        .select("id,geometry_geojson,payload")
+        .select(
+          "id,contract_version,idempotency_key,payload_hash,source_relation_id,canonical_source_id,import_eligibility,matched_primary_mountain_id,geometry_geojson,payload",
+        )
         .eq("id", stagingRouteId)
         .maybeSingle(),
       admin
@@ -323,23 +512,67 @@ export async function loadApprovedStagingRouteDetail(
   if (mountainError) throw new Error(`Staging preview mountain query failed: ${mountainError.message}`);
   if (!routeData || !mountainData) throw new Error("Staging preview detail evidence is missing.");
   const detailRow = routeData as DetailRouteRow;
-  const payload = parsePayload(detailRow.payload);
   const geometry = parseGeometry(detailRow.geometry_geojson);
   if (
     detailRow.id !== stagingRouteId ||
-    payload.contractVersion !== PHASE9_CONTRACT_VERSION ||
-    payload.idempotencyKey !== listItem.idempotencyKey ||
-    payload.provider !== "openstreetmap" ||
-    payload.source.sourceRelationId !== listItem.sourceRelationId ||
-    payload.source.canonicalSourceId !== listItem.canonicalRouteSourceId ||
-    JSON.stringify(payload.route.geometry) !== JSON.stringify(geometry)
+    detailRow.contract_version !== PHASE9_CONTRACT_VERSION ||
+    detailRow.idempotency_key !== listItem.idempotencyKey ||
+    detailRow.payload_hash !== listItem.payloadHash ||
+    detailRow.source_relation_id !== listItem.sourceRelationId ||
+    detailRow.canonical_source_id !== listItem.canonicalRouteSourceId ||
+    detailRow.import_eligibility !== "AUTO_IMPORT_READY" ||
+    Number(detailRow.matched_primary_mountain_id) !== listItem.summit.mountainId
   ) {
     throw new Error("Staging preview detail payload failed contract validation.");
   }
-  const payloadSummit = payload.confirmedSummits.find(
-    (summit) => summit.peakOsmId === listItem.summit.peakOsmId,
-  );
-  if (!payloadSummit) throw new Error("Reviewed summit evidence is missing from payload.");
+  let sourceUrl: string;
+  let attribution: string;
+  let license: string;
+  let boundary: unknown;
+  let evidence: string[];
+  if (phase11hContext) {
+    const storedPayload = isObject(detailRow.payload) ? detailRow.payload : null;
+    if (
+      phase11hContext.stagingRouteId !== stagingRouteId ||
+      canonicalJson(phase11hContext.geometry) !== canonicalJson(geometry) ||
+      !storedPayload ||
+      storedPayload.geometry_hash !== phase11hContext.geometryHash ||
+      storedPayload.qualification_hash !== listItem.qualificationHash ||
+      canonicalJson(storedPayload) !==
+        canonicalJson(phase11hContext.expectedStoredPayload)
+    ) {
+      throw new Error("Phase 11H staging detail does not match its frozen payload.");
+    }
+    sourceUrl = phase11hContext.sourceUrl;
+    attribution = "© OpenStreetMap contributors";
+    license = "ODbL 1.0";
+    boundary = null;
+    evidence = [
+      ...phase11hContext.summitEvidence,
+      ...phase11hContext.startEvidence,
+    ];
+  } else {
+    const payload = parsePayload(detailRow.payload);
+    if (
+      payload.contractVersion !== PHASE9_CONTRACT_VERSION ||
+      payload.idempotencyKey !== listItem.idempotencyKey ||
+      payload.provider !== "openstreetmap" ||
+      payload.source.sourceRelationId !== listItem.sourceRelationId ||
+      payload.source.canonicalSourceId !== listItem.canonicalRouteSourceId ||
+      JSON.stringify(payload.route.geometry) !== JSON.stringify(geometry)
+    ) {
+      throw new Error("Staging preview detail payload failed contract validation.");
+    }
+    const payloadSummit = payload.confirmedSummits.find(
+      (summit) => summit.peakOsmId === listItem.summit.peakOsmId,
+    );
+    if (!payloadSummit) throw new Error("Reviewed summit evidence is missing from payload.");
+    sourceUrl = payload.source.sourceUrl;
+    attribution = normalizedOsmAttribution(payload.source.attribution);
+    license = payload.source.license;
+    boundary = payload.routeAdministration;
+    evidence = [...payloadSummit.mountainMatch.reasons, ...payloadSummit.evidence];
+  }
   const mountain = mapMountain(mountainData as DatabaseMountainRow);
   if (mountain.id !== listItem.summit.mountainId || mountain.osmId !== listItem.summit.peakOsmId) {
     throw new Error("Mountain Tracker mountain resolution changed.");
@@ -377,14 +610,14 @@ export async function loadApprovedStagingRouteDetail(
     },
     provenance: {
       provider: "openstreetmap" as const,
-      sourceUrl: payload.source.sourceUrl,
-      attribution: normalizedOsmAttribution(payload.source.attribution),
-      license: payload.source.license,
-      datasetFingerprint: (await loadLocalContracts()).manifest.datasetFingerprint,
-      contractVersion: payload.contractVersion,
-      boundary: payload.routeAdministration,
+      sourceUrl,
+      attribution,
+      license,
+      datasetFingerprint: contracts.manifest.datasetFingerprint,
+      contractVersion: contracts.manifest.contractVersion,
+      boundary,
     },
-    evidence: [...payloadSummit.mountainMatch.reasons, ...payloadSummit.evidence],
+    evidence,
   };
   const geometryPointCount = listItem.diagnostics.geometryPointCount;
   const performanceBase = {
@@ -406,5 +639,6 @@ export async function loadApprovedStagingRouteDetail(
     detail,
     navigationRoutes: list.routes,
     qaSchemaAvailable: list.qaSchemaAvailable,
+    phase11hContext,
   };
 }

@@ -1,0 +1,4210 @@
+{
+  "schemaVersion": 1,
+  "artifactType": "PHASE11F3_START_ELEVATION_EVIDENCE",
+  "generatedAt": "2026-09-01T06:12:36.817Z",
+  "elevationHierarchyVersion": "1",
+  "populationNote": "Audits exactly the Phase 11F.2 AMBIGUOUS routes with base context but missing deterministic start elevation (the 174-route bucket).",
+  "auditedCount": 174,
+  "recoveryBySource": {
+    "EXACT_ENDPOINT_OSM_ELE": 0,
+    "EXACT_START_FEATURE_ELE": 1,
+    "CONTAINING_START_FEATURE_ELE": 0,
+    "CONNECTED_NETWORK_ELEVATION": 0,
+    "FROZEN_TERRAIN_DATA": 0,
+    "NONE": 173
+  },
+  "recoveredToBase": 1,
+  "recoveredToHut": 0,
+  "recoveredTotal": 1,
+  "remainingUnproven": 173,
+  "rows": [
+    {
+      "canonicalRelationId": "357442",
+      "routeName": "Wanderweg 483",
+      "startCoordinate": [
+        14.2998699,
+        47.9073363
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9763551726 @12m",
+        "trailhead_info 9763551725 @15m",
+        "trailhead_info 9763551727 @93m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1285,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "935376",
+      "routeName": "Thal - Kieneck (Enzianhütte)",
+      "startCoordinate": [
+        15.8978328,
+        47.9276914
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12465200434 @12m",
+        "parking 949791826 @12m",
+        "parking 949791827 @168m",
+        "parking 8792708415 @173m",
+        "village 625668929 @215m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1106,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1116972",
+      "routeName": "Wanderweg 431",
+      "startCoordinate": [
+        13.9589481,
+        47.8545722
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 620867923 @95m",
+        "parking 1320092678 @104m",
+        "parking 367155135 @133m",
+        "bus_stop 11407552239 @139m",
+        "parking 144112894 @142m",
+        "parking 366392840 @175m",
+        "parking 366392839 @178m",
+        "parking 366392892 @186m",
+        "parking 144112880 @218m",
+        "village 240029018 @222m",
+        "parking 357659810 @248m",
+        "parking 867793504 @257m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1747,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1598238",
+      "routeName": "Wanderweg 9",
+      "startCoordinate": [
+        15.3333988,
+        47.3619881
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6661837607 @9m",
+        "trailhead_info 1347063337 @11m",
+        "village 240122864 @89m",
+        "parking 1252231411 @92m",
+        "trailhead_info 13356019110 @98m",
+        "parking 674116894 @151m",
+        "parking 1165122398 @242m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 853,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1776631",
+      "routeName": "Wanderweg 35",
+      "startCoordinate": [
+        15.4974478,
+        47.9317326
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 10543573676 @29m",
+        "parking 374096608 @123m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1372,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1839920",
+      "routeName": "Wanderweg 31",
+      "startCoordinate": [
+        13.2043499,
+        47.2676364
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 1848807295 @26m",
+        "bus_stop 1848807290 @33m",
+        "parking 174156693 @56m",
+        "hamlet 240059611 @255m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2100,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "2210868",
+      "routeName": "Maria Schutz - Sonnwendstein",
+      "startCoordinate": [
+        15.8710018,
+        47.6413338
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9526446635 @12m",
+        "parking 183249714 @53m",
+        "parking 1033600942 @160m",
+        "parking 1033600047 @170m",
+        "parking 1033600048 @170m",
+        "parking 1033600940 @249m",
+        "parking 1033600941 @254m",
+        "hamlet 1088199848 @272m",
+        "parking 1033600939 @298m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1523,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "2244245",
+      "routeName": "Wanderweg 733",
+      "startCoordinate": [
+        13.3798364,
+        47.2233199
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 1387251190 @0m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2680,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "2946431",
+      "routeName": "Wanderweg 683",
+      "startCoordinate": [
+        13.9971739,
+        47.5372628
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 5774966903 @16m",
+        "bus_stop 11465789057 @20m",
+        "parking 376654591 @31m [ele=970]",
+        "trailhead_info 5774966902 @36m",
+        "hamlet 461861417 @187m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2351,
+      "elevationSourceCandidates": [
+        {
+          "sourceType": "EXACT_START_FEATURE_ELE",
+          "sourceOsmType": "node",
+          "sourceOsmId": "376654591",
+          "rawEle": "970",
+          "normalizedEleMeters": 970,
+          "distanceMeters": 31.43597909853826
+        }
+      ],
+      "selectedElevationSource": "EXACT_START_FEATURE_ELE",
+      "deterministic": true,
+      "verticalGainMeters": 1381,
+      "reasonCodes": [
+        "START_ELEVATION_PROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3262609",
+      "routeName": "Wanderweg 155",
+      "startCoordinate": [
+        13.9251977,
+        46.8584011
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1450391956 @178m",
+        "hamlet 240122397 @235m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2320,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3272858",
+      "routeName": "Grins Zintlkopf",
+      "startCoordinate": [
+        10.4972777,
+        47.1397981
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 233035182 @26m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1468,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3749786",
+      "routeName": "Wanderweg 558",
+      "startCoordinate": [
+        13.5373137,
+        46.9076843
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 2470918969 @12m",
+        "parking 530870991 @53m",
+        "trailhead_info 2470918972 @78m",
+        "trailhead_info 1788538505 @78m",
+        "bus_stop 13684935442 @101m",
+        "parking 237388900 @170m",
+        "hamlet 240036315 @205m",
+        "parking 167461588 @207m",
+        "parking 5840357397 @219m",
+        "parking 167458924 @227m",
+        "parking 235474385 @230m",
+        "parking 332333000 @234m",
+        "parking 1788555185 @239m",
+        "parking 167461589 @262m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2370,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3960482",
+      "routeName": "Falknis - Lawena",
+      "startCoordinate": [
+        9.5590253,
+        47.0662367
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 4514418890 @50m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2565,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3984580",
+      "routeName": "Wanderweg 543",
+      "startCoordinate": [
+        13.5149795,
+        46.9960372
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13173846275 @9m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2614,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3998311",
+      "routeName": "Wanderweg 184 (Feld am See - Mirnock)",
+      "startCoordinate": [
+        13.745681,
+        46.7751115
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1094213634 @16m",
+        "parking 1141365163 @27m",
+        "parking 1540818239 @35m",
+        "parking 367580962 @53m",
+        "bus_stop 7286413562 @57m",
+        "bus_stop 7286315969 @75m",
+        "bus_stop 7286413564 @77m",
+        "parking 294193318 @105m",
+        "parking 26819193 @146m",
+        "parking 12561222394 @152m",
+        "parking 1540967278 @163m",
+        "village 240053181 @206m",
+        "parking 1090917810 @232m",
+        "parking 26656130 @248m",
+        "parking 26819178 @290m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2110,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "4752672",
+      "routeName": "Bärentaler Kotschna",
+      "startCoordinate": [
+        14.156246,
+        46.4702389
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 263387477 @11m",
+        "parking 32317705 @20m",
+        "parking 617029869 @86m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1944,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "5370432",
+      "routeName": "Vantone-F.le Meghè",
+      "startCoordinate": [
+        10.4971132,
+        45.7538333
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1319099851 @10m",
+        "hamlet 2385038825 @66m",
+        "trailhead_info 9972811035 @88m",
+        "parking 1319099849 @107m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1031,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "5374990",
+      "routeName": "Ponte Selva - Monte Dasdana",
+      "startCoordinate": [
+        10.4562175,
+        45.8255728
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 708324218 @90m",
+        "bus_stop 13542907276 @142m",
+        "parking 162665083 @276m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2191,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "5501515",
+      "routeName": "Greim",
+      "startCoordinate": [
+        14.1918791,
+        47.2046986
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6859509742 @12m",
+        "trailhead_info 6859509731 @14m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2474,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "6028071",
+      "routeName": "AV Weg 164 (Rudi-Maier-Weg)",
+      "startCoordinate": [
+        13.013195,
+        46.9439599
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 4042238839 @6m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2745,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "6706878",
+      "routeName": "Wanderweg 942b",
+      "startCoordinate": [
+        14.2865399,
+        47.4785831
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 8401939185 @19m",
+        "parking 904705332 @166m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2049,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "6779777",
+      "routeName": "Wanderweg 491",
+      "startCoordinate": [
+        14.5179596,
+        47.8347987
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 235601288 @106m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1275,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "6961102",
+      "routeName": "RPDDK 1/1 (Írott-kő – Bozsok)",
+      "startCoordinate": [
+        16.4904761,
+        47.3242659
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 8779316698 @17m",
+        "trailhead_info 12696830442 @74m",
+        "village 700705925 @98m",
+        "parking 1159465023 @110m",
+        "parking 1388772290 @129m",
+        "parking 1337353013 @210m",
+        "parking 12686963280 @252m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 884,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "7135309",
+      "routeName": "Sentiero dei Piani",
+      "startCoordinate": [
+        11.2665881,
+        45.9837539
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 401750856 @21m",
+        "trailhead_info 6860228783 @46m",
+        "parking 232219984 @87m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1525,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "7717973",
+      "routeName": "Fuschl am See Wanderweg",
+      "startCoordinate": [
+        13.2540672,
+        47.8413817
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 916174422 @5m",
+        "trailhead_info 916174414 @26m",
+        "village 240105381 @41m",
+        "parking 538950816 @46m",
+        "parking 77954454 @62m",
+        "parking 538955381 @74m",
+        "parking 507390712 @74m",
+        "bus_stop 337092235 @94m",
+        "parking 508458995 @112m",
+        "parking 538943751 @129m",
+        "parking 539612798 @130m",
+        "parking 508458993 @148m",
+        "parking 508458994 @156m",
+        "parking 507842023 @167m",
+        "parking 505821420 @168m",
+        "parking 436626386 @171m",
+        "parking 710063566 @195m",
+        "parking 710063565 @207m",
+        "parking 888673655 @227m",
+        "parking 507362764 @232m",
+        "parking 505821423 @234m",
+        "parking 1549659060 @237m",
+        "parking 1549659059 @240m",
+        "parking 538955380 @249m",
+        "parking 505821424 @254m",
+        "parking 505821422 @255m",
+        "parking 539611025 @263m",
+        "parking 507362763 @264m",
+        "parking 508110770 @280m",
+        "parking 508110769 @284m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 871,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "8701224",
+      "routeName": "Senter de le Farfale",
+      "startCoordinate": [
+        10.7788795,
+        45.8051841
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12832646577 @8m",
+        "trailhead_info 13752153108 @16m",
+        "parking 1502433121 @24m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 917,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "8910253",
+      "routeName": "T30 - Cesara - Monte Novesso",
+      "startCoordinate": [
+        8.367908,
+        45.8359297
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 8302616113 @115m",
+        "parking 8302616114 @137m",
+        "parking 588444529 @176m",
+        "village 63630848 @199m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1409,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "10152393",
+      "routeName": "Alpiner Weg Nr: 39",
+      "startCoordinate": [
+        14.6604417,
+        47.3454477
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6876000921 @22m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2417,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "10484908",
+      "routeName": "A33 - Anzola - Monte Massone",
+      "startCoordinate": [
+        8.3456083,
+        45.9884133
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6195650451 @14m",
+        "hamlet 996493613 @40m",
+        "parking 1014091039 @98m",
+        "village 63631779 @105m",
+        "parking 1014351283 @158m",
+        "parking 303882960 @282m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2161,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11046475",
+      "routeName": "M06 - Druogno - Pizzo Ragno",
+      "startCoordinate": [
+        8.4248153,
+        46.1343286
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 319417553 @194m",
+        "hamlet 1237871462 @262m",
+        "parking 284820493 @271m",
+        "parking 284992739 @291m",
+        "parking 107079275 @293m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2289,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11049749",
+      "routeName": "M03 - Coimo - Monte Loccia di Peve",
+      "startCoordinate": [
+        8.3975901,
+        46.1329191
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 1233087023 @47m",
+        "parking 336890200 @89m",
+        "parking 335892937 @93m",
+        "parking 336890201 @93m",
+        "trailhead_info 12805810802 @96m",
+        "parking 345061364 @145m",
+        "parking 336704921 @179m",
+        "parking 345061365 @181m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2127,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11147542",
+      "routeName": "S10 Cavaglio - Le Biuse - Monte Limidario",
+      "startCoordinate": [
+        8.6462251,
+        46.0689764
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 229680498 @29m",
+        "village 63631403 @39m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2189,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11178740",
+      "routeName": "S08 Cavaglio - Monte Giove",
+      "startCoordinate": [
+        8.6456124,
+        46.069339
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 63631403 @33m",
+        "parking 229680498 @82m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1298,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11290148",
+      "routeName": "S21 Gurro loc. Tresco, bivio S01 - La Piota",
+      "startCoordinate": [
+        8.5738147,
+        46.0785935
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11274795777 @2m",
+        "trailhead_info 11274795776 @99m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1927,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11335790",
+      "routeName": "Maria Alm am Steinernen Meer - Schwalbenwand",
+      "startCoordinate": [
+        12.8957466,
+        47.4073591
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 5876982501 @2m",
+        "trailhead_info 5876983358 @61m",
+        "parking 465864623 @85m",
+        "parking 130279512 @138m",
+        "parking 465888256 @196m",
+        "parking 130195173 @262m",
+        "parking 130279428 @285m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2011,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "12411382",
+      "routeName": "Wackersberg - Zwieselberg",
+      "startCoordinate": [
+        11.5294856,
+        47.7222204
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 8715085372 @5m",
+        "parking 108952936 @204m",
+        "parking 297169143 @212m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1348,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14096762",
+      "routeName": "Wanderweg 5",
+      "startCoordinate": [
+        14.4983956,
+        47.212375
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6715546032 @5m",
+        "trailhead_info 10179000214 @8m",
+        "trailhead_info 6715546034 @11m",
+        "halt 5849549861 @53m",
+        "village 240061168 @87m",
+        "parking 562043044 @142m",
+        "parking 558513485 @298m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1231,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14317862",
+      "routeName": "Wanderweg 799",
+      "startCoordinate": [
+        14.0231772,
+        47.1101853
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 10016557227 @20m",
+        "trailhead_info 9808583190 @63m",
+        "bus_stop 10016557228 @87m",
+        "village 240032538 @185m",
+        "parking 807116341 @293m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2140,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14556415",
+      "routeName": "Stradina Chateau de Quart - Croce di Fana",
+      "startCoordinate": [
+        7.4006465,
+        45.7479713
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 2583550047 @6m",
+        "trailhead_info 6189836014 @32m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2211,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14748783",
+      "routeName": "Wanderweg 761",
+      "startCoordinate": [
+        13.6824688,
+        47.1910066
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 7069526602 @71m",
+        "bus_stop 7069526601 @77m",
+        "hamlet 3154354219 @104m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2526,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14783152",
+      "routeName": "Wanderweg 493",
+      "startCoordinate": [
+        14.5468693,
+        47.882458
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 346529473 @29m",
+        "bus_stop 7077654826 @81m",
+        "parking 342216447 @123m",
+        "parking 3290893906 @187m",
+        "parking 1019607997 @202m",
+        "parking 342216445 @207m",
+        "parking 322317146 @230m",
+        "parking 174317035 @268m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 849,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15085607",
+      "routeName": "Wanderweg 438",
+      "startCoordinate": [
+        13.9924728,
+        47.8575842
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1550338154 @103m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1405,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15089328",
+      "routeName": "Wanderweg 743",
+      "startCoordinate": [
+        13.4141983,
+        47.186536
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12149934615 @33m",
+        "parking 136732057 @85m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2680,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15509473",
+      "routeName": "Wanderweg 288B",
+      "startCoordinate": [
+        13.7580099,
+        46.6567123
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 8279025684 @66m",
+        "bus_stop 2937111404 @92m",
+        "village 240093845 @148m",
+        "parking 514801626 @201m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1332,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15706184",
+      "routeName": "Senda dal Diavel",
+      "startCoordinate": [
+        9.9668446,
+        46.4306112
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 1431291159 @2m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 3207,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17324956",
+      "routeName": "Vitanje - Stenica",
+      "startCoordinate": [
+        15.2972307,
+        46.3832692
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11708634851 @19m",
+        "parking 1433416173 @70m",
+        "parking 909558485 @78m",
+        "parking 1433416175 @83m",
+        "parking 908225521 @96m",
+        "parking 908121173 @100m",
+        "parking 1433416178 @100m",
+        "parking 929267415 @119m",
+        "parking 255779304 @129m",
+        "parking 909558475 @138m",
+        "village 1827653140 @155m",
+        "parking 909558447 @168m",
+        "parking 908415152 @200m",
+        "parking 1433416192 @212m",
+        "parking 908225526 @214m",
+        "parking 908415165 @234m",
+        "parking 908225529 @267m",
+        "parking 1433416162 @280m",
+        "parking 908415173 @289m",
+        "parking 908415213 @291m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1091,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17565144",
+      "routeName": "Sl. Konjice - Skala",
+      "startCoordinate": [
+        15.4188733,
+        46.3378659
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 443928799 @47m",
+        "parking 443928798 @64m",
+        "parking 443928818 @80m",
+        "parking 443928838 @89m",
+        "parking 443928810 @138m",
+        "parking 443928821 @142m",
+        "parking 1378655305 @227m",
+        "parking 1378655314 @240m",
+        "parking 1378655313 @246m",
+        "parking 444402819 @255m",
+        "parking 1378655315 @260m",
+        "parking 1378655303 @260m",
+        "parking 1378655304 @279m",
+        "parking 1376781878 @292m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 777,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18077849",
+      "routeName": "Unterhöhenberg - Hainfelder Hütte",
+      "startCoordinate": [
+        15.7674498,
+        48.0025381
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "isolated_dwelling 1085330328 @14m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 924,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18768811",
+      "routeName": "B17 - Bivio B15 - Pizzo Tignaga",
+      "startCoordinate": [
+        8.1143694,
+        45.9461538
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11390128170 @7m",
+        "parking 1053265780 @10m",
+        "trailhead_info 9679465480 @34m",
+        "trailhead_info 9679465479 @38m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2652,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19596759",
+      "routeName": "Wanderweg 31 - Reit im Winkl",
+      "startCoordinate": [
+        12.4644195,
+        47.6788369
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 3419624580 @71m",
+        "trailhead_info 4244902495 @79m",
+        "parking 5110896963 @258m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1064,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20000969",
+      "routeName": "Guscha",
+      "startCoordinate": [
+        9.5311857,
+        47.0562077
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 2712913584 @26m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1897,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20573620",
+      "routeName": "AV Weg 515",
+      "startCoordinate": [
+        12.5470457,
+        47.0037761
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13960064721 @22m",
+        "village 240040478 @268m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2762,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20747596",
+      "routeName": "Wanderweg 2",
+      "startCoordinate": [
+        12.8334178,
+        47.2020309
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13883078711 @11m",
+        "bus_stop 3958008006 @25m",
+        "bus_stop 3958008007 @46m",
+        "trailhead_info 13882630817 @80m",
+        "parking 1359623072 @252m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2220,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "21205274",
+      "routeName": "Aquila Vaia",
+      "startCoordinate": [
+        11.6386845,
+        45.9543172
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 10284746709 @10m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1387,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16226696",
+      "routeName": "Soča - Bavški Grintavec",
+      "startCoordinate": [
+        13.6691994,
+        46.3424854
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 823375868 @8m",
+        "parking 9201976301 @9m",
+        "village 558553271 @70m",
+        "trailhead_info 9066508148 @70m",
+        "parking 9066616842 @129m",
+        "parking 980103804 @235m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2347,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16276644",
+      "routeName": "Pod Krnico - Košutnikov turn (vzh. pot)",
+      "startCoordinate": [
+        14.4086716,
+        46.4346316
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11187126880 @7m",
+        "parking 5038239204 @29m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2133,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16446185",
+      "routeName": "Žaga - Velika Baba",
+      "startCoordinate": [
+        13.4798446,
+        46.3099115
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 422789374 @31m",
+        "bus_stop 4711891355 @50m",
+        "bus_stop 8946609048 @103m",
+        "hamlet 8981476420 @216m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2161,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16446293",
+      "routeName": "Bovec - Čukla - Rombon",
+      "startCoordinate": [
+        13.5475824,
+        46.3395089
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 431591968 @257m",
+        "parking 504042910 @275m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2208,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16657375",
+      "routeName": "Zg. Jezersko - Veliki vrh",
+      "startCoordinate": [
+        14.49992,
+        46.3932913
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 10115213900 @8m",
+        "parking 1304514995 @47m",
+        "parking 1210152319 @74m",
+        "parking 13357271501 @75m",
+        "bus_stop 12861372214 @125m",
+        "parking 1524972683 @134m",
+        "parking 13899893016 @138m",
+        "parking 1389364227 @142m",
+        "parking 13297033631 @150m",
+        "village 1358143544 @159m",
+        "parking 758209218 @174m",
+        "parking 758209220 @223m",
+        "parking 1202356626 @225m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1742,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18305245",
+      "routeName": "Krepperhütte Parkplatz - Largoz",
+      "startCoordinate": [
+        11.5745999,
+        47.2572254
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 520473547 @76m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2214,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19322027",
+      "routeName": "Plesnik - Plesnikova pl. - Strelovec",
+      "startCoordinate": [
+        14.6300193,
+        46.3945968
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1453123905 @18m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1763,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19552311",
+      "routeName": "Socka - Kislica - Špičasti vrh",
+      "startCoordinate": [
+        15.2771947,
+        46.3499732
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1295042844 @116m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 960,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19679882",
+      "routeName": "Vrtovin - Sv. Pavel - Kucelj",
+      "startCoordinate": [
+        13.8098178,
+        45.8925791
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 8041899329 @50m",
+        "bus_stop 8041899328 @51m",
+        "hamlet 13194555204 @90m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1237,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20266339",
+      "routeName": "Poče - Medrce - Porezen",
+      "startCoordinate": [
+        13.9847243,
+        46.1535357
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 3121942754 @92m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1632,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20306553",
+      "routeName": "Jesenica - Kojca",
+      "startCoordinate": [
+        13.9509536,
+        46.1493696
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 4254134385 @66m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1303,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20396788",
+      "routeName": "Dobrna - Brdce - Basališče",
+      "startCoordinate": [
+        15.2261246,
+        46.3356966
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12989593854 @12m",
+        "village 106010765 @64m",
+        "parking 86883016 @134m",
+        "parking 1208454650 @198m",
+        "parking 1208454649 @199m",
+        "parking 1208454651 @288m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1272,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "2693570",
+      "routeName": "Croce di Fana",
+      "startCoordinate": [
+        7.4369426,
+        45.7634964
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6466227275 @29m",
+        "parking 689281584 @43m",
+        "hamlet 1555266612 @120m",
+        "parking 142104673 @127m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2211,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "6525616",
+      "routeName": "Grasberg - Glatzberg",
+      "startCoordinate": [
+        14.7804344,
+        47.9380097
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13307412866 @25m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 904,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "7323181",
+      "routeName": "Wanderweg Lärchkogel",
+      "startCoordinate": [
+        14.4722356,
+        47.3370046
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 8364385480 @127m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2258,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17686740",
+      "routeName": "Golice - Vivodnik",
+      "startCoordinate": [
+        14.7911435,
+        46.2195025
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11962782908 @24m",
+        "bus_stop 2274420071 @28m",
+        "bus_stop 2274420054 @34m",
+        "village 1738338152 @242m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1508,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "8839726",
+      "routeName": "VP1 - Omegna - Mottarone",
+      "startCoordinate": [
+        8.4090815,
+        45.8755018
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 4426993445 @115m",
+        "parking 469988433 @120m",
+        "parking 203796944 @156m",
+        "parking 2136430787 @274m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1491,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "8921894",
+      "routeName": "Z02 - Loreglia - Monte Massone",
+      "startCoordinate": [
+        8.372086,
+        45.9057073
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 608347015 @62m",
+        "village 63631758 @119m",
+        "parking 312264947 @230m",
+        "parking 312264945 @263m",
+        "parking 312264946 @293m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2161,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "9159592",
+      "routeName": "T32 - Arola - Monte Novesso",
+      "startCoordinate": [
+        8.3578138,
+        45.8083898
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6164026894 @1m",
+        "village 63631776 @27m",
+        "trailhead_info 6166220233 @27m",
+        "parking 658206248 @46m",
+        "parking 9754623169 @131m",
+        "parking 9754623165 @136m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1409,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "9325680",
+      "routeName": "A47 - Fomarco - Pizzo Camino",
+      "startCoordinate": [
+        8.2560482,
+        46.0164005
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 807967116 @148m",
+        "parking 9378819081 @169m",
+        "village 6201017013 @176m",
+        "hamlet 9385736943 @249m",
+        "parking 1199502944 @274m",
+        "parking 662353991 @275m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2148,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "9342627",
+      "routeName": "A22 - Cardezza bivio A00 - Punta della Rossola",
+      "startCoordinate": [
+        8.2876346,
+        46.0650725
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6372359604 @2m",
+        "trailhead_info 6372359603 @79m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2087,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "10329843",
+      "routeName": "Wanderweg 297a",
+      "startCoordinate": [
+        14.0464686,
+        47.5661003
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 882351305 @3m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1645,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "10474177",
+      "routeName": "Lumezzane (Mosniga) - Punta Camoghera",
+      "startCoordinate": [
+        10.2883621,
+        45.6528155
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 7080077342 @7m",
+        "hamlet 2098927985 @172m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1240,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "10482105",
+      "routeName": "A24 - Alpe Marzone bivio A22 - Pizzo delle Pecore",
+      "startCoordinate": [
+        8.3041578,
+        46.0577616
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 3523828999 @100m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2018,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11092859",
+      "routeName": "222A Variante Vararo-Poggio Sasso del Ferro",
+      "startCoordinate": [
+        8.642203,
+        45.916605
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12615378223 @1m",
+        "trailhead_info 12615378222 @95m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1062,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11156359",
+      "routeName": "S06 Sant'Agata - Faierone - Monte Limidario",
+      "startCoordinate": [
+        8.6864151,
+        46.0699675
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 8712310748 @5m",
+        "trailhead_info 7631949024 @9m",
+        "parking 198737048 @40m",
+        "trailhead_info 1458560741 @93m",
+        "village 60169984 @116m",
+        "bus_stop 13789890803 @129m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2189,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11552396",
+      "routeName": "Wanderweg 642",
+      "startCoordinate": [
+        13.6266208,
+        47.5679119
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 8838219404 @1m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1552,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11768557",
+      "routeName": "12 - Lorenzen",
+      "startCoordinate": [
+        11.5158892,
+        46.699658
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9389311011 @13m",
+        "trailhead_info 9389311019 @70m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2484,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11784543",
+      "routeName": "Sentiero Panoramico",
+      "startCoordinate": [
+        9.660751,
+        45.831688
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13815750689 @4m",
+        "parking 9924959956 @296m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1232,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11787412",
+      "routeName": "Z04 - Chesio - Monte Massone",
+      "startCoordinate": [
+        8.3634245,
+        45.9065873
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1245631941 @8m",
+        "village 971143485 @141m",
+        "parking 311955735 @171m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2161,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "12025039",
+      "routeName": "Zirmersteig",
+      "startCoordinate": [
+        11.3972552,
+        46.3464035
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 12481885205 @6m",
+        "parking 49779309 @25m",
+        "village 291320543 @47m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2316,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "12033531",
+      "routeName": "Croce di Fana (diretta)",
+      "startCoordinate": [
+        7.43694,
+        45.763435
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6466227275 @34m",
+        "parking 689281584 @36m",
+        "hamlet 1555266612 @114m",
+        "parking 142104673 @122m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2211,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "12639953",
+      "routeName": "D04 - Gabbio - Cima Lariè",
+      "startCoordinate": [
+        8.237161,
+        46.121689
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9732718454 @5m",
+        "bus_stop 2415130928 @33m",
+        "isolated_dwelling 8513060336 @34m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2144,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "13825493",
+      "routeName": "Osiglia - Colletta - Rocca dei Francesi",
+      "startCoordinate": [
+        8.1977453,
+        44.2766243
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "isolated_dwelling 3200918682 @59m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1300,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "13875385",
+      "routeName": "Curenna - Castell'Ermo",
+      "startCoordinate": [
+        8.0627056,
+        44.0823586
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 4305620873 @103m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1087,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "13919469",
+      "routeName": "Salea - San Giacomo - Poggio Ceresa",
+      "startCoordinate": [
+        8.1779753,
+        44.0808615
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 4230019183 @85m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 714,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "13938907",
+      "routeName": "G26 - Lago Toggia - Punta Elgio",
+      "startCoordinate": [
+        8.4312616,
+        46.4428273
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 14022295910 @5m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2837,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14001413",
+      "routeName": "Bione (Pieve) - Eremo di San Vigilio - Monte Prealba",
+      "startCoordinate": [
+        10.3374561,
+        45.6736226
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 497070950 @111m",
+        "village 62507659 @144m",
+        "hamlet 497070949 @234m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1271,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14178323",
+      "routeName": "Schafkogel",
+      "startCoordinate": [
+        14.4981298,
+        47.2052998
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 494217539 @95m",
+        "bus_stop 5352863412 @107m",
+        "bus_stop 5367869306 @112m",
+        "parking 494996914 @147m",
+        "parking 495931493 @149m",
+        "parking 554822630 @175m",
+        "parking 492695570 @182m",
+        "village 31239921 @200m",
+        "parking 558513486 @208m",
+        "parking 965156299 @214m",
+        "parking 492695571 @232m",
+        "parking 492695572 @233m",
+        "parking 495028688 @296m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1746,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14543023",
+      "routeName": "Wanderweg 988",
+      "startCoordinate": [
+        14.7612266,
+        47.2274998
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9969913239 @18m",
+        "parking 565072385 @22m",
+        "trailhead_info 7055374048 @22m",
+        "parking 997690182 @56m",
+        "hamlet 919435641 @63m",
+        "parking 234074697 @125m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2216,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14551591",
+      "routeName": "Pont Avisod - Chacotteyes - Tsa de Metz - Pointe Chaligne",
+      "startCoordinate": [
+        7.2849156,
+        45.7350763
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1198091161 @59m",
+        "bus_stop 1476133810 @65m",
+        "parking 1198091160 @66m",
+        "parking 170002995 @147m",
+        "parking 161927797 @197m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2607,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14561001",
+      "routeName": "Wanderweg 473",
+      "startCoordinate": [
+        14.4174418,
+        47.7552674
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 7619780383 @4m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1724,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14622660",
+      "routeName": "Krainersteig",
+      "startCoordinate": [
+        14.5316835,
+        46.4257364
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 3721614062 @6m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1759,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14712041",
+      "routeName": "Wanderweg 765",
+      "startCoordinate": [
+        13.7913626,
+        47.1561188
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 9014649689 @14m",
+        "parking 1091689650 @38m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2566,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14748784",
+      "routeName": "Wanderweg 762",
+      "startCoordinate": [
+        13.6043474,
+        47.1896462
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 7020455161 @55m",
+        "bus_stop 6836866332 @100m",
+        "parking 307462283 @121m",
+        "village 240033333 @228m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2526,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15017510",
+      "routeName": "Wanderweg 43",
+      "startCoordinate": [
+        14.6377574,
+        47.1615315
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 5404892171 @6m",
+        "trailhead_info 7312287727 @51m",
+        "trailhead_info 7312287728 @55m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1194,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15017511",
+      "routeName": "Wanderweg 45",
+      "startCoordinate": [
+        14.6091774,
+        47.1752589
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 10559320898 @10m",
+        "bus_stop 8538144268 @77m",
+        "bus_stop 8538144266 @88m",
+        "village 240048895 @112m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1194,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15408384",
+      "routeName": "Wanderweg 988A",
+      "startCoordinate": [
+        14.5554565,
+        47.2919301
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 10592491801 @4m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1918,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15453820",
+      "routeName": "Wechselbachhöhe",
+      "startCoordinate": [
+        12.9482033,
+        47.1902925
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 1647169737 @5m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2236,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15476624",
+      "routeName": "AV Weg 530",
+      "startCoordinate": [
+        12.4844163,
+        47.2748851
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 165814217 @33m",
+        "parking 205141655 @34m",
+        "parking 165814213 @104m",
+        "parking 96451174 @295m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2446,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15762916",
+      "routeName": "Wanderweg 22",
+      "startCoordinate": [
+        10.5383952,
+        47.047065
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 5749112438 @4m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2936,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15885635",
+      "routeName": "Wanderweg 82",
+      "startCoordinate": [
+        14.7619959,
+        47.5444977
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 8286907616 @45m",
+        "parking 242698257 @47m",
+        "bus_stop 8286907615 @72m",
+        "village 240045171 @98m",
+        "bus_stop 8286907608 @120m",
+        "bus_stop 8286907605 @147m",
+        "parking 233916059 @213m",
+        "parking 1463926442 @250m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1615,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16446372",
+      "routeName": "Kluže - Rombon",
+      "startCoordinate": [
+        13.5893994,
+        46.3612119
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 3740351348 @6m",
+        "trailhead_info 12069909247 @25m",
+        "trailhead_info 5843506445 @28m",
+        "trailhead_info 12069909254 @86m",
+        "parking 479365048 @129m",
+        "parking 1313683777 @238m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2208,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16448358",
+      "routeName": "[4] Thulnkogel",
+      "startCoordinate": [
+        12.618465,
+        46.8032944
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "isolated_dwelling 1704969649 @53m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2552,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16466874",
+      "routeName": "[1] Innervillgraten - Rotel Kinkele",
+      "startCoordinate": [
+        12.3715972,
+        46.8078732
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 5620690533 @2m",
+        "bus_stop 5620690534 @19m",
+        "parking 126552330 @37m",
+        "village 240065870 @38m",
+        "parking 300571733 @112m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2763,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16616463",
+      "routeName": "Wanderweg 678",
+      "startCoordinate": [
+        13.9064906,
+        47.4518722
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11298648956 @11m",
+        "parking 490221315 @44m",
+        "parking 490221314 @150m",
+        "hamlet 6780568723 @172m",
+        "parking 11298648954 @239m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2139,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16616464",
+      "routeName": "Wanderweg 677",
+      "startCoordinate": [
+        13.9064906,
+        47.4518722
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11298648956 @11m",
+        "parking 490221315 @44m",
+        "parking 490221314 @150m",
+        "hamlet 6780568723 @172m",
+        "parking 11298648954 @239m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2139,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16927998",
+      "routeName": "Draga - Roblekov dom - Begunjščica",
+      "startCoordinate": [
+        14.2183049,
+        46.3949902
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 765186499 @12m",
+        "trailhead_info 1800639097 @26m",
+        "parking 3139553827 @162m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2060,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17453627",
+      "routeName": "Kam. Bistrica - Presedljaj - Konj",
+      "startCoordinate": [
+        14.5995797,
+        46.3190594
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1323801818 @12m",
+        "trailhead_info 11807222387 @20m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1808,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17565125",
+      "routeName": "Sl. Konjice - Skala (plezalna)",
+      "startCoordinate": [
+        15.4202264,
+        46.3351969
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1376781907 @51m",
+        "parking 1376781909 @82m",
+        "parking 1376781908 @87m",
+        "parking 444402819 @124m",
+        "parking 443928821 @209m",
+        "parking 1376781890 @224m",
+        "parking 1376781889 @242m",
+        "parking 1376781891 @246m",
+        "parking 1376781878 @249m",
+        "parking 1376781892 @289m",
+        "parking 443928838 @290m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 777,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17573549",
+      "routeName": "Sl. Konjice - Stolpnik",
+      "startCoordinate": [
+        15.4149862,
+        46.3363066
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11883532594 @5m",
+        "parking 443928810 @209m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1012,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17593088",
+      "routeName": "Potoče - Potoška gora",
+      "startCoordinate": [
+        14.4321868,
+        46.3056055
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 747438182 @7m",
+        "parking 747438122 @26m",
+        "parking 1416603382 @30m",
+        "parking 1416603383 @36m",
+        "trailhead_info 747438044 @98m",
+        "parking 847192289 @192m",
+        "parking 847192290 @208m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1283,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17596377",
+      "routeName": "Čretvež - Štepih - Stolpnik",
+      "startCoordinate": [
+        15.3698123,
+        46.3470889
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11889275245 @5m",
+        "village 4414480018 @52m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1012,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17683837",
+      "routeName": "Wanderweg 888",
+      "startCoordinate": [
+        13.6028069,
+        47.6280676
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12029709280 @5m",
+        "parking 1277462075 @110m",
+        "parking 1349076155 @167m",
+        "parking 324952754 @215m",
+        "parking 324952753 @230m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1833,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17763706",
+      "routeName": "Bergweg Zugstoll",
+      "startCoordinate": [
+        9.2848913,
+        47.1614056
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11080798780 @1m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2235,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19482666",
+      "routeName": "Le Crêtet > Le Catogne",
+      "startCoordinate": [
+        7.078811,
+        46.0601194
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9084408117 @8m",
+        "parking 6246886135 @47m",
+        "hamlet 389003371 @232m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2598,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19482667",
+      "routeName": "La Poya > Le Catogne",
+      "startCoordinate": [
+        7.086853,
+        46.0529539
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13083670605 @4m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2598,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19534180",
+      "routeName": "Alp Sezner Stein",
+      "startCoordinate": [
+        9.116255,
+        46.7024787
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 2751497968 @110m",
+        "parking 4922966467 @173m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2172,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19552463",
+      "routeName": "Wanderweg 785a",
+      "startCoordinate": [
+        13.886508,
+        47.380715
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13111007797 @23m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2256,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19810578",
+      "routeName": "Wanderweg 721",
+      "startCoordinate": [
+        13.9362496,
+        47.3626534
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13725159664 @5m",
+        "trailhead_info 13725159667 @94m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2212,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20747290",
+      "routeName": "Wanderweg 2F",
+      "startCoordinate": [
+        12.8551935,
+        47.2005735
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13882630824 @6m",
+        "parking 430073770 @51m",
+        "hamlet 484437631 @73m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2094,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20747595",
+      "routeName": "Wanderweg 2H",
+      "startCoordinate": [
+        12.8606585,
+        47.1968309
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 4293366473 @5m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2765,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20798837",
+      "routeName": "Wanderweg 64A",
+      "startCoordinate": [
+        12.6946496,
+        46.9820865
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12953493897 @11m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 3017,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3914237",
+      "routeName": "Niderbauen-Chulm - Tritthütte",
+      "startCoordinate": [
+        8.5426184,
+        46.9447933
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 286836076 @3m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1923,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "6341846",
+      "routeName": "6",
+      "startCoordinate": [
+        10.838633,
+        46.6223065
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 2497732759 @5m",
+        "parking 302157385 @20m",
+        "hamlet 13514286912 @202m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 3110,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "11358030",
+      "routeName": "Seehorn",
+      "startCoordinate": [
+        12.8161767,
+        47.5153185
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 7761487585 @8m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2321,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16055176",
+      "routeName": "Zgornje Jezersko - Virnikov Grintovec",
+      "startCoordinate": [
+        14.4991891,
+        46.3953091
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11146647047 @8m",
+        "parking 1202356626 @17m",
+        "trailhead_info 10115200400 @70m",
+        "trailhead_info 10115216728 @97m",
+        "parking 758209218 @114m",
+        "parking 758209220 @129m",
+        "parking 1389364227 @148m",
+        "parking 758209216 @171m",
+        "parking 13297033631 @175m",
+        "parking 1210152319 @196m",
+        "parking 1524972683 @197m",
+        "parking 1304514995 @215m",
+        "village 1358143544 @221m",
+        "parking 13899893016 @240m",
+        "parking 13357271501 @269m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1654,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16135983",
+      "routeName": "Ljubelj - Vrtača",
+      "startCoordinate": [
+        14.2598265,
+        46.4317747
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11072775591 @20m",
+        "trailhead_info 11232397364 @24m",
+        "parking 452615968 @50m",
+        "parking 452615959 @88m",
+        "parking 180305163 @91m",
+        "parking 453903352 @162m",
+        "parking 452611566 @192m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2180,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16276643",
+      "routeName": "Pod Krnico - Košutnikov turn (zah. pot)",
+      "startCoordinate": [
+        14.4086716,
+        46.4346316
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11187126880 @7m",
+        "parking 5038239204 @29m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2133,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17950823",
+      "routeName": "Mače - Kališče - Storžič",
+      "startCoordinate": [
+        14.4184678,
+        46.3131063
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11572394241 @1m",
+        "parking 4640840871 @7m",
+        "parking 2787031061 @21m",
+        "trailhead_info 12117017187 @92m",
+        "village 747223619 @216m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2132,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18253424",
+      "routeName": "Volog - Goli vrh",
+      "startCoordinate": [
+        14.8806102,
+        46.2830434
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12314313976 @9m",
+        "village 4520738746 @27m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1427,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18305247",
+      "routeName": "Vorbergalm - Malgrübler",
+      "startCoordinate": [
+        11.5560512,
+        47.2097244
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "isolated_dwelling 296232972 @87m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2749,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18305250",
+      "routeName": "Largoz Alm - Haneburger",
+      "startCoordinate": [
+        11.5870247,
+        47.2363585
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6683499908 @7m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2580,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19057929",
+      "routeName": "Kraljev hrib - Pl. Dol - Konj",
+      "startCoordinate": [
+        14.6085969,
+        46.3062835
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 2274487945 @5m",
+        "parking 214809784 @48m",
+        "bus_stop 12248395102 @48m",
+        "parking 1303293070 @90m",
+        "parking 214809785 @126m",
+        "parking 214810191 @152m",
+        "parking 214810891 @230m",
+        "parking 1311290416 @241m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1808,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19147229",
+      "routeName": "Pl. Ravne - Zelene trate - Veliki vrh",
+      "startCoordinate": [
+        14.6997913,
+        46.3497358
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 768014194 @39m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2110,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19147230",
+      "routeName": "Pl. Ravne - Veliki vrh",
+      "startCoordinate": [
+        14.6992205,
+        46.3498892
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "hamlet 768014194 @28m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2110,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19321481",
+      "routeName": "Rogar - Potočka zijalka - Olševa",
+      "startCoordinate": [
+        14.6637118,
+        46.438962
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "isolated_dwelling 11407394400 @24m",
+        "parking 1075852415 @67m",
+        "trailhead_info 12109888898 @83m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1929,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19719709",
+      "routeName": "Sv. Lenart - V. Rogatec",
+      "startCoordinate": [
+        14.7548684,
+        46.3128585
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 13228300379 @47m",
+        "trailhead_info 13230757665 @78m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1557,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20305858",
+      "routeName": "Žiri - Ledinica - Sivka",
+      "startCoordinate": [
+        14.1096668,
+        46.0470522
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1311073390 @26m",
+        "parking 454526189 @48m",
+        "parking 1442097411 @52m",
+        "bus_stop 5043602564 @57m",
+        "bus_stop 5043602565 @62m",
+        "parking 1178270323 @103m",
+        "parking 494661312 @113m",
+        "parking 1244595513 @122m",
+        "parking 1178270322 @147m",
+        "parking 1030178028 @152m",
+        "parking 1244595512 @177m",
+        "parking 1088755376 @278m",
+        "parking 1088755581 @286m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1008,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20377620",
+      "routeName": "Mislinjska Dobrava - Fričev vrh",
+      "startCoordinate": [
+        15.1395554,
+        46.4586126
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 1436559138 @127m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 881,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20395032",
+      "routeName": "Zreče - Golek",
+      "startCoordinate": [
+        15.3891721,
+        46.3716827
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 1047717290 @16m",
+        "parking 1047717284 @43m",
+        "parking 1047717260 @93m",
+        "parking 1047717221 @94m",
+        "parking 1047717258 @125m",
+        "parking 1047717244 @128m",
+        "parking 1047717229 @128m",
+        "parking 1047717293 @138m",
+        "parking 1047717270 @154m",
+        "parking 1047717236 @163m",
+        "parking 1047717262 @167m",
+        "parking 1047717268 @169m",
+        "parking 1047717254 @173m",
+        "parking 1047717228 @176m",
+        "parking 1047717298 @188m",
+        "parking 1047717296 @190m",
+        "parking 1047717267 @199m",
+        "parking 1047717309 @206m",
+        "parking 1047717252 @219m",
+        "parking 1047717261 @241m",
+        "parking 1047717264 @254m",
+        "parking 1047717230 @258m",
+        "parking 1047717277 @266m",
+        "parking 1047717253 @269m",
+        "parking 1047717256 @277m",
+        "parking 1047717265 @279m",
+        "parking 1047717266 @282m",
+        "parking 1047717269 @283m",
+        "parking 1047717241 @284m",
+        "parking 1047717280 @285m",
+        "parking 1047717220 @286m",
+        "parking 1047717292 @290m",
+        "parking 1047717291 @295m",
+        "parking 1047717219 @300m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 769,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "21252070",
+      "routeName": "Poče - Porezen",
+      "startCoordinate": [
+        13.9841894,
+        46.1537627
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 3121942754 @48m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1632,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17619083",
+      "routeName": "Brennatsteig",
+      "startCoordinate": [
+        12.7454882,
+        47.7422496
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9081054626 @2m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1071,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "21183586",
+      "routeName": "Panorama du Vélodrome",
+      "startCoordinate": [
+        6.2759518,
+        44.2152103
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 6551312627 @7m",
+        "parking 6551312628 @10m",
+        "parking 6551312629 @230m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1152,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "13653707",
+      "routeName": "Il percorso del bosco",
+      "startCoordinate": [
+        9.9504783,
+        45.8225928
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9439813107 @4m",
+        "parking 912959017 @16m",
+        "parking 912959016 @16m",
+        "hamlet 12469216235 @123m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1270,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "14135248",
+      "routeName": "Attacco al Canto Alto",
+      "startCoordinate": [
+        9.6374556,
+        45.7348982
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 224668004 @44m",
+        "parking 56144495 @57m",
+        "parking 168686512 @68m",
+        "parking 56144494 @90m",
+        "parking 1200862847 @163m",
+        "parking 402902092 @185m",
+        "parking 56144496 @214m",
+        "village 667327778 @225m",
+        "parking 224510712 @226m",
+        "parking 56144492 @231m",
+        "parking 1106271644 @238m",
+        "parking 58265234 @286m",
+        "parking 316073517 @293m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1146,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17955921",
+      "routeName": "13a",
+      "startCoordinate": [
+        12.5459316,
+        46.7971995
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12122827551 @8m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2642,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "274494",
+      "routeName": "Tubang route",
+      "startCoordinate": [
+        7.4984075,
+        46.3630769
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 14094671676 @4m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2826,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1667096",
+      "routeName": "Barrage de Mauvoisin - Le Pleureur",
+      "startCoordinate": [
+        7.3504366,
+        45.9996108
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 8435151570 @0m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 3703,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1668230",
+      "routeName": "Vuzenica - Kremžarjev vrh",
+      "startCoordinate": [
+        15.1632789,
+        46.5960625
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 849955109 @15m",
+        "parking 36976702 @277m",
+        "village 427688829 @278m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1164,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1668232",
+      "routeName": "Šmartno - Kremžarjev vrh",
+      "startCoordinate": [
+        15.1051059,
+        46.4921897
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 2518875011 @153m",
+        "parking 767680188 @244m",
+        "parking 759357485 @279m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1164,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1946771",
+      "routeName": "Jelovec - Žavcarjev vrh",
+      "startCoordinate": [
+        15.572124,
+        46.5662284
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 1680942160 @36m",
+        "parking 1335817928 @153m",
+        "parking 264974068 @200m",
+        "parking 1335814828 @229m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 915,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1946773",
+      "routeName": "Slemen - Žavcarjev vrh",
+      "startCoordinate": [
+        15.5160949,
+        46.5571633
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 415398019 @10m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 915,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "3367628",
+      "routeName": "Rechelkopf",
+      "startCoordinate": [
+        11.5905082,
+        47.7317983
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 8637862429 @39m",
+        "parking 484324545 @75m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1330,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "7616432",
+      "routeName": "Wanderweg SB 2 - Spitzingsee",
+      "startCoordinate": [
+        11.8913601,
+        47.6821092
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 4315637883 @7m",
+        "parking 8846885828 @9m",
+        "parking 307610431 @118m",
+        "parking 943582560 @164m",
+        "parking 943582557 @223m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1746,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "12606802",
+      "routeName": "IT19 - Limonetto - Bec Baral",
+      "startCoordinate": [
+        7.555558,
+        44.1729131
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 7902798362 @33m",
+        "trailhead_info 8729934982 @35m",
+        "parking 202149160 @87m",
+        "village 4068053200 @132m",
+        "parking 943035868 @212m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2130,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "17954044",
+      "routeName": "Mače - Srednji vrh",
+      "startCoordinate": [
+        14.4184678,
+        46.3131063
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 11572394241 @1m",
+        "parking 4640840871 @7m",
+        "parking 2787031061 @21m",
+        "trailhead_info 12117017187 @92m",
+        "village 747223619 @216m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1853,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18965635",
+      "routeName": "Bavšica - Kanja - Bavški Grintavec",
+      "startCoordinate": [
+        13.6297474,
+        46.369847
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12741271085 @11m",
+        "parking 1094530978 @24m",
+        "hamlet 8977951652 @85m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2347,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19152057",
+      "routeName": "Grimming Südostgrat",
+      "startCoordinate": [
+        14.0341566,
+        47.5222704
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 4306311693 @2m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2351,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20146710",
+      "routeName": "Grahovše - Tič - Bela peč",
+      "startCoordinate": [
+        14.3512327,
+        46.3666031
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 4899628011 @34m",
+        "parking 1375583965 @78m",
+        "village 4899628012 @242m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1593,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16465899",
+      "routeName": "Jubiläumssteig",
+      "startCoordinate": [
+        11.3236041,
+        47.0701823
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 2349831460 @2m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2840,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "16522268",
+      "routeName": "Schrankogelostgrat",
+      "startCoordinate": [
+        11.1101618,
+        47.0416389
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 9192659229 @3m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 3497,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "15269817",
+      "routeName": "K2 - Landry Aiguille Grive",
+      "startCoordinate": [
+        6.7344523,
+        45.5762477
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 6184408716 @19m",
+        "bus_stop 6184408719 @20m",
+        "parking 531015541 @36m",
+        "parking 404970800 @136m",
+        "parking 1340180944 @195m",
+        "parking 12396937656 @212m",
+        "parking 769099849 @257m",
+        "parking 1340180943 @260m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2732,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "5682682",
+      "routeName": "vertical KM col de lana",
+      "startCoordinate": [
+        11.9549766,
+        46.4816527
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "bus_stop 5190394694 @13m",
+        "trailhead_info 4893671165 @13m",
+        "parking 302343998 @26m",
+        "bus_stop 3074045802 @49m",
+        "bus_stop 8777640542 @50m",
+        "village 2593803118 @58m",
+        "parking 325735681 @66m",
+        "parking 821400277 @72m",
+        "parking 461968371 @80m",
+        "village 9654080877 @119m",
+        "parking 462135101 @153m",
+        "parking 1428568115 @154m",
+        "parking 462159315 @177m",
+        "parking 12755382281 @262m",
+        "parking 1377587384 @265m",
+        "parking 4575504905 @275m",
+        "parking 462149855 @281m",
+        "parking 1377587385 @298m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2452,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "1983029",
+      "routeName": "Via normale Jof di Montasio",
+      "startCoordinate": [
+        13.441272,
+        46.4118388
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 4960624941 @12m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2754,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "12323423",
+      "routeName": "Murmeltierweg",
+      "startCoordinate": [
+        11.837398,
+        46.8388187
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "parking 106436826 @27m",
+        "parking 11211063640 @29m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2438,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18045560",
+      "routeName": "Poljubinske Ravne - Kobilja glava",
+      "startCoordinate": [
+        13.7704072,
+        46.1777817
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 12177133927 @2m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1475,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "18660555",
+      "routeName": "JAGAsteig",
+      "startCoordinate": [
+        14.1037035,
+        47.3670126
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 10139224754 @1m",
+        "trailhead_info 10139224745 @54m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1922,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "19252248",
+      "routeName": "Pas du Loup - Pic de Céüse",
+      "startCoordinate": [
+        5.9598811,
+        44.517804
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "trailhead_info 1436562231 @3m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 2016,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    },
+    {
+      "canonicalRelationId": "20146729",
+      "routeName": "Grahovše - Rekar - Bela peč",
+      "startCoordinate": [
+        14.3512327,
+        46.3666031
+      ],
+      "startNodeId": null,
+      "startAccessEvidence": [
+        "village 4899628011 @34m",
+        "parking 1375583965 @78m",
+        "village 4899628012 @242m"
+      ],
+      "currentStartContext": "AMBIGUOUS_START",
+      "summitElevationMeters": 1593,
+      "elevationSourceCandidates": [],
+      "selectedElevationSource": null,
+      "deterministic": false,
+      "verticalGainMeters": null,
+      "reasonCodes": [
+        "START_ELEVATION_UNPROVEN"
+      ]
+    }
+  ],
+  "deterministicArtifactHash": "89602ee01e723e15abcda012b6242f58edef9ec5a027c87ec64406370c1ce50c"
+}

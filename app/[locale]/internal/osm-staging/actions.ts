@@ -9,8 +9,16 @@ import {
   type QaMutationTarget,
   type QaMutationWriteInput,
 } from "@/Lib/osmStagingPreview/mutation-core";
-import { loadValidatedQaMutationTarget } from "@/Lib/osmStagingPreview/server";
+import { parsePreviewQueueId } from "@/Lib/osmStagingPreview/queue-core";
+import {
+  loadApprovedStagingRouteDetail,
+  loadValidatedQaMutationTarget,
+} from "@/Lib/osmStagingPreview/server";
 import { createAdminClient } from "@/Lib/supabase/admin";
+import { computeAutoQaRecommendation } from "@/Lib/osmStagingPreview/auto-qa";
+import { classifyRouteActivity } from "@/scripts/osm-import/route-activity-classifier.ts";
+import type { ClassifiableRoute } from "@/scripts/osm-import/route-classifier.ts";
+import type { PreviewQaDecisionInput } from "@/Lib/osmStagingPreview/core";
 
 interface QaRpcRow {
   status: string;
@@ -24,8 +32,18 @@ export type SaveQaDecisionResult =
   | ({ ok: true } & QaMutationResult)
   | { ok: false; code: "CONFLICT" | "VALIDATION_FAILED"; message: string };
 
-async function validateTarget(stagingRouteId: string): Promise<QaMutationTarget> {
-  const { listItem, manifestRecord } = await loadValidatedQaMutationTarget(stagingRouteId);
+export type AutoQaRecommendationResult = {
+  recommendation: "GREEN" | "YELLOW" | "RED";
+  score: number;
+  reasonCodes: string[];
+  explanation: string;
+};
+
+async function validateTarget(input: PreviewQaDecisionInput): Promise<QaMutationTarget> {
+  const { listItem, manifestRecord } = await loadValidatedQaMutationTarget(
+    input.stagingRouteId,
+    parsePreviewQueueId(input.queueId ?? undefined),
+  );
   return {
     stagingRouteId: listItem.stagingRouteId,
     contractVersion: "mountain-tracker-osm-route/v1",
@@ -94,4 +112,36 @@ export async function saveOsmStagingQaDecision(rawInput: unknown): Promise<SaveQ
         : "The QA decision failed closed because its input or reviewed staging evidence was invalid.",
     };
   }
+}
+
+export async function getAutoQaRecommendation(
+  stagingRouteId: string,
+  rawQueueId: string | null = null,
+): Promise<AutoQaRecommendationResult> {
+  await requireOsmStagingPreviewAccess();
+  const queueId = parsePreviewQueueId(rawQueueId ?? undefined);
+  const { detail } = await loadApprovedStagingRouteDetail(stagingRouteId, queueId);
+  const activityInput: ClassifiableRoute = {
+    sourceId: detail.sourceRelationId,
+    sourceUrl: `https://www.openstreetmap.org/relation/${detail.sourceRelationId}`,
+    name: detail.routeName,
+    ref: null,
+    network: null,
+    operator: null,
+    geometry: detail.geometry,
+    stats: {
+      distanceMeters: detail.distanceMeters,
+      coordinatePoints: detail.diagnostics.geometryPointCount,
+      componentCount: detail.componentCount,
+    },
+    metadata: {
+      route: detail.semanticType === "summit_route" ? "hiking" : "",
+      from: null,
+      to: null,
+      roundtrip: null,
+      osmcSymbol: null,
+      tags: {},
+    },
+  };
+  return computeAutoQaRecommendation(detail, classifyRouteActivity(activityInput));
 }
