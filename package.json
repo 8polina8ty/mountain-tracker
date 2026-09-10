@@ -21,11 +21,24 @@
     "phase11h:prepare": "node --experimental-strip-types scripts/osm-import/generate-phase11h-artifacts.ts",
     "phase11i:execute-dry-run": "node --experimental-strip-types scripts/osm-import/execute-phase11h-controlled-staging.ts",
     "phase11i:reconcile-calibration": "node --experimental-strip-types scripts/osm-import/reconcile-phase11i-human-calibration.ts",
+    "phase12c:smoke": "node --experimental-strip-types scripts/gpx/run-osm-public-gpx-smoke.ts --max=3",
+    "test:gpx-reconstruction": "node --experimental-strip-types --test Lib/gpxIngestion/routeDiscovery.test.ts Lib/gpxIngestion/osmRouteReconstruction.test.ts",
+    "test:gpx-calibration": "node --experimental-strip-types --test scripts/gpx/phase12d-calibration.test.ts",
     "test:phase11h": "node --experimental-strip-types --test scripts/osm-import/phase11h-naming.test.ts scripts/osm-import/phase11h-artifacts.test.ts scripts/osm-import/phase11i-b1.test.ts Lib/osmStagingPreview/phase11h-calibration.test.ts Lib/osmStagingPreview/phase11h-visual-qa.test.ts",
     "test:phase11f": "node --experimental-strip-types --test scripts/osm-import/phase11f-controlled-staging.test.ts scripts/osm-import/phase11f-artifacts.test.ts scripts/osm-import/phase11f3-start-elevation.test.ts scripts/osm-import/phase11f3-artifacts.test.ts scripts/osm-import/ele-normalizer.test.ts Lib/osmStagingPreview/queue.test.ts Lib/osmStagingPreview/preview.test.ts Lib/osmStagingPreview/query-errors.test.ts Lib/supabase/chunked-in-query-core.test.ts",
     "test:phase11i": "node --experimental-strip-types --test scripts/osm-import/phase11i-b2.test.ts scripts/osm-import/phase11i-human-calibration-result.test.ts",
     "test:phase11closure": "node --experimental-strip-types --test scripts/osm-import/phase11-final-closure-report.test.ts",
-    "test:release": "npm run test:release-preflight && npm run test:runtime && npm run test:release-hardening && npm run lint && npm run typecheck && npm run test:achievements && npm run test:social && npm run test:weather && npm run test:trackRecording && npm run test:projects && npm run build"
+    "test:gpx": "node --experimental-strip-types --test Lib/gpxIngestion/hashing.test.ts Lib/gpxIngestion/license.test.ts Lib/gpxIngestion/metadataSanitization.test.ts Lib/gpxIngestion/sourceIdentity.test.ts Lib/gpxIngestion/stateMachine.test.ts Lib/gpxIngestion/gpxNormalization.test.ts Lib/gpxIngestion/mountainMatching.test.ts Lib/gpxIngestion/sourceAdapter.test.ts Lib/gpxIngestion/parserContract.test.ts Lib/gpxIngestion/serverGpxParser.test.ts Lib/gpxIngestion/hardenedSourceHttp.test.ts Lib/gpxIngestion/osmPublicGpxAdapter.test.ts Lib/gpxIngestion/osmPublicGpxArtifacts.test.ts Lib/gpxIngestion/routeDiscovery.test.ts Lib/gpxIngestion/osmRouteReconstruction.test.ts Lib/gpxIngestion/contracts.test.ts",
+    "test:release": "npm run test:release-preflight && npm run test:runtime && npm run test:release-hardening && npm run lint && npm run typecheck && npm run test:achievements && npm run test:social && npm run test:weather && npm run test:trackRecording && npm run test:projects && npm run build",
+    "test:gpx-semantic": "node --experimental-strip-types --test scripts/gpx/phase12e-calibration.test.ts",
+    "test:gpx-adaptive": "node --experimental-strip-types --test Lib/gpxIngestion/adaptiveStartFeatures.test.ts Lib/gpxIngestion/adaptiveStartDiscovery.test.ts Lib/gpxIngestion/summitAttachment.test.ts Lib/gpxIngestion/baseAccessStartPolicy.test.ts",
+    "test:gpx-base-access-canary": "node --experimental-strip-types --test scripts/gpx/base-access-canary.test.ts scripts/gpx/base-access-product-review.test.ts",
+    "test:gpx-summit-graphs": "node --experimental-strip-types --test scripts/gpx/adaptive-start-summit-graphs.test.ts",
+    "test:gpx-publication": "node --experimental-strip-types --test Lib/gpxIngestion/generatedRoutePublication.test.ts scripts/gpx/generated-publication-execute.test.ts",
+    "test:gpx-replacement": "node --experimental-strip-types --test scripts/gpx/generated-replacement.test.ts",
+    "test:routes": "node --experimental-strip-types --test scripts/routes/route-factory.test.ts",
+    "routes": "node --experimental-strip-types scripts/routes/cli.ts",
+    "routes:smoke": "node --experimental-strip-types scripts/routes/route-factory-smoke.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
@@ -37,6 +50,7 @@
     "next-intl": "^4.13.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "sax": "1.6.1",
     "tus-js-client": "^4.3.1"
   },
   "devDependencies": {
