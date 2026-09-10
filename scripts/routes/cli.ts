@@ -19,6 +19,7 @@ import {
   type LockedPublicationManifest,
 } from './route-factory.ts';
 import { CANDIDATE_STATE, REVIEW_DECISION, type CandidateState, type ReviewDecision, type RouteEntry } from './types.ts';
+import { generateCurrentV2 } from './current-v2-generation.ts';
 
 export type RootCommand = 'generate' | 'status' | 'validate' | 'review' | 'prepare-publication' | 'publish';
 
@@ -57,7 +58,7 @@ export function parseArgv(argv: readonly string[]): ParsedCommand | { readonly e
 
 function allowedOptions(command: RootCommand): readonly string[] {
   switch (command) {
-    case 'generate': return ['limit', 'mountains'];
+    case 'generate': return ['limit', 'mountains', 'source', 'region', 'selection'];
     case 'status': return ['run'];
     case 'validate': return ['run'];
     case 'review': return ['run', 'decide'];
@@ -105,6 +106,16 @@ interface ReviewedCheckpoint {
 const FINAL_REVIEW_PATH = 'data/gpx/base-access-start-v2/final-review.json';
 
 export async function generate(options: Readonly<Record<string, string | number | boolean | readonly string[]>>): Promise<string> {
+  const sourceMode = typeof options.source === 'string' ? options.source : 'reviewed';
+  if (sourceMode === 'current-v2' || sourceMode === 'v2-fresh') {
+    return generateCurrentV2({
+      limit: typeof options.limit === 'number' && options.limit > 0 ? options.limit : undefined,
+      mountains: readSelection(options.mountains),
+      region: typeof options.region === 'string' ? options.region : 'alps',
+      selection: typeof options.selection === 'string' ? Number(options.selection) : undefined,
+    });
+  }
+  if (sourceMode !== 'reviewed') return JSON.stringify({ error: `UNKNOWN_SOURCE:${sourceMode}` });
   const frozen = await loadFrozenSource();
   const checkpoint = JSON.parse(await readFile(FINAL_REVIEW_PATH, 'utf8')) as ReviewedCheckpoint;
   assert(checkpoint.version === 'mountain-tracker/base-access-canary-product-review/v1', 'FINAL_REVIEW_VERSION_DRIFT');
