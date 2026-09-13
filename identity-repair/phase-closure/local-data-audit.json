@@ -1,0 +1,82 @@
+[
+  {
+    "path": "data/osm/source/alps-latest.osm.pbf",
+    "bytes": 2310928096,
+    "mb": "2203.9",
+    "reproducible": "source PBF – reproducible via Geofabrik",
+    "neededForRuntime": "no (build-time only)",
+    "neededForAudit": "sampling",
+    "safeToGit": "no",
+    "recommendedIgnore": "/data/osm/source/alps-latest.osm.pbf or /data/routes/**"
+  },
+  {
+    "path": "data/routes/graphhopper",
+    "bytes": 1220091128,
+    "mb": "1163.6",
+    "reproducible": "graph-cache – reproducible via PBF + config",
+    "neededForRuntime": "no",
+    "neededForAudit": "sampling",
+    "safeToGit": "no",
+    "recommendedIgnore": "ignore if >10MB"
+  },
+  {
+    "path": "data/routes/publication-prep/ghpp-06e38ba4-2026-09-11-d9e05e85",
+    "bytes": 1240795,
+    "mb": "1.2",
+    "reproducible": "prep manifest – reproducible via run",
+    "neededForRuntime": "no",
+    "neededForAudit": "sampling",
+    "safeToGit": "maybe small JSON",
+    "recommendedIgnore": "ignore if >10MB"
+  },
+  {
+    "path": "data/routes/graphhopper-runs",
+    "bytes": 37112617,
+    "mb": "35.4",
+    "reproducible": "graph-cache – reproducible via PBF + config",
+    "neededForRuntime": "no",
+    "neededForAudit": "sampling",
+    "safeToGit": "no",
+    "recommendedIgnore": "/data/routes/graphhopper-runs or /data/routes/**"
+  },
+  {
+    "path": "data/routes/pbf",
+    "bytes": 2744346985,
+    "mb": "2617.2",
+    "reproducible": "audit receipt – keep small JSON",
+    "neededForRuntime": "no",
+    "neededForAudit": "sampling",
+    "safeToGit": "no",
+    "recommendedIgnore": "ignore if >10MB"
+  },
+  {
+    "path": "identity-repair",
+    "bytes": 1989603,
+    "mb": "1.9",
+    "reproducible": "audit receipt – keep small JSON",
+    "neededForRuntime": "no",
+    "neededForAudit": "yes (small JSON)",
+    "safeToGit": "maybe small JSON",
+    "recommendedIgnore": "keep small json, ignore large"
+  },
+  {
+    "path": "data/osm/alps",
+    "bytes": 5410486755,
+    "mb": "5159.8",
+    "reproducible": "audit receipt – keep small JSON",
+    "neededForRuntime": "no",
+    "neededForAudit": "sampling",
+    "safeToGit": "no",
+    "recommendedIgnore": "ignore if >10MB"
+  },
+  {
+    "path": "tools",
+    "bytes": 46468278,
+    "mb": "44.3",
+    "reproducible": "audit receipt – keep small JSON",
+    "neededForRuntime": "no",
+    "neededForAudit": "sampling",
+    "safeToGit": "no",
+    "recommendedIgnore": "ignore if >10MB"
+  }
+]

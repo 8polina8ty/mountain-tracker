@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-09-13T10:00:00.000Z",
+  "note": "Redacted audit summary – durable, no embedded GPX/GeoJSON, no service-role credentials",
+  "graphHopperPublication": {
+    "status": "573/573 verified",
+    "previous": 569,
+    "finalFour": [
+      { "mountainId": 275, "name": "Hoher Ifen", "oldOsmId": 323607635, "newOsmId": 323607635, "driftMeters": 23.3, "publicationId": "9c5539df181bb5196e44538980c711b3ad00cec17f76d42b7597ccb2e2892af3", "requestHashChanged": true, "publicationIdChanged": false },
+      { "mountainId": 308, "name": "Karlkopf", "oldOsmId": 2980105509, "newOsmId": 2980105509, "driftMeters": 34.5, "publicationId": "e268bbb37c0cc3eaa8163220f84b481d28b93f3f7d7b9a1d30c5c6a62b14d941", "requestHashChanged": true, "publicationIdChanged": false },
+      { "mountainId": 579, "name": "Giebel", "oldOsmId": 913851937, "newOsmId": 913851937, "driftMeters": 29.4, "publicationId": "6ca5596519d14866cac2029ba0e2f467bee2e27a39b7581fea287e14e3f9db99", "requestHashChanged": true, "publicationIdChanged": false },
+      { "mountainId": 977, "name": "Hörndlwand", "oldOsmId": 880892898, "newOsmId": 767907047, "driftMeters": 39.3, "publicationId": "9a8e4ffb6b51385227d9cd87d12ac4113fd767ca6c09bcdbf8a219cd5cab116e", "requestHashChanged": true, "publicationIdChanged": true, "oldPublicationId": "4372e85a43cdfc84cb2b43281cfb0a73a6b77d896e921f0d79bd1e10e06dcf37" }
+    ],
+    "provenanceTotal": 583,
+    "nonGh": 10,
+    "storageVerified": "4/4 GPX + 4/4 GeoJSON for final four; 40/40 sample",
+    "orphan": "Old 4372e85a… retained for audit, no provenance"
+  },
+  "manifestHash": "4cf8c6a5d83daf7e10366f956512bc18287afdf4554022cd488a8d59604b43fc",
+  "pbfFingerprint": "15ff62ed82c01b2153ec22d1b4cd53d1e94b87ecf38ab176eee60360972a6fc5",
+  "graphHash": "0281d4ceffdc16bfcfa7c21229451b591ab2d1e9b26dc3054a942bb801967399",
+  "noPayloads": true
+}

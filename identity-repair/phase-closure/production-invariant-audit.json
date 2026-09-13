@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-09-13T09:10:29.000Z",
+  "ghReadyCount": 573,
+  "ghProvenanceCount": 573,
+  "missing": [],
+  "duplicatePublicationId": 0,
+  "duplicateGhMountain": 0,
+  "invalidStatus": 0,
+  "missingFields": 0,
+  "mountainRoutesCount": 573,
+  "mountainRoutesMissing": [],
+  "nonGhProvenanceCount": 10,
+  "totalProvenanceCount": 583,
+  "invariantPass": true
+}

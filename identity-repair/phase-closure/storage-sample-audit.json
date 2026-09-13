@@ -1,0 +1,355 @@
+{
+  "finalFour": {
+    "gpxMatch": "4/4",
+    "geoMatch": "4/4"
+  },
+  "sampleIds": [
+    2,
+    3,
+    9,
+    10,
+    15,
+    24,
+    60,
+    120,
+    400,
+    500,
+    700,
+    800,
+    900,
+    1000,
+    11,
+    12,
+    13,
+    14,
+    25,
+    26
+  ],
+  "sampleResults": [
+    {
+      "mountainId": 2,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "fe7527d6",
+      "actual": "fe7527d6",
+      "bytes": 45259
+    },
+    {
+      "mountainId": 2,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "3bd0ad11",
+      "actual": "3bd0ad11",
+      "bytes": 25144
+    },
+    {
+      "mountainId": 3,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "7cb7c870",
+      "actual": "7cb7c870",
+      "bytes": 43190
+    },
+    {
+      "mountainId": 3,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "d6a61d69",
+      "actual": "d6a61d69",
+      "bytes": 24100
+    },
+    {
+      "mountainId": 9,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "d34221d5",
+      "actual": "d34221d5",
+      "bytes": 34600
+    },
+    {
+      "mountainId": 9,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "64e8fc26",
+      "actual": "64e8fc26",
+      "bytes": 19948
+    },
+    {
+      "mountainId": 10,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "ef6e3572",
+      "actual": "ef6e3572",
+      "bytes": 54951
+    },
+    {
+      "mountainId": 10,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "44bb7a23",
+      "actual": "44bb7a23",
+      "bytes": 29845
+    },
+    {
+      "mountainId": 15,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "723c45e8",
+      "actual": "723c45e8",
+      "bytes": 19165
+    },
+    {
+      "mountainId": 15,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "a3d38cfd",
+      "actual": "a3d38cfd",
+      "bytes": 12466
+    },
+    {
+      "mountainId": 24,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "11f7e7ed",
+      "actual": "11f7e7ed",
+      "bytes": 43509
+    },
+    {
+      "mountainId": 24,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "9ba07313",
+      "actual": "9ba07313",
+      "bytes": 24260
+    },
+    {
+      "mountainId": 60,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "980e924e",
+      "actual": "980e924e",
+      "bytes": 41855
+    },
+    {
+      "mountainId": 60,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "5de535b6",
+      "actual": "5de535b6",
+      "bytes": 23509
+    },
+    {
+      "mountainId": 120,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "c7ac845d",
+      "actual": "c7ac845d",
+      "bytes": 29971
+    },
+    {
+      "mountainId": 120,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "bc361383",
+      "actual": "bc361383",
+      "bytes": 17710
+    },
+    {
+      "mountainId": 400,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "1346838e",
+      "actual": "1346838e",
+      "bytes": 20604
+    },
+    {
+      "mountainId": 400,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "cc37665d",
+      "actual": "cc37665d",
+      "bytes": 13123
+    },
+    {
+      "mountainId": 500,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "83349b1f",
+      "actual": "83349b1f",
+      "bytes": 26669
+    },
+    {
+      "mountainId": 500,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "31a27441",
+      "actual": "31a27441",
+      "bytes": 16088
+    },
+    {
+      "mountainId": 700,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "7ff283f3",
+      "actual": "7ff283f3",
+      "bytes": 35548
+    },
+    {
+      "mountainId": 700,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "a8feb84f",
+      "actual": "a8feb84f",
+      "bytes": 20398
+    },
+    {
+      "mountainId": 800,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "ac0cd809",
+      "actual": "ac0cd809",
+      "bytes": 15407
+    },
+    {
+      "mountainId": 800,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "06be0e65",
+      "actual": "06be0e65",
+      "bytes": 10584
+    },
+    {
+      "mountainId": 900,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "373ac6f7",
+      "actual": "373ac6f7",
+      "bytes": 12140
+    },
+    {
+      "mountainId": 900,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "169e38e5",
+      "actual": "169e38e5",
+      "bytes": 9006
+    },
+    {
+      "mountainId": 1000,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "73669e0f",
+      "actual": "73669e0f",
+      "bytes": 21498
+    },
+    {
+      "mountainId": 1000,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "021c2f8d",
+      "actual": "021c2f8d",
+      "bytes": 13568
+    },
+    {
+      "mountainId": 11,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "2915ddac",
+      "actual": "2915ddac",
+      "bytes": 55718
+    },
+    {
+      "mountainId": 11,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "4c575832",
+      "actual": "4c575832",
+      "bytes": 30247
+    },
+    {
+      "mountainId": 12,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "2bda62c0",
+      "actual": "2bda62c0",
+      "bytes": 40520
+    },
+    {
+      "mountainId": 12,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "a82ad910",
+      "actual": "a82ad910",
+      "bytes": 22844
+    },
+    {
+      "mountainId": 13,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "ee7ce3d4",
+      "actual": "ee7ce3d4",
+      "bytes": 56429
+    },
+    {
+      "mountainId": 13,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "5be0e3db",
+      "actual": "5be0e3db",
+      "bytes": 30572
+    },
+    {
+      "mountainId": 14,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "c95c6d72",
+      "actual": "c95c6d72",
+      "bytes": 17244
+    },
+    {
+      "mountainId": 14,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "ee96b300",
+      "actual": "ee96b300",
+      "bytes": 11546
+    },
+    {
+      "mountainId": 25,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "6c6cb1a1",
+      "actual": "6c6cb1a1",
+      "bytes": 24524
+    },
+    {
+      "mountainId": 25,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "9cfc9d07",
+      "actual": "9cfc9d07",
+      "bytes": 15037
+    },
+    {
+      "mountainId": 26,
+      "kind": "gpx",
+      "status": "MATCH",
+      "expected": "5da6a4b5",
+      "actual": "5da6a4b5",
+      "bytes": 29346
+    },
+    {
+      "mountainId": 26,
+      "kind": "geojson",
+      "status": "MATCH",
+      "expected": "5c584506",
+      "actual": "5c584506",
+      "bytes": 17382
+    }
+  ],
+  "sampleSummary": {
+    "total": 40,
+    "match": 40,
+    "mismatch": 0
+  }
+}

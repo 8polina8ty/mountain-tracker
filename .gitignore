@@ -64,3 +64,14 @@ date/boundaries/*.geojson
 # local Phase 8A boundary source and normalized geometry (mixed open licences)
 /data/osm/boundaries/source/
 /data/osm/boundaries/*.geojson
+
+# GraphHopper local runtime artifacts (keep config, ignore generated cache/index)
+/data/routes/graphhopper/**/graph-cache/
+/data/routes/graphhopper/**/candidate-index.json
+/data/routes/graphhopper/**/candidate-index-meta.json
+/data/routes/graphhopper/**/candidates-filtered.osm.pbf
+/data/routes/graphhopper/**/graph-meta.json
+/data/routes/graphhopper-runs/
+/data/routes/pbf/
+/data/routes/publication-execution/
+/data/osm/alps/staging/

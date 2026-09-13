@@ -1,0 +1,61 @@
+{
+  "graphHopperConfiguration": [
+    "data/routes/graphhopper/alps-hike/config.yml",
+    "scripts/routes/graphhopper/meta.ts"
+  ],
+  "graphIdentity": [
+    "scripts/routes/graphhopper/meta.ts",
+    "data/osm/source/alps-latest.osm.pbf (PBF fingerprint 15ff62ed82c01b2153ec22d1b4cd53d1e94b87ecf38ab176eee60360972a6fc5)"
+  ],
+  "candidateIndexLogic": [
+    "scripts/routes/graphhopper/candidate-index.ts",
+    "Lib/gpxIngestion/baseAccessStartPolicy.ts"
+  ],
+  "baseAccessV2": [
+    "Lib/gpxIngestion/baseAccessStartPolicy.ts",
+    "Lib/gpxIngestion/adaptiveStartDiscovery.ts"
+  ],
+  "summitAttachment": [
+    "Lib/gpxIngestion/summitAttachment.ts",
+    "scripts/routes/graphhopper/summit-attachment.ts"
+  ],
+  "publicationPreparation": [
+    "scripts/routes/graphhopper/publication-prep.ts",
+    "scripts/routes/graphhopper/prepare.ts",
+    "Lib/gpxIngestion/generatedRoutePublication.ts"
+  ],
+  "publicationRpcAdapter": [
+    "scripts/routes/graphhopper/publication-rpc-adapter.ts",
+    "database/generated_route_publication.sql"
+  ],
+  "identityRepair": [
+    "identity-repair/db-fix-review/review.json",
+    "identity-repair/final-db-fixes-reviewed.sql",
+    "identity-repair/db-fix-review/final-four-approvals.sql",
+    "scripts/routes/graphhopper/identity-repair.test.ts"
+  ],
+  "storageRepair": [
+    "tools/final-four-publish.ts (validated replacement for stale GeoJSON)"
+  ],
+  "finalFourPublication": [
+    "identity-repair/db-fix-review/post-fix-rpc.json",
+    "data/routes/publication-execution/ghex-06e38ba4-7bc519bb-final-four/"
+  ],
+  "databasePublicationContract": [
+    "database/generated_route_publication.sql (service_role-only RPC, approval binding, idempotency)"
+  ],
+  "tests": [
+    "scripts/routes/graphhopper/graphhopper.test.ts",
+    "scripts/routes/route-factory.test.ts",
+    "Lib/gpxIngestion/*.test.ts"
+  ],
+  "obsolete": [
+    "scripts/test-833.ts",
+    "scripts/test-one-rebuild.ts",
+    "scripts/freeze-failed-228.ts (evaluate for removal)",
+    "scripts/check-parity.mjs",
+    "scripts/rebuild-safe-requests.ts (if superseded by graphhopper pipeline)",
+    "scripts/routes/PBF_README.md (redirects to new docs)"
+  ],
+  "notes": "All source-of-truth files listed are tracked or intended to be tracked; generated artifacts (PBF, graph-cache, candidate-index, route runs, execution receipts) are reproducible from these and PBF."
+}

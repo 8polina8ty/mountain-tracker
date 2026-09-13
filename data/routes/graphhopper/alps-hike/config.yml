@@ -1,0 +1,54 @@
+# Mountain Tracker - GraphHopper 10.2 hiking config
+# Deterministic local persistent graph for alps-latest.osm.pbf
+# Profile: foot (built-in custom model)
+# Do NOT use legacy graph.flag_encoders
+graphhopper:
+  datareader.file: data/osm/source/alps-latest.osm.pbf
+  graph.location: data/routes/graphhopper/alps-hike/graph-cache
+  # Hiking: foot with alpine permissive model (allows hike_rating, keeps foot_access strict for safety)
+  profiles:
+    - name: foot
+      custom_model:
+        priority:
+          - if: "!foot_access"
+            multiply_by: "0"
+        speed:
+          - if: "true"
+            limit_to: "foot_average_speed"
+
+  # CH + LM disabled for foot to keep import deterministic and memory-bounded
+  profiles_ch: []
+  profiles_lm: []
+
+  graph.encoded_values: foot_access, foot_priority, foot_average_speed, hike_rating, mtb_rating, foot_temporal_access
+  graph.dataaccess.default_type: RAM_STORE
+  prepare.min_network_size: 200
+  prepare.subnetworks.threads: 1
+  # Keep routing strict for hiking; snap preventions help avoid tunnels/bridges/ferry snapping
+  routing.snap_preventions_default: tunnel, bridge, ferry
+  routing.non_ch.max_waypoint_distance: 1000000
+  # Do not ignore hiking-relevant highways
+  import.osm.ignored_highways: ""
+
+# Dropwizard server - bind to localhost only, ephemeral for batch lifecycle
+server:
+  application_connectors:
+    - type: http
+      port: 8989
+      bind_host: localhost
+      max_request_header_size: 50k
+  admin_connectors:
+    - type: http
+      port: 8990
+      bind_host: localhost
+  request_log:
+    appenders: []
+
+logging:
+  appenders:
+    - type: console
+      time_zone: UTC
+      log_format: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  loggers:
+    "com.graphhopper":
+      level: INFO

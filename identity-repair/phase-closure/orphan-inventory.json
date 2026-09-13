@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-09-13T09:10:40.419Z",
+  "old977": {
+    "publicationId": "4372e85a43cdfc84cb2b43281cfb0a73a6b77d896e921f0d79bd1e10e06dcf37",
+    "approvalExists": true,
+    "approvalRows": [
+      {
+        "publication_id": "4372e85a43cdfc84cb2b43281cfb0a73a6b77d896e921f0d79bd1e10e06dcf37",
+        "request_hash": "c5a9b57a74abe80ffd2fdde22b007bdf5270946f38a619a550aa5a0efb18e069",
+        "manifest_hash": "4cf8c6a5d83daf7e10366f956512bc18287afdf4554022cd488a8d59604b43fc"
+      }
+    ],
+    "provenanceExists": false,
+    "provenanceRows": [],
+    "gpxExists": true,
+    "geojsonExists": true,
+    "gpxHashPrefix": "c1ec513004c95a25",
+    "geojsonHashPrefix": "dd94338df87c5e5f",
+    "classification": "KEEP_FOR_AUDIT",
+    "reason": "Old Hörndlwand identity superseded by 9a8e4ffb…; no provenance (0), storage remains from failed attempt; safe to keep for audit, delete only after verifying new 977 ACTIVE and old hashes known"
+  },
+  "orphanApprovalsCount": 20,
+  "orphanApprovalsSample": [
+    {
+      "publication_id": "ef3af6e23df743186ebf3e672076e72614995b855984bd67d4cc27459134ac26",
+      "request_hash": "641da3e07bb588333966e26172956bceeaacb4a35cb2c2cc2f1a2c3b972241cb"
+    },
+    {
+      "publication_id": "10be0433659c56fd61690a7f09cf03cfef2d9795c58ecb27429da89182a2a0a5",
+      "request_hash": "d6d17c102fbf67c0cc1293ec8bef061a9241adcbbad8f2bf5598ec14d6923ac9"
+    },
+    {
+      "publication_id": "45c8ff7b1a0f31739e845f5885eaa23e3bedef957e5c272a3a6f2c9ad199654d",
+      "request_hash": "72146efab6677153e2e0d7f7e7d15ea9ebbc341e3d76fa40bb86ce407ef74e5e"
+    },
+    {
+      "publication_id": "c821595c1de48e58674038428c619578ba4f945cf05a6f70d041185b3baf9a79",
+      "request_hash": "417f1e4a2b0e8190e2afbe4c7440c395b996aa9231d65996c28e6542eb2a697d"
+    },
+    {
+      "publication_id": "7a3c168ac31cfd49b96565eb8802221b1d302f5763b2ae4587188f0e532e6004",
+      "request_hash": "eec8cf5ddd36535af7bdff4c8ee33fe679017b0da2e249cc5d9f69a5e175e552"
+    }
+  ],
+  "orphanStorageApproxCount": 1,
+  "note": "Full orphan storage scan would require listing bucket; only known old 977 classified as orphan storage with no provenance."
+}

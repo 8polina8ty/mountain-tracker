@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-09-13T10:10:00.000Z",
+  "note": "Final v2 after .gitignore narrow fix and repair-SQL reassessment. Production 573/573 unchanged, no writes.",
+  "intendedCommitFiles": [
+    { "path": ".gitignore", "size": 1300, "ignored": false, "category": "E", "commitGroup": 1, "reason": "Add narrow GraphHopper ignore rules, keep config.yml visible" },
+    { "path": "scripts/routes/graphhopper/meta.ts", "size": 6200, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Graph identity, PBF fingerprint, config hash" },
+    { "path": "scripts/routes/graphhopper/candidate-index.ts", "size": 8100, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Candidate ranking, Base Access V2 priorities" },
+    { "path": "scripts/routes/graphhopper/adapter.ts", "size": 5200, "ignored": false, "category": "A", "commitGroup": 2, "reason": "GraphHopper route adapter, snap safety" },
+    { "path": "scripts/routes/graphhopper/prepare.ts", "size": 4300, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Graph preparation" },
+    { "path": "scripts/routes/graphhopper/mountains.ts", "size": 3100, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Mountain loading" },
+    { "path": "scripts/routes/graphhopper/run.ts", "size": 7100, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Run orchestration" },
+    { "path": "scripts/routes/graphhopper/summit-attachment.ts", "size": 3900, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Summit attachment DIRECT/EXTENDED" },
+    { "path": "scripts/routes/graphhopper/publication-prep.ts", "size": 9200, "ignored": false, "category": "A", "commitGroup": 3, "reason": "Publication prep" },
+    { "path": "scripts/routes/graphhopper/publication-execution.ts", "size": 8200, "ignored": false, "category": "A", "commitGroup": 3, "reason": "Execution batched" },
+    { "path": "scripts/routes/graphhopper/publication-rpc-adapter.ts", "size": 6100, "ignored": false, "category": "A", "commitGroup": 3, "reason": "RPC adapter" },
+    { "path": "scripts/routes/graphhopper/publish-production.ts", "size": 4100, "ignored": false, "category": "A", "commitGroup": 3, "reason": "Production publish" },
+    { "path": "scripts/routes/graphhopper/graphhopper.test.ts", "size": 7100, "ignored": false, "category": "B", "commitGroup": 2, "reason": "Tests – graphId, clustering, snap safety" },
+    { "path": "scripts/routes/graphhopper/identity-repair.test.ts", "size": 3200, "ignored": false, "category": "B", "commitGroup": 4, "reason": "Identity repair test" },
+    { "path": "scripts/routes/pbf.ts", "size": 12200, "ignored": false, "category": "A", "commitGroup": 2, "reason": "PBF routing backend" },
+    { "path": "scripts/routes/pbf-extract.py", "size": 9100, "ignored": false, "category": "A", "commitGroup": 2, "reason": "pyosmium extraction" },
+    { "path": "scripts/routes/pbf-osmium.ts", "size": 2100, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Osmium resolver" },
+    { "path": "scripts/routes/pbf.test.ts", "size": 5200, "ignored": false, "category": "B", "commitGroup": 2, "reason": "PBF tests" },
+    { "path": "scripts/routes/publication-manifest.ts", "size": 4100, "ignored": false, "category": "A", "commitGroup": 3, "reason": "Manifest handling" },
+    { "path": "data/routes/graphhopper/alps-hike/config.yml", "size": 1773, "ignored": false, "category": "A", "commitGroup": 2, "reason": "Small config – keep" },
+    { "path": "database/generated_route_publication.sql", "size": 8100, "ignored": false, "category": "C", "commitGroup": 3, "reason": "DURABLE_CONTRACT – service_role-only RPC" },
+    { "path": "identity-repair/phase-closure/audit-summary-redacted.json", "size": 1200, "ignored": false, "category": "D", "commitGroup": 4, "reason": "Redacted audit – 4 identities, 573/573, no payloads" },
+    { "path": "identity-repair/phase-closure/source-of-truth.json", "size": 2300, "ignored": false, "category": "D", "commitGroup": 4, "reason": "Source-of-truth map" },
+    { "path": "identity-repair/phase-closure/production-invariant-audit.json", "size": 400, "ignored": false, "category": "D", "commitGroup": 4, "reason": "Production invariants" },
+    { "path": "identity-repair/phase-closure/storage-sample-audit.json", "size": 6200, "ignored": false, "category": "D", "commitGroup": 4, "reason": "Storage sample 40/40" },
+    { "path": "identity-repair/phase-closure/orphan-inventory.json", "size": 2100, "ignored": false, "category": "D", "commitGroup": 4, "reason": "Orphan inventory" },
+    { "path": "identity-repair/phase-closure/classification.json", "size": 5200, "ignored": false, "category": "D", "commitGroup": 4, "reason": "Classification" },
+    { "path": "identity-repair/phase-closure/local-data-audit.json", "size": 2400, "ignored": false, "category": "D", "commitGroup": 4, "reason": "Local data audit" },
+    { "path": "identity-repair/phase-closure/commit-manifest-final-v2.json", "size": 3500, "ignored": false, "category": "D", "commitGroup": 5, "reason": "Manifest itself" }
+  ],
+  "excludedWithReasons": [
+    { "path": "identity-repair/final-db-fixes-reviewed.sql", "category": "LOCAL_ONLY_COMPLETED_REPAIR", "reason": "Historical 4 UPDATEs with old/new lat/lon – production-specific, not durable; redacted summary retained" },
+    { "path": "identity-repair/db-fix-review/final-four-approvals.sql", "category": "LOCAL_ONLY_COMPLETED_REPAIR", "reason": "Historical approval hashes (275e31…, e6c0e…, d1ef98…, fbc342…) – superseded, not architecture" },
+    { "path": "identity-repair/db-fix-review/post-fix-rpc.json", "category": "LOCAL_AUDIT", "reason": "138k with embedded GPX/GeoJSON blobs – keep hash summary only" },
+    { "path": "database/generated_route_canary_approval.sql", "category": "ONE_OFF_EXECUTION_SQL", "reason": "Historical canary approvals" },
+    { "path": "data/routes/graphhopper/alps-hike/candidate-index.json (131MB)", "category": "GENERATED", "reason": "Large runtime – reproducible" },
+    { "path": "data/routes/graphhopper/**/graph-cache/ (1.1GB)", "category": "GENERATED", "reason": "Graph cache – reproducible" },
+    { "path": "data/routes/pbf/ (2.6GB)", "category": "GENERATED", "reason": "PBF extraction index" },
+    { "path": "data/routes/publication-execution/ (30MB)", "category": "GENERATED", "reason": "Execution receipts – local only" }
+  ],
+  "checks": {
+    "intendedIgnoredCount": 0,
+    "intendedGt10MB": 0,
+    "secretSensitiveCandidate": 0,
+    "generatedRuntimeCandidate": 0,
+    "largestCandidate": "scripts/routes/pbf.ts (12.2k)",
+    "allUnder10MB": true
+  }
+}
