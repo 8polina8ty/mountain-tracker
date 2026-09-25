@@ -75,3 +75,9 @@ date/boundaries/*.geojson
 /data/routes/pbf/
 /data/routes/publication-execution/
 /data/osm/alps/staging/
+
+# global border-peak discovery inputs and generated artifacts
+/data/border-peaks/global-boundaries/
+/data/border-peaks/global-run/
+/data/border-peaks/mountains-global.jsonl
+/data/border-peaks/existing-memberships-global.json
