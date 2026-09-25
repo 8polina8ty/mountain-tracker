@@ -152,18 +152,32 @@ export function buildAdm0Segments(dataset: GlobalAdm0Dataset): Adm0Segment[] {
           const a = ring[index];
           const b = ring[index + 1];
           if (!validCoordinate(a) || !validCoordinate(b)) continue;
-          segments.push({
+          const minLat = Math.min(a[1], b[1]);
+          const maxLat = Math.max(a[1], b[1]);
+          const base = {
             countryCode: feature.properties.countryCode,
             featureId: feature.id,
             a,
             b,
-            bbox: [
-              Math.min(a[0], b[0]),
-              Math.min(a[1], b[1]),
-              Math.max(a[0], b[0]),
-              Math.max(a[1], b[1]),
-            ],
-          });
+          };
+          if (Math.abs(a[0] - b[0]) > 180) {
+            const east = Math.max(a[0], b[0]);
+            const west = Math.min(a[0], b[0]);
+            segments.push(
+              { ...base, bbox: [east, minLat, 180, maxLat] },
+              { ...base, bbox: [-180, minLat, west, maxLat] },
+            );
+          } else {
+            segments.push({
+              ...base,
+              bbox: [
+                Math.min(a[0], b[0]),
+                minLat,
+                Math.max(a[0], b[0]),
+                maxLat,
+              ],
+            });
+          }
         }
       }
     }
