@@ -460,6 +460,7 @@ async function main(): Promise<void> {
     search_radius_meters: number;
     shared_edge_tolerance_meters: number;
     boundary_segments: number;
+    boundary_coverage_gaps: string[];
   } = {
     total_mountains_examined: counters.examined,
     near_border_candidates: counters.near,
@@ -481,6 +482,7 @@ async function main(): Promise<void> {
     search_radius_meters: args.searchRadiusMeters,
     shared_edge_tolerance_meters: args.sharedEdgeToleranceMeters,
     boundary_segments: segments.length,
+    boundary_coverage_gaps: dataset.metadata.coverageGaps ?? [],
   };
 
   if (!args.dryRun) {
