@@ -98,6 +98,8 @@ function coordinateBboxFromGeojsonText(
   let minLat = Number.POSITIVE_INFINITY;
   let maxLon = Number.NEGATIVE_INFINITY;
   let maxLat = Number.NEGATIVE_INFINITY;
+  let minPositiveLon = Number.POSITIVE_INFINITY;
+  let maxNegativeLon = Number.NEGATIVE_INFINITY;
   let coordinateDepth = 0;
   let pairDepth = -1;
   let first: number | null = null;
@@ -136,6 +138,8 @@ function coordinateBboxFromGeojsonText(
             minLat = Math.min(minLat, second);
             maxLon = Math.max(maxLon, first);
             maxLat = Math.max(maxLat, second);
+            if (first >= 0) minPositiveLon = Math.min(minPositiveLon, first);
+            if (first < 0) maxNegativeLon = Math.max(maxNegativeLon, first);
           }
           first = null;
         }
@@ -149,6 +153,13 @@ function coordinateBboxFromGeojsonText(
 
   if (![minLon, minLat, maxLon, maxLat].every(Number.isFinite)) {
     throw new Error("Could not derive GeoJSON coordinate bbox");
+  }
+  if (
+    maxLon - minLon > 180 &&
+    Number.isFinite(minPositiveLon) &&
+    Number.isFinite(maxNegativeLon)
+  ) {
+    return [minPositiveLon, minLat, maxNegativeLon, maxLat];
   }
   return [minLon, minLat, maxLon, maxLat];
 }
