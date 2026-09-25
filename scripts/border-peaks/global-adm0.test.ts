@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   buildAdm0Segments,
+  buildAdm0SegmentsFromSource,
   parseGlobalAdm0Dataset,
 } from "./global-adm0.ts";
 import { iso3ForCountry } from "./country-codes.ts";
@@ -103,4 +104,42 @@ test("global ISO mapping includes ordinary and Mountain Tracker exception codes"
   assert.equal(iso3ForCountry("AT"), "AUT");
   assert.equal(iso3ForCountry("XK"), "XKX");
   assert.equal(iso3ForCountry("ZZ"), null);
+});
+
+
+test("source segment builder applies bbox filters without affecting legacy builder", () => {
+  const source = {
+    countryCode: "DE",
+    iso3: "DEU",
+    bbox: [0, 0, 2, 1] as [number, number, number, number],
+    localGeojsonPath: "fixture",
+    boundaryId: "DEU-ADM0",
+    boundaryYearRepresented: "2021",
+    source: "fixture",
+    sourceUrl: "https://example.com/de",
+    license: "test",
+    licenseUrl: null,
+  };
+  const content = JSON.stringify({
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        properties: {
+          shapeID: "shape-1",
+          shapeGroup: "DEU",
+          shapeType: "ADM0",
+        },
+        geometry: {
+          type: "Polygon",
+          coordinates: [[[0, 0], [2, 0], [2, 1], [0, 1], [0, 0]]],
+        },
+      },
+    ],
+  });
+  const all = buildAdm0SegmentsFromSource(content, source);
+  const filtered = buildAdm0SegmentsFromSource(content, source, [[1.5, -0.1, 2.1, 0.1]]);
+  assert.equal(all.length, 4);
+  assert.ok(filtered.length > 0);
+  assert.ok(filtered.length < all.length);
 });
