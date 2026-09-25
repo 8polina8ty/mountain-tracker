@@ -56,14 +56,19 @@ async function main(): Promise<void> {
     crlfDelay: Infinity,
   });
 
-  let total = 0;
+  const latestByHash = new Map<string, VerificationRow>();
+  let rawRows = 0;
   for await (const line of lines) {
     if (!line.trim()) continue;
     const row = JSON.parse(line) as VerificationRow;
     if (!(row.status in counts)) {
       throw new Error(`Unknown verification status: ${row.status}`);
     }
-    total += 1;
+    rawRows += 1;
+    latestByHash.set(row.candidate_hash, row);
+  }
+
+  for (const row of latestByHash.values()) {
     counts[row.status] += 1;
     const pair = [row.primary_country_code, row.candidate_country_code]
       .sort()
@@ -107,7 +112,8 @@ async function main(): Promise<void> {
 
   const result = {
     generated_at: new Date().toISOString(),
-    total_rows: total,
+    raw_rows: rawRows,
+    unique_candidate_rows: latestByHash.size,
     status_counts: counts,
     pair_counts: pairRows,
     verified_rows: verified,
@@ -121,7 +127,8 @@ async function main(): Promise<void> {
   process.stdout.write(
     `${JSON.stringify(
       {
-        total_rows: total,
+        raw_rows: rawRows,
+        unique_candidate_rows: latestByHash.size,
         status_counts: counts,
         top_pairs: pairRows.slice(0, 30),
         verified_preview: verified.slice(0, 20),
