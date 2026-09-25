@@ -2,7 +2,7 @@
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-import { MOUNTAIN_TRACKER_ISO2_TO_ISO3 } from "./country-codes.ts";
+import { GLOBAL_ISO2_TO_ISO3 } from "./country-codes.ts";
 import { parseGlobalAdm0Dataset, type GlobalAdm0Dataset, type GlobalAdm0Feature } from "./global-adm0.ts";
 import type { Coordinate } from "../osm-import/peak-matcher.ts";
 
@@ -65,10 +65,6 @@ function featureBbox(
     maxLat = Math.max(maxLat, lat);
   }
   return [minLon, minLat, maxLon, maxLat];
-}
-
-function sourceUrl(iso3: string, suffix: "geojson" | "metaData.json"): string {
-  return `https://github.com/wmgeolab/geoBoundaries/raw/${SNAPSHOT_REF}/releaseData/gbOpen/${iso3}/ADM0/geoBoundaries-${iso3}-ADM0-${suffix === "geojson" ? "" : ""}`;
 }
 
 function geojsonUrl(iso3: string): string {
@@ -215,7 +211,7 @@ async function main(): Promise<void> {
   const sourceManifest: Record<string, unknown>[] = [];
   const failures: Array<{ countryCode: string; iso3: string; error: string }> = [];
 
-  for (const [countryCode, iso3] of Object.entries(MOUNTAIN_TRACKER_ISO2_TO_ISO3)) {
+  for (const [countryCode, iso3] of Object.entries(GLOBAL_ISO2_TO_ISO3)) {
     try {
       const geoPath = localGeojsonPath(iso3);
       const metaPath = localMetadataPath(iso3);
@@ -285,7 +281,7 @@ async function main(): Promise<void> {
         snapshotVersion: SNAPSHOT_VERSION,
         generatedAt: new Date().toISOString(),
         normalizedOutput: NORMALIZED_PATH,
-        countryCount: Object.keys(MOUNTAIN_TRACKER_ISO2_TO_ISO3).length,
+        countryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
         features: dataset.features.length,
         sources: sourceManifest,
       },
@@ -300,7 +296,7 @@ async function main(): Promise<void> {
       {
         mode: download ? "download-and-normalize" : "normalize-local-sources",
         snapshotVersion: SNAPSHOT_VERSION,
-        countries: Object.keys(MOUNTAIN_TRACKER_ISO2_TO_ISO3).length,
+        countries: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
         features: dataset.features.length,
         normalizedPath: NORMALIZED_PATH,
         sourceManifestPath: SOURCE_MANIFEST_PATH,
@@ -311,7 +307,6 @@ async function main(): Promise<void> {
   );
 }
 
-void sourceUrl;
 
 main().catch((error: unknown) => {
   process.stderr.write(`${error instanceof Error ? error.stack : String(error)}\n`);
