@@ -1,0 +1,100 @@
+{"id": 1, "name": "Zugspitze", "name_de": "Zugspitze", "latitude": 47.421215, "longitude": 10.986297, "height": 2962, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 2, "name": "Schneefernerkopf", "name_de": null, "latitude": 47.4095968, "longitude": 10.9699595, "height": 2874, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 3, "name": null, "name_de": null, "latitude": 47.4118778, "longitude": 10.9684542, "height": 2836, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 4, "name": "Zugspitzeck", "name_de": null, "latitude": 47.4175695, "longitude": 10.9723451, "height": 2815, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 5, "name": null, "name_de": null, "latitude": 47.4053767, "longitude": 10.9697023, "height": 2794, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 6, "name": null, "name_de": null, "latitude": 47.4165622, "longitude": 10.9710116, "height": 2782, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 7, "name": "Nördliche Wetterspitze", "name_de": null, "latitude": 47.4039535, "longitude": 10.9696493, "height": 2746, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 8, "name": "Südliche Wetterspitze", "name_de": null, "latitude": 47.4007961, "longitude": 10.9703511, "height": 2746, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 9, "name": "Hochwanner", "name_de": null, "latitude": 47.3959556, "longitude": 11.0553604, "height": 2744, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 10, "name": "Innere Höllentalspitze", "name_de": null, "latitude": 47.4184937, "longitude": 11.0105717, "height": 2741, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 11, "name": "Mittlere Höllentalspitze", "name_de": null, "latitude": 47.4206907, "longitude": 11.0198273, "height": 2740, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 13, "name": "Äußere Höllentalspitze", "name_de": null, "latitude": 47.4209398, "longitude": 11.027893, "height": 2715, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 16, "name": "Östliche Wetterspitze", "name_de": null, "latitude": 47.3996786, "longitude": 10.9715651, "height": 2709, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 17, "name": "Hochblassen", "name_de": null, "latitude": 47.4223964, "longitude": 11.0444402, "height": 2706, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 18, "name": "Wetterwandeck", "name_de": null, "latitude": 47.3981048, "longitude": 10.9771855, "height": 2698, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 19, "name": "Leutascher Dreitorspitze", "name_de": null, "latitude": 47.4004814, "longitude": 11.1239474, "height": 2682, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 20, "name": "Mittlere Plattspitze", "name_de": null, "latitude": 47.3958052, "longitude": 10.9903473, "height": 2680, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 21, "name": "Östliche Plattspitze", "name_de": null, "latitude": 47.3964573, "longitude": 10.9926825, "height": 2680, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 22, "name": "Westliche Plattspitze", "name_de": null, "latitude": 47.3956975, "longitude": 10.9881534, "height": 2676, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 23, "name": "Hinterreintalschrofen", "name_de": null, "latitude": 47.3961111, "longitude": 11.0758333, "height": 2670, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 28, "name": "Teufelsgrat", "name_de": null, "latitude": 47.3958358, "longitude": 11.0837236, "height": 2648, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 30, "name": "Partenkirchner Dreitorspitze, Westgipfel", "name_de": null, "latitude": 47.4063481, "longitude": 11.1225566, "height": 2633, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 31, "name": "Vollkarspitze", "name_de": null, "latitude": 47.4217228, "longitude": 11.034696, "height": 2630, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 32, "name": "Alpspitze", "name_de": null, "latitude": 47.4294968, "longitude": 11.0478118, "height": 2628, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 33, "name": "Blassenkopf", "name_de": null, "latitude": 47.4209691, "longitude": 11.0495134, "height": 2628, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 34, "name": "Partenkirchner Dreitorspitze, Nordostgipfel", "name_de": null, "latitude": 47.4091248, "longitude": 11.1256736, "height": 2626, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 35, "name": "Große Riffelwandspitze", "name_de": null, "latitude": 47.4282738, "longitude": 10.9924798, "height": 2625, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 36, "name": null, "name_de": null, "latitude": 47.4266791, "longitude": 10.9907164, "height": 2625, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 37, "name": "Partenkirchner Dreitorspitze, Mittelgipfel", "name_de": null, "latitude": 47.4081217, "longitude": 11.1239416, "height": 2622, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 48, "name": "Oberer Hundstallkopf", "name_de": null, "latitude": 47.3956494, "longitude": 11.0928735, "height": 2586, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 52, "name": "Großer Hundstallkopf", "name_de": null, "latitude": 47.395905, "longitude": 11.0941856, "height": 2559, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 53, "name": "Sonnspitzl", "name_de": null, "latitude": 47.4196316, "longitude": 10.9710255, "height": 2556, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 54, "name": "Schüsselkarspitze", "name_de": null, "latitude": 47.3970938, "longitude": 11.1198951, "height": 2553, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 56, "name": "Kleiner Wanner", "name_de": null, "latitude": 47.3963394, "longitude": 11.0397076, "height": 2548, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 58, "name": "Kleine Riffelwandspitze", "name_de": null, "latitude": 47.4293162, "longitude": 10.996723, "height": 2543, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 65, "name": "Oberreintalschrofen", "name_de": null, "latitude": 47.3955556, "longitude": 11.1038889, "height": 2523, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 71, "name": "Großer Kirchturm", "name_de": null, "latitude": 47.4165238, "longitude": 11.0306086, "height": 2514, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 75, "name": "Bayerländerturm", "name_de": null, "latitude": 47.4099632, "longitude": 11.1265424, "height": 2507, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 81, "name": "Westlicher Gatterlkopf", "name_de": null, "latitude": 47.394803, "longitude": 10.9980468, "height": 2489, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 83, "name": "Signalkuppe", "name_de": null, "latitude": 47.410641, "longitude": 11.1264927, "height": 2486, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 87, "name": "Wettersteinwand", "name_de": null, "latitude": 47.4222568, "longitude": 11.1663534, "height": 2482, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 89, "name": "Musterstein", "name_de": null, "latitude": 47.4138023, "longitude": 11.1398204, "height": 2478, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 90, "name": "Öfelekopf, Ostgipfel", "name_de": null, "latitude": 47.4042625, "longitude": 11.1502264, "height": 2478, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 93, "name": "Östlicher Gatterlkopf", "name_de": null, "latitude": 47.3941505, "longitude": 11.0054272, "height": 2474, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 98, "name": "Öfelekopf, Westgipfel", "name_de": null, "latitude": 47.4038862, "longitude": 11.1480528, "height": 2469, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 100, "name": "Scharnitzspitze", "name_de": null, "latitude": 47.3957891, "longitude": 11.1118219, "height": 2461, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 110, "name": "Östliche Törlspitze", "name_de": null, "latitude": 47.4127386, "longitude": 11.1353612, "height": 2444, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 111, "name": "Teufelskopf", "name_de": null, "latitude": 47.3943412, "longitude": 11.1002872, "height": 2440, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 117, "name": "Westliche Törlspitze", "name_de": null, "latitude": 47.4126395, "longitude": 11.1301239, "height": 2427, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 121, "name": "Blassenspitze", "name_de": null, "latitude": 47.4219531, "longitude": 11.0545854, "height": 2420, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 126, "name": "Sonnenspitze (Kreuzgipfel)", "name_de": null, "latitude": 47.3682476, "longitude": 10.921911, "height": 2411, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 127, "name": "Höhlenkopf", "name_de": null, "latitude": 47.400017, "longitude": 11.0615952, "height": 2403, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 129, "name": "Rotplattenspitze", "name_de": null, "latitude": 47.4240934, "longitude": 11.1762074, "height": 2399, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 133, "name": "Kaiserkopf", "name_de": null, "latitude": 47.4230856, "longitude": 10.9760837, "height": 2389, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 134, "name": "Riffelköpfe", "name_de": null, "latitude": 47.4296521, "longitude": 11.0001335, "height": 2389, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 138, "name": "Westliche Karwendelspitze", "name_de": null, "latitude": 47.4300189, "longitude": 11.298858, "height": 2385, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 146, "name": "Hoher Kamm", "name_de": null, "latitude": 47.3936266, "longitude": 11.029522, "height": 2375, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 148, "name": "Holzereck", "name_de": null, "latitude": 47.4050989, "longitude": 10.9615382, "height": 2373, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 150, "name": "Nördliche Linderspitze", "name_de": null, "latitude": 47.4279802, "longitude": 11.2930554, "height": 2372, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 152, "name": "Oberreintaldom", "name_de": null, "latitude": 47.4060619, "longitude": 11.1151897, "height": 2371, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 154, "name": "Frauenalplspitz", "name_de": null, "latitude": 47.4150815, "longitude": 11.1280779, "height": 2369, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 156, "name": "Kleiner Kirchturm", "name_de": null, "latitude": 47.414342, "longitude": 11.0308341, "height": 2368, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 167, "name": "Jungfernkarkopf", "name_de": null, "latitude": 47.4017931, "longitude": 11.0724993, "height": 2355, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 168, "name": "Frauenalplkopf", "name_de": null, "latitude": 47.4166877, "longitude": 11.1277051, "height": 2352, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 173, "name": "Kleiner Hundsstallkopf", "name_de": null, "latitude": 47.4023869, "longitude": 11.0830808, "height": 2338, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 184, "name": "Sulzleklammspitze", "name_de": null, "latitude": 47.4186732, "longitude": 11.2926087, "height": 2321, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 193, "name": "Drei Scharten", "name_de": null, "latitude": 47.4177816, "longitude": 11.1484033, "height": 2304, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 194, "name": "Südliche Linderspitze", "name_de": null, "latitude": 47.423027, "longitude": 11.2904419, "height": 2304, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 196, "name": "Gerberkreuz", "name_de": null, "latitude": 47.4270819, "longitude": 11.2870608, "height": 2303, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 199, "name": "Kirchlespitze", "name_de": null, "latitude": 47.4155275, "longitude": 11.2928413, "height": 2301, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 200, "name": "Obere Wettersteinspitze", "name_de": null, "latitude": 47.4269594, "longitude": 11.1910129, "height": 2297, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 207, "name": "Hoher Gaif", "name_de": null, "latitude": 47.4223324, "longitude": 11.0633797, "height": 2288, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 216, "name": "Großer Waxenstein", "name_de": null, "latitude": 47.4462043, "longitude": 11.0232944, "height": 2276, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 217, "name": "Hirschbichlkopf", "name_de": null, "latitude": 47.4172061, "longitude": 11.140303, "height": 2276, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 221, "name": "Bergl", "name_de": null, "latitude": 47.4238952, "longitude": 11.0052221, "height": 2272, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 230, "name": "Hinterer Waxenstein", "name_de": null, "latitude": 47.4439368, "longitude": 11.0174743, "height": 2268, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 233, "name": "Schönangerspitze", "name_de": null, "latitude": 47.4421375, "longitude": 11.011646, "height": 2264, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 236, "name": "Südliche Riffelspitze", "name_de": null, "latitude": 47.437218, "longitude": 11.0037847, "height": 2262, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 238, "name": "Brunntalkopf", "name_de": null, "latitude": 47.4108271, "longitude": 11.016792, "height": 2260, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 259, "name": "Nördliche Riffelspitze", "name_de": null, "latitude": 47.4388036, "longitude": 11.005791, "height": 2242, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 264, "name": "Mittlere Linderspitze", "name_de": null, "latitude": 47.4254602, "longitude": 11.290907, "height": 2239, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 277, "name": "Riffeltorkopf", "name_de": null, "latitude": 47.4350764, "longitude": 10.9983071, "height": 2230, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 278, "name": "Zwölferkopf", "name_de": null, "latitude": 47.4464989, "longitude": 11.02611, "height": 2226, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 302, "name": "Frauenalpl", "name_de": null, "latitude": 47.4142547, "longitude": 11.1175579, "height": 2202, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 307, "name": "Große Arnspitze", "name_de": null, "latitude": 47.3973362, "longitude": 11.2223256, "height": 2196, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 310, "name": "Rotwandlspitze", "name_de": null, "latitude": 47.4066196, "longitude": 11.2882158, "height": 2192, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 317, "name": "Kreuzspitze", "name_de": null, "latitude": 47.52654, "longitude": 10.917987, "height": 2184, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 320, "name": "Brunnsteinspitze", "name_de": null, "latitude": 47.4056113, "longitude": 11.2872676, "height": 2180, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 329, "name": "Arnplattenspitze (Hintere Arnspitze)", "name_de": null, "latitude": 47.3927699, "longitude": 11.2092105, "height": 2170, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 342, "name": "Untere Wettersteinspitze", "name_de": null, "latitude": 47.4280299, "longitude": 11.1991612, "height": 2151, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 343, "name": "Höllentorkopf", "name_de": null, "latitude": 47.4381128, "longitude": 11.047341, "height": 2150, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 349, "name": "Bernadeinkopf", "name_de": null, "latitude": 47.4310847, "longitude": 11.0603371, "height": 2144, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 350, "name": "Geierköpfe-Westgipfel", "name_de": null, "latitude": 47.5161748, "longitude": 10.8659693, "height": 2143, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 357, "name": "Kleiner Waxenstein", "name_de": null, "latitude": 47.446679, "longitude": 11.0301167, "height": 2136, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 360, "name": "Unterer Schüsselkarturm", "name_de": null, "latitude": 47.4001811, "longitude": 11.1109756, "height": 2135, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 368, "name": "Lachenspitze", "name_de": null, "latitude": 47.4400967, "longitude": 10.5176141, "height": 2126, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 392, "name": "Mittlere Arnspitze", "name_de": null, "latitude": 47.3941425, "longitude": 11.2156422, "height": 2091, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 393, "name": "Kreuzspitzl", "name_de": null, "latitude": 47.5176952, "longitude": 10.918179, "height": 2089, "primaryCountryCode": "AT", "country_code": "AT"}
+{"id": 397, "name": "Krottenkopf", "name_de": null, "latitude": 47.5443752, "longitude": 11.1914281, "height": 2086, "primaryCountryCode": "DE", "country_code": "DE"}
+{"id": 400, "name": "Sulzspitze", "name_de": null, "latitude": 47.4622418, "longitude": 10.5365145, "height": 2084, "primaryCountryCode": "AT", "country_code": "AT"}

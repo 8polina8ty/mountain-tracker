@@ -1,0 +1,25 @@
+{
+  "total_mountains_examined": 100,
+  "near_border_candidates": 58,
+  "confirmed": 0,
+  "review": 34,
+  "rejected": 65,
+  "existing_memberships_skipped": 1,
+  "source_conflicts": 0,
+  "countries_covered": [
+    "AT",
+    "CH",
+    "DE",
+    "FR",
+    "IT",
+    "LI",
+    "SI"
+  ],
+  "per_country_pair": {},
+  "dataset": {
+    "provider": "William & Mary geoLab",
+    "dataset": "geoBoundaries gbOpen ADM1 high-precision single-country files",
+    "version": "geoBoundaries-gbOpen-9469f09-2023-12-12"
+  },
+  "generated_at": "2026-09-24T15:27:58.980Z"
+}

@@ -1,0 +1,507 @@
+[
+  {
+    "mountain_id": 1,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 1,
+    "country_code": "DE",
+    "is_primary": false
+  },
+  {
+    "mountain_id": 2,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 3,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 4,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 5,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 6,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 7,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 8,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 9,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 10,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 11,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 13,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 16,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 17,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 18,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 19,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 20,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 21,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 22,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 23,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 28,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 30,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 31,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 32,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 33,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 34,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 35,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 36,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 37,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 48,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 52,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 53,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 54,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 56,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 58,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 65,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 71,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 75,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 81,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 83,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 87,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 89,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 90,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 93,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 98,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 100,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 110,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 111,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 117,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 121,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 126,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 127,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 129,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 133,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 134,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 138,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 146,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 148,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 150,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 152,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 154,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 156,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 167,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 168,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 173,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 184,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 193,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 194,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 196,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 199,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 200,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 207,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 216,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 217,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 221,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 230,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 233,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 236,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 238,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 259,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 264,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 277,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 278,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 302,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 307,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 310,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 317,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 320,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 329,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 342,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 343,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 349,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 350,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 357,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 360,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 368,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 392,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 393,
+    "country_code": "AT",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 397,
+    "country_code": "DE",
+    "is_primary": true
+  },
+  {
+    "mountain_id": 400,
+    "country_code": "AT",
+    "is_primary": true
+  }
+]
