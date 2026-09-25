@@ -1,0 +1,393 @@
+{
+  "recorded_at": "2026-09-25T15:45:37.731Z",
+  "scope": [
+    21,
+    20,
+    8,
+    19,
+    75,
+    100,
+    89,
+    129
+  ],
+  "input": "data/border-peaks/real-run/review.jsonl",
+  "manifest": "data/border-peaks/real-run/third-manual-batch/review-decisions.jsonl",
+  "sql": "database/generated/mountain_countries_third_manual_border_batch_REVIEW.sql",
+  "hash_method": "Existing candidateFingerprint canonical SHA-256 from exact immutable records.",
+  "evidence_origin": "User-provided reviewed secondary source summaries; no independent web verification or official survey claims.",
+  "reviewed_at_semantics": "Timestamp records capture of user approval; unchanged through export.",
+  "prior_decision_manifests_checked": [
+    "data/border-peaks/real-run/review-decisions.jsonl",
+    "data/border-peaks/real-run/second-manual-batch/review-decisions.jsonl"
+  ],
+  "live_read_only_checks": {
+    "method": "Two bounded REST GETs using public Supabase credentials; no SQL executed.",
+    "mountains": {
+      "checked_at": "2026-09-25T15:43:24.882Z",
+      "rows": [
+        {
+          "id": 8,
+          "name": "Südliche Wetterspitze",
+          "height": 2746,
+          "country_code": "AT"
+        },
+        {
+          "id": 19,
+          "name": "Leutascher Dreitorspitze",
+          "height": 2682,
+          "country_code": "AT"
+        },
+        {
+          "id": 20,
+          "name": "Mittlere Plattspitze",
+          "height": 2680,
+          "country_code": "AT"
+        },
+        {
+          "id": 21,
+          "name": "Östliche Plattspitze",
+          "height": 2680,
+          "country_code": "AT"
+        },
+        {
+          "id": 75,
+          "name": "Bayerländerturm",
+          "height": 2507,
+          "country_code": "AT"
+        },
+        {
+          "id": 89,
+          "name": "Musterstein",
+          "height": 2478,
+          "country_code": "AT"
+        },
+        {
+          "id": 100,
+          "name": "Scharnitzspitze",
+          "height": 2461,
+          "country_code": "AT"
+        },
+        {
+          "id": 129,
+          "name": "Rotplattenspitze",
+          "height": 2399,
+          "country_code": "AT"
+        }
+      ]
+    },
+    "mountain_countries": {
+      "checked_at": "2026-09-25T15:43:25.027Z",
+      "rows": [
+        {
+          "mountain_id": 8,
+          "country_code": "AT",
+          "is_primary": true
+        },
+        {
+          "mountain_id": 19,
+          "country_code": "AT",
+          "is_primary": true
+        },
+        {
+          "mountain_id": 20,
+          "country_code": "AT",
+          "is_primary": true
+        },
+        {
+          "mountain_id": 21,
+          "country_code": "AT",
+          "is_primary": true
+        },
+        {
+          "mountain_id": 75,
+          "country_code": "AT",
+          "is_primary": true
+        },
+        {
+          "mountain_id": 89,
+          "country_code": "AT",
+          "is_primary": true
+        },
+        {
+          "mountain_id": 100,
+          "country_code": "AT",
+          "is_primary": true
+        },
+        {
+          "mountain_id": 129,
+          "country_code": "AT",
+          "is_primary": true
+        }
+      ]
+    }
+  },
+  "validation": [
+    {
+      "mountain_id": 21,
+      "mountain_name": "Östliche Plattspitze",
+      "height": 2680,
+      "candidate_hash": "89e3ea50140914d070b7f49bec3e4cc43744e5f41ff701f42818ab24ff8942f0",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    },
+    {
+      "mountain_id": 20,
+      "mountain_name": "Mittlere Plattspitze",
+      "height": 2680,
+      "candidate_hash": "cb74596b70afeae0b972d3f5d1961395439956c561db6996cb0957bc45208d19",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    },
+    {
+      "mountain_id": 8,
+      "mountain_name": "Südliche Wetterspitze",
+      "height": 2746,
+      "candidate_hash": "3a46df26921244c67d54f2e17cde62b5cb0b5cebbee77a6c0c751fefd545e049",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    },
+    {
+      "mountain_id": 19,
+      "mountain_name": "Leutascher Dreitorspitze",
+      "height": 2682,
+      "candidate_hash": "f9720b7df56d6a9591d98eb6ed283598c37c974208ef0c9993d85c3e1c984a00",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    },
+    {
+      "mountain_id": 75,
+      "mountain_name": "Bayerländerturm",
+      "height": 2507,
+      "candidate_hash": "afcd07a8f7aa51836190f3cf20a52bfbf18fb70b56890c5c4d36b351195236fa",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    },
+    {
+      "mountain_id": 100,
+      "mountain_name": "Scharnitzspitze",
+      "height": 2461,
+      "candidate_hash": "74436532d21538a04354723d8816ed7a5130d0759fe3b55c67eadc857c456334",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    },
+    {
+      "mountain_id": 89,
+      "mountain_name": "Musterstein",
+      "height": 2478,
+      "candidate_hash": "84b8da71b2520e97b5b828caaaf10be36ccdff07b5d62d2f5f1be79d4fac1a10",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    },
+    {
+      "mountain_id": 129,
+      "mountain_name": "Rotplattenspitze",
+      "height": 2399,
+      "candidate_hash": "2abdbde081085d71fe9e49a90aaf8555bb73a7141fcb97b850aab098b37e36f2",
+      "identity_check": "PASS",
+      "live_identity_check": "PASS",
+      "hash_check": "PASS",
+      "primary_country_code": "AT",
+      "candidate_country_code": "DE",
+      "snapshot_membership_checks": {
+        "data/border-peaks/existing_memberships.json": "ABSENT",
+        "data/border-peaks/real-run/existing_memberships.json": "ABSENT"
+      },
+      "live_DE_membership": "ABSENT",
+      "approval_count": 1,
+      "export_validation": "PASS",
+      "blocked_reason": null
+    }
+  ],
+  "all_eight_validated_before_export": true,
+  "export_insert_count": 8,
+  "blocked": [],
+  "excluded": "All other REVIEW candidates, including Sulzleklammspitze.",
+  "protected_files_sha256_before": {
+    "data/border-peaks/fixtures.jsonl": "962e73c39bcf226160d76777be1e242fb5c70bbdf3143c7c0e214db495bc288a",
+    "data/border-peaks/approved-manifest.jsonl.example": "ae99e600accfcb07e81c1c205ae42f15706fd49fcb38b7dfcc4aab90fd9731b6",
+    "data/border-peaks/mountains-real.jsonl": "8c0e6c7b0469e1812f78a063448e7327bc74145ad56c69331a8bdd055d316960",
+    "data/border-peaks/real-run/review-report.csv": "ec1271a2ef687f7b6b518a0370e8642c069a375e6639768b7b8c1f6d16d7c330",
+    "data/border-peaks/real-run/existing_memberships.json": "2c1f4de15840a0c24e4b2c8b8cfe545bcf7da6fea0aaca99cfbff0f19ffce208",
+    "data/border-peaks/real-run/candidates.jsonl": "b76887f17e03e2a2e6bbbe3f388bfc553cfd66da5e0afd60377a992ea2bc2789",
+    "data/border-peaks/real-run/review.jsonl": "e450a1a43266bc510ba3aaec13ec850803e53d4bc90496a7d7f7db35e94e10b5",
+    "data/border-peaks/real-run/rejected.jsonl": "863129525c25edb70be9764b37c1ff44a6de2aec7fb8587c6f98f17461296a5e",
+    "data/border-peaks/real-run/summary.json": "8e26066cf651f5c1433b10b94b3e92c1f6fc89abc1d8dd0e6bfec881455d48da",
+    "data/border-peaks/real-run/review-decisions.jsonl": "a8952a5b0805d5b3c3250b5f6e00e80240f35e1cc1c8c0531f0e77f6be4b8720",
+    "data/border-peaks/real-run/first-manual-batch-validation.json": "83ff5690b6a20c3538d64d192186c8b043608116f4740b5b7fd988dd63534e03",
+    "data/border-peaks/real-run/second-manual-batch/review-decisions.jsonl": "88cbdd864156ebf4539686697fdb147a21a86be60c8c53c3efb5b3e5daebf075",
+    "data/border-peaks/real-run/second-manual-batch/validation.json": "9eea3a35ababc82ff047574d030070cd947da33037d4b87539cc7a0cee5d5e0a",
+    "data/border-peaks/existing_memberships.json": "2c1f4de15840a0c24e4b2c8b8cfe545bcf7da6fea0aaca99cfbff0f19ffce208",
+    "scripts/border-peaks/types.ts": "6cf420d2902f7c4ad1bcfd3012f20c72bcd195480cdda76bd631e610a9f12d87",
+    "scripts/border-peaks/spatial.ts": "d34ba1798a4f996bcfb01c5dc760c52c6a7f7788f64c7dc055dda9a012611248",
+    "scripts/border-peaks/classify.ts": "375ee59ff4e3b30c8c74c1b9023a07a2ae98866d9a65640b27ea2a38fb98b0f6",
+    "scripts/border-peaks/export-approved.ts": "a0e892fb07502c2b5639980ca4d572e1c89e57fa0d7358520a88f7cae08a88e0",
+    "scripts/border-peaks/border-peaks.test.ts": "bc62ecc19388e539164df8165cedeb6b2da5fedf139c22755f66858c255c2777",
+    "scripts/border-peaks/discover.ts": "c9a46c1ee64ee2b03012e3c5c1513aad57dfed2cf18da10661c018b03c3b43f8",
+    "database/generated/mountain_countries_first_manual_border_batch_REVIEW.sql": "ac18e19324c7a6019d5eb53cc5ea22b2fff68c89d30b32eb3e985cfe875e94b5",
+    "database/generated/mountain_countries_second_manual_border_batch_REVIEW.sql": "72f851e32386ce083a6f4a47f4c544ff838cd2e1eaa4277e39160d144579f36b"
+  },
+  "protected_files_unchanged": true,
+  "manifest_sha256": "5ec94e5726c6f46af3fc8f5e5359a46fdd3c47be7d292590cb0cb1367cc26af6",
+  "sql_sha256": "bd3fec079b893c6536c6b555e704a3bea32c141c69e80c0e6e2640ca850c918d",
+  "export_adjustments": [
+    "Added transaction-aborting preflight identity and existing-DE-membership guard before every INSERT.",
+    "Removed schema reload notification.",
+    "Preserved original exporter INSERT statements and shared exporter source."
+  ],
+  "exporter_limitation": "Exporter catches membership-check errors; explicit pre-export assertions checked both local membership files, embedded memberships and live read-only results.",
+  "sql_validation": {
+    "static_assertions": "PASS",
+    "preflight_expected_rows": 8,
+    "insert_rows": 8,
+    "identity_columns": [
+      "id",
+      "name",
+      "height",
+      "country_code"
+    ],
+    "existing_membership_guard": true,
+    "notify_present": false,
+    "sql_executed": false
+  },
+  "production_writes": 0,
+  "db_migrations_applied": 0,
+  "sql_applied": 0,
+  "commits": 0,
+  "pushes": 0,
+  "checks": {
+    "targeted_tests": {
+      "command": "node --experimental-strip-types --test scripts/border-peaks/border-peaks.test.ts",
+      "status": "PASS",
+      "passed": 17,
+      "failed": 0
+    },
+    "typescript": {
+      "command": "npx.cmd --no-install tsc --noEmit --incremental false",
+      "status": "PASS"
+    },
+    "focused_eslint": {
+      "command": "node node_modules/eslint/bin/eslint.js scripts/border-peaks/*.ts",
+      "status": "FAIL",
+      "unchanged_file": "scripts/border-peaks/border-peaks.test.ts",
+      "errors": [
+        {
+          "line": 122,
+          "column": 390,
+          "rule": "@typescript-eslint/no-explicit-any"
+        },
+        {
+          "line": 142,
+          "column": 409,
+          "rule": "@typescript-eslint/no-explicit-any"
+        },
+        {
+          "line": 144,
+          "column": 19,
+          "rule": "@typescript-eslint/no-explicit-any"
+        },
+        {
+          "line": 166,
+          "column": 101,
+          "rule": "@typescript-eslint/no-explicit-any"
+        }
+      ],
+      "warnings": [
+        {
+          "line": 85,
+          "column": 11,
+          "rule": "@typescript-eslint/no-unused-vars",
+          "message": "readFileSync is assigned a value but never used"
+        }
+      ]
+    },
+    "diff_check": {
+      "command": "git diff --check; git diff --no-index --check -- NUL <each new artifact>",
+      "status": "PASS",
+      "note": "No whitespace-error output; no-index exit 1 indicates new-file differences."
+    },
+    "runtime": {
+      "status": "No application server started; no application runtime verification."
+    },
+    "database": {
+      "status": "Two successful bounded read-only REST GETs for selected IDs only; no SQL executed.",
+      "sql_applied": false
+    }
+  }
+}
