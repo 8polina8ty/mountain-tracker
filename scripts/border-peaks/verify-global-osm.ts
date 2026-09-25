@@ -71,8 +71,9 @@ type Args = {
   input: string;
   output: string;
   cacheDir: string;
-  endpoint: string;
+  endpoints: string[];
   limit: number;
+  retriesPerEndpoint: number;
   delayMs: number;
   timeoutMs: number;
   resume: boolean;
@@ -113,10 +114,20 @@ function parseArgs(): Args {
     cacheDir:
       get("--cache-dir") ??
       "data/border-peaks/global-verification/cache/overpass",
-    endpoint:
+    endpoints: (
+      get("--endpoints") ??
       get("--endpoint") ??
-      "https://overpass-api.de/api/interpreter",
+      [
+        "https://overpass-api.de/api/interpreter",
+        "https://overpass.private.coffee/api/interpreter",
+        "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+      ].join(",")
+    )
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean),
     limit,
+    retriesPerEndpoint: integer("--retries-per-endpoint", 2, 1),
     delayMs: integer("--delay-ms", 1500, 250),
     timeoutMs: integer("--timeout-ms", 45000, 5000),
     resume: values.includes("--resume"),
@@ -164,15 +175,15 @@ function uniqueCandidates(path: string): BorderCandidate[] {
 
 function alreadyProcessed(path: string): Set<string> {
   if (!existsSync(path)) return new Set();
+  const latest = new Map<string, VerificationRow>();
+  for (const line of readFileSync(path, "utf8").trim().split("\n").filter(Boolean)) {
+    const row = JSON.parse(line) as VerificationRow;
+    latest.set(row.candidate_hash, row);
+  }
   return new Set(
-    readFileSync(path, "utf8")
-      .trim()
-      .split("\n")
-      .filter(Boolean)
-      .map((line) => {
-        const row = JSON.parse(line) as VerificationRow;
-        return row.candidate_hash;
-      }),
+    [...latest.values()]
+      .filter((row) => row.status !== "ERROR")
+      .map((row) => row.candidate_hash),
   );
 }
 
@@ -304,41 +315,69 @@ async function fetchOverpass(
   args: Args,
   lat: number,
   lon: number,
-): Promise<OverpassResponse> {
+): Promise<{ value: OverpassResponse; endpoint: string }> {
   mkdirSync(args.cacheDir, { recursive: true });
   const key = cacheKey(lat, lon);
   const path = resolve(args.cacheDir, `${key}.json`);
   if (existsSync(path)) {
-    return JSON.parse(readFileSync(path, "utf8")) as OverpassResponse;
+    return {
+      value: JSON.parse(readFileSync(path, "utf8")) as OverpassResponse,
+      endpoint: "cache",
+    };
   }
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), args.timeoutMs);
-  try {
-    const body = new URLSearchParams({ data: overpassQuery(lat, lon) });
-    const response = await fetch(args.endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-        "User-Agent":
-          "MountainTracker-border-verifier/1.0 (read-only research)",
-      },
-      body,
-      signal: controller.signal,
-    });
-    if (!response.ok) {
-      throw new Error(
-        `Overpass HTTP ${response.status}: ${await response.text()}`,
-      );
+  const failures: string[] = [];
+  for (const endpoint of args.endpoints) {
+    for (let attempt = 1; attempt <= args.retriesPerEndpoint; attempt += 1) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), args.timeoutMs);
+      try {
+        const body = new URLSearchParams({ data: overpassQuery(lat, lon) });
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            "User-Agent":
+              "MountainTracker-border-verifier/1.0 (read-only research)",
+          },
+          body,
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          const detail = (await response.text()).slice(0, 300);
+          failures.push(
+            `${endpoint} attempt ${attempt}: HTTP ${response.status} ${detail}`,
+          );
+          if (response.status === 429 || response.status === 406) {
+            await sleep(30_000);
+          } else if (attempt < args.retriesPerEndpoint) {
+            await sleep(Math.min(15_000, 2_000 * 2 ** (attempt - 1)));
+          }
+          continue;
+        }
+
+        const value = (await response.json()) as OverpassResponse;
+        const temporary = `${path}.tmp`;
+        writeFileSync(temporary, JSON.stringify(value));
+        renameSync(temporary, path);
+        return { value, endpoint };
+      } catch (error) {
+        failures.push(
+          `${endpoint} attempt ${attempt}: ${error instanceof Error ? error.message : String(error)}`,
+        );
+        if (attempt < args.retriesPerEndpoint) {
+          await sleep(Math.min(15_000, 2_000 * 2 ** (attempt - 1)));
+        }
+      } finally {
+        clearTimeout(timeout);
+      }
     }
-    const value = (await response.json()) as OverpassResponse;
-    const temporary = `${path}.tmp`;
-    writeFileSync(temporary, JSON.stringify(value));
-    renameSync(temporary, path);
-    return value;
-  } finally {
-    clearTimeout(timeout);
   }
+
+  throw new Error(
+    `All Overpass endpoints failed: ${failures.join(" | ")}`,
+  );
 }
 
 async function evidenceForCandidate(
@@ -351,12 +390,12 @@ async function evidenceForCandidate(
   const queriedAt = new Date().toISOString();
 
   try {
-    const center = await fetchOverpass(
+    const centerResult = await fetchOverpass(
       args,
       candidate.latitude,
       candidate.longitude,
     );
-    const centerElements = center.elements ?? [];
+    const centerElements = centerResult.value.elements ?? [];
     const centerAreas = areaRows(centerElements);
     const centerCodes = [...new Set(centerAreas.map((row) => row.country_code))].sort();
     const peak = nearestPeak(
@@ -370,7 +409,7 @@ async function evidenceForCandidate(
       for (const [lat, lon] of probes(candidate.latitude, candidate.longitude)) {
         await sleep(args.delayMs);
         const response = await fetchOverpass(args, lat, lon);
-        probeAreas.push(...areaRows(response.elements ?? []));
+        probeAreas.push(...areaRows(response.value.elements ?? []));
       }
     }
     const dedupedProbeAreas = areaRows(
@@ -435,7 +474,7 @@ async function evidenceForCandidate(
       status,
       provider: "OpenStreetMap/Overpass",
       queried_at: queriedAt,
-      endpoint: args.endpoint,
+      endpoint: centerResult.endpoint,
       center_country_codes: centerCodes,
       probe_country_codes: probeCodes,
       center_areas: centerAreas,
@@ -457,7 +496,7 @@ async function evidenceForCandidate(
       status: "ERROR",
       provider: "OpenStreetMap/Overpass",
       queried_at: queriedAt,
-      endpoint: args.endpoint,
+      endpoint: args.endpoints.join(","),
       center_country_codes: [],
       probe_country_codes: [],
       center_areas: [],
@@ -515,7 +554,8 @@ async function main(): Promise<void> {
         status_counts_this_run: counts,
         output: args.output,
         cache_dir: args.cacheDir,
-        endpoint: args.endpoint,
+        endpoints: args.endpoints,
+        retries_per_endpoint: args.retriesPerEndpoint,
         probe_mode: args.probe,
       },
       null,
