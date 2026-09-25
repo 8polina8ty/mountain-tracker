@@ -13,6 +13,28 @@ const SOURCE_DIR = resolve(ROOT, "source", SNAPSHOT_VERSION);
 const NORMALIZED_PATH = resolve(ROOT, "global-adm0.geojson");
 const SOURCE_MANIFEST_PATH = resolve(ROOT, "source-manifest.json");
 
+const UNAVAILABLE_IN_PINNED_SNAPSHOT = Object.freeze({
+  AX: "ALA",
+  BV: "BVT",
+  CC: "CCK",
+  CX: "CXR",
+  EH: "ESH",
+  GS: "SGS",
+  HK: "HKG",
+  HM: "HMD",
+  IO: "IOT",
+  JE: "JEY",
+  MF: "MAF",
+  MO: "MAC",
+  NF: "NFK",
+  PM: "SPM",
+  SJ: "SJM",
+  SX: "SXM",
+  TF: "ATF",
+  UM: "UMI",
+} as const);
+
+
 type RawFeature = {
   type?: unknown;
   properties?: {
@@ -212,6 +234,9 @@ async function main(): Promise<void> {
   const failures: Array<{ countryCode: string; iso3: string; error: string }> = [];
 
   for (const [countryCode, iso3] of Object.entries(GLOBAL_ISO2_TO_ISO3)) {
+    if ((UNAVAILABLE_IN_PINNED_SNAPSHOT as Record<string, string>)[countryCode] === iso3) {
+      continue;
+    }
     try {
       const geoPath = localGeojsonPath(iso3);
       const metaPath = localMetadataPath(iso3);
@@ -265,6 +290,7 @@ async function main(): Promise<void> {
       sourceUrl: "https://www.geoboundaries.org/",
       attribution: "geoBoundaries gbOpen; per-country attribution and license metadata apply.",
       boundaryPrecisionMeters: 100,
+      coverageGaps: Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT),
     },
     features: allFeatures,
   });
@@ -281,7 +307,9 @@ async function main(): Promise<void> {
         snapshotVersion: SNAPSHOT_VERSION,
         generatedAt: new Date().toISOString(),
         normalizedOutput: NORMALIZED_PATH,
-        countryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
+        countryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length - Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT).length,
+        requestedCountryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
+        coverageGaps: UNAVAILABLE_IN_PINNED_SNAPSHOT,
         features: dataset.features.length,
         sources: sourceManifest,
       },
@@ -296,7 +324,9 @@ async function main(): Promise<void> {
       {
         mode: download ? "download-and-normalize" : "normalize-local-sources",
         snapshotVersion: SNAPSHOT_VERSION,
-        countries: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
+        countries: Object.keys(GLOBAL_ISO2_TO_ISO3).length - Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT).length,
+        requestedCountries: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
+        coverageGaps: UNAVAILABLE_IN_PINNED_SNAPSHOT,
         features: dataset.features.length,
         normalizedPath: NORMALIZED_PATH,
         sourceManifestPath: SOURCE_MANIFEST_PATH,
