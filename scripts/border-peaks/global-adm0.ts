@@ -175,18 +175,6 @@ export function buildAdm0Segments(dataset: GlobalAdm0Dataset): Adm0Segment[] {
                 ]];
 
           for (const bbox of candidateBboxes) {
-            if (
-              filterBboxes.length > 0 &&
-              !filterBboxes.some(
-                (filter) =>
-                  !(bbox[2] < filter[0] ||
-                    bbox[0] > filter[2] ||
-                    bbox[3] < filter[1] ||
-                    bbox[1] > filter[3]),
-              )
-            ) {
-              continue;
-            }
             segments.push({ ...base, bbox });
           }
         }
@@ -218,7 +206,6 @@ export type GlobalAdm0SourceManifest = {
   countryCount: number;
   requestedCountryCount: number;
   coverageGaps: Record<string, string>;
-  features: number;
   sources: GlobalAdm0SourceManifestEntry[];
 };
 
@@ -302,23 +289,31 @@ export function buildAdm0SegmentsFromSource(
           const minLat = Math.min(a[1], b[1]);
           const maxLat = Math.max(a[1], b[1]);
           const base = { countryCode: source.countryCode, featureId, a, b };
-          if (Math.abs(a[0] - b[0]) > 180) {
-            const east = Math.max(a[0], b[0]);
-            const west = Math.min(a[0], b[0]);
-            segments.push(
-              { ...base, bbox: [east, minLat, 180, maxLat] },
-              { ...base, bbox: [-180, minLat, west, maxLat] },
-            );
-          } else {
-            segments.push({
-              ...base,
-              bbox: [
-                Math.min(a[0], b[0]),
-                minLat,
-                Math.max(a[0], b[0]),
-                maxLat,
-              ],
-            });
+          const candidateBboxes: Array<[number, number, number, number]> =
+            Math.abs(a[0] - b[0]) > 180
+              ? [
+                  [Math.max(a[0], b[0]), minLat, 180, maxLat],
+                  [-180, minLat, Math.min(a[0], b[0]), maxLat],
+                ]
+              : [[
+                  Math.min(a[0], b[0]),
+                  minLat,
+                  Math.max(a[0], b[0]),
+                  maxLat,
+                ]];
+
+          for (const bbox of candidateBboxes) {
+            const intersectsFilter =
+              filterBboxes.length === 0 ||
+              filterBboxes.some(
+                (filter) =>
+                  !(bbox[2] < filter[0] ||
+                    bbox[0] > filter[2] ||
+                    bbox[3] < filter[1] ||
+                    bbox[1] > filter[3]),
+              );
+            if (!intersectsFilter) continue;
+            segments.push({ ...base, bbox });
           }
         }
       }
