@@ -12,8 +12,8 @@ import { createInterface } from "node:readline";
 
 import { classifyCandidate, reasonFor } from "./classify.ts";
 import {
-  buildAdm0Segments,
-  loadGlobalAdm0Dataset,
+  buildAdm0SegmentsFromSource,
+  loadGlobalAdm0SourceManifest,
   type Adm0Segment,
 } from "./global-adm0.ts";
 import {
@@ -99,7 +99,7 @@ function parseArgs(): Args {
     input: get("--input") ?? "data/border-peaks/mountains-global.jsonl",
     boundaries:
       get("--boundaries") ??
-      "data/border-peaks/global-boundaries/global-adm0.geojson",
+      "data/border-peaks/global-boundaries/source-manifest.json",
     memberships:
       get("--memberships") ?? "data/border-peaks/existing-memberships-global.jsonl",
     output: get("--output") ?? "data/border-peaks/global-run",
@@ -266,14 +266,25 @@ async function main(): Promise<void> {
     throw new Error("--candidate-radius-m cannot exceed --search-radius-m");
   }
 
-  const dataset = loadGlobalAdm0Dataset(args.boundaries);
-  const segments = buildAdm0Segments(dataset);
-  if (segments.length === 0) {
-    throw new Error("Global ADM0 dataset produced no boundary segments");
-  }
-
+  const manifest = loadGlobalAdm0SourceManifest(args.boundaries);
   const index = new GridIndex<Adm0Segment>(0.5);
-  for (const segment of segments) index.insert(segment.bbox, segment);
+  let boundarySegmentCount = 0;
+  for (const source of manifest.sources) {
+    if (!existsSync(source.localGeojsonPath)) {
+      throw new Error(`Missing ADM0 source file: ${source.localGeojsonPath}`);
+    }
+    const sourceSegments = buildAdm0SegmentsFromSource(
+      readFileSync(source.localGeojsonPath, "utf8"),
+      source,
+    );
+    for (const segment of sourceSegments) {
+      index.insert(segment.bbox, segment);
+    }
+    boundarySegmentCount += sourceSegments.length;
+  }
+  if (boundarySegmentCount === 0) {
+    throw new Error("Global ADM0 sources produced no boundary segments");
+  }
 
   const existing = readExistingMemberships(args.memberships);
 
@@ -299,7 +310,7 @@ async function main(): Promise<void> {
   }
 
   const countryCodes = [
-    ...new Set(dataset.features.map((feature) => feature.properties.countryCode)),
+    ...new Set(manifest.sources.map((source) => source.countryCode)),
   ].sort();
   let lastMountainId = resumeAfterMountainId;
   let processedThisRun = 0;
@@ -388,10 +399,10 @@ async function main(): Promise<void> {
         counters.near += 1;
         const classification = classifyCandidate({
           distanceMeters: match.distance,
-          boundarySource: dataset.metadata.source,
+          boundarySource: "geoBoundaries gbOpen ADM0",
           supportingReference: null,
           coordinateAccuracyMeters: 30,
-          boundaryPrecisionMeters: dataset.metadata.boundaryPrecisionMeters,
+          boundaryPrecisionMeters: 100,
           conflictingSources: false,
           disputed: false,
           hasInternationalGeometry: true,
@@ -415,12 +426,12 @@ async function main(): Promise<void> {
           classification,
           evidence_type:
             classification === "REVIEW" ? "CANDIDATE" : null,
-          boundary_source: dataset.metadata.provider,
+          boundary_source: "William & Mary geoLab",
           boundary_source_id: `${primary.seg.featureId},${match.foreign.seg.featureId}`,
-          boundary_dataset_version: dataset.metadata.version,
-          boundary_license: dataset.metadata.license,
+          boundary_dataset_version: manifest.snapshotVersion,
+          boundary_license: "Mixed open licenses; see source manifest.",
           coordinate_precision_meters: 30,
-          boundary_precision_meters: dataset.metadata.boundaryPrecisionMeters,
+          boundary_precision_meters: 100,
           distance_to_boundary_meters: Math.round(match.distance),
           supporting_external_reference: null,
           reason: reasonFor(classification, Math.round(match.distance)),
@@ -472,17 +483,17 @@ async function main(): Promise<void> {
     countries_covered: countryCodes,
     per_country_pair: {},
     dataset: {
-      provider: dataset.metadata.provider,
+      provider: "William & Mary geoLab",
       dataset: dataset.metadata.dataset,
-      version: dataset.metadata.version,
+      version: manifest.snapshotVersion,
     },
     generated_at: new Date().toISOString(),
     triple_border_mountains: counters.tripleBorderMountains,
     candidate_radius_meters: args.candidateRadiusMeters,
     search_radius_meters: args.searchRadiusMeters,
     shared_edge_tolerance_meters: args.sharedEdgeToleranceMeters,
-    boundary_segments: segments.length,
-    boundary_coverage_gaps: dataset.metadata.coverageGaps ?? [],
+    boundary_segments: boundarySegmentCount,
+    boundary_coverage_gaps: Object.keys(manifest.coverageGaps),
   };
 
   if (!args.dryRun) {
