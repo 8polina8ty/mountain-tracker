@@ -101,7 +101,7 @@ function parseArgs(): Args {
       get("--boundaries") ??
       "data/border-peaks/global-boundaries/global-adm0.geojson",
     memberships:
-      get("--memberships") ?? "data/border-peaks/existing_memberships.json",
+      get("--memberships") ?? "data/border-peaks/existing-memberships-global.jsonl",
     output: get("--output") ?? "data/border-peaks/global-run",
     limit,
     country: get("--country"),
