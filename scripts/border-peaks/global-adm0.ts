@@ -186,3 +186,128 @@ export function buildAdm0Segments(dataset: GlobalAdm0Dataset): Adm0Segment[] {
 
   return segments;
 }
+
+export type GlobalAdm0SourceManifestEntry = {
+  countryCode: string;
+  iso3: string;
+  localGeojsonPath: string;
+  boundaryId: string;
+  boundaryYearRepresented: string | null;
+  source: string;
+  sourceUrl: string;
+  license: string;
+  licenseUrl: string | null;
+};
+
+export type GlobalAdm0SourceManifest = {
+  schemaVersion: 2;
+  snapshotRef: string;
+  snapshotVersion: string;
+  generatedAt: string;
+  countryCount: number;
+  requestedCountryCount: number;
+  coverageGaps: Record<string, string>;
+  features: number;
+  sources: GlobalAdm0SourceManifestEntry[];
+};
+
+export function loadGlobalAdm0SourceManifest(path: string): GlobalAdm0SourceManifest {
+  const value = JSON.parse(readFileSync(path, "utf8")) as Partial<GlobalAdm0SourceManifest>;
+  if (
+    value.schemaVersion !== 2 ||
+    !value.snapshotRef ||
+    !value.snapshotVersion ||
+    !Array.isArray(value.sources) ||
+    !value.coverageGaps
+  ) {
+    throw new Error("global ADM0 source manifest is invalid");
+  }
+  for (const source of value.sources) {
+    if (
+      !validIso2(source.countryCode) ||
+      !source.iso3 ||
+      !source.localGeojsonPath ||
+      !source.boundaryId ||
+      !source.source ||
+      !source.sourceUrl ||
+      !source.license
+    ) {
+      throw new Error("global ADM0 source manifest entry is invalid");
+    }
+  }
+  return value as GlobalAdm0SourceManifest;
+}
+
+type RawAdm0Collection = {
+  type?: unknown;
+  features?: Array<{
+    type?: unknown;
+    properties?: { shapeID?: unknown; shapeGroup?: unknown; shapeType?: unknown };
+    geometry?: GlobalAdm0Feature["geometry"];
+  }>;
+};
+
+export function buildAdm0SegmentsFromSource(
+  content: string,
+  source: GlobalAdm0SourceManifestEntry,
+): Adm0Segment[] {
+  const raw = JSON.parse(content) as RawAdm0Collection;
+  if (raw.type !== "FeatureCollection" || !Array.isArray(raw.features) || raw.features.length === 0) {
+    throw new Error(`${source.iso3} ADM0 source is not a non-empty FeatureCollection`);
+  }
+
+  const segments: Adm0Segment[] = [];
+  raw.features.forEach((feature, featureIndex) => {
+    if (
+      feature.type !== "Feature" ||
+      !feature.properties ||
+      feature.properties.shapeGroup !== source.iso3 ||
+      feature.properties.shapeType !== "ADM0" ||
+      !feature.geometry ||
+      !["Polygon", "MultiPolygon"].includes(feature.geometry.type)
+    ) {
+      throw new Error(`${source.iso3} contains an invalid ADM0 feature`);
+    }
+    const shapeId =
+      typeof feature.properties.shapeID === "string" && feature.properties.shapeID.trim()
+        ? feature.properties.shapeID.trim()
+        : String(featureIndex);
+    const featureId = `${source.countryCode}:${shapeId}:${featureIndex}`;
+    const polygons =
+      feature.geometry.type === "Polygon"
+        ? [feature.geometry.coordinates]
+        : feature.geometry.coordinates;
+
+    for (const polygon of polygons) {
+      for (const ring of polygon) {
+        for (let index = 0; index < ring.length - 1; index += 1) {
+          const a = ring[index];
+          const b = ring[index + 1];
+          if (!validCoordinate(a) || !validCoordinate(b)) continue;
+          const minLat = Math.min(a[1], b[1]);
+          const maxLat = Math.max(a[1], b[1]);
+          const base = { countryCode: source.countryCode, featureId, a, b };
+          if (Math.abs(a[0] - b[0]) > 180) {
+            const east = Math.max(a[0], b[0]);
+            const west = Math.min(a[0], b[0]);
+            segments.push(
+              { ...base, bbox: [east, minLat, 180, maxLat] },
+              { ...base, bbox: [-180, minLat, west, maxLat] },
+            );
+          } else {
+            segments.push({
+              ...base,
+              bbox: [
+                Math.min(a[0], b[0]),
+                minLat,
+                Math.max(a[0], b[0]),
+                maxLat,
+              ],
+            });
+          }
+        }
+      }
+    }
+  });
+  return segments;
+}
