@@ -15,9 +15,11 @@ import {
   buildAdm0SegmentsFromSource,
   loadGlobalAdm0SourceManifest,
   type Adm0Segment,
+  type GlobalAdm0SourceManifestEntry,
 } from "./global-adm0.ts";
 import {
   bboxForPoint,
+  bboxIntersects,
   GridIndex,
   pointToSegmentMeters,
   segmentToSegmentMeters,
@@ -28,6 +30,8 @@ import type {
   ExistingMembership,
   MountainRef,
 } from "./types.ts";
+
+type Bbox = [number, number, number, number];
 
 type Args = {
   input: string;
@@ -56,8 +60,8 @@ type Counters = {
 };
 
 type Checkpoint = {
-  schemaVersion: 1;
-  lastMountainId: number;
+  schemaVersion: 2;
+  completedCountries: string[];
   counters: Counters;
   generatedAt: string;
 };
@@ -65,6 +69,13 @@ type Checkpoint = {
 type NearestBoundary = {
   dist: number;
   seg: Adm0Segment;
+};
+
+type BorderMatch = {
+  code: string;
+  distance: number;
+  foreign: NearestBoundary;
+  sharedEdgeDistance: number;
 };
 
 function parseArgs(): Args {
@@ -101,7 +112,8 @@ function parseArgs(): Args {
       get("--boundaries") ??
       "data/border-peaks/global-boundaries/source-manifest.json",
     memberships:
-      get("--memberships") ?? "data/border-peaks/existing-memberships-global.jsonl",
+      get("--memberships") ??
+      "data/border-peaks/existing-memberships-global.jsonl",
     output: get("--output") ?? "data/border-peaks/global-run",
     limit,
     country: get("--country"),
@@ -109,23 +121,101 @@ function parseArgs(): Args {
     resume: values.includes("--resume"),
     candidateRadiusMeters: numberArg("--candidate-radius-m", 200, 1),
     searchRadiusMeters: numberArg("--search-radius-m", 5000, 1),
-    sharedEdgeToleranceMeters: numberArg("--shared-edge-tolerance-m", 100, 0),
+    sharedEdgeToleranceMeters: numberArg(
+      "--shared-edge-tolerance-m",
+      100,
+      0,
+    ),
     checkpointEvery: numberArg("--checkpoint-every", 5000, 1),
   };
 }
 
-async function* mountainsFromJsonl(path: string): AsyncGenerator<MountainRef> {
+function splitWrappedBbox(bbox: Bbox): Bbox[] {
+  if (bbox[0] <= bbox[2]) return [bbox];
+  return [
+    [bbox[0], bbox[1], 180, bbox[3]],
+    [-180, bbox[1], bbox[2], bbox[3]],
+  ];
+}
+
+function expandBbox(bbox: Bbox, meters: number): Bbox[] {
+  const pieces = splitWrappedBbox(bbox);
+  return pieces.map((piece) => {
+    const midLat = (piece[1] + piece[3]) / 2;
+    const latDelta = meters / 111000;
+    const lonDelta =
+      meters /
+      (111000 *
+        Math.max(0.1, Math.cos((midLat * Math.PI) / 180)));
+    return [
+      Math.max(-180, piece[0] - lonDelta),
+      Math.max(-90, piece[1] - latDelta),
+      Math.min(180, piece[2] + lonDelta),
+      Math.min(90, piece[3] + latDelta),
+    ];
+  });
+}
+
+function sourceBboxesOverlap(
+  left: Bbox,
+  right: Bbox,
+  marginMeters: number,
+): boolean {
+  return expandBbox(left, marginMeters).some((a) =>
+    expandBbox(right, marginMeters).some((b) => bboxIntersects(a, b)),
+  );
+}
+
+function overlapFilters(
+  left: Bbox,
+  right: Bbox,
+  marginMeters: number,
+): Bbox[] {
+  const result: Bbox[] = [];
+  for (const a of expandBbox(left, marginMeters)) {
+    for (const b of expandBbox(right, marginMeters)) {
+      if (!bboxIntersects(a, b)) continue;
+      result.push([
+        Math.max(a[0], b[0]),
+        Math.max(a[1], b[1]),
+        Math.min(a[2], b[2]),
+        Math.min(a[3], b[3]),
+      ]);
+    }
+  }
+  return result;
+}
+
+async function readMountainsGrouped(
+  path: string,
+  args: Args,
+): Promise<Map<string, MountainRef[]>> {
   if (!existsSync(path)) {
     throw new Error(`Mountain input does not exist: ${path}`);
   }
+
+  const grouped = new Map<string, MountainRef[]>();
   const lines = createInterface({
     input: createReadStream(path),
     crlfDelay: Infinity,
   });
+  let selected = 0;
+
   for await (const line of lines) {
     if (!line.trim()) continue;
+    if (selected >= args.limit) break;
+
     const row = JSON.parse(line) as Record<string, unknown>;
-    yield {
+    const primaryCountryCode =
+      typeof row.primaryCountryCode === "string"
+        ? row.primaryCountryCode
+        : typeof row.country_code === "string"
+          ? row.country_code
+          : null;
+    if (!primaryCountryCode) continue;
+    if (args.country && primaryCountryCode !== args.country) continue;
+
+    const mountain: MountainRef = {
       id: Number(row.id),
       name: typeof row.name === "string" ? row.name : null,
       name_de: typeof row.name_de === "string" ? row.name_de : null,
@@ -135,17 +225,21 @@ async function* mountainsFromJsonl(path: string): AsyncGenerator<MountainRef> {
         row.height == null || !Number.isFinite(Number(row.height))
           ? null
           : Number(row.height),
-      primaryCountryCode:
-        typeof row.primaryCountryCode === "string"
-          ? row.primaryCountryCode
-          : typeof row.country_code === "string"
-            ? row.country_code
-            : null,
+      primaryCountryCode,
     };
+
+    const list = grouped.get(primaryCountryCode) ?? [];
+    list.push(mountain);
+    grouped.set(primaryCountryCode, list);
+    selected += 1;
   }
+
+  return grouped;
 }
 
-function readExistingMemberships(path: string): Map<number, Set<string>> {
+function readExistingMemberships(
+  path: string,
+): Map<number, Set<string>> {
   const result = new Map<number, Set<string>>();
   if (!existsSync(path)) {
     throw new Error(
@@ -163,7 +257,8 @@ function readExistingMemberships(path: string): Map<number, Set<string>> {
         .map((line) => JSON.parse(line) as ExistingMembership);
 
   for (const row of rows) {
-    const countries = result.get(Number(row.mountain_id)) ?? new Set<string>();
+    const countries =
+      result.get(Number(row.mountain_id)) ?? new Set<string>();
     countries.add(row.country_code);
     result.set(Number(row.mountain_id), countries);
   }
@@ -175,8 +270,12 @@ function querySegmentsNearPoint(
   point: [number, number],
   radiusMeters: number,
 ): Adm0Segment[] {
-  const [minLon, minLat, maxLon, maxLat] = bboxForPoint(point, radiusMeters);
-  const boxes: Array<[number, number, number, number]> = [];
+  const [minLon, minLat, maxLon, maxLat] = bboxForPoint(
+    point,
+    radiusMeters,
+  );
+  const boxes: Bbox[] = [];
+
   if (minLon < -180) {
     boxes.push([minLon + 360, minLat, 180, maxLat]);
     boxes.push([-180, minLat, maxLon, maxLat]);
@@ -199,19 +298,31 @@ function querySegmentsNearPoint(
   return result;
 }
 
-function closestByCountry(
-  segments: Adm0Segment[],
+function nearestBoundary(
+  index: GridIndex<Adm0Segment>,
   point: [number, number],
-): Map<string, NearestBoundary> {
-  const result = new Map<string, NearestBoundary>();
-  for (const seg of segments) {
-    const dist = pointToSegmentMeters(point, seg.a, seg.b);
-    const current = result.get(seg.countryCode);
-    if (current == null || dist < current.dist) {
-      result.set(seg.countryCode, { dist, seg });
+  radiusMeters: number,
+): NearestBoundary | null {
+  let best: NearestBoundary | null = null;
+  for (const segment of querySegmentsNearPoint(
+    index,
+    point,
+    radiusMeters,
+  )) {
+    const dist = pointToSegmentMeters(point, segment.a, segment.b);
+    if (!best || dist < best.dist) {
+      best = { dist, seg: segment };
     }
   }
-  return result;
+  return best;
+}
+
+function buildIndex(segments: Adm0Segment[]): GridIndex<Adm0Segment> {
+  const index = new GridIndex<Adm0Segment>(0.5);
+  for (const segment of segments) {
+    index.insert(segment.bbox, segment);
+  }
+  return index;
 }
 
 function defaultCounters(): Counters {
@@ -229,28 +340,30 @@ function defaultCounters(): Counters {
 
 function loadCheckpoint(path: string): Checkpoint | null {
   if (!existsSync(path)) return null;
-  const value = JSON.parse(readFileSync(path, "utf8")) as Checkpoint;
+  const value = JSON.parse(
+    readFileSync(path, "utf8"),
+  ) as Partial<Checkpoint>;
   if (
-    value.schemaVersion !== 1 ||
-    !Number.isInteger(value.lastMountainId) ||
+    value.schemaVersion !== 2 ||
+    !Array.isArray(value.completedCountries) ||
     !value.counters
   ) {
     throw new Error(`Invalid global border checkpoint: ${path}`);
   }
-  return value;
+  return value as Checkpoint;
 }
 
 function writeCheckpoint(
   path: string,
-  lastMountainId: number,
+  completedCountries: Set<string>,
   counters: Counters,
 ): void {
   writeFileSync(
     path,
     JSON.stringify(
       {
-        schemaVersion: 1,
-        lastMountainId,
+        schemaVersion: 2,
+        completedCountries: [...completedCountries].sort(),
         counters,
         generatedAt: new Date().toISOString(),
       } satisfies Checkpoint,
@@ -260,32 +373,23 @@ function writeCheckpoint(
   );
 }
 
+function sourceByCountry(
+  sources: GlobalAdm0SourceManifestEntry[],
+): Map<string, GlobalAdm0SourceManifestEntry> {
+  return new Map(sources.map((source) => [source.countryCode, source]));
+}
+
 async function main(): Promise<void> {
   const args = parseArgs();
   if (args.candidateRadiusMeters > args.searchRadiusMeters) {
-    throw new Error("--candidate-radius-m cannot exceed --search-radius-m");
+    throw new Error(
+      "--candidate-radius-m cannot exceed --search-radius-m",
+    );
   }
 
   const manifest = loadGlobalAdm0SourceManifest(args.boundaries);
-  const index = new GridIndex<Adm0Segment>(0.5);
-  let boundarySegmentCount = 0;
-  for (const source of manifest.sources) {
-    if (!existsSync(source.localGeojsonPath)) {
-      throw new Error(`Missing ADM0 source file: ${source.localGeojsonPath}`);
-    }
-    const sourceSegments = buildAdm0SegmentsFromSource(
-      readFileSync(source.localGeojsonPath, "utf8"),
-      source,
-    );
-    for (const segment of sourceSegments) {
-      index.insert(segment.bbox, segment);
-    }
-    boundarySegmentCount += sourceSegments.length;
-  }
-  if (boundarySegmentCount === 0) {
-    throw new Error("Global ADM0 sources produced no boundary segments");
-  }
-
+  const sourcesByCountry = sourceByCountry(manifest.sources);
+  const mountainsByCountry = await readMountainsGrouped(args.input, args);
   const existing = readExistingMemberships(args.memberships);
 
   mkdirSync(args.output, { recursive: true });
@@ -295,102 +399,212 @@ async function main(): Promise<void> {
   const checkpointPath = `${args.output}/checkpoint.json`;
 
   let counters = defaultCounters();
-  let resumeAfterMountainId = -1;
+  const completedCountries = new Set<string>();
+
   if (args.resume) {
     const checkpoint = loadCheckpoint(checkpointPath);
     if (!checkpoint) {
-      throw new Error("--resume requested but checkpoint.json is missing");
+      throw new Error(
+        "--resume requested but checkpoint.json is missing",
+      );
     }
     counters = { ...checkpoint.counters };
-    resumeAfterMountainId = checkpoint.lastMountainId;
+    checkpoint.completedCountries.forEach((country) =>
+      completedCountries.add(country),
+    );
   } else if (!args.dryRun) {
-    for (const path of [candidatePath, reviewPath, summaryPath, checkpointPath]) {
+    for (const path of [
+      candidatePath,
+      reviewPath,
+      summaryPath,
+      checkpointPath,
+    ]) {
       if (existsSync(path)) rmSync(path);
     }
   }
 
-  const countryCodes = [
-    ...new Set(manifest.sources.map((source) => source.countryCode)),
-  ].sort();
-  let lastMountainId = resumeAfterMountainId;
-  let processedThisRun = 0;
+  const pairCounts: Record<string, number> = {};
+  let boundarySegmentCount = 0;
+  const countryCodes = [...mountainsByCountry.keys()].sort();
 
-  for await (const mountain of mountainsFromJsonl(args.input)) {
-    if (mountain.id <= resumeAfterMountainId) continue;
-    if (args.country && mountain.primaryCountryCode !== args.country) continue;
-    if (processedThisRun >= args.limit) break;
+  for (const primaryCode of countryCodes) {
+    if (completedCountries.has(primaryCode)) continue;
 
-    processedThisRun += 1;
-    counters.examined += 1;
-    lastMountainId = mountain.id;
+    const mountains = mountainsByCountry.get(primaryCode) ?? [];
+    const primarySource = sourcesByCountry.get(primaryCode);
 
-    if (
-      !Number.isFinite(mountain.latitude) ||
-      !Number.isFinite(mountain.longitude) ||
-      !mountain.primaryCountryCode
-    ) {
-      counters.rejected += 1;
+    if (!primarySource) {
+      counters.examined += mountains.length;
+      counters.sourceConflicts += mountains.length;
+      completedCountries.add(primaryCode);
+      if (!args.dryRun) {
+        writeCheckpoint(
+          checkpointPath,
+          completedCountries,
+          counters,
+        );
+      }
       continue;
     }
 
-    const point: [number, number] = [
-      mountain.longitude,
-      mountain.latitude,
-    ];
-    const nearbySegments = querySegmentsNearPoint(
-      index,
-      point,
-      args.searchRadiusMeters,
-    );
-    const nearest = closestByCountry(nearbySegments, point);
-    const primary = nearest.get(mountain.primaryCountryCode);
-
-    if (!primary || primary.dist > args.searchRadiusMeters) {
-      counters.rejected += 1;
-      continue;
-    }
-
-    const possible: Array<{
-      code: string;
-      distance: number;
-      foreign: NearestBoundary;
-      sharedEdgeDistance: number;
-    }> = [];
-
-    for (const [code, foreign] of nearest) {
-      if (code === mountain.primaryCountryCode) continue;
-      if (foreign.dist > args.searchRadiusMeters) continue;
-
-      const sharedEdgeDistance = segmentToSegmentMeters(
-        primary.seg.a,
-        primary.seg.b,
-        foreign.seg.a,
-        foreign.seg.b,
+    const neighborMargin =
+      args.searchRadiusMeters + args.sharedEdgeToleranceMeters;
+    const neighbors = manifest.sources
+      .filter(
+        (source) =>
+          source.countryCode !== primaryCode &&
+          sourceBboxesOverlap(
+            primarySource.bbox,
+            source.bbox,
+            neighborMargin,
+          ),
+      )
+      .sort((a, b) =>
+        a.countryCode.localeCompare(b.countryCode),
       );
-      if (sharedEdgeDistance > args.sharedEdgeToleranceMeters) continue;
 
-      const conservativeDistance = Math.max(primary.dist, foreign.dist);
-      if (conservativeDistance > args.candidateRadiusMeters) continue;
+    counters.examined += mountains.length;
 
-      possible.push({
-        code,
-        distance: conservativeDistance,
-        foreign,
-        sharedEdgeDistance,
-      });
+    if (neighbors.length === 0) {
+      counters.rejected += mountains.length;
+      completedCountries.add(primaryCode);
+      if (!args.dryRun) {
+        writeCheckpoint(
+          checkpointPath,
+          completedCountries,
+          counters,
+        );
+      }
+      continue;
     }
 
-    possible.sort(
-      (left, right) =>
-        left.distance - right.distance || left.code.localeCompare(right.code),
+    const primaryFilters = neighbors.flatMap((neighbor) =>
+      overlapFilters(
+        primarySource.bbox,
+        neighbor.bbox,
+        neighborMargin,
+      ),
     );
 
-    if (possible.length === 0) {
-      counters.rejected += 1;
-    } else {
-      if (possible.length >= 2) counters.tripleBorderMountains += 1;
+    const primarySegments = buildAdm0SegmentsFromSource(
+      readFileSync(primarySource.localGeojsonPath, "utf8"),
+      primarySource,
+      primaryFilters,
+    );
+    boundarySegmentCount += primarySegments.length;
+    const primaryIndex = buildIndex(primarySegments);
 
-      for (const match of possible) {
+    const primaryNearest = new Map<number, NearestBoundary>();
+    for (const mountain of mountains) {
+      if (
+        !Number.isFinite(mountain.latitude) ||
+        !Number.isFinite(mountain.longitude)
+      ) {
+        continue;
+      }
+      const nearest = nearestBoundary(
+        primaryIndex,
+        [mountain.longitude, mountain.latitude],
+        args.searchRadiusMeters,
+      );
+      if (nearest && nearest.dist <= args.searchRadiusMeters) {
+        primaryNearest.set(mountain.id, nearest);
+      }
+    }
+
+    const matchesByMountain = new Map<number, BorderMatch[]>();
+
+    for (const neighbor of neighbors) {
+      const filters = overlapFilters(
+        primarySource.bbox,
+        neighbor.bbox,
+        neighborMargin,
+      );
+      if (filters.length === 0) continue;
+
+      const foreignSegments = buildAdm0SegmentsFromSource(
+        readFileSync(neighbor.localGeojsonPath, "utf8"),
+        neighbor,
+        filters,
+      );
+      boundarySegmentCount += foreignSegments.length;
+      if (foreignSegments.length === 0) continue;
+
+      const foreignIndex = buildIndex(foreignSegments);
+
+      for (const mountain of mountains) {
+        const primary = primaryNearest.get(mountain.id);
+        if (!primary) continue;
+
+        const point: [number, number] = [
+          mountain.longitude,
+          mountain.latitude,
+        ];
+        const foreign = nearestBoundary(
+          foreignIndex,
+          point,
+          args.searchRadiusMeters,
+        );
+        if (!foreign || foreign.dist > args.searchRadiusMeters) {
+          continue;
+        }
+
+        const sharedEdgeDistance = segmentToSegmentMeters(
+          primary.seg.a,
+          primary.seg.b,
+          foreign.seg.a,
+          foreign.seg.b,
+        );
+        if (
+          sharedEdgeDistance > args.sharedEdgeToleranceMeters
+        ) {
+          continue;
+        }
+
+        const conservativeDistance = Math.max(
+          primary.dist,
+          foreign.dist,
+        );
+        if (
+          conservativeDistance > args.candidateRadiusMeters
+        ) {
+          continue;
+        }
+
+        const list = matchesByMountain.get(mountain.id) ?? [];
+        list.push({
+          code: neighbor.countryCode,
+          distance: conservativeDistance,
+          foreign,
+          sharedEdgeDistance,
+        });
+        matchesByMountain.set(mountain.id, list);
+      }
+    }
+
+    for (const mountain of mountains) {
+      const matches = (matchesByMountain.get(mountain.id) ?? [])
+        .sort(
+          (left, right) =>
+            left.distance - right.distance ||
+            left.code.localeCompare(right.code),
+        );
+
+      if (matches.length === 0) {
+        counters.rejected += 1;
+        continue;
+      }
+      if (matches.length >= 2) {
+        counters.tripleBorderMountains += 1;
+      }
+
+      const primary = primaryNearest.get(mountain.id);
+      if (!primary) {
+        counters.sourceConflicts += 1;
+        continue;
+      }
+
+      for (const match of matches) {
         if (existing.get(mountain.id)?.has(match.code)) {
           counters.skippedExisting += 1;
           continue;
@@ -408,60 +622,83 @@ async function main(): Promise<void> {
           hasInternationalGeometry: true,
         });
 
-        if (classification === "CONFIRMED") counters.confirmed += 1;
-        else if (classification === "REVIEW") counters.review += 1;
-        else counters.rejected += 1;
+        if (classification === "CONFIRMED") {
+          counters.confirmed += 1;
+        } else if (classification === "REVIEW") {
+          counters.review += 1;
+        } else {
+          counters.rejected += 1;
+        }
 
-        const pair = [mountain.primaryCountryCode, match.code]
-          .sort()
-          .join("-");
+        const pair = [primaryCode, match.code].sort().join("-");
+        if (classification === "CONFIRMED") {
+          pairCounts[pair] = (pairCounts[pair] ?? 0) + 1;
+        }
+
         const candidate: BorderCandidate = {
           mountain_id: mountain.id,
           mountain_name: mountain.name_de ?? mountain.name,
           latitude: mountain.latitude,
           longitude: mountain.longitude,
           height: mountain.height,
-          primary_country_code: mountain.primaryCountryCode,
+          primary_country_code: primaryCode,
           candidate_country_code: match.code,
           classification,
           evidence_type:
             classification === "REVIEW" ? "CANDIDATE" : null,
           boundary_source: "William & Mary geoLab",
-          boundary_source_id: `${primary.seg.featureId},${match.foreign.seg.featureId}`,
+          boundary_source_id:
+            `${primary.seg.featureId},${match.foreign.seg.featureId}`,
           boundary_dataset_version: manifest.snapshotVersion,
-          boundary_license: "Mixed open licenses; see source manifest.",
+          boundary_license:
+            "Mixed open licenses; see source manifest.",
           coordinate_precision_meters: 30,
           boundary_precision_meters: 100,
-          distance_to_boundary_meters: Math.round(match.distance),
+          distance_to_boundary_meters: Math.round(
+            match.distance,
+          ),
           supporting_external_reference: null,
-          reason: reasonFor(classification, Math.round(match.distance)),
+          reason: reasonFor(
+            classification,
+            Math.round(match.distance),
+          ),
           review_notes:
-            possible.length >= 2
-              ? `ADM0 geometric candidate for ${pair}; possible triple/multi-country summit (${possible.map((entry) => entry.code).join(",")}); shared-edge separation ${Math.round(match.sharedEdgeDistance)}m. External evidence required.`
+            matches.length >= 2
+              ? `ADM0 geometric candidate for ${pair}; possible triple/multi-country summit (${matches.map((entry) => entry.code).join(",")}); shared-edge separation ${Math.round(match.sharedEdgeDistance)}m. External evidence required.`
               : `ADM0 geometric candidate for ${pair}; shared-edge separation ${Math.round(match.sharedEdgeDistance)}m. External evidence required.`,
-          existing_memberships: [...(existing.get(mountain.id) ?? [])]
+          existing_memberships: [
+            ...(existing.get(mountain.id) ?? []),
+          ]
             .sort()
             .map((countryCode) => ({
               mountain_id: mountain.id,
               country_code: countryCode,
-              is_primary: countryCode === mountain.primaryCountryCode,
+              is_primary: countryCode === primaryCode,
             })),
         };
 
         if (!args.dryRun) {
-          appendFileSync(candidatePath, `${JSON.stringify(candidate)}\n`);
+          appendFileSync(
+            candidatePath,
+            `${JSON.stringify(candidate)}\n`,
+          );
           if (classification === "REVIEW") {
-            appendFileSync(reviewPath, `${JSON.stringify(candidate)}\n`);
+            appendFileSync(
+              reviewPath,
+              `${JSON.stringify(candidate)}\n`,
+            );
           }
         }
       }
     }
 
-    if (
-      !args.dryRun &&
-      counters.examined % args.checkpointEvery === 0
-    ) {
-      writeCheckpoint(checkpointPath, lastMountainId, counters);
+    completedCountries.add(primaryCode);
+    if (!args.dryRun) {
+      writeCheckpoint(
+        checkpointPath,
+        completedCountries,
+        counters,
+      );
     }
   }
 
@@ -470,7 +707,7 @@ async function main(): Promise<void> {
     candidate_radius_meters: number;
     search_radius_meters: number;
     shared_edge_tolerance_meters: number;
-    boundary_segments: number;
+    boundary_segments_loaded: number;
     boundary_coverage_gaps: string[];
   } = {
     total_mountains_examined: counters.examined,
@@ -481,30 +718,45 @@ async function main(): Promise<void> {
     existing_memberships_skipped: counters.skippedExisting,
     source_conflicts: counters.sourceConflicts,
     countries_covered: countryCodes,
-    per_country_pair: {},
+    per_country_pair: pairCounts,
     dataset: {
       provider: "William & Mary geoLab",
-      dataset: "geoBoundaries gbOpen ADM0 full-resolution single-country files",
+      dataset:
+        "geoBoundaries gbOpen ADM0 full-resolution single-country files",
       version: manifest.snapshotVersion,
     },
     generated_at: new Date().toISOString(),
     triple_border_mountains: counters.tripleBorderMountains,
     candidate_radius_meters: args.candidateRadiusMeters,
     search_radius_meters: args.searchRadiusMeters,
-    shared_edge_tolerance_meters: args.sharedEdgeToleranceMeters,
-    boundary_segments: boundarySegmentCount,
-    boundary_coverage_gaps: Object.keys(manifest.coverageGaps),
+    shared_edge_tolerance_meters:
+      args.sharedEdgeToleranceMeters,
+    boundary_segments_loaded: boundarySegmentCount,
+    boundary_coverage_gaps: Object.keys(
+      manifest.coverageGaps,
+    ),
   };
 
   if (!args.dryRun) {
-    writeFileSync(summaryPath, JSON.stringify(summary, null, 2));
-    writeCheckpoint(checkpointPath, lastMountainId, counters);
+    writeFileSync(
+      summaryPath,
+      JSON.stringify(summary, null, 2),
+    );
+    writeCheckpoint(
+      checkpointPath,
+      completedCountries,
+      counters,
+    );
   }
 
-  process.stdout.write(`${JSON.stringify(summary, null, 2)}\n`);
+  process.stdout.write(
+    `${JSON.stringify(summary, null, 2)}\n`,
+  );
 }
 
 main().catch((error: unknown) => {
-  process.stderr.write(`${error instanceof Error ? error.stack : String(error)}\n`);
+  process.stderr.write(
+    `${error instanceof Error ? error.stack : String(error)}\n`,
+  );
   process.exitCode = 1;
 });
