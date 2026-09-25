@@ -35,6 +35,7 @@ export type GlobalAdm0Dataset = {
     sourceUrl: string;
     attribution: string;
     boundaryPrecisionMeters: number;
+    coverageGaps?: string[];
   };
   features: GlobalAdm0Feature[];
 };
