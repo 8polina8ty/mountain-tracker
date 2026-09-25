@@ -39,7 +39,9 @@
     "test:routes": "node --experimental-strip-types --test scripts/routes/route-factory.test.ts",
     "routes": "node --experimental-strip-types scripts/routes/cli.ts",
     "routes:smoke": "node --experimental-strip-types scripts/routes/route-factory-smoke.ts",
-    "test:border-peaks-global": "node --experimental-strip-types --test scripts/border-peaks/global-adm0.test.ts"
+    "test:border-peaks-global": "node --experimental-strip-types --test scripts/border-peaks/global-adm0.test.ts",
+    "border-peaks:verify-osm": "node --experimental-strip-types scripts/border-peaks/verify-global-osm.ts",
+    "border-peaks:analyze-verification": "node --experimental-strip-types scripts/border-peaks/analyze-global-verification.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
