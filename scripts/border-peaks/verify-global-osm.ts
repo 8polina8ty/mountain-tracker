@@ -76,6 +76,7 @@ type Args = {
   delayMs: number;
   timeoutMs: number;
   resume: boolean;
+  probe: boolean;
 };
 
 function parseArgs(): Args {
@@ -119,6 +120,7 @@ function parseArgs(): Args {
     delayMs: integer("--delay-ms", 1500, 250),
     timeoutMs: integer("--timeout-ms", 45000, 5000),
     resume: values.includes("--resume"),
+    probe: values.includes("--probe"),
   };
 }
 
@@ -364,10 +366,12 @@ async function evidenceForCandidate(
     );
 
     const probeAreas: CountryArea[] = [];
-    for (const [lat, lon] of probes(candidate.latitude, candidate.longitude)) {
-      await sleep(args.delayMs);
-      const response = await fetchOverpass(args, lat, lon);
-      probeAreas.push(...areaRows(response.elements ?? []));
+    if (args.probe) {
+      for (const [lat, lon] of probes(candidate.latitude, candidate.longitude)) {
+        await sleep(args.delayMs);
+        const response = await fetchOverpass(args, lat, lon);
+        probeAreas.push(...areaRows(response.elements ?? []));
+      }
     }
     const dedupedProbeAreas = areaRows(
       probeAreas.map((area) => ({
@@ -512,6 +516,7 @@ async function main(): Promise<void> {
         output: args.output,
         cache_dir: args.cacheDir,
         endpoint: args.endpoint,
+        probe_mode: args.probe,
       },
       null,
       2,
