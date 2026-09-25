@@ -28,6 +28,7 @@ const UNAVAILABLE_IN_PINNED_SNAPSHOT = Object.freeze({
   MO: "MAC",
   NF: "NFK",
   PM: "SPM",
+  PR: "PRI",
   SJ: "SJM",
   SX: "SXM",
   TF: "ATF",
@@ -109,20 +110,35 @@ async function downloadText(url: string, destination: string): Promise<string> {
   if (!url.includes(`/${SNAPSHOT_REF}/`)) {
     throw new Error(`Refusing unpinned boundary URL: ${url}`);
   }
-  const response = await fetch(url, { signal: AbortSignal.timeout(180_000) });
-  if (!response.ok) {
-    throw new Error(`Boundary download failed (${response.status}): ${url}`);
+
+  let lastError: unknown = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(url, { signal: AbortSignal.timeout(180_000) });
+      if (!response.ok) {
+        throw new Error(`Boundary download failed (${response.status}): ${url}`);
+      }
+      const content = await response.text();
+      if (content.startsWith("version https://git-lfs.github.com/spec/v1")) {
+        throw new Error(
+          `Git LFS pointer returned instead of boundary content for ${url}; use the GitHub /raw/ URL that follows LFS media redirects.`,
+        );
+      }
+      const temporary = `${destination}.tmp`;
+      await writeFile(temporary, content, "utf8");
+      await rename(temporary, destination);
+      return content;
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) {
+        await new Promise((resolvePromise) => setTimeout(resolvePromise, attempt * 1000));
+      }
+    }
   }
-  const content = await response.text();
-  if (content.startsWith("version https://git-lfs.github.com/spec/v1")) {
-    throw new Error(
-      `Git LFS pointer returned instead of boundary content for ${url}; use the GitHub /raw/ URL that follows LFS media redirects.`,
-    );
-  }
-  const temporary = `${destination}.tmp`;
-  await writeFile(temporary, content, "utf8");
-  await rename(temporary, destination);
-  return content;
+
+  throw lastError instanceof Error
+    ? lastError
+    : new Error(`Boundary download failed after retries: ${url}`);
 }
 
 function normalizeCountry(
