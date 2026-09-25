@@ -84,6 +84,75 @@ async function downloadText(url: string, destination: string): Promise<string> {
     : new Error(`Boundary download failed after retries: ${url}`);
 }
 
+function coordinateBboxFromGeojsonText(
+  content: string,
+): [number, number, number, number] {
+  const marker = '"coordinates"';
+  const start = content.indexOf(marker);
+  if (start < 0) throw new Error("GeoJSON coordinates are missing");
+
+  let index = content.indexOf("[", start + marker.length);
+  if (index < 0) throw new Error("GeoJSON coordinate array is missing");
+
+  let minLon = Number.POSITIVE_INFINITY;
+  let minLat = Number.POSITIVE_INFINITY;
+  let maxLon = Number.NEGATIVE_INFINITY;
+  let maxLat = Number.NEGATIVE_INFINITY;
+  let coordinateDepth = 0;
+  let pairDepth = -1;
+  let first: number | null = null;
+
+  const readNumber = (): number | null => {
+    while (index < content.length && /[\s,\[\]]/.test(content[index])) index += 1;
+    if (index >= content.length || !/[+\-0-9.]/.test(content[index])) return null;
+    const numberStart = index;
+    index += 1;
+    while (index < content.length && /[0-9eE+\-.]/.test(content[index])) index += 1;
+    const value = Number(content.slice(numberStart, index));
+    return Number.isFinite(value) ? value : null;
+  };
+
+  for (; index < content.length; index += 1) {
+    const char = content[index];
+    if (char === "[") {
+      coordinateDepth += 1;
+      if (coordinateDepth >= 2) {
+        let lookahead = index + 1;
+        while (lookahead < content.length && /\s/.test(content[lookahead])) lookahead += 1;
+        if (/[+\-0-9.]/.test(content[lookahead] ?? "")) {
+          pairDepth = coordinateDepth;
+          index = lookahead;
+          first = readNumber();
+          const second = readNumber();
+          if (
+            first != null &&
+            second != null &&
+            first >= -180 &&
+            first <= 180 &&
+            second >= -90 &&
+            second <= 90
+          ) {
+            minLon = Math.min(minLon, first);
+            minLat = Math.min(minLat, second);
+            maxLon = Math.max(maxLon, first);
+            maxLat = Math.max(maxLat, second);
+          }
+          first = null;
+        }
+      }
+    } else if (char === "]") {
+      if (coordinateDepth === 1) break;
+      if (coordinateDepth === pairDepth) pairDepth = -1;
+      coordinateDepth -= 1;
+    }
+  }
+
+  if (![minLon, minLat, maxLon, maxLat].every(Number.isFinite)) {
+    throw new Error("Could not derive GeoJSON coordinate bbox");
+  }
+  return [minLon, minLat, maxLon, maxLat];
+}
+
 function buildSourceManifest(
   countryCode: string,
   iso3: string,
@@ -125,6 +194,7 @@ function buildSourceManifest(
 
   return {
     countryCode,
+    bbox: coordinateBboxFromGeojsonText(geojsonContent),
     iso3,
     boundaryId,
     boundaryYearRepresented: boundaryYear,
