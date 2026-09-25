@@ -3,8 +3,6 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 import { GLOBAL_ISO2_TO_ISO3 } from "./country-codes.ts";
-import type { GlobalAdm0Feature } from "./global-adm0.ts";
-import type { Coordinate } from "../osm-import/peak-matcher.ts";
 
 const SNAPSHOT_REF = "9469f09";
 const SNAPSHOT_VERSION = "geoBoundaries-gbOpen-9469f09-2023-12-12";
@@ -34,60 +32,6 @@ const UNAVAILABLE_IN_PINNED_SNAPSHOT = Object.freeze({
   UM: "UMI",
 } as const);
 
-
-type RawFeature = {
-  type?: unknown;
-  properties?: {
-    shapeName?: unknown;
-    shapeISO?: unknown;
-    shapeID?: unknown;
-    shapeGroup?: unknown;
-    shapeType?: unknown;
-  };
-  geometry?: GlobalAdm0Feature["geometry"];
-};
-
-type RawCollection = {
-  type?: unknown;
-  features?: RawFeature[];
-};
-
-type RawMetadata = Record<string, unknown>;
-
-function requiredString(value: unknown, field: string): string {
-  if (typeof value !== "string" || !value.trim()) {
-    throw new Error(`geoBoundaries metadata is missing ${field}`);
-  }
-  return value.trim();
-}
-
-function optionalString(value: unknown): string | null {
-  return typeof value === "string" && value.trim() ? value.trim() : null;
-}
-
-function geometryCoordinates(geometry: GlobalAdm0Feature["geometry"]): Coordinate[] {
-  return geometry.type === "Polygon"
-    ? geometry.coordinates.flat()
-    : geometry.coordinates.flat(2);
-}
-
-function featureBbox(
-  geometry: GlobalAdm0Feature["geometry"],
-): [number, number, number, number] {
-  const coordinates = geometryCoordinates(geometry);
-  if (coordinates.length === 0) throw new Error("ADM0 geometry is empty");
-  let minLon = Number.POSITIVE_INFINITY;
-  let minLat = Number.POSITIVE_INFINITY;
-  let maxLon = Number.NEGATIVE_INFINITY;
-  let maxLat = Number.NEGATIVE_INFINITY;
-  for (const [lon, lat] of coordinates) {
-    minLon = Math.min(minLon, lon);
-    minLat = Math.min(minLat, lat);
-    maxLon = Math.max(maxLon, lon);
-    maxLat = Math.max(maxLat, lat);
-  }
-  return [minLon, minLat, maxLon, maxLat];
-}
 
 function geojsonUrl(iso3: string): string {
   return `https://github.com/wmgeolab/geoBoundaries/raw/${SNAPSHOT_REF}/releaseData/gbOpen/${iso3}/ADM0/geoBoundaries-${iso3}-ADM0.geojson`;
@@ -140,17 +84,19 @@ async function downloadText(url: string, destination: string): Promise<string> {
     : new Error(`Boundary download failed after retries: ${url}`);
 }
 
-function normalizeCountry(
+function buildSourceManifest(
   countryCode: string,
   iso3: string,
   geojsonContent: string,
   metadataContent: string,
-): { features: GlobalAdm0Feature[]; manifest: Record<string, unknown> } {
-  const raw = JSON.parse(geojsonContent) as RawCollection;
-  const metadata = JSON.parse(metadataContent) as RawMetadata;
-  if (raw.type !== "FeatureCollection" || !Array.isArray(raw.features) || raw.features.length === 0) {
-    throw new Error(`${iso3} ADM0 source is not a non-empty FeatureCollection`);
+): Record<string, unknown> {
+  if (!geojsonContent.includes('"FeatureCollection"') || !geojsonContent.includes('"ADM0"')) {
+    throw new Error(`${iso3} ADM0 source does not look like the expected GeoJSON`);
   }
+
+  const metadata = JSON.parse(metadataContent) as Record<string, unknown>;
+  const optionalString = (value: unknown): string | null =>
+    typeof value === "string" && value.trim() ? value.trim() : null;
 
   const boundaryId =
     optionalString(metadata.boundaryID) ??
@@ -177,63 +123,21 @@ function normalizeCountry(
     optionalString(metadata.sourceDataURL) ??
     "https://www.geoboundaries.org/";
 
-  const features = raw.features.map((feature, index): GlobalAdm0Feature => {
-    if (
-      feature.type !== "Feature" ||
-      !feature.properties ||
-      !feature.geometry ||
-      !["Polygon", "MultiPolygon"].includes(feature.geometry.type)
-    ) {
-      throw new Error(`${iso3} contains an invalid ADM0 feature`);
-    }
-    if (feature.properties.shapeGroup !== iso3) {
-      throw new Error(`${iso3} feature has unexpected shapeGroup`);
-    }
-    if (feature.properties.shapeType !== "ADM0") {
-      throw new Error(`${iso3} feature is not ADM0`);
-    }
-
-    const shapeId = requiredString(feature.properties.shapeID, "shapeID");
-    const countryName = requiredString(feature.properties.shapeName, "shapeName");
-    return {
-      type: "Feature",
-      id: `${countryCode}:${shapeId}:${index}`,
-      bbox: featureBbox(feature.geometry),
-      properties: {
-        countryCode,
-        countryName,
-        iso3,
-        boundaryId,
-        boundaryYearRepresented: boundaryYear,
-        source: boundarySource,
-        sourceUrl: sourceDataUrl,
-        license: boundaryLicense,
-        licenseUrl,
-        attribution: `${countryName}: ${boundarySource}; ${boundaryLicense}; normalized from geoBoundaries gbOpen.`,
-        version: `${SNAPSHOT_VERSION}:${boundaryId}`,
-      },
-      geometry: feature.geometry,
-    };
-  });
-
   return {
-    features,
-    manifest: {
-      countryCode,
-      iso3,
-      boundaryId,
-      boundaryYearRepresented: boundaryYear,
-      source: boundarySource,
-      sourceUrl: sourceDataUrl,
-      license: boundaryLicense,
-      licenseUrl,
-      geojsonUrl: geojsonUrl(iso3),
-      metadataUrl: metadataUrl(iso3),
-      localGeojsonPath: localGeojsonPath(iso3),
-      localMetadataPath: localMetadataPath(iso3),
-      geojsonBytes: Buffer.byteLength(geojsonContent),
-      metadataBytes: Buffer.byteLength(metadataContent),
-    },
+    countryCode,
+    iso3,
+    boundaryId,
+    boundaryYearRepresented: boundaryYear,
+    source: boundarySource,
+    sourceUrl: sourceDataUrl,
+    license: boundaryLicense,
+    licenseUrl,
+    geojsonUrl: geojsonUrl(iso3),
+    metadataUrl: metadataUrl(iso3),
+    localGeojsonPath: localGeojsonPath(iso3),
+    localMetadataPath: localMetadataPath(iso3),
+    geojsonBytes: Buffer.byteLength(geojsonContent),
+    metadataBytes: Buffer.byteLength(metadataContent),
   };
 }
 
@@ -248,7 +152,6 @@ async function main(): Promise<void> {
 
   const sourceManifest: Record<string, unknown>[] = [];
   const failures: Array<{ countryCode: string; iso3: string; error: string }> = [];
-  let featureCount = 0;
 
   for (const [countryCode, iso3] of Object.entries(GLOBAL_ISO2_TO_ISO3)) {
     if ((UNAVAILABLE_IN_PINNED_SNAPSHOT as Record<string, string>)[countryCode] === iso3) {
@@ -266,15 +169,16 @@ async function main(): Promise<void> {
             readFile(geoPath, "utf8"),
             readFile(metaPath, "utf8"),
           ]);
-      const normalized = normalizeCountry(
+      const manifestEntry = buildSourceManifest(
         countryCode,
         iso3,
         geojsonContent,
         metadataContent,
       );
-      featureCount += normalized.features.length;
-      sourceManifest.push(normalized.manifest);
-      process.stdout.write(`ADM0 ${countryCode}/${iso3}: ${normalized.features.length} feature(s)\n`);
+      sourceManifest.push(manifestEntry);
+      process.stdout.write(
+        `ADM0 ${countryCode}/${iso3}: ${Buffer.byteLength(geojsonContent)} bytes\n`,
+      );
     } catch (error) {
       failures.push({
         countryCode,
@@ -301,7 +205,6 @@ async function main(): Promise<void> {
         countryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length - Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT).length,
         requestedCountryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
         coverageGaps: UNAVAILABLE_IN_PINNED_SNAPSHOT,
-        features: featureCount,
         sources: sourceManifest,
       },
       null,
@@ -318,7 +221,6 @@ async function main(): Promise<void> {
         countries: Object.keys(GLOBAL_ISO2_TO_ISO3).length - Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT).length,
         requestedCountries: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
         coverageGaps: UNAVAILABLE_IN_PINNED_SNAPSHOT,
-        features: featureCount,
         sourceManifestPath: SOURCE_MANIFEST_PATH,
       },
       null,
