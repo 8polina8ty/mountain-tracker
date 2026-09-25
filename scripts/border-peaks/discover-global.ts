@@ -170,6 +170,35 @@ function readExistingMemberships(path: string): Map<number, Set<string>> {
   return result;
 }
 
+function querySegmentsNearPoint(
+  index: GridIndex<Adm0Segment>,
+  point: [number, number],
+  radiusMeters: number,
+): Adm0Segment[] {
+  const [minLon, minLat, maxLon, maxLat] = bboxForPoint(point, radiusMeters);
+  const boxes: Array<[number, number, number, number]> = [];
+  if (minLon < -180) {
+    boxes.push([minLon + 360, minLat, 180, maxLat]);
+    boxes.push([-180, minLat, maxLon, maxLat]);
+  } else if (maxLon > 180) {
+    boxes.push([minLon, minLat, 180, maxLat]);
+    boxes.push([-180, minLat, maxLon - 360, maxLat]);
+  } else {
+    boxes.push([minLon, minLat, maxLon, maxLat]);
+  }
+
+  const seen = new Set<Adm0Segment>();
+  const result: Adm0Segment[] = [];
+  for (const box of boxes) {
+    for (const segment of index.query(box)) {
+      if (seen.has(segment)) continue;
+      seen.add(segment);
+      result.push(segment);
+    }
+  }
+  return result;
+}
+
 function closestByCountry(
   segments: Adm0Segment[],
   point: [number, number],
@@ -297,8 +326,10 @@ async function main(): Promise<void> {
       mountain.longitude,
       mountain.latitude,
     ];
-    const nearbySegments = index.query(
-      bboxForPoint(point, args.searchRadiusMeters),
+    const nearbySegments = querySegmentsNearPoint(
+      index,
+      point,
+      args.searchRadiusMeters,
     );
     const nearest = closestByCountry(nearbySegments, point);
     const primary = nearest.get(mountain.primaryCountryCode);
