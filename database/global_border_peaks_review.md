@@ -80,3 +80,51 @@ npx eslint scripts/border-peaks/country-codes.ts scripts/border-peaks/global-adm
 ```
 
 After a full run, review `summary.json` first and independently verify each candidate before generating or applying SQL.
+
+## 5. Automated independent verification with OSM
+
+The verifier uses OpenStreetMap/Overpass as an independent second source. The default pass checks the exact summit coordinate against OSM `boundary=administrative + admin_level=2` country areas and records any nearby OSM `natural=peak` node as identity context.
+
+A candidate is marked `VERIFIED` only when the exact summit coordinate is contained by both the primary and candidate country areas in OSM. A nearby peak node by itself never proves dual-country membership.
+
+Start with a bounded smoke run:
+
+```powershell
+npm run border-peaks:verify-osm -- --limit 20
+```
+
+Continue the same output safely:
+
+```powershell
+npm run border-peaks:verify-osm -- --limit 200 --resume
+```
+
+Repeat the resumable command until all candidates have evidence. Cache files under `data/border-peaks/global-verification/cache/overpass` prevent duplicate network requests.
+
+Optional probe mode samples four points about 40 m around the summit. It is intentionally off by default because it uses more Overpass requests and only produces `GEOMETRIC_SUPPORT`, never an automatic approval:
+
+```powershell
+npm run border-peaks:verify-osm -- --limit 20 --resume --probe
+```
+
+Summarize accumulated evidence:
+
+```powershell
+npm run border-peaks:analyze-verification
+```
+
+Outputs:
+
+- `data/border-peaks/global-verification/osm-evidence.jsonl`
+- `data/border-peaks/global-verification/summary.json`
+- local Overpass response cache under `data/border-peaks/global-verification/cache/`
+
+Verification states:
+
+- `VERIFIED` — independent OSM country-area evidence supports both countries at the summit coordinate.
+- `GEOMETRIC_SUPPORT` — optional nearby probes see both countries, but the exact summit coordinate is not dual-contained.
+- `CONFLICT` — OSM containment conflicts with the proposed country pair.
+- `INSUFFICIENT` — OSM does not provide enough independent evidence.
+- `ERROR` — request or provider failure; safe to retry with `--resume`.
+
+Important: `VERIFIED` is machine evidence, not a human `APPROVE` decision. The existing candidate-hash review manifest remains the mandatory gate before SQL export. No verification command writes to Supabase/PostgreSQL.
