@@ -484,7 +484,7 @@ async function main(): Promise<void> {
     per_country_pair: {},
     dataset: {
       provider: "William & Mary geoLab",
-      dataset: dataset.metadata.dataset,
+      dataset: "geoBoundaries gbOpen ADM0 full-resolution single-country files",
       version: manifest.snapshotVersion,
     },
     generated_at: new Date().toISOString(),
