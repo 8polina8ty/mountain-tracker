@@ -3,14 +3,13 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 import { GLOBAL_ISO2_TO_ISO3 } from "./country-codes.ts";
-import { parseGlobalAdm0Dataset, type GlobalAdm0Dataset, type GlobalAdm0Feature } from "./global-adm0.ts";
+import type { GlobalAdm0Feature } from "./global-adm0.ts";
 import type { Coordinate } from "../osm-import/peak-matcher.ts";
 
 const SNAPSHOT_REF = "9469f09";
 const SNAPSHOT_VERSION = "geoBoundaries-gbOpen-9469f09-2023-12-12";
 const ROOT = resolve("data/border-peaks/global-boundaries");
 const SOURCE_DIR = resolve(ROOT, "source", SNAPSHOT_VERSION);
-const NORMALIZED_PATH = resolve(ROOT, "global-adm0.geojson");
 const SOURCE_MANIFEST_PATH = resolve(ROOT, "source-manifest.json");
 
 const UNAVAILABLE_IN_PINNED_SNAPSHOT = Object.freeze({
@@ -230,6 +229,8 @@ function normalizeCountry(
       licenseUrl,
       geojsonUrl: geojsonUrl(iso3),
       metadataUrl: metadataUrl(iso3),
+      localGeojsonPath: localGeojsonPath(iso3),
+      localMetadataPath: localMetadataPath(iso3),
       geojsonBytes: Buffer.byteLength(geojsonContent),
       metadataBytes: Buffer.byteLength(metadataContent),
     },
@@ -245,9 +246,9 @@ async function main(): Promise<void> {
 
   await mkdir(SOURCE_DIR, { recursive: true });
 
-  const allFeatures: GlobalAdm0Feature[] = [];
   const sourceManifest: Record<string, unknown>[] = [];
   const failures: Array<{ countryCode: string; iso3: string; error: string }> = [];
+  let featureCount = 0;
 
   for (const [countryCode, iso3] of Object.entries(GLOBAL_ISO2_TO_ISO3)) {
     if ((UNAVAILABLE_IN_PINNED_SNAPSHOT as Record<string, string>)[countryCode] === iso3) {
@@ -271,7 +272,7 @@ async function main(): Promise<void> {
         geojsonContent,
         metadataContent,
       );
-      allFeatures.push(...normalized.features);
+      featureCount += normalized.features.length;
       sourceManifest.push(normalized.manifest);
       process.stdout.write(`ADM0 ${countryCode}/${iso3}: ${normalized.features.length} feature(s)\n`);
     } catch (error) {
@@ -289,44 +290,18 @@ async function main(): Promise<void> {
     );
   }
 
-  allFeatures.sort(
-    (left, right) =>
-      left.properties.countryCode.localeCompare(right.properties.countryCode) ||
-      left.id.localeCompare(right.id),
-  );
-
-  const dataset: GlobalAdm0Dataset = parseGlobalAdm0Dataset({
-    type: "FeatureCollection",
-    metadata: {
-      provider: "William & Mary geoLab",
-      dataset: "geoBoundaries gbOpen ADM0 full-resolution single-country files",
-      source: "geoBoundaries and per-country source metadata",
-      license: "Mixed open licenses; preserve per-feature attribution/license metadata.",
-      version: SNAPSHOT_VERSION,
-      sourceUrl: "https://www.geoboundaries.org/",
-      attribution: "geoBoundaries gbOpen; per-country attribution and license metadata apply.",
-      boundaryPrecisionMeters: 100,
-      coverageGaps: Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT),
-    },
-    features: allFeatures,
-  });
-
-  const temporaryOutput = `${NORMALIZED_PATH}.tmp`;
-  await writeFile(temporaryOutput, `${JSON.stringify(dataset)}\n`, "utf8");
-  await rename(temporaryOutput, NORMALIZED_PATH);
   await writeFile(
     SOURCE_MANIFEST_PATH,
     `${JSON.stringify(
       {
-        schemaVersion: 1,
+        schemaVersion: 2,
         snapshotRef: SNAPSHOT_REF,
         snapshotVersion: SNAPSHOT_VERSION,
         generatedAt: new Date().toISOString(),
-        normalizedOutput: NORMALIZED_PATH,
         countryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length - Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT).length,
         requestedCountryCount: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
         coverageGaps: UNAVAILABLE_IN_PINNED_SNAPSHOT,
-        features: dataset.features.length,
+        features: featureCount,
         sources: sourceManifest,
       },
       null,
@@ -343,8 +318,7 @@ async function main(): Promise<void> {
         countries: Object.keys(GLOBAL_ISO2_TO_ISO3).length - Object.keys(UNAVAILABLE_IN_PINNED_SNAPSHOT).length,
         requestedCountries: Object.keys(GLOBAL_ISO2_TO_ISO3).length,
         coverageGaps: UNAVAILABLE_IN_PINNED_SNAPSHOT,
-        features: dataset.features.length,
-        normalizedPath: NORMALIZED_PATH,
+        features: featureCount,
         sourceManifestPath: SOURCE_MANIFEST_PATH,
       },
       null,
