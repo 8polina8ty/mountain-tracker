@@ -25,7 +25,13 @@ node --experimental-strip-types scripts/border-peaks/prepare-global-adm0.ts --do
 
 ## 2. Export read-only mountain inputs
 
-Use `database/mountain_global_border_export.sql` as the contract.
+Preferred read-only export (uses only the public/publishable Supabase key from `.env.local`):
+
+```powershell
+node --env-file=.env.local --experimental-strip-types scripts/border-peaks/export-global-inputs.ts
+```
+
+`database/mountain_global_border_export.sql` documents the equivalent SQL contract.
 
 Required local files:
 
@@ -70,7 +76,7 @@ All geometry-only candidates remain `REVIEW / CANDIDATE`; ADM0 proximity alone n
 ```powershell
 npm run test:border-peaks-global
 npx tsc --noEmit --incremental false
-npx eslint scripts/border-peaks/country-codes.ts scripts/border-peaks/global-adm0.ts scripts/border-peaks/global-adm0.test.ts scripts/border-peaks/prepare-global-adm0.ts scripts/border-peaks/discover-global.ts
+npx eslint scripts/border-peaks/country-codes.ts scripts/border-peaks/global-adm0.ts scripts/border-peaks/global-adm0.test.ts scripts/border-peaks/prepare-global-adm0.ts scripts/border-peaks/export-global-inputs.ts scripts/border-peaks/discover-global.ts
 ```
 
 After a full run, review `summary.json` first and independently verify each candidate before generating or applying SQL.
