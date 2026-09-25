@@ -161,23 +161,33 @@ export function buildAdm0Segments(dataset: GlobalAdm0Dataset): Adm0Segment[] {
             a,
             b,
           };
-          if (Math.abs(a[0] - b[0]) > 180) {
-            const east = Math.max(a[0], b[0]);
-            const west = Math.min(a[0], b[0]);
-            segments.push(
-              { ...base, bbox: [east, minLat, 180, maxLat] },
-              { ...base, bbox: [-180, minLat, west, maxLat] },
-            );
-          } else {
-            segments.push({
-              ...base,
-              bbox: [
-                Math.min(a[0], b[0]),
-                minLat,
-                Math.max(a[0], b[0]),
-                maxLat,
-              ],
-            });
+          const candidateBboxes: Array<[number, number, number, number]> =
+            Math.abs(a[0] - b[0]) > 180
+              ? [
+                  [Math.max(a[0], b[0]), minLat, 180, maxLat],
+                  [-180, minLat, Math.min(a[0], b[0]), maxLat],
+                ]
+              : [[
+                  Math.min(a[0], b[0]),
+                  minLat,
+                  Math.max(a[0], b[0]),
+                  maxLat,
+                ]];
+
+          for (const bbox of candidateBboxes) {
+            if (
+              filterBboxes.length > 0 &&
+              !filterBboxes.some(
+                (filter) =>
+                  !(bbox[2] < filter[0] ||
+                    bbox[0] > filter[2] ||
+                    bbox[3] < filter[1] ||
+                    bbox[1] > filter[3]),
+              )
+            ) {
+              continue;
+            }
+            segments.push({ ...base, bbox });
           }
         }
       }
@@ -190,6 +200,7 @@ export function buildAdm0Segments(dataset: GlobalAdm0Dataset): Adm0Segment[] {
 export type GlobalAdm0SourceManifestEntry = {
   countryCode: string;
   iso3: string;
+  bbox: [number, number, number, number];
   localGeojsonPath: string;
   boundaryId: string;
   boundaryYearRepresented: string | null;
@@ -226,6 +237,9 @@ export function loadGlobalAdm0SourceManifest(path: string): GlobalAdm0SourceMani
     if (
       !validIso2(source.countryCode) ||
       !source.iso3 ||
+      !Array.isArray(source.bbox) ||
+      source.bbox.length !== 4 ||
+      !source.bbox.every(Number.isFinite) ||
       !source.localGeojsonPath ||
       !source.boundaryId ||
       !source.source ||
@@ -250,6 +264,7 @@ type RawAdm0Collection = {
 export function buildAdm0SegmentsFromSource(
   content: string,
   source: GlobalAdm0SourceManifestEntry,
+  filterBboxes: Array<[number, number, number, number]> = [],
 ): Adm0Segment[] {
   const raw = JSON.parse(content) as RawAdm0Collection;
   if (raw.type !== "FeatureCollection" || !Array.isArray(raw.features) || raw.features.length === 0) {
