@@ -35,6 +35,7 @@ type VerificationRow = {
   primary_country_code: string;
   candidate_country_code: string;
   status: VerificationStatus;
+  mode: "CENTER" | "PROBE";
   provider: "OpenStreetMap/Overpass";
   queried_at: string;
   endpoint: string;
@@ -173,18 +174,34 @@ function uniqueCandidates(path: string): BorderCandidate[] {
     );
 }
 
-function alreadyProcessed(path: string): Set<string> {
+function alreadyProcessed(path: string, probe: boolean): Set<string> {
   if (!existsSync(path)) return new Set();
-  const latest = new Map<string, VerificationRow>();
+
+  if (!probe) {
+    const latest = new Map<string, VerificationRow>();
+    for (const line of readFileSync(path, "utf8").trim().split("\n").filter(Boolean)) {
+      const row = JSON.parse(line) as VerificationRow;
+      latest.set(row.candidate_hash, row);
+    }
+    return new Set(
+      [...latest.values()]
+        .filter((row) => row.status !== "ERROR" && row.status !== "CONFLICT")
+        .map((row) => row.candidate_hash),
+    );
+  }
+
+  const completedProbe = new Set<string>();
   for (const line of readFileSync(path, "utf8").trim().split("\n").filter(Boolean)) {
     const row = JSON.parse(line) as VerificationRow;
-    latest.set(row.candidate_hash, row);
+    if (
+      row.mode === "PROBE" &&
+      row.status !== "ERROR" &&
+      row.status !== "CONFLICT"
+    ) {
+      completedProbe.add(row.candidate_hash);
+    }
   }
-  return new Set(
-    [...latest.values()]
-      .filter((row) => row.status !== "ERROR" && row.status !== "CONFLICT")
-      .map((row) => row.candidate_hash),
-  );
+  return completedProbe;
 }
 
 function cacheKey(lat: number, lon: number): string {
@@ -474,6 +491,7 @@ async function evidenceForCandidate(
       primary_country_code: primary,
       candidate_country_code: secondary,
       status,
+      mode: args.probe ? "PROBE" : "CENTER",
       provider: "OpenStreetMap/Overpass",
       queried_at: queriedAt,
       endpoint: centerResult.endpoint,
@@ -496,6 +514,7 @@ async function evidenceForCandidate(
       primary_country_code: primary,
       candidate_country_code: secondary,
       status: "ERROR",
+      mode: args.probe ? "PROBE" : "CENTER",
       provider: "OpenStreetMap/Overpass",
       queried_at: queriedAt,
       endpoint: args.endpoints.join(","),
@@ -521,7 +540,7 @@ async function main(): Promise<void> {
   }
 
   const processed = args.resume
-    ? alreadyProcessed(args.output)
+    ? alreadyProcessed(args.output, args.probe)
     : new Set<string>();
   const candidates = uniqueCandidates(args.input);
   const counts: Record<VerificationStatus, number> = {
