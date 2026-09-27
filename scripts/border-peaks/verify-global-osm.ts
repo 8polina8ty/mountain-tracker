@@ -105,7 +105,7 @@ function parseArgs(): Args {
   if (!Number.isInteger(limit) || limit <= 0) {
     throw new Error("--limit must be a positive integer or 0");
   }
-  const concurrency = integer("--concurrency", 3, 1);
+  const concurrency = integer("--concurrency", 2, 1);
   if (concurrency > 4) {
     throw new Error("--concurrency must be between 1 and 4");
   }
@@ -622,7 +622,7 @@ async function main(): Promise<void> {
       );
 
       if (nextIndex < pending.length) {
-        await sleep(args.delayMs);
+        await sleep(row.status === "ERROR" ? Math.max(5_000, args.delayMs) : args.delayMs);
       }
     }
   }
