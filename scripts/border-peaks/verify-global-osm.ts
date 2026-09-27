@@ -447,9 +447,11 @@ async function evidenceForCandidate(
       !centerHasPrimary &&
       !centerHasSecondary
     ) {
-      status = "CONFLICT";
+      status = "INSUFFICIENT";
       notes =
-        "OSM country containment at the summit conflicts with both proposed countries.";
+        peak && peak.distance_meters <= 25
+          ? "OSM exact/near-exact peak identity is present, but point containment returns a different admin_level=2 country. Treat as boundary/trifinio ambiguity, not a conflict; independent boundary evidence is required."
+          : "OSM point containment returns a different admin_level=2 country, but is_in() alone is insufficient to reject a near-border candidate; independent boundary evidence is required.";
     } else if (
       centerCodes.length > 0 &&
       centerHasPrimary &&
