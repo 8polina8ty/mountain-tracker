@@ -149,7 +149,7 @@ npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification
 Resume Tier 2 independently:
 
 ```powershell
-npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume --concurrency 3
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume --concurrency 2
 ```
 
 Probe mode is tracked separately from the center pass, so Tier 1 `INSUFFICIENT` rows do not suppress Tier 2 processing. Tier 2 remains evidence collection only and does not approve or write database memberships.
@@ -157,12 +157,35 @@ Probe mode is tracked separately from the center pass, so Tier 1 `INSUFFICIENT` 
 
 ### Tier 2 performance
 
-Probe mode batches the four ~40 m probe points into one Overpass request per candidate instead of four separate requests. Candidate processing uses bounded concurrency (default `3`, maximum `4`) so public Overpass instances are not flooded. Existing center responses continue to use the Tier 1 cache.
+Probe mode batches the four ~40 m probe points into one Overpass request per candidate instead of four separate requests. Candidate processing uses bounded concurrency (default `2`, maximum `4`) so public Overpass instances are not flooded. Existing center responses continue to use the Tier 1 cache.
 
 Use the default first:
 
 ```powershell
-npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume --concurrency 3
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume --concurrency 2
 ```
 
 If error/429 rates rise, lower to `--concurrency 2`. Do not exceed `4`.
+
+
+## 7. Tier 2B unresolved-only queue
+
+Do not re-probe the whole Tier 2 queue. After one or more Tier 2 probe runs, split the remaining work:
+
+```powershell
+npm run border-peaks:prepare-tier2b
+```
+
+Outputs:
+
+- `tier2b-retry-probe.jsonl` — only candidates with no Tier 2 result yet or latest Tier 2 status `ERROR`; these may be probed again.
+- `tier2b-review.jsonl` — latest Tier 2 status `INSUFFICIENT` or `CONFLICT`; these must not be sent through the same probe again and instead need a third independent source or manual review.
+- `tier2b-summary.json` — counts of resolved, retryable, and review-only rows.
+
+Retry only the small retry queue:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2b-retry-probe.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2b-retry.jsonl --limit 0 --probe --concurrency 2
+```
+
+Already `GEOMETRIC_SUPPORT` and `VERIFIED` candidates are excluded completely. `INSUFFICIENT` is not re-probed because repeating the same evidence method is unlikely to add information.
