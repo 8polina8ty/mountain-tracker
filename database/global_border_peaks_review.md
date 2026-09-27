@@ -149,7 +149,20 @@ npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification
 Resume Tier 2 independently:
 
 ```powershell
-npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume --concurrency 3
 ```
 
 Probe mode is tracked separately from the center pass, so Tier 1 `INSUFFICIENT` rows do not suppress Tier 2 processing. Tier 2 remains evidence collection only and does not approve or write database memberships.
+
+
+### Tier 2 performance
+
+Probe mode batches the four ~40 m probe points into one Overpass request per candidate instead of four separate requests. Candidate processing uses bounded concurrency (default `3`, maximum `4`) so public Overpass instances are not flooded. Existing center responses continue to use the Tier 1 cache.
+
+Use the default first:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume --concurrency 3
+```
+
+If error/429 rates rise, lower to `--concurrency 2`. Do not exceed `4`.
