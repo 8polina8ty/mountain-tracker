@@ -77,6 +77,7 @@ type Args = {
   retriesPerEndpoint: number;
   delayMs: number;
   timeoutMs: number;
+  concurrency: number;
   resume: boolean;
   probe: boolean;
 };
@@ -103,6 +104,10 @@ function parseArgs(): Args {
       : Number(rawLimit);
   if (!Number.isInteger(limit) || limit <= 0) {
     throw new Error("--limit must be a positive integer or 0");
+  }
+  const concurrency = integer("--concurrency", 3, 1);
+  if (concurrency > 4) {
+    throw new Error("--concurrency must be between 1 and 4");
   }
 
   return {
@@ -131,6 +136,7 @@ function parseArgs(): Args {
     retriesPerEndpoint: integer("--retries-per-endpoint", 2, 1),
     delayMs: integer("--delay-ms", 1500, 250),
     timeoutMs: integer("--timeout-ms", 45000, 5000),
+    concurrency,
     resume: values.includes("--resume"),
     probe: values.includes("--probe"),
   };
@@ -240,6 +246,22 @@ function probes(lat: number, lon: number): Array<[number, number]> {
   ];
 }
 
+function probeBatchQuery(lat: number, lon: number): string {
+  const points = probes(lat, lon);
+  const statements = points
+    .map(
+      ([probeLat, probeLon], index) =>
+        `is_in(${probeLat.toFixed(7)},${probeLon.toFixed(7)})->.probe${index};
+area.probe${index}["boundary"="administrative"]["admin_level"="2"]->.probeAreas${index};`,
+    )
+    .join("\n");
+  const union = points.map((_, index) => `.probeAreas${index};`).join("");
+  return `[out:json][timeout:25];
+${statements}
+(${union});
+out tags;`;
+}
+
 function countryCode(tags: Record<string, string> | undefined): string | null {
   if (!tags) return null;
   const code =
@@ -328,17 +350,15 @@ function nearestPeak(
   return best;
 }
 
-async function fetchOverpass(
+async function fetchOverpassQuery(
   args: Args,
-  lat: number,
-  lon: number,
+  query: string,
+  cachePath: string,
 ): Promise<{ value: OverpassResponse; endpoint: string }> {
   mkdirSync(args.cacheDir, { recursive: true });
-  const key = cacheKey(lat, lon);
-  const path = resolve(args.cacheDir, `${key}.json`);
-  if (existsSync(path)) {
+  if (existsSync(cachePath)) {
     return {
-      value: JSON.parse(readFileSync(path, "utf8")) as OverpassResponse,
+      value: JSON.parse(readFileSync(cachePath, "utf8")) as OverpassResponse,
       endpoint: "cache",
     };
   }
@@ -349,7 +369,7 @@ async function fetchOverpass(
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), args.timeoutMs);
       try {
-        const body = new URLSearchParams({ data: overpassQuery(lat, lon) });
+        const body = new URLSearchParams({ data: query });
         const response = await fetch(endpoint, {
           method: "POST",
           headers: {
@@ -375,9 +395,9 @@ async function fetchOverpass(
         }
 
         const value = (await response.json()) as OverpassResponse;
-        const temporary = `${path}.tmp`;
+        const temporary = `${cachePath}.tmp`;
         writeFileSync(temporary, JSON.stringify(value));
-        renameSync(temporary, path);
+        renameSync(temporary, cachePath);
         return { value, endpoint };
       } catch (error) {
         failures.push(
@@ -395,6 +415,28 @@ async function fetchOverpass(
   throw new Error(
     `All Overpass endpoints failed: ${failures.join(" | ")}`,
   );
+}
+
+async function fetchOverpass(
+  args: Args,
+  lat: number,
+  lon: number,
+): Promise<{ value: OverpassResponse; endpoint: string }> {
+  const key = cacheKey(lat, lon);
+  const path = resolve(args.cacheDir, `${key}.json`);
+  return fetchOverpassQuery(args, overpassQuery(lat, lon), path);
+}
+
+async function fetchProbeBatch(
+  args: Args,
+  lat: number,
+  lon: number,
+): Promise<{ value: OverpassResponse; endpoint: string }> {
+  const key = createHash("sha256")
+    .update(`probe-batch-v1:${lat.toFixed(7)},${lon.toFixed(7)}`)
+    .digest("hex");
+  const path = resolve(args.cacheDir, `${key}-probe-batch.json`);
+  return fetchOverpassQuery(args, probeBatchQuery(lat, lon), path);
 }
 
 async function evidenceForCandidate(
@@ -423,11 +465,12 @@ async function evidenceForCandidate(
 
     const probeAreas: CountryArea[] = [];
     if (args.probe) {
-      for (const [lat, lon] of probes(candidate.latitude, candidate.longitude)) {
-        await sleep(args.delayMs);
-        const response = await fetchOverpass(args, lat, lon);
-        probeAreas.push(...areaRows(response.value.elements ?? []));
-      }
+      const response = await fetchProbeBatch(
+        args,
+        candidate.latitude,
+        candidate.longitude,
+      );
+      probeAreas.push(...areaRows(response.value.elements ?? []));
     }
     const dedupedProbeAreas = areaRows(
       probeAreas.map((area) => ({
@@ -551,22 +594,43 @@ async function main(): Promise<void> {
     ERROR: 0,
   };
 
+  const pending = candidates
+    .filter((candidate) => !processed.has(candidateFingerprint(candidate)))
+    .slice(0, args.limit);
+
   let handled = 0;
-  for (const candidate of candidates) {
-    if (handled >= args.limit) break;
-    const hash = candidateFingerprint(candidate);
-    if (processed.has(hash)) continue;
+  let nextIndex = 0;
 
-    if (handled > 0) await sleep(args.delayMs);
-    const row = await evidenceForCandidate(args, candidate);
-    appendFileSync(args.output, `${JSON.stringify(row)}\n`);
-    counts[row.status] += 1;
-    handled += 1;
+  async function worker(workerIndex: number): Promise<void> {
+    if (workerIndex > 0) {
+      await sleep(Math.ceil((args.delayMs * workerIndex) / args.concurrency));
+    }
 
-    process.stdout.write(
-      `[${handled}] mountain=${row.mountain_id} ${row.primary_country_code}->${row.candidate_country_code} ${row.status}\n`,
-    );
+    while (true) {
+      const index = nextIndex;
+      nextIndex += 1;
+      if (index >= pending.length) return;
+
+      const candidate = pending[index];
+      const row = await evidenceForCandidate(args, candidate);
+      appendFileSync(args.output, `${JSON.stringify(row)}\n`);
+      counts[row.status] += 1;
+      handled += 1;
+
+      process.stdout.write(
+        `[${handled}/${pending.length}] mountain=${row.mountain_id} ${row.primary_country_code}->${row.candidate_country_code} ${row.status}\n`,
+      );
+
+      if (nextIndex < pending.length) {
+        await sleep(args.delayMs);
+      }
+    }
   }
+
+  const workerCount = Math.min(args.concurrency, pending.length || 1);
+  await Promise.all(
+    Array.from({ length: workerCount }, (_, index) => worker(index)),
+  );
 
   process.stdout.write(
     `${JSON.stringify(
@@ -578,6 +642,8 @@ async function main(): Promise<void> {
         endpoints: args.endpoints,
         retries_per_endpoint: args.retriesPerEndpoint,
         probe_mode: args.probe,
+        concurrency: args.concurrency,
+        probe_requests_per_candidate: args.probe ? 1 : 0,
       },
       null,
       2,
