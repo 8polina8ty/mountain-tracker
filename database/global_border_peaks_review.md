@@ -128,3 +128,28 @@ Verification states:
 - `ERROR` — request or provider failure; safe to retry with `--resume`.
 
 Important: `VERIFIED` is machine evidence, not a human `APPROVE` decision. The existing candidate-hash review manifest remains the mandatory gate before SQL export. No verification command writes to Supabase/PostgreSQL.
+
+
+## 6. Tier 2 focused probe queue
+
+After Tier 1 reaches zero current errors/conflicts, build a focused queue from `INSUFFICIENT` candidates instead of probing every candidate:
+
+```powershell
+npm run border-peaks:prepare-tier2
+```
+
+The queue prioritizes multi-country/trifinio cases and strong near-border evidence such as <=30 m geoBoundaries distance, nearby OSM peak identity, primary-country containment, and Wikidata-backed peak identity.
+
+Run a bounded Tier 2 smoke pass into a separate evidence file:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 20 --probe
+```
+
+Resume Tier 2 independently:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2-queue.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2.jsonl --limit 200 --probe --resume
+```
+
+Probe mode is tracked separately from the center pass, so Tier 1 `INSUFFICIENT` rows do not suppress Tier 2 processing. Tier 2 remains evidence collection only and does not approve or write database memberships.
