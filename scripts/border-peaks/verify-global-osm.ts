@@ -182,7 +182,7 @@ function alreadyProcessed(path: string): Set<string> {
   }
   return new Set(
     [...latest.values()]
-      .filter((row) => row.status !== "ERROR")
+      .filter((row) => row.status !== "ERROR" && row.status !== "CONFLICT")
       .map((row) => row.candidate_hash),
   );
 }
