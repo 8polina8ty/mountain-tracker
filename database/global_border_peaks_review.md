@@ -189,3 +189,50 @@ npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification
 ```
 
 Already `GEOMETRIC_SUPPORT` and `VERIFIED` candidates are excluded completely. `INSUFFICIENT` is not re-probed because repeating the same evidence method is unlikely to add information.
+
+
+## 8. Tier 2C priority cap
+
+Tier 2C prevents scanning every remaining unprocessed Tier 2 candidate. It reads `tier2b-retry-probe.jsonl`, isolates `ERROR` rows, and selects only the strongest new `NO_TIER2_RESULT` rows.
+
+Default selection:
+
+- all remaining multi-country/trifinio rows are mandatory;
+- then highest `tier2_priority`;
+- then smaller geoBoundaries distance;
+- then smaller OSM peak distance;
+- then Wikidata-backed peak identity;
+- default maximum new rows: `300`.
+
+Build the queues:
+
+```powershell
+npm run border-peaks:prepare-tier2c
+```
+
+Override the cap when intentionally needed:
+
+```powershell
+npm run border-peaks:prepare-tier2c -- --max-new 200
+```
+
+Outputs:
+
+- `tier2c-priority-probe.jsonl` — strongest new candidates only;
+- `tier2c-error-retry.jsonl` — prior Tier 2 network/provider errors only;
+- `tier2c-deferred.jsonl` — lower-priority unprocessed candidates, left untouched;
+- `tier2c-summary.json` — reproducible selection counts and threshold.
+
+Run the new priority batch separately:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2c-priority-probe.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2c.jsonl --limit 0 --probe --concurrency 2
+```
+
+Retry prior Tier 2 errors separately:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/tier2c-error-retry.jsonl --output data/border-peaks/global-verification/osm-evidence-tier2c-errors.jsonl --limit 0 --probe --concurrency 2
+```
+
+Do not automatically process `tier2c-deferred.jsonl`. It is intentionally retained as a lower-priority backlog.
