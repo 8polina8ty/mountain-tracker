@@ -786,3 +786,43 @@ The recorder is fail-closed:
 - only the 19 TIER1 rows are changed;
 - all 553 GEOMETRIC_SUPPORT rows remain pending;
 - no SQL is generated or applied and no database write is performed.
+
+
+## 30. GEOMETRIC_SUPPORT evidence triage
+
+After all 819 `TIER1_VERIFIED` rows are human-approved, the strong decision layer should contain exactly 553 pending `GEOMETRIC_SUPPORT` rows.
+
+Prepare an evidence-enriched triage queue from the existing OSM/Overpass probe artifacts:
+
+```powershell
+npm run border-peaks:prepare-geometric-review
+npm run border-peaks:prepare-geometric-batches
+```
+
+The triage command requires the exact current state of 819 approved TIER1 rows and 553 pending GEOMETRIC_SUPPORT rows. It reads the successful probe evidence already used by the consolidator and adds summit-level review context such as probe country codes, nearest OSM peak distance/name/Wikidata, evidence source and geoBoundaries distance.
+
+It assigns review routing only:
+
+- `HIGH_CONFIDENCE_REVIEW`: geoBoundaries distance <=30 m, OSM peak identity <=10 m with a name or Wikidata identity, plus successful dual-country probe evidence.
+- `STANDARD_REVIEW`: successful dual-country probe evidence with geoBoundaries distance <=100 m and/or OSM peak identity <=25 m.
+- `THIRD_SOURCE_RECOMMENDED`: successful probe evidence exists, but summit-level identity or boundary proximity is weaker.
+
+These are review priorities, not decisions. No row is automatically APPROVE or REJECT.
+
+Outputs:
+
+- `data/border-peaks/global-review/geometric-support/all.jsonl`
+- `high_confidence_review.jsonl`
+- `standard_review.jsonl`
+- `third_source_recommended.jsonl`
+- `summary.json`
+
+The batcher uses a target of 75 rows, never splits a `mountain_id` group, and never mixes review tiers inside one batch.
+
+Display a batch with:
+
+```powershell
+npm run border-peaks:list-geometric-batch -- --batch 1
+```
+
+The listing is read-only and shows the evidence needed for human review. No SQL is generated or applied and no database write is performed.
