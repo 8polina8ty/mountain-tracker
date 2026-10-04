@@ -703,3 +703,34 @@ npm run border-peaks:list-strong-batch -- --batch 1
 ```
 
 Batch display is read-only and includes hash, mountain identity, country pair, coordinates, height, boundary distance and machine evidence status. Human decisions remain a separate later layer.
+
+
+## 27. Strong human decision layer and explicit Batch 1 approval
+
+Create the separate strong decision template once:
+
+```powershell
+npm run border-peaks:prepare-strong-decisions
+npm run border-peaks:validate-strong-decisions
+```
+
+The template contains all 1,372 strong candidate hashes and refuses to overwrite existing reviewer work.
+
+After the human reviewer explicitly approves a displayed batch, record it with:
+
+```powershell
+npm run border-peaks:record-strong-batch-approval -- --batch 1
+npm run border-peaks:validate-strong-decisions
+```
+
+The batch recorder is fail-closed:
+
+- the batch must exist and be non-empty;
+- every row must be exactly `TIER1_VERIFIED` / `EXACT_SUMMIT_CONTAINMENT`;
+- every batch hash must match the current 1,372-row decision template identity;
+- every target row must still be pending;
+- only the explicitly named batch receives `APPROVE`;
+- Batch 2+ remain untouched;
+- no SQL is generated or applied.
+
+`GEOMETRIC_SUPPORT` batches are intentionally not eligible for this bulk-approval recorder and require a separate review policy.
