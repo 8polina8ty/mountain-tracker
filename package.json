@@ -92,7 +92,8 @@
     "border-peaks:record-final-two-supported": "node --experimental-strip-types scripts/border-peaks/record-final-two-supported-approvals.ts",
     "border-peaks:preflight-global-export": "node --experimental-strip-types scripts/border-peaks/preflight-global-export.ts",
     "border-peaks:export-global-reviewed": "node --experimental-strip-types scripts/border-peaks/export-approved.ts",
-    "border-peaks:prepare-phase2": "node --experimental-strip-types scripts/border-peaks/prepare-phase2-deferred.ts"
+    "border-peaks:prepare-phase2": "node --experimental-strip-types scripts/border-peaks/prepare-phase2-deferred.ts",
+    "border-peaks:triage-phase2-batch": "node --experimental-strip-types scripts/border-peaks/triage-phase2-batch.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
