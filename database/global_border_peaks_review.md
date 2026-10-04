@@ -501,3 +501,24 @@ Validation rules:
 The validator reports `export_ready: false` while any decision remains pending. An incomplete decision file must never be passed to `export-approved.ts`.
 
 Even when `export_ready: true`, SQL export remains a separate later step with its own preflight. No production write is performed by either decision command.
+
+
+## 19. Record explicit human approval of the current 16 SUPPORTS rows
+
+After the human reviewer explicitly approves all 16 current SUPPORTS candidates, record that decision with:
+
+```powershell
+npm run border-peaks:record-approved-supported
+npm run border-peaks:validate-review-decisions
+```
+
+The recorder is intentionally fail-closed:
+
+- it requires exactly 16 current `SUPPORTS` rows;
+- every selected row must still be pending;
+- it refuses to overwrite any existing decision/reviewer metadata;
+- it changes only those 16 rows to `APPROVE`;
+- all `DOES_NOT_SUPPORT` and `AMBIGUOUS` rows remain pending;
+- no SQL is generated or applied.
+
+If the number of SUPPORTS rows changes after evidence regeneration, the command fails instead of applying the historical bulk approval to a different set.
