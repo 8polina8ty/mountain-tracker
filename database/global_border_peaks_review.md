@@ -462,3 +462,42 @@ Routing metadata:
 - `AMBIGUOUS` -> `MANUAL_RESOLUTION`
 
 These are routing hints only. Every output row keeps `decision`, `reviewed_by`, `reviewed_at`, and `review_notes` null. No `APPROVE` or `REJECT` decision is created automatically, and no SQL is generated or applied.
+
+
+## 18. Final human decision layer
+
+Create the final hash-bound human decision template from the completed third-source human-review queue:
+
+```powershell
+npm run border-peaks:prepare-review-decisions
+```
+
+Output:
+
+- `data/border-peaks/global-review/third-source-review-decisions.jsonl`
+
+The generator refuses to overwrite an existing decision file so reviewer work cannot be lost accidentally. Every row starts with:
+
+- `decision: null`
+- `reviewed_by: null`
+- `reviewed_at: null`
+- `review_notes: null`
+
+Validate the template or completed decisions with:
+
+```powershell
+npm run border-peaks:validate-review-decisions
+```
+
+Validation rules:
+
+- candidate hash, mountain id, and country pair must match the current human-review queue;
+- copied evidence fields are immutable at the decision layer;
+- pending rows must not contain partial reviewer metadata;
+- completed rows require `APPROVE` or `REJECT`, reviewer identity, ISO review timestamp, and substantive review notes;
+- `APPROVE` is allowed only when the current third-source finding is `SUPPORTS`;
+- `DOES_NOT_SUPPORT` or `AMBIGUOUS` must not be approved unless the evidence layer is first strengthened and regenerated.
+
+The validator reports `export_ready: false` while any decision remains pending. An incomplete decision file must never be passed to `export-approved.ts`.
+
+Even when `export_ready: true`, SQL export remains a separate later step with its own preflight. No production write is performed by either decision command.
