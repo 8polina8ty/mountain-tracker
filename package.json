@@ -48,7 +48,8 @@
     "border-peaks:consolidate-verification": "node --experimental-strip-types scripts/border-peaks/consolidate-global-verification.ts",
     "border-peaks:diff-global-runs": "node --experimental-strip-types scripts/border-peaks/diff-global-runs.ts",
     "border-peaks:prepare-v2-delta-probe": "node --experimental-strip-types scripts/border-peaks/prepare-v2-delta-probe.ts",
-    "border-peaks:prepare-review-pack": "node --experimental-strip-types scripts/border-peaks/prepare-global-review-pack.ts"
+    "border-peaks:prepare-review-pack": "node --experimental-strip-types scripts/border-peaks/prepare-global-review-pack.ts",
+    "border-peaks:prepare-technical-retries": "node --experimental-strip-types scripts/border-peaks/prepare-technical-retry-queues.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
