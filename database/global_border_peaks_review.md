@@ -1205,3 +1205,54 @@ The deployment closes this reviewed 1,350-membership batch. It does not close th
 - 19 ADM0 source-gap country/territory codes remain;
 - 78 database mountains fall in those source-gap countries;
 - therefore the global discovery must still not be described as exhaustive.
+
+
+## 43. Border Peaks Phase 2 — deferred backlog preparation
+
+Phase 2 starts from the exact remaining `DEFERRED_LOW_PRIORITY` registry set after the reviewed 1,350-membership production deployment.
+
+Prepare deterministic read-only Phase 2 queues with:
+
+```powershell
+npm run border-peaks:prepare-phase2
+```
+
+Required invariants:
+
+- exactly 2,477 rows in `tier2c-deferred.jsonl`;
+- exactly 2,477 `DEFERRED_LOW_PRIORITY` rows in the 3,887-row final machine registry;
+- exact candidate-hash equality between those two sets;
+- no deferred row may already have successful probe evidence;
+- exactly 78 source-gap mountains remain in the coverage-gap backlog.
+
+The preparer reuses the existing Tier 2 priority signals instead of inventing a new evidence model. It creates three routing buckets:
+
+- `P1`: highest-value follow-up — Tier2 priority >=60, or both <=30m boundary proximity and <=25m OSM peak identity, or a multi-country candidate;
+- `P2`: intermediate follow-up — priority >=45, <=30m boundary proximity, <=25m peak identity, or a Wikidata-backed peak identity;
+- `P3`: remaining valid deferred candidates.
+
+These buckets are scheduling priorities only. They are not machine verification and never imply APPROVE or REJECT.
+
+Outputs:
+
+- `data/border-peaks/phase2/all.jsonl`
+- `data/border-peaks/phase2/p1.jsonl`
+- `data/border-peaks/phase2/p2.jsonl`
+- `data/border-peaks/phase2/p3.jsonl`
+- `data/border-peaks/phase2/batches/phase2-NNN.jsonl`
+- `data/border-peaks/phase2/source-gap-backlog.jsonl`
+- `data/border-peaks/phase2/summary.json`
+
+Batching target is 200 rows by default. All candidate rows belonging to the same `mountain_id` are kept in the same batch even when that makes a batch slightly larger than the target. The script fails if a mountain group is split.
+
+The 78 source-gap mountains are copied into a separate backlog only. They are not converted into border candidates because missing ADM0 source geometry means the required discovery contract is unavailable.
+
+After reviewing the Phase 2 summary, probe one bounded batch at a time with the existing verifier. Example:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/phase2/batches/phase2-001.jsonl --output data/border-peaks/phase2/evidence-phase2-001.jsonl --limit 0 --probe --concurrency 2
+```
+
+Do not process all batches blindly. Inspect error/INSUFFICIENT/GEOMETRIC_SUPPORT rates after the first batch and adjust the next step from observed evidence.
+
+Phase 2 preparation creates no human decisions, no SQL, and performs no database writes.
