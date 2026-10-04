@@ -435,3 +435,30 @@ The researched batch is intentionally conservative:
 - `AMBIGUOUS` where the source establishes mountain or border context but does not resolve the exact summit coordinate.
 
 No finding becomes a human `APPROVE` automatically and no SQL is generated or applied.
+
+
+## 17. Split third-source findings into human-review queues
+
+After all third-source evidence rows validate with zero pending rows, prepare deterministic human-review queues:
+
+```powershell
+npm run border-peaks:prepare-third-source-human-review
+```
+
+Outputs:
+
+- `data/border-peaks/global-review/third-source-supported.jsonl`
+- `data/border-peaks/global-review/third-source-reject-candidates.jsonl`
+- `data/border-peaks/global-review/third-source-ambiguous.jsonl`
+- `data/border-peaks/global-review/third-source-human-review.jsonl`
+- `data/border-peaks/global-review/third-source-human-review-summary.json`
+
+The generator fails closed if evidence and investigation hashes/counts do not match or any evidence row is incomplete.
+
+Routing metadata:
+
+- `SUPPORTS` -> `REVIEW_FOR_APPROVAL`
+- `DOES_NOT_SUPPORT` -> `REVIEW_FOR_REJECTION`
+- `AMBIGUOUS` -> `MANUAL_RESOLUTION`
+
+These are routing hints only. Every output row keeps `decision`, `reviewed_by`, `reviewed_at`, and `review_notes` null. No `APPROVE` or `REJECT` decision is created automatically, and no SQL is generated or applied.
