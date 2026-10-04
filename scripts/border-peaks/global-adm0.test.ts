@@ -7,6 +7,7 @@ import {
   parseGlobalAdm0Dataset,
 } from "./global-adm0.ts";
 import { iso3ForCountry } from "./country-codes.ts";
+import { segmentToSegmentMeters } from "./spatial.ts";
 
 function dataset() {
   return {
@@ -142,4 +143,40 @@ test("source segment builder applies bbox filters without affecting legacy build
   assert.equal(all.length, 4);
   assert.ok(filtered.length > 0);
   assert.ok(filtered.length < all.length);
+});
+
+
+test("segment distance is zero for crossing segments", () => {
+  assert.equal(
+    segmentToSegmentMeters(
+      [0, 0],
+      [1, 0],
+      [0.5, -0.5],
+      [0.5, 0.5],
+    ),
+    0,
+  );
+});
+
+test("segment intersection handles short dateline crossings", () => {
+  assert.equal(
+    segmentToSegmentMeters(
+      [179.9, 0],
+      [-179.9, 0],
+      [180, -0.1],
+      [180, 0.1],
+    ),
+    0,
+  );
+});
+
+test("separated segments still return a positive distance", () => {
+  assert.ok(
+    segmentToSegmentMeters(
+      [0, 0],
+      [1, 0],
+      [0, 1],
+      [1, 1],
+    ) > 100_000,
+  );
 });
