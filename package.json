@@ -74,7 +74,8 @@
     "border-peaks:prepare-strong-decisions": "node --experimental-strip-types scripts/border-peaks/prepare-strong-review-decisions.ts",
     "border-peaks:validate-strong-decisions": "node --experimental-strip-types scripts/border-peaks/validate-strong-review-decisions.ts",
     "border-peaks:record-strong-batch-approval": "node --experimental-strip-types scripts/border-peaks/record-strong-batch-approval.ts",
-    "border-peaks:record-all-tier1-batches": "node --experimental-strip-types scripts/border-peaks/record-all-eligible-strong-batch-approvals.ts"
+    "border-peaks:record-all-tier1-batches": "node --experimental-strip-types scripts/border-peaks/record-all-eligible-strong-batch-approvals.ts",
+    "border-peaks:record-remaining-tier1": "node --experimental-strip-types scripts/border-peaks/record-remaining-tier1-approvals.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
