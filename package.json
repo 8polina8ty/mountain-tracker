@@ -88,7 +88,8 @@
     "border-peaks:prepare-final-manual-third-source": "node --experimental-strip-types scripts/border-peaks/prepare-final-manual-third-source.ts",
     "border-peaks:record-final-manual-third-source-resolved": "node --experimental-strip-types scripts/border-peaks/record-final-manual-third-source-resolved.ts",
     "border-peaks:validate-final-manual-third-source": "node --experimental-strip-types scripts/border-peaks/validate-final-manual-third-source-evidence.ts",
-    "border-peaks:record-final-seven-overrides": "node --experimental-strip-types scripts/border-peaks/record-final-seven-manual-overrides.ts"
+    "border-peaks:record-final-seven-overrides": "node --experimental-strip-types scripts/border-peaks/record-final-seven-manual-overrides.ts",
+    "border-peaks:record-final-two-supported": "node --experimental-strip-types scripts/border-peaks/record-final-two-supported-approvals.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
