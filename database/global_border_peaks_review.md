@@ -1156,3 +1156,52 @@ The SQL itself contains runtime transaction guards:
 - after insertion, all 1,350 target rows must exist as `is_primary = false`, otherwise the transaction raises and rolls back.
 
 The exporter only writes the SQL artifact and prints its SHA-256. It does not connect to Supabase or execute any SQL. Applying the generated SQL to production remains a separate, explicit manual action and requires a live production preflight.
+
+
+## 42. Production deployment closure — 1,350 reviewed memberships
+
+Production project:
+
+- Supabase project ref: `weplpaigyyqzdkolypmw`
+- region: `eu-west-3`
+- production status at verification: `ACTIVE_HEALTHY`
+
+The reviewed global SQL artifact was explicitly authorized by the human reviewer and applied to production after a second live read-only preflight returned:
+
+- expected target rows: 1,350;
+- mountain identity mismatches: 0;
+- already-existing target memberships: 0;
+- duplicate target pairs: 0.
+
+Applied artifact:
+
+- file: `database/generated/mountain_countries_global_reviewed_batch.sql`
+- normalized LF SHA-256: `59569d998d6b6f49fb716c21b63524814890aa6d03f1979b019576dbb593d8e5`
+- approved memberships inserted: 1,350;
+- strong approvals represented: 1,320;
+- third-source approvals represented: 30;
+- explicit human overrides represented: 18.
+
+Production postflight:
+
+- `public.mountains`: 364,475 rows;
+- `public.mountain_countries`: 365,845 rows;
+- target memberships matched after deployment: 1,350 / 1,350;
+- missing target memberships: 0;
+- target rows with incorrect `is_primary`: 0.
+
+The membership count changed from 364,495 to 365,845, exactly +1,350.
+
+Read-only spot checks at `2026-10-04 07:26:38 UTC`:
+
+- mountain 6002, Pic de Cataperdis: primary `FR`; memberships `FR primary + AD secondary`;
+- mountain 13086, Naafkopf: primary `LI`; memberships `LI primary + AT secondary + CH secondary`.
+
+This confirms both the ordinary two-country membership case and a three-country summit case in production. Existing application country-progress/listing queries already use `mountain_countries`, so no application data-model rewrite is required for these memberships to participate in country-based reads.
+
+The deployment closes this reviewed 1,350-membership batch. It does not close the entire global border-discovery problem:
+
+- 2,477 `DEFERRED_LOW_PRIORITY` candidates remain unreviewed;
+- 19 ADM0 source-gap country/territory codes remain;
+- 78 database mountains fall in those source-gap countries;
+- therefore the global discovery must still not be described as exhaustive.
