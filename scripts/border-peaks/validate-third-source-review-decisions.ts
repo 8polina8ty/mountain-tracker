@@ -32,6 +32,7 @@ type DecisionRow = {
   reviewed_by: string | null;
   reviewed_at: string | null;
   review_notes: string | null;
+  approval_basis?: "EXPLICIT_HUMAN_OVERRIDE" | null;
 };
 
 function arg(name: string, fallback: string): string {
@@ -146,8 +147,25 @@ function main(): void {
 
     if (row.decision === "APPROVE") {
       if (row.third_source_finding !== "SUPPORTS") {
+        if (
+          row.third_source_finding !== "AMBIGUOUS" ||
+          row.approval_basis !== "EXPLICIT_HUMAN_OVERRIDE"
+        ) {
+          throw new Error(
+            `APPROVE is not allowed while third-source finding is ${row.third_source_finding} for ${row.candidate_hash.slice(0, 12)}… unless an explicit human override is recorded.`,
+          );
+        }
+        if (
+          typeof row.review_notes !== "string" ||
+          !/ambiguous|uncertain|insufficient/i.test(row.review_notes)
+        ) {
+          throw new Error(
+            `Explicit human override must acknowledge ambiguous/insufficient evidence for ${row.candidate_hash.slice(0, 12)}…`,
+          );
+        }
+      } else if (row.approval_basis != null) {
         throw new Error(
-          `APPROVE is not allowed while third-source finding is ${row.third_source_finding} for ${row.candidate_hash.slice(0, 12)}…. Strengthen/update evidence first.`,
+          `approval_basis must be null/absent for evidence-supported approval ${row.candidate_hash.slice(0, 12)}…`,
         );
       }
       approve += 1;
