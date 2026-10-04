@@ -1219,17 +1219,17 @@ npm run border-peaks:prepare-phase2
 
 Required invariants:
 
-- exactly 2,477 rows in `tier2c-deferred.jsonl`;
-- exactly 2,477 `DEFERRED_LOW_PRIORITY` rows in the 3,887-row final machine registry;
-- exact candidate-hash equality between those two sets;
-- no deferred row may already have successful probe evidence;
+- exactly 2,477 `DEFERRED_LOW_PRIORITY` rows in the 3,887-row final machine registry — this is the Phase 2 source of truth;
+- exactly 1,171 rows in historical `tier2c-deferred.jsonl`, used only as priority enrichment for the subset that previously reached Tier2C;
+- every Tier2C deferred hash must belong to the registry `DEFERRED_LOW_PRIORITY` set;
+- no registry-deferred row may already have successful probe evidence;
 - exactly 78 source-gap mountains remain in the coverage-gap backlog.
 
-The preparer reuses the existing Tier 2 priority signals instead of inventing a new evidence model. It creates three routing buckets:
+The preparer starts from all 2,477 registry-deferred candidates. The 1,171 historical Tier2C deferred rows contribute their existing Tier 2 priority/peak/Wikidata signals; the remaining 1,306 registry-deferred candidates have no Tier2C enrichment and are conservatively routed through the fallback path rather than being treated as if they had Tier2 evidence. It creates three routing buckets:
 
 - `P1`: highest-value follow-up — Tier2 priority >=60, or both <=30m boundary proximity and <=25m OSM peak identity, or a multi-country candidate;
 - `P2`: intermediate follow-up — priority >=45, <=30m boundary proximity, <=25m peak identity, or a Wikidata-backed peak identity;
-- `P3`: remaining valid deferred candidates.
+- `P3`: remaining valid deferred candidates, including all registry-only fallback rows that never reached Tier2C.
 
 These buckets are scheduling priorities only. They are not machine verification and never imply APPROVE or REJECT.
 
