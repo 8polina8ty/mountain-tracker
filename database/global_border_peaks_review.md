@@ -522,3 +522,24 @@ The recorder is intentionally fail-closed:
 - no SQL is generated or applied.
 
 If the number of SUPPORTS rows changes after evidence regeneration, the command fails instead of applying the historical bulk approval to a different set.
+
+
+## 20. Record explicit human rejection of the current 7 DOES_NOT_SUPPORT rows
+
+After the human reviewer explicitly rejects all 7 current `DOES_NOT_SUPPORT` candidates, record that decision with:
+
+```powershell
+npm run border-peaks:record-rejected-unsupported
+npm run border-peaks:validate-review-decisions
+```
+
+The recorder is fail-closed:
+
+- it requires exactly 7 current `DOES_NOT_SUPPORT` rows;
+- every selected row must still be pending;
+- it refuses to overwrite any existing decision/reviewer metadata;
+- it changes only those 7 rows to `REJECT`;
+- all 15 `AMBIGUOUS` rows remain pending;
+- no SQL is generated or applied.
+
+If the unsupported set changes after evidence regeneration, the command fails instead of applying the historical bulk rejection to a different set.
