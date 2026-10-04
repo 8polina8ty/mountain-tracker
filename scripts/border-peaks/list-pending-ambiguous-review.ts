@@ -93,10 +93,17 @@ function main(): void {
       };
     });
 
-  if (rows.length !== 15) {
-    throw new Error(
-      `Expected exactly 15 current pending AMBIGUOUS rows, found ${rows.length}`,
-    );
+  const expectedIndex = process.argv.indexOf("--expected");
+  if (expectedIndex >= 0) {
+    const expected = Number(process.argv[expectedIndex + 1]);
+    if (!Number.isInteger(expected) || expected < 0) {
+      throw new Error("--expected must be a non-negative integer");
+    }
+    if (rows.length !== expected) {
+      throw new Error(
+        `Expected exactly ${expected} current pending AMBIGUOUS rows, found ${rows.length}`,
+      );
+    }
   }
 
   process.stdout.write(
