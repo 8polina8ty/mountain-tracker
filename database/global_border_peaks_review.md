@@ -849,3 +849,24 @@ The recorder is fail-closed and revalidates every target row before writing:
 - only the explicitly requested batch is changed to `APPROVE`;
 - the underlying machine status remains `GEOMETRIC_SUPPORT`; approval does not rewrite evidence to TIER1;
 - no SQL is generated or applied and no database write is performed.
+
+
+## 32. Mass-approve all remaining HIGH_CONFIDENCE geo batches
+
+After explicit human approval to process all remaining high-confidence geo batches together, use:
+
+```powershell
+npm run border-peaks:record-all-high-confidence-geo
+npm run border-peaks:validate-strong-decisions
+```
+
+Expected precondition after `geo-001` approval:
+
+- 894 completed rows;
+- 478 pending GEOMETRIC_SUPPORT rows;
+- 329 pending `HIGH_CONFIDENCE_REVIEW` rows in `geo-002` through `geo-006`;
+- 149 pending `STANDARD_REVIEW` rows in `geo-007` and `geo-008`.
+
+The mass recorder revalidates every candidate and fails closed if counts, batch composition, candidate identity, review tier, boundary distance, OSM peak identity, or dual-country probe evidence differ from the reviewed contract.
+
+Only the 329 remaining HIGH_CONFIDENCE rows are changed to `APPROVE`. STANDARD_REVIEW remains pending and must be handled separately. No SQL is generated or applied and no database write is performed.
