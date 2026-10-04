@@ -756,3 +756,33 @@ The mass recorder scans every `strong-NNN.jsonl` batch and:
 - performs no SQL generation and no database writes.
 
 This command is intentionally not a blanket approval of all 1,372 strong rows. The weaker `GEOMETRIC_SUPPORT` subset remains a separate human-review stage.
+
+
+## 29. Approve the 19 TIER1 rows stranded in mixed batches
+
+After mass-approving all TIER1-only batches, the expected state is:
+
+- 800 completed APPROVE rows;
+- 572 pending rows;
+- exactly 19 pending `TIER1_VERIFIED` rows;
+- exactly 553 pending `GEOMETRIC_SUPPORT` rows.
+
+The 19 verified rows remain pending only because they share mixed review batches with weaker `GEOMETRIC_SUPPORT` rows.
+
+After explicit human approval to continue, record only those 19 rows:
+
+```powershell
+npm run border-peaks:record-remaining-tier1
+npm run border-peaks:validate-strong-decisions
+```
+
+The recorder is fail-closed:
+
+- current queue and decision files must both contain exactly 1,372 rows;
+- current state must be exactly 800 completed approvals + 572 pending;
+- pending split must be exactly 19 TIER1 + 553 GEOMETRIC_SUPPORT;
+- every selected row must still be `TIER1_VERIFIED` with `tier1_status: VERIFIED`;
+- candidate identity/status must match the current strong queue;
+- only the 19 TIER1 rows are changed;
+- all 553 GEOMETRIC_SUPPORT rows remain pending;
+- no SQL is generated or applied and no database write is performed.
