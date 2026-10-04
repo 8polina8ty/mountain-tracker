@@ -899,3 +899,35 @@ The recorder is fail-closed:
 - no SQL is generated or applied and no database write is performed.
 
 The command reports the exact number of unnamed rows rejected and the remaining named STANDARD_REVIEW count instead of relying on a guessed historical count.
+
+
+## 34. Triage the remaining 97 named STANDARD_REVIEW candidates
+
+After the unnamed STANDARD_REVIEW rejection policy has been applied, the expected strong decision state is:
+
+- 1,275 completed rows;
+- 97 pending rows;
+- 1,223 APPROVE rows;
+- 52 REJECT rows.
+
+Prepare a read-only second-stage triage of those 97 named candidates:
+
+```powershell
+npm run border-peaks:prepare-named-standard-geo
+```
+
+The command requires the exact state above and fails closed if any pending row is unnamed, no longer `GEOMETRIC_SUPPORT / STANDARD_REVIEW`, or does not match the existing geometric review artifact.
+
+Routing:
+
+- `STANDARD_STRONG_REVIEW`: geoBoundaries distance <=100 m, OSM peak identity <=10 m, OSM peak has a name or Wikidata identity, and successful probes include both proposed countries.
+- `STANDARD_MANUAL_REVIEW`: any remaining named STANDARD_REVIEW candidate that does not satisfy the full strong contract.
+
+Outputs:
+
+- `data/border-peaks/global-review/geometric-support/named-standard/all.jsonl`
+- `strong.jsonl`
+- `manual.jsonl`
+- `summary.json`
+
+This stage creates no human decisions. No SQL is generated or applied and no database write is performed.
