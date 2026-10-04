@@ -81,7 +81,8 @@
     "border-peaks:list-geometric-batch": "node --experimental-strip-types scripts/border-peaks/list-geometric-support-batch.ts",
     "border-peaks:record-geometric-batch-approval": "node --experimental-strip-types scripts/border-peaks/record-geometric-support-batch-approval.ts",
     "border-peaks:record-all-high-confidence-geo": "node --experimental-strip-types scripts/border-peaks/record-all-high-confidence-geo-approvals.ts",
-    "border-peaks:reject-unnamed-standard-geo": "node --experimental-strip-types scripts/border-peaks/reject-unnamed-standard-geo-candidates.ts"
+    "border-peaks:reject-unnamed-standard-geo": "node --experimental-strip-types scripts/border-peaks/reject-unnamed-standard-geo-candidates.ts",
+    "border-peaks:prepare-named-standard-geo": "node --experimental-strip-types scripts/border-peaks/prepare-named-standard-geo-review.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
