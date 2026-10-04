@@ -92,7 +92,7 @@ function evidenceRank(status: VerificationStatus): number {
 function main(): void {
   const candidatesPath = arg(
     "--candidates",
-    "data/border-peaks/global-run/candidates.jsonl",
+    "data/border-peaks/global-run-v2/candidates.jsonl",
   );
   const tier1Path = arg(
     "--tier1",
@@ -128,10 +128,18 @@ function main(): void {
       label: "tier2c-errors",
       path: "data/border-peaks/global-verification/osm-evidence-tier2c-errors.jsonl",
     },
+    {
+      label: "v2-delta-probe",
+      path: "data/border-peaks/global-verification/osm-evidence-v2-delta-probe.jsonl",
+    },
   ];
 
   const candidates = readJsonl<BorderCandidate>(candidatesPath);
   const tier1Rows = readJsonl<VerificationRow>(tier1Path);
+  const tier1DeltaRows = readJsonl<VerificationRow>(
+    "data/border-peaks/global-verification/osm-evidence-v2-delta.jsonl",
+    false,
+  );
   const deferredRows = readJsonl<BorderCandidate>(deferredPath, false);
 
   const candidateByHash = new Map<string, BorderCandidate>();
@@ -144,7 +152,7 @@ function main(): void {
   }
 
   const latestTier1 = new Map<string, VerificationRow>();
-  for (const row of tier1Rows) {
+  for (const row of [...tier1Rows, ...tier1DeltaRows]) {
     latestTier1.set(row.candidate_hash, row);
   }
 
@@ -291,7 +299,11 @@ function main(): void {
     strong_machine_evidence_unique_mountains: new Set(
       strongRows.map((row) => row.mountain_id),
     ).size,
-    tier1_rows: tier1Rows.length,
+    tier1_rows: tier1Rows.length + tier1DeltaRows.length,
+    tier1_source_rows: {
+      baseline: tier1Rows.length,
+      v2_delta: tier1DeltaRows.length,
+    },
     probe_source_rows: sourceStats,
     deferred_manifest_rows: deferredRows.length,
     multi_country_mountains: multiCountryMountains,
