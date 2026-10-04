@@ -370,3 +370,23 @@ npm run border-peaks:validate-third-source-evidence
 The validator fails closed when candidate hash/identity does not match the current investigation queue, when required metadata is incomplete, or when OSM/Overpass/geoBoundaries is supplied as the supposed third source. Empty template rows remain pending and are allowed.
 
 A `SUPPORTS` finding is still evidence only. It never becomes `APPROVE` automatically and is not accepted by the SQL exporter as a human decision manifest.
+
+
+## 14. Record the three critical third-source cases
+
+After creating the hash-bound evidence template, record the researched critical cases:
+
+```powershell
+npm run border-peaks:record-critical-third-source
+npm run border-peaks:validate-third-source-evidence
+```
+
+The command updates exactly three current evidence rows and refuses to overwrite any row that already contains evidence:
+
+- mountain 11763, ME -> XK: `SUPPORTS`
+- mountain 11763, ME -> AL: `SUPPORTS`
+- mountain 331893, UG -> CD: `AMBIGUOUS`
+
+The two Tromeđa findings use an official Montenegro ministry report that describes Tromeđa at 2,366 m as one summit involving Kosovo, Montenegro and Albania. The Mount Sabyinyo finding uses an official Uganda Wildlife Authority publication that states the Sabinyo summit is a three-country summit but does not explicitly bind that statement to the database label "3rd Peak"; therefore it remains `AMBIGUOUS`.
+
+These entries are evidence only. They do not create a human `APPROVE` decision and do not generate or apply SQL.
