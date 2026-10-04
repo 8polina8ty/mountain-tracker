@@ -82,3 +82,6 @@ date/boundaries/*.geojson
 /data/border-peaks/mountains-global.jsonl
 /data/border-peaks/existing-memberships-global.jsonl
 /data/border-peaks/global-verification/
+
+# local global border-peak review/evidence/decision artifacts
+/data/border-peaks/global-review/
