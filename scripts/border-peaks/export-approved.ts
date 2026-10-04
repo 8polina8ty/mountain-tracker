@@ -238,8 +238,8 @@ function fileSha256(path: string): string {
   return createHash("sha256").update(readFileSync(path)).digest("hex");
 }
 
-function assertSha256(value: string, label: string): void {
-  if (!/^[a-f0-9]{64}$/.test(value)) {
+function assertSha256(value: string | undefined, label: string): asserts value is string {
+  if (!value || !/^[a-f0-9]{64}$/.test(value)) {
     throw new Error(`Preflight is missing a valid SHA-256 for ${label}`);
   }
 }
@@ -585,7 +585,7 @@ begin
       select 1
       from public.mountains m
       where m.id = expected.id
-        and m.name is not distinct from expected.name
+        and coalesce(m.name_de, m.name) is not distinct from expected.name
         and m.height is not distinct from expected.height
         and m.country_code is not distinct from expected.primary_country_code
     ) then
@@ -801,6 +801,11 @@ export function runExport(paths: Paths = resolvePaths()): void {
     ) {
       throw new Error(
         `Invalid mountain_id ${candidate.mountain_id} for ${row.candidate_hash.slice(0, 12)}…`,
+      );
+    }
+    if (candidate.height != null && !Number.isFinite(candidate.height)) {
+      throw new Error(
+        `Invalid mountain height for ${row.candidate_hash.slice(0, 12)}…`,
       );
     }
     if (!candidate.boundary_source || !candidate.boundary_source_id) {
