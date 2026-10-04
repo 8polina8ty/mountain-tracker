@@ -390,3 +390,28 @@ The command updates exactly three current evidence rows and refuses to overwrite
 The two Tromeđa findings use an official Montenegro ministry report that describes Tromeđa at 2,366 m as one summit involving Kosovo, Montenegro and Albania. The Mount Sabyinyo finding uses an official Uganda Wildlife Authority publication that states the Sabinyo summit is a three-country summit but does not explicitly bind that statement to the database label "3rd Peak"; therefore it remains `AMBIGUOUS`.
 
 These entries are evidence only. They do not create a human `APPROVE` decision and do not generate or apply SQL.
+
+
+## 15. Record the eight high-priority third-source cases
+
+After the three critical rows are recorded and validated, record the eight current high-priority rows (priority 60-99):
+
+```powershell
+npm run border-peaks:record-high-third-source
+npm run border-peaks:validate-third-source-evidence
+```
+
+The command is fail-closed and refuses to overwrite existing non-null evidence. Current researched findings:
+
+- 112439 Grześ / Lúčna, SK -> PL: `SUPPORTS`
+- 31117 Šoputov vrh, HR -> BA: `SUPPORTS`
+- 69325 Piz Chavalatsch, CH -> IT: `SUPPORTS`
+- 62580 Чанчахи, RU -> GE: `AMBIGUOUS`
+- 62098 Цузун-Корт, RU -> GE: `AMBIGUOUS`
+- 61379 unnamed summit, RU -> GE: `AMBIGUOUS`
+- 319701 Сапожников, KG -> KZ: `AMBIGUOUS`
+- 12809 Östlicher Fineilkopf, IT -> AT: `AMBIGUOUS`
+
+A `SUPPORTS` finding is recorded only where the independent source specifically places the named summit on the relevant state-border context. `AMBIGUOUS` is used where an independent source establishes identity or regional/ridge context but does not prove the exact summit point belongs to both countries.
+
+These findings remain evidence only and do not create human `APPROVE` decisions or SQL.
