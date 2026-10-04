@@ -50,6 +50,7 @@ type Phase2Row = DeferredRow & {
   candidate_hash: string;
   phase2_rank: number;
   phase2_bucket: "P1" | "P2" | "P3";
+  phase2_priority_source: "TIER2C_ENRICHMENT" | "REGISTRY_FALLBACK";
   phase2_batch_id: string;
   phase2_action: "OSM_PROBE";
 };
@@ -90,7 +91,12 @@ function peakDistance(row: DeferredRow): number {
   return row.tier1_peak_distance_meters ?? Number.POSITIVE_INFINITY;
 }
 
+function hasTier2cEnrichment(row: DeferredRow): boolean {
+  return row.tier2_priority != null || row.tier2_reasons != null || row.tier2b_reason != null;
+}
+
 function bucket(row: DeferredRow): "P1" | "P2" | "P3" {
+  if (!hasTier2cEnrichment(row)) return "P3";
   const p = priority(row);
   if (
     p >= 60 ||
@@ -141,12 +147,12 @@ function main(): void {
   );
   const batchTarget = intArg("--batch-target", 200, 1);
 
-  const deferred = readJsonl<DeferredRow>(deferredPath);
+  const tier2cDeferred = readJsonl<DeferredRow>(deferredPath);
   const registry = readJsonl<RegistryRow>(registryPath);
   const coverageGaps = readJsonl<CoverageGapRow>(coverageGapPath);
 
-  if (deferred.length !== 2477) {
-    throw new Error(`Expected exactly 2477 Tier2C deferred rows, found ${deferred.length}`);
+  if (tier2cDeferred.length !== 1171) {
+    throw new Error(`Expected exactly 1171 Tier2C deferred enrichment rows, found ${tier2cDeferred.length}`);
   }
   if (registry.length !== 3887) {
     throw new Error(`Expected exactly 3887 registry rows, found ${registry.length}`);
@@ -169,40 +175,55 @@ function main(): void {
     throw new Error("Duplicate candidate_hash in final machine registry");
   }
 
-  const seen = new Set<string>();
-  for (const row of deferred) {
+  const tier2cByHash = new Map<string, DeferredRow>();
+  for (const row of tier2cDeferred) {
     const hash = candidateFingerprint(row);
-    if (seen.has(hash)) throw new Error(`Duplicate deferred candidate hash ${hash}`);
-    seen.add(hash);
-
+    if (tier2cByHash.has(hash)) {
+      throw new Error(`Duplicate Tier2C deferred candidate hash ${hash}`);
+    }
     const registryRow = registryByHash.get(hash);
     if (!registryRow) {
-      throw new Error(`Deferred row missing from registry: ${hash.slice(0, 12)}…`);
+      throw new Error(`Tier2C deferred row missing from registry: ${hash.slice(0, 12)}…`);
     }
     if (registryRow.final_machine_status !== "DEFERRED_LOW_PRIORITY") {
       throw new Error(
-        `Deferred row has registry status ${registryRow.final_machine_status}: ${hash.slice(0, 12)}…`,
-      );
-    }
-    if (registryRow.has_successful_probe_evidence) {
-      throw new Error(
-        `Deferred row unexpectedly has successful probe evidence: ${hash.slice(0, 12)}…`,
+        `Tier2C deferred row has registry status ${registryRow.final_machine_status}: ${hash.slice(0, 12)}…`,
       );
     }
     if (row.tier2b_reason && row.tier2b_reason !== "NO_TIER2_RESULT") {
       throw new Error(
-        `Deferred row is not a clean NO_TIER2_RESULT candidate: ${hash.slice(0, 12)}…`,
+        `Tier2C deferred row is not a clean NO_TIER2_RESULT candidate: ${hash.slice(0, 12)}…`,
       );
     }
+    tier2cByHash.set(hash, row);
   }
 
-  const deferredHashes = new Set(deferred.map((row) => candidateFingerprint(row)));
-  const registryHashes = new Set(registryDeferred.map((row) => row.candidate_hash));
-  if (
-    deferredHashes.size !== registryHashes.size ||
-    [...deferredHashes].some((hash) => !registryHashes.has(hash))
-  ) {
-    throw new Error("Tier2C deferred and registry DEFERRED_LOW_PRIORITY sets differ");
+  const deferred: DeferredRow[] = registryDeferred.map((registryRow) => {
+    if (registryRow.has_successful_probe_evidence) {
+      throw new Error(
+        `Deferred registry row unexpectedly has successful probe evidence: ${registryRow.candidate_hash.slice(0, 12)}…`,
+      );
+    }
+    const enrichment = tier2cByHash.get(registryRow.candidate_hash);
+    if (!enrichment) return { ...registryRow };
+
+    return {
+      ...registryRow,
+      tier2_priority: enrichment.tier2_priority,
+      tier2_reasons: enrichment.tier2_reasons,
+      tier1_primary_contained: enrichment.tier1_primary_contained,
+      tier1_peak_distance_meters: enrichment.tier1_peak_distance_meters,
+      tier1_peak_wikidata: enrichment.tier1_peak_wikidata,
+      tier1_multi_country_candidate: enrichment.tier1_multi_country_candidate,
+      tier2b_action: enrichment.tier2b_action,
+      tier2b_reason: enrichment.tier2b_reason,
+      tier2_last_status: enrichment.tier2_last_status,
+    };
+  });
+
+  const enrichedCount = deferred.filter(hasTier2cEnrichment).length;
+  if (enrichedCount !== 1171) {
+    throw new Error(`Expected 1171 enriched Phase 2 rows, found ${enrichedCount}`);
   }
 
   const byMountain = new Map<number, DeferredRow[]>();
@@ -212,7 +233,9 @@ function main(): void {
     byMountain.set(row.mountain_id, group);
   }
 
-  const groups = [...byMountain.values()].sort((a, b) => compare(a[0], b[0]));
+  const groups = [...byMountain.values()]
+    .map((rows) => rows.sort(compare))
+    .sort((a, b) => compare(a[0], b[0]));
 
   const batches: DeferredRow[][] = [];
   let current: DeferredRow[] = [];
@@ -254,6 +277,9 @@ function main(): void {
         candidate_hash: candidateFingerprint(row),
         phase2_rank: rank,
         phase2_bucket: bucket(row),
+        phase2_priority_source: hasTier2cEnrichment(row)
+          ? "TIER2C_ENRICHMENT"
+          : "REGISTRY_FALLBACK",
         phase2_batch_id: batchId,
         phase2_action: "OSM_PROBE",
       };
@@ -321,6 +347,8 @@ function main(): void {
     phase: "BORDER_PEAKS_PHASE_2",
     deferred_rows: allRows.length,
     deferred_unique_mountains: byMountain.size,
+    tier2c_enrichment_rows: allRows.filter((row) => row.phase2_priority_source === "TIER2C_ENRICHMENT").length,
+    registry_fallback_rows: allRows.filter((row) => row.phase2_priority_source === "REGISTRY_FALLBACK").length,
     bucket_counts: {
       P1: p1.length,
       P2: p2.length,
@@ -348,7 +376,7 @@ function main(): void {
       summary: join(outputDir, "summary.json"),
     },
     safety:
-      "Read-only Phase 2 preparation. No candidate is approved or rejected. Every mountain_id group stays in one batch. Source-gap mountains remain a separate backlog until missing ADM0 boundary coverage is obtained. No SQL is generated and no database write is performed.",
+      "Read-only Phase 2 preparation. The 2477-row final registry is the source of truth; the 1171-row Tier2C deferred file is enrichment only. No candidate is approved or rejected. Every mountain_id group stays in one batch. Source-gap mountains remain a separate backlog until missing ADM0 boundary coverage is obtained. No SQL is generated and no database write is performed.",
   };
 
   writeFileSync(join(outputDir, "summary.json"), JSON.stringify(summary, null, 2));
