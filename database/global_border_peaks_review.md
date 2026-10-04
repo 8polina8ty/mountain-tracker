@@ -631,3 +631,29 @@ The recorder is fail-closed:
 - only Fineilkopf is changed to `APPROVE`;
 - the remaining 11 unresolved rows stay pending;
 - no SQL is generated or applied.
+
+
+## 25. Explicit human override for the final 11 ambiguous cases
+
+The human reviewer explicitly confirmed all 11 remaining pending `AMBIGUOUS` candidates.
+
+Do not rewrite their evidence findings to `SUPPORTS`. Instead record the human decision as an auditable override:
+
+```powershell
+npm run border-peaks:record-ambiguous-overrides
+npm run border-peaks:validate-review-decisions
+```
+
+The recorder is fail-closed:
+
+- the decision file must contain exactly 38 rows;
+- there must be exactly 11 pending rows;
+- every pending row must still be `AMBIGUOUS`;
+- no pending row may already contain reviewer metadata;
+- every selected row receives `decision: APPROVE`;
+- every selected row receives `approval_basis: EXPLICIT_HUMAN_OVERRIDE`;
+- review notes explicitly preserve that third-source evidence remains ambiguous/insufficient;
+- evidence rows are not changed;
+- no SQL is generated or applied.
+
+The decision validator permits `APPROVE` on an `AMBIGUOUS` row only when the explicit override marker is present and the review notes acknowledge the ambiguity. Evidence-supported approvals must not carry an override marker.
