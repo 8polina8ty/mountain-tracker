@@ -264,3 +264,24 @@ Outputs:
 The registry keeps one row per immutable candidate hash and records Tier 1 status, best/latest probe status, probe provenance, deferred state, and the mandatory `requires_human_approval: true` flag.
 
 Important: the consolidated registry is not an approval manifest and does not generate or apply SQL. Existing hash-bound human review remains mandatory before any production membership export.
+
+
+## 10. Human review pack
+
+After the v2 registry is consolidated, generate deterministic read-only review queues:
+
+```powershell
+npm run border-peaks:prepare-review-pack
+```
+
+Outputs:
+
+- `data/border-peaks/global-review/strong-human-review.jsonl` — only `TIER1_VERIFIED` and `GEOMETRIC_SUPPORT` candidates. Decision fields are intentionally null.
+- `data/border-peaks/global-review/needs-third-source.jsonl` — `NEEDS_THIRD_SOURCE` candidates that require a different independent source or manual investigation.
+- `data/border-peaks/global-review/technical-errors.jsonl` — `TECHNICAL_ERROR` candidates only; these may be retried separately without touching resolved candidates.
+- `data/border-peaks/global-review/coverage-gap-mountains.jsonl` — database mountains whose primary country is present in the discovery ADM0 coverage-gap list.
+- `data/border-peaks/global-review/review-pack-summary.json` — counts and output paths.
+
+The strong queue is not an approval manifest. Fields `decision`, `evidence_url`, `evidence_type`, `evidence_notes`, `reviewed_by`, and `reviewed_at` remain null. A separate hash-bound human decision manifest is still mandatory before SQL export.
+
+Coverage-gap rows are not border candidates; they are a backlog showing which mountain records could not receive complete ADM0 discovery coverage because the required country boundary source was unavailable.
