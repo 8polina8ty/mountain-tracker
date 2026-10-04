@@ -611,3 +611,23 @@ The pending ambiguous listing command no longer assumes a historical fixed count
 ```powershell
 npm run border-peaks:list-pending-ambiguous -- --expected 11
 ```
+
+
+## 24. Record explicit Fineilkopf approval
+
+After the human reviewer explicitly approves Östlicher Fineilkopf IT -> AT, record exactly that decision:
+
+```powershell
+npm run border-peaks:record-fineilkopf-approval
+npm run border-peaks:validate-review-decisions
+```
+
+The recorder is fail-closed:
+
+- the current decision file must contain 38 rows;
+- Fineilkopf IT -> AT must still be `SUPPORTS`;
+- Fineilkopf must still be pending with no reviewer metadata;
+- there must be exactly 12 pending rows before the approval;
+- only Fineilkopf is changed to `APPROVE`;
+- the remaining 11 unresolved rows stay pending;
+- no SQL is generated or applied.
