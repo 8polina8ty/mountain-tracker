@@ -61,7 +61,8 @@
     "border-peaks:prepare-review-decisions": "node --experimental-strip-types scripts/border-peaks/prepare-third-source-review-decisions.ts",
     "border-peaks:validate-review-decisions": "node --experimental-strip-types scripts/border-peaks/validate-third-source-review-decisions.ts",
     "border-peaks:record-approved-supported": "node --experimental-strip-types scripts/border-peaks/record-approved-supported-review-decisions.ts",
-    "border-peaks:record-rejected-unsupported": "node --experimental-strip-types scripts/border-peaks/record-rejected-unsupported-review-decisions.ts"
+    "border-peaks:record-rejected-unsupported": "node --experimental-strip-types scripts/border-peaks/record-rejected-unsupported-review-decisions.ts",
+    "border-peaks:list-pending-ambiguous": "node --experimental-strip-types scripts/border-peaks/list-pending-ambiguous-review.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
