@@ -984,3 +984,28 @@ The command requires:
 The output includes mountain identity, country pair, coordinates, elevation, boundary distance, evidence source, center/probe country codes, OSM peak distance/name/Wikidata, and the reasons why each row failed the STANDARD_STRONG_REVIEW contract.
 
 This command is read-only. It creates no human decisions, SQL, or database writes.
+
+
+## 37. Final third-source pass for the last 9 STANDARD_MANUAL_REVIEW rows
+
+The original 38-row third-source evidence/history is complete and must not be reused or overwritten. The final nine STANDARD_MANUAL_REVIEW rows use a separate namespace:
+
+```powershell
+npm run border-peaks:prepare-final-manual-third-source
+npm run border-peaks:record-final-manual-third-source-resolved
+npm run border-peaks:validate-final-manual-third-source
+```
+
+Outputs:
+
+- `data/border-peaks/global-review/final-manual-third-source-investigation.jsonl`
+- `data/border-peaks/global-review/final-manual-third-source-evidence.jsonl`
+
+Preparation requires exactly nine pending strong decisions and exactly nine rows in the named-standard manual queue. The evidence template is created only when absent; if it already exists it is preserved and never overwritten.
+
+The first resolved evidence pass records only two independently supported cases:
+
+- Pic de Cataperdís, FR -> AD: `SUPPORTS`, using official Govern d'Andorra material that describes the route reaching Pic de Cataperdís and continuing along the French border.
+- Monte Binga, ZW -> MZ: `SUPPORTS`, using the official Mozambique tourism geography statement that Monte Binga is located on the country's border with Zimbabwe.
+
+The other seven rows remain null/pending until an independent third source is found. Findings remain evidence only and do not create human APPROVE/REJECT decisions. No SQL is generated or applied and no database write is performed.
