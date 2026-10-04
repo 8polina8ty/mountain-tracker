@@ -1036,3 +1036,37 @@ The recorder is fail-closed:
 - no SQL is generated or applied and no database write is performed.
 
 The strong-decision validator now accepts explicit override metadata only for `APPROVE` rows and requires notes to acknowledge unresolved/insufficient evidence.
+
+
+## 39. Approve the final two independently supported manual peaks
+
+The human reviewer explicitly confirmed both remaining pending rows after independent third-source evidence returned `SUPPORTS`.
+
+Record exactly those two approvals with:
+
+```powershell
+npm run border-peaks:record-final-two-supported
+npm run border-peaks:validate-strong-decisions
+```
+
+Expected precondition:
+
+- 1,372 strong decision rows;
+- exactly 2 pending rows;
+- exactly 1,318 APPROVE rows;
+- exactly 52 REJECT rows;
+- both pending hashes must be the two final-manual evidence rows with `finding: SUPPORTS`;
+- each SUPPORTS row must have complete evidence metadata and match the manual queue and decision identity;
+- reviewer metadata must still be null.
+
+The recorder changes only those two rows to `APPROVE`. It does not use `EXPLICIT_HUMAN_OVERRIDE`; `approval_basis` remains null because independent evidence supports both candidates.
+
+Expected final strong decision state:
+
+- 1,372 completed rows;
+- 0 pending rows;
+- 1,320 APPROVE rows;
+- 52 REJECT rows;
+- `export_ready: true` from the structural strong-decision validator.
+
+This closes the strong human decision layer only. SQL export remains blocked until the separate hardened export preflight is completed. No SQL is generated or applied and no database write is performed.
