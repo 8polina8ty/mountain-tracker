@@ -90,7 +90,7 @@ function timestamp(value: string): number {
 }
 
 function main(): void {
-  const batchId = arg("--batch-id", batchId);
+  const batchId = arg("--batch-id", "phase2-001");
   if (!/^phase2-\\d{3}$/.test(batchId)) {
     throw new Error("--batch-id must match phase2-NNN");
   }
