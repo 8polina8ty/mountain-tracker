@@ -68,7 +68,9 @@
     "border-peaks:record-resolved-ambiguous": "node --experimental-strip-types scripts/border-peaks/record-resolved-ambiguous-review-decisions.ts",
     "border-peaks:upgrade-ambiguous-third-source-pass2": "node --experimental-strip-types scripts/border-peaks/upgrade-ambiguous-third-source-evidence-pass2.ts",
     "border-peaks:record-fineilkopf-approval": "node --experimental-strip-types scripts/border-peaks/record-fineilkopf-review-decision.ts",
-    "border-peaks:record-ambiguous-overrides": "node --experimental-strip-types scripts/border-peaks/record-explicit-ambiguous-overrides.ts"
+    "border-peaks:record-ambiguous-overrides": "node --experimental-strip-types scripts/border-peaks/record-explicit-ambiguous-overrides.ts",
+    "border-peaks:prepare-strong-batches": "node --experimental-strip-types scripts/border-peaks/prepare-strong-review-batches.ts",
+    "border-peaks:list-strong-batch": "node --experimental-strip-types scripts/border-peaks/list-strong-review-batch.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
