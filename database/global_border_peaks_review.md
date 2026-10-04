@@ -962,3 +962,25 @@ The recorder revalidates each strong row against both the named-standard all.jso
 - pending decision with no reviewer metadata.
 
 Only those 88 rows are changed to `APPROVE`. The 9 STANDARD_MANUAL_REVIEW rows remain pending. No SQL is generated or applied and no database write is performed.
+
+
+## 36. List the final 9 STANDARD_MANUAL_REVIEW candidates
+
+After the 88 STANDARD_STRONG_REVIEW candidates are approved, the strong decision layer should have exactly 9 pending rows.
+
+Display all nine remaining cases read-only with:
+
+```powershell
+npm run border-peaks:list-final-standard-manual
+```
+
+The command requires:
+
+- exactly 9 rows in the named-standard manual queue;
+- exactly 9 pending rows in the 1,372-row strong decision manifest;
+- every listed row must still be `STANDARD_MANUAL_REVIEW`;
+- every listed hash must still be pending.
+
+The output includes mountain identity, country pair, coordinates, elevation, boundary distance, evidence source, center/probe country codes, OSM peak distance/name/Wikidata, and the reasons why each row failed the STANDARD_STRONG_REVIEW contract.
+
+This command is read-only. It creates no human decisions, SQL, or database writes.
