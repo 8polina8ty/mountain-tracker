@@ -45,7 +45,8 @@
     "border-peaks:prepare-tier2": "node --experimental-strip-types scripts/border-peaks/prepare-tier2-queue.ts",
     "border-peaks:prepare-tier2b": "node --experimental-strip-types scripts/border-peaks/prepare-tier2b-queue.ts",
     "border-peaks:prepare-tier2c": "node --experimental-strip-types scripts/border-peaks/prepare-tier2c-queue.ts",
-    "border-peaks:consolidate-verification": "node --experimental-strip-types scripts/border-peaks/consolidate-global-verification.ts"
+    "border-peaks:consolidate-verification": "node --experimental-strip-types scripts/border-peaks/consolidate-global-verification.ts",
+    "border-peaks:diff-global-runs": "node --experimental-strip-types scripts/border-peaks/diff-global-runs.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
