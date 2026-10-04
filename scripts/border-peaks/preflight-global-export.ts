@@ -1,5 +1,6 @@
 #!/usr/bin/env ts-node
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname } from "node:path";
 import { candidateFingerprint } from "./export-approved.ts";
 import type { BorderCandidate } from "./types.ts";
@@ -84,6 +85,11 @@ function readJsonl<T>(path: string): T[] {
 function readJson<T>(path: string): T {
   if (!existsSync(path)) throw new Error(`Required file is missing: ${path}`);
   return JSON.parse(readFileSync(path, "utf8")) as T;
+}
+
+function fileSha256(path: string): string {
+  if (!existsSync(path)) throw new Error(`Required file is missing: ${path}`);
+  return createHash("sha256").update(readFileSync(path)).digest("hex");
 }
 
 function assertIso(value: string | null, label: string, hash: string): void {
@@ -515,6 +521,17 @@ function main(): void {
       existing_global_memberships: existing.length,
       strong_decisions: strongDecisions.length,
       third_source_decisions: thirdDecisions.length,
+    },
+    input_sha256: {
+      discovery_candidates: fileSha256(candidatesPath),
+      final_machine_registry: fileSha256(registryPath),
+      strong_queue: fileSha256(strongQueuePath),
+      strong_decisions: fileSha256(strongDecisionsPath),
+      third_source_queue: fileSha256(thirdQueuePath),
+      third_source_decisions: fileSha256(thirdDecisionsPath),
+      existing_global_memberships: fileSha256(existingPath),
+      discovery_summary: fileSha256(discoverySummaryPath),
+      coverage_gap_mountains: fileSha256(coverageGapPath),
     },
     registry_status_counts: statusCounts,
     decisions: {
