@@ -332,3 +332,41 @@ Outputs:
 The queue prioritizes multi-country/trifinio candidates first, then smaller geoBoundaries distance and useful existing OSM identity/context signals. The OSM and geoBoundaries sources already used by the pipeline do not count as the required third source.
 
 Preferred third-source evidence is an official national mapping, cadastral, border-commission, or government gazetteer source. A source that only identifies the summit without supporting the proposed country membership is insufficient. Disagreement between authoritative sources must remain a human-review case and must not be auto-approved.
+
+
+## 13. Hash-bound third-source evidence manifest
+
+Create a manifest template bound to the current investigation candidate hashes:
+
+```powershell
+npm run border-peaks:prepare-third-source-evidence
+```
+
+Output:
+
+- `data/border-peaks/global-review/third-source-evidence.jsonl`
+
+The template contains the immutable candidate identity and leaves all evidence fields null. Fill only investigated rows. Allowed findings are:
+
+- `SUPPORTS`
+- `DOES_NOT_SUPPORT`
+- `AMBIGUOUS`
+
+Allowed source types are:
+
+- `OFFICIAL_NATIONAL_MAPPING`
+- `CADASTRAL`
+- `BORDER_COMMISSION`
+- `GOVERNMENT_GAZETTEER`
+- `OFFICIAL_LEGAL_DOCUMENT`
+- `OTHER_AUTHORITATIVE`
+
+Validate the filled manifest:
+
+```powershell
+npm run border-peaks:validate-third-source-evidence
+```
+
+The validator fails closed when candidate hash/identity does not match the current investigation queue, when required metadata is incomplete, or when OSM/Overpass/geoBoundaries is supplied as the supposed third source. Empty template rows remain pending and are allowed.
+
+A `SUPPORTS` finding is still evidence only. It never becomes `APPROVE` automatically and is not accepted by the SQL exporter as a human decision manifest.
