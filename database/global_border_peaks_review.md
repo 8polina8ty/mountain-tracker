@@ -236,3 +236,31 @@ npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification
 ```
 
 Do not automatically process `tier2c-deferred.jsonl`. It is intentionally retained as a lower-priority backlog.
+
+
+## 9. Consolidated machine-evidence registry
+
+After Tier 1/Tier 2/Tier 2C work, consolidate every original discovery candidate into one deterministic registry:
+
+```powershell
+npm run border-peaks:consolidate-verification
+```
+
+The command reads all 3,875 discovery candidate rows plus any available Tier 2/Tier 2B/Tier 2C probe evidence files. Missing optional probe files are allowed.
+
+Final machine statuses:
+
+- `TIER1_VERIFIED` — Tier 1 exact summit containment independently supports both countries.
+- `GEOMETRIC_SUPPORT` — at least one probe pass produced VERIFIED or GEOMETRIC_SUPPORT evidence.
+- `NEEDS_THIRD_SOURCE` — probe evidence remains INSUFFICIENT/CONFLICT and should not be repeated through the same method.
+- `TECHNICAL_ERROR` — no stronger probe evidence exists and the latest applicable evidence is an ERROR.
+- `DEFERRED_LOW_PRIORITY` — no decisive Tier 2 evidence was collected; retained without further automatic probing.
+
+Outputs:
+
+- `data/border-peaks/global-verification/final-machine-registry.jsonl`
+- `data/border-peaks/global-verification/final-machine-summary.json`
+
+The registry keeps one row per immutable candidate hash and records Tier 1 status, best/latest probe status, probe provenance, deferred state, and the mandatory `requires_human_approval: true` flag.
+
+Important: the consolidated registry is not an approval manifest and does not generate or apply SQL. Existing hash-bound human review remains mandatory before any production membership export.
