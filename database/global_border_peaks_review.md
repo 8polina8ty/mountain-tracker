@@ -1256,3 +1256,40 @@ npm run border-peaks:verify-osm -- --input data/border-peaks/phase2/batches/phas
 Do not process all batches blindly. Inspect error/INSUFFICIENT/GEOMETRIC_SUPPORT rates after the first batch and adjust the next step from observed evidence.
 
 Phase 2 preparation creates no human decisions, no SQL, and performs no database writes.
+
+
+## 44. Phase 2 batch evidence triage
+
+After a Phase 2 batch has been probed and any transient `ERROR` rows retried with `--resume`, consolidate that batch independently from the already closed production batch.
+
+For `phase2-001`:
+
+```powershell
+npm run border-peaks:triage-phase2-batch
+```
+
+The triager is fail-closed:
+
+- requires exactly 200 rows in `phase2-001`;
+- recomputes and validates every candidate hash;
+- rejects evidence rows that do not belong to the batch or whose identity fields drift;
+- allows retry history in the append-only evidence file;
+- selects the latest `PROBE` row by `queried_at` for each candidate hash;
+- requires latest evidence for all 200 candidates;
+- a latest `VERIFIED` or `GEOMETRIC_SUPPORT` result must include both proposed country codes in probe evidence before it can enter the successful-geometric queue.
+
+Outputs:
+
+- `data/border-peaks/phase2/triage/phase2-001/all.jsonl`
+- `successful-geometric.jsonl`
+- `needs-third-source-or-manual.jsonl`
+- `technical-unresolved.jsonl`
+- `summary.json`
+
+Routing semantics:
+
+- latest `VERIFIED` / `GEOMETRIC_SUPPORT` -> `HUMAN_REVIEW_GEOMETRIC_SUPPORT`;
+- latest `INSUFFICIENT` / `CONFLICT` -> `THIRD_SOURCE_OR_MANUAL_REVIEW`;
+- latest `ERROR` -> `RETRY_TECHNICAL`.
+
+The triage does not approve candidates. It produces no SQL and performs no database writes.
