@@ -826,3 +826,26 @@ npm run border-peaks:list-geometric-batch -- --batch 1
 ```
 
 The listing is read-only and shows the evidence needed for human review. No SQL is generated or applied and no database write is performed.
+
+
+## 31. Record explicit approval of one HIGH_CONFIDENCE geo batch
+
+After a human reviewer explicitly approves a displayed `HIGH_CONFIDENCE_REVIEW` batch, record exactly that batch:
+
+```powershell
+npm run border-peaks:record-geometric-batch-approval -- --batch 1
+npm run border-peaks:validate-strong-decisions
+```
+
+The recorder is fail-closed and revalidates every target row before writing:
+
+- the batch id must match the requested `geo-NNN`;
+- every row must still be `GEOMETRIC_SUPPORT` and `HIGH_CONFIDENCE_REVIEW`;
+- geoBoundaries distance must be <=30 m;
+- nearest OSM peak identity must be <=10 m and have a name or Wikidata identity;
+- probe status must be successful and the probe country codes must include both the primary and candidate countries;
+- immutable candidate identity fields must match the current 1,372-row strong decision manifest;
+- every target decision must still be pending with no reviewer metadata;
+- only the explicitly requested batch is changed to `APPROVE`;
+- the underlying machine status remains `GEOMETRIC_SUPPORT`; approval does not rewrite evidence to TIER1;
+- no SQL is generated or applied and no database write is performed.
