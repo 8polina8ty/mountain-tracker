@@ -734,3 +734,25 @@ The batch recorder is fail-closed:
 - no SQL is generated or applied.
 
 `GEOMETRIC_SUPPORT` batches are intentionally not eligible for this bulk-approval recorder and require a separate review policy.
+
+
+## 28. Mass-approve all remaining TIER1-only strong batches
+
+After explicit human approval to process all remaining strong batches together, use:
+
+```powershell
+npm run border-peaks:record-all-tier1-batches
+npm run border-peaks:validate-strong-decisions
+```
+
+The mass recorder scans every `strong-NNN.jsonl` batch and:
+
+- validates candidate hash and identity against the current 1,372-row decision template;
+- refuses partially decided batches;
+- approves only pending batches composed entirely of `TIER1_VERIFIED / EXACT_SUMMIT_CONTAINMENT`;
+- leaves any batch containing `GEOMETRIC_SUPPORT / PROBE_GEOMETRIC_SUPPORT` pending;
+- preserves previously completed batches;
+- reports approved batch IDs and skipped batches with reasons;
+- performs no SQL generation and no database writes.
+
+This command is intentionally not a blanket approval of all 1,372 strong rows. The weaker `GEOMETRIC_SUPPORT` subset remains a separate human-review stage.
