@@ -1,5 +1,6 @@
 #!/usr/bin/env ts-node
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname } from "node:path";
 
 type FinalMachineStatus =
   | "TIER1_VERIFIED"
@@ -90,7 +91,12 @@ function readJsonl<T>(path: string): T[] {
     : [];
 }
 
+function ensureParent(path: string): void {
+  mkdirSync(dirname(path), { recursive: true });
+}
+
 function writeJsonl(path: string, rows: unknown[]): void {
+  ensureParent(path);
   writeFileSync(
     path,
     rows.length ? `${rows.map((row) => JSON.stringify(row)).join("\n")}\n` : "",
@@ -289,6 +295,7 @@ function main(): void {
       "Review pack generation is read-only. decision/evidence/reviewer fields remain null. Machine evidence never becomes APPROVE automatically, and no SQL is generated or applied.",
   };
 
+  ensureParent(summaryOutput);
   writeFileSync(summaryOutput, JSON.stringify(summary, null, 2));
   process.stdout.write(`${JSON.stringify(summary, null, 2)}\n`);
 }
