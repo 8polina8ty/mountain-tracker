@@ -285,3 +285,32 @@ Outputs:
 The strong queue is not an approval manifest. Fields `decision`, `evidence_url`, `evidence_type`, `evidence_notes`, `reviewed_by`, and `reviewed_at` remain null. A separate hash-bound human decision manifest is still mandatory before SQL export.
 
 Coverage-gap rows are not border candidates; they are a backlog showing which mountain records could not receive complete ADM0 discovery coverage because the required country boundary source was unavailable.
+
+
+## 11. Technical-error retry split
+
+After generating the review pack, split only the current `TECHNICAL_ERROR` rows by the evidence mode that failed:
+
+```powershell
+npm run border-peaks:prepare-technical-retries
+```
+
+Outputs:
+
+- `technical-center-retry.jsonl` — candidates whose unresolved technical failure is a CENTER request.
+- `technical-probe-retry.jsonl` — candidates whose latest unresolved technical failure is a PROBE request.
+- `technical-retry-summary.json` — counts and safety metadata.
+
+Retry CENTER rows without `--probe`:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/technical-center-retry.jsonl --output data/border-peaks/global-verification/osm-evidence-technical-center.jsonl --limit 0 --concurrency 2
+```
+
+Retry PROBE rows with `--probe`:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification/technical-probe-retry.jsonl --output data/border-peaks/global-verification/osm-evidence-technical-probe.jsonl --limit 0 --probe --concurrency 2
+```
+
+Then rerun `npm run border-peaks:consolidate-verification` and regenerate the review pack. The consolidator reads retry evidence separately and only CENTER rows can replace Tier 1 CENTER evidence.
