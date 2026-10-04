@@ -1070,3 +1070,49 @@ Expected final strong decision state:
 - `export_ready: true` from the structural strong-decision validator.
 
 This closes the strong human decision layer only. SQL export remains blocked until the separate hardened export preflight is completed. No SQL is generated or applied and no database write is performed.
+
+
+## 40. Hardened global export preflight
+
+After both human decision layers are structurally complete, run a read-only preflight before any SQL generation:
+
+```powershell
+npm run border-peaks:preflight-global-export
+```
+
+The preflight binds and validates the complete global review chain:
+
+- `data/border-peaks/global-run-v2/candidates.jsonl` — exactly 3,887 discovery candidates;
+- `data/border-peaks/global-verification/final-machine-registry.jsonl` — exact hash-bound registry coverage;
+- 1,372 strong human decisions — exactly 1,320 APPROVE and 52 REJECT;
+- 38 third-source decisions — exactly 30 APPROVE and 8 REJECT;
+- `data/border-peaks/existing-memberships-global.jsonl` — exactly 364,495 baseline membership rows;
+- 2,477 `DEFERRED_LOW_PRIORITY` candidates remain outside the export set;
+- 0 `TECHNICAL_ERROR` rows.
+
+Fail-closed checks include:
+
+- recomputing every discovery candidate hash with the same `candidateFingerprint` used by the verification pipeline;
+- exact registry/discovery identity binding;
+- exact queue/decision/registry binding for strong and third-source layers;
+- explicit human override semantics and uncertainty-preserving notes;
+- no `DOES_NOT_SUPPORT` approval;
+- no duplicate approved `(mountain_id, country_code)` pair;
+- no approved pair already present in the global baseline memberships;
+- no deferred candidate leaking into reviewed decision layers;
+- complete accounting over all 3,887 candidates.
+
+Expected reviewed totals:
+
+- 1,350 approved new memberships;
+- 60 rejected memberships;
+- 2,477 deferred/unreviewed memberships;
+- total = 3,887.
+
+The report is written to:
+
+`data/border-peaks/global-review/export-preflight.json`
+
+A successful report may set `ready_for_sql_generation: true`, but it also explicitly records that global discovery is not fully exhaustive: the pinned ADM0 source set still has 19 missing country/territory codes and 78 database mountains fall in those source-gap countries.
+
+This command generates no SQL and performs no database write. The existing legacy `export-approved.ts` remains unauthorized for the global export until it is separately hardened to use the validated global inputs fail-closed.
