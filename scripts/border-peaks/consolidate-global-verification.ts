@@ -132,12 +132,20 @@ function main(): void {
       label: "v2-delta-probe",
       path: "data/border-peaks/global-verification/osm-evidence-v2-delta-probe.jsonl",
     },
+    {
+      label: "technical-probe-retry",
+      path: "data/border-peaks/global-verification/osm-evidence-technical-probe.jsonl",
+    },
   ];
 
   const candidates = readJsonl<BorderCandidate>(candidatesPath);
   const tier1Rows = readJsonl<VerificationRow>(tier1Path);
   const tier1DeltaRows = readJsonl<VerificationRow>(
     "data/border-peaks/global-verification/osm-evidence-v2-delta.jsonl",
+    false,
+  );
+  const tier1TechnicalRetryRows = readJsonl<VerificationRow>(
+    "data/border-peaks/global-verification/osm-evidence-technical-center.jsonl",
     false,
   );
   const deferredRows = readJsonl<BorderCandidate>(deferredPath, false);
@@ -152,8 +160,21 @@ function main(): void {
   }
 
   const latestTier1 = new Map<string, VerificationRow>();
-  for (const row of [...tier1Rows, ...tier1DeltaRows]) {
-    latestTier1.set(row.candidate_hash, row);
+  for (const row of [
+    ...tier1Rows,
+    ...tier1DeltaRows,
+    ...tier1TechnicalRetryRows,
+  ]) {
+    if ((row.mode ?? "CENTER") !== "CENTER") continue;
+    const previous = latestTier1.get(row.candidate_hash);
+    if (
+      !previous ||
+      timestamp(row) > timestamp(previous) ||
+      (timestamp(row) === timestamp(previous) &&
+        evidenceRank(row.status) > evidenceRank(previous.status))
+    ) {
+      latestTier1.set(row.candidate_hash, row);
+    }
   }
 
   const probeRowsByHash = new Map<
@@ -299,10 +320,14 @@ function main(): void {
     strong_machine_evidence_unique_mountains: new Set(
       strongRows.map((row) => row.mountain_id),
     ).size,
-    tier1_rows: tier1Rows.length + tier1DeltaRows.length,
+    tier1_rows:
+      tier1Rows.length +
+      tier1DeltaRows.length +
+      tier1TechnicalRetryRows.length,
     tier1_source_rows: {
       baseline: tier1Rows.length,
       v2_delta: tier1DeltaRows.length,
+      technical_center_retry: tier1TechnicalRetryRows.length,
     },
     probe_source_rows: sourceStats,
     deferred_manifest_rows: deferredRows.length,
