@@ -543,3 +543,26 @@ The recorder is fail-closed:
 - no SQL is generated or applied.
 
 If the unsupported set changes after evidence regeneration, the command fails instead of applying the historical bulk rejection to a different set.
+
+
+## 21. Evidence upgrade pass for the remaining ambiguous cases
+
+After reviewing the exact 15 pending AMBIGUOUS rows, apply only independently resolved evidence upgrades:
+
+```powershell
+npm run border-peaks:upgrade-ambiguous-third-source
+npm run border-peaks:validate-third-source-evidence
+npm run border-peaks:prepare-third-source-human-review
+npm run border-peaks:sync-review-decisions
+npm run border-peaks:validate-review-decisions
+```
+
+The current evidence-upgrade pass changes only three previously AMBIGUOUS rows:
+
+- Mount Sabyinyo 3rd Peak, UG -> CD: `SUPPORTS`, based on Greater Virunga Transboundary Collaboration material explicitly identifying the 3rd peak as the Uganda/Rwanda/DRC meeting point.
+- Tosseta de Vallcivera, ES -> AD: `SUPPORTS`, based on the Generalitat de Catalunya description of the Cerdanya-Alt Urgell reserve boundary with Andorra passing through Tosseta de Vallcivera.
+- Tatzen, AT -> DE: `DOES_NOT_SUPPORT`, based on the official Land Vorarlberg Möggers biotope inventory placing the state boundary along the eastern flank of the Tatzen ridge rather than through the summit.
+
+The other twelve cases remain `AMBIGUOUS` because current independent evidence does not resolve the exact summit membership strongly enough.
+
+`sync-review-decisions` preserves completed human decisions only when their evidence is unchanged. It refreshes evidence/routing fields only for pending rows and never creates an APPROVE or REJECT decision automatically.
