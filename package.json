@@ -55,7 +55,8 @@
     "border-peaks:validate-third-source-evidence": "node --experimental-strip-types scripts/border-peaks/validate-third-source-evidence.ts",
     "border-peaks:record-critical-third-source": "node --experimental-strip-types scripts/border-peaks/record-critical-third-source-evidence.ts",
     "border-peaks:record-high-third-source": "node --experimental-strip-types scripts/border-peaks/record-high-priority-third-source-evidence.ts",
-    "border-peaks:list-normal-third-source": "node --experimental-strip-types scripts/border-peaks/list-normal-third-source-cases.ts"
+    "border-peaks:list-normal-third-source": "node --experimental-strip-types scripts/border-peaks/list-normal-third-source-cases.ts",
+    "border-peaks:record-normal-third-source": "node --experimental-strip-types scripts/border-peaks/record-normal-priority-third-source-evidence.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
