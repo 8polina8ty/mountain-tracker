@@ -90,24 +90,28 @@ function timestamp(value: string): number {
 }
 
 function main(): void {
+  const batchId = arg("--batch-id", batchId);
+  if (!/^phase2-\\d{3}$/.test(batchId)) {
+    throw new Error("--batch-id must match phase2-NNN");
+  }
   const batchPath = arg(
     "--batch",
-    "data/border-peaks/phase2/batches/phase2-001.jsonl",
+    `data/border-peaks/phase2/batches/${batchId}.jsonl`,
   );
   const evidencePath = arg(
     "--evidence",
-    "data/border-peaks/phase2/evidence-phase2-001.jsonl",
+    `data/border-peaks/phase2/evidence-${batchId}.jsonl`,
   );
   const outputDir = arg(
     "--output-dir",
-    "data/border-peaks/phase2/triage/phase2-001",
+    `data/border-peaks/phase2/triage/${batchId}`,
   );
 
   const batch = readJsonl<Phase2BatchRow>(batchPath);
   const evidence = readJsonl<VerificationRow>(evidencePath);
 
-  if (batch.length !== 200) {
-    throw new Error(`Expected exactly 200 batch rows, found ${batch.length}`);
+  if (batch.length < 1 || batch.length > 201) {
+    throw new Error(`Expected a bounded Phase 2 batch with 1-201 rows, found ${batch.length}`);
   }
 
   const batchByHash = new Map<string, Phase2BatchRow>();
@@ -118,7 +122,7 @@ function main(): void {
         `Batch candidate hash mismatch for mountain ${row.mountain_id}: ${row.candidate_hash.slice(0, 12)}…`,
       );
     }
-    if (row.phase2_batch_id !== "phase2-001") {
+    if (row.phase2_batch_id !== batchId) {
       throw new Error(
         `Unexpected phase2_batch_id ${row.phase2_batch_id} for mountain ${row.mountain_id}`,
       );
@@ -138,7 +142,7 @@ function main(): void {
     const batchRow = batchByHash.get(row.candidate_hash);
     if (!batchRow) {
       throw new Error(
-        `Evidence contains candidate outside phase2-001: ${row.candidate_hash.slice(0, 12)}…`,
+        `Evidence contains candidate outside ${batchId}: ${row.candidate_hash.slice(0, 12)}…`,
       );
     }
 
@@ -186,13 +190,24 @@ function main(): void {
     ) {
       const primary = batchRow.primary_country_code;
       const secondary = batchRow.candidate_country_code;
+      if (!primary) {
+        throw new Error(
+          `Successful evidence has no primary country for ${batchRow.candidate_hash.slice(0, 12)}…`,
+        );
+      }
+      const centerSupportsBoth =
+        latest.center_country_codes.includes(primary) &&
+        latest.center_country_codes.includes(secondary);
+      const probesSupportBoth =
+        latest.probe_country_codes.includes(primary) &&
+        latest.probe_country_codes.includes(secondary);
+
       if (
-        !primary ||
-        !latest.probe_country_codes.includes(primary) ||
-        !latest.probe_country_codes.includes(secondary)
+        (latest.status === "VERIFIED" && !centerSupportsBoth) ||
+        (latest.status === "GEOMETRIC_SUPPORT" && !probesSupportBoth)
       ) {
         throw new Error(
-          `Successful probe status lacks both proposed countries for ${batchRow.candidate_hash.slice(0, 12)}…`,
+          `Successful status is not backed by the required dual-country evidence for ${batchRow.candidate_hash.slice(0, 12)}…`,
         );
       }
       triageAction = "HUMAN_REVIEW_GEOMETRIC_SUPPORT";
@@ -249,7 +264,7 @@ function main(): void {
 
   const summary = {
     generated_at: new Date().toISOString(),
-    batch_id: "phase2-001",
+    batch_id: batchId,
     batch_rows: batch.length,
     raw_evidence_rows: evidence.filter((row) => row.mode === "PROBE").length,
     unique_evidence_candidates: latestByHash.size,
