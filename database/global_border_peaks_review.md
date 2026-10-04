@@ -415,3 +415,23 @@ The command is fail-closed and refuses to overwrite existing non-null evidence. 
 A `SUPPORTS` finding is recorded only where the independent source specifically places the named summit on the relevant state-border context. `AMBIGUOUS` is used where an independent source establishes identity or regional/ridge context but does not prove the exact summit point belongs to both countries.
 
 These findings remain evidence only and do not create human `APPROVE` decisions or SQL.
+
+
+## 16. Record the 27 normal-priority third-source cases
+
+After critical and high-priority rows are complete, record the remaining current normal-priority rows:
+
+```powershell
+npm run border-peaks:record-normal-third-source
+npm run border-peaks:validate-third-source-evidence
+```
+
+The command updates exactly the 27 current normal-priority evidence rows and refuses to overwrite any existing non-null evidence.
+
+The researched batch is intentionally conservative:
+
+- `SUPPORTS` only where the independent source places the named summit on the relevant state-border line or explicitly describes both countries at the summit.
+- `DOES_NOT_SUPPORT` where the independent source places the summit itself on one side of the border even though the discovery geometry found a nearby boundary.
+- `AMBIGUOUS` where the source establishes mountain or border context but does not resolve the exact summit coordinate.
+
+No finding becomes a human `APPROVE` automatically and no SQL is generated or applied.
