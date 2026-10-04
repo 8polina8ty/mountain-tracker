@@ -1009,3 +1009,30 @@ The first resolved evidence pass records only two independently supported cases:
 - Monte Binga, ZW -> MZ: `SUPPORTS`, using the official Mozambique tourism geography statement that Monte Binga is located on the country's border with Zimbabwe.
 
 The other seven rows remain null/pending until an independent third source is found. Findings remain evidence only and do not create human APPROVE/REJECT decisions. No SQL is generated or applied and no database write is performed.
+
+
+## 38. Record explicit human overrides for the final seven unresolved manual peaks
+
+The human reviewer explicitly confirmed all seven final-manual candidates that still have null third-source evidence.
+
+Record only those seven decisions with:
+
+```powershell
+npm run border-peaks:record-final-seven-overrides
+npm run border-peaks:validate-strong-decisions
+```
+
+The recorder is fail-closed:
+
+- final-manual evidence must contain exactly 9 rows;
+- exactly 2 rows must currently be `SUPPORTS`;
+- exactly 7 rows must still have all evidence fields null;
+- all 9 corresponding strong decisions must still be pending before the write;
+- only the 7 unresolved rows are changed to `APPROVE`;
+- each receives `approval_basis: EXPLICIT_HUMAN_OVERRIDE`;
+- review notes explicitly preserve that third-source evidence remains unresolved and does not independently prove exact dual-country membership;
+- the 2 evidence-supported rows remain pending for a separate explicit human approval;
+- evidence files are not modified;
+- no SQL is generated or applied and no database write is performed.
+
+The strong-decision validator now accepts explicit override metadata only for `APPROVE` rows and requires notes to acknowledge unresolved/insufficient evidence.
