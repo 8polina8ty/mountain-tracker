@@ -101,3 +101,18 @@ export type ThirdSourceEvidence = {
   checked_by: string;
   checked_at: string;
 };
+
+
+export type HumanReviewDecision = {
+  candidate_hash: string;
+  mountain_id: number;
+  primary_country_code: string;
+  candidate_country_code: string;
+  decision: "APPROVE" | "REJECT";
+  evidence_url: string;
+  evidence_type: string;
+  evidence_notes?: string | null;
+  reviewed_by: string;
+  reviewed_at: string;
+  review_notes?: string | null;
+};
