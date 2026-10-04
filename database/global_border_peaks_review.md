@@ -566,3 +566,23 @@ The current evidence-upgrade pass changes only three previously AMBIGUOUS rows:
 The other twelve cases remain `AMBIGUOUS` because current independent evidence does not resolve the exact summit membership strongly enough.
 
 `sync-review-decisions` preserves completed human decisions only when their evidence is unchanged. It refreshes evidence/routing fields only for pending rows and never creates an APPROVE or REJECT decision automatically.
+
+
+## 22. Record explicit human decisions for the three newly resolved cases
+
+After the human reviewer explicitly approves Sabyinyo and Tosseta and rejects Tatzen, record exactly those decisions:
+
+```powershell
+npm run border-peaks:record-resolved-ambiguous
+npm run border-peaks:validate-review-decisions
+```
+
+The recorder is fail-closed:
+
+- it requires the current 38-row decision file with exactly 15 pending rows;
+- Sabyinyo UG -> CD and Tosseta de Vallcivera ES -> AD must currently be `SUPPORTS`;
+- Tatzen AT -> DE must currently be `DOES_NOT_SUPPORT`;
+- all three targets must still be pending;
+- existing human decisions are never overwritten;
+- the remaining 12 unresolved rows stay pending;
+- no SQL is generated or applied.
