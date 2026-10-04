@@ -1262,21 +1262,28 @@ Phase 2 preparation creates no human decisions, no SQL, and performs no database
 
 After a Phase 2 batch has been probed and any transient `ERROR` rows retried with `--resume`, consolidate that batch independently from the already closed production batch.
 
-For `phase2-001`:
+Default (`phase2-001`):
 
 ```powershell
 npm run border-peaks:triage-phase2-batch
 ```
 
+Any later batch can be selected explicitly, for example:
+
+```powershell
+npm run border-peaks:triage-phase2-batch -- --batch-id phase2-002
+```
+
 The triager is fail-closed:
 
-- requires exactly 200 rows in `phase2-001`;
+- requires a bounded Phase 2 batch (1–201 rows) and validates its `phase2_batch_id`;
 - recomputes and validates every candidate hash;
 - rejects evidence rows that do not belong to the batch or whose identity fields drift;
 - allows retry history in the append-only evidence file;
 - selects the latest `PROBE` row by `queried_at` for each candidate hash;
 - requires latest evidence for all 200 candidates;
-- a latest `VERIFIED` or `GEOMETRIC_SUPPORT` result must include both proposed country codes in probe evidence before it can enter the successful-geometric queue.
+- latest `VERIFIED` must be backed by both proposed country codes in center containment;
+- latest `GEOMETRIC_SUPPORT` must be backed by both proposed country codes in probe evidence before it can enter the successful-geometric queue.
 
 Outputs:
 
