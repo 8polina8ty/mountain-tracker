@@ -931,3 +931,34 @@ Outputs:
 - `summary.json`
 
 This stage creates no human decisions. No SQL is generated or applied and no database write is performed.
+
+
+## 35. Approve all 88 STANDARD_STRONG_REVIEW candidates
+
+After explicit human approval of the complete STANDARD_STRONG_REVIEW subset, record all 88 rows with:
+
+```powershell
+npm run border-peaks:record-all-standard-strong-geo
+npm run border-peaks:validate-strong-decisions
+```
+
+Expected precondition:
+
+- 1,275 completed rows;
+- 97 pending rows;
+- 1,223 APPROVE rows;
+- 52 REJECT rows;
+- exactly 88 `STANDARD_STRONG_REVIEW` rows;
+- exactly 9 `STANDARD_MANUAL_REVIEW` rows.
+
+The recorder revalidates each strong row against both the named-standard all.jsonl artifact and the current strong decision manifest. It requires:
+
+- `GEOMETRIC_SUPPORT / STANDARD_REVIEW / STANDARD_STRONG_REVIEW`;
+- non-blank mountain name;
+- geoBoundaries distance <=100 m;
+- OSM peak identity <=10 m;
+- OSM peak name or Wikidata identity;
+- successful probes containing both primary and candidate countries;
+- pending decision with no reviewer metadata.
+
+Only those 88 rows are changed to `APPROVE`. The 9 STANDARD_MANUAL_REVIEW rows remain pending. No SQL is generated or applied and no database write is performed.
