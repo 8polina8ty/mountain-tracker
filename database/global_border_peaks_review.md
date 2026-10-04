@@ -586,3 +586,28 @@ The recorder is fail-closed:
 - existing human decisions are never overwritten;
 - the remaining 12 unresolved rows stay pending;
 - no SQL is generated or applied.
+
+
+## 23. Second evidence-upgrade pass for the unresolved set
+
+A second source review resolves one additional case without forcing the remaining unresolved rows:
+
+```powershell
+npm run border-peaks:upgrade-ambiguous-third-source-pass2
+npm run border-peaks:validate-third-source-evidence
+npm run border-peaks:prepare-third-source-human-review
+npm run border-peaks:sync-review-decisions
+npm run border-peaks:validate-review-decisions
+```
+
+Current pass:
+
+- Östlicher Fineilkopf, IT -> AT: `SUPPORTS`. An Austrian technical mountain-group boundary description explicitly states that the state border runs over the Fineilköpfe; Tirol archival nomenclature separately identifies the Fineilköpfe as the two adjacent summits around 3415 m.
+
+No human decision is created automatically. The other unresolved cases remain `AMBIGUOUS` unless stronger summit-level evidence is found.
+
+The pending ambiguous listing command no longer assumes a historical fixed count. Use `--expected N` when a fail-closed expected count is desired, for example:
+
+```powershell
+npm run border-peaks:list-pending-ambiguous -- --expected 11
+```
