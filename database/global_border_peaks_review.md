@@ -314,3 +314,21 @@ npm run border-peaks:verify-osm -- --input data/border-peaks/global-verification
 ```
 
 Then rerun `npm run border-peaks:consolidate-verification` and regenerate the review pack. The consolidator reads retry evidence separately and only CENTER rows can replace Tier 1 CENTER evidence.
+
+
+## 12. Third-source investigation queue
+
+After technical errors reach zero, prepare a deterministic investigation queue for current `NEEDS_THIRD_SOURCE` candidates:
+
+```powershell
+npm run border-peaks:prepare-third-source
+```
+
+Outputs:
+
+- `data/border-peaks/global-review/third-source-investigation.jsonl`
+- `data/border-peaks/global-review/third-source-investigation-summary.json`
+
+The queue prioritizes multi-country/trifinio candidates first, then smaller geoBoundaries distance and useful existing OSM identity/context signals. The OSM and geoBoundaries sources already used by the pipeline do not count as the required third source.
+
+Preferred third-source evidence is an official national mapping, cadastral, border-commission, or government gazetteer source. A source that only identifies the summit without supporting the proposed country membership is insufficient. Disagreement between authoritative sources must remain a human-review case and must not be auto-approved.
