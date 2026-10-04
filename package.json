@@ -70,7 +70,10 @@
     "border-peaks:record-fineilkopf-approval": "node --experimental-strip-types scripts/border-peaks/record-fineilkopf-review-decision.ts",
     "border-peaks:record-ambiguous-overrides": "node --experimental-strip-types scripts/border-peaks/record-explicit-ambiguous-overrides.ts",
     "border-peaks:prepare-strong-batches": "node --experimental-strip-types scripts/border-peaks/prepare-strong-review-batches.ts",
-    "border-peaks:list-strong-batch": "node --experimental-strip-types scripts/border-peaks/list-strong-review-batch.ts"
+    "border-peaks:list-strong-batch": "node --experimental-strip-types scripts/border-peaks/list-strong-review-batch.ts",
+    "border-peaks:prepare-strong-decisions": "node --experimental-strip-types scripts/border-peaks/prepare-strong-review-decisions.ts",
+    "border-peaks:validate-strong-decisions": "node --experimental-strip-types scripts/border-peaks/validate-strong-review-decisions.ts",
+    "border-peaks:record-strong-batch-approval": "node --experimental-strip-types scripts/border-peaks/record-strong-batch-approval.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
