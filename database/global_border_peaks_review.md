@@ -870,3 +870,32 @@ Expected precondition after `geo-001` approval:
 The mass recorder revalidates every candidate and fails closed if counts, batch composition, candidate identity, review tier, boundary distance, OSM peak identity, or dual-country probe evidence differ from the reviewed contract.
 
 Only the 329 remaining HIGH_CONFIDENCE rows are changed to `APPROVE`. STANDARD_REVIEW remains pending and must be handled separately. No SQL is generated or applied and no database write is performed.
+
+
+## 33. Reject unnamed STANDARD_REVIEW border-membership candidates
+
+The human review policy for the remaining STANDARD_REVIEW set is:
+
+- if `mountain_name` is null or blank, reject the proposed additional country membership;
+- preserve the mountain record itself;
+- do not delete or modify production mountain data.
+
+After explicit human approval of this policy, run:
+
+```powershell
+npm run border-peaks:reject-unnamed-standard-geo
+npm run border-peaks:validate-strong-decisions
+```
+
+The recorder is fail-closed:
+
+- the strong decision manifest must contain exactly 1,372 rows;
+- the current state must be exactly 1,223 completed and 149 pending;
+- every pending row must still be `GEOMETRIC_SUPPORT / STANDARD_REVIEW`;
+- candidate hash and identity must match the existing geometric review artifact;
+- only pending rows whose `mountain_name` is null or blank are changed to `REJECT`;
+- named STANDARD_REVIEW rows remain pending;
+- the mountain record itself is not deleted or edited;
+- no SQL is generated or applied and no database write is performed.
+
+The command reports the exact number of unnamed rows rejected and the remaining named STANDARD_REVIEW count instead of relying on a guessed historical count.
