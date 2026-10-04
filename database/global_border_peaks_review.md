@@ -1116,3 +1116,43 @@ The report is written to:
 A successful report may set `ready_for_sql_generation: true`, but it also explicitly records that global discovery is not fully exhaustive: the pinned ADM0 source set still has 19 missing country/territory codes and 78 database mountains fall in those source-gap countries.
 
 This command generates no SQL and performs no database write. The existing legacy `export-approved.ts` remains unauthorized for the global export until it is separately hardened to use the validated global inputs fail-closed.
+
+
+## 41. Generate the reviewed global SQL artifact
+
+The exporter is now hardened for the global workflow and no longer defaults to the legacy confirmed/approved-manifest files.
+
+Before generation, always refresh the hash-bound preflight after pulling the exporter changes:
+
+```powershell
+npm run border-peaks:preflight-global-export
+npm run border-peaks:export-global-reviewed
+```
+
+The exporter requires:
+
+- the successful global preflight report;
+- SHA-256 equality between that report and every critical current input file;
+- exactly 3,887 discovery candidates;
+- exactly 1,372 strong decisions and 38 third-source decisions;
+- exactly 364,495 baseline memberships;
+- final decision totals of 1,350 APPROVE and 60 REJECT;
+- zero duplicate approved pairs;
+- zero target pairs already present in the baseline membership file;
+- correct explicit-human-override semantics.
+
+Both APPROVE and REJECT rows are fully hash/identity validated before the decision branch is taken.
+
+Output:
+
+`database/generated/mountain_countries_global_reviewed_batch.sql`
+
+The generated SQL contains exactly 1,350 approved secondary-country memberships and excludes the 60 rejected and 2,477 deferred candidates.
+
+The SQL itself contains runtime transaction guards:
+
+- mountain identity must still match the discovery snapshot using `coalesce(mountains.name_de, mountains.name)`, height, and primary `country_code`;
+- none of the target `(mountain_id, country_code)` memberships may already exist when the transaction begins;
+- after insertion, all 1,350 target rows must exist as `is_primary = false`, otherwise the transaction raises and rolls back.
+
+The exporter only writes the SQL artifact and prints its SHA-256. It does not connect to Supabase or execute any SQL. Applying the generated SQL to production remains a separate, explicit manual action and requires a live production preflight.
