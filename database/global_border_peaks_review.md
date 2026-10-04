@@ -657,3 +657,49 @@ The recorder is fail-closed:
 - no SQL is generated or applied.
 
 The decision validator permits `APPROVE` on an `AMBIGUOUS` row only when the explicit override marker is present and the review notes acknowledge the ambiguity. Evidence-supported approvals must not carry an override marker.
+
+
+## 26. Batch the 1,372 strong human-review candidates
+
+After the 38 third-source cases are structurally complete, prepare deterministic review batches for the current strong queue:
+
+```powershell
+npm run border-peaks:prepare-strong-batches
+```
+
+Defaults:
+
+- input: `data/border-peaks/global-review/strong-human-review.jsonl`
+- expected rows: `1372`
+- target batch size: `100`
+- output directory: `data/border-peaks/global-review/strong-batches`
+
+The batcher is fail-closed:
+
+- every row must have a unique 64-character candidate hash;
+- only `TIER1_VERIFIED` and `GEOMETRIC_SUPPORT` rows are allowed;
+- all decision/evidence/reviewer fields must still be null;
+- rows for the same `mountain_id` are never split across batches;
+- no APPROVE/REJECT values are created;
+- no SQL or database write is performed.
+
+Each output row receives only review metadata:
+
+- `batch_id`
+- `batch_index`
+- `batch_row_index`
+- `machine_evidence_tier`:
+  - `EXACT_SUMMIT_CONTAINMENT` for `TIER1_VERIFIED`
+  - `PROBE_GEOMETRIC_SUPPORT` for `GEOMETRIC_SUPPORT`
+
+The summary file is:
+
+`data/border-peaks/global-review/strong-batches/summary.json`
+
+Display one review batch with:
+
+```powershell
+npm run border-peaks:list-strong-batch -- --batch 1
+```
+
+Batch display is read-only and includes hash, mountain identity, country pair, coordinates, height, boundary distance and machine evidence status. Human decisions remain a separate later layer.
