@@ -21,6 +21,14 @@ type VerificationStatus =
   | "INSUFFICIENT"
   | "ERROR";
 
+type TechnicalErrorType =
+  | "NETWORK_ERROR"
+  | "RATE_LIMIT"
+  | "TIMEOUT"
+  | "HTTP_5XX"
+  | "HTTP_4XX"
+  | "UNKNOWN";
+
 type CountryArea = {
   area_id: number;
   country_code: string;
@@ -53,6 +61,7 @@ type VerificationRow = {
     wikidata: string | null;
   } | null;
   evidence_reference: string | null;
+  technical_error_type: TechnicalErrorType | null;
   notes: string;
 };
 
@@ -67,6 +76,23 @@ type OverpassElement = {
 type OverpassResponse = {
   elements?: OverpassElement[];
 };
+
+type EndpointHealth = {
+  consecutiveFailures: number;
+  cooldownUntil: number;
+};
+
+class OverpassAggregateError extends Error {
+  technicalErrorType: TechnicalErrorType;
+
+  constructor(technicalErrorType: TechnicalErrorType, message: string) {
+    super(message);
+    this.name = "OverpassAggregateError";
+    this.technicalErrorType = technicalErrorType;
+  }
+}
+
+const endpointHealth = new Map<string, EndpointHealth>();
 
 type Args = {
   input: string;
@@ -350,6 +376,69 @@ function nearestPeak(
   return best;
 }
 
+function classifyHttpStatus(status: number): TechnicalErrorType {
+  if (status === 429) return "RATE_LIMIT";
+  if (status >= 500) return "HTTP_5XX";
+  if (status >= 400) return "HTTP_4XX";
+  return "UNKNOWN";
+}
+
+function classifyThrownError(error: unknown): TechnicalErrorType {
+  if (error instanceof Error && error.name === "AbortError") return "TIMEOUT";
+  if (
+    error instanceof Error &&
+    /fetch failed|network|socket|ECONN|ENET|EAI_AGAIN/i.test(error.message)
+  ) {
+    return "NETWORK_ERROR";
+  }
+  return "UNKNOWN";
+}
+
+function cooldownMs(type: TechnicalErrorType, consecutiveFailures: number): number {
+  const multiplier = Math.min(4, Math.max(1, consecutiveFailures));
+  if (type === "RATE_LIMIT") return 60_000 * multiplier;
+  if (type === "HTTP_5XX" || type === "TIMEOUT") return 20_000 * multiplier;
+  if (type === "NETWORK_ERROR") return 15_000 * multiplier;
+  return 10_000 * multiplier;
+}
+
+function recordEndpointFailure(endpoint: string, type: TechnicalErrorType): void {
+  const previous = endpointHealth.get(endpoint) ?? {
+    consecutiveFailures: 0,
+    cooldownUntil: 0,
+  };
+  const consecutiveFailures = previous.consecutiveFailures + 1;
+  endpointHealth.set(endpoint, {
+    consecutiveFailures,
+    cooldownUntil:
+      consecutiveFailures >= 2
+        ? Date.now() + cooldownMs(type, consecutiveFailures)
+        : previous.cooldownUntil,
+  });
+}
+
+function recordEndpointSuccess(endpoint: string): void {
+  endpointHealth.set(endpoint, {
+    consecutiveFailures: 0,
+    cooldownUntil: 0,
+  });
+}
+
+function dominantErrorType(types: TechnicalErrorType[]): TechnicalErrorType {
+  const order: TechnicalErrorType[] = [
+    "RATE_LIMIT",
+    "TIMEOUT",
+    "HTTP_5XX",
+    "NETWORK_ERROR",
+    "HTTP_4XX",
+    "UNKNOWN",
+  ];
+  return (
+    order.find((type) => types.includes(type)) ??
+    "UNKNOWN"
+  );
+}
+
 async function fetchOverpassQuery(
   args: Args,
   query: string,
@@ -364,8 +453,21 @@ async function fetchOverpassQuery(
   }
 
   const failures: string[] = [];
-  for (const endpoint of args.endpoints) {
-    for (let attempt = 1; attempt <= args.retriesPerEndpoint; attempt += 1) {
+  const failureTypes: TechnicalErrorType[] = [];
+
+  for (let round = 1; round <= args.retriesPerEndpoint; round += 1) {
+    let attemptedThisRound = 0;
+
+    for (const endpoint of args.endpoints) {
+      const health = endpointHealth.get(endpoint);
+      if (health && health.cooldownUntil > Date.now()) {
+        failures.push(
+          `${endpoint} round ${round}: CIRCUIT_OPEN until ${new Date(health.cooldownUntil).toISOString()}`,
+        );
+        continue;
+      }
+
+      attemptedThisRound += 1;
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), args.timeoutMs);
       try {
@@ -382,38 +484,58 @@ async function fetchOverpassQuery(
         });
 
         if (!response.ok) {
+          const type = classifyHttpStatus(response.status);
           const detail = (await response.text()).slice(0, 300);
           failures.push(
-            `${endpoint} attempt ${attempt}: HTTP ${response.status} ${detail}`,
+            `${endpoint} round ${round}: ${type} HTTP ${response.status} ${detail}`,
           );
-          if (response.status === 429 || response.status === 406) {
-            await sleep(30_000);
-          } else if (attempt < args.retriesPerEndpoint) {
-            await sleep(Math.min(15_000, 2_000 * 2 ** (attempt - 1)));
-          }
+          failureTypes.push(type);
+          recordEndpointFailure(endpoint, type);
           continue;
         }
 
         const value = (await response.json()) as OverpassResponse;
+        recordEndpointSuccess(endpoint);
         const temporary = `${cachePath}.tmp`;
         writeFileSync(temporary, JSON.stringify(value));
         renameSync(temporary, cachePath);
         return { value, endpoint };
       } catch (error) {
+        const type = classifyThrownError(error);
         failures.push(
-          `${endpoint} attempt ${attempt}: ${error instanceof Error ? error.message : String(error)}`,
+          `${endpoint} round ${round}: ${type} ${error instanceof Error ? error.message : String(error)}`,
         );
-        if (attempt < args.retriesPerEndpoint) {
-          await sleep(Math.min(15_000, 2_000 * 2 ** (attempt - 1)));
-        }
+        failureTypes.push(type);
+        recordEndpointFailure(endpoint, type);
       } finally {
         clearTimeout(timeout);
+      }
+
+      // Small jitter avoids keeping repeated requests synchronized with a busy endpoint.
+      await sleep(250 + Math.floor(Math.random() * 500));
+    }
+
+    if (round < args.retriesPerEndpoint) {
+      const baseBackoff = Math.min(30_000, 2_000 * 2 ** (round - 1));
+      const jitter = Math.floor(Math.random() * 1_000);
+      if (attemptedThisRound === 0) {
+        const nextCooldown = Math.min(
+          ...args.endpoints.map(
+            (endpoint) => endpointHealth.get(endpoint)?.cooldownUntil ?? Date.now(),
+          ),
+        );
+        const waitForCircuit = Math.max(0, nextCooldown - Date.now());
+        await sleep(Math.min(30_000, Math.max(baseBackoff, waitForCircuit)) + jitter);
+      } else {
+        await sleep(baseBackoff + jitter);
       }
     }
   }
 
-  throw new Error(
-    `All Overpass endpoints failed: ${failures.join(" | ")}`,
+  const type = dominantErrorType(failureTypes);
+  throw new OverpassAggregateError(
+    type,
+    `All Overpass endpoints failed [${type}]: ${failures.join(" | ")}`,
   );
 }
 
@@ -547,6 +669,7 @@ async function evidenceForCandidate(
         status === "VERIFIED"
           ? `OSM:admin_level=2 dual-country ${primary}+${secondary}`
           : null,
+      technical_error_type: null,
       notes,
     };
   } catch (error) {
@@ -567,6 +690,10 @@ async function evidenceForCandidate(
       probe_areas: [],
       osm_peak: null,
       evidence_reference: null,
+      technical_error_type:
+        error instanceof OverpassAggregateError
+          ? error.technicalErrorType
+          : classifyThrownError(error),
       notes: error instanceof Error ? error.message : String(error),
     };
   }
@@ -641,6 +768,7 @@ async function main(): Promise<void> {
         cache_dir: args.cacheDir,
         endpoints: args.endpoints,
         retries_per_endpoint: args.retriesPerEndpoint,
+        endpoint_strategy: "round_robin_with_circuit_breaker",
         probe_mode: args.probe,
         concurrency: args.concurrency,
         probe_requests_per_candidate: args.probe ? 1 : 0,
