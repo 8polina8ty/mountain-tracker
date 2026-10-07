@@ -50,6 +50,8 @@ type VerificationRow = {
 type TriageRow = Phase2BatchRow & {
   latest_status: VerificationStatus;
   latest_queried_at: string;
+  latest_endpoint: string;
+  latest_notes: string;
   center_country_codes: string[];
   probe_country_codes: string[];
   osm_peak_distance_meters: number | null;
@@ -224,6 +226,8 @@ function main(): void {
       ...batchRow,
       latest_status: latest.status,
       latest_queried_at: latest.queried_at,
+      latest_endpoint: latest.endpoint,
+      latest_notes: latest.notes,
       center_country_codes: latest.center_country_codes,
       probe_country_codes: latest.probe_country_codes,
       osm_peak_distance_meters: latest.osm_peak?.distance_meters ?? null,
@@ -262,6 +266,16 @@ function main(): void {
     (count) => count > 1,
   ).length;
 
+  const technicalErrorGroups = Object.entries(
+    technical.reduce<Record<string, number>>((acc, row) => {
+      const key = row.latest_notes || "(empty error notes)";
+      acc[key] = (acc[key] ?? 0) + 1;
+      return acc;
+    }, {}),
+  )
+    .map(([notes, count]) => ({ notes, count }))
+    .sort((a, b) => b.count - a.count || a.notes.localeCompare(b.notes));
+
   const summary = {
     generated_at: new Date().toISOString(),
     batch_id: batchId,
@@ -275,6 +289,7 @@ function main(): void {
       needs_third_source_or_manual: needsReview.length,
       technical_unresolved: technical.length,
     },
+    technical_error_groups: technicalErrorGroups.slice(0, 20),
     outputs: {
       all: `${outputDir}/all.jsonl`,
       successful_geometric: `${outputDir}/successful-geometric.jsonl`,
