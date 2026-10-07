@@ -1300,3 +1300,28 @@ Routing semantics:
 - latest `ERROR` -> `RETRY_TECHNICAL`.
 
 The triage does not approve candidates. It produces no SQL and performs no database writes.
+
+
+## 45. Overpass retry hardening for Phase 2 technical failures
+
+After `phase2-004` accumulated a large technical-unresolved set dominated by network failures, 504 responses, aborted requests, and rate limiting, the read-only verifier retry strategy was hardened.
+
+The verifier now:
+
+- rotates across configured endpoints round-by-round instead of exhausting every retry on one endpoint first;
+- tracks consecutive endpoint failures and temporarily opens a circuit after repeated failures;
+- uses longer cooldowns for rate limits, timeouts, 5xx responses, and network failures;
+- applies small jitter between attempts/backoff windows to avoid synchronized retries;
+- classifies terminal technical failures as `NETWORK_ERROR`, `RATE_LIMIT`, `TIMEOUT`, `HTTP_5XX`, `HTTP_4XX`, or `UNKNOWN`;
+- records `technical_error_type` on new `ERROR` evidence rows;
+- preserves the existing append-only evidence file, cache, candidate fingerprinting, and `--resume` semantics.
+
+The Phase 2 triager surfaces the latest classified technical error counts while remaining compatible with historical unclassified evidence rows.
+
+To retry only the unresolved technical subset for a batch, use the triage output itself as the verifier input and append the retry results back to the original batch evidence file. Example for `phase2-004`:
+
+```powershell
+npm run border-peaks:verify-osm -- --input data/border-peaks/phase2/triage/phase2-004/technical-unresolved.jsonl --output data/border-peaks/phase2/evidence-phase2-004.jsonl --limit 0 --probe --concurrency 1 --delay-ms 3000 --timeout-ms 60000 --retries-per-endpoint 3 --resume
+```
+
+This targets only the unresolved technical candidates. It does not re-probe successful or insufficient candidates, creates no approval decisions, generates no SQL, and performs no database writes.
