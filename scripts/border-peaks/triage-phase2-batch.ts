@@ -44,6 +44,14 @@ type VerificationRow = {
     wikidata: string | null;
   } | null;
   evidence_reference: string | null;
+  technical_error_type?:
+    | "NETWORK_ERROR"
+    | "RATE_LIMIT"
+    | "TIMEOUT"
+    | "HTTP_5XX"
+    | "HTTP_4XX"
+    | "UNKNOWN"
+    | null;
   notes: string;
 };
 
@@ -52,6 +60,14 @@ type TriageRow = Phase2BatchRow & {
   latest_queried_at: string;
   latest_endpoint: string;
   latest_notes: string;
+  latest_technical_error_type:
+    | "NETWORK_ERROR"
+    | "RATE_LIMIT"
+    | "TIMEOUT"
+    | "HTTP_5XX"
+    | "HTTP_4XX"
+    | "UNKNOWN"
+    | null;
   center_country_codes: string[];
   probe_country_codes: string[];
   osm_peak_distance_meters: number | null;
@@ -228,6 +244,7 @@ function main(): void {
       latest_queried_at: latest.queried_at,
       latest_endpoint: latest.endpoint,
       latest_notes: latest.notes,
+      latest_technical_error_type: latest.technical_error_type ?? null,
       center_country_codes: latest.center_country_codes,
       probe_country_codes: latest.probe_country_codes,
       osm_peak_distance_meters: latest.osm_peak?.distance_meters ?? null,
@@ -276,6 +293,15 @@ function main(): void {
     .map(([notes, count]) => ({ notes, count }))
     .sort((a, b) => b.count - a.count || a.notes.localeCompare(b.notes));
 
+  const technicalErrorTypeCounts = technical.reduce<Record<string, number>>(
+    (acc, row) => {
+      const key = row.latest_technical_error_type ?? "LEGACY_UNCLASSIFIED";
+      acc[key] = (acc[key] ?? 0) + 1;
+      return acc;
+    },
+    {},
+  );
+
   const summary = {
     generated_at: new Date().toISOString(),
     batch_id: batchId,
@@ -289,6 +315,7 @@ function main(): void {
       needs_third_source_or_manual: needsReview.length,
       technical_unresolved: technical.length,
     },
+    technical_error_type_counts: technicalErrorTypeCounts,
     technical_error_groups: technicalErrorGroups.slice(0, 20),
     outputs: {
       all: `${outputDir}/all.jsonl`,
