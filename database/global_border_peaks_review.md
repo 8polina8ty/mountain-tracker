@@ -1325,3 +1325,20 @@ npm run border-peaks:verify-osm -- --input data/border-peaks/phase2/triage/phase
 ```
 
 This targets only the unresolved technical candidates. It does not re-probe successful or insufficient candidates, creates no approval decisions, generates no SQL, and performs no database writes.
+
+
+## 46. Phase 2 circuit-breaker retry-budget correction
+
+The first hardened circuit breaker still treated a retry round as spent even when every configured Overpass endpoint was temporarily `CIRCUIT_OPEN`. During widespread 5xx/rate-limit periods this could produce a terminal `ERROR` after mostly skipped rounds rather than real HTTP attempts.
+
+The verifier now uses a per-endpoint real-attempt budget:
+
+- `--retries-per-endpoint N` permits at most N actual requests to each endpoint;
+- skipped `CIRCUIT_OPEN` endpoints do not consume that budget;
+- when every endpoint with remaining budget is cooling down, the verifier waits until the earliest `cooldownUntil` instead of capping the wait at 30 seconds;
+- after that wait, the earliest recovered endpoint is naturally used as the half-open probe before other still-open circuits;
+- HTTP 429 opens its endpoint circuit immediately with the longer rate-limit cooldown;
+- repeated 5xx, timeout, and network failures continue to open a circuit after consecutive failures;
+- successful requests reset that endpoint's failure state.
+
+This preserves candidate fingerprints, append-only evidence, cache behavior, latest-evidence resume semantics, and the read-only nature of Phase 2 verification. No approval decisions, SQL, or database writes are produced.
