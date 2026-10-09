@@ -206,34 +206,33 @@ function uniqueCandidates(path: string): BorderCandidate[] {
     );
 }
 
+function evidenceTimestamp(value: string): number {
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) ? parsed : Number.NEGATIVE_INFINITY;
+}
+
 function alreadyProcessed(path: string, probe: boolean): Set<string> {
   if (!existsSync(path)) return new Set();
 
-  if (!probe) {
-    const latest = new Map<string, VerificationRow>();
-    for (const line of readFileSync(path, "utf8").trim().split("\n").filter(Boolean)) {
-      const row = JSON.parse(line) as VerificationRow;
-      latest.set(row.candidate_hash, row);
-    }
-    return new Set(
-      [...latest.values()]
-        .filter((row) => row.status !== "ERROR" && row.status !== "CONFLICT")
-        .map((row) => row.candidate_hash),
-    );
-  }
-
-  const completedProbe = new Set<string>();
+  const latest = new Map<string, VerificationRow>();
   for (const line of readFileSync(path, "utf8").trim().split("\n").filter(Boolean)) {
     const row = JSON.parse(line) as VerificationRow;
+    if (probe && row.mode !== "PROBE") continue;
+
+    const previous = latest.get(row.candidate_hash);
     if (
-      row.mode === "PROBE" &&
-      row.status !== "ERROR" &&
-      row.status !== "CONFLICT"
+      !previous ||
+      evidenceTimestamp(row.queried_at) > evidenceTimestamp(previous.queried_at)
     ) {
-      completedProbe.add(row.candidate_hash);
+      latest.set(row.candidate_hash, row);
     }
   }
-  return completedProbe;
+
+  return new Set(
+    [...latest.values()]
+      .filter((row) => row.status !== "ERROR" && row.status !== "CONFLICT")
+      .map((row) => row.candidate_hash),
+  );
 }
 
 function cacheKey(lat: number, lon: number): string {
