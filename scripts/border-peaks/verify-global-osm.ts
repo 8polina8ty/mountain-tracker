@@ -407,12 +407,13 @@ function recordEndpointFailure(endpoint: string, type: TechnicalErrorType): void
     cooldownUntil: 0,
   };
   const consecutiveFailures = previous.consecutiveFailures + 1;
+  const shouldOpenCircuit =
+    type === "RATE_LIMIT" || consecutiveFailures >= 2;
   endpointHealth.set(endpoint, {
     consecutiveFailures,
-    cooldownUntil:
-      consecutiveFailures >= 2
-        ? Date.now() + cooldownMs(type, consecutiveFailures)
-        : previous.cooldownUntil,
+    cooldownUntil: shouldOpenCircuit
+      ? Date.now() + cooldownMs(type, consecutiveFailures)
+      : previous.cooldownUntil,
   });
 }
 
@@ -453,82 +454,107 @@ async function fetchOverpassQuery(
 
   const failures: string[] = [];
   const failureTypes: TechnicalErrorType[] = [];
+  const attemptsByEndpoint = new Map(
+    args.endpoints.map((endpoint) => [endpoint, 0]),
+  );
+  let cursor = 0;
 
-  for (let round = 1; round <= args.retriesPerEndpoint; round += 1) {
-    let attemptedThisRound = 0;
-
-    for (const endpoint of args.endpoints) {
+  while (
+    args.endpoints.some(
+      (endpoint) =>
+        (attemptsByEndpoint.get(endpoint) ?? 0) < args.retriesPerEndpoint,
+    )
+  ) {
+    const now = Date.now();
+    const eligible = args.endpoints.filter((endpoint) => {
+      const attempts = attemptsByEndpoint.get(endpoint) ?? 0;
       const health = endpointHealth.get(endpoint);
-      if (health && health.cooldownUntil > Date.now()) {
+      return (
+        attempts < args.retriesPerEndpoint &&
+        (!health || health.cooldownUntil <= now)
+      );
+    });
+
+    if (eligible.length === 0) {
+      const waiting = args.endpoints
+        .filter(
+          (endpoint) =>
+            (attemptsByEndpoint.get(endpoint) ?? 0) <
+            args.retriesPerEndpoint,
+        )
+        .map((endpoint) => ({
+          endpoint,
+          cooldownUntil:
+            endpointHealth.get(endpoint)?.cooldownUntil ?? now,
+        }))
+        .filter((entry) => entry.cooldownUntil > now)
+        .sort((a, b) => a.cooldownUntil - b.cooldownUntil);
+
+      if (waiting.length === 0) break;
+
+      const next = waiting[0];
+      const waitMs = Math.max(0, next.cooldownUntil - Date.now());
+      failures.push(
+        `ALL_CIRCUITS_OPEN waiting until ${new Date(next.cooldownUntil).toISOString()} before half-open probe of ${next.endpoint}`,
+      );
+      await sleep(waitMs + Math.floor(Math.random() * 1_000));
+      continue;
+    }
+
+    const endpoint =
+      eligible.find(
+        (value) =>
+          args.endpoints.indexOf(value) >= cursor,
+      ) ?? eligible[0];
+    cursor = (args.endpoints.indexOf(endpoint) + 1) % args.endpoints.length;
+
+    const attempt = (attemptsByEndpoint.get(endpoint) ?? 0) + 1;
+    attemptsByEndpoint.set(endpoint, attempt);
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), args.timeoutMs);
+    try {
+      const body = new URLSearchParams({ data: query });
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "User-Agent":
+            "MountainTracker-border-verifier/1.0 (read-only research)",
+        },
+        body,
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        const type = classifyHttpStatus(response.status);
+        const detail = (await response.text()).slice(0, 300);
         failures.push(
-          `${endpoint} round ${round}: CIRCUIT_OPEN until ${new Date(health.cooldownUntil).toISOString()}`,
+          `${endpoint} attempt ${attempt}/${args.retriesPerEndpoint}: ${type} HTTP ${response.status} ${detail}`,
         );
-        continue;
-      }
-
-      attemptedThisRound += 1;
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), args.timeoutMs);
-      try {
-        const body = new URLSearchParams({ data: query });
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-            "User-Agent":
-              "MountainTracker-border-verifier/1.0 (read-only research)",
-          },
-          body,
-          signal: controller.signal,
-        });
-
-        if (!response.ok) {
-          const type = classifyHttpStatus(response.status);
-          const detail = (await response.text()).slice(0, 300);
-          failures.push(
-            `${endpoint} round ${round}: ${type} HTTP ${response.status} ${detail}`,
-          );
-          failureTypes.push(type);
-          recordEndpointFailure(endpoint, type);
-          continue;
-        }
-
+        failureTypes.push(type);
+        recordEndpointFailure(endpoint, type);
+      } else {
         const value = (await response.json()) as OverpassResponse;
         recordEndpointSuccess(endpoint);
         const temporary = `${cachePath}.tmp`;
         writeFileSync(temporary, JSON.stringify(value));
         renameSync(temporary, cachePath);
         return { value, endpoint };
-      } catch (error) {
-        const type = classifyThrownError(error);
-        failures.push(
-          `${endpoint} round ${round}: ${type} ${error instanceof Error ? error.message : String(error)}`,
-        );
-        failureTypes.push(type);
-        recordEndpointFailure(endpoint, type);
-      } finally {
-        clearTimeout(timeout);
       }
-
-      // Small jitter avoids keeping repeated requests synchronized with a busy endpoint.
-      await sleep(250 + Math.floor(Math.random() * 500));
+    } catch (error) {
+      const type = classifyThrownError(error);
+      failures.push(
+        `${endpoint} attempt ${attempt}/${args.retriesPerEndpoint}: ${type} ${error instanceof Error ? error.message : String(error)}`,
+      );
+      failureTypes.push(type);
+      recordEndpointFailure(endpoint, type);
+    } finally {
+      clearTimeout(timeout);
     }
 
-    if (round < args.retriesPerEndpoint) {
-      const baseBackoff = Math.min(30_000, 2_000 * 2 ** (round - 1));
-      const jitter = Math.floor(Math.random() * 1_000);
-      if (attemptedThisRound === 0) {
-        const nextCooldown = Math.min(
-          ...args.endpoints.map(
-            (endpoint) => endpointHealth.get(endpoint)?.cooldownUntil ?? Date.now(),
-          ),
-        );
-        const waitForCircuit = Math.max(0, nextCooldown - Date.now());
-        await sleep(Math.min(30_000, Math.max(baseBackoff, waitForCircuit)) + jitter);
-      } else {
-        await sleep(baseBackoff + jitter);
-      }
-    }
+    // Small jitter avoids synchronizing retries with an overloaded endpoint.
+    await sleep(250 + Math.floor(Math.random() * 500));
   }
 
   const type = dominantErrorType(failureTypes);
@@ -767,7 +793,7 @@ async function main(): Promise<void> {
         cache_dir: args.cacheDir,
         endpoints: args.endpoints,
         retries_per_endpoint: args.retriesPerEndpoint,
-        endpoint_strategy: "round_robin_with_circuit_breaker",
+        endpoint_strategy: "per_endpoint_budget_with_waiting_circuit_breaker",
         probe_mode: args.probe,
         concurrency: args.concurrency,
         probe_requests_per_candidate: args.probe ? 1 : 0,
