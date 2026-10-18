@@ -94,7 +94,8 @@
     "border-peaks:export-global-reviewed": "node --experimental-strip-types scripts/border-peaks/export-approved.ts",
     "border-peaks:prepare-phase2": "node --experimental-strip-types scripts/border-peaks/prepare-phase2-deferred.ts",
     "border-peaks:triage-phase2-batch": "node --experimental-strip-types scripts/border-peaks/triage-phase2-batch.ts",
-    "border-peaks:prepare-phase3": "node --experimental-strip-types scripts/border-peaks/prepare-phase3-review.ts"
+    "border-peaks:prepare-phase3": "node --experimental-strip-types scripts/border-peaks/prepare-phase3-review.ts",
+    "border-peaks:phase3-pilot": "node --experimental-strip-types scripts/border-peaks/prepare-phase3-pilot.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
