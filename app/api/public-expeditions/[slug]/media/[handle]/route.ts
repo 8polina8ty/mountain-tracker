@@ -3,16 +3,19 @@ import { resolvePublicPhoto, type PublicPhotoVariant } from "@/Lib/projects/publ
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string; handle: string }> }) {
   const started = performance.now();
   const { slug, handle } = await params;
-  const requestedVariant = new URL(request.url).searchParams.get("variant") ?? "original";
-  if (requestedVariant !== "thumb" && requestedVariant !== "original") return new Response(null, { status: 400 });
+  const requestedVariant = new URL(request.url).searchParams.get("variant") ?? "display";
+  const privateHeaders = { "Cache-Control": "private, no-store" };
+  if (requestedVariant !== "thumb" && requestedVariant !== "display" && requestedVariant !== "original") {
+    return new Response(null, { status: 400, headers: privateHeaders });
+  }
   const media = await resolvePublicPhoto(slug, handle, requestedVariant as PublicPhotoVariant);
-  if (!media) return new Response(null, { status: 404 });
+  if (!media) return new Response(null, { status: 404, headers: privateHeaders });
   const responseStarted = performance.now();
   const response = new Response(media.blob.stream(), {
     headers: {
       "Content-Type": media.mimeType,
       "Content-Length": String(media.blob.size),
-      "Cache-Control": "private, no-store",
+      ...privateHeaders,
       "X-Content-Type-Options": "nosniff",
       "Cross-Origin-Resource-Policy": "same-origin",
       "Referrer-Policy": "no-referrer",

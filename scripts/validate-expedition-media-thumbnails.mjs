@@ -197,7 +197,7 @@ test("worker fences uploads, binds published bytes and completes a single attemp
   const id = (n) => `00000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
   const input = await createImage(64, 32).png().toBuffer();
   const job = {
-    media_id: id(1), project_id: id(2), attempt_id: id(3), processing_version: 1,
+    variant: "thumb", media_id: id(1), project_id: id(2), attempt_id: id(3), processing_version: 1,
     source_path: `${id(4)}/${id(2)}/${id(5)}/${id(1)}/original.png`, source_mime: "image/png",
     source_size: input.length, source_object_id: id(6), source_version: id(7), derivative_key: `${id(1)}/v1/${id(3)}.webp`,
   };
@@ -205,12 +205,12 @@ test("worker fences uploads, binds published bytes and completes a single attemp
   const success = (data) => ({ data, error: null });
   const db = {
     async rpc(name, args) {
-      const suffix = name.replace("expedition_thumbnail_", "");
+      const suffix = name.replace(/^expedition_(?:thumbnail|media)_/, "");
       events.push(suffix);
       switch (suffix) {
         case "worker_acquire": return success(scenario === "busy" ? null : id(8));
         case "claim_cleanup": return success([]);
-        case "worker_claim": return success([job]);
+        case "worker_claim": return success([{ ...job, variant: scenario === "display" ? "display" : "thumb" }]);
         case "may_upload": return success(++fences < 2 || scenario !== "replaced");
         case "complete":
           assert.equal(args.p_source_id, job.source_object_id);
@@ -230,7 +230,7 @@ test("worker fences uploads, binds published bytes and completes a single attemp
     },
     storage: {
       from(bucket) {
-        assert.equal(bucket, "expedition-media-thumbnails");
+        assert.equal(bucket, scenario === "display" ? "expedition-media-display" : "expedition-media-thumbnails");
         return {
           async upload(path, bytes, options) {
             events.push("upload");
@@ -283,6 +283,7 @@ test("worker fences uploads, binds published bytes and completes a single attemp
     const prefix = ["worker_acquire", "claim_cleanup", "worker_claim", "may_upload", "source", "may_upload"];
     for (const [name, outcome, calls] of [
       ["ready", "ready", [...prefix, "upload", "info", "derivative", "complete", "worker_release"]],
+      ["display", "ready", [...prefix, "upload", "info", "derivative", "complete", "worker_release"]],
       ["replaced", "fenced", [...prefix, "fail", "worker_release"]],
       ["wrong-output", "storage", [...prefix, "upload", "info", "fail", "worker_release"]],
       ["busy", undefined, ["worker_acquire"]],
@@ -332,4 +333,162 @@ test("backfill CLI refuses missing or wrong environment before serving requests"
   assert.match((await execFileAsync(process.execPath, [path, "--help"], options)).stdout, /--dry-run/);
   await assert.rejects(execFileAsync(process.execPath, [path, "--checkpoint", "should-not-be-created.json"], options),
     (error) => error.stderr.includes("explicit staging URL"));
+});
+
+test("display WebP is bounded, oriented, metadata-free and never enlarged", async () => {
+  const xmp = '<x:xmpmeta xmlns:x="adobe:ns:meta/"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description xmlns:dc="http://purl.org/dc/elements/1.1/" dc:creator="private location"/></rdf:RDF></x:xmpmeta>';
+  const jpeg = await createImage(2700, 1200).withMetadata({ orientation: 6 }).withXmp(xmp).withExifMerge({
+    IFD3: { GPSLatitudeRef: "N", GPSLatitude: "52/1 30/1 0/1", GPSLongitudeRef: "E", GPSLongitude: "13/1 24/1 0/1" },
+  }).jpeg().toBuffer();
+  const keyword = Buffer.from("synthetic private IPTC keyword");
+  const resource = Buffer.concat([Buffer.from([0x1c, 0x02, 0x19, 0, keyword.length]), keyword]);
+  const resourceSize = Buffer.alloc(4);
+  resourceSize.writeUInt32BE(resource.length);
+  const profile = Buffer.concat([Buffer.from("Photoshop 3.0\0" + "8BIM"), Buffer.from([4, 4, 0, 0]),
+    resourceSize, resource, Buffer.alloc(resource.length % 2)]);
+  const app13 = Buffer.from([0xff, 0xed, 0, 0]);
+  app13.writeUInt16BE(profile.length + 2, 2);
+  const input = Buffer.concat([jpeg.subarray(0, 2), app13, profile, jpeg.subarray(2)]);
+  const original = await sharp(input).metadata();
+  assert.equal(original.orientation, 6);
+  assert.ok(original.exif && original.xmp && original.iptc?.includes(keyword));
+  const tiff = original.exif.subarray(6);
+  const littleEndian = tiff.toString("ascii", 0, 2) === "II";
+  const read16 = (offset) => littleEndian ? tiff.readUInt16LE(offset) : tiff.readUInt16BE(offset);
+  const read32 = (offset) => littleEndian ? tiff.readUInt32LE(offset) : tiff.readUInt32BE(offset);
+  const entries = (offset) => Array.from({ length: read16(offset) }, (_, index) => offset + 2 + index * 12);
+  const pointer = entries(read32(4)).find((offset) => read16(offset) === 0x8825);
+  assert.notEqual(pointer, undefined, "The input must contain a GPS IFD");
+  const gps = entries(read32(pointer + 8)).map(read16);
+  assert.ok(gps.includes(2) && gps.includes(4), "GPS latitude and longitude must be present before encoding");
+  const result = await processExpeditionThumbnail(input, "image/jpeg", undefined, "display");
+  assert.deepEqual([result.width, result.height], [910, 2048]);
+  const output = await sharp(result.bytes).metadata();
+  assert.equal(output.format, "webp");
+  assert.ok(result.bytes.length <= 524_288);
+  for (const field of ["exif", "iptc", "xmp", "icc", "orientation"]) assert.equal(output[field], undefined);
+  const small = await createImage(81, 55).png().toBuffer();
+  const smallOutput = await processExpeditionThumbnail(small, "image/png", undefined, "display");
+  assert.deepEqual([smallOutput.width, smallOutput.height], [81, 55]);
+  const highEntropy = noiseBytes(1650 * 1500 * 3, 7881);
+  const highEntropyPhoto = await sharp(highEntropy, { raw: { width: 1650, height: 1500, channels: 3 } })
+    .jpeg({ quality: 95 }).toBuffer();
+  const noisy = await processExpeditionThumbnail(highEntropyPhoto, "image/jpeg", undefined, "display");
+  assert.ok(noisy.bytes.length <= 524_288);
+  console.log("Display decoder measurements", JSON.stringify(
+    [result, smallOutput, noisy].map(({ bytes, width, height, elapsedMs, peakRss }) => ({
+      bytes: bytes.length, width, height, elapsedMs, peakRss,
+    })),
+  ));
+});
+
+test("public route keeps both flags, legacy links, revocation and replacements private", async () => {
+  const { createCipheriv, createHash } = await import("node:crypto");
+  const id = (n) => "00000000-0000-4000-8000-" + String(n).padStart(12, "0");
+  const slug = "A".repeat(36);
+  const secret = "synthetic-test-secret";
+  const media = id(1), project = id(2);
+  const iv = Buffer.alloc(12, 2);
+  const cipher = createCipheriv("aes-256-gcm", createHash("sha256")
+    .update("mountain-tracker-public-media-v2:" + secret).digest(), iv);
+  cipher.setAAD(Buffer.from("v2:" + slug));
+  const handle = Buffer.concat([Buffer.from([2]), iv, cipher.update(Buffer.from(media.replaceAll("-", ""), "hex")),
+    cipher.final(), cipher.getAuthTag()]).toString("base64url");
+  const clean = await createImage(80, 50).webp().toBuffer();
+  const unsafe = await createImage(80, 50).withMetadata({ orientation: 1 }).webp().toBuffer();
+  const key = Symbol.for("expedition-public-delivery-test");
+  const flags = ["PUBLIC_EXPEDITION_MEDIA_SECRET", "EXPEDITION_THUMBNAIL_DELIVERY", "EXPEDITION_PUBLIC_DISPLAY_DELIVERY"];
+  const previous = flags.map((flag) => process.env[flag]);
+  process.env[flags[0]] = secret;
+  let shareReads, lookups, bucketReads, scenario;
+  globalThis[key] = {
+    createAdminClient() {
+      return {
+        async rpc(name, args) {
+          if (name === "resolve_public_expedition_share") {
+            assert.equal(args.requested_slug, slug);
+            shareReads++;
+            return { data: scenario === "revoked" && shareReads > 1 ? [] : [{ project_id: project }] };
+          }
+          assert.ok(["expedition_thumbnail_lookup", "expedition_display_photo_lookup"].includes(name));
+          assert.deepEqual(args, { p_project_id: project, p_media_id: media });
+          lookups++;
+          const thumb = name === "expedition_thumbnail_lookup";
+          if (!thumb && scenario === "missing") return { data: [] };
+          return { data: [{
+            object_key: media + "/v1/" + id(3) + ".webp",
+            object_id: scenario === "replaced" && lookups > 1 ? id(9) : id(4),
+            object_version: id(5),
+            size_bytes: scenario === "metadata" ? unsafe.length : clean.length,
+          }] };
+        },
+        get storage() { assert.fail("Public delivery reached raw Storage access"); },
+      };
+    },
+    getSupabaseAdminCredentials: () => ({ url: "https://example.test", secret: "synthetic" }),
+    async readVersionedPhoto(_credentials, object) {
+      bucketReads.push(object.bucket);
+      assert.equal(object.version, id(5));
+      return new Uint8Array(scenario === "metadata" ? unsafe : clean);
+    },
+  };
+  const x = 'globalThis[Symbol.for("expedition-public-delivery-test")]';
+  const dataUrl = (source) => ({ url: "data:text/javascript," + encodeURIComponent(source), shortCircuit: true });
+  const hook = registerHooks({
+    resolve(specifier, context, nextResolve) {
+      if (specifier === "@/Lib/projects/publicReport") return {
+        url: new URL("../Lib/projects/publicReport.ts", import.meta.url).href, shortCircuit: true,
+      };
+      if (!context.parentURL?.endsWith("/publicReport.ts")) return nextResolve(specifier, context);
+      const mapped = {
+        "server-only": "export {}",
+        "@/Lib/supabase/admin": "export const {createAdminClient, getSupabaseAdminCredentials} = " + x,
+        "./completion.ts": "export const buildProjectCompletionSummary = () => null;",
+        "./queries.ts": "export const getUserProject = () => null, listProjectDayTrackEvidence = () => null;",
+        "./thumbnailStorage.ts": "export const { readVersionedPhoto } = " + x,
+      }[specifier];
+      return mapped ? dataUrl(mapped) : nextResolve(specifier, context);
+    },
+  });
+  try {
+    const { GET } = await import("../app/api/public-expeditions/[slug]/media/[handle]/route.ts");
+    for (const [mode, query, display, thumb, status, buckets] of [
+      ["off", "original", "0", "0", 404, []],
+      ["off", "thumb", "0", "0", 404, []],
+      ["off", "display", "0", "1", 404, []],
+      ["ready", "thumb", "0", "1", 200, ["expedition-media-thumbnails"]],
+      ["ready", null, "1", "0", 200, ["expedition-media-display"]],
+      ["ready", "original", "1", "0", 200, ["expedition-media-display"]],
+      ["missing", "display", "1", "1", 200, ["expedition-media-thumbnails"]],
+      ["missing", "display", "1", "0", 404, []],
+      ["revoked", "display", "1", "0", 404, ["expedition-media-display"]],
+      ["replaced", "display", "1", "0", 404, ["expedition-media-display"]],
+      ["metadata", "display", "1", "0", 404, ["expedition-media-display"]],
+      ["cross-share", "original", "1", "1", 404, []],
+      ["ready", "invalid", "1", "1", 400, []],
+    ]) {
+      scenario = mode;
+      shareReads = lookups = 0;
+      bucketReads = [];
+      process.env[flags[1]] = thumb;
+      process.env[flags[2]] = display;
+      const params = { slug: mode === "cross-share" ? "B".repeat(36) : slug, handle };
+      const uri = "https://example.test/media" + (query ? "?variant=" + query : "");
+      const response = await GET(new Request(uri), { params: Promise.resolve(params) });
+      assert.equal(response.status, status, mode + "/" + query);
+      assert.equal(response.headers.get("cache-control"), "private, no-store");
+      assert.deepEqual(bucketReads, buckets);
+      if (status === 200) {
+        assert.equal(response.headers.get("content-type"), "image/webp");
+        assert.deepEqual(Buffer.from(await response.arrayBuffer()), clean);
+      }
+    }
+  } finally {
+    hook.deregister();
+    delete globalThis[key];
+    flags.forEach((flag, index) => {
+      if (previous[index] === undefined) delete process.env[flag];
+      else process.env[flag] = previous[index];
+    });
+  }
 });

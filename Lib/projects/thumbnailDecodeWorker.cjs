@@ -3,7 +3,10 @@
 const maxBytes = 10 * 1024 * 1024;
 const maxPixels = 40_000_000;
 const maxSide = 8192;
-const maxOutput = 65_536;
+const profiles = {
+  thumb: { bytes: 65_536, target: 30 * 1024, attempts: [[256, 76], [256, 64], [256, 50], [256, 36]] },
+  display: { bytes: 524_288, target: 524_288, attempts: [[2048, 76], [2048, 46], [1024, 42]] },
+};
 const maxRss = 512 * 1024 * 1024;
 const formats = { "image/jpeg": "jpeg", "image/png": "png", "image/webp": "webp" };
 
@@ -50,6 +53,9 @@ async function main() {
     sharp.unblock({ operation: ["VipsForeignLoadJpegBuffer", "VipsForeignLoadPngBuffer", "VipsForeignLoadWebpBuffer"] });
     const format = formats[process.argv[2]];
     const length = Number(process.argv[3]);
+    const variant = process.argv[4] ?? "thumb";
+    if (variant !== "thumb" && variant !== "display") return;
+    const profile = profiles[variant];
     if (!format || !Number.isSafeInteger(length) || length < 1 || length > maxBytes) return;
     const bytes = Buffer.allocUnsafe(length);
     let offset = 0;
@@ -65,13 +71,13 @@ async function main() {
       || metadata.width > maxSide || metadata.height > maxSide || metadata.width * metadata.height > maxPixels) return;
 
     // Apply EXIF orientation before fitting. Sharp removes input metadata by default.
-    const pipeline = image.autoOrient().resize(256, 256, { fit: "inside", withoutEnlargement: true });
+    const oriented = image.autoOrient();
     let candidate;
-    for (const quality of [76, 64, 50, 36]) {
-      const output = await pipeline.clone().timeout({ seconds: 2 })
+    for (const [side, quality] of profile.attempts) {
+      const output = await oriented.clone().resize(side, side, { fit: "inside", withoutEnlargement: true }).timeout({ seconds: 2 })
         .webp({ quality, alphaQuality: quality, effort: 3 }).toBuffer({ resolveWithObject: true });
-      if (output.data.length <= maxOutput) candidate = output;
-      if (output.data.length <= 30 * 1024) break;
+      if (output.data.length <= profile.bytes) candidate = output;
+      if (output.data.length <= profile.target) break;
     }
     peakRss = Math.max(peakRss, process.memoryUsage.rss());
     if (peakRss > maxRss) process.exit(4);

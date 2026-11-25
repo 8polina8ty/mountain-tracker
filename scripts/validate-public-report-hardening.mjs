@@ -19,17 +19,18 @@ assert.equal(publicReportSource.includes("createHmac") || publicReportSource.inc
 const photoResolver = publicReportSource.match(/export async function resolvePublicPhoto[\s\S]*$/)?.[0] ?? "";
 assert.ok(photoResolver.includes("const mediaId = mediaIdFromHandle(slug, handle)"),
   "PUBLIC C: opaque handle must resolve to one authenticated media identifier before lookup.");
-assert.ok(photoResolver.includes('.eq("id", mediaId)') && photoResolver.includes('.eq("project_id", resolved.projectId)')
-  && photoResolver.includes('.eq("media_type", "photo")') && photoResolver.includes(".maybeSingle()"),
-  "PUBLIC C: public photo lookup must be an exact project-scoped single-row query.");
-assert.equal(photoResolver.includes(".limit(1000)") || photoResolver.includes("(data ?? []).find"), false,
-  "PUBLIC D: public media delivery must not scan a bounded project photo list.");
-assert.ok(photoResolver.indexOf("resolveMediaShare(slug)") < photoResolver.indexOf('.storage\n    .from("expedition-media")'.replace("\\n", "\n"))
-  || photoResolver.indexOf("resolveMediaShare(slug)") < photoResolver.indexOf('.from("expedition-media")'),
-  "PUBLIC E: enabled-share authorization must be revalidated before Storage download.");
-assert.ok(photoResolver.includes("10 * 1024 * 1024") && photoResolver.includes('["image/jpeg", "image/png", "image/webp"]'),
-  "PUBLIC F: public photo MIME and size bounds must remain enforced.");
-assert.equal(photoResolver.includes("getPublicUrl"), false, "PUBLIC F: public media must never expose a Storage public URL.");
+assert.ok(publicReportSource.includes("p_project_id: projectId, p_media_id: mediaId")
+  && publicReportSource.includes("data.length === 1") && publicReportSource.includes("renditionAttemptId"),
+  "PUBLIC C: require one exact project-scoped derivative and its immutable path.");
+assert.ok(photoResolver.indexOf("resolveMediaShare(slug)") < photoResolver.indexOf("resolvePublicDerivative(slug"),
+  "PUBLIC E: enabled-share authorization must precede a derivative read.");
+assert.ok(publicReportSource.includes("const share = await resolveMediaShare(slug)")
+  && publicReportSource.includes("current?.object_id !== derivative.object_id"),
+  "PUBLIC E: recheck authorization and current derivative identity before exposing bytes.");
+assert.ok(publicReportSource.includes("readVersionedPhoto") && publicReportSource.includes("isSanitizedPhotoWebp"),
+  "PUBLIC F: only verified metadata-free WebP is public.");
+assert.doesNotMatch(publicReportSource, /\.storage\.|getPublicUrl|createSignedUrl|processExpeditionThumbnail|thumbnail_enqueue/,
+  "PUBLIC F: GET must not expose, process, or fetch raw originals.");
 
 assert.ok(publicReportSource.includes("const [project, evidence] = await Promise.all([")
   && publicReportSource.includes("getUserProject(resolved.admin, resolved.ownerId, resolved.projectId)")
@@ -54,9 +55,9 @@ assert.ok(publicPage.includes("<PublicExpeditionPhotoViewer slug={slug} handles=
   "PUBLIC J: the public timeline must pass only opaque photo handles to the viewer.");
 assert.ok(photoViewer.includes('/api/public-expeditions/${encodeURIComponent(slug)}/media/${encodeURIComponent(handle)}?variant=${variant}')
   && photoViewer.includes('unoptimized fill loading="lazy"') && photoViewer.includes('photoUrl(viewer.slug, handle, "thumb")')
-  && photoViewer.includes('activeHandle && <OriginalPhoto key={activeHandle} src={photoUrl(slug, activeHandle, "original")}')
+  && photoViewer.includes('activeHandle && <DisplayPhoto key={activeHandle} src={photoUrl(slug, activeHandle, "display")}')
   && photoViewer.includes('unoptimized fill loading="eager"'),
-  "PUBLIC J: lazy thumbnails and active originals must use the protected route directly.");
+  "PUBLIC J: lazy thumbnails and active display photos must use the protected route directly.");
 assert.doesNotMatch(publicPage + photoViewer, /\b(?:mediaId|storagePath|signedUrl|createAdminClient|getPublicUrl)\b/,
   "PUBLIC J: private media identifiers and Storage URLs must not reach the public page or viewer.");
 

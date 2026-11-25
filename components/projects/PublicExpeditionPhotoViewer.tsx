@@ -13,7 +13,7 @@ const PhotoViewerContext = createContext<{
 
 const controlClass = "ui-pressable inline-flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-muted)]";
 
-function photoUrl(slug: string, handle: string, variant: "thumb" | "original") {
+function photoUrl(slug: string, handle: string, variant: "thumb" | "display") {
   return `/api/public-expeditions/${encodeURIComponent(slug)}/media/${encodeURIComponent(handle)}?variant=${variant}`;
 }
 
@@ -54,7 +54,7 @@ export function PublicExpeditionPhotoThumbnail({ handle }: { handle: string }) {
   );
 }
 
-function OriginalPhoto({ src, alt }: { src: string; alt: string }) {
+function DisplayPhoto({ src, alt }: { src: string; alt: string }) {
   const t = useTranslations("Projects.Sharing");
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 
@@ -142,7 +142,7 @@ export default function PublicExpeditionPhotoViewer({ slug, handles, children }:
               <X aria-hidden="true" size={20} />
             </button>
           </div>
-          {activeHandle && <OriginalPhoto key={activeHandle} src={photoUrl(slug, activeHandle, "original")} alt={t("photoAlt", position)} />}
+          {activeHandle && <DisplayPhoto key={activeHandle} src={photoUrl(slug, activeHandle, "display")} alt={t("photoAlt", position)} />}
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-t border-[var(--color-border)] px-4 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
             {handles.length > 1 && <button type="button" onClick={() => movePhoto(-1)} aria-label={t("previousPhoto")} className={`${controlClass} justify-self-start`}>
               <ChevronLeft aria-hidden="true" size={20} />

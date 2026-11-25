@@ -1001,7 +1001,7 @@ assert.ok(publicPageSource.includes("loadPublicExpeditionReport(slug)") && publi
 assert.equal(publicPageSource.includes("requireProjectUser") || publicPageSource.includes("getUserProject"), false, "KS: public page must consume only the sanitized model");
 for (const privateField of ["projectId", "ownerId", "userId", "storagePath", "originalFilename", "activityId", "mountainId"]) assert.equal(publicPageSource.includes(privateField), false, `KT: public page exposes private field ${privateField}`);
 assert.ok(publicReportSource.includes("type PublicSummary") && !/type PublicSummary[\s\S]{0,800}mountainEvidence/.test(publicReportSource), "KU: public summary must omit identifier-bearing evidence");
-assert.ok(publicMediaSource.includes("resolvePublicPhoto(slug, handle,") && publicReportSource.includes('.eq("project_id", resolved.projectId)'), "KV: media proxy must revalidate share and project membership");
+assert.ok(publicMediaSource.includes("resolvePublicPhoto(slug, handle,") && publicReportSource.includes("p_project_id: projectId, p_media_id: mediaId") && publicReportSource.includes("const share = await resolveMediaShare(slug)"), "KV: media proxy must revalidate share and project membership");
 assert.equal(publicMediaSource.includes("storage_path") || publicMediaSource.includes("createSignedUrl") || publicMediaSource.includes("getPublicUrl"), false, "KW: media response must not expose private delivery data");
 assert.ok(publicPageSource.includes("videoUnavailable") && !publicPageSource.includes("<video"), "KX: unsafe public video streaming must use a placeholder");
 assert.equal(publicPageSource.includes("ActivityTrackMap") || publicReportSource.includes("geoJsonPath"), false, "KY: public report must not expose private track geometry");
@@ -1027,20 +1027,20 @@ assert.equal(publicPageSource.includes('href="/account/') || publicPageSource.in
 assert.ok(/on conflict \(project_id\) do update set is_enabled = true, updated_at = now\(\)\s+where s\.user_id = actor\s+returning s\.public_slug/.test(projectSharesSql), "LK: disable/re-enable must preserve stable slug");
 assert.equal(publicReportSource.includes("weather"), false, "LL: Phase 10 must not expand into weather publication");
 
-// Phase 10.1 LM-MF: the contact sheet requests bounded lazy thumbnails while
-// originals remain behind the same immediately revocable authorization path.
+// Phase 10.1 LM-MF: public gallery and viewer read bounded private derivatives.
+// Every access still crosses the revocable share boundary.
 assert.ok(publicPageSource.includes("<PublicExpeditionPhotoThumbnail") && publicPhotoViewerSource.includes('loading="lazy"') && publicPhotoViewerSource.includes('photoUrl(viewer.slug, handle, "thumb")'), "LM/LN: public grid must lazily request thumbnails");
-assert.ok(publicMediaSource.includes('requestedVariant !== "thumb" && requestedVariant !== "original"'), "LO/LP: media variants must use a closed server-defined allowlist");
+assert.ok(publicMediaSource.includes('requestedVariant !== "thumb" && requestedVariant !== "display" && requestedVariant !== "original"'), "LO/LP: the route accepts only the reviewed three public photo requests");
 assert.equal(publicMediaSource.includes("searchParams.get(\"width\")") || publicMediaSource.includes("searchParams.get(\"height\")") || publicMediaSource.includes("searchParams.get(\"quality\")"), false, "LP: anonymous callers must not choose transform dimensions");
-assert.ok(publicReportSource.includes('variant === "thumb"') && publicReportSource.includes("width: 256") && publicReportSource.includes("height: 256") && publicReportSource.includes('resize: "contain"'), "LO: canonical thumbnail transform missing");
-assert.ok(publicMediaSource.includes('?? "original"') && publicMediaSource.includes("resolvePublicPhoto(slug, handle,"), "LQ: original delivery must remain on the validated proxy");
+assert.ok(publicReportSource.includes('variant === "thumb"') && publicReportSource.includes("expedition_thumbnail_lookup") && !publicReportSource.includes("transform:"), "LO: gallery reads the pre-generated thumbnail without a transform");
+assert.ok(publicMediaSource.includes('?? "display"') && publicMediaSource.includes("resolvePublicPhoto(slug, handle,") && publicReportSource.includes('variant !== "display" && variant !== "original"'), "LQ: default and legacy requests are handled by the validated derivative proxy");
 assert.equal((publicPageSource + publicMediaSource).includes("storage_path") || (publicPageSource + publicMediaSource).includes("getPublicUrl"), false, "LR/LS: public route must not expose Storage paths or URLs");
 assert.equal(projectSharesSql.includes("storage.objects") || projectSharesSql.includes("to anon"), false, "LT: Phase 10.1 must not add anonymous Storage access");
 const mediaResolverSource = publicReportSource.match(/async function resolveMediaShare[\s\S]*?\n}/)?.[0] ?? "";
 assert.ok(mediaResolverSource.includes("resolve_public_expedition_share") && !mediaResolverSource.includes("get_public_expedition_report") && !mediaResolverSource.includes("getUserProject"), "LU: photo proxy must use the narrow share resolver");
-assert.ok(publicReportSource.includes('.eq("project_id", resolved.projectId)') && publicReportSource.includes('.eq("media_type", "photo")'), "LV: same-project photo membership check missing");
+assert.ok(publicReportSource.includes("p_project_id: projectId, p_media_id: mediaId") && publicReportSource.includes("const share = await resolveMediaShare(slug)") && publicReportSource.includes("expedition_display_photo_lookup"), "LV: derivative lookup must bind the exact photo and its project");
 assert.ok(mediaResolverSource.includes("resolve_public_expedition_share"), "LW: every media request must revalidate enabled share status");
-assert.ok(publicReportSource.includes("10 * 1024 * 1024") && publicReportSource.includes('["image/jpeg", "image/png", "image/webp"]'), "LX: photo MIME/size bounds missing");
+assert.ok(publicReportSource.includes('"image/webp"') && publicReportSource.includes("derivative.size_bytes > profile.bytes") && publicReportSource.includes("isSanitizedPhotoWebp(bytes)"), "LX: public output must be bounded metadata-free WebP");
 assert.ok(publicPageSource.includes("videoUnavailable") && !publicPageSource.includes("<video"), "LY: public video behavior changed");
 assert.equal(publicPageSource.includes("ActivityTrackMap") || publicReportSource.includes("geoJsonPath"), false, "LZ: track geometry became public");
 assert.equal(mediaResolverSource.includes("getUserProject") || mediaResolverSource.includes("listProjectDayTrackEvidence"), false, "MA: media resolver rebuilds the project graph");
