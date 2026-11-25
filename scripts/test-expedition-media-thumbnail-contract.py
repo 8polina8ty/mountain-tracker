@@ -375,6 +375,125 @@ def worker_contract(psql):
     print("PASS worker single lease, recovery, fenced release, fair dispatch, durable cursors, metrics and idempotent dry-run/backfill")
 
 
+def display_variant_contract(psql):
+    # The standalone harness does not deploy GPS or sharing. The fixture
+    # supplies the reviewed helper's signature and an owner-bound predicate.
+    psql.run(f"""
+      delete from {PRIVATE}.thumbnails;
+      delete from {PRIVATE}.thumbnail_cleanup;
+      delete from public.expedition_project_shares;
+      create schema expedition_sharing_private;
+      alter table public.expedition_project_shares add column user_id uuid;
+      create function expedition_sharing_private.is_eligible(project_uuid uuid, owner_uuid uuid)
+      returns boolean language sql stable set search_path = '' as $eligible$
+        select exists(select from public.expedition_projects p where p.id = project_uuid and p.user_id = owner_uuid);
+      $eligible$;
+    """)
+    project, media, source = fixture(psql)
+    psql.run(f"""
+      update public.expedition_projects set status='completed' where id='{project}';
+      insert into public.expedition_project_shares(project_id,is_enabled,user_id)
+      select id,true,user_id from public.expedition_projects where id='{project}';
+    """)
+    psql.run(file=WORKER)
+    before = json.loads(psql.run(file=CATALOG))
+    psql.run(file=ROOT / "database/expedition_media_display.sql")
+    check(psql.run("select count(*) from storage.buckets where id='expedition-media-display'") == "0",
+          "Display install provisioned a bucket")
+    for function in ("expedition_display_photo_lookup(uuid,uuid)",
+                     "expedition_display_photo_backfill_page(uuid,boolean)",
+                     "expedition_media_worker_claim(uuid,integer,boolean)",
+                     "expedition_media_claim_cleanup()"):
+        for role in ("anon", "authenticated"):
+            check(psql.run(f"select has_function_privilege('{role}','public.{function}','execute')") == "f",
+                  f"{role} can call {function}")
+    psql.run("""
+      insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
+      values ('expedition-media-display','expedition-media-display',false,524288,array['image/webp']);
+    """)
+    result = json.loads(psql.run("""
+      begin read only; set local role service_role;
+      select public.expedition_display_photo_backfill_page(null,false); rollback;
+    """))
+    check(result["eligible"] == result["verified"] == 1 and result["enqueued"] == 0, "Invalid display dry run")
+    result = json.loads(psql.run("set role service_role; select public.expedition_display_photo_backfill_page(null,true)"))
+    check(result["enqueued"] == 1, "Display job was not seeded for the live share")
+    check(psql.run(f"select count(*) from {PRIVATE}.thumbnails where media_id='{media}'") == "2",
+          "Thumb and display must coexist in the same queue")
+    legacy = psql.run(f"set role service_role; select attempt_id from public.expedition_thumbnail_claim(1,90,2,'{project}')")
+    check(bool(legacy) and psql.run(f"select variant from {PRIVATE}.thumbnail_cleanup where attempt_id='{legacy}'") == "thumb",
+          "An old worker claimed a display attempt")
+    token = psql.run("set role service_role; select public.expedition_thumbnail_worker_acquire()")
+    check(bool(token), "Could not acquire shared worker lease")
+    check(psql.run("set role service_role; select public.expedition_thumbnail_worker_acquire()") == "",
+          "A second worker acquired the global lease")
+    claim = ""
+    for _ in range(5):
+        claim = psql.run(f"""
+          set role service_role;
+          select attempt_id,derivative_key,variant from public.expedition_media_worker_claim('{token}',2,true)
+          where media_id='{media}' and variant='display';
+        """)
+        if claim:
+            break
+    check(bool(claim), "Shared worker never claimed the display attempt")
+    attempt, key, variant = claim.split("|")
+    check(variant == "display", "Wrong claimed rendition")
+    fence = f"select public.expedition_thumbnail_may_upload('{media}','{attempt}')"
+    check(psql.run(f"set role service_role; {fence}") == "t", "Exact source was rejected")
+    psql.run(f"update public.expedition_project_shares set is_enabled=false where project_id='{project}'")
+    check(psql.run(f"set role service_role; {fence}") == "f", "Revocation did not fence display upload")
+    psql.run(f"update public.expedition_project_shares set is_enabled=true where project_id='{project}'")
+    derivative = uuid4()
+    psql.run(f"""
+      insert into storage.objects(id,bucket_id,name,version,metadata)
+      values ('{derivative}','expedition-media-display','{key}','display-v1','{{"size":80000,"mimetype":"image/webp"}}');
+    """)
+    complete = (f"select public.expedition_thumbnail_complete('{media}','{attempt}','{source}',"
+                f"'source-v1','{derivative}','display-v1',2048,1024,80000)")
+    check(psql.run(f"set role service_role; {complete}") == "t", "Valid larger derivative was not completed")
+    check(psql.run(f"set role service_role; {complete}") == "t", "Lost completion response was not idempotent")
+    lookup = f"select count(*) from public.expedition_display_photo_lookup('{project}','{media}')"
+    check(psql.run(f"set role service_role; {lookup}") == "1", "Exact display was not returned")
+    wrong_project = uuid4()
+    check(psql.run(f"set role service_role; select count(*) from public.expedition_display_photo_lookup('{wrong_project}','{media}')") == "0",
+          "Display lookup did not bind the project")
+    check(psql.run(f"set role service_role; select count(*) from public.expedition_thumbnail_lookup('{project}','{media}')") == "0",
+          "Legacy lookup selected the display row")
+    psql.run(f"update public.expedition_project_shares set is_enabled=false where project_id='{project}'")
+    check(psql.run(f"set role service_role; {lookup}") == "0", "Revoked share retained display lookup")
+    psql.run(f"update public.expedition_project_shares set is_enabled=true where project_id='{project}'")
+    psql.run(f"update storage.objects set version='display-v2' where id='{derivative}'")
+    check(psql.run(f"set role service_role; {lookup}") == "0", "Replaced derivative retained display lookup")
+    psql.run(f"update storage.objects set version='display-v1' where id='{derivative}'")
+    psql.run(f"update storage.objects set version='source-v2' where id='{source}'")
+    check(psql.run(f"set role service_role; {lookup}") == "0", "Replaced original retained display lookup")
+    check(psql.run(f"set role service_role; {complete}") == "f", "Stale source was acknowledged")
+    psql.run(f"delete from {MEDIA} where id='{media}'")
+    check_deleted(psql, media, attempt)
+    claim_cleanup = f"select lease_token from public.expedition_media_claim_cleanup() where attempt_id='{attempt}' and variant='display'"
+    cleanup_lease = psql.run(f"set role service_role; {claim_cleanup}")
+    check(bool(cleanup_lease), "Display cleanup lease was not claimed")
+    may_remove = f"select public.expedition_thumbnail_worker_may_remove('{attempt}','{cleanup_lease}')"
+    check(psql.run(f"set role service_role; {may_remove}") == "t", "Current display was not eligible for removal")
+    psql.run(f"delete from storage.objects where id='{derivative}'")
+    finish = f"select public.expedition_thumbnail_finish_cleanup('{attempt}','{cleanup_lease}')"
+    check(psql.run(f"set role service_role; {finish}") == "t", "Display cleanup did not preserve its tombstone")
+    check(psql.run(f"select state from {PRIVATE}.thumbnail_cleanup where attempt_id='{attempt}'") == "done",
+          "Display tombstone disappeared")
+    psql.run(f"""
+      select public.expedition_thumbnail_worker_release('{token}');
+      update {PRIVATE}.thumbnails set lease_until=now()-interval '1 second' where lease_until is not null;
+      update {PRIVATE}.thumbnail_cleanup set lease_until=now()-interval '1 second' where lease_until is not null;
+      delete from storage.buckets where id='expedition-media-display';
+    """)
+    psql.run(file=ROOT / "database/expedition_media_display_rollback.sql")
+    check(json.loads(psql.run(file=CATALOG)) == before, "Display rollback did not restore the reviewed catalog")
+    psql.run(file=WORKER_ROLLBACK)
+    psql.run("drop schema expedition_sharing_private cascade; alter table public.expedition_project_shares drop column user_id")
+    print("PASS display install, dry run, shared lease, legacy isolation, identity fencing, revocation, variant cleanup, exact rollback")
+
+
 def plan_data(plan):
     def visit(node):
         yield node
@@ -486,6 +605,7 @@ def main():
             concurrency(psql)
             project_lease_cap(psql)
             worker_contract(psql)
+            display_variant_contract(psql)
             cleanup_plans(psql)
             psql.run("delete from storage.objects where bucket_id='expedition-media-thumbnails'; "
                      "delete from storage.buckets where id='expedition-media-thumbnails'")
