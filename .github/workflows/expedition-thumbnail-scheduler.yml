@@ -1,0 +1,110 @@
+name: Expedition thumbnail scheduler (staging)
+
+on:
+  schedule:
+    - cron: "2-57/5 * * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: expedition-thumbnail-scheduler-staging
+  cancel-in-progress: false
+
+jobs:
+  invoke:
+    if: >-
+      github.repository == '8polina8ty/mountain-tracker' &&
+      github.ref == 'refs/heads/main' &&
+      ((github.event_name == 'schedule' && vars.THUMBNAIL_SCHEDULER_STAGING_MODE == 'scheduled') ||
+      (github.event_name == 'workflow_dispatch' &&
+      (vars.THUMBNAIL_SCHEDULER_STAGING_MODE == 'manual' || vars.THUMBNAIL_SCHEDULER_STAGING_MODE == 'scheduled')))
+    environment: thumbnail-scheduler-staging
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Invoke the protected staging worker
+        shell: bash
+        env:
+          WORKER_HOST: ${{ vars.THUMBNAIL_STAGING_WORKER_HOST }}
+          WORKER_BEARER: ${{ secrets.THUMBNAIL_STAGING_WORKER_BEARER }}
+          VERCEL_BYPASS: ${{ secrets.THUMBNAIL_STAGING_VERCEL_BYPASS }}
+        run: |
+          timeout --kill-after=5s 40s python3 - <<'PY'
+          import http.client
+          import json
+          import os
+          import re
+          import sys
+
+
+          class InvocationError(Exception):
+              pass
+
+
+          def invoke():
+              host = os.environ.get("WORKER_HOST", "")
+              bearer = os.environ.get("WORKER_BEARER", "")
+              bypass = os.environ.get("VERCEL_BYPASS", "")
+              if not re.fullmatch(
+                  r"mountain-tracker-staging-[a-z0-9]{9}-arot3743-7343s-projects\.vercel\.app",
+                  host,
+              ):
+                  raise InvocationError("staging hostname is missing or invalid")
+              if not re.fullmatch(r"[a-f0-9]{64}", bearer):
+                  raise InvocationError("dedicated worker bearer is missing or invalid")
+              if (
+                  not re.fullmatch(r"[A-Za-z0-9._~-]{21,300}", bypass)
+                  or re.match(r"(?:sb_|sbp_|eyJ[^.]*\.)", bypass, re.IGNORECASE)
+                  or bypass == bearer
+              ):
+                  raise InvocationError("separate Vercel ingress secret is missing or invalid")
+
+              connection = http.client.HTTPSConnection(host, timeout=35)
+              try:
+                  connection.request(
+                      "POST",
+                      "/api/internal/expedition-media/thumbnails",
+                      headers={
+                          "Authorization": f"Bearer {bearer}",
+                          "x-vercel-protection-bypass": bypass,
+                          "Accept": "application/json",
+                          "User-Agent": "MountainTracker-ThumbnailScheduler/1.0",
+                      },
+                  )
+                  response = connection.getresponse()
+                  if response.status != 200:
+                      raise InvocationError(f"worker HTTP {response.status}")
+                  if response.headers.get_content_type() != "application/json":
+                      raise InvocationError("unexpected response content type")
+                  data = response.read(2049)
+                  if len(data) > 2048:
+                      raise InvocationError("worker response exceeded the size limit")
+                  result = json.loads(data)
+              finally:
+                  connection.close()
+
+              if not isinstance(result, dict):
+                  raise InvocationError("unexpected response shape")
+              if result.get("status") == "busy":
+                  return "busy"
+              generation = result.get("generation")
+              if result.get("status") != "completed" or not isinstance(generation, dict):
+                  raise InvocationError("unexpected worker status")
+              outcome = generation.get("outcome")
+              if outcome in ("storage", "processing"):
+                  raise InvocationError(f"worker reported {outcome}")
+              if outcome not in ("idle", "ready", "fenced", "source_changed", "invalid_source"):
+                  raise InvocationError("unexpected generation outcome")
+              return f"completed ({outcome})"
+
+
+          try:
+              print(f"Thumbnail scheduler: {invoke()}")
+          except InvocationError as exc:
+              print(f"Thumbnail scheduler: {exc}", file=sys.stderr)
+              sys.exit(1)
+          except (OSError, http.client.HTTPException, ValueError, RecursionError):
+              print("Thumbnail scheduler: HTTPS or response decoding failed", file=sys.stderr)
+              sys.exit(1)
+          PY
