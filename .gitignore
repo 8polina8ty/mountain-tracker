@@ -75,3 +75,58 @@ date/boundaries/*.geojson
 /data/routes/pbf/
 /data/routes/publication-execution/
 /data/osm/alps/staging/
+
+# global border-peak discovery inputs and generated artifacts
+/data/border-peaks/global-boundaries/
+/data/border-peaks/global-run/
+/data/border-peaks/mountains-global.jsonl
+/data/border-peaks/existing-memberships-global.jsonl
+/data/border-peaks/global-verification/
+
+# local global border-peak review/evidence/decision artifacts
+/data/border-peaks/global-review/
+node_modules
+
+# Local manual border peak review
+/data/border-peaks/manual-review/
+
+# Local audit evidence, machine tools, and credentials
+/.claude/
+/C__Users_*_AppData_Local_Temp_opencode/
+/identity-repair/
+/tools/graphhopper/graphhopper-web.jar
+*.dpapi
+*.pfx
+*.p12
+*.pgdump
+*.sql.gz
+__pycache__/
+
+# Local GPS inputs and generated route or border review evidence
+/data/gpx/
+/data/border-peaks/global-run-v2/
+/data/border-peaks/phase[2-5]/
+/data/border-peaks/real-run/second-manual-batch/
+/data/border-peaks/real-run/first-manual-batch-validation.json
+/data/border-peaks/real-run/review-decisions.jsonl
+/data/osm/alps/road-safety/
+/data/osm/zugspitze-*.json
+/data/osm/zugspitze-*.geojson
+/data/routes/graphhopper-bulk/
+/data/routes/graphhopper-recovery/
+/data/routes/pbf-*.log
+/data/routes/pbf-fixture-*/
+/data/routes/publication-prep/
+/data/routes/runs/
+/data/routes/tmp-blocks/
+/reconstruct.log
+
+# Local deployment evidence and one-off data imports
+/database/expedition_media_thumbnail_staging_*.json
+/database/expedition_media_thumbnail_staging_*.md
+/database/expedition_media_thumbnail_runtime_closure.md
+/database/expedition_media_thumbnails_staging_gate.md
+/database/expedition_sharing_hardening_review.md
+/database/generated/mountain_countries_*batch*.sql
+/approve-all-border-peaks.mjs
+/col.csv
