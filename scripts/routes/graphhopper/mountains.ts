@@ -1,6 +1,8 @@
 /** Mountain Tracker mountains DB reader (read-only).
  * Primary source: Supabase mountains table (id, osm_id, name, height, latitude, longitude)
- * Fallback: local fixture for offline determinism.
+ * Fallback: local fixture for offline determinism — STRICT BULK PATHS MUST NOT REACH IT.
+ * bulk700-inventory.ts / bulk700-run.ts use direct SUPABASE_DATABASE inventory only and throw
+ * REAL_MOUNTAIN_SOURCE_UNAVAILABLE if the real source is unavailable. Never route bulk700 through loadMountains().
  */
 import { readFile } from 'node:fs/promises';
 
@@ -13,7 +15,7 @@ export interface DbMountain {
   longitude: number;
 }
 
-export async function loadMountains(opts: { limit: number; offset: number }): Promise<DbMountain[]> {
+export async function loadMountains(opts: { limit: number; offset: number; strict?: boolean }): Promise<DbMountain[]> {
   // Try Supabase if env present (also try reading .env.local for CLI)
   let url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   let key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -38,13 +40,20 @@ export async function loadMountains(opts: { limit: number; offset: number }): Pr
       if (res.ok) {
         const data = (await res.json()) as DbMountain[];
         if (Array.isArray(data) && data.length) return data;
+        if (opts.strict) throw new Error('REAL_MOUNTAIN_SOURCE_UNAVAILABLE: Supabase returned empty for strict bulk load');
+      } else if (opts.strict) {
+        throw new Error(`REAL_MOUNTAIN_SOURCE_UNAVAILABLE: Supabase fetch failed ${res.status} ${await res.text().catch(()=> '')}`);
       }
-    } catch {
+    } catch (e) {
+      if (opts.strict) throw new Error(`REAL_MOUNTAIN_SOURCE_UNAVAILABLE: ${(e as Error).message}`);
       // fallback
     }
+  } else if (opts.strict) {
+    throw new Error('REAL_MOUNTAIN_SOURCE_UNAVAILABLE: Missing NEXT_PUBLIC_SUPABASE_URL or key for strict bulk load');
   }
+  if (opts.strict) throw new Error('REAL_MOUNTAIN_SOURCE_UNAVAILABLE: Strict bulk mode requires real DB mountains - synthetic fallback forbidden');
   // Fallback: generate deterministic synthetic Alps mountains along Alps band for offline proof
-  // Use seeded generation to ensure reproducibility
+  // Use seeded generation to ensure reproducibility (offline/unit-test only, never strict bulk)
   const fallback: DbMountain[] = [];
   for (let i = 0; i < opts.limit; i++) {
     const idx = opts.offset + i;

@@ -1,13 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import maplibregl, {
-  type GeoJSONSource,
-  type Map,
-  type Marker,
-} from "maplibre-gl";
+import { LngLatBounds, Marker, NavigationControl, Popup, type GeoJSONSource, type Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useTranslations } from "next-intl";
+import { createMapLibreMap } from "@/Lib/maplibre";
 
 type ActivityTrackMapProps = {
   signedGeoJsonUrl: string;
@@ -47,7 +44,7 @@ export default function ActivityTrackMap({
       return;
     }
 
-    const map = new maplibregl.Map({
+    const map = createMapLibreMap({
       container: containerRef.current,
 
       style: {
@@ -84,7 +81,7 @@ export default function ActivityTrackMap({
     });
 
     map.addControl(
-      new maplibregl.NavigationControl(),
+      new NavigationControl(),
       "top-right",
     );
 
@@ -264,7 +261,7 @@ export default function ActivityTrackMap({
       const finishCoordinate =
         coordinates[coordinates.length - 1];
 
-      startMarkerRef.current = new maplibregl.Marker({
+      startMarkerRef.current = new Marker({
         element: createMarkerElement(
           "S",
           "#16a34a",
@@ -274,7 +271,7 @@ export default function ActivityTrackMap({
       })
         .setLngLat(startCoordinate)
         .setPopup(
-          new maplibregl.Popup({
+          new Popup({
             offset: 25,
           }).setText(
             t("startPopup", { activityTitle }),
@@ -283,7 +280,7 @@ export default function ActivityTrackMap({
         .addTo(map);
 
       finishMarkerRef.current =
-        new maplibregl.Marker({
+        new Marker({
           element: createMarkerElement(
             "F",
             "#dc2626",
@@ -293,7 +290,7 @@ export default function ActivityTrackMap({
         })
           .setLngLat(finishCoordinate)
           .setPopup(
-            new maplibregl.Popup({
+            new Popup({
               offset: 25,
             }).setText(
               t("finishPopup", { activityTitle }),
@@ -302,7 +299,7 @@ export default function ActivityTrackMap({
           .addTo(map);
 
       const bounds =
-        new maplibregl.LngLatBounds();
+        new LngLatBounds();
 
       coordinates.forEach((coordinate) => {
         bounds.extend(coordinate);

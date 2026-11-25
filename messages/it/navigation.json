@@ -19,7 +19,9 @@
     "primary": "Principale",
     "tracks": "Tracce",
     "switchToLight": "Passa al tema chiaro",
-    "switchToDark": "Passa al tema scuro"
+    "switchToDark": "Passa al tema scuro",
+    "communityFeed": "Comunità",
+    "back": "Indietro"
   },
   "LocaleSwitcher": {
     "language": "Lingua"

@@ -13,11 +13,13 @@ assert.equal(projectPage.includes("<ProjectDayEditor"), false, "DETAIL A: route 
 assert.equal(projectPage.includes("function CompletionReport"), false, "DETAIL A: route must not retain large presentation helpers after decomposition.");
 
 assert.ok(projectPage.includes('const sharePromise = role === "owner"'), "DETAIL B: owner-only share loading must remain conditional.");
+assert.ok(projectPage.includes('const shareEligibilityPromise = role === "owner"'), "DETAIL B: eligibility queries must be owner-only.");
 assert.ok(projectPage.includes("const trackPickerPromise = editable"), "DETAIL C: read-only viewers must not load private track picker options.");
 assert.ok(projectPage.includes("? listOwnedProjectTrackOptions(supabase, user.id)"), "DETAIL C: editable users must retain the owned-track picker.");
 assert.ok(projectPage.includes('const teamPromise = role === "owner"'), "DETAIL D: team management data must remain owner-only.");
-assert.ok(projectPage.includes("const [shareResult, trackEvidence, trackPickerOptions, activityPage, weatherByMountain, mediaDeliveries, team] = await Promise.all(["), "DETAIL E: independent project-detail reads must stay in one parallel loading group.");
+assert.ok(projectPage.includes("const [shareResult, shareEligibility, trackEvidence, trackPickerOptions, activityPage, weatherByMountain, mediaDeliveries, team] = await Promise.all(["), "DETAIL E: independent project-detail reads must stay in one parallel loading group.");
 for (const dependency of [
+  "shareEligibilityPromise,",
   "listProjectDayTrackEvidence(supabase, user.id, project.id)",
   "listProjectActivity(supabase, project.id)",
   "loadProjectMountainWeather(project.days)",

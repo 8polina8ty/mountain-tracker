@@ -32,18 +32,19 @@ const standardEasing = [0.2, 0, 0, 1] as const;
 
 // Primary desktop navigation - 4 main areas
 const primaryNavItems = [
+  { href: "/community", labelKey: "communityFeed", icon: Users },
   { href: "/explore", labelKey: "explore", icon: Compass },
   { href: "/map", labelKey: "map", icon: Mountain },
   { href: "/projects", labelKey: "projects", icon: Mountain },
-  { href: "/ranking", labelKey: "community", icon: Users },
+  { href: "/ranking", labelKey: "ranking", icon: Trophy },
 ] as const;
 
 // Mobile bottom navigation
 const mobileNavItems = [
+  { href: "/community", labelKey: "communityFeed", icon: Users },
   { href: "/explore", labelKey: "explore", icon: Compass },
   { href: "/map", labelKey: "map", icon: Mountain },
   { href: "/projects", labelKey: "projects", icon: Mountain },
-  { href: "/ranking", labelKey: "community", icon: Trophy },
 ] as const;
 
 // Secondary destinations reachable from Community
@@ -59,20 +60,20 @@ function isRouteActive(pathname: string, href: string) {
   if (href === "/explore") {
     return pathname === "/explore" || pathname.startsWith("/mountain/");
   }
+  if (href === "/community") {
+    return pathname === "/community" || pathname.startsWith("/community");
+  }
   if (href === "/projects") {
     return pathname === "/projects" || pathname.startsWith("/projects/");
   }
   if (href === "/ranking") {
-    return (
-      pathname === "/ranking" ||
-      pathname.startsWith("/friends") ||
-      pathname.startsWith("/messages") ||
-      pathname.startsWith("/notifications") ||
-      pathname.startsWith("/users/")
-    );
+    return pathname === "/ranking";
   }
   if (href === "/account") {
     return pathname === "/account" || pathname.startsWith("/account/");
+  }
+  if (href === "/friends" || href === "/messages" || href === "/notifications" || href === "/users") {
+    return pathname.startsWith(href);
   }
   return pathname === href || pathname.startsWith(`${href}/`);
 }
@@ -81,7 +82,8 @@ export default function Header() {
   const t = useTranslations("Navigation");
   const tAccessibility = useTranslations("Accessibility");
   const tSocialAccessibility = useTranslations("Social.Accessibility");
-  const { totalUnreadMessages, totalUnreadProjectNotifications } = useSocialInbox();
+  const { totalUnreadMessages, totalUnreadProjectNotifications, totalUnreadSocialNotifications } = useSocialInbox();
+  const notificationUnreadCount = totalUnreadProjectNotifications + (totalUnreadSocialNotifications ?? 0);
   const pathname = usePathname();
   const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
@@ -282,10 +284,10 @@ export default function Header() {
           <Link
             href="/notifications"
             className="ui-pressable relative grid h-11 w-11 place-items-center rounded-[var(--radius-control)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)]/60"
-            aria-label={totalUnreadProjectNotifications > 0 ? tSocialAccessibility("unreadNotifications", { count: totalUnreadProjectNotifications }) : t("notifications")}
+            aria-label={notificationUnreadCount > 0 ? t("unreadNotifications", { count: notificationUnreadCount }) : t("notifications")}
           >
             <Bell size={18} strokeWidth={2} />
-            {totalUnreadProjectNotifications > 0 && (
+            {notificationUnreadCount > 0 && (
               <span className="absolute right-2.5 top-2.5 h-2.5 w-2.5 rounded-full bg-[var(--color-danger)] ring-2 ring-[var(--color-surface)]" />
             )}
           </Link>
@@ -476,14 +478,14 @@ export default function Header() {
                     const isActive = isRouteActive(pathname, link.href);
                     const showUnreadBadge =
                       (link.href === "/messages" && totalUnreadMessages > 0) ||
-                      (link.href === "/notifications" && totalUnreadProjectNotifications > 0);
+                      (link.href === "/notifications" && notificationUnreadCount > 0);
                     return (
                       <Link
                         key={link.href}
                         href={link.href}
                         onClick={handleMenuNavigation}
                         aria-current={isActive ? "page" : undefined}
-                        aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : link.href === "/notifications" && totalUnreadProjectNotifications > 0 ? t("unreadNotifications", { count: totalUnreadProjectNotifications }) : undefined}
+                        aria-label={link.href === "/messages" && totalUnreadMessages > 0 ? tSocialAccessibility("unreadMessages", { count: totalUnreadMessages }) : link.href === "/notifications" && notificationUnreadCount > 0 ? t("unreadNotifications", { count: notificationUnreadCount }) : undefined}
                         className={`ui-pressable mx-3 flex min-h-11 items-center justify-between rounded-[var(--radius-control)] px-4 text-[14px] font-semibold ${
                           isActive
                             ? "bg-[var(--color-surface-muted)] text-[var(--color-pine)]"
@@ -492,7 +494,7 @@ export default function Header() {
                       >
                         <span>{t(link.labelKey)}</span>
                         {showUnreadBadge && (
-                          <UnreadBadge count={link.href === "/messages" ? totalUnreadMessages : totalUnreadProjectNotifications} />
+                          <UnreadBadge count={link.href === "/messages" ? totalUnreadMessages : notificationUnreadCount} />
                         )}
                       </Link>
                     );
@@ -610,7 +612,7 @@ export default function Header() {
               const isActive = isRouteActive(pathname, item.href);
               const Icon = item.icon;
               const showUnreadBadge =
-                (item.href === "/ranking" && (totalUnreadMessages > 0 || totalUnreadProjectNotifications > 0));
+                ((item.href as string) === "/ranking" && (totalUnreadMessages > 0 || notificationUnreadCount > 0));
               return (
                 <Link
                   key={item.href}

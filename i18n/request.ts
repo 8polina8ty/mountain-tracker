@@ -6,6 +6,7 @@ const messageFiles = [
   "common",
   "navigation",
   "auth",
+  "country",
   "map",
   "mountain",
   "account",
@@ -20,6 +21,7 @@ const messageFiles = [
   "projects",
   "notifications",
   "explore",
+  "routes",
 ] as const;
 
 async function loadMessages(locale: string) {

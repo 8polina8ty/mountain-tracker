@@ -19,7 +19,9 @@
     "primary": "Основное",
     "tracks": "Треки",
     "switchToLight": "Переключить на светлую тему",
-    "switchToDark": "Переключить на тёмную тему"
+    "switchToDark": "Переключить на тёмную тему",
+    "communityFeed": "Сообщество",
+    "back": "Назад"
   },
   "LocaleSwitcher": {
     "language": "Язык"

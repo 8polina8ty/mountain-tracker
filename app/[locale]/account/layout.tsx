@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
 import { isLocale } from "@/i18n/locales";
+import { requireCountryUser } from "@/Lib/auth/server";
 
 type AccountLayoutProps = Readonly<{
   children: React.ReactNode;
@@ -28,6 +29,9 @@ export async function generateMetadata({
   };
 }
 
-export default function AccountLayout({ children }: AccountLayoutProps) {
+export default async function AccountLayout({ children, params }: AccountLayoutProps) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  await requireCountryUser(locale, "/account");
   return children;
 }

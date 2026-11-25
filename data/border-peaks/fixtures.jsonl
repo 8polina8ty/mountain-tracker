@@ -1,0 +1,10 @@
+{"id":1,"name":"Zugspitze","name_de":"Zugspitze","latitude":47.421,"longitude":10.985,"height":2962,"primaryCountryCode":"AT"}
+{"id":2,"name":"Test Inside","name_de":"Test Inside","latitude":47.0,"longitude":11.5,"height":1500,"primaryCountryCode":"AT"}
+{"id":3,"name":"Near Border 150m","name_de":"Near Border 150m","latitude":47.36,"longitude":10.35,"height":2000,"primaryCountryCode":"AT"}
+{"id":4,"name":"Confirmed Border","name_de":"Confirmed Border","latitude":47.42,"longitude":10.98,"height":2200,"primaryCountryCode":"AT"}
+{"id":5,"name":"Triple Border","name_de":"Triple Border","latitude":46.85,"longitude":10.45,"height":1800,"primaryCountryCode":"AT"}
+{"id":6,"name":"Zugspitze Duplicate","name_de":"Zugspitze","latitude":47.422,"longitude":10.986,"height":2960,"primaryCountryCode":"DE"}
+{"id":7,"name":"Conflict Sources","name_de":"Conflict Sources","latitude":47.41,"longitude":10.97,"height":2100,"primaryCountryCode":"AT"}
+{"id":8,"name":"Missing Coord","name_de":null,"latitude":null,"longitude":null,"height":1000,"primaryCountryCode":"DE"}
+{"id":9,"name":"Existing Member","name_de":"Existing Member","latitude":47.40,"longitude":10.96,"height":1900,"primaryCountryCode":"DE"}
+{"id":10,"name":"Disputed XK","name_de":"Disputed XK","latitude":42.6,"longitude":21.1,"height":1200,"primaryCountryCode":"XK"}

@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { calculateCoordinateDistanceMeters } from "./gpxNormalization.ts";
 import { sha256Stable } from "./hashing.ts";
 import type { Coordinate } from "./types.ts";
@@ -374,14 +375,16 @@ export class OsmTrailGraph {
       if (cell) cell.push({ node, point });
       else this.spatialCells.set(key, [{ node, point }]);
     }
-    this.graphHash = sha256Stable({
-      contractVersion: this.contractVersion,
-      costVersion: this.costVersion,
-      dataset: this.dataset,
-      nodes: sortedNodes,
-      edges: this.edges,
-      exclusions: this.exclusions,
-    });
+    // Hash incrementally to avoid V8 max string length for large graphs (>1GB JSON)
+    {
+      const h = createHash('sha256');
+      const stable = (v: unknown) => JSON.stringify(v);
+      h.update(stable({ contractVersion: this.contractVersion, costVersion: this.costVersion, dataset: this.dataset }));
+      for (const n of sortedNodes) h.update(stable(n));
+      for (const e of this.edges) h.update(stable(e));
+      for (const ex of this.exclusions) h.update(stable(ex));
+      this.graphHash = h.digest('hex');
+    }
   }
 
   neighbors(nodeId: number): readonly OsmTrailGraphEdge[] {

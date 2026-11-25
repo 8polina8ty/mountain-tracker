@@ -1,5 +1,10 @@
 # Route Factory
 
+For raw local PBF input, use `npm run routes:pbf -- --input data/osm/source/alps-latest.osm.pbf --limit 100`.
+See [the local PBF generator workflow](PBF_README.md) for Conda support, selection,
+block reuse, checkpoints, limitations and output files. This command is independent
+of the reviewed-artifact workflow described below and performs no publication.
+
 Deterministic offline pipeline for generated-route front-seat classification, review, and
 publication preparation. Everything runs through ordinary npm commands on a developer machine;
 no Codex/OpenCode session, no network, no production writes.

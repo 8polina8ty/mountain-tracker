@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import maplibregl, { type Map } from "maplibre-gl";
+import { LngLatBounds, NavigationControl, Popup, type GeoJSONSource, type Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { Mountain } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { Ascent } from "@/hooks/useAccount";
 import { getPathname } from "@/i18n/navigation";
+import { createMapLibreMap } from "@/Lib/maplibre";
 
 type ClimbedMountainsMapProps = {
   ascents: Ascent[];
@@ -39,7 +40,7 @@ export default function ClimbedMountainsMap({
     return;
   }
 
-  const map = new maplibregl.Map({
+  const map = createMapLibreMap({
     container: containerRef.current,
     style: {
       version: 8,
@@ -69,7 +70,7 @@ export default function ClimbedMountainsMap({
   });
 
   map.addControl(
-    new maplibregl.NavigationControl(),
+    new NavigationControl(),
     "top-right",
   );
 
@@ -135,7 +136,7 @@ const map: Map = currentMap;
   function updateClimbedMountains() {
     const existingSource = map.getSource(
       "climbed-mountains",
-    ) as maplibregl.GeoJSONSource | undefined;
+    ) as GeoJSONSource | undefined;
 
     if (existingSource) {
       existingSource.setData(geoJsonData);
@@ -228,7 +229,7 @@ const map: Map = currentMap;
             link,
           );
 
-          new maplibregl.Popup({
+          new Popup({
             offset: 14,
           })
             .setLngLat(coordinates)
@@ -247,7 +248,7 @@ const map: Map = currentMap;
 
     if (features.length > 1) {
       const bounds =
-        new maplibregl.LngLatBounds();
+        new LngLatBounds();
 
       features.forEach((feature) => {
         bounds.extend(

@@ -1,5 +1,5 @@
 export const MIN_HEIGHT = 700;
-export const MAX_HEIGHT = 8000;
+export const MAX_HEIGHT = 8850;
 
 export const PEAK_COLORS = {
   low: "#22c55e",

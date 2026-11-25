@@ -26,7 +26,7 @@ export default function HeightFilter({
     { label: `1600–1999 ${t("meterUnit")}`, color: PEAK_COLORS.mediumHigh },
     { label: `2000–3999 ${t("meterUnit")}`, color: PEAK_COLORS.high },
     { label: `4000–5999 ${t("meterUnit")}`, color: PEAK_COLORS.veryHigh },
-    { label: `6000–8000 ${t("meterUnit")}`, color: PEAK_COLORS.extreme },
+    { label: `6000–${MAX_HEIGHT} ${t("meterUnit")}`, color: PEAK_COLORS.extreme },
   ];
 
   return (
@@ -47,15 +47,16 @@ export default function HeightFilter({
 
         <input
           id="minimum-height"
-          type="range"
+          type="number"
           min={MIN_HEIGHT}
           max={MAX_HEIGHT}
-          step={50}
+          step={1}
           value={minimumHeight}
           onChange={(event) => {
-            onHeightChange(Number(event.target.value));
+            const height = Number(event.target.value);
+            if (Number.isInteger(height) && height >= MIN_HEIGHT && height <= MAX_HEIGHT) onHeightChange(height);
           }}
-          className="h-2 w-full cursor-pointer [accent-color:var(--color-forest)]"
+          className="h-12 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-3 text-base"
         />
 
         <span className="mt-1 flex justify-between [font-family:var(--font-technical)] text-[10px] text-[var(--color-text-muted)]">

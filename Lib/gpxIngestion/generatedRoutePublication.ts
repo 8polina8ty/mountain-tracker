@@ -217,6 +217,30 @@ export function assertPrimaryPublication(p: PublicationEvidence): void {
     p.safety.fabricatedGapCount === 0 && p.safety.solverStatus === 'RECONSTRUCTED' && !p.safety.boundaryLimited,
     'PRIMARY_SAFETY_REQUIRED');
   assert(p.summitAttachment.autoEligible && ['DIRECT', 'EXTENDED'].includes(p.summitAttachment.tier), 'PRIMARY_SUMMIT_ATTACHMENT_REQUIRED');
+  // Provenance-integrity hardening: cross-field invariants that reject fabricated placeholder evidence
+  const e = p.accessEvidence!;
+  assert.equal(p.start.osmId, e.startNodeId, 'START_OSM_ID_MISMATCH_EVIDENCE');
+  assert.equal(p.start.candidateId, `${p.start.objectType}:${p.start.osmId}`, 'CANDIDATE_ID_MISMATCH');
+  assert(e.approachNodeIds[0] === e.startNodeId, 'APPROACH_MUST_START_AT_START_NODE');
+  assert(e.approachNodeIds.length >= 1 && e.approachWayIds.length >= 1, 'APPROACH_WITNESS_EMPTY');
+  assert(e.outwardRoadNodeIds.length >= 2 && e.outwardRoadWayIds.length >= 1, 'OUTWARD_WITNESS_EMPTY');
+  // No synthetic placeholder IDs (1000000+mid, 2000000+mid, 3000000+mid) and no constant 12.5 without variance
+  // Detect obvious synthetic sequential placeholder pattern: approachNodeIds = [x, x+1] with approachWayIds == [1000000+mountain] etc
+  // We check that IDs are plausible OSM ids (<2^31) and not in synthetic ranges that coincide with mountain_id offset
+  const synthetic = (e.approachWayIds.length === 1 && e.approachWayIds[0] >= 1_000_000 && e.approachWayIds[0] < 4_000_000 && e.approachWayIds[0] % 1_000_000 < 500_000)
+    || (e.outwardRoadNodeIds[0] >= 2_000_000 && e.outwardRoadNodeIds[0] < 4_000_000)
+    || (e.outwardRoadWayIds[0] >= 3_000_000 && e.outwardRoadWayIds[0] < 4_000_000);
+  // More precise synthetic detection: if accessNetworkDistance is exactly 12.5 and approachNodeIds are sequential and outward nodes are sequential mountain offsets, block
+  if (e.accessNetworkDistance === 12.5 && e.approachNodeIds.length === 2 && e.approachNodeIds[1] === e.approachNodeIds[0] + 1 && e.approachWayIds.length === 1 && e.outwardRoadNodeIds.length === 2 && e.outwardRoadNodeIds[1] === e.outwardRoadNodeIds[0] + 1) {
+    assert.fail('SYNTHETIC_PLACEHOLDER_EVIDENCE_DETECTED');
+  }
+  if (synthetic && e.accessNetworkDistance === 12.5) {
+    assert.fail('SYNTHETIC_PLACEHOLDER_EVIDENCE_DETECTED');
+  }
+  // Summit tier must be derived from actual distance (no coerced 25)
+  const d = p.summitAttachment.distanceMeters;
+  const expectedTier = d <= 30 ? 'DIRECT' : d <= 50 ? 'EXTENDED' : null;
+  assert.equal(p.summitAttachment.tier, expectedTier, 'SUMMIT_TIER_MISMATCH_DISTANCE');
 }
 
 export function existingPublicationAction(request: PublicationRequest, existing: { request_hash: string; publication_status: string } | undefined): 'UNCHANGED' | 'CREATE' {

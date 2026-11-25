@@ -7,20 +7,18 @@ import type {
 import type { GeoJSONSource, Map } from "maplibre-gl";
 
 import type {
+  MountainMapFilters,
   PeakFeatureCollection,
   SelectedPeak,
 } from "./types";
-import {
-  getPeakName,
-  normalizeText,
-} from "./peakUtils";
+import { filterMountainsInView, retainVisiblePeak } from "./mountainFilters";
 
 type UseVisibleMountainsParams = {
   mapRef: MutableRefObject<Map | null>;
   originalGeoJsonRef: MutableRefObject<
     PeakFeatureCollection | null
   >;
-  minimumHeight: number;
+  filters: MountainMapFilters;
   appliedSearch: string;
   climbedMountainIds: Set<number>;
   mountainDataVersion: number;
@@ -33,7 +31,7 @@ type UseVisibleMountainsParams = {
 export function useVisibleMountains({
   mapRef,
   originalGeoJsonRef,
-  minimumHeight,
+  filters,
   appliedSearch,
   climbedMountainIds,
   setVisiblePeakCount,
@@ -71,72 +69,19 @@ const north =
       return;
     }
 
-    const normalizedSearch = normalizeText(appliedSearch);
-
-    const filteredFeatures = originalGeoJson.features
-      .filter((feature) => {
-
-        const [
-  longitude,
-  latitude,
-] = feature.geometry.coordinates;
-
-const isInsideViewport =
-  longitude >= west &&
-  longitude <= east &&
-  latitude >= south &&
-  latitude <= north;
-
-if (!isInsideViewport) {
-  return false;
-}
-
-        const height = Number(feature.properties.height);
-        const name = normalizeText(
-          getPeakName(feature.properties),
-        );
-
-        const matchesHeight = height >= minimumHeight;
-
-        const matchesSearch =
-          normalizedSearch.length === 0 ||
-          name.includes(normalizedSearch);
-
-        return matchesHeight && matchesSearch;
-      })
-      .map((feature) => ({
-        ...feature,
-        properties: {
-          ...feature.properties,
-          climbed: climbedMountainIds.has(
-            Number(feature.properties.id),
-          ),
-        },
-      }));
-
-    const filteredGeoJson: PeakFeatureCollection = {
-      type: "FeatureCollection",
-      features: filteredFeatures,
-    };
+    const filteredGeoJson = filterMountainsInView(
+      originalGeoJson,
+      { west, south, east, north },
+      filters,
+      climbedMountainIds,
+      appliedSearch,
+    );
 
     source.setData(filteredGeoJson);
-    setVisiblePeakCount(filteredFeatures.length);
-
-    setSelectedPeak((currentPeak) => {
-      if (!currentPeak) {
-        return null;
-      }
-
-      const stillVisible = filteredFeatures.some(
-        (feature) =>
-          Number(feature.properties.osm_id) ===
-          Number(currentPeak.osm_id),
-      );
-
-      return stillVisible ? currentPeak : null;
-    });
+    setVisiblePeakCount(filteredGeoJson.features.length);
+    setSelectedPeak((currentPeak) => retainVisiblePeak(currentPeak, filteredGeoJson));
   }, [
-    minimumHeight,
+    filters,
     appliedSearch,
     climbedMountainIds,
     mapRef,

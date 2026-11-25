@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useFormatter, useTranslations } from "next-intl";
+import AchievementShareButton from "@/components/social/feed/AchievementShareButton";
 
 import type {
   AchievementCategory,
@@ -269,9 +270,14 @@ function AchievementArchiveRecord({ item }: { item: AchievementArchiveItem }) {
       </div>
 
       {item.unlockedAt ? (
-        <p className="mt-3 text-sm font-semibold text-[var(--color-success)]">
-          {t("Archive.unlockedOn", { date: format.dateTime(new Date(item.unlockedAt), { year: "numeric", month: "long", day: "numeric" }) })}
-        </p>
+        <>
+          <p className="mt-3 text-sm font-semibold text-[var(--color-success)]">
+            {t("Archive.unlockedOn", { date: format.dateTime(new Date(item.unlockedAt), { year: "numeric", month: "long", day: "numeric" }) })}
+          </p>
+          <div className="mt-3">
+            <AchievementShareButton achievementId={item.id} icon={item.icon} />
+          </div>
+        </>
       ) : reachedPending ? (
         <p className="mt-3 text-sm font-semibold text-[var(--color-text-secondary)]">{t("Archive.reachedPending")}</p>
       ) : (

@@ -9,7 +9,8 @@ import { DatabaseSync } from 'node:sqlite';
 import { fingerprintInput } from '../osm-import/bulk-checkpoint.ts';
 import { writeJsonAtomically } from '../osm-import/jsonl.ts';
 import { sha256Bytes, sha256Stable, stableJson } from '../../Lib/gpxIngestion/hashing.ts';
-import { buildOsmTrailGraph, ADMITTED_CONNECTOR_HIGHWAYS, type OsmTrailWayInput } from '../../Lib/gpxIngestion/osmTrailGraph.ts';
+import { type OsmTrailWayInput } from '../../Lib/gpxIngestion/osmTrailGraph.ts';
+import { buildAuthoritativePbfBlockGraph } from '../../Lib/gpxIngestion/pbfBlockGraph.ts';
 import { AdaptiveStartDiscoverySession, DEFAULT_ADAPTIVE_START_POLICY, type AdaptiveStartCandidate, type AdaptiveStartDiscoveryResult } from '../../Lib/gpxIngestion/adaptiveStartDiscovery.ts';
 import { AdaptiveStartFeatureIndex } from '../../Lib/gpxIngestion/adaptiveStartFeatures.ts';
 import { BASE_ACCESS_START_POLICY, primaryBaseAccess, primaryStartPriority } from '../../Lib/gpxIngestion/baseAccessStartPolicy.ts';
@@ -121,7 +122,7 @@ export async function runPbf(options: PbfOptions) {
           const ways = records.map(r => JSON.parse(String(r.payload)) as OsmTrailWayInput);
           const featureRows = db.prepare('SELECT f.payload FROM block_features b JOIN features f ON f.identity=b.identity WHERE b.block=? ORDER BY f.identity LIMIT 300001').all(peak.block);
           assert(featureRows.length <= 300000, 'BLOCK_FEATURE_MEMORY_LIMIT');
-          const graph = buildOsmTrailGraph(dataset, ways, { connectorHighways: [...ADMITTED_CONNECTOR_HIGHWAYS], maximumWays: 150000, maximumNodes: 800000 });
+           const graph = buildAuthoritativePbfBlockGraph(dataset, ways);
           session = new AdaptiveStartDiscoverySession({ graph, ways, features: new AdaptiveStartFeatureIndex(featureIndex(featureRows.map(r => JSON.parse(String(r.payload))))), safetyIdentity });
           graphBuilds++;
         }

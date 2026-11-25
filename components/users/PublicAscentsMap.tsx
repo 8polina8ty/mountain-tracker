@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import maplibregl, {
-  type GeoJSONSource,
-  type Map,
-} from "maplibre-gl";
+import { LngLatBounds, NavigationControl, Popup, type GeoJSONSource, type Map, type MapLayerMouseEvent } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 
 import { getPathname } from "@/i18n/navigation";
+import { createMapLibreMap } from "@/Lib/maplibre";
 
 export type PublicAscentMapItem = {
   ascent_id: number;
@@ -49,7 +47,7 @@ export default function PublicAscentsMap({
       return;
     }
 
-    const map = new maplibregl.Map({
+    const map = createMapLibreMap({
       container: containerRef.current,
       style: {
         version: 8,
@@ -79,7 +77,7 @@ export default function PublicAscentsMap({
     });
 
     map.addControl(
-      new maplibregl.NavigationControl(),
+      new NavigationControl(),
       "top-right",
     );
 
@@ -151,7 +149,7 @@ export default function PublicAscentsMap({
     }
 
     function handlePointClick(
-      event: maplibregl.MapLayerMouseEvent,
+      event: MapLayerMouseEvent,
     ) {
       const feature = event.features?.[0];
 
@@ -224,7 +222,7 @@ export default function PublicAscentsMap({
         link,
       );
 
-      new maplibregl.Popup({
+      new Popup({
         offset: 14,
       })
         .setLngLat(coordinates)
@@ -304,7 +302,7 @@ export default function PublicAscentsMap({
 
       if (features.length > 1) {
         const bounds =
-          new maplibregl.LngLatBounds();
+          new LngLatBounds();
 
         features.forEach((feature) => {
           bounds.extend(

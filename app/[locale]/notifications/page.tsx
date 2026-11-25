@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ProjectNotifications from "@/components/projects/ProjectNotifications";
+import SocialNotifications from "@/components/social/SocialNotifications";
 import { requireProjectUser } from "@/Lib/projects/auth";
 import { listProjectNotifications } from "@/Lib/projects/notifications";
 import type { Locale } from "@/i18n/locales";
@@ -21,6 +22,7 @@ export default async function NotificationsPage({ params }: { params: Promise<{ 
           title={t("title") ?? "Project notifications"}
           subtitle={t("description") ?? "Activity and updates from your expedition projects."}
         />
+        <SocialNotifications />
         <ProjectNotifications initialPage={page} />
       </div>
     </main>

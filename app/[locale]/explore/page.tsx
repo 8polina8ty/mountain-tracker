@@ -19,7 +19,13 @@ export default async function ExplorePage({
   let result: { cards: Awaited<ReturnType<typeof searchPublicExpeditions>>["cards"]; next: Awaited<ReturnType<typeof searchPublicExpeditions>>["next"] } = { cards: [], next: null };
   try {
     result = await searchPublicExpeditions(supabase, search);
-  } catch {}
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[Explore] search_public_expeditions failed", error);
+    } else {
+      console.error("[Explore] search_public_expeditions failed");
+    }
+  }
   const query = new URLSearchParams();
   if (search.q) query.set("q", search.q);
   if (search.year) query.set("year", String(search.year));

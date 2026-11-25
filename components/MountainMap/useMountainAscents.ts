@@ -28,6 +28,7 @@ export function useMountainAscents({
 
   const messageTimeoutRef =
     useRef<ReturnType<typeof setTimeout> | null>(null);
+  const ascentCheckVersion = useRef(0);
 
   const [climbedMountainIds, setClimbedMountainIds] =
   useState<Set<number>>(new Set());
@@ -85,9 +86,11 @@ async function loadClimbedMountains() {
   async function checkSelectedPeakAscent(
     mountainId: number,
   ) {
+    const version = ++ascentCheckVersion.current;
     const {
       data: { user },
     } = await supabase.auth.getUser();
+    if (version !== ascentCheckVersion.current) return;
 
     if (!user) {
       setSelectedPeakClimbed(false);
@@ -100,6 +103,7 @@ async function loadClimbedMountains() {
       .eq("user_id", user.id)
       .eq("mountain_id", mountainId)
       .maybeSingle();
+    if (version !== ascentCheckVersion.current) return;
 
     if (error) {
       console.error(error);
@@ -114,6 +118,7 @@ async function loadClimbedMountains() {
     if (!selectedPeak || ascentLoading) {
       return;
     }
+    const version = ++ascentCheckVersion.current;
 
     setAscentLoading(true);
     clearAscentMessage();
@@ -147,7 +152,7 @@ async function loadClimbedMountains() {
         return;
       }
 
-      setSelectedPeakClimbed(false);
+      if (version === ascentCheckVersion.current) setSelectedPeakClimbed(false);
 
 setClimbedMountainIds((currentIds) => {
   const nextIds = new Set(currentIds);
@@ -172,7 +177,7 @@ setClimbedMountainIds((currentIds) => {
 
     if (insertError) {
       if (insertError.code === "23505") {
-        setSelectedPeakClimbed(true);
+        if (version === ascentCheckVersion.current) setSelectedPeakClimbed(true);
 
   setClimbedMountainIds((currentIds) => {
     const nextIds = new Set(currentIds);
@@ -190,7 +195,7 @@ setClimbedMountainIds((currentIds) => {
       return;
     }
 
-    setSelectedPeakClimbed(true);
+    if (version === ascentCheckVersion.current) setSelectedPeakClimbed(true);
 
 setClimbedMountainIds((currentIds) => {
   const nextIds = new Set(currentIds);

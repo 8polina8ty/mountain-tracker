@@ -10,6 +10,7 @@ import ProjectMountainActions from "@/components/projects/ProjectMountainActions
 import ProjectSharingControl from "@/components/projects/ProjectSharingControl";
 import ProjectStatusControl from "@/components/projects/ProjectStatusControl";
 import ProjectTeamSection from "@/components/projects/ProjectTeam";
+import ExpeditionShareButton from "@/components/social/feed/ExpeditionShareButton";
 import ProjectWeatherSummary from "@/components/projects/ProjectWeatherSummary";
 import { buildProjectCompletionSummary } from "@/Lib/projects/completion";
 import type { ProjectAccessRole, ProjectTeam } from "@/Lib/projects/collaboration";
@@ -35,6 +36,8 @@ type Props = {
   project: ExpeditionProject;
   editable: boolean;
   initialShare: { slug: string; enabled: boolean } | null;
+  shareEligibility: boolean | null;
+  shareReadFailed: boolean;
   trackEvidence: ProjectDayTrackEvidence[];
   trackPickerOptions: ProjectTrackPickerOption[];
   signedTrackUrls: Record<string, string>;
@@ -53,6 +56,8 @@ export default async function ProjectDetailView({
   project,
   editable,
   initialShare,
+  shareEligibility,
+  shareReadFailed,
   trackEvidence,
   trackPickerOptions,
   signedTrackUrls,
@@ -140,11 +145,18 @@ export default async function ProjectDetailView({
           <p className="mt-4 border-l-4 border-[var(--color-forest)] bg-[var(--color-forest-soft)] px-4 py-3 text-sm font-bold text-[var(--color-forest)]">{t("Lifecycle.currentExpedition")}</p>
         )}
         {role === "owner" && (
-          <ProjectSharingControl
-            projectId={projectWithEvidence.id}
-            eligible={projectWithEvidence.status === "completed" || projectWithEvidence.status === "archived"}
-            initialShare={initialShare}
-          />
+          <>
+            <ProjectSharingControl
+              projectId={projectWithEvidence.id}
+              publishableStatus={projectWithEvidence.status === "completed" || projectWithEvidence.status === "archived"}
+              canEnable={shareEligibility}
+              shareReadFailed={shareReadFailed}
+              initialShare={initialShare}
+            />
+            <div className="mt-3">
+              <ExpeditionShareButton projectId={projectWithEvidence.id} projectName={projectWithEvidence.name} enabled={!!initialShare?.enabled} hasEvidence={shareEligibility === true} />
+            </div>
+          </>
         )}
         {projectWithEvidence.status === "completed" && <CompletionReport summary={completionSummary} t={t} format={format} />}
 

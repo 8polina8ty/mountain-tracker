@@ -5,6 +5,7 @@ import { List } from "lucide-react";
 import AccountNavigation from "@/components/account/AccountNavigation";
 import AccountPageHeader from "@/components/account/AccountPageHeader";
 import ClimbedMountainsMap from "@/components/account/ClimbedMountainsMap";
+import BackButton from "@/components/navigation/BackButton";
 import { useAccount } from "@/hooks/useAccount";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
@@ -49,7 +50,8 @@ export default function ClimbedMountainsMapPage() {
 
   return (
     <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-6 lg:min-h-[calc(100dvh-66px)] lg:px-6 lg:py-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl space-y-4">
+        <BackButton fallback="/account/ascents" />
         <AccountNavigation />
         <AccountPageHeader
           eyebrow={t("eyebrow")}

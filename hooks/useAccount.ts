@@ -92,6 +92,7 @@ export function useAccount(): UseAccountResult {
   showAchievementNotification,
 } = useAchievementNotification();
   const [user, setUser] = useState<User | null>(null);
+  const [profileUsername, setProfileUsername] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -141,6 +142,7 @@ export function useAccount(): UseAccountResult {
   });
 
 const username =
+  profileUsername ||
   user?.user_metadata?.username ||
   user?.email?.split("@")[0] ||
   t("userFallback");
@@ -317,7 +319,7 @@ function getMountainName(
     const { data: profile, error: profileError } =
       await supabase
         .from("profiles")
-        .select("avatar_url")
+        .select("avatar_url,username")
         .eq("id", user.id)
         .maybeSingle();
 
@@ -325,6 +327,7 @@ function getMountainName(
       console.error("Ошибка загрузки профиля:", profileError);
     } else {
       setAvatarUrl(profile?.avatar_url ?? null);
+      setProfileUsername(profile?.username ?? null);
     }
 
     let savedAchievements: UserAchievementRecord[] = [];

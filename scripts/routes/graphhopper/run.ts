@@ -14,6 +14,8 @@ import { loadCandidateIndex, boundedCandidatesForSummit, type CandidateIndex, ty
 import { routeWithGraphHopper, serializeGpx, serializeGeojson, routeJson } from './adapter.ts';
 import { loadMountains } from './mountains.ts';
 import { sha256Stable } from '../../../Lib/gpxIngestion/hashing.ts';
+import { blockFor, loadPbfBlockContext } from './pbf-block-loader.ts';
+import { BaseAccessNetwork } from '../../../Lib/gpxIngestion/baseAccessStartPolicy.ts';
 
 const STATES = ['ROUTE_GENERATED', 'NO_BASE_ACCESS', 'NO_SUMMIT_CONNECTION', 'NO_ROUTE', 'REJECTED_ACCESS', 'FAILED'] as const;
 type State = typeof STATES[number];
@@ -178,7 +180,46 @@ export async function runBatch(opts: { limit: number; offset: number; runId?: st
       await mkdir(dir, { recursive: true });
       await writeFile(join(dir, 'route.gpx'), serializeGpx(name, r), 'utf8');
       await writeFile(join(dir, 'route.geojson'), serializeGeojson(name, r, { startKind: best.cand.kind }), 'utf8');
-      await writeFile(join(dir, 'route.json'), routeJson(r, best.cand.kind, { id: m.id, name: m.name }), 'utf8');
+      // Persist real candidate + REAL Base Access witness from frozen PBF block graph (no pseudo)
+      const startCandidate = {
+        osmType: best.cand.osmType,
+        osmId: best.cand.osmId,
+        kind: best.cand.kind,
+        name: best.cand.name,
+        lat: best.cand.lat,
+        lon: best.cand.lon,
+        tags: best.cand.tags,
+      };
+      let realAccessEvidence: import('../../../Lib/gpxIngestion/baseAccessStartPolicy.ts').BaseAccessEvidence | null = null;
+      if (best.cand.osmType === 'node') {
+        try {
+          const block = blockFor(best.cand.lon, best.cand.lat);
+          const dataset = {
+            datasetKey: 'local-osm-pbf',
+            region: 'local',
+            snapshotTimestamp: new Date(meta.pbfModifiedMs).toISOString(),
+            pbfSha256: meta.pbfSha256,
+          };
+          // Simple per-block cache (reuse across mountains in same run)
+          const globalCache = (globalThis as unknown as { __pbfBlockCache?: Map<string, { ways: import('../../../Lib/gpxIngestion/osmTrailGraph.ts').OsmTrailWayInput[]; graph: import('../../../Lib/gpxIngestion/osmTrailGraph.ts').OsmTrailGraph }> }).__pbfBlockCache ?? new Map();
+          (globalThis as unknown as { __pbfBlockCache?: Map<string, unknown> }).__pbfBlockCache = globalCache as unknown as Map<string, unknown>;
+          let ctx = globalCache.get(block) as { ways: import('../../../Lib/gpxIngestion/osmTrailGraph.ts').OsmTrailWayInput[]; graph: import('../../../Lib/gpxIngestion/osmTrailGraph.ts').OsmTrailGraph } | undefined;
+          if (!ctx) {
+            const loaded = (await loadPbfBlockContext(block, dataset)) as unknown as typeof ctx;
+            if (!loaded) throw new Error('BLOCK_CONTEXT_LOAD_FAILED');
+            ctx = loaded;
+            globalCache.set(block, ctx as unknown as never);
+          }
+          const network = new BaseAccessNetwork(ctx!.ways);
+          realAccessEvidence = network.evaluate({ kind: best.cand.kind, tags: best.cand.tags, nodeId: best.cand.osmId, graph: ctx!.graph });
+        } catch {
+          realAccessEvidence = null;
+        }
+      } else {
+        // Way candidates not supported as nodeId — fail closed
+        realAccessEvidence = null;
+      }
+      await writeFile(join(dir, 'route.json'), routeJson(r, best.cand.kind, { id: m.id, name: m.name }, { startCandidate, accessEvidence: realAccessEvidence }), 'utf8');
       await writeFile(join(runDir, 'results', `${m.id}.json`), `${JSON.stringify({ mountainId: m.id, state: 'ROUTE_GENERATED', startKind: best.cand.kind, distanceM: r.distanceMeters, snapStartM: r.snapDistanceStartM, snapSummitM: r.snapDistanceSummitM, height: m.height }, null, 2)}\n`, 'utf8');
       results.push({ mountainId: m.id, name: m.name, state: 'ROUTE_GENERATED', startKind: best.cand.kind, start: { lat: best.cand.lat, lon: best.cand.lon }, summit: summitCoord, distanceM: r.distanceMeters, timeMs: r.timeMillis, snapStartM: r.snapDistanceStartM, snapSummitM: r.snapDistanceSummitM, height: m.height });
     } else {

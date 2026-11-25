@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@/Lib/supabase/client";
 import { normalizeSocialInboxSummary, type SocialInboxSummary } from "@/Lib/socialMessaging";
+import { usePathname } from "@/i18n/navigation";
 
 type RealtimeState = "connecting" | "connected" | "unavailable";
 type SocialInboxContextValue = SocialInboxSummary & {
@@ -17,6 +18,7 @@ const SocialInboxContext = createContext<SocialInboxContextValue>({ ...emptySumm
 
 
 export function SocialInboxProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [summary, setSummary] = useState(emptySummary);
   const [realtimeState, setRealtimeState] = useState<RealtimeState>("connecting");
   const [revision, setRevision] = useState(0);
@@ -53,7 +55,7 @@ export function SocialInboxProvider({ children }: { children: React.ReactNode })
   }
 }, [supabase]);
 
-const scheduleRefresh = useCallback(() => {
+  const scheduleRefresh = useCallback(() => {
   if (refreshTimerRef.current) {
     clearTimeout(refreshTimerRef.current);
   }
@@ -126,6 +128,13 @@ const scheduleRefresh = useCallback(() => {
       removeChannel();
     };
   }, [refresh, scheduleRefresh, supabase]);
+
+  useEffect(() => {
+    scheduleRefresh();
+    const onFocus = () => { void refresh(); };
+    window.addEventListener("focus", onFocus);
+    return () => window.removeEventListener("focus", onFocus);
+  }, [pathname, refresh, scheduleRefresh]);
 
   const value = useMemo(() => ({ ...summary, realtimeState, revision, refresh }), [summary, realtimeState, revision, refresh]);
   return <SocialInboxContext.Provider value={value}>{children}</SocialInboxContext.Provider>;

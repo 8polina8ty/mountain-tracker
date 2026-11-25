@@ -7,16 +7,16 @@ import { AnimatePresence } from "motion/react";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/Lib/supabase/client";
 import type {
+  MountainMapFilters,
   PeakFeatureCollection,
   SelectedPeak,
 } from "./types";
 import {
-  DEFAULT_CENTER,
-  DEFAULT_ZOOM,
   MIN_HEIGHT,
 } from "./constants";
 import SearchPanel from "./SearchPanel";
-import HeightFilter from "./HeightFilter";
+import MapFilterBar from "./MapFilterBar";
+import { DEFAULT_MAP_FILTERS } from "./mountainFilters";
 import PeakDetailsPanel from "./PeakDetailsPanel";
 import {
   getWikipediaUrl,
@@ -37,7 +37,7 @@ export default function MountainMap() {
 
 
   const [selectedPeak, setSelectedPeak] = useState<SelectedPeak | null>(null);
-  const [minimumHeight, setMinimumHeight] = useState(MIN_HEIGHT);
+  const [filters, setFilters] = useState<MountainMapFilters>({ ...DEFAULT_MAP_FILTERS });
 
   const {
   climbedMountainIds,
@@ -78,17 +78,22 @@ export default function MountainMap() {
   searchInput,
   appliedSearch,
   searchMessage,
+  searching,
+  countryCode,
   setSearchInput,
-  setSearchMessage,
+  setCountryCode,
+  cancelSearch,
   flyToSearchedPeak,
   clearSearch,
 } = useMountainSearch({
   mapRef,
-  originalGeoJsonRef,
-  minimumHeight,
+  supabase,
+  filters,
+  climbedMountainIds,
 
   onPeakSelect: (peak) => {
     setSelectedPeak(peak);
+    setSelectedPeakClimbed(Boolean(peak.climbed));
   },
 
   onCheckPeakAscent: (peakId) => {
@@ -99,18 +104,31 @@ export default function MountainMap() {
   messages: {
     mapLoading: t("Search.status.mapLoading"),
     enterPeakName: t("Search.status.enterPeakName"),
-    notFound: (height) => t("Search.status.notFound", { height }),
-    matchesFound: (count) => t("Search.status.matchesFound", { count }),
+    searching: t("Search.status.searching"),
+    requestError: t("Search.status.requestError"),
+    notFound: t("Filter.noSearchMatches"),
     peakFound: t("Search.status.peakFound"),
   },
 });
   const minHeightRef = useRef<number>(MIN_HEIGHT);
 
+  function applyFilters(nextFilters: MountainMapFilters) {
+    cancelSearch();
+    minHeightRef.current = nextFilters.minHeight;
+    setFilters(nextFilters);
+    setSelectedPeak((peak) => {
+      if (peak?.selectionSource !== "search") return peak;
+      const { ascentStatus, minHeight, maxHeight } = nextFilters;
+      const statusMatches = ascentStatus === "all" || (ascentStatus === "climbed") === selectedPeakClimbed;
+      return statusMatches && peak.height >= minHeight && peak.height <= maxHeight ? peak : null;
+    });
+  }
+
 
     useVisibleMountains({
   mapRef,
   originalGeoJsonRef,
-  minimumHeight,
+  filters,
   appliedSearch,
   climbedMountainIds,
   mountainDataVersion,
@@ -123,6 +141,7 @@ useMountainMap({
   mapRef,
   originalGeoJsonRef,
   minHeightRef,
+  minimumHeight: filters.minHeight,
   supabaseClient: supabase,
   setVisiblePeakCount,
   setMountainDataVersion,
@@ -140,17 +159,6 @@ useMountainMap({
 // Фильтрация выполняется на уровне источника.
   // Поэтому кластеры тоже пересчитываются правильно.
   
-  function resetMap() {
-    clearSearch();
-    setMinimumHeight(MIN_HEIGHT);
-    minHeightRef.current = MIN_HEIGHT;
-
-    mapRef.current?.flyTo({
-      center: DEFAULT_CENTER,
-      zoom: DEFAULT_ZOOM,
-    });
-  }
-
  const wikipediaUrl = getWikipediaUrl(selectedPeak?.wikipedia);
 
   return (
@@ -172,42 +180,48 @@ useMountainMap({
       )}
 
       <section
-        className="absolute inset-x-0 bottom-0 z-10 max-h-[min(72dvh,calc(100%-12px))] overflow-y-auto rounded-t-[var(--radius-sheet)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-map-control)] sm:inset-x-auto sm:bottom-auto sm:left-3 sm:top-3 sm:max-h-[calc(100%-24px)] sm:w-[336px] sm:rounded-[var(--radius-panel)]"
+        className="absolute left-3 right-16 top-3 z-30 sm:right-auto sm:max-w-[calc(100%-80px)] lg:right-auto"
         aria-label={t("Controls.accessibleLabel")}
       >
-        <div className="border-b border-[var(--color-border-soft)] px-4 py-3">
-          <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
-            {t("Controls.title")}
-          </p>
-          <p className="mt-0.5 text-xs text-[var(--color-text-secondary)]">
-            {t("Controls.subtitle")}
-          </p>
-        </div>
-
-        <div className="px-4 py-4">
+          <div className="rounded-[22px] border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-card)] sm:w-[380px]">
           <SearchPanel
             searchInput={searchInput}
             searchMessage={searchMessage}
+            searching={searching}
+            countryCode={countryCode}
             appliedSearch={appliedSearch}
             visiblePeakCount={visiblePeakCount}
-            onSearchInputChange={(value) => {
-              setSearchInput(value);
-              setSearchMessage("");
-            }}
+            onSearchInputChange={setSearchInput}
+            onCountryChange={setCountryCode}
             onSearch={flyToSearchedPeak}
             onClearSearch={clearSearch}
           />
 
-          <HeightFilter
-            minimumHeight={minimumHeight}
-            onHeightChange={(newHeight) => {
-              setMinimumHeight(newHeight);
-              minHeightRef.current = newHeight;
-            }}
-            onReset={resetMap}
+        </div>
+        <div className="lg:hidden">
+          <MapFilterBar
+            appliedFilters={filters}
+            appliedSearch={appliedSearch}
+            climbedMountainIds={climbedMountainIds}
+            mapRef={mapRef}
+            originalGeoJsonRef={originalGeoJsonRef}
+            mountainDataVersion={mountainDataVersion}
+            onApply={applyFilters}
           />
         </div>
       </section>
+
+      <div className="hidden lg:flex absolute left-1/2 top-4 z-30 -translate-x-1/2 items-center justify-center">
+        <MapFilterBar
+          appliedFilters={filters}
+          appliedSearch={appliedSearch}
+          climbedMountainIds={climbedMountainIds}
+          mapRef={mapRef}
+          originalGeoJsonRef={originalGeoJsonRef}
+          mountainDataVersion={mountainDataVersion}
+          onApply={applyFilters}
+        />
+      </div>
 
       <AnimatePresence initial={false}>
         {selectedPeak && (

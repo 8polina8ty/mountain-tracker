@@ -34,6 +34,8 @@ export type MessageRecord = {
 export type SocialInboxSummary = {
   totalUnreadMessages: number;
   totalUnreadProjectNotifications: number;
+  totalUnreadSocialNotifications?: number;
+  totalUnreadNotifications?: number;
   unreadConversations: Record<string, number>;
 };
 
@@ -104,6 +106,8 @@ export function normalizeSocialInboxSummary(value: unknown): SocialInboxSummary 
   const row = value as Record<string, unknown>;
   const total = Number(row.totalUnreadMessages);
   const projectTotal = Number(row.totalUnreadProjectNotifications ?? 0);
+  const socialTotal = Number(row.totalUnreadSocialNotifications ?? 0);
+  const combined = Number(row.totalUnreadNotifications ?? projectTotal + socialTotal);
   if (!Number.isSafeInteger(total) || total < 0 || !Number.isSafeInteger(projectTotal) || projectTotal < 0 || !row.unreadConversations || typeof row.unreadConversations !== "object" || Array.isArray(row.unreadConversations)) return null;
   const unreadConversations: Record<string, number> = {};
   for (const [conversationId, countValue] of Object.entries(row.unreadConversations as Record<string, unknown>)) {
@@ -111,7 +115,7 @@ export function normalizeSocialInboxSummary(value: unknown): SocialInboxSummary 
     if (!Number.isSafeInteger(count) || count < 1) return null;
     unreadConversations[conversationId] = count;
   }
-  return { totalUnreadMessages: total, totalUnreadProjectNotifications: projectTotal, unreadConversations };
+  return { totalUnreadMessages: total, totalUnreadProjectNotifications: projectTotal, totalUnreadSocialNotifications: Number.isSafeInteger(socialTotal) ? socialTotal : 0, totalUnreadNotifications: Number.isSafeInteger(combined) ? combined : projectTotal, unreadConversations };
 }
 
 export function applyRealtimeMessage(current: MessageRecord[], message: MessageRecord) {

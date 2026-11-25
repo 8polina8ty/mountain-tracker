@@ -65,8 +65,107 @@ export function bboxIntersects(a: [number, number, number, number], b: [number, 
   return !(a[2] < b[0] || a[0] > b[2] || a[3] < b[1] || a[1] > b[3]);
 }
 
-/** Minimal segment-to-segment distance (approx via point-to-segment of endpoints) */
-export function segmentToSegmentMeters(a1: Coordinate, a2: Coordinate, b1: Coordinate, b2: Coordinate): number {
+function segmentsIntersectLocally(
+  a1: Coordinate,
+  a2: Coordinate,
+  b1: Coordinate,
+  b2: Coordinate,
+): boolean {
+  const coordinates = [a1, a2, b1, b2];
+  if (
+    coordinates.some(
+      ([lon, lat]) => !Number.isFinite(lon) || !Number.isFinite(lat),
+    )
+  ) {
+    return false;
+  }
+
+  const referenceLon = a1[0];
+  const normalizeLon = (lon: number): number => {
+    let delta = lon - referenceLon;
+    while (delta > 180) delta -= 360;
+    while (delta < -180) delta += 360;
+    return referenceLon + delta;
+  };
+
+  const meanLat =
+    (a1[1] + a2[1] + b1[1] + b2[1]) / 4;
+  const lat0 = (meanLat * Math.PI) / 180;
+  const radius = 6371000;
+  const cosLat0 = Math.max(0.1, Math.cos(lat0));
+  const project = ([lon, lat]: Coordinate): [number, number] => [
+    ((normalizeLon(lon) - referenceLon) * Math.PI / 180) *
+      radius *
+      cosLat0,
+    ((lat - a1[1]) * Math.PI / 180) * radius,
+  ];
+
+  const pa1 = project(a1);
+  const pa2 = project(a2);
+  const pb1 = project(b1);
+  const pb2 = project(b2);
+
+  const cross = (
+    p: [number, number],
+    q: [number, number],
+    r: [number, number],
+  ): number =>
+    (q[0] - p[0]) * (r[1] - p[1]) -
+    (q[1] - p[1]) * (r[0] - p[0]);
+
+  const onSegment = (
+    p: [number, number],
+    q: [number, number],
+    r: [number, number],
+  ): boolean => {
+    const epsilon = 1e-6;
+    return (
+      Math.min(p[0], q[0]) - epsilon <= r[0] &&
+      r[0] <= Math.max(p[0], q[0]) + epsilon &&
+      Math.min(p[1], q[1]) - epsilon <= r[1] &&
+      r[1] <= Math.max(p[1], q[1]) + epsilon
+    );
+  };
+
+  const o1 = cross(pa1, pa2, pb1);
+  const o2 = cross(pa1, pa2, pb2);
+  const o3 = cross(pb1, pb2, pa1);
+  const o4 = cross(pb1, pb2, pa2);
+  const epsilon = 1e-6;
+
+  if (
+    ((o1 > epsilon && o2 < -epsilon) ||
+      (o1 < -epsilon && o2 > epsilon)) &&
+    ((o3 > epsilon && o4 < -epsilon) ||
+      (o3 < -epsilon && o4 > epsilon))
+  ) {
+    return true;
+  }
+
+  return (
+    (Math.abs(o1) <= epsilon && onSegment(pa1, pa2, pb1)) ||
+    (Math.abs(o2) <= epsilon && onSegment(pa1, pa2, pb2)) ||
+    (Math.abs(o3) <= epsilon && onSegment(pb1, pb2, pa1)) ||
+    (Math.abs(o4) <= epsilon && onSegment(pb1, pb2, pa2))
+  );
+}
+
+/**
+ * Segment-to-segment distance.
+ * Returns zero for crossing/touching segments before falling back to
+ * endpoint-to-segment distances. The local projection uses longitude
+ * wraparound so short dateline-crossing segments remain adjacent.
+ */
+export function segmentToSegmentMeters(
+  a1: Coordinate,
+  a2: Coordinate,
+  b1: Coordinate,
+  b2: Coordinate,
+): number {
+  if (segmentsIntersectLocally(a1, a2, b1, b2)) {
+    return 0;
+  }
+
   return Math.min(
     pointToSegmentMeters(a1, b1, b2),
     pointToSegmentMeters(a2, b1, b2),

@@ -29,6 +29,7 @@ type UseMountainMapParams = {
   mapRef: MutableRefObject<Map | null>;
   originalGeoJsonRef: MutableRefObject<PeakFeatureCollection | null>;
   minHeightRef: MutableRefObject<number>;
+  minimumHeight: number;
   supabaseClient: SupabaseClient;
   setVisiblePeakCount: Dispatch<SetStateAction<number>>;
   setMountainDataVersion: Dispatch<SetStateAction<number>>;
@@ -115,6 +116,7 @@ export function useMountainMap({
   mapRef,
   originalGeoJsonRef,
   minHeightRef,
+  minimumHeight,
   supabaseClient,
   setVisiblePeakCount,
   setLoadingMessage,
@@ -133,6 +135,12 @@ export function useMountainMap({
   const loadedResultLimitRef = useRef<number | null>(null);
   const mountainLoadVersionRef = useRef(0);
   const mountainAbortControllerRef = useRef<AbortController | null>(null);
+  const reloadMountainsRef = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    minHeightRef.current = minimumHeight;
+    reloadMountainsRef.current?.();
+  }, [minimumHeight, minHeightRef]);
 
   const loadingErrorMessagesRef = useRef({
     unknownErrorMessage,
@@ -265,7 +273,6 @@ export function useMountainMap({
       loadedResultLimitRef.current = resultLimit;
       originalGeoJsonRef.current = geoJson;
       runtimeRef.current.setMountainDataVersion((currentVersion) => currentVersion + 1);
-      runtimeRef.current.setVisiblePeakCount(geoJson.features.length);
     };
 
     const reloadVisibleMountains = () => {
@@ -278,9 +285,10 @@ export function useMountainMap({
     const handleLoad = async () => {
       try {
         const runtime = runtimeRef.current;
+        const initialMinimumHeight = minHeightRef.current;
         await initializeMap({
           map,
-          minHeight: minHeightRef.current,
+          minHeight: initialMinimumHeight,
           supabaseClient: runtime.supabaseClient,
           originalGeoJsonRef,
           setVisiblePeakCount: runtime.setVisiblePeakCount,
@@ -296,6 +304,9 @@ export function useMountainMap({
         });
 
         if (disposed) return;
+        runtimeRef.current.setMountainDataVersion((version) => version + 1);
+        reloadMountainsRef.current = reloadVisibleMountains;
+        if (initialMinimumHeight !== minHeightRef.current) reloadVisibleMountains();
         map.on("moveend", reloadVisibleMountains);
         map.on("zoomend", reloadVisibleMountains);
       } catch (error) {
@@ -316,6 +327,7 @@ export function useMountainMap({
 
     return () => {
       disposed = true;
+      reloadMountainsRef.current = null;
       mountainAbortControllerRef.current?.abort();
       mountainAbortControllerRef.current = null;
       geolocateControl.off("geolocate", handleGeolocate);

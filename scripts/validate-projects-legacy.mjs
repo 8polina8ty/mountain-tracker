@@ -980,21 +980,23 @@ const adminClientSource = await readFile(new URL("../Lib/supabase/admin.ts", imp
 const sharingSource = await readFile(new URL("../Lib/projects/sharing.ts", import.meta.url), "utf8");
 const sharingControlSource = await readFile(new URL("../components/projects/ProjectSharingControl.tsx", import.meta.url), "utf8");
 const publicPageSource = await readFile(new URL("../app/[locale]/expeditions/[slug]/page.tsx", import.meta.url), "utf8");
+const publicPhotoViewerSource = await readFile(new URL("../components/projects/PublicExpeditionPhotoViewer.tsx", import.meta.url), "utf8");
 const publicMediaSource = await readFile(new URL("../app/api/public-expeditions/[slug]/media/[handle]/route.ts", import.meta.url), "utf8");
 assert.ok(projectSharesSql.includes("create table if not exists public.expedition_project_shares"), "KG: share table missing");
 assert.ok(projectSharesSql.includes("alter table public.expedition_project_shares enable row level security"), "KH: share RLS missing");
 assert.ok(projectSharesSql.includes("revoke all on public.expedition_project_shares from public, anon"), "KI: anon table access must be revoked");
 assert.equal(projectSharesSql.includes("to anon"), false, "KJ: sharing SQL must not add anon policies");
-assert.ok(projectSharesSql.includes("p.status in ('completed','archived')"), "KK: only terminal projects may resolve publicly");
+assert.ok(/p\.status in \('completed',\s*'archived'\)/.test(projectSharesSql), "KK: only terminal projects may resolve publicly");
 assert.ok(projectSharesSql.includes("grant execute on function public.resolve_public_expedition_share(text) to service_role"), "KL: resolver must remain server-only");
 assert.ok(projectSharesSql.includes("create or replace function public.get_public_expedition_report") && projectSharesSql.includes("returns jsonb"), "KL: sanitized report RPC missing");
-const publicRpcPayload = projectSharesSql.split("jsonb_build_object(")[1]?.split(")\n  from")[0] ?? "";
+const publicRpcPayload = projectSharesSql.split("create or replace function public.get_public_expedition_report")[1]?.match(/select jsonb_build_object\(([\s\S]*?)\)\s+from/)?.[1];
+assert.ok(publicRpcPayload, "KL: sanitized report payload missing");
 assert.equal(/user_id|project_id|storage_path/.test(publicRpcPayload), false, "KL: sanitized report RPC exposes private identifiers");
 assert.ok(adminClientSource.includes('import "server-only"') && adminClientSource.includes("SUPABASE_SECRET_KEY") && adminClientSource.includes("SUPABASE_SERVICE_ROLE_KEY"), "KM: privileged client boundary missing");
 assert.equal((sharingSource + sharingControlSource).includes("createAdminClient"), false, "KN: privileged client reached owner browser code");
 assert.ok(sharingSource.includes("crypto.getRandomValues(new Uint8Array(24))"), "KO: high-entropy slug generation missing");
-assert.ok(sharingSource.includes('.in("status", ["completed", "archived"])'), "KP: owner enable flow lacks lifecycle guard");
-assert.ok(sharingSource.includes("is_enabled: false") && sharingControlSource.includes("disableSharing"), "KQ: revocation control missing");
+assert.ok(sharingSource.includes('"set_expedition_sharing"') && /create policy expedition_project_shares_insert_owned[\s\S]*?with check \([^;]*is_eligible/.test(projectSharesSql), "KP: owner enable flow lacks database lifecycle guard");
+assert.ok(sharingSource.includes("enable_sharing: false") && sharingControlSource.includes("disableSharing"), "KQ: revocation control missing");
 assert.ok(publicPageSource.includes("loadPublicExpeditionReport(slug)") && publicPageSource.includes("index: true, follow: true"), "KR: public route or indexing metadata missing");
 assert.equal(publicPageSource.includes("requireProjectUser") || publicPageSource.includes("getUserProject"), false, "KS: public page must consume only the sanitized model");
 for (const privateField of ["projectId", "ownerId", "userId", "storagePath", "originalFilename", "activityId", "mountainId"]) assert.equal(publicPageSource.includes(privateField), false, `KT: public page exposes private field ${privateField}`);
@@ -1005,7 +1007,15 @@ assert.ok(publicPageSource.includes("videoUnavailable") && !publicPageSource.inc
 assert.equal(publicPageSource.includes("ActivityTrackMap") || publicReportSource.includes("geoJsonPath"), false, "KY: public report must not expose private track geometry");
 assert.ok(projectDetailPage.includes("ProjectSharingControl") && projectDetailPage.includes('status === "completed" || project.status === "archived"'), "KZ: owner sharing controls lack lifecycle boundary");
 assert.equal((projectSharesSql + publicReportSource + publicPageSource).includes("getPublicUrl"), false, "LA: public buckets or URLs are forbidden");
-assert.equal(projectSharesSql.includes("expedition_project_journal_media") || projectSharesSql.includes("gps_activities"), false, "LB: sharing SQL must not loosen private source tables");
+assert.equal(projectSharesSql.includes("expedition_project_journal_media"), false, "LB: sharing SQL must not loosen private source tables");
+assert.ok(
+  !projectSharesSql.includes("gps_activities") ||
+    (projectSharesSql.includes("expedition_project_day_tracks") &&
+      projectSharesSql.includes("gps_activities") &&
+      projectSharesSql.includes("processing_status") &&
+      projectSharesSql.includes("'ready'")),
+  "LB: sharing SQL may reference gps_activities only for the ready-evidence gate"
+);
 for (const catalog of catalogs) assert.deepEqual(catalogShape(catalog), expectedShape, "LC: Phase 10 locale shapes differ");
 assert.ok(publicReportSource.includes("listProjectDayTrackEvidence") && publicReportSource.includes("getUserProject"), "LD: public report must reuse bounded canonical queries");
 assert.ok(publicPageSource.includes("report.days.map") && publicPageSource.includes("report.mountains.map"), "LE: sanitized report is incomplete");
@@ -1014,12 +1024,12 @@ assert.ok(projectSharesSql.includes("project_id uuid not null unique") && projec
 assert.ok(projectSharesSql.includes("public_slug ~ '^[a-za-z0-9_-]{32,128}$'"), "LH: slug format constraint missing");
 assert.ok(publicMediaSource.includes('"Cache-Control": "private, no-store"') && publicMediaSource.includes('"X-Content-Type-Options": "nosniff"'), "LI: proxy response hardening missing");
 assert.equal(publicPageSource.includes('href="/account/') || publicPageSource.includes('href="/projects/'), false, "LJ: public report links into private account surfaces");
-assert.ok(sharingSource.includes("existing") && sharingSource.includes("public_slug") && sharingSource.includes("?? createPublicSlug()"), "LK: disable/re-enable must preserve stable slug");
+assert.ok(/on conflict \(project_id\) do update set is_enabled = true, updated_at = now\(\)\s+where s\.user_id = actor\s+returning s\.public_slug/.test(projectSharesSql), "LK: disable/re-enable must preserve stable slug");
 assert.equal(publicReportSource.includes("weather"), false, "LL: Phase 10 must not expand into weather publication");
 
 // Phase 10.1 LM-MF: the contact sheet requests bounded lazy thumbnails while
 // originals remain behind the same immediately revocable authorization path.
-assert.ok(publicPageSource.includes('loading="lazy"') && publicPageSource.includes("?variant=thumb"), "LM/LN: public grid must lazily request thumbnails");
+assert.ok(publicPageSource.includes("<PublicExpeditionPhotoThumbnail") && publicPhotoViewerSource.includes('loading="lazy"') && publicPhotoViewerSource.includes('photoUrl(viewer.slug, handle, "thumb")'), "LM/LN: public grid must lazily request thumbnails");
 assert.ok(publicMediaSource.includes('requestedVariant !== "thumb" && requestedVariant !== "original"'), "LO/LP: media variants must use a closed server-defined allowlist");
 assert.equal(publicMediaSource.includes("searchParams.get(\"width\")") || publicMediaSource.includes("searchParams.get(\"height\")") || publicMediaSource.includes("searchParams.get(\"quality\")"), false, "LP: anonymous callers must not choose transform dimensions");
 assert.ok(publicReportSource.includes('variant === "thumb"') && publicReportSource.includes("width: 256") && publicReportSource.includes("height: 256") && publicReportSource.includes('resize: "contain"'), "LO: canonical thumbnail transform missing");
@@ -1255,7 +1265,7 @@ console.log("Phase 11E SE-TB passed, including row CAS, reorder fingerprints, st
 const discoverySql=(await readFile(new URL("../database/public_expedition_discovery.sql",import.meta.url),"utf8")).toLowerCase();
 const discoverySource=await readFile(new URL("../Lib/projects/discovery.ts",import.meta.url),"utf8");
 const explorePage=await readFile(new URL("../app/[locale]/explore/page.tsx",import.meta.url),"utf8");
-for(const invariant of ["search_public_expeditions","s.is_enabled=true","p.status in ('completed','archived')","security definer set search_path=''","owner to postgres","limit least(greatest","count(distinct dt.gps_activity_id)","grant execute on function public.search_public_expeditions"]) assert.ok(discoverySql.includes(invariant),`Phase 12 missing discovery invariant: ${invariant}`);
+for(const invariant of ["search_public_expeditions","s.is_enabled=true","expedition_sharing_private.is_eligible(s.project_id, s.user_id)","security definer set search_path=''","owner to postgres","limit least(greatest","count(distinct dt.gps_activity_id)","grant execute on function public.search_public_expeditions"]) assert.ok(discoverySql.includes(invariant),`Phase 12 missing discovery invariant: ${invariant}`);
 for(const forbidden of ["grant select on public.expedition_projects to anon","storage_path","geojson_url","user_id text","activity_id bigint","expedition_project_activity","expedition_project_notifications","expedition_project_members"]) assert.equal(discoverySql.includes(forbidden),false,`Phase 12 discovery leaks private contract: ${forbidden}`);
 assert.ok(discoverySql.includes("c.name ilike")&&discoverySql.includes("unnest(c.mountain_names)")&&discoverySql.includes("order by f.sort_value desc,f.public_slug desc"),"Phase 12 search or deterministic order missing");
 assert.ok(discoverySource.includes("slice(0,80)")&&discoverySource.includes("PUBLIC_EXPEDITION_PAGE_SIZE=20")&&discoverySource.includes("PUBLIC_EXPEDITION_PAGE_SIZE+1"),"Phase 12 URL validation or bounds missing");

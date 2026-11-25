@@ -9,10 +9,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Sources Of Truth
 
 - This is one npm package (`package-lock.json`), not a workspace. Use npm; `@/*` resolves from the repository root.
-- The runtime baseline is Node 24; `.nvmrc` is the repository selector and `npm run test:runtime` verifies the runtime/dependency contract.
+- The runtime baseline is Node 24 LTS. `.nvmrc` selects it locally, `package.json` declares `24.x` for npm and Vercel, and `npm run test:runtime` verifies the runtime and dependency contract.
 - `.env.example` documents required deployment variable names only. Never place real secrets in tracked files.
 - `README.md` is still the create-next-app template and is stale: there is no `app/page.tsx`. Trust scripts and source over it.
-- Framework versions are Next.js 16.2 and React 19; do not rely on older Next.js conventions.
+- Framework versions are Next.js 16.4 and React 19.3. Use the installed Next.js guides for framework behavior.
 - Shared application code is in capitalized `Lib/`; preserve that casing for Linux deployments.
 - GitHub `main` is the current repository source of truth unless the user explicitly specifies another branch. Do not switch branches, merge, push, or create commits unless explicitly requested.
 

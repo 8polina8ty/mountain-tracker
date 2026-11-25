@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { haversineMeters, GridIndex } from "./spatial.ts";
 import { classifyCandidate } from "./classify.ts";
+import type { BorderCandidate, ReviewDecision } from "./types.ts";
 
 test("haversine and bbox order and spatial index filtering", () => {
   assert.ok(haversineMeters([0,0],[0,0]) === 0);
@@ -108,18 +109,37 @@ test("country progress remains distinct (duplicate ascents counted once) via SQL
   assert.equal(new Set(ascents).size, 2);
 });
 
-test("missing boundary dataset fails closed and synthetic not in production", async () => {
-  const { existsSync } = await import("node:fs");
-  assert.ok(existsSync("data/osm/boundaries/alps-admin.geojson"), "real dataset must exist for bounded test — otherwise discover throws");
-  // Synthetic stubs are not imported in production discover when real dataset present (checked via useReal)
-  const src = await import("node:fs").then(m => m.readFileSync("scripts/border-peaks/discover.ts", "utf8"));
-  assert.ok(src.includes("Missing required real boundary dataset"), "production CLI must fail closed if dataset missing");
-  assert.ok(src.includes("Synthetic boundaries must exist only in explicit test fixtures") || src.includes("synthetic"), "synthetic must be test-only");
+test("discovery fails closed when a clean directory has no boundary dataset", async (t) => {
+  const { spawnSync } = await import("node:child_process");
+  const { mkdtemp, readdir, rm } = await import("node:fs/promises");
+  const { tmpdir } = await import("node:os");
+  const { join } = await import("node:path");
+  const { fileURLToPath } = await import("node:url");
+  const cwd = await mkdtemp(join(tmpdir(), "mountain-tracker-border-test-"));
+  t.after(() => rm(cwd, { recursive: true, force: true }));
+  const discovery = fileURLToPath(new URL("./discover.ts", import.meta.url));
+  const result = spawnSync(process.execPath, ["--experimental-strip-types", discovery, "--output", "results"], {
+    cwd,
+    encoding: "utf8",
+    timeout: 10_000,
+  });
+
+  assert.ifError(result.error);
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /Missing required real boundary dataset/);
+  assert.deepEqual(await readdir(join(cwd, "results")), []);
 });
 
 test("candidate approval bound to original content and edited candidate invalidates", async () => {
   const { candidateFingerprint } = await import("./export-approved.ts");
-  const base = { mountain_id: 42, mountain_name: "Test", latitude: 47, longitude: 10, height: 2000, primary_country_code: "AT", candidate_country_code: "DE", boundary_source: "gbOpen", boundary_source_id: "AT-DE-1", boundary_dataset_version: "v1", distance_to_boundary_meters: 10, supporting_external_reference: "OSM:summit:42 dual AT-DE border", evidence_type: "EXTERNALLY_VERIFIED" } as any;
+  const base: BorderCandidate = {
+    mountain_id: 42, mountain_name: "Test", latitude: 47, longitude: 10, height: 2000,
+    primary_country_code: "AT", candidate_country_code: "DE", classification: "CONFIRMED",
+    boundary_source: "gbOpen", boundary_source_id: "AT-DE-1", boundary_dataset_version: "v1",
+    boundary_license: null, coordinate_precision_meters: 30, boundary_precision_meters: 50,
+    distance_to_boundary_meters: 10, supporting_external_reference: "OSM:summit:42 dual AT-DE border",
+    evidence_type: "EXTERNALLY_VERIFIED", reason: "Dual-country border evidence", review_notes: null,
+  };
   const h1 = candidateFingerprint(base);
   const edited = { ...base, candidate_country_code: "IT" };
   const h2 = candidateFingerprint(edited);
@@ -139,9 +159,16 @@ test("missing external evidence blocks export and Zugspitze preserved", async ()
 
 test("unchanged REVIEW can be approved via separate manifest without editing candidate", async () => {
   const { candidateFingerprint } = await import("./export-approved.ts");
-  const reviewCandidate = { mountain_id: 99, mountain_name: "TestPeak", latitude: 47.4, longitude: 10.9, height: 2000, primary_country_code: "AT", candidate_country_code: "DE", boundary_source: "gbOpen", boundary_source_id: "AT-1,DE-1", boundary_dataset_version: "v1", distance_to_boundary_meters: 12, supporting_external_reference: "OSM:summit:99", evidence_type: "CANDIDATE", classification: "REVIEW" } as any;
+  const reviewCandidate = {
+    mountain_id: 99, mountain_name: "TestPeak", latitude: 47.4, longitude: 10.9, height: 2000,
+    primary_country_code: "AT", candidate_country_code: "DE", classification: "REVIEW",
+    boundary_source: "gbOpen", boundary_source_id: "AT-1,DE-1", boundary_dataset_version: "v1",
+    boundary_license: null, coordinate_precision_meters: 30, boundary_precision_meters: 50,
+    distance_to_boundary_meters: 12, supporting_external_reference: "OSM:summit:99",
+    evidence_type: "CANDIDATE", reason: "Summit-only evidence requires review", review_notes: null,
+  } satisfies BorderCandidate;
   const hash = candidateFingerprint(reviewCandidate);
-  const manifest: any = { candidate_hash: hash, mountain_id: 99, primary_country_code: "AT", candidate_country_code: "DE", decision: "APPROVE", evidence_url: "https://example.com/survey/99-dual", evidence_type: "DUAL_COUNTRY_SURVEY", evidence_notes: "Official survey shows summit on AT-DE border", reviewed_by: "alice@example.com", reviewed_at: new Date().toISOString() };
+  const manifest: ReviewDecision = { candidate_hash: hash, mountain_id: 99, primary_country_code: "AT", candidate_country_code: "DE", decision: "APPROVE", evidence_url: "https://example.com/survey/99-dual", evidence_type: "DUAL_COUNTRY_SURVEY", evidence_notes: "Official survey shows summit on AT-DE border", reviewed_by: "alice@example.com", reviewed_at: new Date().toISOString() };
   assert.equal(manifest.candidate_hash, hash);
   assert.equal(manifest.decision, "APPROVE");
   assert.ok(!reviewCandidate.evidence_type.includes("EXTERNALLY_VERIFIED")); // original remains CANDIDATE
@@ -163,7 +190,7 @@ test("REJECT decision cannot be exported and duplicate/conflicting decisions fai
 
 test("existing AT+DE Zugspitze skipped and primary never changed", async () => {
   const existing = [{ mountain_id: 1, country_code: "AT", is_primary: true }, { mountain_id: 1, country_code: "DE", is_primary: false }];
-  const candidate = { mountain_id: 1, primary_country_code: "AT", candidate_country_code: "DE" } as any;
+  const candidate: Pick<BorderCandidate, "mountain_id" | "primary_country_code" | "candidate_country_code"> = { mountain_id: 1, primary_country_code: "AT", candidate_country_code: "DE" };
   const isExisting = existing.some(e=> e.mountain_id===candidate.mountain_id && e.country_code===candidate.candidate_country_code);
   assert.ok(isExisting, "Zugspitze DE already exists");
   assert.notEqual(candidate.candidate_country_code, "AT");

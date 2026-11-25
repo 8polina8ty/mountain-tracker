@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import {
   Eye,
   EyeOff,
@@ -11,11 +11,20 @@ import {
   User,
 } from "lucide-react";
 import { createClient } from "@/Lib/supabase/client";
-import { Link, useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
+import { validateUsername } from "@/Lib/username";
+import { isCountryCode } from "@/Lib/countries";
+import { checkRegistrationInput, completeProfile } from "@/Lib/auth/actions";
+import CountrySelect from "@/components/auth/CountrySelect";
+import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
 
 export default function SignUpPage() {
   const t = useTranslations("Auth.signUpPage");
-  const router = useRouter();
+  const countryT = useTranslations("Country");
+  const locale = useLocale();
+  const pending = useRef(false);
+  const [country, setCountry] = useState("");
+  const [confirmation, setConfirmation] = useState(false);
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -79,15 +88,22 @@ export default function SignUpPage() {
   const currentStrength = strengthSettings[passwordStrength];
 
   async function handleSignUp() {
+    if (pending.current || loading || confirmation) return;
     setMessage("");
 
-    if (!username.trim()) {
-      setMessage(t("errors.usernameRequired"));
+    const usernameError = validateUsername(username);
+    if (usernameError) {
+      setMessage(t(`errors.${usernameError}`));
       return;
     }
 
     if (!email.trim()) {
       setMessage(t("errors.emailRequired"));
+      return;
+    }
+
+    if (!isCountryCode(country)) {
+      setMessage(countryT("countryRequired"));
       return;
     }
 
@@ -102,32 +118,37 @@ export default function SignUpPage() {
     }
 
     setLoading(true);
-
-    const supabase = createClient();
-
-    const { error } = await supabase.auth.signUp({
-      email: email.trim(),
-      password,
-      options: {
-        data: {
-          username: username.trim(),
+    pending.current = true;
+    try {
+      const checked = await checkRegistrationInput(username, country);
+      if (checked.error) {
+        setMessage(/^username(Required|TooShort|TooLong|InvalidChars|InvalidEdges)$/.test(checked.error)
+          ? t(`errors.${checked.error}`) : countryT(checked.error));
+        return;
+      }
+      const { data, error } = await createClient().auth.signUp({
+        email: email.trim(), password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/${locale}/auth/callback`,
+          data: { username: username.trim(), country_code: country },
         },
-      },
-    });
-
-    if (error) {
-      setMessage(error.message);
-      setLoading(false);
-      return;
-    }
-
-    router.push("/map");
-    router.refresh();
+      });
+      if (error) {
+        if (error.code === "user_already_exists") setConfirmation(true);
+        else setMessage(countryT("registrationError"));
+        return;
+      }
+      if (!data.session) { setConfirmation(true); return; }
+      const result = await completeProfile({ username, country, locale });
+      if (result.destination) window.location.assign(result.destination);
+      else window.location.assign(`/${locale}/auth/complete-profile?reason=${result.error === "usernameUnavailable" ? "usernameUnavailable" : "error"}`);
+    } catch { setMessage(countryT("error")); }
+    finally { pending.current = false; setLoading(false); }
   }
 
   return (
     <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 py-10 sm:px-8 lg:min-h-[calc(100dvh-66px)]">
-      <section className="w-full max-w-md border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] sm:p-8">
+      <section className="w-full max-w-[480px] rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] sm:p-8">
         <div className="flex flex-col items-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-[var(--color-forest)] shadow-[var(--shadow-control)]">
             <Mountain size={32} />
@@ -142,7 +163,19 @@ export default function SignUpPage() {
           </p>
         </div>
 
-        <div className="mt-8 space-y-5">
+        <form className="mt-8 space-y-5" onSubmit={(event) => { event.preventDefault(); void handleSignUp(); }}>
+          <GoogleAuthButton signup disabled={loading || confirmation} onBusyChange={setLoading} />
+          {confirmation ? <div role="status" className="rounded-[var(--radius-card)] border border-[var(--color-success-border)] bg-[var(--color-success-soft)] p-5 text-center">
+            <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-[var(--color-surface)] text-[var(--color-success)]"><Mail size={22} /></div>
+            <p className="mt-3 text-[16px] font-bold">{countryT("confirmationRequired")}</p>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">{countryT("confirmationDescription")}</p>
+            <Link href="/auth/login" className="ui-pressable mt-4 inline-flex min-h-11 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 text-sm font-semibold hover:bg-[var(--color-surface-muted)]">{countryT("backToLogin") ?? "Back to sign in"}</Link>
+          </div> : <>
+          <div className="flex items-center gap-3 py-1" aria-hidden="true">
+            <span className="h-px flex-1 bg-[var(--color-border-soft)]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">or</span>
+            <span className="h-px flex-1 bg-[var(--color-border-soft)]" />
+          </div>
           <div className="relative">
             <User
               size={20}
@@ -159,10 +192,14 @@ export default function SignUpPage() {
                 setMessage("");
               }}
               autoComplete="username"
+              required minLength={3} maxLength={20}
+              aria-describedby="signup-username-hint signup-feedback"
               className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-4"
             />
           </div>
 
+          <p id="signup-username-hint" className="text-sm text-[var(--color-text-muted)]">{countryT("usernameHint")}</p>
+          <CountrySelect value={country} onChange={(code) => { setCountry(code); setMessage(""); }} disabled={loading || confirmation} />
           <div className="relative">
             <Mail
               size={20}
@@ -179,6 +216,7 @@ export default function SignUpPage() {
                 setMessage("");
               }}
               autoComplete="email"
+              required aria-describedby="signup-feedback"
               className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-4"
             />
           </div>
@@ -199,6 +237,7 @@ export default function SignUpPage() {
                 setMessage("");
               }}
               autoComplete="new-password"
+              required minLength={8} aria-describedby="signup-feedback"
               className="ui-field w-full rounded-[var(--radius-control)] border px-3 py-3 pl-11 pr-12"
             />
 
@@ -220,26 +259,13 @@ export default function SignUpPage() {
             </button>
           </div>
 
-          <div>
-            <div className="h-2 w-full overflow-hidden rounded-[var(--radius-pill)] bg-[var(--color-surface-muted)]">
-              <div
-                className={`h-full rounded-full transition-all duration-300 ${currentStrength.color}`}
-                style={{
-                  width: currentStrength.width,
-                }}
-              />
+          <div className="space-y-2" aria-live="polite" aria-atomic="true">
+            <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--color-border-soft)]" role="progressbar" aria-valuenow={passwordStrength * 25} aria-valuemin={0} aria-valuemax={100} aria-label={t("strengthLabel")} aria-valuetext={currentStrength.text}>
+              <div className={`h-full rounded-full transition-[width,background-color] duration-200 ease-out ${currentStrength.color}`} style={{ width: currentStrength.width }} />
             </div>
-
-            <div className="mt-2 flex items-center justify-between text-sm">
-              <span className="text-[var(--color-text-muted)]">
-                {t("strengthLabel")}
-              </span>
-
-              <span
-                className={`font-semibold ${currentStrength.textColor}`}
-              >
-                {currentStrength.text}
-              </span>
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-[var(--color-text-muted)]">{t("strengthLabel")}</span>
+              <span className={`font-semibold ${currentStrength.textColor}`}>{currentStrength.text}</span>
             </div>
           </div>
 
@@ -253,6 +279,7 @@ export default function SignUpPage() {
               type={showPassword ? "text" : "password"}
               placeholder={t("confirmPasswordPlaceholder")}
               aria-label={t("confirmPasswordLabel")}
+              required aria-describedby="signup-feedback"
               value={confirmPassword}
               onChange={(event) => {
                 setConfirmPassword(event.target.value);
@@ -279,6 +306,7 @@ export default function SignUpPage() {
 
           {message && (
             <div
+              id="signup-feedback"
               role="alert"
               className="border-l-4 border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-3 text-sm text-[var(--color-danger)]"
             >
@@ -287,16 +315,16 @@ export default function SignUpPage() {
           )}
 
           <button
-            type="button"
-            onClick={handleSignUp}
-            disabled={loading}
-            className="ui-pressable min-h-11 w-full rounded-[var(--radius-control)] bg-[var(--color-forest)] py-3 font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)] disabled:cursor-not-allowed disabled:opacity-60"
+            type="submit"
+            disabled={loading || confirmation}
+            className="ui-pressable min-h-12 w-full rounded-[var(--radius-control)] bg-[var(--color-forest)] py-3.5 font-bold text-[var(--color-text-inverse)] shadow-[var(--shadow-control)] hover:bg-[var(--color-forest-hover)] active:translate-y-px active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading
               ? t("submitting")
               : t("submit")}
           </button>
-        </div>
+          </>}
+        </form>
 
         <p className="mt-6 border-t border-[var(--color-border)] pt-5 text-center text-sm text-[var(--color-text-muted)]">
           {t("hasAccount")} {" "}

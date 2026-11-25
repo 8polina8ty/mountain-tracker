@@ -185,8 +185,9 @@ test('dry run contains no production mutation entrypoint; all mutations live in 
   assert.match(network,/method: 'GET'/);assert.match(network,/AbortSignal.timeout\(20_000\)/);
 });
 test('unknown measurements remain null and exact geometry defines the distance',()=>{
+  const { osmId, coordinate } = request.provenance.start;
   const result=preparePublication(request.mountainRoute.mountain_id,new URL(request.mountainRoute.gpx_url).origin,geometry,
-    {...request.provenance,startRole:'PRIMARY_BASE_ACCESS',accessEvidence:fixtureBaseEvidence(),
+    {...request.provenance,startRole:'PRIMARY_BASE_ACCESS',accessEvidence:fixtureBaseEvidence(osmId, coordinate),
       start:{...request.provenance.start,kind:'PARKING'},startContext:'BASE_START',routeCategory:'STANDARD_ASCENT'});
   // preparePublication is normally given evidence without serialization fields.
   assert.equal(result.entry.request.mountainRoute.distance_km,request.mountainRoute.distance_km);

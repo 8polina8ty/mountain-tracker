@@ -19,7 +19,9 @@
     "primary": "Primär",
     "tracks": "Spuren",
     "switchToLight": "Zum hellen Design wechseln",
-    "switchToDark": "Zum dunklen Design wechseln"
+    "switchToDark": "Zum dunklen Design wechseln",
+    "communityFeed": "Gemeinschaft",
+    "back": "Zurück"
   },
   "LocaleSwitcher": {
     "language": "Sprache"

@@ -68,12 +68,11 @@ test('boundedCandidates prefers 5-20 and not simply nearest', async () => {
   assert.equal(bounded[0].kind, 'TRAILHEAD');
 });
 
-test('GraphHopper response parsing and snap safety fail-closed', async () => {
+test('GraphHopper response parsing and snap safety fail-closed', async (t) => {
   const originalFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = originalFetch; });
   (globalThis as unknown as { fetch: unknown }).fetch = async () =>
-    ({
-      ok: true,
-      json: async () => ({
+    Response.json({
         paths: [
           {
             distance: 5000,
@@ -82,8 +81,7 @@ test('GraphHopper response parsing and snap safety fail-closed', async () => {
             snapped_waypoints: { coordinates: [[11.5, 47.5], [11.01, 47.01]], type: 'MultiPoint' },
           },
         ],
-      }),
-    }) as unknown as Response;
+      });
   const res = await routeWithGraphHopper({ start: { lat: 47, lon: 11 }, summit: { lat: 47.01, lon: 11.01 } }, { graphId: 'abc', graphHopperVersion: '10.2' });
   assert.equal(res.ok, false);
   if (!res.ok) assert.equal(res.reason, 'REJECTED_ACCESS');
@@ -94,9 +92,7 @@ test('GraphHopper response parsing and snap safety fail-closed', async () => {
   if (!res2.ok) assert.equal(res2.reason, 'NO_ROUTE');
 
   (globalThis as unknown as { fetch: unknown }).fetch = async () =>
-    ({
-      ok: true,
-      json: async () => ({
+    Response.json({
         paths: [
           {
             distance: 1234,
@@ -105,8 +101,7 @@ test('GraphHopper response parsing and snap safety fail-closed', async () => {
             snapped_waypoints: { coordinates: [[11.0001, 47.0001], [11.01, 47.01]], type: 'MultiPoint' },
           },
         ],
-      }),
-    }) as unknown as Response;
+      });
   const res3 = await routeWithGraphHopper({ start: { lat: 47, lon: 11 }, summit: { lat: 47.01, lon: 11.01 } }, { graphId: 'abc', graphHopperVersion: '10.2' });
   assert.equal(res3.ok, true);
   if (res3.ok) {
@@ -130,6 +125,9 @@ test('GPX/GeoJSON determinism', () => {
     profile: 'foot',
     graphId: 'abc123',
     graphHopperVersion: '10.2',
+    routingEngine: 'GRAPH_HOPPER',
+    pbfSha256: 'a'.repeat(64),
+    fallbackReason: null,
   };
   const gpx1 = serializeGpx('A → B', route);
   const gpx2 = serializeGpx('A → B', route);

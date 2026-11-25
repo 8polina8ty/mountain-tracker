@@ -4,7 +4,8 @@ import test from "node:test";
 
 import { sha256Stable } from "./phase11-publication.ts";
 
-const REPORT_PATH = "data/osm/alps/publication/phase11-final-closure-report.json";
+const REPORT_PATH = process.env.PHASE11_CLOSURE_REPORT_PATH ??
+  "data/osm/alps/publication/phase11-final-closure-report.json";
 
 interface ClosureReport {
   schemaVersion: number;
@@ -55,7 +56,11 @@ interface ClosureReport {
 }
 
 async function loadReport(): Promise<ClosureReport> {
-  return JSON.parse(await readFile(REPORT_PATH, "utf8")) as ClosureReport;
+  const contents = await readFile(REPORT_PATH, "utf8").catch((error: NodeJS.ErrnoException) => {
+    if (error.code !== "ENOENT") throw error;
+    throw new Error("Set PHASE11_CLOSURE_REPORT_PATH to the retained local Phase 11 report.", { cause: error });
+  });
+  return JSON.parse(contents) as ClosureReport;
 }
 
 test("Phase 11 closure report preserves the versioned read-only boundary", async () => {

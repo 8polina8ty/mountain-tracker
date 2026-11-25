@@ -5,6 +5,7 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/Lib/supabase/server";
 import type { Locale } from "@/i18n/locales";
 import { getProjectAccessRole } from "./collaboration.ts";
+import { requireCountryUser } from "@/Lib/auth/server";
 
 export async function requireProjectUser(locale: Locale, returnTo: string) {
   const supabase = await createClient();
@@ -16,6 +17,8 @@ export async function requireProjectUser(locale: Locale, returnTo: string) {
   if (error || !user) {
     redirect(`/${locale}/auth/login?returnTo=${encodeURIComponent(returnTo)}`);
   }
+
+  await requireCountryUser(locale, returnTo);
 
   return { supabase, user };
 }

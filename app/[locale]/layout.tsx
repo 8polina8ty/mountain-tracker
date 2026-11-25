@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import MotionProvider from "@/components/MotionProvider";
 import { AchievementNotificationProvider } from "@/components/achievements/AchievementNotificationProvider";
 import { SocialInboxProvider } from "@/components/messages/SocialInboxProvider";
+import BackNavigationProvider from "@/components/navigation/BackNavigationProvider";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { getOpenGraphLocale, getSiteOrigin } from "@/i18n/seo";
 
@@ -65,7 +66,10 @@ export default async function RootLayout({
   const t = await getTranslations("Accessibility");
 
   return (
-    <html lang={locale}>
+    // suppressHydrationWarning: browser/privacy extensions (e.g., AdGuard, CM extensions) inject
+    // data-* attributes (data-acxscriptallow, data-btrscriptallow, data-cbscriptallow, …)
+    // into <html> before React hydrates. Limited to root to avoid hiding real app mismatches.
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta
           name="format-detection"
@@ -81,19 +85,21 @@ export default async function RootLayout({
           {t("skipToContent")}
         </a>
 
-        <NextIntlClientProvider messages={messages}>
-          <MotionProvider>
-            <AchievementNotificationProvider>
-              <SocialInboxProvider>
-                <Header />
+          <NextIntlClientProvider messages={messages}>
+            <MotionProvider>
+              <AchievementNotificationProvider>
+                <SocialInboxProvider>
+                  <BackNavigationProvider>
+                    <Header />
 
-                <div id="main-content" tabIndex={-1} className="outline-none">
-                  {children}
-                </div>
-              </SocialInboxProvider>
-            </AchievementNotificationProvider>
-          </MotionProvider>
-        </NextIntlClientProvider>
+                    <div id="main-content" tabIndex={-1} className="outline-none">
+                      {children}
+                    </div>
+                  </BackNavigationProvider>
+                </SocialInboxProvider>
+              </AchievementNotificationProvider>
+            </MotionProvider>
+          </NextIntlClientProvider>
       </body>
     </html>
   );

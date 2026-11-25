@@ -39,8 +39,23 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/api/internal/expedition-media/thumbnails": [
+      "./Lib/projects/thumbnailDecodeWorker.cjs",
+      "./node_modules/sharp/**/*",
+      "./node_modules/@img/sharp*/**/*",
+      "./node_modules/@img/colour/**/*",
+      "./node_modules/detect-libc/**/*",
+      "./node_modules/semver/**/*",
+    ],
+  },
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "thumb.wikimedia.org",
+        pathname: "/wikipedia/commons/**",
+      },
       {
         protocol: "https",
         hostname: "upload.wikimedia.org",

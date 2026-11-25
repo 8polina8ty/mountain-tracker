@@ -23,10 +23,12 @@ const nodeMajor = Number(process.versions.node.split(".")[0]);
 const lockRoot = packageLock.packages?.[""];
 
 assert.equal(nvmrc, "24", ".nvmrc must keep Node 24 as the runtime baseline");
+assert.equal(packageJson.engines?.node, `${nvmrc}.x`, "npm and Vercel must use the Node 24 runtime baseline");
 assert.equal(nodeMajor, 24, `Runtime validation requires Node 24, received ${process.versions.node}`);
 assert.equal(packageJson.private, true, "The application package must remain private");
 assert.equal(packageLock.lockfileVersion, 3, "package-lock.json must remain lockfileVersion 3");
 assert.ok(lockRoot, "package-lock.json root package metadata is missing");
+assert.deepEqual(lockRoot.engines, packageJson.engines, "The lockfile must preserve the Node runtime constraint");
 assert.deepEqual(
   lockRoot.dependencies ?? {},
   packageJson.dependencies ?? {},
@@ -63,6 +65,13 @@ const configuredStaticImagePatterns = [
     /\{\s*protocol:\s*"([^"]+)",\s*hostname:\s*"([^"]+)",\s*pathname:\s*"([^"]+)",?\s*\}/g,
   ),
 ].map((match) => ({ protocol: match[1], hostname: match[2], pathname: match[3] }));
+
+assert.ok(configuredStaticImagePatterns.some((pattern) =>
+  pattern.protocol === "https" && pattern.hostname === "thumb.wikimedia.org" &&
+  pattern.pathname === "/wikipedia/commons/**"),
+"Wikimedia Commons thumbnails require the exact HTTPS thumb.wikimedia.org pattern");
+assert.ok(!/hostname:\s*["'][^"']*\*[^"']*wikimedia[^"']*["']/.test(nextConfigSource),
+  "Wildcard Wikimedia image hosts are forbidden");
 
 for (const imageUrl of staticV2ImageUrls) {
   const matched = configuredStaticImagePatterns.some((pattern) => {

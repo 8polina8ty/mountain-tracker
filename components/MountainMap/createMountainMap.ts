@@ -1,7 +1,5 @@
-import maplibregl, {
-  type GeolocateControl,
-  type Map,
-} from "maplibre-gl";
+import { GeolocateControl, NavigationControl, type Map } from "maplibre-gl";
+import { createMapLibreMap } from "@/Lib/maplibre";
 
 import {
   DEFAULT_CENTER,
@@ -12,7 +10,7 @@ export function createMountainMap(
   container: HTMLDivElement,
   options: { showUserLocation?: boolean } = {},
 ): { map: Map; geolocateControl: GeolocateControl } {
-  const map = new maplibregl.Map({
+  const map = createMapLibreMap({
     container,
     style: {
       version: 8,
@@ -44,12 +42,12 @@ export function createMountainMap(
   });
 
   map.addControl(
-    new maplibregl.NavigationControl(),
+    new NavigationControl(),
     "top-right",
   );
 
   const geolocateControl =
-    new maplibregl.GeolocateControl({
+    new GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true,
         timeout: 10000,

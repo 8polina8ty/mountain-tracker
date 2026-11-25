@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Route/PBF inventories are data, not UI class sources. */
+@source not "../data";
 
 /* ========================================
    MOUNTAIN TRACKER — MODERN ALPINE DESIGN V2

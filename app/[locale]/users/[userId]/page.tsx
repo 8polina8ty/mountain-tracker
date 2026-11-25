@@ -8,6 +8,10 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/Lib/supabase/client";
 import PublicAscentsMap from "@/components/users/PublicAscentsMap";
 import PublicProfileRelationship from "@/components/social/PublicProfileRelationship";
+import ProfilePosts from "@/components/social/feed/ProfilePosts";
+import FollowSummary from "@/components/social/FollowSummary";
+import ProfileBlog from "@/components/social/blog/ProfileBlog";
+import BackButton from "@/components/navigation/BackButton";
 import { Link } from "@/i18n/navigation";
 import {
   normalizePublicAchievementSummary,
@@ -44,6 +48,7 @@ type PublicAscent = {
 
 export default function PublicUserProfilePage() {
   const t = useTranslations("PublicProfile");
+  const feedT = useTranslations("Social.Feed");
   const format = useFormatter();
   const params = useParams<{ locale: string; userId: string }>();
 
@@ -54,6 +59,7 @@ export default function PublicUserProfilePage() {
   const [ascents, setAscents] = useState<PublicAscent[]>([]);
   const [achievementSummary, setAchievementSummary] =
     useState<PublicAchievementSummary | null>(null);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -74,6 +80,8 @@ export default function PublicUserProfilePage() {
       setErrorMessage("");
 
       const supabase = createClient();
+      const { data: { user: currentUser } } = await supabase.auth.getUser();
+      if (!cancelled) setCurrentUserId(currentUser?.id ?? null);
 
       const { data, error } = await supabase.rpc(
         "get_user_ranking",
@@ -286,13 +294,8 @@ setAscents(loadedAscents);
 
   return (
     <main className="min-h-[calc(100dvh-58px)] bg-[var(--color-bg)] px-4 py-8 lg:min-h-[calc(100dvh-66px)]">
-      <div className="mx-auto max-w-6xl">
-        <Link
-          href="/ranking"
-          className="font-bold text-[var(--color-forest)] hover:underline"
-        >
-          ← {t("Header.backToRanking")}
-        </Link>
+      <div className="mx-auto max-w-6xl space-y-4">
+        <BackButton fallback="/community" />
 
         <section className="mt-6 overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
           <div className="bg-[var(--color-surface-inverse)] px-6 py-10 sm:px-10">
@@ -327,6 +330,7 @@ setAscents(loadedAscents);
                   {t("Header.member")}
                 </p>
                 <PublicProfileRelationship profileUserId={profile.user_id} />
+                <FollowSummary key={`${profile.user_id}-${currentUserId}`} userId={profile.user_id} currentUserId={currentUserId} />
               </div>
             </div>
           </div>
@@ -366,7 +370,15 @@ setAscents(loadedAscents);
           <PublicAchievementSummarySection summary={achievementSummary} />
         )}
 
-<section className="mt-6">
+        <ProfileBlog userId={userId} currentUserId={currentUserId} />
+        <section className="mt-6 rounded-[20px] border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)]">
+          <h2 className="text-xl font-bold">{feedT("feed")}</h2>
+          <div className="mt-4">
+            <ProfilePosts userId={userId} currentUserId={currentUserId} />
+          </div>
+        </section>
+
+ <section className="mt-6">
   <div className="mb-4">
     <p className="[font-family:var(--font-technical)] text-[var(--font-size-label)] font-bold uppercase tracking-[0.12em] text-[var(--color-forest)]">
       {t("Map.eyebrow")}

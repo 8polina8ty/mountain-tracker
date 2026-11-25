@@ -1,13 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import maplibregl, {
-  type GeoJSONSource,
-  type Map,
-  type Marker,
-} from "maplibre-gl";
+import { LngLatBounds, Marker, NavigationControl, Popup, type GeoJSONSource, type Map } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useTranslations } from "next-intl";
+import { createMapLibreMap } from "@/Lib/maplibre";
 
 type MountainRouteMapProps = {
   geojsonUrl?: string;
@@ -75,7 +72,7 @@ export default function MountainRouteMap({
       return;
     }
 
-    const map = new maplibregl.Map({
+    const map = createMapLibreMap({
       container: containerRef.current,
       style: {
         version: 8,
@@ -105,7 +102,7 @@ export default function MountainRouteMap({
     });
 
     map.addControl(
-      new maplibregl.NavigationControl(),
+      new NavigationControl(),
       "top-right",
     );
 
@@ -305,7 +302,7 @@ const map: Map = currentMap;
         markerEndpoints?.endLabel ?? t("finishPopup", { routeName });
 
       if (firstCoordinate && lastCoordinate) {
-        startMarkerRef.current = new maplibregl.Marker({
+        startMarkerRef.current = new Marker({
           element: createMarkerElement(
             "S",
             "bg-green-600",
@@ -315,13 +312,13 @@ const map: Map = currentMap;
         })
           .setLngLat(firstCoordinate)
           .setPopup(
-            new maplibregl.Popup({
+            new Popup({
               offset: 24,
             }).setText(startPopupLabel),
           )
           .addTo(map);
 
-        finishMarkerRef.current = new maplibregl.Marker({
+        finishMarkerRef.current = new Marker({
           element: createMarkerElement(
             "F",
             "bg-red-600",
@@ -331,7 +328,7 @@ const map: Map = currentMap;
         })
           .setLngLat(lastCoordinate)
           .setPopup(
-            new maplibregl.Popup({
+            new Popup({
               offset: 24,
             }).setText(finishPopupLabel),
           )
@@ -339,25 +336,25 @@ const map: Map = currentMap;
       }
 
       if (qaMarkers) {
-        summitMarkerRef.current = new maplibregl.Marker({
+        summitMarkerRef.current = new Marker({
           element: createMarkerElement("P", "bg-amber-600", qaMarkers.summit.label),
           anchor: "center",
         })
           .setLngLat(qaMarkers.summit.coordinates)
-          .setPopup(new maplibregl.Popup({ offset: 24 }).setText(qaMarkers.summit.label))
+          .setPopup(new Popup({ offset: 24 }).setText(qaMarkers.summit.label))
           .addTo(map);
 
-        mountainMarkerRef.current = new maplibregl.Marker({
+        mountainMarkerRef.current = new Marker({
           element: createMarkerElement("M", "bg-blue-700", qaMarkers.mountain.label),
           anchor: "center",
           offset: [18, -18],
         })
           .setLngLat(qaMarkers.mountain.coordinates)
-          .setPopup(new maplibregl.Popup({ offset: 24 }).setText(qaMarkers.mountain.label))
+          .setPopup(new Popup({ offset: 24 }).setText(qaMarkers.mountain.label))
           .addTo(map);
       }
 
-      const bounds = new maplibregl.LngLatBounds();
+      const bounds = new LngLatBounds();
 
       coordinates.forEach((coordinate) => {
         bounds.extend(coordinate);

@@ -17,6 +17,7 @@ import AccountPageHeader from "@/components/account/AccountPageHeader";
 import AscentMountainThumbnail from "@/components/account/AscentMountainThumbnail";
 import AscentPhotoPrivacyToggle from "@/components/account/AscentPhotoPrivacyToggle";
 import ChangeAscentPhotoButton from "@/components/account/ChangeAscentPhotoButton";
+import AscentShareButton from "@/components/social/feed/AscentShareButton";
 import { useAccount } from "@/hooks/useAccount";
 import { Link } from "@/i18n/navigation";
 
@@ -296,6 +297,7 @@ export default function AscentsPage() {
                         {t("List.mountainUnavailable")}
                       </span>
                     )}
+                    <AscentShareButton ascentId={ascent.id} mountainName={mountainName} />
                   </div>
                 </article>
               );

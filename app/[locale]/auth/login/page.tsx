@@ -1,14 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Eye, EyeOff, LockKeyhole, Mail, Mountain } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { createClient } from "@/Lib/supabase/client";
-import { Link, useRouter } from "@/i18n/navigation";
+import { safeAuthDestination } from "@/Lib/auth/redirects";
+import { Link } from "@/i18n/navigation";
+import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
+import AuthFeedback from "@/components/auth/AuthFeedback";
 
 export default function LoginPage() {
   const t = useTranslations("Auth.loginPage");
-  const router = useRouter();
+  const locale = useLocale();
+  const countryT = useTranslations("Country");
+  const pending = useRef(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +23,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
 
   async function handleLogin() {
+    if (pending.current || loading) return;
     setMessage("");
 
     if (!email.trim() || !password) {
@@ -26,7 +32,9 @@ export default function LoginPage() {
     }
 
     setLoading(true);
+    pending.current = true;
 
+    try {
     const supabase = createClient();
 
     const { error } = await supabase.auth.signInWithPassword({
@@ -42,17 +50,24 @@ export default function LoginPage() {
       );
 
       setLoading(false);
+      pending.current = false;
       return;
     }
 
     const returnTo = new URLSearchParams(window.location.search).get("returnTo");
-    router.push(returnTo?.startsWith("/") && !returnTo.startsWith("//") ? returnTo : "/map");
-    router.refresh();
+    const destination = safeAuthDestination(returnTo, locale);
+    // A full navigation ensures cookies are available before the server profile gate.
+    window.location.assign(`/${locale}/auth/finish?returnTo=${encodeURIComponent(destination)}`);
+    } catch {
+      setMessage(countryT("error"));
+      setLoading(false);
+      pending.current = false;
+    }
   }
 
   return (
     <main className="flex min-h-[calc(100dvh-58px)] items-center justify-center bg-[var(--color-bg)] px-4 py-10 sm:px-8 lg:min-h-[calc(100dvh-66px)]">
-      <section className="w-full max-w-md border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] sm:p-8">
+      <section className="w-full max-w-[460px] rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] sm:p-8">
         <div className="flex flex-col items-center text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-[var(--color-forest)] shadow-[var(--shadow-control)]">
             <Mountain size={30} />
@@ -67,7 +82,14 @@ export default function LoginPage() {
           </p>
         </div>
 
+        <AuthFeedback />
         <div className="mt-8 space-y-5">
+          <GoogleAuthButton disabled={loading} onBusyChange={setLoading} />
+          <div className="flex items-center gap-3 py-1" aria-hidden="true">
+            <span className="h-px flex-1 bg-[var(--color-border-soft)]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">or</span>
+            <span className="h-px flex-1 bg-[var(--color-border-soft)]" />
+          </div>
           <label className="block">
             <span className="mb-2 block text-sm font-bold text-[var(--color-text-secondary)]">
               {t("emailLabel")}
@@ -156,7 +178,7 @@ export default function LoginPage() {
             type="button"
             onClick={handleLogin}
             disabled={loading}
-            className="ui-pressable flex min-h-11 w-full items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-3 font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-forest-hover)] disabled:cursor-not-allowed disabled:opacity-60"
+            className="ui-pressable flex min-h-12 w-full items-center justify-center rounded-[var(--radius-control)] bg-[var(--color-forest)] px-4 py-3.5 font-bold text-[var(--color-text-inverse)] shadow-[var(--shadow-control)] hover:bg-[var(--color-forest-hover)] active:translate-y-px active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               <>

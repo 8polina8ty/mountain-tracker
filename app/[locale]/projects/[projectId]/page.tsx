@@ -6,6 +6,7 @@ import { requireProjectAccess } from "@/Lib/projects/auth";
 import { canEditProject, getOwnedProjectTeam } from "@/Lib/projects/collaboration";
 import { createProjectJournalMediaDeliveries } from "@/Lib/projects/mediaDelivery";
 import { getAccessibleProjectWorkspace, listOwnedProjectTrackOptions, listProjectDayTrackEvidence } from "@/Lib/projects/queries";
+import { canEnableProjectSharing } from "@/Lib/projects/sharing";
 import { loadProjectMountainWeather } from "@/Lib/projects/weather";
 import type { Locale } from "@/i18n/locales";
 
@@ -21,6 +22,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const sharePromise = role === "owner"
     ? supabase.from("expedition_project_shares").select("public_slug,is_enabled").eq("project_id", project.id).eq("user_id", user.id).maybeSingle()
     : Promise.resolve({ data: null, error: null });
+  const shareEligibilityPromise = role === "owner"
+    ? canEnableProjectSharing(supabase, project.id)
+    : Promise.resolve(null);
   const trackPickerPromise = editable
     ? listOwnedProjectTrackOptions(supabase, user.id)
     : Promise.resolve([]);
@@ -28,8 +32,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     ? getOwnedProjectTeam(supabase, user.id, project.id)
     : Promise.resolve(null);
 
-  const [shareResult, trackEvidence, trackPickerOptions, activityPage, weatherByMountain, mediaDeliveries, team] = await Promise.all([
+  const [shareResult, shareEligibility, trackEvidence, trackPickerOptions, activityPage, weatherByMountain, mediaDeliveries, team] = await Promise.all([
     sharePromise,
+    shareEligibilityPromise,
     listProjectDayTrackEvidence(supabase, user.id, project.id),
     trackPickerPromise,
     listProjectActivity(supabase, project.id),
@@ -37,7 +42,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     createProjectJournalMediaDeliveries(supabase, journalMedia),
     teamPromise,
   ]);
-  const shareRow = shareResult.data;
+  const shareRow = shareResult.error ? null : shareResult.data;
   const initialShare = shareRow ? { slug: String(shareRow.public_slug), enabled: shareRow.is_enabled === true } : null;
 
   const signableTracks = [...new Map(
@@ -65,6 +70,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       project={project}
       editable={editable}
       initialShare={initialShare}
+      shareEligibility={shareEligibility}
+      shareReadFailed={Boolean(shareResult.error)}
       trackEvidence={trackEvidence}
       trackPickerOptions={trackPickerOptions}
       signedTrackUrls={signedTrackUrls}

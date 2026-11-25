@@ -7,6 +7,12 @@ import type {
 export type PeakFeatureCollection =
   FeatureCollection<Point, PeakProperties>;
 
+export type MountainMapFilters = {
+  minHeight: number;
+  maxHeight: number;
+  ascentStatus: "all" | "climbed" | "unclimbed";
+};
+
 export type UserGpsPosition = {
   latitude: number;
   longitude: number;
@@ -47,6 +53,7 @@ export type MountainRow = {
 export type SelectedPeak = PeakProperties & {
   longitude: number;
   latitude: number;
+  selectionSource?: "search";
 };
 
 

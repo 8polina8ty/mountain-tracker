@@ -19,7 +19,9 @@
     "primary": "Principal",
     "tracks": "Rastros",
     "switchToLight": "Cambiar al tema claro",
-    "switchToDark": "Cambiar al tema oscuro"
+    "switchToDark": "Cambiar al tema oscuro",
+    "communityFeed": "Comunidad",
+    "back": "Volver"
   },
   "LocaleSwitcher": {
     "language": "Idioma"

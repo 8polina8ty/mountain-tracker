@@ -263,14 +263,18 @@ function findMotorwayCrossings(
           if (metrics) metrics.exactIntersectionChecks += 1;
           const roadStart = roadWay.nodes[roadIndex - 1];
           const roadEnd = roadWay.nodes[roadIndex];
-          const coordinate = segmentIntersection(
+          // Shared OSM topology is exact. Floating point line intersection can
+          // fall just outside an endpoint at real-world longitude/latitude.
+          const sharedNode = commonSegmentNode(routeStart, routeEnd, roadStart, roadEnd);
+          const coordinate = sharedNode !== null
+            ? (routeStart.nodeId === sharedNode ? routeStart.coordinate : routeEnd.coordinate)
+            : segmentIntersection(
             routeStart.coordinate,
             routeEnd.coordinate,
             roadStart.coordinate,
             roadEnd.coordinate,
           );
           if (!coordinate) continue;
-          const sharedNode = commonSegmentNode(routeStart, routeEnd, roadStart, roadEnd);
           const evidence: MotorwayCrossingEvidence = {
             routeWayId: routeWay.id,
             roadWayId: roadWay.id,

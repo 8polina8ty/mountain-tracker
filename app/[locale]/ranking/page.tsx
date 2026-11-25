@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import { createClient } from "@/Lib/supabase/client";
 import { Link } from "@/i18n/navigation";
 import { Avatar, Eyebrow, MetricRow } from "@/components/ui-v2";
+import CountryRanking from "@/components/account/CountryRanking";
 
 type RankingUser = {
   user_id: string;
@@ -27,6 +28,8 @@ type SortMode =
 
 export default function RankingPage() {
   const t = useTranslations("Ranking");
+  const countryT = useTranslations("Country");
+  const [scope, setScope] = useState<"global" | "country">("global");
   const format = useFormatter();
   const [ranking, setRanking] = useState<RankingUser[]>([]);
   const [loading, setLoading] = useState(true);
@@ -35,6 +38,7 @@ export default function RankingPage() {
   const [sortMode, setSortMode] = useState<SortMode>("ascents");
 
   useEffect(() => {
+    if (scope === "country") return;
     let cancelled = false;
 
     async function loadRanking() {
@@ -82,7 +86,7 @@ export default function RankingPage() {
     return () => {
       cancelled = true;
     };
-  }, [t]);
+  }, [t, scope]);
 
   const displayedRanking = useMemo(() => {
     const search = searchInput.trim().toLocaleLowerCase("ru-RU");
@@ -128,6 +132,67 @@ export default function RankingPage() {
     );
   }, [ranking]);
 
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  useEffect(() => {
+    createClient().auth.getUser().then(({ data }) => setCurrentUserId(data.user?.id ?? null));
+  }, []);
+  const modes = <div role="tablist" aria-label={countryT("countryRanking")} className="inline-flex rounded-full border border-[var(--color-border-soft)] bg-[var(--color-surface-muted)] p-1">
+    {(["global", "country"] as const).map((mode) => <button key={mode} role="tab" type="button" aria-selected={scope === mode} onClick={() => setScope(mode)}
+      className={`ui-pressable min-h-9 rounded-full px-5 text-sm font-semibold ${scope === mode ? "bg-[var(--color-forest)] text-[var(--color-text-inverse)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"}`}>
+      {countryT(mode === "global" ? "globalRanking" : "myCountry")}</button>)}
+  </div>;
+  const podium = (items: RankingUser[] | typeof ranking) => {
+    const top = items.slice(0, 3);
+    if (top.length === 0) return null;
+    const metric = (u: RankingUser) => sortMode==="total-height" ? `${format.number(u.total_height)} m` : sortMode==="highest-mountain" ? `${format.number(u.highest_mountain_height)} m` : sortMode==="achievements" ? `${format.number(u.achievements_count)}` : `${format.number(u.ascents_count)}`;
+    const accents: Record<number, {card:string, base:string, rankBg:string}> = {
+      1: {card:"border-[var(--color-ochre)] bg-[var(--color-surface)]", base:"bg-[var(--color-ochre)] text-white border-[var(--color-ochre-deep)]", rankBg:"bg-[var(--color-ochre)]"},
+      2: {card:"border-[var(--color-granite)] bg-[var(--color-surface)]", base:"bg-[var(--color-granite)] text-white", rankBg:"bg-[var(--color-granite)]"},
+      3: {card:"border-[var(--color-stone)] bg-[var(--color-surface)]", base:"bg-[var(--color-stone)] text-white", rankBg:"bg-[var(--color-stone)]"},
+    };
+    const baseH: Record<number,string> = {1:"h-[138px] sm:h-[142px]",2:"h-[96px] sm:h-[108px]",3:"h-[76px] sm:h-[88px]"};
+    // Mobile: 1st full-width top, 2/3 below; desktop 2-1-3
+    if (top.length < 3) {
+      return <section aria-label="Top 3" className="grid gap-3 sm:grid-cols-3 sm:items-end">
+        {top.map((u, i) => {
+          const rank = i+1;
+          return <Link key={u.user_id} href={`/users/${u.user_id}`} className={`ui-pressable flex flex-col items-center gap-2 rounded-[var(--radius-card)] border-2 p-4 text-center shadow-[var(--shadow-xs)] ${accents[rank].card} ${currentUserId===u.user_id ? "ring-2 ring-[var(--color-forest)] ring-offset-2" : ""}`}>
+            <span className={`grid h-7 w-7 place-items-center rounded-full text-xs font-bold text-white ${accents[rank].rankBg}`}>{rank}</span>
+            <Avatar initials={u.username.charAt(0).toUpperCase()} size={rank===1?"lg":"md"} src={u.avatar_url ?? undefined} />
+            <span className="max-w-[14ch] truncate text-sm font-bold">{u.username}</span>
+            {currentUserId===u.user_id && <span className="rounded-full bg-[var(--color-forest)] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">You</span>}
+            <span className="text-[11px] tabular-nums text-[var(--color-text-muted)]">{metric(u)}</span>
+          </Link>;
+        })}
+      </section>;
+    }
+    const order = [top[1], top[0], top[2]];
+    return <section aria-label="Top 3" className="space-y-3">
+      {/* mobile compact 3-col hidden on 375? we keep 3-col but with smaller text; alternative stacked for 375 handled via gap */}
+      <div className="grid grid-cols-3 items-end gap-2 sm:gap-4">
+        {order.map((u) => {
+          const rank = u===top[0]?1:u===top[1]?2:3;
+          const isFirst = rank===1;
+          return <div key={u.user_id} className="flex flex-col items-center">
+            <Link href={`/users/${u.user_id}`} className={`ui-pressable flex w-full flex-col items-center gap-1.5 rounded-[var(--radius-card)] border-2 p-2 text-center shadow-[var(--shadow-card)] sm:gap-2 sm:p-4 ${accents[rank].card} ${currentUserId===u.user_id ? "ring-2 ring-[var(--color-forest)] ring-offset-2 ring-offset-[var(--color-bg)]" : ""}`}>
+              <span className={`grid h-6 w-6 place-items-center rounded-full text-[11px] font-bold text-white sm:h-7 sm:w-7 ${accents[rank].rankBg}`}>{rank}</span>
+              <Avatar initials={u.username.charAt(0).toUpperCase()} size={isFirst?"lg":"md"} src={u.avatar_url ?? undefined} />
+              <span className="max-w-[8ch] truncate text-[11px] font-bold sm:max-w-[11ch] sm:text-xs">{u.username}</span>
+              {currentUserId===u.user_id && <span className="rounded-full bg-[var(--color-forest)] px-1 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">You</span>}
+              <span className="text-[10px] tabular-nums text-[var(--color-text-muted)] sm:text-[11px]">{metric(u)}</span>
+            </Link>
+            <div className={`mt-2 flex w-full items-center justify-center rounded-t-[var(--radius-control)] border border-b-0 text-xs font-bold tabular-nums shadow-inner ${accents[rank].base} ${baseH[rank]}`}>
+              <span className="text-lg sm:text-xl">{rank}</span>
+            </div>
+          </div>;
+        })}
+      </div>
+      {/* Mobile alternative: when 375 width is too tight, podium still fits 3 cols with truncated names; no overflow due to min-w-0 */}
+    </section>;
+  };
+
+  if (scope === "country") return <main className="mx-auto max-w-5xl space-y-8 px-4 py-8">{modes}<CountryRanking /></main>;
+
   if (loading) {
     return (
       <main className="flex min-h-[calc(100dvh-64px)] items-center justify-center bg-[var(--color-bg)] px-4">
@@ -141,6 +206,7 @@ export default function RankingPage() {
   return (
     <main className="min-h-[calc(100dvh-64px)] bg-[var(--color-bg)] px-4 py-8 lg:px-6 lg:py-12">
       <div className="mx-auto max-w-5xl space-y-10">
+        {modes}
         {/* Compact Header */}
         <header className="space-y-6">
           <div>
@@ -199,6 +265,8 @@ export default function RankingPage() {
           </div>
         )}
 
+        {displayedRanking.length >= 3 && podium(displayedRanking)}
+
         {/* Ranking List */}
         <section aria-labelledby="ranking-list-heading">
           <h2 id="ranking-list-heading" className="sr-only">{t("Table.title")}</h2>
@@ -254,7 +322,7 @@ export default function RankingPage() {
                 {displayedRanking.map((user, index) => (
                   <li key={user.user_id}>
                     {/* Desktop Row */}
-                    <article className="hidden lg:grid items-center gap-4 p-4 transition-colors hover:bg-[var(--color-surface-muted)]" style={{ gridTemplateColumns: "64px 200px 100px 140px 200px 100px 56px" }}>
+                    <article className={`hidden lg:grid items-center gap-4 p-4 transition-colors hover:bg-[var(--color-surface-muted)] ${currentUserId === user.user_id ? "border-l-2 border-[var(--color-forest)] bg-[var(--color-success-soft)]/40" : ""}`} style={{ gridTemplateColumns: "64px 200px 100px 140px 200px 100px 56px" }}>
                       {/* Rank */}
                       <div className="text-center">
                         <p className="technical text-[10px] font-bold uppercase tracking-[0.05em] text-[var(--color-text-muted)]">

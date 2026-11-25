@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Activity, ArrowRight, ArrowUpRight, BadgeCheck, Camera, ChevronRight, Map, MapPin, Mountain, Plus, Route, TrendingUp, Trophy, Upload } from "lucide-react";
 
 import AccountNavigation from "@/components/account/AccountNavigation";
+import AccountCountrySummary from "@/components/account/AccountCountrySummary";
 import { useAccount } from "@/hooks/useAccount";
 import { ACHIEVEMENT_MESSAGE_KEYS } from "@/Lib/achievements";
 import { Link } from "@/i18n/navigation";
@@ -88,18 +89,21 @@ export default function AccountPage() {
       <AccountNavigation />
       <div className="mx-auto max-w-7xl space-y-10">
         {/* Profile Hero */}
-        <div className="relative overflow-hidden rounded-[var(--radius-panel)] bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg)]">
-          <div className="flex flex-col gap-8 p-6 sm:p-10 md:flex-row md:items-center md:justify-between lg:p-12">
+        <div className="relative overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border-soft)] bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg)] shadow-[var(--shadow-card)]">
+          <div className="flex flex-col gap-8 p-6 sm:p-10 md:flex-row md:items-center md:justify-between lg:p-10">
             <div className="flex items-center gap-6">
               <Avatar initials={username.charAt(0).toUpperCase()} size="xl" src={avatarUrl ?? undefined} />
               <div>
                 <Eyebrow>{t("Profile.eyebrow")}</Eyebrow>
-                <h1 className="mt-2 text-[32px] font-bold tracking-tight sm:text-[40px]">{username}</h1>
-                <div className="mt-3 flex items-center gap-2 text-[14px] text-[var(--color-text-muted)]">
-                  <MapPin size={15} strokeWidth={2} />
-                  <span>{user.email ?? t("Profile.emailUnavailable")}</span>
+                <h1 className="mt-2 text-[30px] font-bold tracking-tight sm:text-[36px]">{username}</h1>
+                <div className="mt-2 flex flex-wrap items-center gap-2 text-[13px] text-[var(--color-text-muted)]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-2.5 py-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
+                    <MapPin size={12} strokeWidth={2} aria-hidden="true" />
+                    {user.email ?? t("Profile.emailUnavailable")}
+                  </span>
+                  {user.created_at && <span className="text-[12px] tabular-nums">{new Date(user.created_at).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}</span>}
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap gap-2">
                   <StatusPill tone="success" size="small">
                     <BadgeCheck size={12} className="mr-1" />
                     {t("Profile.complete")}
@@ -139,6 +143,8 @@ export default function AccountPage() {
             </div>
           </div>
         </div>
+
+        <AccountCountrySummary userId={user.id} />
 
         {/* Key Stats */}
         <MetricRow

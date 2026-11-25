@@ -1,0 +1,66 @@
+{
+  "Routes": {
+    "title": "Route Explorer",
+    "subtitle": "Browse all {count} verified mountain routes",
+    "countLabel": "{count} published generated routes",
+    "liveCount": "Showing {count} routes",
+    "searchPlaceholder": "Search mountain name…",
+    "filters": {
+      "title": "Filters",
+      "height": "Height (m)",
+      "distance": "Distance (km)",
+      "elevationGain": "Elevation gain (m)",
+      "routeType": "Route type",
+      "allTypes": "All types",
+      "min": "Min",
+      "max": "Max",
+      "clear": "Clear filters",
+      "results": "{count} routes match"
+    },
+    "list": {
+      "showing": "Showing {visible} of {total} routes",
+      "empty": "No routes match your filters.",
+      "viewRoute": "View route",
+      "openMountain": "Open mountain",
+      "downloadGpx": "Download GPX",
+      "distance": "Distance",
+      "elevationGain": "Gain",
+      "height": "Height",
+      "duration": "Duration"
+    },
+    "map": {
+      "accessibleLabel": "Route Explorer map – {count} mountains",
+      "clusterLabel": "{count} mountains",
+      "selected": "Selected: {name}",
+      "loading": "Loading route…",
+      "loadFailed": "Failed to load route",
+      "noGeometry": "No geometry available",
+      "instruction": "Select a route to preview"
+    },
+    "details": {
+      "close": "Close details",
+      "downloadUnavailable": "GPX not available",
+      "geojsonUnavailable": "Route geometry unavailable"
+    },
+    "empty": {
+      "title": "No routes found",
+      "description": "Try adjusting your filters."
+    },
+    "loading": "Loading routes…",
+    "error": "Failed to load routes",
+    "units": {
+      "meter": "m",
+      "kilometer": "km"
+    },
+    "routeTypes": {
+      "hiking": "Hiking",
+      "mountaineering": "Mountaineering",
+      "viaFerrata": "Via ferrata",
+      "climbing": "Climbing",
+      "skiTouring": "Ski touring",
+      "mixed": "Mixed",
+      "other": "Other",
+      "route": "Route"
+    }
+  }
+}

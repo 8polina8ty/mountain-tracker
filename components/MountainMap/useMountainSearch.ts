@@ -1,35 +1,31 @@
-import { useState, type RefObject } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import type { Map } from "maplibre-gl";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 import type {
-  PeakFeatureCollection,
+  MountainMapFilters,
   SelectedPeak,
 } from "./types";
-import {
-  getPeakName,
-  normalizeText,
-} from "./peakUtils";
+import { searchMountains } from "./mountainSearch";
+
+type SearchStatus = "idle" | "mapLoading" | "enterPeakName" | "searching" | "notFound" | "requestError" | "peakFound";
 
 type UseMountainSearchParams = {
   mapRef: RefObject<Map | null>;
-  originalGeoJsonRef: RefObject<PeakFeatureCollection | null>;
-  minimumHeight: number;
+  supabase: SupabaseClient;
+  filters: MountainMapFilters;
+  climbedMountainIds: Set<number>;
   onPeakSelect: (peak: SelectedPeak) => void;
   onCheckPeakAscent: (peakId: number) => void;
   onClearAscentMessage: () => void;
-  messages: {
-    mapLoading: string;
-    enterPeakName: string;
-    notFound: (minimumHeight: number) => string;
-    matchesFound: (count: number) => string;
-    peakFound: string;
-  };
+  messages: Record<Exclude<SearchStatus, "idle">, string>;
 };
 
 export function useMountainSearch({
   mapRef,
-  originalGeoJsonRef,
-  minimumHeight,
+  supabase,
+  filters,
+  climbedMountainIds,
   onPeakSelect,
   onCheckPeakAscent,
   onClearAscentMessage,
@@ -37,104 +33,78 @@ export function useMountainSearch({
 }: UseMountainSearchParams) {
   const [searchInput, setSearchInput] = useState("");
   const [appliedSearch, setAppliedSearch] = useState("");
-  const [searchMessage, setSearchMessage] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [status, setStatus] = useState<SearchStatus>("idle");
+  const activeRequest = useRef<AbortController | null>(null);
 
-  function flyToSearchedPeak() {
-    const normalizedSearch = normalizeText(searchInput);
+  useEffect(() => () => activeRequest.current?.abort(), []);
+
+  function cancelSearch() {
+    activeRequest.current?.abort();
+    activeRequest.current = null;
+    setStatus("idle");
+  }
+
+  async function flyToSearchedPeak() {
+    cancelSearch();
+    const query = searchInput.trim();
     const map = mapRef.current;
-    const originalGeoJson = originalGeoJsonRef.current;
-
-    if (!map || !originalGeoJson) {
-      setSearchMessage(messages.mapLoading);
+    if (!map) {
+      setStatus("mapLoading");
+      return;
+    }
+    if (!query) {
+      setStatus("enterPeakName");
       return;
     }
 
-    if (!normalizedSearch) {
-      setSearchMessage(messages.enterPeakName);
-      return;
-    }
+    const controller = new AbortController();
+    activeRequest.current = controller;
+    setStatus("searching");
 
-    const matchingPeaks = originalGeoJson.features
-      .filter((feature) => {
-        const height = Number(feature.properties.height);
-        const name = normalizeText(
-          getPeakName(feature.properties),
-        );
-
-        return (
-          height >= minimumHeight &&
-          name.includes(normalizedSearch)
-        );
-      })
-      .sort((first, second) => {
-        const firstName = normalizeText(
-          getPeakName(first.properties),
-        );
-        const secondName = normalizeText(
-          getPeakName(second.properties),
-        );
-
-        const firstExact =
-          firstName === normalizedSearch ? 1 : 0;
-        const secondExact =
-          secondName === normalizedSearch ? 1 : 0;
-
-        if (firstExact !== secondExact) {
-          return secondExact - firstExact;
-        }
-
-        return (
-          Number(second.properties.height) -
-          Number(first.properties.height)
-        );
+    try {
+      const peak = await searchMountains({
+        supabase, query, filters, countryCode, climbedMountainIds, signal: controller.signal,
       });
+      if (controller.signal.aborted || activeRequest.current !== controller) return;
+      if (!peak) {
+        setAppliedSearch("");
+        setStatus("notFound");
+        return;
+      }
+      if (mapRef.current !== map) {
+        setStatus("mapLoading");
+        return;
+      }
 
-    const peak = matchingPeaks[0];
-
-    if (!peak) {
-      setAppliedSearch("");
-      setSearchMessage(messages.notFound(minimumHeight));
-      return;
+      setAppliedSearch(query);
+      onPeakSelect(peak);
+      onClearAscentMessage();
+      onCheckPeakAscent(peak.id);
+      setStatus("peakFound");
+      map.flyTo({ center: [peak.longitude, peak.latitude], zoom: 13 });
+    } catch {
+      if (!controller.signal.aborted && activeRequest.current === controller) setStatus("requestError");
+    } finally {
+      if (activeRequest.current === controller) activeRequest.current = null;
     }
-
-    setAppliedSearch(searchInput);
-
-    const [longitude, latitude] =
-      peak.geometry.coordinates;
-
-    onPeakSelect({
-      ...peak.properties,
-      longitude,
-      latitude,
-    });
-
-    onClearAscentMessage();
-    onCheckPeakAscent(peak.properties.id);
-
-    setSearchMessage(
-      matchingPeaks.length > 1
-        ? messages.matchesFound(matchingPeaks.length)
-        : messages.peakFound,
-    );
-
-    map.flyTo({
-      center: [longitude, latitude],
-      zoom: 13,
-    });
   }
 
   function clearSearch() {
+    cancelSearch();
     setSearchInput("");
     setAppliedSearch("");
-    setSearchMessage("");
   }
 
   return {
     searchInput,
     appliedSearch,
-    searchMessage,
-    setSearchInput,
-    setSearchMessage,
+    searchMessage: status === "idle" ? "" : messages[status],
+    searching: status === "searching",
+    countryCode,
+    setSearchInput: (value: string) => { cancelSearch(); setSearchInput(value); },
+    setCountryCode: (value: string) => { cancelSearch(); setCountryCode(value); },
+    cancelSearch,
     flyToSearchedPeak,
     clearSearch,
   };

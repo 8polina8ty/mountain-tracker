@@ -1,6 +1,8 @@
 -- Phase 12: narrow anonymous public-expedition discovery boundary.
 -- MANUAL REVIEW AND DEPLOYMENT ONLY. Apply after Phase 10 sharing artifacts.
 begin;
+set local lock_timeout = '5s';
+set local statement_timeout = '60s';
 create or replace function public.search_public_expeditions(
   search_text text default null, filter_year integer default null,
   minimum_distance_m bigint default null, maximum_distance_m bigint default null,
@@ -12,11 +14,12 @@ returns table(public_slug text,name text,status text,start_date date,end_date da
   mountain_names text[],verified_mountain_count integer,days_with_gps_evidence integer,unique_track_count integer,
   total_distance_m bigint,total_elevation_gain_m bigint,total_duration_seconds bigint,sort_value numeric)
 language sql stable security definer set search_path='' as $function$
-with eligible as (
- select s.public_slug,p.id,p.name,p.status,p.start_date,p.end_date,s.updated_at
- from public.expedition_project_shares s join public.expedition_projects p on p.id=s.project_id and p.user_id=s.user_id
- where s.is_enabled=true and p.status in ('completed','archived')
-), cards as (
+ with eligible as (
+  select s.public_slug,p.id,p.name,p.status,p.start_date,p.end_date,s.updated_at
+  from public.expedition_project_shares s join public.expedition_projects p on p.id=s.project_id and p.user_id=s.user_id
+  where s.is_enabled=true
+    and expedition_sharing_private.is_eligible(s.project_id, s.user_id)
+ ), cards as (
  select e.*,
   (select count(*)::integer from public.expedition_project_days d where d.project_id=e.id) day_count,
   coalesce((select array_agg(coalesce(m.name_de,m.name) order by pm.sort_order,pm.mountain_id) from public.expedition_project_mountains pm join public.mountains m on m.id=pm.mountain_id where pm.project_id=e.id),'{}'::text[]) mountain_names,

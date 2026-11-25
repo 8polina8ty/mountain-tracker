@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 const publicReportSource = await readFile(new URL("../Lib/projects/publicReport.ts", import.meta.url), "utf8");
 const publicMediaRoute = await readFile(new URL("../app/api/public-expeditions/[slug]/media/[handle]/route.ts", import.meta.url), "utf8");
 const publicPage = await readFile(new URL("../app/[locale]/expeditions/[slug]/page.tsx", import.meta.url), "utf8");
+const photoViewer = await readFile(new URL("../components/projects/PublicExpeditionPhotoViewer.tsx", import.meta.url), "utf8");
 
 assert.ok(publicReportSource.includes('createCipheriv("aes-256-gcm"') && publicReportSource.includes('createDecipheriv("aes-256-gcm"'),
   "PUBLIC A: public media handles must use authenticated opaque encryption.");
@@ -48,9 +49,25 @@ for (const header of [
 }
 assert.equal(publicMediaRoute.includes("storage_path") || publicMediaRoute.includes("createAdminClient"), false,
   "PUBLIC I: route layer must not expose Storage metadata or privileged client access.");
-assert.ok(publicPage.includes("media.handle") && publicPage.includes("?variant=thumb"),
-  "PUBLIC J: public page must continue to consume only opaque media handles.");
-assert.equal(publicPage.includes("mediaId") || publicPage.includes("storagePath"), false,
-  "PUBLIC J: private media identifiers must not reach the public page model.");
+assert.ok(publicPage.includes("<PublicExpeditionPhotoViewer slug={slug} handles={photoHandles}>")
+  && publicPage.includes("<PublicExpeditionPhotoThumbnail key={media.handle} handle={media.handle}"),
+  "PUBLIC J: the public timeline must pass only opaque photo handles to the viewer.");
+assert.ok(photoViewer.includes('/api/public-expeditions/${encodeURIComponent(slug)}/media/${encodeURIComponent(handle)}?variant=${variant}')
+  && photoViewer.includes('unoptimized fill loading="lazy"') && photoViewer.includes('photoUrl(viewer.slug, handle, "thumb")')
+  && photoViewer.includes('activeHandle && <OriginalPhoto key={activeHandle} src={photoUrl(slug, activeHandle, "original")}')
+  && photoViewer.includes('unoptimized fill loading="eager"'),
+  "PUBLIC J: lazy thumbnails and active originals must use the protected route directly.");
+assert.doesNotMatch(publicPage + photoViewer, /\b(?:mediaId|storagePath|signedUrl|createAdminClient|getPublicUrl)\b/,
+  "PUBLIC J: private media identifiers and Storage URLs must not reach the public page or viewer.");
+
+for (const locale of ["de", "en", "ru", "fr", "it", "es"]) {
+  const { Projects: { Media, Sharing } } = JSON.parse(await readFile(new URL(`../messages/${locale}/projects.json`, import.meta.url), "utf8"));
+  for (const key of ["gallery", "openPhoto", "closePhoto", "previousPhoto", "nextPhoto", "photoPosition", "photoAlt"]) {
+    assert.ok(Media[key]?.trim(), `PUBLIC K: ${locale} is missing the shared viewer label ${key}.`);
+  }
+  for (const key of ["photoLoading", "photoLoadError"]) {
+    assert.ok(Sharing[key]?.trim(), `PUBLIC K: ${locale} is missing the public viewer label ${key}.`);
+  }
+}
 
 console.log("Public expedition report and media hardening contracts passed.");
