@@ -91,8 +91,8 @@ test("revoking a share blocks the public report before private graph loading", a
     getUserProject: async () => { reads++; return project; },
     listProjectDayTrackEvidence: async () => [{ projectDayId: "day", activityId: 1, processingStatus: "ready" }],
   };
-  const previous = process.env.PUBLIC_EXPEDITION_MEDIA_SECRET;
-  process.env.PUBLIC_EXPEDITION_MEDIA_SECRET = "synthetic-expedition-test-only";
+  const previous = process.env.EXPEDITION_MEDIA_HANDLE_SECRET;
+  process.env.EXPEDITION_MEDIA_HANDLE_SECRET = "synthetic-expedition-test-only";
   const hook = registerHooks({
     resolve(specifier, context, nextResolve) {
       const fixture = 'globalThis[Symbol.for("mountain-tracker-expedition-test")]';
@@ -122,7 +122,7 @@ test("revoking a share blocks the public report before private graph loading", a
   } finally {
     hook.deregister();
     delete globalThis[key];
-    if (previous === undefined) delete process.env.PUBLIC_EXPEDITION_MEDIA_SECRET;
-    else process.env.PUBLIC_EXPEDITION_MEDIA_SECRET = previous;
+    if (previous === undefined) delete process.env.EXPEDITION_MEDIA_HANDLE_SECRET;
+    else process.env.EXPEDITION_MEDIA_HANDLE_SECRET = previous;
   }
 });

@@ -22,7 +22,7 @@ const PUBLIC_MEDIA_HANDLE_PLAINTEXT_BYTES = 16;
 const PUBLIC_MEDIA_HANDLE_TAG_BYTES = 16;
 
 function handleSecret() {
-  const value = process.env.PUBLIC_EXPEDITION_MEDIA_SECRET;
+  const value = process.env.EXPEDITION_MEDIA_HANDLE_SECRET;
   if (!value) throw new Error("Public expedition media signing is not configured.");
   return value;
 }

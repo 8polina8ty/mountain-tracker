@@ -397,7 +397,7 @@ test("public route keeps both flags, legacy links, revocation and replacements p
   const clean = await createImage(80, 50).webp().toBuffer();
   const unsafe = await createImage(80, 50).withMetadata({ orientation: 1 }).webp().toBuffer();
   const key = Symbol.for("expedition-public-delivery-test");
-  const flags = ["PUBLIC_EXPEDITION_MEDIA_SECRET", "EXPEDITION_THUMBNAIL_DELIVERY", "EXPEDITION_PUBLIC_DISPLAY_DELIVERY"];
+  const flags = ["EXPEDITION_MEDIA_HANDLE_SECRET", "EXPEDITION_THUMBNAIL_DELIVERY", "EXPEDITION_PUBLIC_DISPLAY_DELIVERY"];
   const previous = flags.map((flag) => process.env[flag]);
   process.env[flags[0]] = secret;
   let shareReads, lookups, bucketReads, scenario;
